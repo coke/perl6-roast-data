@@ -1,0 +1,43 @@
+#!/usr/bin/env perl
+
+use Modern::Perl;
+use Text::CSV;
+
+my @types = qw/niecza rakudo pugs/;
+my %line;
+my %pass;
+
+my $csv = Text::CSV->new() ;
+
+my $best = "";
+my $max = 0;
+foreach my $type (@types) {
+    my $output = `grep total ${type}_summary.out`;
+    $output =~ s/total/$type/;
+    chomp $output;
+    $csv->parse($output);
+    @{$line{$type}} = $csv->fields();
+    $pass{$type} = 0+(split(',', $output))[1];
+    if ($pass{$type} > $max) {
+        $best = $type;
+        $max = $pass{$type};
+    }
+}
+
+my $date=`date +'%m/%d/%Y'`;
+chomp $date;
+my $line = "# $date - ${best}++ ";
+
+foreach my $type (sort @types) {
+    next if $type eq $best;
+
+    my $per = int( $pass{$type}/$max *100*100)/100;
+    $line .= "; $type ($per%)"
+}
+
+say $line;
+foreach my $type (sort @types) {
+    my $impl = shift @{$line{$type}};
+    $impl = '"' . $impl . '"';
+    printf "%-8s,%6s,%6s,%6s,%6s,%6s,%6s\n", $impl, @{$line{$type}};
+}

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+#$(date +'%Y_%m_%d')
+
+    cd niecza
+    git rb;
+    (cd t/spec && git rb)
+    make all
+    nice -20 perl t/spec/test_summary niecza 2>&1 | 
+              tee ../niecza_summary.out
+    echo "========================="
+    echo "#"
+    echo "#"
+    echo "# done niecza"
+    echo "#"
+    echo "#"
+    echo "========================="
+

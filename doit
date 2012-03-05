@@ -1,0 +1,14 @@
+# These two run fast enough they always finish before rakudo
+# so we can run them in the background.
+./spec_n &
+./spec_p &
+./spec_r
+TEMPFILE="TEMPFILE"
+PASSFILE="perl6_pass_rates"
+OUTPUT=`./cull`
+HEADER=`head -1 $PASSFILE`
+echo "$HEADER" > $TEMPFILE
+echo "$OUTPUT" >> $TEMPFILE
+tail -$(wc -l $PASSFILE|awk '{print $1-1}') $PASSFILE >> $TEMPFILE
+mv $TEMPFILE $PASSFILE
+git commit -m "today" "$PASSFILE"

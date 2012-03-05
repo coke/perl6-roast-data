@@ -1,0 +1,19 @@
+#!/bin/sh
+
+#$(date +'%Y_%m_%d')
+
+    cd rakudo
+    git rb;
+    (cd t/spec && git rb)
+    perl Configure.pl --gen-parrot
+    nice -20 make -j2 all
+    nice -20 perl t/spec/test_summary rakudo 2>&1 | 
+              tee ../rakudo_summary.out
+    echo "========================="
+    echo "#"
+    echo "#"
+    echo "# done rakudo"
+    echo "#"
+    echo "#"
+    echo "========================="
+
