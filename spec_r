@@ -6,8 +6,8 @@
     git rb;
     (cd t/spec && git rb)
     perl Configure.pl --gen-parrot
-    nice -20 make -j2 all
-    nice -20 perl t/spec/test_summary rakudo 2>&1 | 
+    make all
+    perl t/spec/test_summary rakudo 2>&1 | 
               tee ../rakudo_summary.out
     echo "========================="
     echo "#"
