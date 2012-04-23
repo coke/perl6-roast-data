@@ -1,12 +1,12 @@
 #!/bin/sh
 
-#$(date +'%Y_%m_%d')
-
     cd rakudo
     git rb;
     (cd t/spec && git rb)
     perl Configure.pl --gen-parrot
     make all
+    # uninstalled rakudo doesn't know how to find Test.pm
+    export PERL6LIB=`pwd`/lib
     perl t/spec/test_summary rakudo 2>&1 | 
               tee ../rakudo_summary.out
     echo "========================="
