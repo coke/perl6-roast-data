@@ -6,7 +6,8 @@
     perl Configure.pl --gen-parrot
     make all
     # uninstalled rakudo doesn't know how to find Test.pm
-    export PERL6LIB=`pwd`/lib
+    # ... or any other modules
+    export PERL6LIB=`pwd`/lib:.
     perl t/spec/test_summary rakudo 2>&1 | 
               tee ../rakudo_summary.out
     echo "========================="
