@@ -3,12 +3,12 @@
     cd rakudo
     git pull --rebase;
     (cd t/spec && git pull --rebase)
-    perl Configure.pl --gen-parrot
+    /home/coke/perl5/perlbrew/perls/perl-5.14.2/bin/perl Configure.pl --gen-parrot
     make all
     # uninstalled rakudo doesn't know how to find Test.pm
     # ... or any other modules
     export PERL6LIB=`pwd`/lib:.
-    perl t/spec/test_summary rakudo 2>&1 | 
+    /home/coke/perl5/perlbrew/perls/perl-5.14.2/bin/perl t/spec/test_summary rakudo 2>&1 | 
               tee ../rakudo_summary.out
     echo "========================="
     echo "#"
