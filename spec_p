@@ -6,11 +6,10 @@ export LANG
 #
 # Warning - this doesn't handle the case where deps change
 # - make dies and says "run cabal configure"
+#
 
-
-    cd Pugs.hs
-    git pull --rebase;
-    (cd t/spec && git pull --rebase)
-    (cd Pugs && make)
-    /home/coke/perl5/perlbrew/perls/perl-5.14.2/bin/perl t/spec/test_summary pugs 2>&1 | 
-              tee ../pugs_summary.out
+cd Pugs.hs
+git pull --rebase
+(cd t/spec && git pull --rebase)
+(cd Pugs && make)
+/home/coke/perl5/perlbrew/perls/perl-5.14.2/bin/perl t/spec/test_summary pugs 2>&1 | tee ../pugs_summary.out
