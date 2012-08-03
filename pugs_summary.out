@@ -20,9 +20,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xaddef04)'
+#     Actual: 'CODE(0x931f9d0)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xaddf224)'
+#     Actual: 'CODE(0x931fcf0)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -2236,6 +2236,8 @@ S05-interpolation/regex-in-variable.pugs...........#     Actual: undef
 #     Actual: undef
 #     Actual: undef
 #     Actual: undef
+#   Failed test (t/spec/S05-interpolation/regex-in-variable.pugs line 49, column 1-51)
+#     Actual: undef
 #     Actual: undef
 #     Actual: undef
 #     Actual: undef
@@ -2247,7 +2249,14 @@ S05-interpolation/regex-in-variable.pugs...........#     Actual: undef
 #     Actual: undef
 #     Actual: undef
 #     Actual: No exception thrown
-   9    0   18    2   29
+#   Failed test (t/spec/S05-interpolation/regex-in-variable.pugs line 122, column 13-76)
+#     Actual: undef
+#   Failed test (t/spec/S05-interpolation/regex-in-variable.pugs line 123, column 13-78)
+#     Actual: undef
+#   Failed test (t/spec/S05-interpolation/regex-in-variable.pugs line 124, column 13-78)
+#     Actual: undef
+# Looks like you failed 4 tests of 33
+   9    4   18    2   33
      2 skipped: boom
     18 todo   : fix by Christmas
 S05-mass/named-chars.pugs..........................#     Actual: undef
@@ -4902,7 +4911,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     25 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6b8aa51>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6a7ca35>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6b8aa51>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6a7ca35>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf69a5555>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6acc87d>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf69a5555>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6acc87d>})])}])
 #   Expected: 'undef'
 #     Actual: 'Scalar()'
   16    0    2    1   19
@@ -5067,13 +5076,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.23961.468
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.23961.468
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.23961.468
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.23961.468
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.23961.468
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.23961.468
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.23961.468
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.32439.946
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.32439.946
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.32439.946
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.32439.946
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.32439.946
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.32439.946
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.32439.946
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -6184,8 +6193,8 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S02",        1410,     0,   309,   443,  2162,  3549
 "S03",        1854,     0,   286,   306,  2446,  4154
 "S04",         478,     0,   109,    78,   665,   944
-"S05",        2223,     0,  2192,    49,  4464,  5729
-"S06",         406,     0,    78,   118,   602,  1231
+"S05",        2223,     4,  2192,    49,  4468,  5734
+"S06",         406,     0,    78,   118,   602,  1233
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          67,     0,    23,     8,    98,   175
 "S10",          30,     0,     9,     0,    39,   125
@@ -6200,8 +6209,12 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S26",           0,     0,     0,     0,     0,   257
 "S28",           4,     0,     0,     1,     5,     7
 "S29",          31,     0,     6,     6,    43,    77
-"S32",        2263,     0,   286,   562,  3111,  5107
+"S32",        2263,     0,   286,   562,  3111,  5112
 "int",         126,     0,    35,    26,   187,   535
-"total",      9404,     0,  3426,  1715, 14545, 24183
+"total",      9404,     4,  3426,  1715, 14549, 24195
 ----------------
-No failures!
+Failure summary:
+S05-interpolation/regex-in-variable.pugs 13 - Rulish scalar match 7
+S05-interpolation/regex-in-variable.pugs 31 - Interpolation of instance member
+S05-interpolation/regex-in-variable.pugs 32 - Interpolation of instance member
+S05-interpolation/regex-in-variable.pugs 33 - Interpolation of instance member
