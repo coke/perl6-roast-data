@@ -2678,7 +2678,20 @@ Use of uninitialized value in numeric context
      1 todo   : ... basic infix operator overloading worked
      1 todo   : stringification didn't die
      1 todo   : ... worked in array stringification
-S06-other/anon-hashes-vs-blocks.t..................  15    0    0    0   15
+S06-other/anon-hashes-vs-blocks.t..................Potential difficulties:
+  $counter is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-other/anon-hashes-vs-blocks.t line 54:
+------> [32m    my %hash = map { (state [33m?[31m$counter)++ => $_ }, @foo;[0m
+
+Unhandled exception: Unable to resolve method postcircumfix:<( )> in type Hash
+  at <unknown> line 0 (KERNEL map @ 2) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-other/anon-hashes-vs-blocks.t line 54 (ANON @ 7) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-other/anon-hashes-vs-blocks.t line 62 (mainline @ 73) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 3929 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 3930 (module-CORE @ 564) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 3930 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  15    2    0    0   17
+     2 tests aborted (missing ok/not ok)
 S06-other/main-eval.t..............................Potential difficulties:
   $a is declared but not used at (eval) line 3:
 ------> [32m    sub MAIN([33m?[31m$a, $b) { $main_invoked = 1 };[0m
@@ -4449,7 +4462,8 @@ integration/99problems-21-to-30.niecza.............Use of uninitialized value in
      2 skipped: hangs
      1 skipped: Unable to resolve method push in class Any
      1 todo   : sort order incorrect.
-     3 todo   : unknown
+     2 todo   : unknown
+     1 todo PASSED: unknown
 integration/99problems-31-to-40.t..................  66    0    0    1   67
      1 skipped: No Benchmark module yet
 integration/99problems-51-to-60.t..................Use of uninitialized value in string context
@@ -5584,7 +5598,7 @@ integration/weird-errors.niecza....................   4    0    2    0    6
 "S03",        3929,     0,   194,   357,  4480,  4154
 "S04",         774,     0,    37,    47,   858,   944
 "S05",        4047,     0,   117,   199,  4363,  5734
-"S06",         755,     0,    52,   145,   952,  1234
+"S06",         755,     2,    52,   145,   954,  1236
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          65,     0,     0,     8,    73,   175
 "S10",          35,     0,     5,    17,    57,   125
@@ -5601,8 +5615,9 @@ integration/weird-errors.niecza....................   4    0    2    0    6
 "S29",         305,     0,     5,     4,   314,   327
 "S32",        6225,     0,   126,   237,  6588,  5103
 "int",         453,     0,    21,    21,   495,   547
-"total",     20601,    33,   743,  1470, 22847, 24342
+"total",     20601,    35,   743,  1470, 22849, 24344
 ----------------
 Failure summary:
+S06-other/anon-hashes-vs-blocks.t aborted 2 test(s)
 S14-roles/mixin.niecza aborted 32 test(s)
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
