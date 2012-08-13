@@ -1195,7 +1195,7 @@ Use of uninitialized value in numeric context
      1 skipped: No value for parameter $l in CORE infix:<!=>
      1 skipped: No value for parameter $r in CORE infix:<!=>
      1 skipped: No value for parameter $l in CORE infix:<==>
-S03-operators/eqv.niecza...........................  29    0    2   21   52
+S03-operators/eqv.niecza...........................  31    0    2   21   54
      4 skipped: Cannot use value like Block as a number
     14 skipped: Cannot use value like Capture as a number
      3 skipped: Cannot use value like Sub as a number
@@ -2678,20 +2678,8 @@ Use of uninitialized value in numeric context
      1 todo   : ... basic infix operator overloading worked
      1 todo   : stringification didn't die
      1 todo   : ... worked in array stringification
-S06-other/anon-hashes-vs-blocks.t..................Potential difficulties:
-  $counter is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-other/anon-hashes-vs-blocks.t line 54:
-------> [32m    my %hash = map { (state [33m?[31m$counter)++ => $_ }, @foo;[0m
-
-Unhandled exception: Unable to resolve method postcircumfix:<( )> in type Hash
-  at <unknown> line 0 (KERNEL map @ 2) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-other/anon-hashes-vs-blocks.t line 54 (ANON @ 7) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-other/anon-hashes-vs-blocks.t line 62 (mainline @ 73) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 3929 (ANON @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 3930 (module-CORE @ 564) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 3930 (mainline @ 3) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-  15    2    0    0   17
-     2 tests aborted (missing ok/not ok)
+S06-other/anon-hashes-vs-blocks.niecza.............  15    0    0    2   17
+     2 skipped: Thinks the block is a hash
 S06-other/main-eval.t..............................Potential difficulties:
   $a is declared but not used at (eval) line 3:
 ------> [32m    sub MAIN([33m?[31m$a, $b) { $main_invoked = 1 };[0m
@@ -3699,30 +3687,13 @@ S14-roles/conflicts.t..............................  11    0    0    0   11
 S14-roles/crony.t..................................   4    0    0    0    4
 S14-roles/instantiation.t..........................  19    0    0    0   19
 S14-roles/lexical.t................................   9    0    0    0    9
-S14-roles/mixin.niecza.............................[31m===[0mSORRY![31m===[0m
-
-Can only provide exactly one initial value to a mixin at /home/coke/sandbox/perl6pass/niecza/t/spec/S14-roles/mixin.niecza line 148:
-------> [32m        1 but last[33m?[31m;[0m
-
-Can only provide exactly one initial value to a mixin at /home/coke/sandbox/perl6pass/niecza/t/spec/S14-roles/mixin.niecza line 154:
-------> [32m    is (1 but f[33m?[31m).answer, 42, '<literal> but <zero-arg c[0m
-
-Unhandled exception: Check failed
-
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 1402 (die @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1147 (P6.comp_unit @ 37) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 101 (STD.TOP @ 11) 
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 2882 (Grammar.parse @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaFrontendSTD.pm6 line 281 (NieczaFrontendSTD.parse @ 70) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaCompiler.pm6 line 33 (NieczaCompiler.compile @ 17) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaCompiler.pm6 line 59 (NieczaCompiler.compile_file @ 8) 
-  at /home/coke/sandbox/perl6pass/niecza/src/niecza line 159 (mainline @ 142) 
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 3917 (ANON @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 3918 (module-CORE @ 562) 
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 3918 (mainline @ 3) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-   0   32    0    0   32
-    32 tests aborted (missing ok/not ok)
+S14-roles/mixin.niecza.............................  24    0    0    8   32
+     1 skipped: Unable to resolve method methods in class ClassHOW
+     1 skipped: Twigil ! is only valid on attribute definitions
+     2 skipped: Can only provide exactly one initial value to a mixin
+     1 skipped: NYI dottyop form .+
+     1 skipped: NYI dottyop form .*
+     2 skipped: Trait does not available on variables
 S14-roles/namespaced.t.............................   3    0    0    0    3
 S14-roles/stubs.t..................................   7    0    0    0    7
 S14-roles/submethods.t.............................   4    0    0    0    4
@@ -4265,12 +4236,11 @@ S32-str/split.niecza...............................Potential difficulties:
 S32-str/sprintf.t.................................. 125    0    0    0  125
 S32-str/substr-rw.niecza...........................  27    0    4    0   31
      4 todo   : 
-S32-str/substr.niecza..............................  56    0    4   30   90
+S32-str/substr.niecza..............................  57    0    3   30   90
      1 skipped: 'Failure' used at line 244
     29 skipped: StrPos tests broken
      1 todo   : 
      2 todo   : substr bug
-     1 todo PASSED: substr bug
 S32-str/tc.t.......................................   9    0    0    0    9
 S32-str/tclc.t.....................................   5    0    0    0    5
 S32-str/trim.t.....................................  36    0    0    0   36
@@ -4462,8 +4432,7 @@ integration/99problems-21-to-30.niecza.............Use of uninitialized value in
      2 skipped: hangs
      1 skipped: Unable to resolve method push in class Any
      1 todo   : sort order incorrect.
-     2 todo   : unknown
-     1 todo PASSED: unknown
+     3 todo   : unknown
 integration/99problems-31-to-40.t..................  66    0    0    1   67
      1 skipped: No Benchmark module yet
 integration/99problems-51-to-60.t..................Use of uninitialized value in string context
@@ -5595,17 +5564,17 @@ integration/weird-errors.niecza....................   4    0    2    0    6
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    60
 "S02",        2928,     0,   108,   253,  3289,  3450
-"S03",        3929,     0,   194,   357,  4480,  4154
+"S03",        3931,     0,   194,   357,  4482,  4156
 "S04",         774,     0,    37,    47,   858,   944
 "S05",        4047,     0,   117,   199,  4363,  5734
-"S06",         755,     2,    52,   145,   954,  1236
+"S06",         755,     0,    52,   147,   954,  1236
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          65,     0,     0,     8,    73,   175
 "S10",          35,     0,     5,    17,    57,   125
 "S11",           0,     0,     0,     0,     0,   109
 "S12",         723,     0,    56,   146,   925,  1304
 "S13",          31,     0,     1,    10,    42,    80
-"S14",         142,    32,     1,     1,   176,   322
+"S14",         166,     0,     1,     9,   176,   322
 "S16",         179,     0,    19,    25,   223,   290
 "S17",           0,     0,     0,     0,     0,    28
 "S19",           3,     1,     0,     0,     4,     4
@@ -5613,11 +5582,9 @@ integration/weird-errors.niecza....................   4    0    2    0    6
 "S26",           0,     0,     0,     0,     0,   257
 "S28",           6,     0,     1,     0,     7,     7
 "S29",         305,     0,     5,     4,   314,   327
-"S32",        6225,     0,   126,   237,  6588,  5103
+"S32",        6226,     0,   125,   237,  6588,  5103
 "int",         453,     0,    21,    21,   495,   547
-"total",     20601,    35,   743,  1470, 22849, 24344
+"total",     20628,     1,   742,  1480, 22851, 24346
 ----------------
 Failure summary:
-S06-other/anon-hashes-vs-blocks.t aborted 2 test(s)
-S14-roles/mixin.niecza aborted 32 test(s)
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
