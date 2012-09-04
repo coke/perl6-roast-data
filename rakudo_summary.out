@@ -345,8 +345,7 @@ Useless declaration of a has-scoped method in mainline
      1 todo   : Capture does Associative
      1 todo   : Capture does Positional
 S02-types/subscripts_and_context.t.................   8    0    0    0    8
-S02-types/subset.rakudo............................Useless declaration of a has-scoped multi-method in mainline
-  42    0    2    1   45
+S02-types/subset.rakudo............................  42    0    2    1   45
      1 skipped: (noauto) succeeds for the wrong reason (need to test the error)
      1 todo   : Seq not implemented in nom
      1 todo   : Seq not yet implemented in nom
@@ -882,19 +881,11 @@ S05-match/arrayhash.t..............................   8    0    0    0    8
 S05-match/blocks.rakudo............................  17    0    5    0   22
      4 todo   : nom regression
      1 todo   : Assignment to matched string affects earlier match objects
-S05-match/capturing-contexts.rakudo................use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
-
-  29    0    5    4   38
-     2 skipped: augment
-     2 skipped: binding to $/
-     1 todo   : RT 70007
-     4 todo   : nom regression
+S05-match/capturing-contexts.rakudo................===SORRY!===
+Cannot use bind operator with this left-hand side
+at t/spec/S05-match/capturing-contexts.rakudo:122
+   0   38    0    0   38
+    38 tests aborted (missing ok/not ok)
 S05-match/make.rakudo..............................   4    0    1    0    5
      1 todo   : $()
 S05-match/non-capturing.t..........................   9    0    0    0    9
@@ -2061,7 +2052,7 @@ integration/weird-errors.t.........................   6    0    0    0    6
 "S02",        2985,     0,   147,   366,  3498,  3454
 "S03",        3999,     0,   136,   177,  4312,  4157
 "S04",         813,     0,    26,    81,   920,   944
-"S05",        3857,     0,   122,   552,  4531,  5734
+"S05",        3828,    38,   117,   548,  4531,  5734
 "S06",        1048,     0,    22,   138,  1208,  1256
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         132,     0,    19,    24,   175,   175
@@ -2079,9 +2070,10 @@ integration/weird-errors.t.........................   6    0    0    0    6
 "S29",         305,     0,     2,     7,   314,   327
 "S32",        7063,     1,    97,   262,  7033,  5105
 "int",         511,     0,    18,    25,   554,   547
-"total",     22940,     3,   638,  1812, 25003, 24375
+"total",     22911,    41,   633,  1808, 25003, 24375
 ----------------
 Failure summary:
+S05-match/capturing-contexts.rakudo aborted 38 test(s)
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
 S19-command-line/dash-e.t 3 - -e works with non-ASCII program texts
 S32-array/splice.rakudo 36 - negative offset dies
