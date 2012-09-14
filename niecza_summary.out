@@ -2529,11 +2529,23 @@ S06-multi/positional-vs-named.t....................Potential difficulties:
 ------> [32m    multi zero(:[33m?[31m$foo!) { 'named'   };[0m
 
   27    0    0    0   27
-S06-multi/proto.niecza.............................   9    0    1    7   17
+S06-multi/proto.niecza.............................Unhandled exception: Cannot use value like Block as a number
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 293 (Any.Numeric @ 6) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-multi/proto.niecza line 0 (f @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-multi/proto.niecza line 108 (ANON @ 7) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-multi/proto.niecza line 133 (mainline @ 62) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4138 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4139 (module-CORE @ 571) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4139 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+   9    6    1    7   23
      1 skipped: >>>Stub code executed
      1 skipped: System.NullReferenceException: Object reference not set to an instance of an object
      5 skipped: Illegal redeclaration of routine 'bar'
      1 todo   : 
+     6 tests aborted (missing ok/not ok)
 S06-multi/syntax.niecza............................Potential difficulties:
   &koala is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-multi/syntax.niecza line 160:
 ------> [32m    multi sub koala[33m?[31m(Int $x) { 42 * $x };[0m
@@ -4324,7 +4336,8 @@ integration/99problems-21-to-30.niecza.............Use of uninitialized value in
      2 skipped: hangs
      1 skipped: Unable to resolve method push in class Any
      1 todo   : sort order incorrect.
-     3 todo   : unknown
+     2 todo   : unknown
+     1 todo PASSED: unknown
 integration/99problems-31-to-40.t..................  66    0    0    1   67
      1 skipped: No Benchmark module yet
 integration/99problems-51-to-60.t..................Use of uninitialized value in string context
@@ -5459,7 +5472,7 @@ integration/weird-errors.niecza....................   4    0    2    0    6
 "S03",        3931,     0,   194,   357,  4482,  4157
 "S04",         775,     0,    37,    47,   859,   945
 "S05",        4050,     0,   117,   196,  4363,  5734
-"S06",         707,    67,    44,   136,   954,  1256
+"S06",         707,    73,    44,   136,   960,  1262
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          65,     0,     0,     8,    73,   175
 "S10",          35,     0,     5,    17,    57,   125
@@ -5476,8 +5489,9 @@ integration/weird-errors.niecza....................   4    0    2    0    6
 "S29",         305,     0,     5,     4,   314,   327
 "S32",        6228,     0,   125,   237,  6590,  5105
 "int",         453,     0,    21,    21,   495,   547
-"total",     20586,    68,   734,  1467, 22855, 24378
+"total",     20586,    74,   734,  1467, 22861, 24384
 ----------------
 Failure summary:
+S06-multi/proto.niecza aborted 6 test(s)
 S06-operator-overloading/sub.niecza aborted 67 test(s)
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
