@@ -228,38 +228,27 @@ S02-types/capture.rakudo...........................  18    0    2    1   21
      2 todo   : nom regression
 S02-types/catch_type_cast_mismatch.rakudo..........   9    0    1    0   10
      1 todo   : die or fail?
-S02-types/declare.rakudo...........................  48    0    2   29   79
-     1 skipped: Comparator not implemented
+S02-types/declare.rakudo...........................Parameter '' requires an instance, but a type object was passed
+  in submethod perl at src/gen/CORE.setting:11262
+  in sub isa_ok at lib/Test.pm:151
+  in block  at t/spec/S02-types/declare.rakudo:292
+
+  26   39    2   12   79
+     1 skipped: bit not implemented
      1 skipped: Integral not implemented
-     1 skipped: Ordering not implemented
-     1 skipped: OrderingPair not implemented
-     1 skipped: KeySet not implemented
+     1 skipped: complex not implemented
      1 skipped: Bit not implemented
      1 skipped: buf not implemented
      1 skipped: Blob not implemented
      1 skipped: Complex not type converted properly during assignment from Num
+     1 skipped: StrLen not implemented
      1 skipped: StrPos not implemented
-     1 skipped: utf16  not implemented
-     1 skipped: KeyExtractor not implemented
+     1 skipped: junction not implemented
      1 skipped: rat not implemented
      1 skipped: No Module type yet
-     1 skipped: utf32  not implemented
-     1 skipped: bit not implemented
-     1 skipped: Matcher isa not implemented
-     1 skipped: complex not implemented
-     1 skipped: num16  not implemented
-     1 skipped: Codepoint not implemented
-     1 skipped: StrLen not implemented
-     1 skipped: Char not implemented
-     1 skipped: Byte not implemented
-     1 skipped: utf8  not implemented
-     1 skipped: junction not implemented
-     1 skipped: HyperWhatever not implemented
-     1 skipped: AnyChar not implemented
-     1 skipped: Grapheme not implemented
-     1 skipped: CharLingua not implemented
      1 todo   : int not implemented
      1 todo   : num not implemented
+    39 tests aborted (missing ok/not ok)
 S02-types/fatrat.t.................................   1    0    0    0    1
 S02-types/flattening.t.............................  37    0    0    0   37
 S02-types/hash.t...................................use of uninitialized value of type Any in string context  in block  at t/spec/S02-types/hash.t:201
@@ -314,8 +303,8 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
      1 todo   : nom regression
      9 todo   : Null PMC access in find_method()
 S02-types/nan.rakudo...............................  17    0    0    2   19
-     1 skipped: unspecced and inconsistent
      1 skipped: RT 83446
+     1 skipped: unspecced and inconsistent
 S02-types/native.t.................................  25    0    0    0   25
 S02-types/nested_arrays.t..........................   8    0    0    0    8
 S02-types/nested_pairs.t...........................   7    0    0    0    7
@@ -396,8 +385,8 @@ S03-binding/ro.rakudo..............................   3    0    6    0    9
      4 todo   : ::= on arrays
      2 todo   : nom regression
 S03-binding/scalars.rakudo.........................  22    0    2    9   33
-     2 skipped: List binding
      7 skipped: list binding
+     2 skipped: List binding
      2 todo   : nom regression
 S03-feeds/basic.rakudo.............................   9    0    6    4   19
      4 skipped: double-ended feeds
@@ -430,17 +419,17 @@ use of uninitialized variable $v of type Any in numeric context  in block  at t/
 
  263    0    6   12  281
      5 skipped: dotted postfix
+     2 skipped: nom regression: possible spec change/improvement
      1 skipped: eval(Buf)
      4 skipped: postfix forms
-     2 skipped: nom regression: possible spec change/improvement
      6 todo   : nom regression - whatever extension
 S03-metaops/not.rakudo.............................  32    0    1    0   33
      1 todo   : unknown
 S03-metaops/reduce.rakudo.......................... 352    0    2   11  365
-     5 skipped: =:= NYI
-     2 skipped: orelse
      2 skipped: triangle [\^^] and [\xor]
      2 skipped: [!===]
+     5 skipped: =:= NYI
+     2 skipped: orelse
      1 todo   : item context
      1 todo   : reduced hyper op
 S03-metaops/reverse.t..............................  34    0    0    0   34
@@ -464,13 +453,13 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
 
  244    0   17   22  283
-     6 skipped: unknown reasons
-     6 skipped: unknown
-     1 skipped: $a[] autovivification (unspecced?)
      2 skipped: item assignment, $::(...)
      2 skipped: ,=
+     6 skipped: unknown reasons
      1 skipped: Odd number of elements found where hash expected
      2 skipped: RT #76734
+     6 skipped: unknown
+     1 skipped: $a[] autovivification (unspecced?)
      2 skipped: @$a
      1 todo   : RT 80614
      1 todo   : list assignment
@@ -509,11 +498,11 @@ S03-operators/comparison.rakudo....................  37    0    4    0   41
      4 todo   : nom regression
 S03-operators/context-forcers.rakudo...............  82    0    0    7   89
      2 skipped: failure modes of Str.Numeric
-     1 skipped: ~Mu
      4 skipped: is context
+     1 skipped: ~Mu
 S03-operators/context.rakudo.......................  27    0    3    2   32
-     1 skipped: @() not implemented
      1 skipped: $@var syntax
+     1 skipped: @() not implemented
      3 todo   : Seq
 S03-operators/equality.t...........................use of uninitialized value of type Any in string context  in block  at t/spec/S03-operators/equality.t:28
 
@@ -575,19 +564,19 @@ S03-operators/range.rakudo.........................use of uninitialized variable
 use of uninitialized variable $max of type Any in numeric context  in block  at t/spec/S03-operators/range.rakudo:263
 
  108    0    2    9  119
-     2 skipped: range stringification: Method 'succ' not found for invocant of class 'Match'
      4 skipped: Spec under design here
      1 skipped: range with match object endpoints: Method 'succ' not found for invocant of class 'Match'
      2 skipped: nom regression: Method 'succ' not found for invocant of class 'Array'
+     2 skipped: range stringification: Method 'succ' not found for invocant of class 'Match'
      2 todo   : forbid Ranges and Lists as Range endpoints
 S03-operators/reduce-le1arg.rakudo.................use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
 
   25    0    0   28   53
+     2 skipped: ~< and ~> NYI
      1 skipped: [Z]
      2 skipped: =!= NYI
-     2 skipped: ~< and ~> NYI
     16 skipped: reduce chained ops
      7 skipped: reducing chained ops
 S03-operators/relational.t......................... 118    0    0    0  118
@@ -616,8 +605,8 @@ S03-sequence/basic.rakudo.......................... 118    0    7    1  126
      6 todo   : New Rat.perl
      1 todo   : sequence + last
 S03-sequence/nonnumeric.rakudo.....................  12    0    0   23   35
-    11 skipped: loops
      6 skipped: lifting comparison ops
+    11 skipped: loops
      2 skipped: hangs
      2 skipped: Decrement out of range
      2 skipped: Unicode stuff
@@ -650,11 +639,11 @@ S03-smartmatch/scalar-hash.t.......................   3    0    0    0    3
                                                    pass fail todo skip plan
 S04-blocks-and-statements/let.t....................  12    0    0    0   12
 S04-blocks-and-statements/pointy-rw.rakudo.........   7    0    0    3   10
-     2 skipped: <-> (rw lanbmda) parsing
      1 skipped: rw Hash.values
+     2 skipped: <-> (rw lanbmda) parsing
 S04-blocks-and-statements/pointy.rakudo............  12    0    1    4   17
-     1 skipped: &?ROUTINE
      3 skipped: Could not find non-existent sub junction
+     1 skipped: &?ROUTINE
      1 todo   : pointy blocks and last/redo
 S04-blocks-and-statements/temp.rakudo..............  19    0    2   15   36
     15 skipped: TEMP phasers NYI
@@ -686,10 +675,10 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 
   31    0    2    9   42
      1 skipped: embedded closures in regexen
-     1 skipped: references
-     1 skipped: references and anonymous state vars
      1 skipped: will start { ... }
+     1 skipped: references
      5 skipped: parse error
+     1 skipped: references and anonymous state vars
      1 todo   : nom regression
      1 todo   : initialization happens only on first call(?)
 S04-exception-handlers/catch.t.....................  27    0    0    0   27
@@ -730,14 +719,14 @@ S04-statement-modifiers/while.t....................use of uninitialized variable
 S04-statement-parsing/hash.t.......................   7    0    0    0    7
 S04-statements/do.rakudo...........................  21    0    0    6   27
      1 skipped: last not implemented
+     1 skipped: redo not implemented
      1 skipped: next() should also work on do blocks (?)
      3 skipped: labels
-     1 skipped: redo not implemented
 S04-statements/for-scope.t.........................  16    0    0    0   16
 S04-statements/for.rakudo..........................  64    0    2    7   73
-     1 skipped: optional variable in for loop (RT #63994)
      1 skipped: Nom doesn't feature lazily for looping over a range yet?
      2 skipped: is rw NYI
+     1 skipped: optional variable in for loop (RT #63994)
      3 skipped: <-> is confusing the parser, I think
      2 todo   : RT 113026 array iterator does not track a growing array
 S04-statements/for_with_only_one_item.t............   9    0    0    0    9
@@ -821,27 +810,27 @@ S05-interpolation/regex-in-variable.rakudo.........  19    0   11    3   33
      4 todo   : array of regexes
 S05-mass/named-chars.rakudo........................ 284    0   53   94  431
      2 skipped: CR as char name
-    62 skipped: negative char class in enumerated list
-     2 skipped: NEL as char name
-     2 skipped: FF as char name
-     4 skipped: \c[LF] not valid charname
      4 skipped: \c[CR] not valid charname
      5 skipped: escapes in char classes
+    62 skipped: negative char class in enumerated list
+     2 skipped: NEL as char name
      7 skipped: \c[NEL] not valid charname
+     2 skipped: FF as char name
      4 skipped: \c[FF] not valid charname
      2 skipped: LF as char name
+     4 skipped: \c[LF] not valid charname
     53 todo   : \C escape
 S05-mass/properties-block.rakudo................... 669    0    0    1  670
      1 skipped: Malformed UTF-8 string
 S05-mass/properties-derived.rakudo................. 169    0    0   87  256
-     7 skipped: isUnassigned not implemented
-     6 skipped: icu
-    10 skipped: isCommon not implemented
      3 skipped: icu problems
+     7 skipped: isUnassigned not implemented
      7 skipped: isGraphemeLink
      7 skipped: isAssigned not implemented
      4 skipped: isAny not implemented
     42 skipped: isOther* not implemented
+     6 skipped: icu
+    10 skipped: isCommon not implemented
      1 skipped: Malformed UTF-8 string
 S05-mass/properties-general.rakudo................. 557    0    0   37  594
     10 skipped: No [Lr] property defined
@@ -857,15 +846,15 @@ S05-mass/rx.rakudo.................................use of uninitialized value of
 
  680    0   10   43  733
      1 skipped: <commit> not implemented
+     1 skipped: nom regression
     21 skipped: **{}
+     2 skipped: regex <name>
      1 skipped: :s()
+     2 skipped: RT 112450
      1 skipped: closure repetition
      2 skipped: RT 112454
-     2 skipped: ::: NYI
-     1 skipped: nom regression
-     2 skipped: regex <name>
-     2 skipped: RT 112450
      1 skipped: parse error
+     2 skipped: ::: NYI
      9 skipped: :: NYI
      3 todo   : <cntrl>
      2 todo   : nom regression
@@ -890,8 +879,8 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
 
   26    0    5    7   38
-     2 skipped: augment
      5 skipped: binding to $/
+     2 skipped: augment
      1 todo   : RT 70007
      4 todo   : nom regression
 S05-match/make.rakudo..............................   4    0    1    0    5
@@ -907,21 +896,21 @@ S05-metachars/newline.rakudo.......................  13    0    2    0   15
      2 todo   : Unicode
 S05-metachars/tilde.rakudo.........................  14    0    0   12   26
      2 skipped: backtracking to find ~ goal
+     5 skipped: should not throw exceptions
      3 skipped: exceptions from regexes
      2 skipped: backtracking into ~
-     5 skipped: should not throw exceptions
 S05-metasyntax/angle-brackets.rakudo...............  51    0    0   28   79
      1 skipped: indirect subrule call not implemented
      2 skipped: <%hash> not implemented
-     2 skipped: TODO: array interpolation into regexes
-     1 skipped: <~~ ... >
-     2 skipped: <test()> not implemented
      2 skipped: <$subrule> not implemented
      3 skipped: ..., !!! and ??? in regexes
+     2 skipped: TODO: array interpolation into regexes
      1 skipped: colon arguments not implemented
+     1 skipped: <~~ ... >
     11 skipped: <*literal>
      1 skipped: <&foo()> not implemented
      2 skipped: angle quotes in regexes
+     2 skipped: <test()> not implemented
 S05-metasyntax/assertions.t........................   4    0    0    0    4
 S05-metasyntax/changed.t...........................  12    0    0    0   12
 S05-metasyntax/charset.rakudo......................  31    0    1    2   34
@@ -947,8 +936,8 @@ use of uninitialized value of type Any in string context  in any <anon> at src/g
   25    0    0    1   26
      1 skipped: rx (o)
 S05-metasyntax/repeat.rakudo.......................  13    0    0    9   22
-     6 skipped: closure repetition
      3 skipped: nom regression
+     6 skipped: closure repetition
 S05-metasyntax/sequential-alternation.rakudo.......   6    0    4    0   10
      4 todo   : sequential alternation NYI
 S05-metasyntax/single-quotes.t.....................   5    0    0    0    5
@@ -1026,17 +1015,17 @@ S06-advanced/wrap.rakudo...........................  62    0    2    3   67
 S06-currying/assuming-and-mmd.t....................   6    0    0    0    6
 S06-currying/named.t...............................   3    0    0    0    3
 S06-macros/opaque-ast.rakudo.......................   2    0    0    5    7
-     3 skipped: :COMPILING flag
      1 skipped: hygienic macros
+     3 skipped: :COMPILING flag
      1 skipped: return from macro
 S06-multi/lexical-multis.rakudo....................  14    0    1    0   15
      1 todo   : lexical scope as tie breaker
 S06-multi/positional-vs-named.rakudo...............  25    0    0    2   27
      2 skipped: slurpy and named interaction
 S06-multi/proto.rakudo.............................===SORRY!===
-{*} may only appear in proto at line 104, near " + 5\n    }"
-   0   23    0    0   23
-    23 tests aborted (missing ok/not ok)
+{*} may only appear in proto at line 105, near " + 5\n    }"
+   0   25    0    0   25
+    25 tests aborted (missing ok/not ok)
 S06-multi/redispatch.t.............................  10    0    0    0   10
 S06-multi/syntax.rakudo............................  39    0    0    1   40
      1 skipped: Multi typename...maybe deprecated?
@@ -1052,16 +1041,16 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
    2    0    1    0    3
      1 todo   : nom regression
 S06-operator-overloading/sub.rakudo................  30    0    1   36   67
-     2 skipped: not yet implemented
-     1 skipped: infix:<;>
-     9 skipped: unknown errors
-     1 skipped: &::
-     4 skipped: prefix:<~> method
      5 skipped: lexical operators
+     2 skipped: not yet implemented
      3 skipped: assoc("non")
+     1 skipped: infix:<;>
      1 skipped: Lexical 'infix:plus' not found
+     9 skipped: unknown errors
      3 skipped: scalar binding
      2 skipped: macros
+     1 skipped: &::
+     4 skipped: prefix:<~> method
      1 skipped: prefix:<if>
      4 skipped: prefix:[] form not implemented
      1 todo   : RT 65638
@@ -1074,8 +1063,8 @@ S06-other/main-usage.rakudo........................  15    0    5    0   20
 S06-other/main.t...................................   6    0    0    0    6
 S06-other/misc.t...................................   3    0    0    0    3
 S06-routine-modifiers/lvalue-subroutines.rakudo....  11    0    0    3   14
-     2 skipped: maximum recursion depth exceeded
      1 skipped: segfaults, probably due to [RT #114134]
+     2 skipped: maximum recursion depth exceeded
 S06-routine-modifiers/proxy.t......................  18    0    0    0   18
 S06-routine-modifiers/scoped-named-subs.t..........  12    0    0    0   12
 S06-signature/arity.t..............................  52    0    0    0   52
@@ -1091,8 +1080,8 @@ S06-signature/introspection.rakudo.................  51    0    0    1   52
 S06-signature/mixed-placeholders.t.................  12    0    0    0   12
 S06-signature/multidimensional.t...................   5    0    0    0    5
 S06-signature/named-parameters.rakudo..............  72    0    0   21   93
-     4 skipped: where constraints
      1 skipped: nom regression
+     4 skipped: where constraints
     16 skipped: multiple same-named arguments NYI
 S06-signature/named-placeholders.t.................   3    0    0    0    3
 S06-signature/named-renaming.t.....................  10    0    0    0   10
@@ -1292,8 +1281,8 @@ S12-enums/non-int.rakudo...........................   5    0    1    0    6
      1 todo   : NYI
 S12-enums/pseudo-functional.t......................  11    0    0    0   11
 S12-enums/thorough.rakudo..........................  11    0    0   22   33
-     2 skipped: enum name as type constraint
      2 skipped: NYI
+     2 skipped: enum name as type constraint
     16 skipped: does &day::("Tue")
      2 skipped: does day::Tue
 S12-introspection/attributes.rakudo................  25    0    0    5   30
@@ -1303,8 +1292,8 @@ S12-introspection/definite.t.......................   6    0    0    0    6
 S12-introspection/meta-class.rakudo................   6    0    0    4   10
      1 skipped: .layout
      1 skipped: .version, version number parsing
-     1 skipped: precedence of prefix:<^>
      1 skipped: precedence of HOW
+     1 skipped: precedence of prefix:<^>
 S12-introspection/methods.rakudo...................  37    0    2   11   50
     11 skipped: nom regression
      2 todo   : nom regression
@@ -1393,8 +1382,8 @@ S14-roles/crony.t..................................   4    0    0    0    4
 S14-roles/instantiation.t..........................  19    0    0    0   19
 S14-roles/lexical.t................................   9    0    0    0    9
 S14-roles/mixin.rakudo.............................  29    0    0    3   32
-     2 skipped: mixin at the point of declaration is compile time
      1 skipped: Twigil ! is only valid on attribute definitions
+     2 skipped: mixin at the point of declaration is compile time
 S14-roles/namespaced.rakudo........................   2    0    1    0    3
      1 todo   : nom regression
 S14-roles/parameter-subtyping.t....................  22    0    0    0   22
@@ -1472,8 +1461,8 @@ S29-context/sleep.t................................   4    0    0    0    4
 S29-conversions/hash.t.............................   8    0    0    0    8
 S29-conversions/ord_and_chr.rakudo................. 246    0    0    4  250
      2 skipped: RT 65172
-     1 skipped: ord of empty string
      1 skipped: multi-arg variants of chr not in place yet
+     1 skipped: ord of empty string
                                                    pass fail todo skip plan
 S32-array/bool.t...................................  15    0    0    0   15
 S32-array/create.t.................................   3    0    0    0    3
@@ -1521,13 +1510,13 @@ S32-exceptions/misc.rakudo.........................Could not find symbol '&NotCo
 
  387    0    0    3    0
      1 skipped: RT 78370
-     1 skipped: parsing of $& and other p5 variables
      1 skipped: parsing regression
+     1 skipped: parsing of $& and other p5 variables
    390 tests more than planned were run
 S32-hash/delete.t..................................  11    0    0    0   11
 S32-hash/exists.rakudo.............................  18    0    0    3   21
-     2 skipped: NYI as far as I know
      1 skipped: unspecced
+     2 skipped: NYI as far as I know
 S32-hash/invert.rakudo.............................   4    0    1    0    5
      1 todo   : nom regression
 S32-hash/keys_values.t.............................  14    0    0    0   14
@@ -1556,8 +1545,8 @@ S32-list/end.t.....................................  14    0    0    0   14
 S32-list/first.rakudo..............................  19    0    0    2   21
      2 skipped: adverbial block
 S32-list/grep.rakudo...............................  17    0    0   21   38
-     6 skipped: closure as non-final argument
      1 skipped: RT 71544: grep arity sensitivity different from map
+     6 skipped: closure as non-final argument
      2 skipped: test error -- is $_ rw here?
     12 skipped: adverbial block
 S32-list/join.t....................................use of uninitialized value of type Any in string context  in block  at t/spec/S32-list/join.t:105
@@ -1615,8 +1604,8 @@ S32-num/pi.t.......................................   4    0    0    0    4
 S32-num/polar.t....................................  48    0    0    0   48
 S32-num/power.rakudo...............................  39    0    0    4   43
      1 skipped: NaN**1i should be NaN
-     1 skipped: i
      1 skipped: NaN**0 should be NaN
+     1 skipped: i
      1 skipped: 1i**NaN should be NaN
 S32-num/rand.rakudo................................ 113    0    0    1  114
      1 skipped: Test is too slow
@@ -1669,8 +1658,8 @@ use of uninitialized value of type Any in numeric context  in block  at t/spec/S
 
   58    0    2   26   86
      2 skipped: todo: lists, defined, truthness
-    10 skipped: null PMC access in type()
      8 skipped: fun with undefine
+    10 skipped: null PMC access in type()
      6 skipped: access to &your_sub
      1 todo   : definedness of hash
      1 todo   : definedness of array
@@ -1682,8 +1671,8 @@ S32-str/chomp.t....................................  39    0    0    0   39
 S32-str/chop.rakudo................................   6    0    0    6   12
      6 skipped: unspecced
 S32-str/comb.rakudo................................  32    0    2    7   41
-     6 skipped: .comb with limit
      1 skipped: bad all around in Rakudo-ng
+     6 skipped: .comb with limit
      2 todo   : graphemes not implemented
 S32-str/encode.rakudo..............................  11    0    1    1   13
      1 skipped: We do not handle NDF yet
@@ -1706,14 +1695,14 @@ S32-str/ords.t.....................................   6    0    0    0    6
 S32-str/pack.t.....................................   3    0    0    0    3
 S32-str/pos.t......................................   2    0    0    0    2
 S32-str/rindex.rakudo..............................  29    0    0    4   33
-     3 skipped: unicode
      1 skipped: tc
+     3 skipped: unicode
 S32-str/samecase.t.................................   8    0    0    0    8
 S32-str/split-simple.rakudo........................  48    0    1    0   49
      1 todo   : RT 112868
 S32-str/split.rakudo...............................  28    0    0    9   37
-     1 skipped: FixedIntegerArray: index out of bounds!
      2 skipped: RT #63066 loops forever
+     1 skipped: FixedIntegerArray: index out of bounds!
      5 skipped: rx:Perl5
      1 skipped: loops on zero-width match
 S32-str/sprintf.rakudo.............................  98    0   21    6  125
@@ -1728,8 +1717,8 @@ S32-str/substr.rakudo..............................use of uninitialized value of
 
   54    0    0   36   90
     28 skipped: No support for StrPos
-     1 skipped: lvalue substr
      7 skipped: too many args
+     1 skipped: lvalue substr
 S32-str/tclc.rakudo................................   4    0    1    0    5
      1 todo   : unknown tclc problem
 S32-str/trim.t.....................................  36    0    0    0   36
@@ -1799,9 +1788,9 @@ integration/99problems-21-to-30.rakudo.............use of uninitialized value of
 integration/99problems-31-to-40.t..................  66    0    0    1   67
      1 skipped: No Benchmark module yet
 integration/99problems-41-to-50.rakudo.............   5    0    0    6   11
+     3 skipped: Shaped variable declarations
      1 skipped: Test(s) not yet written: (*) Truth tables for logical expressions (2).
      1 skipped: s:P5///
-     3 skipped: Shaped variable declarations
      1 skipped: Test(s) not yet written: (**) Truth tables for logical expressions (3).
 integration/99problems-51-to-60.t..................use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
 
@@ -1984,11 +1973,11 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 
    9    0    0    6   15
      1 skipped: Test(s) not yet written: (**) Tree construction from a node string
-     1 skipped: Test(s) not yet written: (**) Dotstring representation of binary trees
-     1 skipped: Test(s) not yet written: (***) Layout a binary tree (3)
      1 skipped: Test(s) not yet written: (**) A string representation of binary trees
      1 skipped: Test(s) not yet written: (**) Preorder and inorder sequences of binary trees
      1 skipped: Test(s) not yet written: (**) Construct a complete binary tree
+     1 skipped: Test(s) not yet written: (**) Dotstring representation of binary trees
+     1 skipped: Test(s) not yet written: (***) Layout a binary tree (3)
 integration/advent2009-day01.t.....................   2    0    0    0    2
 integration/advent2009-day02.t.....................  10    0    0    0   10
 integration/advent2009-day03.t.....................   6    0    0    0    6
@@ -2060,11 +2049,11 @@ integration/weird-errors.t.........................   6    0    0    0    6
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    60
-"S02",        2985,     0,   147,   366,  3498,  3454
+"S02",        2963,    39,   147,   349,  3498,  3454
 "S03",        3999,     0,   136,   177,  4312,  4157
 "S04",         813,     1,    26,    81,   921,   945
 "S05",        3854,     0,   122,   555,  4531,  5734
-"S06",        1038,    23,    22,   131,  1214,  1262
+"S06",        1038,    25,    22,   131,  1216,  1264
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         132,     0,    19,    24,   175,   175
 "S10",          62,     0,     1,     5,    68,   125
@@ -2081,11 +2070,12 @@ integration/weird-errors.t.........................   6    0    0    0    6
 "S29",         305,     0,     2,     7,   314,   327
 "S32",        7063,     1,    97,   262,  7033,  5105
 "int",         511,     0,    18,    25,   554,   547
-"total",     22920,    40,   638,  1804, 25012, 24384
+"total",     22898,    81,   638,  1787, 25014, 24386
 ----------------
 Failure summary:
+S02-types/declare.rakudo aborted 39 test(s)
 S04-statements/repeat.t 18 - can share variable between loop body and condition
-S06-multi/proto.rakudo aborted 23 test(s)
+S06-multi/proto.rakudo aborted 25 test(s)
 S11-modules/import.rakudo aborted 13 test(s)
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
 S19-command-line/dash-e.t 3 - -e works with non-ASCII program texts
