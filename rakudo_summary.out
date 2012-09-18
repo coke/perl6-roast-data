@@ -878,9 +878,8 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
 
-  26    0    5    7   38
+  28    0    5    5   38
      5 skipped: binding to $/
-     2 skipped: augment
      1 todo   : RT 70007
      4 todo   : nom regression
 S05-match/make.rakudo..............................   4    0    1    0    5
@@ -1209,7 +1208,11 @@ S11-modules/importing.t............................  16    0    0    0   16
 S11-modules/lexical.t..............................   2    0    0    0    2
 S11-modules/need.t.................................   2    0    0    0    2
 S11-modules/nested.t...............................   6    0    0    0    6
-S11-modules/require.t..............................   5    0    0    0    5
+S11-modules/require.t..............................use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
+
+   5    1    0    0    6
                                                    pass fail todo skip plan
 S12-attributes/class.rakudo........................  15    0    0    8   23
      8 skipped: nom regression - method ^foo
@@ -1700,11 +1703,11 @@ S32-str/rindex.rakudo..............................  29    0    0    4   33
 S32-str/samecase.t.................................   8    0    0    0    8
 S32-str/split-simple.rakudo........................  48    0    1    0   49
      1 todo   : RT 112868
-S32-str/split.rakudo...............................  28    0    0    9   37
-     2 skipped: RT #63066 loops forever
-     1 skipped: FixedIntegerArray: index out of bounds!
-     5 skipped: rx:Perl5
-     1 skipped: loops on zero-width match
+S32-str/split.rakudo...............................===SORRY!===
+Preceding context expects a term, but found infix , instead
+at t/spec/S32-str/split.rakudo:56
+   0   37    0    0   37
+    37 tests aborted (missing ok/not ok)
 S32-str/sprintf.rakudo.............................  98    0   21    6  125
      5 skipped: sprintf %F NYI
      1 skipped: doesn't work in master (as of 2010-07)
@@ -2052,12 +2055,12 @@ integration/weird-errors.t.........................   6    0    0    0    6
 "S02",        2963,    39,   147,   349,  3498,  3454
 "S03",        3999,     0,   136,   177,  4312,  4157
 "S04",         813,     1,    26,    81,   921,   945
-"S05",        3854,     0,   122,   555,  4531,  5734
+"S05",        3856,     0,   122,   553,  4531,  5734
 "S06",        1038,    25,    22,   131,  1216,  1264
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         132,     0,    19,    24,   175,   175
 "S10",          62,     0,     1,     5,    68,   125
-"S11",          43,    13,     0,     0,    56,   111
+"S11",          43,    14,     0,     0,    57,   112
 "S12",        1228,     0,    36,   131,  1395,  1306
 "S13",          70,     0,     0,     0,    70,    80
 "S14",         283,     1,     6,    14,   304,   323
@@ -2068,17 +2071,19 @@ integration/weird-errors.t.........................   6    0    0    0    6
 "S26",         299,     0,     0,     1,   300,   257
 "S28",           7,     0,     0,     0,     7,     7
 "S29",         305,     0,     2,     7,   314,   327
-"S32",        7063,     1,    97,   262,  7033,  5105
+"S32",        7035,    38,    97,   253,  7033,  5105
 "int",         511,     0,    18,    25,   554,   547
-"total",     22898,    82,   638,  1787, 25015, 24387
+"total",     22872,   120,   638,  1776, 25016, 24388
 ----------------
 Failure summary:
 S02-types/declare.rakudo aborted 39 test(s)
 S04-statements/repeat.t 18 - can share variable between loop body and condition
 S06-multi/proto.rakudo aborted 25 test(s)
 S11-modules/import.rakudo aborted 13 test(s)
+S11-modules/require.t 6 - loading modules does not clobber GLOBAL
 S14-traits/routines.rakudo 13 - wrapping a routine at compile time makes it soft
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
 S19-command-line/dash-e.t 3 - -e works with non-ASCII program texts
 S32-array/splice.rakudo 36 - negative offset dies
 S32-exceptions/misc.rakudo passed 390 unplanned test(s)
+S32-str/split.rakudo aborted 37 test(s)
