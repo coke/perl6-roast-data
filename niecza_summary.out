@@ -179,20 +179,21 @@ S02-names-vars/fmt.niecza..........................  19    0    2    0   21
 S02-names-vars/list_array_perl.niecza..............  19    0    1    1   21
      1 skipped: hanging test
      1 todo   : 
-S02-names-vars/names.niecza........................Unhandled exception: System.NullReferenceException: Object reference not set to an instance of an object
-  at Niecza.StashCursor.Core (System.String key, Boolean final, Niecza.StashCursor& sc, Niecza.Variable& v, Niecza.Variable bind_to) [0x00000] in <filename unknown>:0 
-  at Niecza.StashCursor.Core (System.String key, Boolean final, Niecza.StashCursor& sc, Niecza.Variable& v, Niecza.Variable bind_to) [0x00000] in <filename unknown>:0 
-  at Niecza.StashCursor.Indirect (System.String key, Boolean bind_ro, Niecza.Variable bind_to) [0x00000] in <filename unknown>:0 
-  at Anon.1.Run.MAIN.C0mainline (Niecza.Frame ) [0x00000] in <filename unknown>:0 
-  at Niecza.Kernel.RunCore (Niecza.Frame& cur) [0x00000] in <filename unknown>:0 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-names-vars/names.niecza line 33 (mainline @ 17) 
+S02-names-vars/names.niecza........................Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1289 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-names-vars/names.niecza line 78 (ANON @ 14) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-names-vars/names.niecza line 141 (mainline @ 31) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4198 (ANON @ 3) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4199 (module-CORE @ 574) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4199 (mainline @ 3) 
   at <unknown> line 0 (ExitRunloop @ 0) 
-   1  134    0    7  142
+ 128    0    1   13  142
      7 skipped: Undeclared name: Terrain::
-   134 tests aborted (missing ok/not ok)
+     4 skipped: Postconstraints, and shapes on variable declarators NYI
+     2 skipped: Object reference not set to an instance of an object
+     1 todo   : 
 S02-names-vars/perl.niecza.........................  97    0    0    6  103
      2 skipped: hanging test
      4 skipped: >>>Stub code executed
@@ -251,20 +252,14 @@ Potential difficulties:
 ------> [32mmy [33m?[31m$x110 = 112; $UNIT::x110[0m
 
  140    0    0    0  140
-S02-names/symbolic-deref.t.........................Unhandled exception: System.NullReferenceException: Object reference not set to an instance of an object
-  at Niecza.StashCursor.Core (System.String key, Boolean final, Niecza.StashCursor& sc, Niecza.Variable& v, Niecza.Variable bind_to) [0x00000] in <filename unknown>:0 
-  at Niecza.StashCursor.Core (System.String key, Boolean final, Niecza.StashCursor& sc, Niecza.Variable& v, Niecza.Variable bind_to) [0x00000] in <filename unknown>:0 
-  at Niecza.StashCursor.Indirect (System.String key, Boolean bind_ro, Niecza.Variable bind_to) [0x00000] in <filename unknown>:0 
-  at Anon.1.Run.MAIN.C8ANON (Niecza.Frame ) [0x00000] in <filename unknown>:0 
-  at Niecza.Kernel.RunCore (Niecza.Frame& cur) [0x00000] in <filename unknown>:0 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-names/symbolic-deref.t line 76 (ANON @ 12) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-names/symbolic-deref.t line 175 (mainline @ 48) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4198 (ANON @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4199 (module-CORE @ 574) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4199 (mainline @ 3) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-  17   18    0    0   35
-    18 tests aborted (missing ok/not ok)
+S02-names/symbolic-deref.niecza....................Potential difficulties:
+  $cool is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-names/symbolic-deref.niecza line 84:
+------> [32m  my [33m?[31m$cool = "cool";[0m
+  $pugsis is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-names/symbolic-deref.niecza line 85:
+------> [32m  my [33m?[31m$pugsis = 'pugs::is';[0m
+
+  30    0    0    5   35
+     5 skipped: Object reference not set to an instance of an object
 S02-one-pass-parsing/less-than.t...................   9    0    0    0    9
 S02-types/anon_block.niecza........................  35    0    0    7   42
      4 skipped: No candidates for dispatch to mone
@@ -1235,7 +1230,7 @@ S03-operators/nesting.niecza.......................Potential difficulties:
      1 skipped: undeclared name [==]
 S03-operators/not.t................................  22    0    0    0   22
 S03-operators/overflow.t...........................  98    0    0    0   98
-S03-operators/precedence.niecza....................  50    0    0    2   52
+S03-operators/precedence.niecza....................  51    0    0    2   53
      2 skipped: assigning to readonly value
 S03-operators/range-basic.t........................ 136    0    0    0  136
 S03-operators/range-int.t.......................... 480    0    0    0  480
@@ -5497,9 +5492,9 @@ integration/weird-errors.niecza....................   4    0    2    0    6
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    60
-"S02",        2783,   152,   105,   250,  3290,  3454
-"S03",        3931,     0,   194,   357,  4482,  4162
-"S04",         775,     0,    37,    47,   859,   945
+"S02",        2923,     0,   106,   261,  3290,  3454
+"S03",        3932,     0,   194,   357,  4483,  4163
+"S04",         775,     0,    37,    47,   859,   948
 "S05",        4050,     0,   117,   196,  4363,  5734
 "S06",         753,     0,    51,   158,   962,  1264
 "S07",           0,     0,     0,     0,     0,     0
@@ -5516,11 +5511,9 @@ integration/weird-errors.niecza....................   4    0    2    0    6
 "S26",           0,     0,     0,     0,     0,   257
 "S28",           6,     0,     1,     0,     7,     7
 "S29",         305,     0,     5,     4,   314,   327
-"S32",        6377,     0,   125,   237,  6739,  5254
+"S32",        6377,     0,   125,   237,  6739,  5255
 "int",         453,     0,    21,    21,   495,   547
-"total",     20636,   153,   738,  1485, 23012, 24542
+"total",     20777,     1,   739,  1496, 23013, 24547
 ----------------
 Failure summary:
-S02-names-vars/names.niecza aborted 134 test(s)
-S02-names/symbolic-deref.t aborted 18 test(s)
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
