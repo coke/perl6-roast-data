@@ -8,8 +8,9 @@ export LANG
 # - make dies and says "run cabal configure"
 #
 
+rm -rf Pugs.hs
+git clone git://github.com/perl6/Pugs.hs.git
 cd Pugs.hs
-git pull --rebase
-(cd t/spec && git pull --rebase)
+ln -s ../../roast t/spec
 (cd Pugs && make)
 /home/coke/perl5/perlbrew/perls/perl-5.14.2/bin/perl t/spec/test_summary pugs 2>&1 | tee ../pugs_summary.out

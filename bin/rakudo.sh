@@ -1,8 +1,9 @@
 #!/bin/sh
 
+rm -rf rakudo
+git clone git://github.com/rakudo/rakudo.git
 cd rakudo
-git pull --rebase
-(cd t/spec && git pull --rebase)
+ln -s ../../roast t/spec
 /home/coke/perl5/perlbrew/perls/perl-5.14.2/bin/perl Configure.pl --gen-parrot
 make all
 
