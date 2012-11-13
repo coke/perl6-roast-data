@@ -1,6 +1,10 @@
 #!/bin/sh
 
 rm -rf niecza
+
+# remove stale compiled file slipping through the cracks
+rm -r ~/.local/share/NieczaModuleCache
+
 git clone git://github.com/sorear/niecza.git
 cd niecza
 ln -s ../../roast t/spec
