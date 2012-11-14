@@ -112,7 +112,7 @@ S02-literals/radix.niecza..........................Potential difficulties:
      1 skipped: WTF?
      4 skipped: :radix[] NYI
      4 todo   : :radix() NYI
-S02-literals/string-interpolation.t................  13    0    0    0   13
+S02-literals/string-interpolation.t................  14    0    0    0   14
 S02-literals/sub-calls.niecza......................Potential difficulties:
   &succ is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-literals/sub-calls.niecza line 45:
 ------> [32m    sub succ[33m?[31m($x) { $x + 1 }[0m
@@ -1395,7 +1395,7 @@ S03-sequence/basic.niecza..........................Potential difficulties:
     around the ... listop, or use 'fail' instead of ...) at (eval) line 1:
 ------> [32m1, 2, 3,[33m?[31m ... 5[0m
 
- 123    0    0    3  126
+ 126    0    0    3  129
      1 skipped: Failure NYI
      2 skipped: &[] NYI
 S03-sequence/limit-arity-2-or-more.t...............   8    0    0    0    8
@@ -1974,8 +1974,10 @@ S04-statements/for_with_only_one_item.t............   9    0    0    0    9
 S04-statements/gather.t............................Potential difficulties:
   $result is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-statements/gather.t line 111:
 ------> [32m    my [33m?[31m$result = @list[2];[0m
+  @a is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-statements/gather.t line 201:
+------> [32m    my [33m?[31m@a = gather { $x = take 3; };[0m
 
-  21    0    0    0   21
+  22    0    0    0   22
 S04-statements/given.t.............................Potential difficulties:
   &a is declared but not used at (eval) line 1:
 ------> [32mgiven 3 { sub a[33m?[31m() { } }[0m
@@ -2000,7 +2002,7 @@ S04-statements/next.t..............................Potential difficulties:
   12    0    0    0   12
 S04-statements/no-implicit-block.t.................  12    0    0    0   12
 S04-statements/redo.t..............................  11    0    0    0   11
-S04-statements/repeat.niecza.......................  17    0    0    1   18
+S04-statements/repeat.niecza.......................  17    1    0    1   19
      1 skipped: No value in ANON available for parameter $a
 S04-statements/return.t............................  17    0    0    0   17
 S04-statements/terminator.niecza...................Potential difficulties:
@@ -2090,8 +2092,8 @@ S05-mass/rx.niecza.................................Potential difficulties:
   $rt112450 is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-mass/rx.niecza line 2573:
 ------> [32m    my [33m?[31m$rt112450 = 4;[0m
 
-sh: line 1:  8680 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
- 661    6   19   47  733
+sh: line 1:  9537 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
+ 660    7   19   47  733
      1 skipped: Unable to resolve method alpha in class Cursor
      2 skipped: Dubious test, http://irclog.perlgeek.de/perl6/2012-05-27#i_5643089
     13 skipped: Unable to resolve method wb in class Cursor
@@ -2105,7 +2107,7 @@ sh: line 1:  8680 Killed                  nice -20 mono ./run/Niecza.exe t/spec/
      3 todo   : ::: issue
      2 todo   : :: issues
      3 todo   : Unable to resolve method cntrl in class Cursor
-     6 tests aborted (missing ok/not ok)
+     7 tests aborted (missing ok/not ok)
 S05-mass/stdrules.niecza........................... 183    0    0    3  186
      3 skipped: <at>
 S05-match/arrayhash.niecza.........................   4    0    4    0    8
@@ -2238,7 +2240,7 @@ S05-modifier/counted-match.niecza..................  11    0    1   10   22
      1 todo   : 
 S05-modifier/counted.niecza........................ 116    0    0    2  118
      2 skipped: m:g
-S05-modifier/ignorecase.niecza.....................  15    0    3    0   18
+S05-modifier/ignorecase.niecza.....................  16    0    3    0   19
      3 todo   : 
 S05-modifier/pos.niecza............................  36    0    0    4   40
      4 skipped: :i
@@ -2540,7 +2542,7 @@ S06-multi/syntax.niecza............................Potential difficulties:
   &baz is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-multi/syntax.niecza line 28:
 ------> [32mmulti baz [33m?[31m{ "empty" }[0m
 
-  30    0    4    6   40
+  31    0    4    6   41
      2 skipped: Ambiguous dispatch for &bar
      1 skipped: No candidates for dispatch to &bar
      1 skipped: Ambiguous dispatch for &baz
@@ -2677,7 +2679,13 @@ Potential difficulties:
   &quuuux is declared but not used at (eval) line 1:
 ------> [32msub quuuux [33m?[31m($!) { ... }[0m
 
-   9    0    0    0    9
+Potential difficulties:
+  @a is declared but not used at (eval) line 1:
+------> [32msub rt72082([33m?[31m@a, $b) {}; rt72082(5)[0m
+  $b is declared but not used at (eval) line 1:
+------> [32msub rt72082(@a, [33m?[31m$b) {}; rt72082(5)[0m
+
+   9    1    0    0   10
 S06-signature/introspection.niecza.................  21    0    4   27   52
      1 skipped: Abbreviated named parameter must have a name
      5 skipped: Unable to resolve method constraints in class Parameter
@@ -3303,7 +3311,7 @@ S12-attributes/recursive.niecza....................  11    0    0    8   19
      8 skipped: A type must be provided ???
 S12-class/anonymous.niecza.........................  15    0    2    0   17
      2 todo   : 
-S12-class/attributes.niecza........................  15    0    0    7   22
+S12-class/attributes.niecza........................  17    0    0    7   24
      1 skipped: Unhandled exception: Unable to resolve method ctxzyg in type Method
      6 skipped: Unhandled parameter twigil !
 S12-class/basic.niecza.............................  30    0    3    4   37
@@ -5485,16 +5493,16 @@ integration/weird-errors.niecza....................   1    1    2    3    7
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        2930,     0,   105,   258,  3293,  3460
-"S03",        3933,     0,   193,   357,  4483,  4163
-"S04",         777,     1,    34,    47,   859,   948
-"S05",        4047,     6,   115,   196,  4364,  5736
-"S06",         753,     0,    51,   158,   962,  1256
+"S02",        2931,     0,   105,   258,  3294,  3461
+"S03",        3936,     0,   193,   357,  4486,  4166
+"S04",         778,     2,    34,    47,   861,   950
+"S05",        4047,     7,   115,   196,  4365,  5737
+"S06",         754,     1,    51,   158,   964,  1260
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          65,     0,     0,     8,    73,   175
 "S10",          35,     0,     5,    17,    57,   125
 "S11",           0,     0,     0,     0,     0,   112
-"S12",         722,     0,    56,   147,   925,  1311
+"S12",         724,     0,    56,   147,   927,  1315
 "S13",          31,     0,     1,    10,    42,    80
 "S14",         168,     0,     1,     9,   178,   325
 "S16",         179,     0,    19,    25,   223,   290
@@ -5506,11 +5514,13 @@ integration/weird-errors.niecza....................   1    1    2    3    7
 "S29",         305,     0,     5,     5,   315,   328
 "S32",        6377,     0,   125,   237,  6739,  5258
 "int",         449,     2,    21,    24,   496,   548
-"total",     20781,    10,   732,  1498, 23021, 24560
+"total",     20789,    13,   732,  1498, 23032, 24575
 ----------------
 Failure summary:
 S04-phasers/end.niecza aborted 1 test(s)
-S05-mass/rx.niecza aborted 6 test(s)
+S04-statements/repeat.niecza 19 - can't repeat alone
+S05-mass/rx.niecza aborted 7 test(s)
+S06-signature/errors.t 10
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
 integration/error-reporting.niecza 12 - END phasers are run after die()
 integration/weird-errors.niecza 4 - presence of postcircumfix does not lead to redeclaration warnings
