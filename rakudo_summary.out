@@ -164,7 +164,7 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
 
-  44    0    8   88  140
+  46    0    8   88  142
     19 skipped: CORE NYI
      6 skipped: SETTING NYI
     36 skipped: various issues, skipping all for now
@@ -208,8 +208,132 @@ S02-types/autovivification.rakudo..................   7    0    2    4   13
 S02-types/bag.rakudo............................... 100    0    3    0  103
      2 todo   : 
      1 todo   : Bag stringification
-S02-types/bool.t...................................  50    1    0    0   51
-     1 tests aborted (missing ok/not ok)
+S02-types/bool.t...................................*** glibc detected *** ./perl6: free(): invalid pointer: 0x08f8fac4 ***
+======= Backtrace: =========
+/lib/i386-linux-gnu/libc.so.6(+0x70a8a)[0xf6064a8a]
+/lib/i386-linux-gnu/libc.so.6(+0x722e8)[0xf60662e8]
+/lib/i386-linux-gnu/libc.so.6(cfree+0x6d)[0xf60693ed]
+/home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/nqp_bigint_ops.so(+0xbf0d)[0xf5e10f0d]
+======= Memory map: ========
+08048000-08054000 r-xp 00000000 fe:00 1111010                            /home/coke/sandbox/perl6pass/rakudo/perl6
+08054000-08055000 r--p 0000b000 fe:00 1111010                            /home/coke/sandbox/perl6pass/rakudo/perl6
+08055000-08056000 rw-p 0000c000 fe:00 1111010                            /home/coke/sandbox/perl6pass/rakudo/perl6
+08f3c000-0cafe000 rw-p 00000000 00:00 0                                  [heap]
+f3c00000-f3c21000 rw-p 00000000 00:00 0 
+f3c21000-f3d00000 ---p 00000000 00:00 0 
+f3d66000-f453e000 rw-p 00000000 00:00 0 
+f453e000-f454e000 r-xp 00000000 fe:00 1661937                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/nqp_dyncall_ops.so
+f454e000-f454f000 r--p 0000f000 fe:00 1661937                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/nqp_dyncall_ops.so
+f454f000-f4550000 rw-p 00010000 fe:00 1661937                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/nqp_dyncall_ops.so
+f4550000-f4553000 r-xp 00000000 fe:00 1313136                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/sys_ops.so
+f4553000-f4554000 r--p 00002000 fe:00 1313136                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/sys_ops.so
+f4554000-f4555000 rw-p 00003000 fe:00 1313136                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/sys_ops.so
+f4555000-f4559000 r-xp 00000000 fe:00 1253298                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/math_ops.so
+f4559000-f455a000 r--p 00003000 fe:00 1253298                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/math_ops.so
+f455a000-f455c000 rw-p 00004000 fe:00 1253298                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/math_ops.so
+f455c000-f455f000 r-xp 00000000 fe:00 1313108                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/obscure_ops.so
+f455f000-f4560000 r--p 00002000 fe:00 1313108                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/obscure_ops.so
+f4560000-f4561000 rw-p 00003000 fe:00 1313108                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/obscure_ops.so
+f4561000-f4568000 r-xp 00000000 fe:00 1253292                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/bit_ops.so
+f4568000-f4569000 r--p 00006000 fe:00 1253292                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/bit_ops.so
+f4569000-f456d000 rw-p 00007000 fe:00 1253292                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/bit_ops.so
+f456d000-f456f000 r-xp 00000000 fe:00 1253295                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/file.so
+f456f000-f4570000 r--p 00002000 fe:00 1253295                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/file.so
+f4570000-f4571000 rw-p 00003000 fe:00 1253295                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/file.so
+f4571000-f4574000 r-xp 00000000 fe:00 1313131                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/os.so
+f4574000-f4575000 r--p 00003000 fe:00 1313131                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/os.so
+f4575000-f4576000 rw-p 00004000 fe:00 1313131                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/os.so
+f4576000-f4f07000 rw-p 00000000 00:00 0 
+f4f07000-f4f0c000 r-xp 00000000 fe:00 1313137                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/trans_ops.so
+f4f0c000-f4f0d000 r--p 00004000 fe:00 1313137                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/trans_ops.so
+f4f0d000-f4f10000 rw-p 00005000 fe:00 1313137                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/trans_ops.so
+f4f10000-f5dfd000 rw-p 00000000 00:00 0 
+f5dfd000-f5e02000 r-xp 00000000 fe:00 1253297                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/io_ops.so
+f5e02000-f5e03000 r--p 00004000 fe:00 1253297                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/io_ops.so
+f5e03000-f5e05000 rw-p 00005000 fe:00 1253297                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/io_ops.so
+f5e05000-f5e1f000 r-xp 00000000 fe:00 1661936                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/nqp_bigint_ops.so
+f5e1f000-f5e20000 r--p 00019000 fe:00 1661936                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/nqp_bigint_ops.so
+f5e20000-f5e23000 rw-p 0001a000 fe:00 1661936                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/nqp_bigint_ops.so
+f5e23000-f5e4e000 r-xp 00000000 fe:00 1188097                            /home/coke/sandbox/perl6pass/rakudo/dynext/perl6_ops.so
+f5e4e000-f5e4f000 r--p 0002a000 fe:00 1188097                            /home/coke/sandbox/perl6pass/rakudo/dynext/perl6_ops.so
+f5e4f000-f5e5b000 rw-p 0002b000 fe:00 1188097                            /home/coke/sandbox/perl6pass/rakudo/dynext/perl6_ops.so
+f5e5b000-f5e92000 r-xp 00000000 fe:00 1661935                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/nqp_ops.so
+f5e92000-f5e93000 r--p 00037000 fe:00 1661935                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/nqp_ops.so
+f5e93000-f5e9d000 rw-p 00038000 fe:00 1661935                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/nqp_ops.so
+f5e9d000-f5ea5000 r-xp 00000000 fe:00 1188075                            /home/coke/sandbox/perl6pass/rakudo/dynext/perl6_group.so
+f5ea5000-f5ea6000 r--p 00007000 fe:00 1188075                            /home/coke/sandbox/perl6pass/rakudo/dynext/perl6_group.so
+f5ea6000-f5ea7000 rw-p 00008000 fe:00 1188075                            /home/coke/sandbox/perl6pass/rakudo/dynext/perl6_group.so
+f5ea7000-f5ecb000 rw-p 00000000 00:00 0 
+f5ecb000-f5ee7000 r-xp 00000000 fe:00 881523                             /lib/i386-linux-gnu/libgcc_s.so.1
+f5ee7000-f5ee8000 rw-p 0001b000 fe:00 881523                             /lib/i386-linux-gnu/libgcc_s.so.1
+f5ee8000-f5fc8000 r-xp 00000000 fe:00 1188141                            /usr/lib/i386-linux-gnu/libstdc++.so.6.0.17
+f5fc8000-f5fcc000 r--p 000e0000 fe:00 1188141                            /usr/lib/i386-linux-gnu/libstdc++.so.6.0.17
+f5fcc000-f5fcd000 rw-p 000e4000 fe:00 1188141                            /usr/lib/i386-linux-gnu/libstdc++.so.6.0.17
+f5fcd000-f5fd4000 rw-p 00000000 00:00 0 
+f5fd4000-f5ff1000 r-xp 00000000 fe:00 867393                             /lib/i386-linux-gnu/libtinfo.so.5.9
+f5ff1000-f5ff3000 r--p 0001c000 fe:00 867393                             /lib/i386-linux-gnu/libtinfo.so.5.9
+f5ff3000-f5ff4000 rw-p 0001e000 fe:00 867393                             /lib/i386-linux-gnu/libtinfo.so.5.9
+f5ff4000-f613b000 r-xp 00000000 fe:00 1145903                            /lib/i386-linux-gnu/libc-2.13.so
+f613b000-f613c000 ---p 00147000 fe:00 1145903                            /lib/i386-linux-gnu/libc-2.13.so
+f613c000-f613e000 r--p 00147000 fe:00 1145903                            /lib/i386-linux-gnu/libc-2.13.so
+f613e000-f613f000 rw-p 00149000 fe:00 1145903                            /lib/i386-linux-gnu/libc-2.13.so
+f613f000-f6142000 rw-p 00000000 00:00 0 
+f6142000-f72b1000 r-xp 00000000 fe:00 1195159                            /usr/lib/i386-linux-gnu/libicudata.so.48.1.1
+f72b1000-f72b2000 r--p 0116e000 fe:00 1195159                            /usr/lib/i386-linux-gnu/libicudata.so.48.1.1
+f72b2000-f72b3000 rw-p 0116f000 fe:00 1195159                            /usr/lib/i386-linux-gnu/libicudata.so.48.1.1
+f72b3000-f72b4000 rw-p 00000000 00:00 0 
+f72b4000-f740f000 r-xp 00000000 fe:00 1195033                            /usr/lib/i386-linux-gnu/libicuuc.so.48.1.1
+f740f000-f7419000 r--p 0015a000 fe:00 1195033                            /usr/lib/i386-linux-gnu/libicuuc.so.48.1.1
+f7419000-f741a000 rw-p 00164000 fe:00 1195033                            /usr/lib/i386-linux-gnu/libicuuc.so.48.1.1
+f741a000-f741e000 rw-p 00000000 00:00 0 
+f741e000-f7426000 r-xp 00000000 fe:00 1188850                            /usr/lib/i386-linux-gnu/libffi.so.5.0.10
+f7426000-f7427000 rw-p 00008000 fe:00 1188850                            /usr/lib/i386-linux-gnu/libffi.so.5.0.10
+f7427000-f745f000 r-xp 00000000 fe:00 867461                             /lib/i386-linux-gnu/libreadline.so.6.2
+f745f000-f7460000 r--p 00038000 fe:00 867461                             /lib/i386-linux-gnu/libreadline.so.6.2
+f7460000-f7463000 rw-p 00039000 fe:00 867461                             /lib/i386-linux-gnu/libreadline.so.6.2
+f7463000-f7465000 rw-p 00000000 00:00 0 
+f7465000-f74d8000 r-xp 00000000 fe:00 1188017                            /usr/lib/i386-linux-gnu/libgmp.so.10.0.5
+f74d8000-f74df000 rw-p 00073000 fe:00 1188017                            /usr/lib/i386-linux-gnu/libgmp.so.10.0.5
+f74df000-f74e6000 r-xp 00000000 fe:00 1145921                            /lib/i386-linux-gnu/librt-2.13.so
+f74e6000-f74e7000 r--p 00006000 fe:00 1145921                            /lib/i386-linux-gnu/librt-2.13.so
+f74e7000-f74e8000 rw-p 00007000 fe:00 1145921                            /lib/i386-linux-gnu/librt-2.13.so
+f74e8000-f74e9000 rw-p 00000000 00:00 0 
+f74e9000-f74fe000 r-xp 00000000 fe:00 1007604                            /lib/i386-linux-gnu/libpthread-2.13.so
+f74fe000-f74ff000 r--p 00014000 fe:00 1007604                            /lib/i386-linux-gnu/libpthread-2.13.so
+f74ff000-f7500000 rw-p 00015000 fe:00 1007604                            /lib/i386-linux-gnu/libpthread-2.13.so
+f7500000-f7502000 rw-p 00000000 00:00 0 
+f7502000-f7504000 r-xp 00000000 fe:00 1145918                            /lib/i386-linux-gnu/libutil-2.13.so
+f7504000-f7505000 r--p 00001000 fe:00 1145918                            /lib/i386-linux-gnu/libutil-2.13.so
+f7505000-f7506000 rw-p 00002000 fe:00 1145918                            /lib/i386-linux-gnu/libutil-2.13.so
+f7506000-f750f000 r-xp 00000000 fe:00 1011196                            /lib/i386-linux-gnu/libcrypt-2.13.so
+f750f000-f7510000 r--p 00008000 fe:00 1011196                            /lib/i386-linux-gnu/libcrypt-2.13.so
+f7510000-f7511000 rw-p 00009000 fe:00 1011196                            /lib/i386-linux-gnu/libcrypt-2.13.so
+f7511000-f7538000 rw-p 00000000 00:00 0 
+f7538000-f755c000 r-xp 00000000 fe:00 1145888                            /lib/i386-linux-gnu/libm-2.13.so
+f755c000-f755d000 r--p 00023000 fe:00 1145888                            /lib/i386-linux-gnu/libm-2.13.so
+f755d000-f755e000 rw-p 00024000 fe:00 1145888                            /lib/i386-linux-gnu/libm-2.13.so
+f755e000-f7560000 r-xp 00000000 fe:00 1011583                            /lib/i386-linux-gnu/libdl-2.13.so
+f7560000-f7561000 r--p 00001000 fe:00 1011583                            /lib/i386-linux-gnu/libdl-2.13.so
+f7561000-f7562000 rw-p 00002000 fe:00 1011583                            /lib/i386-linux-gnu/libdl-2.13.so
+f7562000-f7563000 rw-p 00000000 00:00 0 
+f7563000-f7576000 r-xp 00000000 fe:00 1145891                            /lib/i386-linux-gnu/libnsl-2.13.so
+f7576000-f7577000 r--p 00012000 fe:00 1145891                            /lib/i386-linux-gnu/libnsl-2.13.so
+f7577000-f7578000 rw-p 00013000 fe:00 1145891                            /lib/i386-linux-gnu/libnsl-2.13.so
+f7578000-f757a000 rw-p 00000000 00:00 0 
+f757c000-f7591000 r-xp 00000000 fe:00 1661934                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/nqp_group.so
+f7591000-f7592000 r--p 00015000 fe:00 1661934                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/nqp_group.so
+f7592000-f7593000 rw-p 00016000 fe:00 1661934                            /home/coke/sandbox/perl6pass/rakudo/install/lib/parrot/4.4.0-devel/dynext/nqp_group.so
+f7593000-f7777000 r-xp 00000000 fe:00 245905                             /home/coke/sandbox/perl6pass/rakudo/install/lib/libparrot.so.4.4.0
+f7777000-f777a000 r--p 001e4000 fe:00 245905                             /home/coke/sandbox/perl6pass/rakudo/install/lib/libparrot.so.4.4.0
+f777a000-f77aa000 rw-p 001e7000 fe:00 245905                             /home/coke/sandbox/perl6pass/rakudo/install/lib/libparrot.so.4.4.0
+f77aa000-f77ac000 rw-p 00000000 00:00 0 
+f77ac000-f77ad000 r-xp 00000000 00:00 0                                  [vdso]
+f77ad000-f77c9000 r-xp 00000000 fe:00 1145909                            /lib/i386-linux-gnu/ld-2.13.so
+f77c9000-f77ca000 r--p 0001b000 fe:00 1145909                            /lib/i386-linux-gnu/ld-2.13.so
+f77ca000-f77cb000 rw-p 0001c000 fe:00 1145909                            /lib/i386-linux-gnu/ld-2.13.so
+ffafc000-ffb10000 rwxp 00000000 00:00 0                                  [stack]
+ffb10000-ffb11000 rw-p 00000000 00:00 0 
+  51    0    0    0   51
 S02-types/capture.rakudo...........................  18    0    2    1   21
      1 skipped: nom regression
      2 todo   : nom regression
@@ -762,7 +886,7 @@ S04-statement-modifiers/values_in_bool_context.t...  24    0    0    0   24
 S04-statement-modifiers/while.t....................use of uninitialized variable $a of type Any in numeric context  in block  at t/spec/S04-statement-modifiers/while.t:19
 
    5    0    0    0    5
-S04-statement-parsing/hash.t.......................   7    0    0    0    7
+S04-statement-parsing/hash.t.......................   8    0    0    0    8
 S04-statements/do.rakudo...........................  21    0    0    6   27
      1 skipped: last not implemented
      1 skipped: next() should also work on do blocks (?)
@@ -992,7 +1116,7 @@ S05-modifier/counted.rakudo........................  84    0    2   32  118
     32 skipped: s{} = ...
      2 todo   : unknown
 S05-modifier/global.t..............................   8    0    0    0    8
-S05-modifier/ignorecase.rakudo.....................  17    0    2    0   19
+S05-modifier/ignorecase.rakudo.....................  19    0    2    0   21
      2 todo   : ignorecase and SS/&szlig;
 S05-modifier/ii.rakudo.............................  10    0    0    8   18
      8 skipped: some NYI
@@ -1136,7 +1260,7 @@ S06-other/anon-hashes-vs-blocks.t..................  17    0    0    0   17
 S06-other/introspection.t..........................  12    0    0    0   12
 S06-other/main-eval.rakudo.........................   2    0    1    0    3
      1 todo   : MAIN in eval
-S06-other/main-usage.rakudo........................  15    0    5    0   20
+S06-other/main-usage.rakudo........................  15    2    5    0   22
      5 todo   : nom regression
 S06-other/main.t...................................   6    0    0    0    6
 S06-other/misc.t...................................   3    0    0    0    3
@@ -1418,8 +1542,11 @@ S12-methods/multi.rakudo...........................  26    0    1    5   32
      1 todo   : RT 66006
 S12-methods/parallel-dispatch.rakudo...............  30    0    5    0   35
      5 todo   : is_deeply does not think map results are the same as list on LHS
-S12-methods/private.rakudo.........................  10    0    1    0   11
-     1 todo   : role private methods - spec?
+S12-methods/private.rakudo.........................===SORRY!===
+CHECK FAILED:
+Undefined routine '&throws_like' called (line 97)
+   0   11    0    0   11
+    11 tests aborted (missing ok/not ok)
 S12-methods/qualified.rakudo.......................   1    0    0    1    2
      1 skipped: qualified method calls with roles don't preserve original self
 S12-methods/submethods.rakudo......................  21    0    0    6   27
@@ -1857,8 +1984,7 @@ integration/99problems-21-to-30.rakudo.............use of uninitialized value of
 
   11    0    3    1   15
      1 skipped: autovivification
-     2 todo   : unknown
-     1 todo PASSED: unknown
+     3 todo   : unknown
 integration/99problems-31-to-40.t..................  66    0    0    1   67
      1 skipped: No Benchmark module yet
 integration/99problems-41-to-50.rakudo.............   5    0    0    6   11
@@ -2127,16 +2253,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           2,     0,     0,    18,    20,    61
-"S02",        3106,     1,   150,   263,  3520,  3461
+"S02",        3109,     0,   150,   263,  3522,  3463
 "S03",        4114,     0,   147,   184,  4445,  4166
-"S04",         823,     0,    35,    53,   911,   950
-"S05",        4536,     0,   125,   578,  5239,  5737
-"S06",        1118,     0,    25,   131,  1274,  1260
+"S04",         824,     0,    35,    53,   912,   951
+"S05",        4538,     0,   125,   578,  5241,  5739
+"S06",        1118,     2,    25,   131,  1276,  1262
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         135,     0,    19,    21,   175,   175
 "S10",          62,     0,     1,     5,    68,   125
 "S11",          53,     0,     0,     4,    57,   112
-"S12",        1248,     0,    36,   130,  1414,  1315
+"S12",        1238,    11,    35,   130,  1414,  1315
 "S13",          70,     0,     0,     0,    70,    80
 "S14",         286,     0,     6,    14,   306,   325
 "S16",         226,     0,     6,    25,   257,   290
@@ -2149,10 +2275,12 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        7291,     0,    98,   256,  7645,  5258
 "int",         515,     0,    18,    25,   558,   548
 "ros",           2,     0,     0,     0,     2,     2
-"total",     24204,     3,   668,  1715, 26590, 24577
+"total",     24200,    15,   667,  1715, 26597, 24584
 ----------------
 Failure summary:
-S02-types/bool.t aborted 1 test(s)
+S06-other/main-usage.rakudo 21 - Stopping option processing
+S06-other/main-usage.rakudo 22 - Boolean argument with --
+S12-methods/private.rakudo aborted 11 test(s)
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
 S19-command-line/dash-e.t 3 - -e works with non-ASCII program texts
 note: test_summary.pl @syn does not have ros
