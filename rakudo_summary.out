@@ -1779,29 +1779,12 @@ S32-str/split-simple.rakudo........................  48    0    1    0   49
 S32-str/split.rakudo...............................  34    0    0    3   37
      2 skipped: RT #63066 loops forever
      1 skipped: loops on zero-width match
-S32-str/sprintf.rakudo.............................set_pmc_keyed() not implemented in class 'STable'
-current instr.: '' pc 370914 (src/gen/CORE.setting.pir:164272) (src/gen/CORE.setting:11899)
-called from Sub '' pc 4085 (src/gen/perl6-moduleloader.pir:1636) (src/Perl6/ModuleLoader.pm:256)
-called from Sub '' pc 4245 (src/gen/perl6-moduleloader.pir:1696) (src/Perl6/ModuleLoader.pm:261)
-called from Sub 'load_setting' pc 4039 (src/gen/perl6-moduleloader.pir:1612) (src/Perl6/ModuleLoader.pm:256)
-called from Sub '' pc 2898 (src/gen/perl6-symboltable.pir:1164) (src/Perl6/World.pm:183)
-called from Sub 'load_setting' pc 2769 (src/gen/perl6-symboltable.pir:1110) (src/Perl6/World.pm:176)
-called from Sub '' pc 49797 (src/gen/perl6-grammar.pir:17323) (src/Perl6/Grammar.pm:683)
-called from Sub 'comp_unit' pc 48968 (src/gen/perl6-grammar.pir:17058) (src/Perl6/Grammar.pm:625)
-called from Sub 'TOP' pc 18926 (src/gen/perl6-grammar.pir:6848) (src/Perl6/Grammar.pm:241)
-called from Sub 'parse' pc 18363 (src/stage2/QRegex.pir:7139) (src/stage2/QRegex.nqp:1062)
-called from Sub 'parse' pc 26408 (src/stage2/gen/NQPHLL.pir:10020) (src/stage2/gen/NQPHLL.pm:1447)
-called from Sub '' pc 25990 (src/stage2/gen/NQPHLL.pir:9858) (src/stage2/gen/NQPHLL.pm:1411)
-called from Sub 'compile' pc 25899 (src/stage2/gen/NQPHLL.pir:9818) (src/stage2/gen/NQPHLL.pm:1409)
-called from Sub 'eval' pc 22994 (src/stage2/gen/NQPHLL.pir:8624) (src/stage2/gen/NQPHLL.pm:1184)
-called from Sub 'evalfiles' pc 25366 (src/stage2/gen/NQPHLL.pir:9604) (src/stage2/gen/NQPHLL.pm:1393)
-called from Sub 'command_eval' pc 24350 (src/stage2/gen/NQPHLL.pir:9203) (src/stage2/gen/NQPHLL.pm:1328)
-called from Sub 'command_eval' pc 358 (src/gen/perl6-compiler.pir:172) (src/Perl6/Compiler.nqp:18)
-called from Sub 'command_line' pc 23696 (src/stage2/gen/NQPHLL.pir:8956) (src/stage2/gen/NQPHLL.pm:1278)
-called from Sub 'MAIN' pc 438 (src/gen/perl6.pir:160) (src/main.nqp src/gen/main-version.nqp:41)
-called from Sub '' pc 97 (src/gen/perl6.pir:59) (src/main.nqp src/gen/main-version.nqp:1)
-   0  125    0    0  125
-   125 tests aborted (missing ok/not ok)
+S32-str/sprintf.rakudo.............................  98    0   21    6  125
+     5 skipped: sprintf %F NYI
+     1 skipped: doesn't work in master (as of 2010-07)
+    10 todo   : sprintf does not handle bigints yet
+     1 todo   : %p doesn't yet throw exception - but should it, or just Failure?
+    10 todo   : sprintf does not handle big Rats yet
 S32-str/substr-rw.rakudo...........................  19    0   12    0   31
     12 todo   : NYI
 S32-str/substr.rakudo..............................use of uninitialized value of type Failure in string context  in sub is at lib/Test.pm:81
@@ -2163,14 +2146,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         299,     0,     0,     1,   300,   257
 "S28",           7,     0,     0,     0,     7,     7
 "S29",         309,     0,     2,     7,   318,   328
-"S32",        7196,   126,    77,   250,  7649,  5259
+"S32",        7294,     1,    98,   256,  7649,  5259
 "int",         515,     0,    18,    25,   558,   548
 "ros",           2,     0,     0,     0,     2,     2
-"total",     24132,   128,   649,  1707, 26616, 24591
+"total",     24230,     3,   670,  1713, 26616, 24591
 ----------------
 Failure summary:
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
 S19-command-line/dash-e.t 3 - -e works with non-ASCII program texts
 S32-exceptions/misc.rakudo 452 - right exception type (X::TypeCheck::Binding)
-S32-str/sprintf.rakudo aborted 125 test(s)
 note: test_summary.pl @syn does not have ros
