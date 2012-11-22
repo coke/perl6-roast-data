@@ -98,7 +98,7 @@ S02-magicals/env.rakudo............................  13    0    0    1   14
      1 skipped: import keyword
 S02-magicals/file_line.t...........................   2    0    0    0    2
 S02-magicals/pid.t.................................   1    0    0    0    1
-S02-magicals/progname.t............................   2    0    0    0    2
+S02-magicals/progname.t............................   3    0    0    0    3
 S02-magicals/sub.rakudo............................   3    0    1    0    4
      1 todo   : is this spec?
 S02-names-vars/contextual.t........................  23    0    0    0   23
@@ -208,7 +208,8 @@ S02-types/autovivification.rakudo..................   7    0    2    4   13
 S02-types/bag.rakudo............................... 100    0    3    0  103
      2 todo   : 
      1 todo   : Bag stringification
-S02-types/bool.t...................................  51    0    0    0   51
+S02-types/bool.t...................................  50    1    0    0   51
+     1 tests aborted (missing ok/not ok)
 S02-types/capture.rakudo...........................  18    0    2    1   21
      1 skipped: nom regression
      2 todo   : nom regression
@@ -1581,7 +1582,8 @@ S32-container/roundrobin.rakudo....................   4    0    1    0    5
 S32-container/zip.rakudo...........................   8    0    0    4   12
      2 skipped: Seq
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo......................... 449    1    0    3  453
+S32-exceptions/misc.rakudo......................... 448    0    0    4  452
+     1 skipped: RT 114134
      1 skipped: RT 78370
      1 skipped: parsing of $& and other p5 variables
      1 skipped: parsing regression
@@ -1601,7 +1603,8 @@ S32-hash/pairs.rakudo..............................  20    0    1    0   21
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo..............................  16    0    0   13   29
     13 skipped: binding on hash elements unimplemented
-S32-io/IO-Socket-INET.t............................  16    0    0    0   16
+S32-io/IO-Socket-INET.rakudo.......................  14    0    0    2   16
+     2 skipped: RT 115862
 S32-io/chdir.rakudo................................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/dir.t.......................................   2    0    0    0    2
@@ -2127,7 +2130,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           2,     0,     0,    18,    20,    61
-"S02",        3113,     0,   150,   261,  3524,  3464
+"S02",        3113,     1,   150,   261,  3525,  3465
 "S03",        4123,     0,   147,   184,  4454,  4167
 "S04",         824,     0,    35,    53,   912,   951
 "S05",        4538,     0,   125,   578,  5241,  5739
@@ -2146,13 +2149,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         299,     0,     0,     1,   300,   257
 "S28",           7,     0,     0,     0,     7,     7
 "S29",         309,     0,     2,     7,   318,   328
-"S32",        7294,     1,    98,   256,  7649,  5259
+"S32",        7291,     0,    98,   259,  7648,  5259
 "int",         515,     0,    18,    25,   558,   548
 "ros",           2,     0,     0,     0,     2,     2
-"total",     24230,     3,   670,  1713, 26616, 24591
+"total",     24227,     3,   670,  1716, 26616, 24592
 ----------------
 Failure summary:
+S02-types/bool.t aborted 1 test(s)
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
 S19-command-line/dash-e.t 3 - -e works with non-ASCII program texts
-S32-exceptions/misc.rakudo 452 - right exception type (X::TypeCheck::Binding)
 note: test_summary.pl @syn does not have ros
