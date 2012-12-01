@@ -2100,7 +2100,7 @@ S05-mass/rx.niecza.................................Potential difficulties:
   $rt112450 is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-mass/rx.niecza line 2573:
 ------> [32m    my [33m?[31m$rt112450 = 4;[0m
 
-sh: line 1: 13807 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
+sh: line 1: 20528 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
  663    4   19   47  733
      1 skipped: Unable to resolve method alpha in class Cursor
      2 skipped: Dubious test, http://irclog.perlgeek.de/perl6/2012-05-27#i_5643089
@@ -4152,8 +4152,16 @@ S32-str/indent.niecza..............................Asked to remove 4 spaces, but
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4212 (module-CORE @ 578) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4212 (mainline @ 3) 
   at <unknown> line 0 (ExitRunloop @ 0) 
-  58    0    0    1   59
-     1 skipped: weird scalar input
+Unhandled exception: Nominal type check failed for scalar store; got Num, needed Int or subtype
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 960 (ANON @ 10) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 977 (Str.indent @ 13) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S32-str/indent.niecza line 74 (mainline @ 109) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4211 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4212 (module-CORE @ 578) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4212 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  45   17    0    0   62
+    17 tests aborted (missing ok/not ok)
 S32-str/index.niecza...............................  36    0    0    2   38
      2 skipped: StrPos
 S32-str/lc.niecza..................................  12    0    1    0   13
@@ -4192,7 +4200,7 @@ S32-str/split.niecza...............................Potential difficulties:
 S32-str/sprintf.t.................................. 125    0    0    0  125
 S32-str/substr-rw.niecza...........................  27    0    4    0   31
      4 todo   : 
-S32-str/substr.niecza..............................  57    0    3   30   90
+S32-str/substr.niecza..............................  57    1    3   30   91
      1 skipped: 'Failure' used at line 244
     29 skipped: StrPos tests broken
      1 todo   : 
@@ -5539,9 +5547,9 @@ integration/weird-errors.niecza....................   2    0    2    3    7
 "S26",           0,     0,     0,     0,     0,   258
 "S28",           6,     0,     1,     0,     7,     7
 "S29",         305,     0,     5,     5,   315,   328
-"S32",        6378,     0,   125,   237,  6740,  5259
+"S32",        6365,    18,   125,   236,  6744,  5263
 "int",         450,     1,    21,    24,   496,   548
-"total",     20799,    15,   733,  1502, 23049, 24593
+"total",     20786,    33,   733,  1501, 23053, 24597
 ----------------
 Failure summary:
 S02-magicals/progname.t 3 - $*PROGRAM_NAME is assignable
@@ -5553,4 +5561,6 @@ S06-other/main-usage.niecza 22 - Boolean argument with --
 S06-signature/errors.t 10
 S12-methods/private.niecza aborted 1 test(s)
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
+S32-str/indent.niecza aborted 17 test(s)
+S32-str/substr.niecza 91 - substr to Inf
 integration/error-reporting.niecza 12 - END phasers are run after die()
