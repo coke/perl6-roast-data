@@ -1372,8 +1372,7 @@ S12-introspection/meta-class.rakudo................   8    0    0    4   12
 S12-introspection/methods.rakudo...................  37    0    2   11   50
     11 skipped: nom regression
      2 todo   : nom regression
-S12-introspection/parents.t........................   0   59    0    0   59
-    59 tests aborted (missing ok/not ok)
+S12-introspection/parents.t........................  59    0    0    0   59
 S12-introspection/roles.rakudo.....................use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1277
 
 use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1277
@@ -1450,9 +1449,10 @@ S13-type-casting/methods.t.........................  13    0    0    0   13
                                                    pass fail todo skip plan
 S14-roles/anonymous.rakudo.........................  12    0    0    1   13
      1 skipped: anonymous roles only created once
-S14-roles/basic.rakudo.............................  38    0    1    3   42
+S14-roles/basic.rakudo.............................  37    0    2    3   42
      3 skipped: RT 67768
      1 todo   : nom regression
+     1 todo   : can see it in the position, but even STD message doesn't include it
 S14-roles/bool.t...................................   3    0    0    0    3
 S14-roles/composition.rakudo.......................  24    0    0    2   26
      2 skipped: diamond composition
@@ -1601,7 +1601,7 @@ S32-hash/pairs.rakudo..............................  20    0    1    0   21
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo..............................  16    0    0   13   29
     13 skipped: binding on hash elements unimplemented
-S32-io/IO-Socket-INET.rakudo.......................   7    8    0    1   16
+S32-io/IO-Socket-INET.rakudo.......................  14    1    0    1   16
      1 skipped: RT 115862
 S32-io/chdir.rakudo................................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
@@ -2137,9 +2137,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S09",         135,     0,    19,    21,   175,   175
 "S10",          62,     0,     1,     5,    68,   125
 "S11",          53,     0,     0,     4,    57,   112
-"S12",        1192,    59,    36,   130,  1417,  1318
+"S12",        1251,     0,    36,   130,  1417,  1318
 "S13",          70,     0,     0,     0,    70,    80
-"S14",         286,     0,     6,    14,   306,   325
+"S14",         285,     0,     7,    14,   306,   325
 "S16",         226,     0,     6,    25,   257,   290
 "S17",           0,     0,     0,     0,     0,    28
 "S19",           2,     2,     0,     0,     4,     4
@@ -2147,21 +2147,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         300,     0,     0,     1,   301,   258
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         309,     0,     2,     7,   318,   328
-"S32",        7300,     8,    98,   256,  7662,  5263
+"S32",        7307,     1,    98,   256,  7662,  5263
 "int",         515,     0,    18,    25,   558,   548
 "ros",           2,     0,     0,     0,     2,     2
-"total",     24193,    69,   670,  1706, 26638, 24605
+"total",     24258,     3,   671,  1706, 26638, 24605
 ----------------
 Failure summary:
-S12-introspection/parents.t aborted 59 test(s)
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
 S19-command-line/dash-e.t 3 - -e works with non-ASCII program texts
 S32-io/IO-Socket-INET.rakudo 9 - combined the bytes form 몾
-S32-io/IO-Socket-INET.rakudo 10 - get() with default separator
-S32-io/IO-Socket-INET.rakudo 11 - default separator
-S32-io/IO-Socket-INET.rakudo 12 - \r\n separator
-S32-io/IO-Socket-INET.rakudo 13 - . as a separator
-S32-io/IO-Socket-INET.rakudo 14 - ! separator not at end of string
-S32-io/IO-Socket-INET.rakudo 15 - Multiple separators not at end of string
-S32-io/IO-Socket-INET.rakudo 16 - ! separator at end of string
 note: test_summary.pl @syn does not have ros
