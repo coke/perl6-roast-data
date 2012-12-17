@@ -114,14 +114,13 @@ S02-literals/radix.niecza..........................Potential difficulties:
      4 skipped: :radix[] NYI
      4 todo   : :radix() NYI
 S02-literals/string-interpolation.t................  14    0    0    0   14
-S02-literals/sub-calls.niecza......................Potential difficulties:
-  &succ is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-literals/sub-calls.niecza line 45:
+S02-literals/sub-calls.t...........................Potential difficulties:
+  &succ is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-literals/sub-calls.t line 47:
 ------> [32m    sub succ[33m?[31m($x) { $x + 1 }[0m
-  &first is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-literals/sub-calls.niecza line 52:
+  &first is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-literals/sub-calls.t line 54:
 ------> [32m    sub first[33m?[31m() { "first" }[0m
 
-  19    0    0    1   20
-     1 skipped: Undeclared routine "foo:bar"
+  20    0    0    0   20
 S02-literals/subscript.t...........................Potential difficulties:
   %hash is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-literals/subscript.t line 13:
 ------> [32m    my [33m?[31m%hash = ("foo", "bar");[0m
@@ -173,7 +172,7 @@ S02-magicals/env.niecza............................Potential difficulties:
 S02-magicals/file_line.t...........................   2    0    0    0    2
 S02-magicals/progname.niecza.......................   2    0    1    0    3
      1 todo   : 
-S02-magicals/sub.t.................................   4    0    0    0    4
+S02-magicals/sub.t.................................   3    0    0    0    3
 S02-names-vars/contextual.t........................  23    0    0    0   23
 S02-names-vars/fmt.niecza..........................  19    0    2    0   21
      2 todo   : %f NYI
@@ -214,8 +213,8 @@ Potential difficulties:
   Useless redeclaration of variable $/ (see  line 0) at (eval) line 1 (EOF):
 ------> [32mmy $/[33m?[31m<EOL>[0m
 
-   4    0    4    0    8
-     4 todo   : 
+   6    0    2    0    8
+     2 todo   : 
 S02-names/caller.niecza............................Potential difficulties:
   $a is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-names/caller.niecza line 12:
 ------> [32m    my [33m?[31m$a is dynamic = 3;[0m
@@ -513,7 +512,7 @@ S02-types/nan.niecza...............................  20    0    0    1   21
      1 skipped: Nominal type check failed for scalar store; got Num, needed Int or subtype
 S02-types/nested_arrays.niecza.....................   7    0    1    0    8
      1 todo   : 
-S02-types/nested_pairs.t...........................   7    0    0    0    7
+S02-types/nested_pairs.t...........................  13    1    0    0   14
 S02-types/nil.t....................................  29    0    0    0   29
 S02-types/num.t....................................  65    0    0    0   65
 S02-types/pair.niecza..............................  91    0    2    4   97
@@ -1484,7 +1483,7 @@ S04-declarations/implicit-parameter.niecza.........Potential difficulties:
   15    0    3    0   18
      3 todo   : 
 S04-declarations/multiple.niecza...................Potential difficulties:
-  Useless redeclaration of variable $x (see line 18) at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-declarations/multiple.niecza line 20:
+  Useless redeclaration of variable $x (see line 15) at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-declarations/multiple.niecza line 17:
 ------> [32m    my $x [33m?[31m= 3;[0m
 
 Potential difficulties:
@@ -1502,7 +1501,7 @@ Potential difficulties:
    5    0    1    0    6
      1 todo   : MMD
 S04-declarations/my.niecza.........................Potential difficulties:
-  $x is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-declarations/my.niecza line 229:
+  $x is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-declarations/my.niecza line 227:
 ------> [32m    dies_ok { eval '$x = "abc"'; my Int [33m?[31m$x; }, 'also a type error';[0m
 
 Potential difficulties:
@@ -2081,10 +2080,10 @@ S05-mass/properties-general.niecza................. 576    0    8   10  594
 S05-mass/properties-script.t....................... 361    0    0    0  361
 S05-mass/recursive.t...............................  20    0    0    0   20
 S05-mass/rx.niecza.................................Potential difficulties:
-  $rt112450 is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-mass/rx.niecza line 2573:
+  $rt112450 is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-mass/rx.niecza line 2572:
 ------> [32m    my [33m?[31m$rt112450 = 4;[0m
 
-sh: line 1: 32149 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
+sh: line 1: 14661 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
  663    4   19   47  733
      1 skipped: Unable to resolve method alpha in class Cursor
      2 skipped: Dubious test, http://irclog.perlgeek.de/perl6/2012-05-27#i_5643089
@@ -2283,15 +2282,25 @@ Use of uninitialized value in string context
      3 todo   : 
      3 todo   : :nth(3, 4) NYI
      1 todo   : Niecza works when it shouldn't?
-S05-transliteration/trans.niecza...................[31m===[0mSORRY![31m===[0m
-
-Two terms in a row (previous line missing its semicolon?) at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-transliteration/trans.niecza line 312:
-------> [32m<BOL>[33m?[31msay "# FUDGED!";[0m
-
-Parse failed
-
-   0   59    0    0   59
-    59 tests aborted (missing ok/not ok)
+S05-transliteration/trans.niecza...................Unhandled exception: Nominal type check failed for scalar store; got Int, needed Str or subtype
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 2651 (NieczaLSM.next_substitution @ 26) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 2698 (Niecza-trans @ 23) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 717 (Cool.trans @ 4) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-transliteration/trans.niecza line 307 (ANON @ 2) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 3089 (hyperunary @ 66) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 3080 (hyperunary @ 36) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-transliteration/trans.niecza line 307 (mainline @ 151) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  38    2    2   18   60
+     2 skipped: closures and regexes
+     5 skipped: Action method quote:tr not yet implemented
+    11 skipped: trans flags NYI
+     1 todo   : 
+     1 todo   : Not sure what is supposed to be going on here
+     2 tests aborted (missing ok/not ok)
 S05-transliteration/with-closure.niecza............Use of uninitialized value in string context
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
@@ -5473,10 +5482,10 @@ integration/weird-errors.niecza....................   2    0    2    3    7
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        2940,     0,   106,   260,  3306,  3465
+"S02",        2948,     1,   104,   259,  3312,  3471
 "S03",        3944,     0,   193,   357,  4494,  4167
 "S04",         783,     0,    35,    47,   865,   951
-"S05",        4013,    66,   113,   178,  4370,  5742
+"S05",        4051,     9,   115,   196,  4371,  5743
 "S06",         767,     0,    55,   160,   982,  1265
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          65,     0,     0,     8,    73,   175
@@ -5494,11 +5503,12 @@ integration/weird-errors.niecza....................   2    0    2    3    7
 "S29",         305,     0,     5,     5,   315,   328
 "S32",        6377,     0,   129,   238,  6744,  5263
 "int",         454,     0,    22,    24,   500,   548
-"total",     20815,    68,   747,  1487, 23117, 24606
+"total",     20861,    12,   747,  1504, 23124, 24613
 ----------------
 Failure summary:
+S02-types/nested_pairs.t 14 - key-nested pairs .perl correctly
 S05-mass/rx.niecza aborted 4 test(s)
 S05-metasyntax/unknown.niecza aborted 3 test(s)
-S05-transliteration/trans.niecza aborted 59 test(s)
+S05-transliteration/trans.niecza aborted 2 test(s)
 S12-methods/private.niecza aborted 1 test(s)
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals

@@ -99,8 +99,7 @@ S02-magicals/env.rakudo............................  13    0    0    1   14
 S02-magicals/file_line.t...........................   2    0    0    0    2
 S02-magicals/pid.t.................................   1    0    0    0    1
 S02-magicals/progname.t............................   3    0    0    0    3
-S02-magicals/sub.rakudo............................   3    0    1    0    4
-     1 todo   : is this spec?
+S02-magicals/sub.t.................................   3    0    0    0    3
 S02-names-vars/contextual.t........................  23    0    0    0   23
 S02-names-vars/fmt.rakudo..........................  19    0    2    0   21
      1 todo   : precision in Num.fmt
@@ -138,9 +137,24 @@ use of uninitialized variable $i of type Any in numeric context  in sub s at eva
      3 skipped: nom regression
      3 todo   : nom regression
      1 todo   : does not fail (Note: also see RT #63596 - used to Null PMC)
-S02-names-vars/varnames.rakudo.....................   4    0    2    2    8
+S02-names-vars/varnames.rakudo.....................Potential difficulties:
+    Redeclaration of symbol $!
+    at eval_0:1
+    ------> [32mmy $![33m⏏[31m<EOL>[0m
+Potential difficulties:
+    Redeclaration of symbol $/
+    at eval_1:1
+    ------> [32mmy $/[33m⏏[31m<EOL>[0m
+Potential difficulties:
+    Redeclaration of symbol $!
+    at eval_2:1
+    ------> [32mmy proto $![33m⏏[31m<EOL>[0m
+Potential difficulties:
+    Redeclaration of symbol $/
+    at eval_3:1
+    ------> [32mmy proto $/[33m⏏[31m<EOL>[0m
+   6    0    0    2    8
      2 skipped: binding to $/ (questionable?)
-     2 todo   : proto on variable declarations
 S02-names/caller.rakudo............................  14    0    1    0   15
      1 todo   : strictness
 S02-names/identifier.t.............................  21    0    0    0   21
@@ -304,7 +318,7 @@ S02-types/nan.rakudo...............................  18    0    1    2   21
      1 todo   : RT 83622
 S02-types/native.t.................................  25    0    0    0   25
 S02-types/nested_arrays.t..........................   8    0    0    0    8
-S02-types/nested_pairs.t...........................   7    0    0    0    7
+S02-types/nested_pairs.t...........................  14    0    0    0   14
 S02-types/nil.rakudo...............................  21    0    7    1   29
      1 skipped: RT 93980
      1 todo   : RT 93980
@@ -322,12 +336,7 @@ S02-types/set.rakudo...............................  78    0   15    0   93
      1 todo   : got bp
      1 todo   : got ao
     10 todo   : Hypers not yet Set compatible
-S02-types/sigils-and-types.rakudo..................Useless declaration of a has-scoped method in mainline
-Useless declaration of a has-scoped method in mainline
-Useless declaration of a has-scoped method in mainline
-  24    0    5    0   29
-     2 todo   : token/rule outside of class and grammar
-     1 todo   : method outside class - fix test?
+S02-types/sigils-and-types.rakudo..................  27    0    2    0   29
      1 todo   : Capture does Associative
      1 todo   : Capture does Positional
 S02-types/subscripts_and_context.t.................   8    0    0    0    8
@@ -723,17 +732,33 @@ use of uninitialized variable $v of type Any in numeric context  in block  at t/
      3 todo   : COMPILING
 S04-declarations/implicit-parameter.rakudo.........  16    0    2    0   18
      2 todo   : pointy blocks and $_
-S04-declarations/multiple.rakudo...................   2    0    3    1    6
-     1 skipped: binding
-     1 todo   : is this catching the warning?
-     2 todo   : nom regression
-S04-declarations/my.rakudo.........................use of uninitialized value of type Any in string context  in block  at t/spec/S04-declarations/my.rakudo:23
+S04-declarations/multiple.rakudo...................Potential difficulties:
+    Redeclaration of symbol $x
+    at t/spec/S04-declarations/multiple.rakudo:17
+    ------> [32m    my $x [33m⏏[31m= 3;[0m
+Potential difficulties:
+    Redeclaration of symbol $x
+    at eval_0:1
+    ------> [32mmy $x; my $x[33m⏏[31m<EOL>[0m
+Potential difficulties:
+    Redeclaration of symbol $x
+    at eval_1:1
+    ------> [32mstate $x; state $x[33m⏏[31m<EOL>[0m
+   5    0    1    0    6
+     1 todo   : nom regression
+S04-declarations/my.rakudo.........................Potential difficulties:
+    Redeclaration of symbol %p
+    at t/spec/S04-declarations/my.rakudo:56
+    ------> [32m        my %p[33m⏏[31m; #OK[0m
+    Redeclaration of symbol $f
+    at t/spec/S04-declarations/my.rakudo:160
+    ------> [32m    my $f[33m⏏[31m; #OK[0m
+use of uninitialized value of type Any in string context  in block  at t/spec/S04-declarations/my.rakudo:23
 
 use of uninitialized value of type Any in string context  in block  at t/spec/S04-declarations/my.rakudo:23
 
-  65    0    2    4   71
+  67    0    2    2   71
      2 skipped: nom regression, OUR::
-     2 skipped: fatal redeclarations
      1 todo   : previous test skipped
      1 todo   : fails
 S04-declarations/state.rakudo......................use of uninitialized variable $ of type Any in string context  in sub is at lib/Test.pm:81
@@ -909,7 +934,7 @@ S05-mass/properties-script.rakudo.................. 326    0    0   35  361
 S05-mass/recursive.t...............................  20    0    0    0   20
 S05-mass/rx.rakudo.................................use of uninitialized value of type Any in string context  in regex  at t/spec/S05-mass/rx.rakudo:542
 
- 680    0   10   43  733
+ 681    0    9   43  733
      1 skipped: <commit> not implemented
     21 skipped: **{}
      1 skipped: :s()
@@ -926,7 +951,6 @@ S05-mass/rx.rakudo.................................use of uninitialized value of
      1 todo   : RT 70606
      1 todo   : infix:<S&>
      1 todo   : anchors and after
-     1 todo   : regression - RT 111796
      1 todo   : unknown
 S05-mass/stdrules.rakudo........................... 158    0    0   28  186
     14 skipped: <.print>
@@ -1082,19 +1106,11 @@ S05-substitution/subst.rakudo......................  81    0    2   43  126
      3 skipped: $/ not involved in .subst yet (unspecced?)
      1 todo   : s[...] seems to always return true?
      1 todo   : be smarter about constant detection
-S05-transliteration/trans.rakudo...................[31m===[0mSORRY![31m===[0m
-Two terms in a row
-at t/spec/S05-transliteration/trans.rakudo:313
-------> [32m<BOL>[33m⏏[31msay "# FUDGED!";[0m
-    expecting any of:
-        postfix
-        infix or meta-infix
-        infix stopper
-        statement end
-        statement modifier
-        statement modifier loop
-   0   59    0    0   59
-    59 tests aborted (missing ok/not ok)
+S05-transliteration/trans.rakudo...................  41    0    0   19   60
+     2 skipped: closures and regexes
+     5 skipped: tr///, feed operator not implemented
+    11 skipped: flags
+     1 skipped: disambiguate ranges
 S05-transliteration/with-closure.rakudo............use of uninitialized value of type Any in string context  in block  at t/spec/S05-transliteration/with-closure.rakudo:48
 
 use of uninitialized value of type Any in string context  in block  at t/spec/S05-transliteration/with-closure.rakudo:48
@@ -1621,7 +1637,7 @@ S32-container/roundrobin.rakudo....................   4    0    1    0    5
 S32-container/zip.rakudo...........................   8    0    0    4   12
      2 skipped: Seq
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo......................... 461    0    0    4  465
+S32-exceptions/misc.rakudo......................... 458    0    0    4  462
      1 skipped: RT 114134
      1 skipped: RT 78370
      1 skipped: parsing of $& and other p5 variables
@@ -2168,10 +2184,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           2,     0,     0,    18,    20,    61
-"S02",        3114,     0,   150,   261,  3525,  3465
+"S02",        3126,     0,   144,   261,  3531,  3471
 "S03",        4307,     0,   147,   369,  4823,  4167
-"S04",         826,     0,    36,    53,   915,   951
-"S05",        4519,    59,   132,   558,  5268,  5742
+"S04",         831,     0,    34,    50,   915,   951
+"S05",        4561,     0,   131,   577,  5269,  5743
 "S06",        1121,     0,    28,   130,  1279,  1265
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         135,     0,    19,    21,   175,   175
@@ -2187,13 +2203,12 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         300,     0,     0,     1,   301,   258
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         309,     0,     2,     7,   318,   328
-"S32",        7310,     0,    98,   257,  7665,  5263
+"S32",        7307,     0,    98,   257,  7662,  5263
 "int",         517,     0,    16,    25,   558,   548
 "ros",           2,     0,     0,     0,     2,     2
-"total",     24419,    61,   678,  1878, 27036, 24608
+"total",     24475,     2,   669,  1894, 27040, 24615
 ----------------
 Failure summary:
-S05-transliteration/trans.rakudo aborted 59 test(s)
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
 S19-command-line/dash-e.t 3 - -e works with non-ASCII program texts
 note: test_summary.pl @syn does not have ros
