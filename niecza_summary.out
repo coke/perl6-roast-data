@@ -128,7 +128,7 @@ S02-literals/subscript.t...........................Potential difficulties:
    2    0    0    0    2
 S02-literals/types.t...............................   7    0    0    0    7
 S02-literals/underscores.t.........................  19    0    0    0   19
-S02-magicals/args.t................................   4    0    0    0    4
+S02-magicals/args.t................................   6    0    0    0    6
 S02-magicals/block.t...............................   1    0    0    0    1
 S02-magicals/dollar-underscore.niecza..............Potential difficulties:
   $letter is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-magicals/dollar-underscore.niecza line 32:
@@ -266,15 +266,10 @@ S02-one-pass-parsing/less-than.t...................   9    0    0    0    9
 S02-types/anon_block.niecza........................  35    0    0    7   42
      4 skipped: No candidates for dispatch to mone
      3 skipped: Exception NYI
-S02-types/array.niecza.............................Use of uninitialized value in string context
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-types/array.niecza line 216 (mainline @ 218) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
+S02-types/array.niecza.............................Potential difficulties:
+  &is_run is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-types/array.niecza line 341:
+------> [32m    [33m?[31muse Test::Util;[0m
+
 Use of uninitialized value in string context
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
@@ -338,7 +333,23 @@ Use of uninitialized value in string context
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
   at <unknown> line 0 (ExitRunloop @ 0) 
-  74    0    3   14   91
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-types/array.niecza line 216 (mainline @ 218) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Unhandled exception: Unable to resolve method postcircumfix:<( )> in type Any
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-types/array.niecza line 342 (ANON @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-types/array.niecza line 352 (mainline @ 312) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  74    8    3   14   99
      1 skipped: Zen slices
      5 skipped: Failure
      2 skipped: */.. interaction
@@ -349,6 +360,7 @@ Use of uninitialized value in string context
      1 todo   : 
      1 todo   : type constraints
      1 todo   : @arr[-1] returns undef
+     8 tests aborted (missing ok/not ok)
 S02-types/array_extending.niecza...................Potential difficulties:
   $foo is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-types/array_extending.niecza line 18:
 ------> [32m    my [33m?[31m$foo = @array[20];[0m
@@ -707,7 +719,16 @@ S03-metaops/reduce.niecza..........................Potential difficulties:
   @foo is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-metaops/reduce.niecza line 173:
 ------> [32mlives_ok({my [33m?[31m@foo = [1..3] >>+<< [1..3] >>+<< [1..3]}[0m
 
-  69    0    7   86  162
+Unhandled exception: Excess arguments to ANON, used 2 of 3 positionals
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-metaops/reduce.niecza line 0 (ANON @ 1) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 2558 (reduceop @ 12) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-metaops/reduce.niecza line 384 (ANON @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-metaops/reduce.niecza line 392 (mainline @ 225) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  69    0    7   86    0
      9 skipped: [macro]
      2 skipped: Iterable
     70 skipped: ^^
@@ -719,6 +740,7 @@ S03-metaops/reduce.niecza..........................Potential difficulties:
      2 todo   : this is parsed as ![=], not good
      1 todo   : huh?
      1 todo   : unary [] does not context yet
+   162 tests more than planned were run
 S03-metaops/reverse.t..............................  34    0    0    0   34
 S03-metaops/zip.niecza.............................  14    0    4    6   24
      1 skipped: Unable to resolve method munch in class List
@@ -1992,9 +2014,20 @@ S04-statements/next.t..............................Potential difficulties:
   12    0    0    0   12
 S04-statements/no-implicit-block.t.................  12    0    0    0   12
 S04-statements/redo.t..............................  11    0    0    0   11
-S04-statements/repeat.niecza.......................  17    0    1    1   19
+S04-statements/repeat.niecza.......................Potential difficulties:
+  &is_run is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-statements/repeat.niecza line 133:
+------> [32m    todo(); [33m?[31muse Test::Util;[0m
+
+Unhandled exception: Unable to resolve method postcircumfix:<( )> in type Any
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-statements/repeat.niecza line 134 (ANON @ 12) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-statements/repeat.niecza line 140 (mainline @ 273) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  17    3    0    1   21
      1 skipped: No value in ANON available for parameter $a
-     1 todo   : 
+     3 tests aborted (missing ok/not ok)
 S04-statements/return.t............................  17    0    0    0   17
 S04-statements/terminator.niecza...................Potential difficulties:
   $x is declared but not used at (eval) line 1:
@@ -2083,7 +2116,7 @@ S05-mass/rx.niecza.................................Potential difficulties:
   $rt112450 is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-mass/rx.niecza line 2572:
 ------> [32m    my [33m?[31m$rt112450 = 4;[0m
 
-sh: line 1: 14661 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
+sh: line 1: 29848 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
  663    4   19   47  733
      1 skipped: Unable to resolve method alpha in class Cursor
      2 skipped: Dubious test, http://irclog.perlgeek.de/perl6/2012-05-27#i_5643089
@@ -3868,7 +3901,7 @@ Use of uninitialized value in string context
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
   at <unknown> line 0 (ExitRunloop @ 0) 
   34    0    0    0   34
-S32-list/map.niecza................................  46    0    0    6   52
+S32-list/map.niecza................................  45    1    0    6   52
      1 skipped: No value for parameter $e in ANON
      2 skipped: Invocant handling is NYI
      2 skipped: No value for parameter $func in Any.map
@@ -5482,16 +5515,16 @@ integration/weird-errors.niecza....................   2    0    2    3    7
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        2948,     1,   104,   259,  3312,  3471
-"S03",        3944,     0,   193,   357,  4494,  4167
-"S04",         783,     0,    35,    47,   865,   951
+"S02",        2950,     9,   104,   259,  3322,  3482
+"S03",        3944,     0,   193,   357,  4332,  4167
+"S04",         783,     3,    34,    47,   867,   953
 "S05",        4051,     9,   115,   196,  4371,  5743
 "S06",         767,     0,    55,   160,   982,  1265
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          65,     0,     0,     8,    73,   175
 "S10",          35,     0,     5,    17,    57,   125
 "S11",           0,     0,     0,     0,     0,   112
-"S12",         734,     1,    60,   149,   944,  1318
+"S12",         734,     1,    60,   149,   944,  1319
 "S13",          31,     0,     1,    10,    42,    80
 "S14",         168,     0,     1,     9,   178,   325
 "S16",         189,     0,    21,    25,   235,   290
@@ -5501,14 +5534,18 @@ integration/weird-errors.niecza....................   2    0    2    3    7
 "S26",           0,     0,     0,     0,     0,   258
 "S28",           6,     0,     1,     0,     7,    13
 "S29",         305,     0,     5,     5,   315,   328
-"S32",        6377,     0,   129,   238,  6744,  5263
+"S32",        6376,     1,   129,   238,  6744,  5263
 "int",         454,     0,    22,    24,   500,   548
-"total",     20861,    12,   747,  1504, 23124, 24613
+"total",     20862,    24,   746,  1504, 22974, 24627
 ----------------
 Failure summary:
+S02-types/array.niecza aborted 8 test(s)
 S02-types/nested_pairs.t 14 - key-nested pairs .perl correctly
+S03-metaops/reduce.niecza passed 162 unplanned test(s)
+S04-statements/repeat.niecza aborted 3 test(s)
 S05-mass/rx.niecza aborted 4 test(s)
 S05-metasyntax/unknown.niecza aborted 3 test(s)
 S05-transliteration/trans.niecza aborted 2 test(s)
 S12-methods/private.niecza aborted 1 test(s)
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
+S32-list/map.niecza 24 - should be 6 elements (bare block)
