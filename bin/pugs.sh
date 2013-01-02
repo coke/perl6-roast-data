@@ -3,6 +3,8 @@
 LANG=en_US.UTF-8
 export LANG
 
+perlbrew off # Building pugs doesn't like our perlbrew.
+
 #
 # Warning - this doesn't handle the case where deps change
 # - make dies and says "run cabal configure"
