@@ -100,7 +100,11 @@ S02-literals/pairs.niecza..........................  76    0    2    1   79
      1 skipped: Action method escape:sym<&> not yet implemented
      2 todo   : 
 S02-literals/quoting-unicode.t.....................  72    0    0    0   72
-S02-literals/quoting.niecza........................ 127    0   19   11  157
+S02-literals/quoting.niecza........................Potential difficulties:
+  $x is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-literals/quoting.niecza line 594:
+------> [32mis "foo $( my [33m?[31m$x = 3 + 4; "bar" ) baz", 'foo bar baz',[0m
+
+ 128    0   19   11  158
      9 skipped: & escape, zen slices
      2 skipped: & escape
     17 todo   : 
@@ -266,11 +270,7 @@ S02-one-pass-parsing/less-than.t...................   9    0    0    0    9
 S02-types/anon_block.niecza........................  35    0    0    7   42
      4 skipped: No candidates for dispatch to mone
      3 skipped: Exception NYI
-S02-types/array.niecza.............................Potential difficulties:
-  &is_run is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-types/array.niecza line 341:
-------> [32m    [33m?[31muse Test::Util;[0m
-
-Use of uninitialized value in string context
+S02-types/array.niecza.............................Use of uninitialized value in string context
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
   at <unknown> line 0 (ExitRunloop @ 0) 
@@ -342,25 +342,18 @@ Use of uninitialized value in string context
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
   at <unknown> line 0 (ExitRunloop @ 0) 
-Unhandled exception: Unable to resolve method postcircumfix:<( )> in type Any
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-types/array.niecza line 342 (ANON @ 6) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-types/array.niecza line 352 (mainline @ 312) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-  74    8    3   14   99
+  74    0    3   22   99
      1 skipped: Zen slices
      5 skipped: Failure
      2 skipped: */.. interaction
      1 skipped: WhateverCode/.. interaction
      2 skipped: multi-dim arrays
      1 skipped: Cannot use value like WhateverCode as a number
+     8 skipped: throws_like
      2 skipped: coercion syntax
      1 todo   : 
      1 todo   : type constraints
      1 todo   : @arr[-1] returns undef
-     8 tests aborted (missing ok/not ok)
 S02-types/array_extending.niecza...................Potential difficulties:
   $foo is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-types/array_extending.niecza line 18:
 ------> [32m    my [33m?[31m$foo = @array[20];[0m
@@ -524,7 +517,8 @@ S02-types/nan.niecza...............................  20    0    0    1   21
      1 skipped: Nominal type check failed for scalar store; got Num, needed Int or subtype
 S02-types/nested_arrays.niecza.....................   7    0    1    0    8
      1 todo   : 
-S02-types/nested_pairs.t...........................  13    1    0    0   14
+S02-types/nested_pairs.niecza......................  13    0    1    0   14
+     1 todo   : key-nested pairs do not .perl correctly
 S02-types/nil.t....................................  29    0    0    0   29
 S02-types/num.t....................................  65    0    0    0   65
 S02-types/pair.niecza..............................  91    0    2    4   97
@@ -719,28 +713,19 @@ S03-metaops/reduce.niecza..........................Potential difficulties:
   @foo is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-metaops/reduce.niecza line 173:
 ------> [32mlives_ok({my [33m?[31m@foo = [1..3] >>+<< [1..3] >>+<< [1..3]}[0m
 
-Unhandled exception: Excess arguments to ANON, used 2 of 3 positionals
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-metaops/reduce.niecza line 0 (ANON @ 1) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 2558 (reduceop @ 12) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-metaops/reduce.niecza line 384 (ANON @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-metaops/reduce.niecza line 392 (mainline @ 225) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-  69    0    7   86    0
+  69    0    7   87  163
      9 skipped: [macro]
      2 skipped: Iterable
     70 skipped: ^^
      2 skipped: this is parsed as ![=], not good
      2 skipped: huh?  these are macros
      1 skipped: Str cmp Inf
+     1 skipped: reduce is not supposed to flatten?
      2 todo   : 
      1 todo   : These are hyperop tests!
      2 todo   : this is parsed as ![=], not good
      1 todo   : huh?
      1 todo   : unary [] does not context yet
-   162 tests more than planned were run
 S03-metaops/reverse.t..............................  34    0    0    0   34
 S03-metaops/zip.niecza.............................  14    0    4    6   24
      1 skipped: Unable to resolve method munch in class List
@@ -1273,10 +1258,10 @@ S03-operators/range.niecza.........................Use of uninitialized value in
      2 todo   : 
 S03-operators/relational.t......................... 118    0    0    0  118
 S03-operators/repeat.t.............................Potential difficulties:
-  @foo2 is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/repeat.t line 29:
+  @foo2 is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/repeat.t line 31:
 ------> [32mlives_ok { my [33m?[31m@foo2 = Mu xx 2; }, 'can repeat Mu';[0m
 
-  31    0    0    0   31
+  32    0    0    0   32
 S03-operators/scalar-assign.t......................   4    0    0    0    4
 S03-operators/set.t................................ 280    0    0    0  280
 S03-operators/short-circuit.niecza.................  39    0    1   42   82
@@ -1295,7 +1280,7 @@ S03-operators/subscript-adverbs.niecza.............Use of uninitialized value in
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1976 (Pair.Str @ 5) 
   at <unknown> line 0 (ExitRunloop @ 0) 
   at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 31 (ANON @ 28) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 249 (mainline @ 7) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 248 (mainline @ 7) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
@@ -1307,7 +1292,7 @@ Use of uninitialized value in string context
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1976 (Pair.Str @ 5) 
   at <unknown> line 0 (ExitRunloop @ 0) 
   at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 31 (ANON @ 28) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 249 (mainline @ 7) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 248 (mainline @ 7) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
@@ -1317,7 +1302,7 @@ Use of uninitialized value in string context
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
   at <unknown> line 0 (ExitRunloop @ 0) 
   at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 56 (ANON @ 30) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 249 (mainline @ 9) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 248 (mainline @ 9) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
@@ -1327,7 +1312,7 @@ Use of uninitialized value in string context
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
   at <unknown> line 0 (ExitRunloop @ 0) 
   at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 56 (ANON @ 30) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 249 (mainline @ 9) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 248 (mainline @ 9) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
@@ -1338,8 +1323,8 @@ Use of uninitialized value in string context
   at <unknown> line 0 (ExitRunloop @ 0) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1976 (Pair.Str @ 5) 
   at <unknown> line 0 (ExitRunloop @ 0) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 138 (ANON @ 28) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 249 (mainline @ 44) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 137 (ANON @ 28) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 248 (mainline @ 42) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
@@ -1350,8 +1335,8 @@ Use of uninitialized value in string context
   at <unknown> line 0 (ExitRunloop @ 0) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1976 (Pair.Str @ 5) 
   at <unknown> line 0 (ExitRunloop @ 0) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 138 (ANON @ 28) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 249 (mainline @ 44) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 137 (ANON @ 28) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 248 (mainline @ 42) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
@@ -1360,8 +1345,8 @@ Use of uninitialized value in string context
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
   at <unknown> line 0 (ExitRunloop @ 0) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 163 (ANON @ 30) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 249 (mainline @ 46) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 162 (ANON @ 30) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 248 (mainline @ 44) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
@@ -1370,8 +1355,8 @@ Use of uninitialized value in string context
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
   at <unknown> line 0 (ExitRunloop @ 0) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 163 (ANON @ 30) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 249 (mainline @ 46) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 162 (ANON @ 30) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 248 (mainline @ 44) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
@@ -1380,7 +1365,7 @@ Use of uninitialized value in string context
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
   at <unknown> line 0 (ExitRunloop @ 0) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 231 (mainline @ 90) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 230 (mainline @ 88) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
@@ -1389,17 +1374,16 @@ Use of uninitialized value in string context
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
   at <unknown> line 0 (ExitRunloop @ 0) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 241 (mainline @ 104) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/subscript-adverbs.niecza line 240 (mainline @ 102) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
   at <unknown> line 0 (ExitRunloop @ 0) 
-  30    0   22   12   64
+  31    0   21   12   64
      6 skipped: Excess arguments to KERNEL Hash.postcircumfix:<{ }>, unused named v
      6 skipped: Excess arguments to KERNEL Array.postcircumfix:<[ ]>, unused named v
     19 todo   : 
      2 todo   : Cannot use value like Pair as a number
-     1 todo PASSED: 
 S03-operators/subscript-vs-lt.t....................   4    0    0    0    4
 S03-operators/ternary.t............................  17    0    0    0   17
 S03-operators/value_equivalence.niecza.............  72    0    3    0   75
@@ -2014,20 +1998,9 @@ S04-statements/next.t..............................Potential difficulties:
   12    0    0    0   12
 S04-statements/no-implicit-block.t.................  12    0    0    0   12
 S04-statements/redo.t..............................  11    0    0    0   11
-S04-statements/repeat.niecza.......................Potential difficulties:
-  &is_run is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-statements/repeat.niecza line 133:
-------> [32m    todo(); [33m?[31muse Test::Util;[0m
-
-Unhandled exception: Unable to resolve method postcircumfix:<( )> in type Any
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-statements/repeat.niecza line 134 (ANON @ 12) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-statements/repeat.niecza line 140 (mainline @ 273) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-  17    3    0    1   21
+S04-statements/repeat.niecza.......................  17    0    0    4   21
+     3 skipped: throws_like
      1 skipped: No value in ANON available for parameter $a
-     3 tests aborted (missing ok/not ok)
 S04-statements/return.t............................  17    0    0    0   17
 S04-statements/terminator.niecza...................Potential difficulties:
   $x is declared but not used at (eval) line 1:
@@ -2116,8 +2089,8 @@ S05-mass/rx.niecza.................................Potential difficulties:
   $rt112450 is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-mass/rx.niecza line 2572:
 ------> [32m    my [33m?[31m$rt112450 = 4;[0m
 
-sh: line 1: 14181 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
- 663    4   19   47  733
+sh: line 1:   626 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
+ 662    5   19   47  733
      1 skipped: Unable to resolve method alpha in class Cursor
      2 skipped: Dubious test, http://irclog.perlgeek.de/perl6/2012-05-27#i_5643089
     13 skipped: Unable to resolve method wb in class Cursor
@@ -2131,7 +2104,7 @@ sh: line 1: 14181 Killed                  nice -20 mono ./run/Niecza.exe t/spec/
      3 todo   : ::: issue
      2 todo   : :: issues
      3 todo   : Unable to resolve method cntrl in class Cursor
-     4 tests aborted (missing ok/not ok)
+     5 tests aborted (missing ok/not ok)
 S05-mass/stdrules.niecza........................... 183    0    0    3  186
      3 skipped: <at>
 S05-match/arrayhash.niecza.........................   4    0    4    0    8
@@ -2245,30 +2218,19 @@ S05-metasyntax/repeat.t............................  22    0    0    0   22
 S05-metasyntax/sequential-alternation.niecza.......   8    0    2    0   10
      2 todo   : 
 S05-metasyntax/single-quotes.t.....................   5    0    0    0    5
-S05-metasyntax/unknown.niecza......................Potential difficulties:
-  &is_run is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-metasyntax/unknown.niecza line 37:
-------> [32m    [33m?[31muse Test::Util;[0m
-
-Use of uninitialized value in string context
+S05-metasyntax/unknown.niecza......................Use of uninitialized value in string context
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
   at <unknown> line 0 (ExitRunloop @ 0) 
   at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-metasyntax/unknown.niecza line 31 (ANON @ 7) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-metasyntax/unknown.niecza line 45 (mainline @ 21) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-metasyntax/unknown.niecza line 47 (mainline @ 21) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
   at <unknown> line 0 (ExitRunloop @ 0) 
-Unhandled exception: Unable to resolve method postcircumfix:<( )> in type Any
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-metasyntax/unknown.niecza line 38 (ANON @ 6) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-metasyntax/unknown.niecza line 45 (mainline @ 23) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-   9    3    1    0   13
+   9    0    1    3   13
+     3 skipped: throws_like
      1 todo   : 
-     3 tests aborted (missing ok/not ok)
 S05-modifier/continue.t............................  13    0    0    0   13
 S05-modifier/counted-match.niecza..................  11    0    1   10   22
      4 skipped: Excess arguments to CORE Cool.match
@@ -2315,25 +2277,13 @@ Use of uninitialized value in string context
      3 todo   : 
      3 todo   : :nth(3, 4) NYI
      1 todo   : Niecza works when it shouldn't?
-S05-transliteration/trans.niecza...................Unhandled exception: Nominal type check failed for scalar store; got Int, needed Str or subtype
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 2651 (NieczaLSM.next_substitution @ 26) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 2698 (Niecza-trans @ 23) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 717 (Cool.trans @ 4) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-transliteration/trans.niecza line 307 (ANON @ 2) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 3089 (hyperunary @ 66) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 3080 (hyperunary @ 36) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-transliteration/trans.niecza line 307 (mainline @ 151) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-  38    2    2   18   60
+S05-transliteration/trans.niecza...................  38    0    2   20   60
      2 skipped: closures and regexes
+     2 skipped: Nominal type check failed for scalar store; got Int, needed Str or subtype
      5 skipped: Action method quote:tr not yet implemented
     11 skipped: trans flags NYI
      1 todo   : 
      1 todo   : Not sure what is supposed to be going on here
-     2 tests aborted (missing ok/not ok)
 S05-transliteration/with-closure.niecza............Use of uninitialized value in string context
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
@@ -2690,47 +2640,8 @@ Use of uninitialized value in numeric context
      1 todo   : ... basic infix operator overloading worked
      1 todo   : stringification didn't die
      1 todo   : ... worked in array stringification
-S06-other/anon-hashes-vs-blocks.niecza.............Use of uninitialized value in numeric context
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 294 (Any.Numeric @ 8) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-other/anon-hashes-vs-blocks.niecza line 61 (mainline @ 77) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-Use of uninitialized value in numeric context
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 294 (Any.Numeric @ 8) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-other/anon-hashes-vs-blocks.niecza line 61 (mainline @ 77) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-Use of uninitialized value in string context
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 2465 (_hash_constructor @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-other/anon-hashes-vs-blocks.niecza line 61 (mainline @ 80) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-Unhandled exception: Unable to resolve method postcircumfix:<( )> in type Hash
-  at <unknown> line 0 (KERNEL map @ 2) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 2425 (GatherIterator.reify @ 6) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 388 (Any.hash @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-other/anon-hashes-vs-blocks.niecza line 61 (mainline @ 82) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-  15    1    0    2   18
-     2 skipped: Thinks the block is a hash
-     1 tests aborted (missing ok/not ok)
+S06-other/anon-hashes-vs-blocks.niecza.............  15    0    0    3   18
+     3 skipped: Thinks the block is a hash
 S06-other/main-eval.t..............................Potential difficulties:
   $a is declared but not used at (eval) line 3:
 ------> [32m    sub MAIN([33m?[31m$a, $b) { $main_invoked = 1 };[0m
@@ -2908,22 +2819,14 @@ S10-packages/basic.niecza..........................Potential difficulties:
   $x is declared but not used at (eval) line 1:
 ------> [32mmy [33m?[31m$x = ::P[0m
 
-Unhandled exception: Nominal type check failed in binding '$l' in 'infix:<===>'; got My74592, needed Any
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 0 (infix:<===> @ 1) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S10-packages/basic.niecza line 249 (ANON @ 6) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S10-packages/basic.niecza line 260 (mainline @ 158) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-  35    2    5   17   59
+  35    0    5   19   59
      2 skipped: Unable to locate module PM6 in @path
      1 skipped: Unable to find lexical $?PACKAGE in pkg
+     2 skipped: Nominal type check failed in binding $l in infix:<===>; got My74592, needed Any
     10 skipped: Exception not defined
      3 skipped: Export tags NYI
      1 skipped: AlsoEmpty undeclared (ie no autovivification, I guess)
      5 todo   : 
-     2 tests aborted (missing ok/not ok)
                                                    pass fail todo skip plan
 S12-attributes/augment-and-initialization.niecza...   2    0    4    2    8
      2 skipped: Unable to resolve method t in class T1
@@ -2946,31 +2849,436 @@ S12-attributes/clone.niecza........................Use of uninitialized value in
 S12-attributes/defaults.niecza.....................  32    0    0    2   34
      2 skipped: 'self' used where no object is available
 S12-attributes/inheritance.t.......................   7    0    0    0    7
-S12-attributes/instance.niecza.....................[31m===[0mSORRY![31m===[0m
-
-Attribute $!x declared outside of any class at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 681:
-------> [32m            has $.x[33m?[31m;[0m
-
-Potential difficulties:
-  &f is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 680:
-------> [32m        sub f [33m?[31m{[0m
-
-Unhandled exception: Check failed
-
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 1443 (die @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1147 (P6.comp_unit @ 37) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 101 (STD.TOP @ 11) 
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 2923 (Grammar.parse @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaFrontendSTD.pm6 line 281 (NieczaFrontendSTD.parse @ 70) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaCompiler.pm6 line 34 (NieczaCompiler.compile @ 18) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaCompiler.pm6 line 60 (NieczaCompiler.compile_file @ 8) 
-  at /home/coke/sandbox/perl6pass/niecza/src/niecza line 159 (mainline @ 141) 
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4211 (ANON @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4212 (module-CORE @ 578) 
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4212 (mainline @ 3) 
+S12-attributes/instance.niecza.....................Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
   at <unknown> line 0 (ExitRunloop @ 0) 
-   0  139    0    0  139
-   139 tests aborted (missing ok/not ok)
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1655 (List.join @ 6) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 495 (ANON @ 60) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/instance.niecza line 695 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+ 113    0   17    9  139
+     1 skipped: Unable to resolve method of in class Array
+     2 skipped: Unhandled parameter twigil .
+     1 skipped: Attribute $!x declared outside of any class
+     1 skipped: Unable to resolve method of in class Hash
+     1 skipped: self closure
+     3 skipped: Variable $.a used where no self is available
+     2 todo   : original not affected
+     7 todo   : 
+     2 todo   : ro array/hash with accessor
+     4 todo   : typed arrays
+     2 todo   : ro on list attributes
 S12-attributes/recursive.niecza....................  11    0    0    8   19
      8 skipped: A type must be provided ???
 S12-class/anonymous.niecza.........................  15    0    2    0   17
@@ -3212,10 +3520,9 @@ S12-methods/private.niecza.........................Potential difficulties:
   &is_run is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-methods/private.niecza line 4:
 ------> [32m<BOL>[33m?[31muse Test::Util;[0m
 
-  10    1    1    1   13
-     1 skipped: throws_like NYI
+  10    0    1    2   13
+     2 skipped: throws_like NYI
      1 todo   : role private methods - spec?
-     1 tests aborted (missing ok/not ok)
 S12-methods/submethods.niecza......................  23    0    4    0   27
      4 todo   : 
 S12-methods/syntax.niecza..........................   8    0    0    4   12
@@ -3545,11 +3852,12 @@ Use of uninitialized value in string context
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
   at <unknown> line 0 (ExitRunloop @ 0) 
   34    0    0    0   34
-S32-list/map.niecza................................  45    1    0    6   52
+S32-list/map.niecza................................  45    0    1    6   52
      1 skipped: No value for parameter $e in ANON
      2 skipped: Invocant handling is NYI
      2 skipped: No value for parameter $func in Any.map
      1 skipped: No value for parameter $b in ANON
+     1 todo   : 
 S32-list/minmax.niecza.............................  54    0    0    5   59
      3 skipped: Range.min not fully implemented yet
      2 skipped: Range.max not fully implemented yet
@@ -3621,8 +3929,8 @@ S32-num/rand.niecza................................Potential difficulties:
 ------> [32m<BOL>[33m?[31muse Test::Util;[0m
 
  109    0    0    5  114
+     4 skipped: throws_like
      1 skipped: Test is too slow
-     4 skipped: Unable to resolve method postcircumfix:<( )> in type Any
 S32-num/rat.niecza.................................Use of uninitialized value in numeric context
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 294 (Any.Numeric @ 8) 
@@ -5152,23 +5460,22 @@ integration/real-strings.niecza....................Potential difficulties:
 integration/role-composition-vs-attribute.t........   1    0    0    0    1
 integration/say-crash.t............................   4    0    0    0    4
 integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
-integration/weird-errors.niecza....................   3    0    2    3    8
+integration/weird-errors.niecza....................   4    0    1    3    8
      3 skipped: todo
      1 todo   : 
-     1 todo PASSED: 
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        2955,     9,   104,   259,  3327,  3487
-"S03",        3945,     0,   193,   357,  4333,  4169
-"S04",         785,     3,    34,    47,   869,   955
-"S05",        4051,     9,   115,   196,  4371,  5744
-"S06",         769,     1,    55,   160,   985,  1274
+"S02",        2956,     0,   105,   267,  3328,  3488
+"S03",        3947,     0,   192,   358,  4497,  4170
+"S04",         785,     0,    34,    50,   869,   955
+"S05",        4050,     5,   115,   201,  4371,  5744
+"S06",         769,     0,    55,   161,   985,  1274
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          65,     0,     0,     8,    73,   175
-"S10",          35,     2,     5,    17,    59,   127
+"S10",          35,     0,     5,    19,    59,   127
 "S11",           0,     0,     0,     0,     0,   112
-"S12",         621,   140,    43,   141,   945,  1320
+"S12",         734,     0,    60,   151,   945,  1320
 "S13",          31,     0,     1,    10,    42,    80
 "S14",         168,     0,     1,     9,   178,   325
 "S16",         189,     0,    21,    25,   235,   290
@@ -5178,21 +5485,10 @@ integration/weird-errors.niecza....................   3    0    2    3    8
 "S26",           0,     0,     0,     0,     0,   258
 "S28",           6,     0,     1,     0,     7,    13
 "S29",         305,     0,     5,     5,   315,   328
-"S32",        6376,     1,   129,   238,  6744,  5263
-"int",         455,     0,    22,    24,   501,   549
-"total",     20760,   166,   729,  1496, 22989, 24650
+"S32",        6376,     0,   130,   238,  6744,  5264
+"int",         456,     0,    21,    24,   501,   549
+"total",     20876,     6,   746,  1526, 23154, 24653
 ----------------
 Failure summary:
-S02-types/array.niecza aborted 8 test(s)
-S02-types/nested_pairs.t 14 - key-nested pairs .perl correctly
-S03-metaops/reduce.niecza passed 162 unplanned test(s)
-S04-statements/repeat.niecza aborted 3 test(s)
-S05-mass/rx.niecza aborted 4 test(s)
-S05-metasyntax/unknown.niecza aborted 3 test(s)
-S05-transliteration/trans.niecza aborted 2 test(s)
-S06-other/anon-hashes-vs-blocks.niecza aborted 1 test(s)
-S10-packages/basic.niecza aborted 2 test(s)
-S12-attributes/instance.niecza aborted 139 test(s)
-S12-methods/private.niecza aborted 1 test(s)
+S05-mass/rx.niecza aborted 5 test(s)
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
-S32-list/map.niecza 24 - should be 6 elements (bare block)
