@@ -25,9 +25,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xa10c778)'
+#     Actual: 'CODE(0x988f778)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xa10ca98)'
+#     Actual: 'CODE(0x988fa98)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -612,8 +612,8 @@ decodeUTF8': bad data: '\31505'
     Unexpected end of input
     expecting term postfix, operator, ":" or ","
     at t/spec/S02-literals/quoting.pugs line 603, column 28
-   0  158    0    0  158
-   158 tests aborted (missing ok/not ok)
+   0  159    0    0  159
+   159 tests aborted (missing ok/not ok)
 S02-literals/radix.pugs............................decodeUTF8': bad data: '\171'
 decodeUTF8': bad data: '\187'
 #   Expected: '14'
@@ -4231,7 +4231,7 @@ S12-attributes/instance.pugs.......................#     Actual: An exception wa
      2 todo   : feature by Christmas
      1 todo PASSED: fix by Christmas
    135 tests aborted (missing ok/not ok)
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6bbd201>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6aaa389>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6bbd201>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6aaa389>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6abccd5>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6a1cdd5>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6abccd5>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6a1cdd5>})])}])
 #   Expected: 'undef'
 #     Actual: 'Scalar()'
   16    0    2    1   19
@@ -4409,13 +4409,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.24015.504
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.24015.504
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.24015.504
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.24015.504
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.24015.504
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.24015.504
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.24015.504
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.9622.976
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.9622.976
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.9622.976
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.9622.976
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.9622.976
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.9622.976
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.9622.976
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -4676,7 +4676,7 @@ S32-list/pick.pugs.................................#     Actual: undef
 #     Actual: 'Array::Const()'
 #     Actual: undef
 #     Actual: undef
-sh: line 1: 24103 Killed                  nice -20 ./Pugs/pugs t/spec/S32-list/pick.pugs
+sh: line 1:  9710 Killed                  nice -20 ./Pugs/pugs t/spec/S32-list/pick.pugs
   23    8    4   11   46
      1 skipped: .Str
      1 skipped: Nil
@@ -5595,11 +5595,11 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",          25,     5,     8,     9,    47,    79
-"S02",        1108,   719,   181,   179,  2187,  3588
+"S02",        1108,   720,   181,   179,  2188,  3590
 "S03",        1750,   252,   265,   190,  2457,  4176
 "S04",         354,   208,    73,    37,   672,   955
 "S05",        1975,   848,  1625,    22,  4470,  5744
-"S06",         255,   249,    50,    43,   597,  1274
+"S06",         255,   249,    50,    43,   597,  1275
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          58,    31,     7,     2,    98,   175
 "S10",          30,     0,     9,     0,    39,   127
@@ -5616,7 +5616,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S29",          24,    10,     6,     4,    44,    78
 "S32",        2137,   360,   273,   346,  3116,  5275
 "int",         119,    10,    34,    24,   187,   537
-"total",      8190,  2920,  2582,   909, 14601, 24520
+"total",      8190,  2921,  2582,   909, 14602, 24523
 ----------------
 Failure summary:
 S01-perl-5-integration/basic.pugs aborted 5 test(s)
@@ -5625,7 +5625,7 @@ S02-lexical-conventions/unicode.pugs aborted 7 test(s)
 S02-literals/misc-interpolation.pugs 24 - curly brace delimiters interfere with closure interpolation
 S02-literals/misc-interpolation.pugs aborted 3 test(s)
 S02-literals/quoting-unicode.pugs aborted 62 test(s)
-S02-literals/quoting.pugs aborted 158 test(s)
+S02-literals/quoting.pugs aborted 159 test(s)
 S02-literals/sub-calls.pugs 12 - call with adverb after no space
 S02-names-vars/perl.pugs aborted 7 test(s)
 S02-names-vars/variables-and-packages.pugs aborted 15 test(s)

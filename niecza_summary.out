@@ -104,7 +104,7 @@ S02-literals/quoting.niecza........................Potential difficulties:
   $x is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-literals/quoting.niecza line 594:
 ------> [32mis "foo $( my [33m?[31m$x = 3 + 4; "bar" ) baz", 'foo bar baz',[0m
 
- 128    0   19   11  158
+ 128    1   19   11  159
      9 skipped: & escape, zen slices
      2 skipped: & escape
     17 todo   : 
@@ -174,8 +174,27 @@ S02-magicals/env.niecza............................Potential difficulties:
      1 skipped: Action method statement_control:import not yet implemented
      1 skipped: Cannot call is_run; none of these signatures match
 S02-magicals/file_line.t...........................   2    0    0    0    2
-S02-magicals/progname.niecza.......................   2    0    1    0    3
-     1 todo   : 
+S02-magicals/progname.niecza.......................[31m===[0mSORRY![31m===[0m
+
+Multi colonpair syntax not yet understood at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-magicals/progname.niecza line 32:
+------> [32m    :args['IGNOREME'][33m?[31m,[0m
+
+Unhandled exception: Check failed
+
+  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 1443 (die @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1147 (P6.comp_unit @ 37) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 101 (STD.TOP @ 11) 
+  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 2923 (Grammar.parse @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/src/NieczaFrontendSTD.pm6 line 281 (NieczaFrontendSTD.parse @ 70) 
+  at /home/coke/sandbox/perl6pass/niecza/src/NieczaCompiler.pm6 line 34 (NieczaCompiler.compile @ 18) 
+  at /home/coke/sandbox/perl6pass/niecza/src/NieczaCompiler.pm6 line 60 (NieczaCompiler.compile_file @ 8) 
+  at /home/coke/sandbox/perl6pass/niecza/src/niecza line 159 (mainline @ 141) 
+  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4211 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4212 (module-CORE @ 578) 
+  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4212 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+   0    4    0    0    4
+     4 tests aborted (missing ok/not ok)
 S02-magicals/sub.t.................................   3    0    0    0    3
 S02-names-vars/contextual.t........................  23    0    0    0   23
 S02-names-vars/fmt.niecza..........................  19    0    2    0   21
@@ -2089,8 +2108,8 @@ S05-mass/rx.niecza.................................Potential difficulties:
   $rt112450 is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-mass/rx.niecza line 2572:
 ------> [32m    my [33m?[31m$rt112450 = 4;[0m
 
-sh: line 1: 27214 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
- 662    5   19   47  733
+sh: line 1: 12833 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
+ 661    6   19   47  733
      1 skipped: Unable to resolve method alpha in class Cursor
      2 skipped: Dubious test, http://irclog.perlgeek.de/perl6/2012-05-27#i_5643089
     13 skipped: Unable to resolve method wb in class Cursor
@@ -2104,7 +2123,7 @@ sh: line 1: 27214 Killed                  nice -20 mono ./run/Niecza.exe t/spec/
      3 todo   : ::: issue
      2 todo   : :: issues
      3 todo   : Unable to resolve method cntrl in class Cursor
-     5 tests aborted (missing ok/not ok)
+     6 tests aborted (missing ok/not ok)
 S05-mass/stdrules.niecza........................... 183    0    0    3  186
      3 skipped: <at>
 S05-match/arrayhash.niecza.........................   4    0    4    0    8
@@ -2529,7 +2548,11 @@ S06-multi/positional-vs-named.t....................Potential difficulties:
 ------> [32m    multi zero(:[33m?[31m$foo!) { 'named'   };[0m
 
   27    0    0    0   27
-S06-multi/proto.niecza.............................  11    0    1   15   27
+S06-multi/proto.niecza.............................Potential difficulties:
+  $x is declared but not used at (eval) line 2:
+------> [32m    proto f(Int [33m?[31m$x) {*}; multi f($) { 'default' }; f 'fo[0m
+
+  11    1    1   15   28
      8 skipped: Unhandled exception: Cannot use value like Block as a number
      1 skipped: >>>Stub code executed
      1 skipped: System.NullReferenceException: Object reference not set to an instance of an object
@@ -5466,11 +5489,11 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        2956,     0,   105,   267,  3328,  3488
+"S02",        2954,     5,   104,   267,  3330,  3490
 "S03",        3953,     0,   192,   358,  4503,  4176
 "S04",         785,     0,    34,    50,   869,   955
-"S05",        4050,     5,   115,   201,  4371,  5744
-"S06",         769,     0,    55,   161,   985,  1274
+"S05",        4049,     6,   115,   201,  4371,  5744
+"S06",         769,     1,    55,   161,   986,  1275
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          65,     0,     0,     8,    73,   175
 "S10",          35,     0,     5,    19,    59,   127
@@ -5487,8 +5510,11 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 "S29",         305,     0,     5,     5,   315,   328
 "S32",        6376,     0,   130,   238,  6744,  5264
 "int",         456,     0,    21,    24,   501,   549
-"total",     20882,     6,   746,  1526, 23160, 24659
+"total",     20879,    13,   745,  1526, 23163, 24662
 ----------------
 Failure summary:
-S05-mass/rx.niecza aborted 5 test(s)
+S02-literals/quoting.niecza 159 - texas quotes edge case
+S02-magicals/progname.niecza aborted 4 test(s)
+S05-mass/rx.niecza aborted 6 test(s)
+S06-multi/proto.niecza 28 - proto signature is checked, not just that of the candidates
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
