@@ -816,7 +816,7 @@ S04-statements/for.rakudo..........................  69    0    4    2   75
      2 todo   : RT 113026 array iterator does not track a growing array
      2 todo   : is rw NYI
 S04-statements/for_with_only_one_item.t............   9    0    0    0    9
-S04-statements/gather.rakudo.......................  21    0    0    1   22
+S04-statements/gather.rakudo.......................  27    0    0    1   28
      1 skipped: nom regression (loops)
 S04-statements/given.t.............................  51    0    0    0   51
 S04-statements/if.t................................  29    0    0    0   29
@@ -1422,13 +1422,13 @@ S12-introspection/methods.rakudo...................  37    0    2   11   50
     11 skipped: nom regression
      2 todo   : nom regression
 S12-introspection/parents.t........................  59    0    0    0   59
-S12-introspection/roles.rakudo.....................use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1277
+S12-introspection/roles.rakudo.....................use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1292
 
-use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1277
+use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1292
 
-use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1277
+use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1292
 
-use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1277
+use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1292
 
    8    0    0    4   12
      4 skipped: .^roles(:tree)
@@ -1505,8 +1505,7 @@ S14-roles/basic.rakudo.............................  37    0    2    3   42
 S14-roles/bool.t...................................   3    0    0    0    3
 S14-roles/composition.rakudo.......................  24    0    0    2   26
      2 skipped: diamond composition
-S14-roles/conflicts.rakudo.........................   8    0    3    0   11
-     3 todo   : nom regression
+S14-roles/conflicts.t..............................  11    0    0    0   11
 S14-roles/crony.t..................................   4    0    0    0    4
 S14-roles/instantiation.t..........................  19    0    0    0   19
 S14-roles/lexical.t................................   9    0    0    0    9
@@ -1651,7 +1650,7 @@ S32-hash/pairs.rakudo..............................  20    0    1    0   21
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo..............................  16    0    0   13   29
     13 skipped: binding on hash elements unimplemented
-S32-io/IO-Socket-INET.rakudo.......................  14    0    0    2   16
+S32-io/IO-Socket-INET.rakudo.......................  17    0    0    2   19
      2 skipped: RT 115862
 S32-io/chdir.rakudo................................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
@@ -1699,7 +1698,7 @@ S32-list/reduce.rakudo.............................use of uninitialized value of
      1 skipped: n-ary reduce
 S32-list/reverse.rakudo............................  20    0    1    0   21
      1 todo   : RT 77914
-S32-list/roll.t....................................  40    0    0    0   40
+S32-list/roll.t....................................  39    1    0    0   40
 S32-list/sort.rakudo...............................use of uninitialized value of type Code in string context  in block  at t/spec/S32-list/sort.rakudo:224
 
 use of uninitialized value of type Code in string context  in block  at t/spec/S32-list/sort.rakudo:224
@@ -2179,7 +2178,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        3146,     0,   143,   261,  3550,  3490
 "S03",        4317,     0,   147,   369,  4833,  4176
-"S04",         835,     0,    34,    50,   919,   955
+"S04",         841,     0,    34,    50,   925,   961
 "S05",        4562,     0,   131,   577,  5270,  5744
 "S06",        1129,     0,    28,   132,  1289,  1275
 "S07",           0,     0,     0,     0,     0,     0
@@ -2188,7 +2187,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S11",          53,     0,     0,     4,    57,   112
 "S12",        1253,     0,    36,   130,  1419,  1320
 "S13",          70,     0,     0,     0,    70,    80
-"S14",         285,     0,     7,    14,   306,   325
+"S14",         288,     0,     4,    14,   306,   325
 "S16",         226,     0,     6,    25,   257,   290
 "S17",           0,     0,     0,     0,     0,    28
 "S19",           2,     2,     0,     0,     4,     4
@@ -2196,12 +2195,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         300,     0,     0,     1,   301,   258
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         310,     0,     1,     7,   318,   328
-"S32",        7326,     0,    98,   257,  7681,  5264
+"S32",        7328,     1,    98,   257,  7684,  5267
 "int",         518,     0,    16,    25,   559,   549
 "ros",           2,     0,     0,     0,     2,     2
-"total",     24541,     2,   667,  1898, 27108, 24664
+"total",     24552,     3,   664,  1898, 27117, 24673
 ----------------
 Failure summary:
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
 S19-command-line/dash-e.t 3 - -e works with non-ASCII program texts
+S32-list/roll.t 40 - different results due to random random-number seed
 note: test_summary.pl @syn does not have ros
