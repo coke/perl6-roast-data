@@ -189,10 +189,8 @@ S02-packages/package-lookup.t......................   7    0    0    0    7
 S02-types/anon_block.rakudo........................  39    0    1    2   42
      2 skipped: tests don't work if previous test fails
      1 todo   : Parrot support for zero-arg subs?
-S02-types/array.rakudo.............................  95    0    2    2   99
+S02-types/array.rakudo.............................  97    0    0    2   99
      2 skipped: multi-dim arrays
-     1 todo   : binding not yet fatal
-     1 todo   : @arr[-1] returns failure, not dies
 S02-types/array_extending.t........................use of uninitialized value of type Any in string context  in block  at t/spec/S02-types/array_extending.t:101
 
 use of uninitialized value of type Any in string context  in block  at t/spec/S02-types/array_extending.t:101
@@ -810,7 +808,7 @@ S04-statements/do.rakudo...........................  21    0    0    6   27
      3 skipped: labels
      1 skipped: redo not implemented
 S04-statements/for-scope.t.........................  16    0    0    0   16
-S04-statements/for.rakudo..........................  69    0    4    2   75
+S04-statements/for.rakudo..........................  70    0    4    2   76
      1 skipped: optional variable in for loop (RT #63994)
      1 skipped: Nom doesn't feature lazily for looping over a range yet?
      2 todo   : RT 113026 array iterator does not track a growing array
@@ -1615,9 +1613,7 @@ S32-array/push.t...................................  50    0    0    0   50
 S32-array/rotate.rakudo............................  27    0    0    1   28
      1 skipped: Parcel.rotate
 S32-array/shift.t..................................  31    0    0    0   31
-S32-array/splice.rakudo............................  26    0    1   10   37
-    10 skipped: needs WhateverCode args
-     1 todo   : negative args don't die
+S32-array/splice.t.................................  37    0    0    0   37
 S32-array/unshift.t................................  56    0    0    0   56
 S32-basics/warn.rakudo.............................# It's OK to see this warning during a test run  in block  at t/spec/S32-basics/warn.rakudo:13
 
@@ -1698,7 +1694,7 @@ S32-list/reduce.rakudo.............................use of uninitialized value of
      1 skipped: n-ary reduce
 S32-list/reverse.rakudo............................  20    0    1    0   21
      1 todo   : RT 77914
-S32-list/roll.t....................................  39    1    0    0   40
+S32-list/roll.t....................................  40    0    0    0   40
 S32-list/sort.rakudo...............................use of uninitialized value of type Code in string context  in block  at t/spec/S32-list/sort.rakudo:224
 
 use of uninitialized value of type Code in string context  in block  at t/spec/S32-list/sort.rakudo:224
@@ -2176,9 +2172,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3146,     0,   143,   261,  3550,  3490
+"S02",        3148,     0,   141,   261,  3550,  3490
 "S03",        4317,     0,   147,   369,  4833,  4176
-"S04",         841,     0,    34,    50,   925,   961
+"S04",         842,     0,    34,    50,   926,   962
 "S05",        4562,     0,   131,   577,  5270,  5744
 "S06",        1129,     0,    28,   132,  1289,  1275
 "S07",           0,     0,     0,     0,     0,     0
@@ -2195,13 +2191,12 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         300,     0,     0,     1,   301,   258
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         310,     0,     1,     7,   318,   328
-"S32",        7328,     1,    98,   257,  7684,  5267
+"S32",        7340,     0,    97,   247,  7684,  5267
 "int",         518,     0,    16,    25,   559,   549
 "ros",           2,     0,     0,     0,     2,     2
-"total",     24552,     3,   664,  1898, 27117, 24673
+"total",     24567,     2,   661,  1888, 27118, 24674
 ----------------
 Failure summary:
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
 S19-command-line/dash-e.t 3 - -e works with non-ASCII program texts
-S32-list/roll.t 40 - different results due to random random-number seed
 note: test_summary.pl @syn does not have ros
