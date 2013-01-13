@@ -25,9 +25,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xa6ed778)'
+#     Actual: 'CODE(0xa412778)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xa6eda98)'
+#     Actual: 'CODE(0xa412a98)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -1752,10 +1752,10 @@ S03-operators/short-circuit.pugs...................#   Expected: '0'
 #     Actual: ''
 #   Expected: '0'
 #     Actual: ''
-# Looks like you planned 82 tests, but ran 78
+# Looks like you planned 83 tests, but ran 79
 *** No such subroutine: "&done"
-    at t/spec/S03-operators/short-circuit.pugs line 315, column 1-5
-  65    4    2   11   82
+    at t/spec/S03-operators/short-circuit.pugs line 323, column 1-5
+  66    4    2   11   83
      1 skipped: short circuiting
      2 skipped: Range
      1 skipped: ^^ short circuit
@@ -2153,25 +2153,12 @@ S04-statements/terminator.pugs.....................# Looks like you planned 15 t
    0   15    0    0   15
     15 tests aborted (missing ok/not ok)
 S04-statements/try.pugs............................#     Actual: undef
-#   Expected: '1'
-#     Actual: '0'
-#   Expected: 'a'
-#     Actual: ''
-#   Expected: '3'
-#     Actual: ''
-#   Expected: '1'
-#     Actual: '0'
-#   Expected: 'ABfoo'
-#     Actual: ''
-# Looks like you planned 24 tests, but ran 20
-*** No such subroutine: "&done"
-    at t/spec/S04-statements/try.pugs line 152, column 1-5
-  12    4    6    2   24
-     1 skipped: {obj:MyPayload}
-     1 skipped: Missing required parameters: $_
-     3 todo   : bug by Christmas
-     3 todo   : fix by Christmas
-     4 tests aborted (missing ok/not ok)
+# Looks like you planned 26 tests, but ran 1
+*** No such subroutine: "&Nil"
+    at t/spec/S04-statements/try.pugs line 20, column 8-35
+   0   25    1    0   26
+     1 todo   : fix by Christmas
+    25 tests aborted (missing ok/not ok)
 S04-statements/unless.t............................  10    0    0    0   10
 S04-statements/until.t.............................   4    0    0    0    4
 S04-statements/while.pugs..........................#     Actual: No exception thrown
@@ -4409,13 +4396,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.9476.423
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.9476.423
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.9476.423
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.9476.423
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.9476.423
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.9476.423
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.9476.423
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.31277.822
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.31277.822
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.31277.822
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.31277.822
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.31277.822
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.31277.822
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.31277.822
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -4676,7 +4663,7 @@ S32-list/pick.pugs.................................#     Actual: undef
 #     Actual: 'Array::Const()'
 #     Actual: undef
 #     Actual: undef
-sh: line 1:  9564 Killed                  nice -20 ./Pugs/pugs t/spec/S32-list/pick.pugs
+sh: line 1: 31365 Killed                  nice -20 ./Pugs/pugs t/spec/S32-list/pick.pugs
   23    8    4   11   46
      1 skipped: .Str
      1 skipped: Nil
@@ -5596,17 +5583,17 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",          25,     5,     8,     9,    47,    79
 "S02",        1108,   720,   181,   179,  2188,  3590
-"S03",        1750,   252,   265,   190,  2457,  4176
-"S04",         355,   209,    73,    37,   674,   963
+"S03",        1751,   252,   265,   190,  2458,  4177
+"S04",         343,   230,    68,    35,   676,   965
 "S05",        1975,   848,  1625,    22,  4470,  5744
-"S06",         255,   249,    50,    43,   597,  1276
+"S06",         255,   249,    50,    43,   597,  1277
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          58,    31,     7,     2,    98,   175
 "S10",          30,     0,     9,     0,    39,   127
 "S11",          10,     6,     4,     2,    22,   129
 "S12",         227,   214,    32,    36,   509,  1321
 "S13",           7,     0,     1,     1,     9,    80
-"S14",          56,     9,    10,     0,    75,   325
+"S14",          56,     9,    10,     0,    75,   327
 "S16",          20,     0,     0,     1,    21,   277
 "S17",          10,     0,     2,    12,    24,    28
 "S19",           7,     0,     0,     0,     7,    11
@@ -5616,7 +5603,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S29",          24,    10,     6,     4,    44,    78
 "S32",        2138,   360,   273,   346,  3117,  5279
 "int",         119,    10,    34,    24,   187,   540
-"total",      8192,  2923,  2582,   909, 14606, 24557
+"total",      8181,  2944,  2577,   907, 14609, 24563
 ----------------
 Failure summary:
 S01-perl-5-integration/basic.pugs aborted 5 test(s)
@@ -5692,7 +5679,7 @@ S04-statements/if.pugs aborted 3 test(s)
 S04-statements/loop.t aborted 3 test(s)
 S04-statements/repeat.pugs aborted 21 test(s)
 S04-statements/terminator.pugs aborted 15 test(s)
-S04-statements/try.pugs aborted 4 test(s)
+S04-statements/try.pugs aborted 25 test(s)
 S05-capture/match-object.pugs aborted 6 test(s)
 S05-interpolation/regex-in-variable.pugs aborted 1 test(s)
 S05-mass/rx.pugs aborted 733 test(s)

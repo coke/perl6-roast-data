@@ -104,10 +104,11 @@ S02-literals/quoting.niecza........................Potential difficulties:
   $x is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-literals/quoting.niecza line 594:
 ------> [32mis "foo $( my [33m?[31m$x = 3 + 4; "bar" ) baz", 'foo bar baz',[0m
 
- 128    1   19   11  159
+ 128    0   20   11  159
      9 skipped: & escape, zen slices
      2 skipped: & escape
     17 todo   : 
+     1 todo   : Weird quoting issue
      2 todo   : :x
 S02-literals/radix.niecza..........................Potential difficulties:
   Operation cannot succeed (constant folding threw exception: Numbers may not be passed :base(); if you wanted to render the number in the given base, use $number.base($radix); if you want to treat the number as a string, explicitly coerce it first) at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-literals/radix.niecza line 30:
@@ -174,27 +175,8 @@ S02-magicals/env.niecza............................Potential difficulties:
      1 skipped: Action method statement_control:import not yet implemented
      1 skipped: Cannot call is_run; none of these signatures match
 S02-magicals/file_line.t...........................   2    0    0    0    2
-S02-magicals/progname.niecza.......................[31m===[0mSORRY![31m===[0m
-
-Multi colonpair syntax not yet understood at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-magicals/progname.niecza line 32:
-------> [32m    :args['IGNOREME'][33m?[31m,[0m
-
-Unhandled exception: Check failed
-
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 1443 (die @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1147 (P6.comp_unit @ 37) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 101 (STD.TOP @ 11) 
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 2923 (Grammar.parse @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaFrontendSTD.pm6 line 281 (NieczaFrontendSTD.parse @ 70) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaCompiler.pm6 line 34 (NieczaCompiler.compile @ 18) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaCompiler.pm6 line 60 (NieczaCompiler.compile_file @ 8) 
-  at /home/coke/sandbox/perl6pass/niecza/src/niecza line 159 (mainline @ 141) 
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4211 (ANON @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4212 (module-CORE @ 578) 
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4212 (mainline @ 3) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-   0    4    0    0    4
-     4 tests aborted (missing ok/not ok)
+S02-magicals/progname.niecza.......................   3    0    1    0    4
+     1 todo   : 
 S02-magicals/sub.t.................................   3    0    0    0    3
 S02-names-vars/contextual.t........................  23    0    0    0   23
 S02-names-vars/fmt.niecza..........................  19    0    2    0   21
@@ -1283,7 +1265,7 @@ S03-operators/repeat.t.............................Potential difficulties:
   32    0    0    0   32
 S03-operators/scalar-assign.t......................   4    0    0    0    4
 S03-operators/set.t................................ 280    0    0    0  280
-S03-operators/short-circuit.niecza.................  39    0    1   42   82
+S03-operators/short-circuit.niecza.................  40    0    1   42   83
     10 skipped: ^^ xor NYI
     29 skipped: ^^ NYI
      3 skipped: xor NYI
@@ -1986,39 +1968,14 @@ S04-statements/for.niecza..........................Potential difficulties:
      2 todo   : array iterator does not track a growing array
      2 todo   : NYI
 S04-statements/for_with_only_one_item.t............   9    0    0    0    9
-S04-statements/gather.t............................[31m===[0mSORRY![31m===[0m
-
-Cannot use bind operator with this LHS at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-statements/gather.t line 219:
-------> [32m        my ($y) := \(take $_, $_ * 10)[33m?[31m;  # binding forces item context[0m
-
-Cannot use bind operator with this LHS at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-statements/gather.t line 229:
-------> [32m    })[33m?[31m;[0m
-
-Undeclared name:
-	'LoL' used at line 231
-
-Potential difficulties:
-  $result is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-statements/gather.t line 111:
+S04-statements/gather.niecza.......................Potential difficulties:
+  $result is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-statements/gather.niecza line 111:
 ------> [32m    my [33m?[31m$result = @list[2];[0m
-  @a is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-statements/gather.t line 201:
+  @a is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-statements/gather.niecza line 201:
 ------> [32m    my [33m?[31m@a = gather { $x = take 3; };[0m
 
-Unhandled exception: Check failed
-
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 1443 (die @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1147 (P6.comp_unit @ 37) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 101 (STD.TOP @ 11) 
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 2923 (Grammar.parse @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaFrontendSTD.pm6 line 281 (NieczaFrontendSTD.parse @ 70) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaCompiler.pm6 line 34 (NieczaCompiler.compile @ 18) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaCompiler.pm6 line 60 (NieczaCompiler.compile_file @ 8) 
-  at /home/coke/sandbox/perl6pass/niecza/src/niecza line 159 (mainline @ 141) 
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4211 (ANON @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4212 (module-CORE @ 578) 
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4212 (mainline @ 3) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-   0   28    0    0   28
-    28 tests aborted (missing ok/not ok)
+  23    0    0    5   28
+     5 skipped: Cannot use bind operator with this LHS
 S04-statements/given.t.............................Potential difficulties:
   &a is declared but not used at (eval) line 1:
 ------> [32mgiven 3 { sub a[33m?[31m() { } }[0m
@@ -2077,8 +2034,9 @@ S04-statements/try.niecza..........................Potential difficulties:
   $lived is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-statements/try.niecza line 12:
 ------> [32m    my [33m?[31m$lived = Mu;[0m
 
-  19    0    0    5   24
+  19    0    0    7   26
      5 skipped: new exception stuff
+     2 skipped: === and Nil NYI
 S04-statements/unless.t............................  10    0    0    0   10
 S04-statements/until.t.............................   4    0    0    0    4
 S04-statements/while.t.............................   9    0    0    0    9
@@ -2134,8 +2092,8 @@ S05-mass/rx.niecza.................................Potential difficulties:
   $rt112450 is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-mass/rx.niecza line 2572:
 ------> [32m    my [33m?[31m$rt112450 = 4;[0m
 
-sh: line 1: 12717 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
- 660    7   19   47  733
+sh: line 1:  2014 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
+ 662    5   19   47  733
      1 skipped: Unable to resolve method alpha in class Cursor
      2 skipped: Dubious test, http://irclog.perlgeek.de/perl6/2012-05-27#i_5643089
     13 skipped: Unable to resolve method wb in class Cursor
@@ -2149,7 +2107,7 @@ sh: line 1: 12717 Killed                  nice -20 mono ./run/Niecza.exe t/spec/
      3 todo   : ::: issue
      2 todo   : :: issues
      3 todo   : Unable to resolve method cntrl in class Cursor
-     7 tests aborted (missing ok/not ok)
+     5 tests aborted (missing ok/not ok)
 S05-mass/stdrules.niecza........................... 183    0    0    3  186
      3 skipped: <at>
 S05-match/arrayhash.niecza.........................   4    0    4    0    8
@@ -2576,14 +2534,14 @@ S06-multi/positional-vs-named.t....................Potential difficulties:
   27    0    0    0   27
 S06-multi/proto.niecza.............................Potential difficulties:
   $x is declared but not used at (eval) line 2:
-------> [32m    proto f(Int [33m?[31m$x) {*}; multi f($) { 'default' }; f 'fo[0m
+------> [32m        todo(); proto f(Int [33m?[31m$x) {*}; multi f($) { 'default' }; f 'fo[0m
 
-  11    1    1   15   28
+  11    0    2   15   28
      8 skipped: Unhandled exception: Cannot use value like Block as a number
      1 skipped: >>>Stub code executed
      1 skipped: System.NullReferenceException: Object reference not set to an instance of an object
      5 skipped: Illegal redeclaration of routine 'bar'
-     1 todo   : 
+     2 todo   : 
 S06-multi/syntax.niecza............................Potential difficulties:
   &koala is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-multi/syntax.niecza line 160:
 ------> [32m    multi sub koala[33m?[31m(Int $x) { 42 * $x };[0m
@@ -2660,7 +2618,7 @@ Use of uninitialized value in numeric context
   at <unknown> line 0 (ExitRunloop @ 0) 
   at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-operator-overloading/sub.niecza line 398 (infix:<foo> @ 3) 
   at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-operator-overloading/sub.niecza line 400 (ANON @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-operator-overloading/sub.niecza line 433 (mainline @ 79) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-operator-overloading/sub.niecza line 436 (mainline @ 79) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
@@ -2671,12 +2629,12 @@ Use of uninitialized value in numeric context
   at <unknown> line 0 (ExitRunloop @ 0) 
   at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-operator-overloading/sub.niecza line 406 (infix:<bar> @ 3) 
   at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-operator-overloading/sub.niecza line 408 (ANON @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-operator-overloading/sub.niecza line 433 (mainline @ 81) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-operator-overloading/sub.niecza line 436 (mainline @ 81) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
   at <unknown> line 0 (ExitRunloop @ 0) 
-  46    0    7   14   67
+  47    0    7   14   68
      1 skipped: Undeclared routine
      1 skipped: Cannot use hash access on an object of type Array
      2 skipped: No matching candidates to dispatch for &infix:<+>
@@ -3637,11 +3595,12 @@ S14-roles/anonymous.niecza.........................  11    0    1    1   13
      1 skipped: roles are run once and only capture the protopad
      1 todo   : This is being misinterpreted as an initial value
 S14-roles/attributes.t.............................   6    0    0    0    6
-S14-roles/basic.t..................................Potential difficulties:
-  $x is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S14-roles/basic.t line 76:
+S14-roles/basic.niecza.............................Potential difficulties:
+  $x is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S14-roles/basic.niecza line 76:
 ------> [32mlives_ok { my C [33m?[31m$x; },          'can use role as a type [0m
 
-  42    0    0    0   42
+  42    0    0    1   43
+     1 skipped: Unable to resolve method x in type AccessesAttr
 S14-roles/composition.t............................  26    0    0    0   26
 S14-roles/conflicts.t..............................  11    0    0    0   11
 S14-roles/crony.t..................................   4    0    0    0    4
@@ -5478,58 +5437,14 @@ integration/advent2009-day23.niecza................   3    0    0    1    4
      1 skipped: hangs
 integration/advent2010-day04.t.....................  11    0    0    0   11
 integration/code-blocks-as-sub-args.t..............   4    0    0    0    4
-integration/error-reporting.niecza.................[31m===[0mSORRY![31m===[0m
+integration/error-reporting.niecza.................Potential difficulties:
+  &f is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/integration/error-reporting.niecza line 53:
+------> [32m    sub f[33m?[31m(Even $x) { $x };[0m
 
-Export tags NYI at /home/coke/sandbox/perl6pass/niecza/t/spec/packages/Foo.pm line 8:
-------> [32msub ucfirst($thing) is export(:DEFAULT) [33m?[31m{ 'overridden ucfirst' }   #OK not used[0m
-
-Unhandled exception: System.Exception: Check failed
-
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 1443 (die @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1147 (P6.comp_unit @ 37) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 101 (STD.TOP @ 11) 
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 2923 (Grammar.parse @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaFrontendSTD.pm6 line 281 (NieczaFrontendSTD.parse @ 70) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaCompiler.pm6 line 34 (NieczaCompiler.compile @ 18) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaCompiler.pm6 line 50 (NieczaCompiler.compile_module @ 7) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaBackendDotnet.pm6 line 50 (ANON @ 48) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaBackendDotnet.pm6 line 58 (upcalled @ 6) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-  at Niecza.CLRBackend.DowncallReceiver.ProbeLoad (Niecza.Compartment setting, System.String oname) [0x00000] in <filename unknown>:0 
-  at Niecza.CLRBackend.DowncallReceiver.unit_need_unit (System.Object[] args) [0x00000] in <filename unknown>:0 
-  at Niecza.CLRBackend.DowncallReceiver.Call (System.Object[] args) [0x00000] in <filename unknown>:0 
-  at Niecza.CLRBackend.DowncallReceiver.get_Item (System.Object i) [0x00000] in <filename unknown>:0 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaBackendDotnet.pm6 line 75 (downcall @ 4) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaBackendDotnet.pm6 line 316 (Unit.FALLBACK @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaActions.pm6 line 3633 (NieczaActions.statement_control:use @ 71) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1416 (P6.statement_control:use @ 28) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 0 (STD.statement_control @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1351 (P6.statement @ 11) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1287 (P6.statementlist @ 16) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1233 (P6.blockoid @ 7) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1196 (P6.pblock @ 68) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 3437 (P6.circumfix:sym<{ }> @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 0 (STD.circumfix @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 2008 (P6.term:circumfix @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 0 (STD.term @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1999 (P6.termish @ 15) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 4537 (ANON @ 10) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 4645 (STD.EXPR @ 26) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1351 (P6.statement @ 13) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1287 (P6.statementlist @ 16) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1158 (P6.comp_unit @ 9) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 101 (STD.TOP @ 11) 
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 2923 (Grammar.parse @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaFrontendSTD.pm6 line 281 (NieczaFrontendSTD.parse @ 70) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaCompiler.pm6 line 34 (NieczaCompiler.compile @ 18) 
-  at /home/coke/sandbox/perl6pass/niecza/src/NieczaCompiler.pm6 line 60 (NieczaCompiler.compile_file @ 8) 
-  at /home/coke/sandbox/perl6pass/niecza/src/niecza line 159 (mainline @ 141) 
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4211 (ANON @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4212 (module-CORE @ 578) 
-  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4212 (mainline @ 3) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-   0   16    0    0   16
-    16 tests aborted (missing ok/not ok)
+  10    0    2    4   16
+     3 skipped: sub ucfirst($thing) is export(:DEFAULT) blows up
+     1 skipped: Unable to resolve method backtrace in type Str
+     2 todo   : 
 integration/lazy-bentley-generator.t...............   1    0    0    0    1
 integration/lexical-array-in-inner-block.t.........Potential difficulties:
   $n is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/integration/lexical-array-in-inner-block.t line 17:
@@ -5560,18 +5475,18 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        2956,     5,   104,   265,  3330,  3490
-"S03",        3953,     0,   192,   358,  4503,  4176
-"S04",         765,    28,    34,    50,   877,   963
-"S05",        4048,     7,   115,   201,  4371,  5744
-"S06",         769,     1,    55,   161,   986,  1276
+"S02",        2959,     0,   106,   265,  3330,  3490
+"S03",        3954,     0,   192,   358,  4504,  4177
+"S04",         788,     0,    34,    57,   879,   965
+"S05",        4050,     5,   115,   201,  4371,  5744
+"S06",         770,     0,    56,   161,   987,  1277
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          65,     0,     0,     8,    73,   175
 "S10",          35,     0,     5,    19,    59,   127
 "S11",           0,     0,     0,     0,     0,   129
 "S12",         735,     0,    60,   151,   946,  1321
 "S13",          31,     0,     1,    10,    42,    80
-"S14",         168,     0,     1,     9,   178,   325
+"S14",         168,     0,     1,    10,   179,   327
 "S16",         189,     0,    21,    25,   235,   290
 "S17",           0,     0,     0,     0,     0,    28
 "S19",           3,     1,     0,     0,     4,     4
@@ -5580,14 +5495,9 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 "S28",           6,     0,     1,     0,     7,    13
 "S29",         305,     0,     5,     5,   315,   328
 "S32",        6376,     0,   130,   238,  6744,  5268
-"int",         446,    16,    19,    23,   504,   552
-"total",     20851,    58,   743,  1523, 23175, 24696
+"int",         456,     0,    21,    27,   504,   552
+"total",     20891,     6,   748,  1535, 23180, 24702
 ----------------
 Failure summary:
-S02-literals/quoting.niecza 159 - texas quotes edge case
-S02-magicals/progname.niecza aborted 4 test(s)
-S04-statements/gather.t aborted 28 test(s)
-S05-mass/rx.niecza aborted 7 test(s)
-S06-multi/proto.niecza 28 - proto signature is checked, not just that of the candidates
+S05-mass/rx.niecza aborted 5 test(s)
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
-integration/error-reporting.niecza aborted 16 test(s)
