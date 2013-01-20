@@ -56,7 +56,7 @@ S02-literals/listquote.rakudo......................  18    0    4    1   23
      1 skipped: meta operators
      3 todo   : magic type of <...> contents
      1 todo   : unknown errors
-S02-literals/misc-interpolation.t..................  44    0    0    0   44
+S02-literals/misc-interpolation.t..................  46    0    0    0   46
 S02-literals/numeric.t.............................  22    0    0    0   22
 S02-literals/pair-boolean.t........................   6    0    0    0    6
 S02-literals/pairs.rakudo..........................use of uninitialized value of type Bool in string context  in block  at t/spec/S02-literals/pairs.rakudo:70
@@ -791,7 +791,8 @@ S04-phasers/next.rakudo............................  10    0    2    1   13
 S04-phasers/pre-post.rakudo........................  20    0    2    0   22
      2 todo   : POST and exceptions
 S04-phasers/rvalue.t...............................  16    0    0    0   16
-S04-phasers/start.t................................  21    0    0    0   21
+S04-phasers/start.t................................   0   21    0    0   21
+    21 tests aborted (missing ok/not ok)
 S04-statement-modifiers/for.t......................  20    0    0    0   20
 S04-statement-modifiers/given.t....................   5    0    0    0    5
 S04-statement-modifiers/if.t.......................  11    0    0    0   11
@@ -1424,13 +1425,13 @@ S12-introspection/methods.rakudo...................  37    0    2   11   50
     11 skipped: nom regression
      2 todo   : nom regression
 S12-introspection/parents.t........................  59    0    0    0   59
-S12-introspection/roles.rakudo.....................use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1292
+S12-introspection/roles.rakudo.....................use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1333
 
-use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1292
+use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1333
 
-use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1292
+use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1333
 
-use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1292
+use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1333
 
    8    0    0    4   12
      4 skipped: .^roles(:tree)
@@ -1629,7 +1630,7 @@ S32-container/roundrobin.rakudo....................   4    0    1    0    5
 S32-container/zip.rakudo...........................   8    0    0    4   12
      2 skipped: Seq
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo......................... 477    0    0    4  481
+S32-exceptions/misc.rakudo......................... 509    0    0    4  513
      1 skipped: RT 114134
      1 skipped: RT 78370
      1 skipped: parsing of $& and other p5 variables
@@ -1689,8 +1690,7 @@ S32-list/map_function_return_values.rakudo.........   1    0    0    1    2
 S32-list/minmax.rakudo.............................  55    0    0    4   59
      2 skipped: Range.max not fully implemented yet (RT #105118)
      2 skipped: Range.min not fully implemented yet (RT #105118)
-S32-list/pick.rakudo...............................  43    0    1    2   46
-     2 skipped: .pick on huge integer ranges
+S32-list/pick.rakudo...............................  46    0    1    0   47
      1 todo   : error on pick :replace
 S32-list/reduce.rakudo.............................use of uninitialized value of type Any in numeric context  in block  at t/spec/S32-list/reduce.rakudo:29
 
@@ -2176,9 +2176,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3148,     0,   141,   261,  3550,  3490
+"S02",        3150,     0,   141,   261,  3552,  3492
 "S03",        4318,     0,   147,   369,  4834,  4177
-"S04",         848,     0,    34,    50,   932,   968
+"S04",         827,    21,    34,    50,   932,   968
 "S05",        4562,     0,   131,   577,  5270,  5744
 "S06",        1131,     0,    29,   132,  1292,  1278
 "S07",           0,     0,     0,     0,     0,     0
@@ -2195,12 +2195,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         300,     0,     0,     1,   301,   258
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         310,     0,     1,     7,   318,   328
-"S32",        7342,     0,    97,   247,  7686,  5268
+"S32",        7377,     0,    97,   245,  7719,  5269
 "int",         521,     0,    16,    25,   562,   552
 "ros",           2,     0,     0,     0,     2,     2
-"total",     24598,     2,   662,  1891, 27153, 24708
+"total",     24614,    23,   662,  1889, 27188, 24711
 ----------------
 Failure summary:
+S04-phasers/start.t aborted 21 test(s)
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
 S19-command-line/dash-e.t 3 - -e works with non-ASCII program texts
 note: test_summary.pl @syn does not have ros
