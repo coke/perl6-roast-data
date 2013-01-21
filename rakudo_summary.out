@@ -446,7 +446,8 @@ use of uninitialized value of type Any in string context  in block  at t/spec/S0
      2 todo   : triangle [\^^] and [\xor]
      2 todo   : orelse
      1 todo   : reduced hyper op
-S03-metaops/reverse.t..............................  34    0    0    0   34
+S03-metaops/reverse.t..............................   0   34    0    0   34
+    34 tests aborted (missing ok/not ok)
 S03-metaops/zip.rakudo.............................  18    0    4    2   24
      2 skipped: nom regression
      4 todo   : nom regression
@@ -791,8 +792,7 @@ S04-phasers/next.rakudo............................  10    0    2    1   13
 S04-phasers/pre-post.rakudo........................  20    0    2    0   22
      2 todo   : POST and exceptions
 S04-phasers/rvalue.t...............................  16    0    0    0   16
-S04-phasers/start.t................................   0   21    0    0   21
-    21 tests aborted (missing ok/not ok)
+S04-phasers/start.t................................  21    0    0    0   21
 S04-statement-modifiers/for.t......................  20    0    0    0   20
 S04-statement-modifiers/given.t....................   5    0    0    0    5
 S04-statement-modifiers/if.t.......................  11    0    0    0   11
@@ -1088,15 +1088,17 @@ S05-modifier/repetition.rakudo.....................   8    0    0    4   12
      2 skipped: :x(2)
 S05-modifier/sigspace.t............................  12    0    0    0   12
 S05-substitution/match.t...........................  13    0    0    0   13
-S05-substitution/subst.rakudo......................  81    0    2   43  126
+S05-substitution/subst.rakudo......................use of uninitialized value of type Any in string context  in block  at t/spec/S05-substitution/subst.rakudo:24
+
+use of uninitialized value of type Any in string context  in block  at t/spec/S05-substitution/subst.rakudo:24
+
+ 127    0    3    6  136
+     1 skipped: $() NYI?
      2 skipped: s:g[...] =
-    17 skipped: s///
-     6 skipped: :nth NYI
      3 skipped: s[...] op= RHS
-    12 skipped: :nth
-     3 skipped: $/ not involved in .subst yet (unspecced?)
      1 todo   : s[...] seems to always return true?
      1 todo   : be smarter about constant detection
+     1 todo   : no-match substitution should return False
 S05-transliteration/trans.rakudo...................  41    0    0   19   60
      2 skipped: closures and regexes
      5 skipped: tr///, feed operator not implemented
@@ -1651,7 +1653,7 @@ S32-hash/pairs.rakudo..............................  20    0    1    0   21
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo..............................  16    0    0   13   29
     13 skipped: binding on hash elements unimplemented
-S32-io/IO-Socket-INET.rakudo.......................  17    0    0    2   19
+S32-io/IO-Socket-INET.rakudo.......................  12    5    0    2   19
      2 skipped: RT 115862
 S32-io/chdir.rakudo................................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
@@ -2177,9 +2179,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        3150,     0,   141,   261,  3552,  3492
-"S03",        4318,     0,   147,   369,  4834,  4177
-"S04",         827,    21,    34,    50,   932,   968
-"S05",        4562,     0,   131,   577,  5270,  5744
+"S03",        4284,    34,   147,   369,  4834,  4177
+"S04",         848,     0,    34,    50,   932,   968
+"S05",        4608,     0,   132,   540,  5280,  5754
 "S06",        1131,     0,    29,   132,  1292,  1278
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         135,     0,    19,    21,   175,   175
@@ -2195,13 +2197,18 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         300,     0,     0,     1,   301,   258
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         310,     0,     1,     7,   318,   328
-"S32",        7377,     0,    97,   245,  7719,  5269
+"S32",        7372,     5,    97,   245,  7719,  5269
 "int",         521,     0,    16,    25,   562,   552
 "ros",           2,     0,     0,     0,     2,     2
-"total",     24614,    23,   662,  1889, 27188, 24711
+"total",     24642,    41,   663,  1852, 27198, 24721
 ----------------
 Failure summary:
-S04-phasers/start.t aborted 21 test(s)
+S03-metaops/reverse.t aborted 34 test(s)
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
 S19-command-line/dash-e.t 3 - -e works with non-ASCII program texts
+S32-io/IO-Socket-INET.rakudo 3 - received first 7 characters
+S32-io/IO-Socket-INET.rakudo 4 - received next 3 characters
+S32-io/IO-Socket-INET.rakudo 5 - remaining 26 were buffered
+S32-io/IO-Socket-INET.rakudo 7 - ... which is 1 character
+S32-io/IO-Socket-INET.rakudo 8 - received another character
 note: test_summary.pl @syn does not have ros

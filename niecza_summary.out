@@ -2093,8 +2093,8 @@ S05-mass/rx.niecza.................................Potential difficulties:
   $rt112450 is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-mass/rx.niecza line 2572:
 ------> [32m    my [33m?[31m$rt112450 = 4;[0m
 
-sh: line 1: 24160 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
- 661    6   19   47  733
+sh: line 1:  6473 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
+ 660    7   19   47  733
      1 skipped: Unable to resolve method alpha in class Cursor
      2 skipped: Dubious test, http://irclog.perlgeek.de/perl6/2012-05-27#i_5643089
     13 skipped: Unable to resolve method wb in class Cursor
@@ -2108,7 +2108,7 @@ sh: line 1: 24160 Killed                  nice -20 mono ./run/Niecza.exe t/spec/
      3 todo   : ::: issue
      2 todo   : :: issues
      3 todo   : Unable to resolve method cntrl in class Cursor
-     6 tests aborted (missing ok/not ok)
+     7 tests aborted (missing ok/not ok)
 S05-mass/stdrules.niecza........................... 183    0    0    3  186
      3 skipped: <at>
 S05-match/arrayhash.niecza.........................   4    0    4    0    8
@@ -2248,39 +2248,15 @@ S05-modifier/pos.niecza............................  36    0    0    4   40
      4 skipped: :i
 S05-modifier/sigspace.t............................  12    0    0    0   12
 S05-substitution/match.t...........................  13    0    0    0   13
-S05-substitution/subst.niecza......................Potential difficulties:
-  $x is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-substitution/subst.niecza line 221:
-------> [32m    given my [33m?[31m$x = 'abc' {[0m
-  $y is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-substitution/subst.niecza line 226:
-------> [32m    given my [33m?[31m$y = 'abc' {[0m
+S05-substitution/subst.niecza......................[31m===[0mSORRY![31m===[0m
 
-Use of uninitialized value in string context
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-substitution/subst.niecza line 25 (mainline @ 28) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-Use of uninitialized value in string context
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1287 (warn @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-substitution/subst.niecza line 25 (mainline @ 28) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4218 (ANON @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (module-CORE @ 580) 
-  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4219 (mainline @ 3) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
- 101    0    7   18  126
-     2 skipped: s:g[...] =
-     3 skipped: Action method quote:ss not yet implemented
-     3 skipped: s[...] op= RHS
-     2 skipped: Regex modifiers ii and samecase NYI
-     8 skipped: :samecase NYI
-     3 todo   : 
-     3 todo   : :nth(3, 4) NYI
-     1 todo   : Niecza works when it shouldn't?
+Unsupported use of $/ variable as input record separator; in Perl 6 please use the filehandle's :irs attribute at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-substitution/subst.niecza line 31:
+------> [32m    $/[33m?[31m = '-';[0m
+
+Parse failed
+
+   0  136    0    0  136
+   136 tests aborted (missing ok/not ok)
 S05-transliteration/trans.niecza...................  38    0    2   20   60
      2 skipped: closures and regexes
      2 skipped: Nominal type check failed for scalar store; got Int, needed Str or subtype
@@ -5479,7 +5455,7 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 "S02",        2961,     0,   106,   265,  3332,  3492
 "S03",        3954,     0,   192,   358,  4504,  4177
 "S04",         788,     0,    34,    60,   882,   968
-"S05",        4049,     6,   115,   201,  4371,  5744
+"S05",        3947,   143,   108,   183,  4381,  5754
 "S06",         771,     0,    56,   161,   988,  1278
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          65,     0,     0,     8,    73,   175
@@ -5497,8 +5473,9 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 "S29",         305,     0,     5,     5,   315,   328
 "S32",        6377,     0,   130,   238,  6745,  5269
 "int",         456,     0,    21,    27,   504,   552
-"total",     20894,     7,   748,  1538, 23187, 24709
+"total",     20792,   144,   741,  1520, 23197, 24719
 ----------------
 Failure summary:
-S05-mass/rx.niecza aborted 6 test(s)
+S05-mass/rx.niecza aborted 7 test(s)
+S05-substitution/subst.niecza aborted 136 test(s)
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
