@@ -20,9 +20,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xa526858)'
+#     Actual: 'CODE(0x9590858)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xa526b78)'
+#     Actual: 'CODE(0x9590b78)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -4408,7 +4408,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6e3ebed>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6e3e981>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6e3ebed>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6e3e981>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6a91c41>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6a9197d>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6a91c41>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6a9197d>})])}])
 #   Expected: 'undef'
 #     Actual: 'Scalar()'
   16    0    2    1   19
@@ -4569,13 +4569,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.15485.86
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.15485.86
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.15485.86
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.15485.86
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.15485.86
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.15485.86
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.15485.86
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.2419.728
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.2419.728
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.2419.728
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.2419.728
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.2419.728
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.2419.728
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.2419.728
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -4846,18 +4846,16 @@ S32-list/pick.pugs.................................#     Actual: undef
 #     Actual: 'Array::Const()'
 #     Actual: undef
 #     Actual: undef
-#     Actual: undef
-sh: line 1: 15582 Killed                  nice -20 ./Pugs/pugs -IPugs/ext/Test/lib t/spec/S32-list/pick.pugs
-  24    1    5   17   47
+sh: line 1:  2573 Killed                  nice -20 ./Pugs/pugs -IPugs/ext/Test/lib t/spec/S32-list/pick.pugs
+  21    7    4   15   47
      1 skipped: .Str
-     2 skipped: hogs memory
      1 skipped: Nil
      7 skipped: NYI
      2 skipped: autothreading
      3 skipped: pick not defined: VNum Infinity
      1 skipped: autothread
-     5 todo   : fix by Christmas
-     1 tests aborted (missing ok/not ok)
+     4 todo   : fix by Christmas
+     7 tests aborted (missing ok/not ok)
 S32-list/reduce.pugs...............................  13    0    0    1   14
      1 skipped: where
 S32-list/reverse.pugs..............................#   Expected: 'foo'
@@ -5498,11 +5496,11 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S26",           0,     0,     0,     0,     0,   258
 "S28",           4,     0,     0,     1,     5,    13
 "S29",          32,     0,     6,     6,    44,    78
-"S32",        2266,     1,   288,   563,  3118,  5282
+"S32",        2263,     7,   287,   561,  3118,  5324
 "int",         131,     0,    35,    26,   192,   542
-"total",      9484,     3,  3464,  1748, 14699, 24584
+"total",      9481,     9,  3463,  1746, 14699, 24626
 ----------------
 Failure summary:
 S12-construction/destruction.pugs 5 - Child DESTROY should fire first
 S12-construction/destruction.pugs 6 - ... then parent
-S32-list/pick.pugs aborted 1 test(s)
+S32-list/pick.pugs aborted 7 test(s)
