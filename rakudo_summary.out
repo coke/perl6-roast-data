@@ -391,7 +391,7 @@ S03-feeds/basic.rakudo.............................   9    0    6    4   19
      3 todo   : feeds + eager
 S03-junctions/associative.t........................  10    0    0    0   10
 S03-junctions/autothreading.t......................  87    0    0    0   87
-S03-junctions/boolean-context.rakudo...............  43    0    1    0   44
+S03-junctions/boolean-context.rakudo...............  72    0    1    0   73
      1 todo   : named unary as function call
 S03-junctions/misc.rakudo..........................  92    0    4    6  102
      2 skipped: nom regression
@@ -788,8 +788,8 @@ S04-phasers/multiple.t.............................   2    0    0    0    2
 S04-phasers/next.rakudo............................  10    0    2    1   13
      1 skipped: leave NYI
      2 todo   : NEXT/LEAVE ordering
-S04-phasers/pre-post.rakudo........................   0   22    0    0   22
-    22 tests aborted (missing ok/not ok)
+S04-phasers/pre-post.rakudo........................  20    0    2    0   22
+     2 todo   : POST and exceptions
 S04-phasers/rvalue.t...............................  16    0    0    0   16
 S04-phasers/start.t................................  21    0    0    0   21
 S04-statement-modifiers/for.t......................  20    0    0    0   20
@@ -1649,7 +1649,7 @@ S32-hash/pairs.rakudo..............................  20    0    1    0   21
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo..............................  16    0    0   13   29
     13 skipped: binding on hash elements unimplemented
-S32-io/IO-Socket-INET.t............................  21    0    0    0   21
+S32-io/IO-Socket-INET.t............................  14    7    0    0   21
 S32-io/chdir.rakudo................................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/dir.t.......................................   2    0    0    0    2
@@ -2174,8 +2174,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        3150,     0,   141,   261,  3552,  3492
-"S03",        4318,     0,   147,   369,  4834,  4177
-"S04",         828,    22,    32,    50,   932,   968
+"S03",        4347,     0,   147,   369,  4863,  4206
+"S04",         848,     0,    34,    50,   932,   968
 "S05",        4617,     0,   129,   541,  5287,  5761
 "S06",        1131,     0,    29,   132,  1292,  1278
 "S07",           0,     0,     0,     0,     0,     0
@@ -2192,13 +2192,19 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         300,     0,     0,     1,   301,   258
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         310,     0,     1,     7,   318,   328
-"S32",        7442,     0,    97,   243,  7782,  5327
+"S32",        7435,     7,    97,   243,  7782,  5327
 "int",         521,     0,    16,    25,   562,   552
 "ros",           2,     0,     0,     0,     2,     2
-"total",     24735,    24,   658,  1851, 27268, 24786
+"total",     24777,     9,   660,  1851, 27297, 24815
 ----------------
 Failure summary:
-S04-phasers/pre-post.rakudo aborted 22 test(s)
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
 S19-command-line/dash-e.t 3 - -e works with non-ASCII program texts
+S32-io/IO-Socket-INET.t 3 - received first 7 characters
+S32-io/IO-Socket-INET.t 4 - received next 3 characters
+S32-io/IO-Socket-INET.t 5 - remaining 26 were buffered
+S32-io/IO-Socket-INET.t 6 - received 뻯
+S32-io/IO-Socket-INET.t 7 - ... which is 1 character
+S32-io/IO-Socket-INET.t 8 - received another character
+S32-io/IO-Socket-INET.t 9 - combined the bytes form 몾
 note: test_summary.pl @syn does not have ros
