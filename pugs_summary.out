@@ -20,9 +20,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xaa49858)'
+#     Actual: 'CODE(0x953d858)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xaa49b78)'
+#     Actual: 'CODE(0x953db78)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -3886,7 +3886,16 @@ S05-metasyntax/litvar.pugs.........................#     Actual: undef
 #     Actual: undef
 #     Actual: undef
 #     Actual: undef
-  13    0   17    0   30
+#   Failed test (t/spec/S05-metasyntax/litvar.pugs line 103, column 1-47)
+#     Actual: undef
+#   Failed test (t/spec/S05-metasyntax/litvar.pugs line 104, column 1-53)
+#   Expected: 'foobar'
+#     Actual: ''
+#   Failed test (t/spec/S05-metasyntax/litvar.pugs line 105, column 1-81)
+#   Expected: 'bar'
+#     Actual: ''
+# Looks like you failed 3 tests of 33
+  13    3   17    0   33
     11 todo   : feature by Christmas
      2 todo   : bug by Christmas
      4 todo   : fix by Christmas
@@ -4415,7 +4424,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6bddd55>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6bdda09>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6bddd55>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6bdda09>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf69107e5>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6910481>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf69107e5>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6910481>})])}])
 #   Expected: 'undef'
 #     Actual: 'Scalar()'
   16    0    2    1   19
@@ -4569,13 +4578,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.1574.444
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.1574.444
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.1574.444
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.1574.444
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.1574.444
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.1574.444
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.1574.444
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.19438.351
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.19438.351
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.19438.351
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.19438.351
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.19438.351
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.19438.351
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.19438.351
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -4847,7 +4856,7 @@ S32-list/pick.pugs.................................#     Actual: undef
 #     Actual: undef
 #     Actual: undef
 #     Actual: undef
-sh: line 1:  1672 Killed                  nice -20 ./Pugs/pugs -IPugs/ext/Test/lib t/spec/S32-list/pick.pugs
+sh: line 1: 19537 Killed                  nice -20 ./Pugs/pugs -IPugs/ext/Test/lib t/spec/S32-list/pick.pugs
   24    1    5   17   47
      1 skipped: .Str
      2 skipped: hogs memory
@@ -5482,7 +5491,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S02",        1420,     0,   316,   455,  2191,  3592
 "S03",        1866,     0,   286,   306,  2458,  4207
 "S04",         487,     0,   109,    86,   682,   968
-"S05",        2222,     2,  2197,    55,  4476,  5761
+"S05",        2222,     5,  2197,    55,  4479,  5764
 "S06",         407,     0,    80,   123,   610,  1278
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          68,     0,    22,     8,    98,   175
@@ -5500,9 +5509,12 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S29",          32,     0,     6,     6,    44,    78
 "S32",        2266,     1,   288,   563,  3118,  5338
 "int",         131,     0,    35,    26,   192,   542
-"total",      9486,     3,  3464,  1752, 14705, 24677
+"total",      9486,     6,  3464,  1752, 14708, 24680
 ----------------
 Failure summary:
 S05-mass/rx.pugs 651 - $( $_ ) will match literally
 S05-mass/rx.pugs 652 - ... will match correctly
+S05-metasyntax/litvar.pugs 31 - $( $_ ) will match
+S05-metasyntax/litvar.pugs 32 - ... $( $_ ) matched entire string
+S05-metasyntax/litvar.pugs 33 - Contextualizer with functions calls
 S32-list/pick.pugs aborted 1 test(s)
