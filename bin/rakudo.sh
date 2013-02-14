@@ -14,4 +14,7 @@ make all
 # ... or any other modules
 export PERL6LIB=`pwd`/lib:.
 
+# some tests require a LANG.
+export LANG=en_US.UTF-8
+
 perl t/spec/test_summary rakudo 2>&1 | tee ../rakudo_summary.out
