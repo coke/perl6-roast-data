@@ -1,4 +1,4 @@
-Perl6 Roast Data
+"Perl6 Roast Data"
     This project contains tools for running the perl6 spec test suite
     (roast) by several different implementations, as well as tracking the
     results of those runs.
@@ -8,3 +8,22 @@ Perl6 Roast Data
     Each implementation's last run is checked in under a corresponding
     ".out" file. Check your implementation's file for any failures or
     unexpected passes.
+
+"Why don't all tests pass?"
+    Each implementation shares roast with all the other
+    implementations. If a test is added, it might not be immediately
+    fudged to work on all implementations - in fact, depending on what
+    is being tested, the entire file may start failing in some
+    implementations.
+
+    The test numbers are run daily from a limited cron environment. If
+    the test is expecting things (like an environment variable) these
+    assumptions need to be added to the implementation's script in
+    bin/
+ 
+    Finally, these tests are run on a schedule; it's not expected that
+    commits to spec and to an implementation will be synchronized
+    with the running of this harness; give new tests a day to settle in.
+
+    If you notice a test is continually failing (check the history of the
+    implementation's .out file), please open a ticket with that implementation.
