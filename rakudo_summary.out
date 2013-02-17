@@ -290,10 +290,28 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
   77    0    3    0   80
      2 todo   : unknown
      1 todo   : isa hash
-S02-types/multi_dimensional_array.rakudo...........use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
+S02-types/multi_dimensional_array.rakudo...........WARNINGS:
+Useless use of constant integer 1 in sink context (line 1)
+WARNINGS:
+Useless use of constant integer 1 in sink context (line 1)
+WARNINGS:
+Useless use of constant integer 1 in sink context (line 1)
+WARNINGS:
+Useless use of constant integer 0 in sink context (line 1)
+WARNINGS:
+Useless use of constant integer 0 in sink context (line 1)
+WARNINGS:
+Useless use of constant integer 0 in sink context (line 1)
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
 
+WARNINGS:
+Useless use of constant integer 1 in sink context (line 1)
+WARNINGS:
+Useless use of constant integer 1 in sink context (line 1)
+WARNINGS:
+Useless use of constant integer 1 in sink context (line 1)
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
@@ -747,6 +765,8 @@ use of uninitialized value of type Any in string context  in block  at t/spec/S0
 
 use of uninitialized value of type Any in string context  in block  at t/spec/S04-declarations/my.rakudo:23
 
+WARNINGS:
+Useless use of constant integer 1 in sink context (line 1)
   71    0    2    2   75
      2 skipped: nom regression, OUR::
      1 todo   : previous test skipped
@@ -997,7 +1017,62 @@ S05-metasyntax/charset.rakudo......................  31    0    1    2   34
      1 todo   : comment in charset (RT #67124)
 S05-metasyntax/interpolating-closure.rakudo........   5    0    1    0    6
      1 todo   : dunno
-S05-metasyntax/litvar.rakudo.......................  19    0   14    0   33
+S05-metasyntax/litvar.rakudo.......................Potential difficulties:
+    Apparent subscript will be treated as regex
+    at t/spec/S05-metasyntax/litvar.rakudo:37
+    ------> [32my variable in regex'); ok('a' ~~ m/$aref[33m⏏[31m[0]/, 'Array ref 0');[0m
+    Apparent subscript will be treated as regex
+    at t/spec/S05-metasyntax/litvar.rakudo:39
+    ------> [32my variable in regex'); ok('a' ~~ m/$aref[33m⏏[31m.[0]/, 'Array ref dot 0');[0m
+    Apparent subscript will be treated as regex
+    at t/spec/S05-metasyntax/litvar.rakudo:41
+    ------> [32may variable in regex'); ok('a' ~~ m/@var[33m⏏[31m[0]/, 'Array 0');[0m
+    Apparent subscript will be treated as regex
+    at t/spec/S05-metasyntax/litvar.rakudo:45
+    ------> [32mh variable in regex'); ok('1' ~~ m/$href[33m⏏[31m.{'a'}/, 'Hash ref dot A');[0m
+    Apparent subscript will be treated as regex
+    at t/spec/S05-metasyntax/litvar.rakudo:47
+    ------> [32mh variable in regex'); ok('1' ~~ m/$href[33m⏏[31m{'a'}/, 'Hash ref A');[0m
+    Apparent subscript will be treated as regex
+    at t/spec/S05-metasyntax/litvar.rakudo:49
+    ------> [32msh variable in regex'); ok('1' ~~ m/%var[33m⏏[31m{'a'}/, 'Hash A');[0m
+    Apparent subscript will be treated as regex
+    at t/spec/S05-metasyntax/litvar.rakudo:54
+    ------> [32mh variable in regex'); ok('1' ~~ m/$href[33m⏏[31m.<a>/, 'Hash ref dot A');[0m
+    Apparent subscript will be treated as regex
+    at t/spec/S05-metasyntax/litvar.rakudo:57
+    ------> [32mh variable in regex'); ok('1' ~~ m/$href[33m⏏[31m<a>/, 'Hash ref A');[0m
+    Apparent subscript will be treated as regex
+    at t/spec/S05-metasyntax/litvar.rakudo:60
+    ------> [32msh variable in regex'); ok('1' ~~ m/%var[33m⏏[31m<a>/, 'Hash A');[0m
+    Apparent subscript will be treated as regex
+    at t/spec/S05-metasyntax/litvar.rakudo:62
+    ------> [32mok(!( 'a' ~~ m/$aref[33m⏏[31m[1]/ ), 'Array ref 1');[0m
+    Apparent subscript will be treated as regex
+    at t/spec/S05-metasyntax/litvar.rakudo:63
+    ------> [32mok(!( 'a' ~~ m/$aref[33m⏏[31m.[1]/ ), 'Array ref dot 1');[0m
+    Apparent subscript will be treated as regex
+    at t/spec/S05-metasyntax/litvar.rakudo:64
+    ------> [32mok(!( 'a' ~~ m/@var[33m⏏[31m[1]/ ), 'Array 1');[0m
+    Apparent subscript will be treated as regex
+    at t/spec/S05-metasyntax/litvar.rakudo:65
+    ------> [32mok(!( '1' ~~ m/$href[33m⏏[31m.{'b'}/ ), 'Hash ref dot B');[0m
+    Apparent subscript will be treated as regex
+    at t/spec/S05-metasyntax/litvar.rakudo:66
+    ------> [32mok(!( '1' ~~ m/$href[33m⏏[31m{'b'}/ ), 'Hash ref B');[0m
+    Apparent subscript will be treated as regex
+    at t/spec/S05-metasyntax/litvar.rakudo:68
+    ------> [32mok(!( '1' ~~ m/%var[33m⏏[31m{'b'}/ ), 'Hash B');[0m
+    Apparent subscript will be treated as regex
+    at t/spec/S05-metasyntax/litvar.rakudo:69
+    ------> [32mok(!( '1' ~~ m/$href[33m⏏[31m.<b>/ ), 'Hash ref dot B');[0m
+    Apparent subscript will be treated as regex
+    at t/spec/S05-metasyntax/litvar.rakudo:70
+    ------> [32mok(!( '1' ~~ m/$href[33m⏏[31m<b>/ ), 'Hash ref B');[0m
+    Apparent subscript will be treated as regex
+    at t/spec/S05-metasyntax/litvar.rakudo:72
+    ------> [32mok(!( '1' ~~ m/%var[33m⏏[31m<b>/ ), 'Hash B');[0m
+  19    0   14    0   33
      6 todo   : hash variable in regex
      8 todo   : array variable in regex
 S05-metasyntax/longest-alternative.rakudo..........  19    0    4    8   31
@@ -1723,7 +1798,7 @@ S32-num/fatrat.rakudo.............................. 271    0    1    2  274
 S32-num/int.rakudo.................................  81    0    3    2   86
      2 skipped: trailing characters produce failures
      3 todo   : Inf and NaN NYI for Int
-S32-num/is-prime.t.................................  27    0    0    0   27
+S32-num/is-prime.t.................................  35    0    0    0   35
 S32-num/log.rakudo.................................  28    0    1    0   29
      1 todo   : HugeInt.log
 S32-num/pi.t.......................................   4    0    0    0    4
@@ -2195,10 +2270,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         300,     0,     0,     1,   301,   258
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         310,     0,     1,     7,   318,   328
-"S32",        7442,     0,    97,   243,  7782,  5327
+"S32",        7450,     0,    97,   243,  7790,  5335
 "int",         521,     0,    16,    25,   562,   552
 "ros",           2,     0,     0,     0,     2,     2
-"total",     24828,     0,   674,  1851, 27353, 24841
+"total",     24836,     0,   674,  1851, 27361, 24849
 ----------------
 Failure summary:
 note: test_summary.pl @syn does not have ros
