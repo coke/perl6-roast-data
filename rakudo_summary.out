@@ -901,12 +901,12 @@ S05-grammar/signatures.t...........................   2    0    0    0    2
 S05-grammar/ws.rakudo..............................  10    0    0    2   12
      2 skipped: infinite loop: RT #64094 (noauto)
 S05-interpolation/lexicals.t.......................  10    0    0    0   10
-S05-interpolation/regex-in-variable.rakudo.........  19    0   11    3   33
+S05-interpolation/regex-in-variable.rakudo.........  20    0   10    3   33
      3 skipped: instance member interpolation
      1 todo   : warn on undef
      1 todo   : nom regression
      1 todo   : double quote interpolation
-     4 todo   : array variable interpolation
+     3 todo   : array variable interpolation
      4 todo   : array of regexes
 S05-mass/named-chars.rakudo........................ 284    0   53   94  431
      2 skipped: CR as char name
@@ -1017,67 +1017,19 @@ S05-metasyntax/charset.rakudo......................  31    0    1    2   34
      1 todo   : comment in charset (RT #67124)
 S05-metasyntax/interpolating-closure.rakudo........   5    0    1    0    6
      1 todo   : dunno
-S05-metasyntax/litvar.rakudo.......................Potential difficulties:
+S05-metasyntax/litvar.t............................Potential difficulties:
     Apparent subscript will be treated as regex
-    at t/spec/S05-metasyntax/litvar.rakudo:37
-    ------> [32my variable in regex'); ok('a' ~~ m/$aref[33m⏏[31m[0]/, 'Array ref 0');[0m
+    at t/spec/S05-metasyntax/litvar.t:33
+    ------> [32mok('a0' ~~ m/$aref[33m⏏[31m[0]/, 'Array ref 0');[0m
     Apparent subscript will be treated as regex
-    at t/spec/S05-metasyntax/litvar.rakudo:39
-    ------> [32my variable in regex'); ok('a' ~~ m/$aref[33m⏏[31m.[0]/, 'Array ref dot 0');[0m
+    at t/spec/S05-metasyntax/litvar.t:34
+    ------> [32mok('bx0' ~~ m/$aref[33m⏏[31m.[0]/, 'Array ref dot 0');[0m
     Apparent subscript will be treated as regex
-    at t/spec/S05-metasyntax/litvar.rakudo:41
-    ------> [32may variable in regex'); ok('a' ~~ m/@var[33m⏏[31m[0]/, 'Array 0');[0m
-    Apparent subscript will be treated as regex
-    at t/spec/S05-metasyntax/litvar.rakudo:45
-    ------> [32mh variable in regex'); ok('1' ~~ m/$href[33m⏏[31m.{'a'}/, 'Hash ref dot A');[0m
-    Apparent subscript will be treated as regex
-    at t/spec/S05-metasyntax/litvar.rakudo:47
-    ------> [32mh variable in regex'); ok('1' ~~ m/$href[33m⏏[31m{'a'}/, 'Hash ref A');[0m
-    Apparent subscript will be treated as regex
-    at t/spec/S05-metasyntax/litvar.rakudo:49
-    ------> [32msh variable in regex'); ok('1' ~~ m/%var[33m⏏[31m{'a'}/, 'Hash A');[0m
-    Apparent subscript will be treated as regex
-    at t/spec/S05-metasyntax/litvar.rakudo:54
-    ------> [32mh variable in regex'); ok('1' ~~ m/$href[33m⏏[31m.<a>/, 'Hash ref dot A');[0m
-    Apparent subscript will be treated as regex
-    at t/spec/S05-metasyntax/litvar.rakudo:57
-    ------> [32mh variable in regex'); ok('1' ~~ m/$href[33m⏏[31m<a>/, 'Hash ref A');[0m
-    Apparent subscript will be treated as regex
-    at t/spec/S05-metasyntax/litvar.rakudo:60
-    ------> [32msh variable in regex'); ok('1' ~~ m/%var[33m⏏[31m<a>/, 'Hash A');[0m
-    Apparent subscript will be treated as regex
-    at t/spec/S05-metasyntax/litvar.rakudo:62
-    ------> [32mok(!( 'a' ~~ m/$aref[33m⏏[31m[1]/ ), 'Array ref 1');[0m
-    Apparent subscript will be treated as regex
-    at t/spec/S05-metasyntax/litvar.rakudo:63
-    ------> [32mok(!( 'a' ~~ m/$aref[33m⏏[31m.[1]/ ), 'Array ref dot 1');[0m
-    Apparent subscript will be treated as regex
-    at t/spec/S05-metasyntax/litvar.rakudo:64
-    ------> [32mok(!( 'a' ~~ m/@var[33m⏏[31m[1]/ ), 'Array 1');[0m
-    Apparent subscript will be treated as regex
-    at t/spec/S05-metasyntax/litvar.rakudo:65
-    ------> [32mok(!( '1' ~~ m/$href[33m⏏[31m.{'b'}/ ), 'Hash ref dot B');[0m
-    Apparent subscript will be treated as regex
-    at t/spec/S05-metasyntax/litvar.rakudo:66
-    ------> [32mok(!( '1' ~~ m/$href[33m⏏[31m{'b'}/ ), 'Hash ref B');[0m
-    Apparent subscript will be treated as regex
-    at t/spec/S05-metasyntax/litvar.rakudo:68
-    ------> [32mok(!( '1' ~~ m/%var[33m⏏[31m{'b'}/ ), 'Hash B');[0m
-    Apparent subscript will be treated as regex
-    at t/spec/S05-metasyntax/litvar.rakudo:69
-    ------> [32mok(!( '1' ~~ m/$href[33m⏏[31m.<b>/ ), 'Hash ref dot B');[0m
-    Apparent subscript will be treated as regex
-    at t/spec/S05-metasyntax/litvar.rakudo:70
-    ------> [32mok(!( '1' ~~ m/$href[33m⏏[31m<b>/ ), 'Hash ref B');[0m
-    Apparent subscript will be treated as regex
-    at t/spec/S05-metasyntax/litvar.rakudo:72
-    ------> [32mok(!( '1' ~~ m/%var[33m⏏[31m<b>/ ), 'Hash B');[0m
-  19    0   14    0   33
-     6 todo   : hash variable in regex
-     8 todo   : array variable in regex
-S05-metasyntax/longest-alternative.rakudo..........  19    0    4    8   31
+    at t/spec/S05-metasyntax/litvar.t:35
+    ------> [32mok('c0' ~~ m/@var[33m⏏[31m[0]/, 'Array 0');[0m
+  22    0    0    0   22
+S05-metasyntax/longest-alternative.rakudo..........  26    0    4    1   31
      1 skipped: :::
-     7 skipped: interpolating arrays
      2 todo   : LTM - literals in tokens
      1 todo   : LTM - longer quantified atom wins against shorter literal (subrules)
      1 todo   : implicit <.ws> stops LTM
@@ -1093,8 +1045,7 @@ use of uninitialized value of type Any in string context  in any  at src/gen/BOO
 S05-metasyntax/repeat.rakudo.......................  13    0    0    9   22
      6 skipped: closure repetition
      3 skipped: nom regression
-S05-metasyntax/sequential-alternation.rakudo.......   6    0    4    0   10
-     4 todo   : sequential alternation NYI
+S05-metasyntax/sequential-alternation.t............  10    0    0    0   10
 S05-metasyntax/single-quotes.t.....................   5    0    0    0    5
 S05-metasyntax/unknown.rakudo......................use of uninitialized value of type Any in string context  in block  at t/spec/S05-metasyntax/unknown.rakudo:31
 
@@ -2256,7 +2207,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        3170,     0,   141,   261,  3572,  3512
 "S03",        4348,     0,   147,   369,  4864,  4207
 "S04",         850,     0,    34,    50,   934,   970
-"S05",        4636,     0,   143,   541,  5320,  5764
+"S05",        4651,     0,   124,   534,  5309,  5753
 "S06",        1131,     0,    29,   132,  1292,  1278
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         135,     0,    19,    21,   175,   175
@@ -2275,7 +2226,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        7450,     0,    97,   243,  7790,  5335
 "int",         521,     0,    16,    25,   562,   552
 "ros",           2,     0,     0,     0,     2,     2
-"total",     24836,     0,   674,  1851, 27361, 24849
+"total",     24851,     0,   655,  1844, 27350, 24838
 ----------------
 Failure summary:
 note: test_summary.pl @syn does not have ros
