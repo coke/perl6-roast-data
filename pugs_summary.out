@@ -20,9 +20,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xa657858)'
+#     Actual: 'CODE(0xa29e858)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xa657b78)'
+#     Actual: 'CODE(0xa29eb78)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -1740,31 +1740,12 @@ S05-capture/match-object.pugs......................#     Actual: undef
      1 skipped: Unimplemented unaryOp: hash
      1 todo   : Match.Str by Christmas
      6 todo   : fix by Christmas
-S05-interpolation/regex-in-variable.pugs...........#     Actual: undef
-#     Actual: undef
-#     Actual: undef
-#     Actual: undef
-#     Actual: undef
-#     Actual: undef
-#     Actual: undef
-#     Actual: undef
-#     Actual: undef
-#     Actual: undef
-#     Actual: undef
-#     Actual: undef
-#     Actual: undef
-#     Actual: undef
-#     Actual: undef
-#     Actual: undef
-#     Actual: undef
-#     Actual: undef
-#     Actual: No exception thrown
-#     Actual: undef
-#     Actual: undef
-#     Actual: undef
-   9    0   22    2   33
-     2 skipped: boom
-    22 todo   : fix by Christmas
+S05-interpolation/regex-in-variable.pugs...........*** 
+    Unexpected "d"
+    expecting "(" or "."
+    at t/spec/S05-interpolation/regex-in-variable.pugs line 73, column 35
+   0   34    0    0   34
+    34 tests aborted (missing ok/not ok)
 S05-mass/named-chars.pugs..........................#     Actual: undef
 #     Actual: undef
 #     Actual: undef
@@ -4434,7 +4415,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6aeef11>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6aeebdd>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6aeef11>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6aeebdd>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c757dd>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6c7564d>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c757dd>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6c7564d>})])}])
 #   Expected: 'undef'
 #     Actual: 'Scalar()'
   16    0    2    1   19
@@ -4588,13 +4569,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.2020.417
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.2020.417
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.2020.417
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.2020.417
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.2020.417
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.2020.417
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.2020.417
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.20506.138
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.20506.138
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.20506.138
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.20506.138
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.20506.138
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.20506.138
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.20506.138
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -4866,7 +4847,7 @@ S32-list/pick.pugs.................................#     Actual: undef
 #     Actual: undef
 #     Actual: undef
 #     Actual: undef
-sh: line 1:  2164 Killed                  nice -20 ./Pugs/pugs -IPugs/ext/Test/lib t/spec/S32-list/pick.pugs
+sh: line 1: 20604 Killed                  nice -20 ./Pugs/pugs -IPugs/ext/Test/lib t/spec/S32-list/pick.pugs
   24    1    5   17   47
      1 skipped: .Str
      2 skipped: hogs memory
@@ -5501,7 +5482,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S02",        1420,     2,   316,   455,  2193,  3614
 "S03",        1866,     0,   286,   306,  2458,  4207
 "S04",         487,     0,   109,    86,   682,   970
-"S05",        2213,     6,  2194,    55,  4468,  5753
+"S05",        2204,    40,  2172,    53,  4469,  5754
 "S06",         407,     0,    80,   123,   610,  1278
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          68,     0,    22,     8,    98,   175
@@ -5519,11 +5500,12 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S29",          32,     0,     6,     6,    44,    78
 "S32",        2266,     1,   288,   563,  3118,  5347
 "int",         131,     0,    35,    26,   192,   542
-"total",      9477,     9,  3461,  1752, 14699, 24702
+"total",      9468,    43,  3439,  1750, 14700, 24703
 ----------------
 Failure summary:
 S02-literals/quoting.pugs 160 - /.../ literals match in void context
 S02-literals/quoting.pugs 161 - rx/.../ literals match in void context
+S05-interpolation/regex-in-variable.pugs aborted 34 test(s)
 S05-mass/rx.pugs 651 - $( $_ ) will match literally
 S05-mass/rx.pugs 652 - ... will match correctly
 S05-metasyntax/litvar.pugs 19 - $( $_ ) will match
