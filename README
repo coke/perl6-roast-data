@@ -27,3 +27,20 @@
 
     If you notice a test is continually failing (check the history of the
     implementation's .out file), please open a ticket with that implementation.
+
+"How to Help - Pugs"
+
+    Since Pugs is in maintenance mode at this point, any new tests are not
+    likely to get a patch to work; To keep Pugs green, any failing tests
+    should be fudged. For most tests, this involves prefixing the test
+    with:
+
+    #?pugs todo
+  
+    If this still doesn't allow the test file to complete, change the todo
+    to a skip - this requires a reason; either put in the error diagnostic
+    or the word "parsefail", e.g.:
+
+    #?pugs skip 'No compatible multi variant found: "&is"'
+
+    If you still can't get a test file to pass, drop by #perl6.
