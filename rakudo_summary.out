@@ -1019,10 +1019,9 @@ S05-metasyntax/angle-brackets.rakudo...............  52    0    0   28   80
      2 skipped: angle quotes in regexes
 S05-metasyntax/assertions.t........................   4    0    0    0    4
 S05-metasyntax/changed.t...........................  12    0    0    0   12
-S05-metasyntax/charset.rakudo......................  32    0    2    2   36
+S05-metasyntax/charset.rakudo......................  35    0    1    2   38
      1 skipped: large \x char spec in regex (RT #67122) (noauto)
      1 skipped: comment in charset (RT #67124)
-     1 todo   : RT #115802
      1 todo   : comment in charset (RT #67124)
 S05-metasyntax/interpolating-closure.rakudo........   5    0    1    0    6
      1 todo   : dunno
@@ -1778,7 +1777,7 @@ S32-num/power.rakudo...............................  39    0    0    4   43
      1 skipped: 1i**NaN should be NaN
 S32-num/rand.rakudo................................ 113    0    0    1  114
      1 skipped: Test is too slow
-S32-num/rat.rakudo................................. 817    0    2    2  821
+S32-num/rat.rakudo................................. 817    3    2    2  824
      1 skipped: NaN.Rat == NaN
      1 skipped: RT 74648
      2 todo   : Inf.Rat
@@ -1793,14 +1792,13 @@ S32-num/stringify.rakudo...........................use of uninitialized value of
 
 use of uninitialized value of type Complex in string context  in block  at t/spec/S32-num/stringify.rakudo:49
 
-use of uninitialized value of type Rat in string context  in block  at t/spec/S32-num/stringify.rakudo:87
+use of uninitialized value of type Rat in string context  in block  at t/spec/S32-num/stringify.rakudo:93
 
-use of uninitialized value of type Rat in string context  in block  at t/spec/S32-num/stringify.rakudo:88
+use of uninitialized value of type Rat in string context  in block  at t/spec/S32-num/stringify.rakudo:94
 
-  53    0   15    8   76
-     8 skipped: formatting precision
+  95    0   20    0  115
     11 todo   : Complex.perl
-     4 todo   : Rat.perl
+     9 todo   : Rat.perl
 S32-num/unpolar.t.................................. 199    0    0    0  199
 S32-scalar/defined.t...............................  56    0    0    0   56
 S32-scalar/undef.rakudo............................use of uninitialized value of type Any in string context  in block  at t/spec/S32-scalar/undef.rakudo:48
@@ -2222,7 +2220,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        3178,     0,   141,   261,  3580,  3520
 "S03",        4350,     0,   147,   369,  4866,  4209
 "S04",         852,     0,    33,    50,   935,   971
-"S05",        4678,     0,   116,   518,  5312,  5756
+"S05",        4681,     0,   115,   518,  5314,  5758
 "S06",        1132,     0,    29,   131,  1292,  1278
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         135,     0,    19,    21,   175,   175
@@ -2238,10 +2236,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         300,     0,     0,     1,   301,   258
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         310,     0,     1,     7,   318,   328
-"S32",        7454,     0,    98,   243,  7795,  5337
+"S32",        7496,     3,   103,   235,  7837,  5379
 "int",         521,     0,    16,    25,   562,   552
 "ros",           2,     0,     0,     0,     2,     2
-"total",     24896,     0,   647,  1826, 27369, 24854
+"total",     24941,     3,   651,  1818, 27413, 24898
 ----------------
 Failure summary:
+S32-num/rat.rakudo 11 - (1/10).perl is 0.1
+S32-num/rat.rakudo 12 - (1/5).perl is .2
+S32-num/rat.rakudo 13 - (1/2).perl is .5
 note: test_summary.pl @syn does not have ros

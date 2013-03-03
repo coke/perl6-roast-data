@@ -20,9 +20,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xa066858)'
+#     Actual: 'CODE(0xa9c1858)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xa066b78)'
+#     Actual: 'CODE(0xa9c1b78)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -3824,6 +3824,12 @@ S05-metasyntax/charset.pugs........................#     Actual: undef
 #     Actual: 'undef'
 #   Failed test (t/spec/S05-metasyntax/charset.pugs line 40, column 1-55)
 #     Actual: undef
+#   Failed test (t/spec/S05-metasyntax/charset.pugs line 42, column 1-65)
+#   Expected: 'bc'
+#     Actual: ''
+#   Failed test (t/spec/S05-metasyntax/charset.pugs line 43, column 1-65)
+#   Expected: '23'
+#     Actual: ''
 #     Actual: undef
 #   Expected: 'y'
 #     Actual: 'undef'
@@ -3850,8 +3856,8 @@ S05-metasyntax/charset.pugs........................#     Actual: undef
 #     Actual: undef
 #     Actual: undef
 #     Actual: undef
-# Looks like you failed 1 tests of 36
-   9    1   26    0   36
+# Looks like you failed 3 tests of 38
+   9    3   26    0   38
     26 todo   : fix by Christmas
 S05-metasyntax/litvar.pugs.........................#     Actual: undef
 #     Actual: undef
@@ -4411,7 +4417,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6b3aead>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6b3ab61>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6b3aead>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6b3ab61>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6addd55>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6adda09>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6addd55>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6adda09>})])}])
 #   Expected: 'undef'
 #     Actual: 'Scalar()'
   16    0    2    1   19
@@ -4573,13 +4579,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.4333.526
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.4333.526
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.4333.526
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.4333.526
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.4333.526
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.4333.526
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.4333.526
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.29249.880
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.29249.880
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.29249.880
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.29249.880
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.29249.880
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.29249.880
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.29249.880
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -4851,7 +4857,7 @@ S32-list/pick.pugs.................................#     Actual: undef
 #     Actual: undef
 #     Actual: undef
 #     Actual: undef
-sh: line 1:  4431 Killed                  nice -20 ./Pugs/pugs -IPugs/ext/Test/lib t/spec/S32-list/pick.pugs
+sh: line 1: 29394 Killed                  nice -20 ./Pugs/pugs -IPugs/ext/Test/lib t/spec/S32-list/pick.pugs
   24    1    5   17   47
      1 skipped: .Str
      2 skipped: hogs memory
@@ -5058,13 +5064,23 @@ S32-num/power.pugs.................................#   Expected: 'Inf'
      9 todo   : fix by Christmas
 S32-num/rat.pugs...................................#   Expected: 'undef'
 #     Actual: 'Scalar()'
+#   Failed test (t/spec/S32-num/rat.pugs line 29, column 1-47)
+#   Expected: '0.1'
+#     Actual: '1/10'
+#   Failed test (t/spec/S32-num/rat.pugs line 30, column 1-44)
+#   Expected: '0.2'
+#     Actual: '1/5'
+#   Failed test (t/spec/S32-num/rat.pugs line 31, column 1-44)
+#   Expected: '0.5'
+#     Actual: '1/2'
 #   Expected: 'NaN'
 #     Actual: '-269653970229347386159395778618353710042696546841345985910145121736599013708251444699062715983611304031680170819807090036488184653221624933739271145959211186566651840137298227914453329401869141179179624428127508653257226023513694322210869665811240855745025766026879447359920868907719574457253034494436336205824'
 #   Expected: 'Inf'
 #     Actual: '179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137216'
 #   Expected: '-Inf'
 #     Actual: '-179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137216'
- 786    0    4   31  821
+# Looks like you failed 3 tests of 824
+ 786    3    4   31  824
      2 skipped: Illegal division by zero
      6 skipped: .nude
     20 skipped: Must only use named arguments to new() constructor
@@ -5114,26 +5130,16 @@ S32-num/stringify.pugs.............................#   Expected: '3+4i'
 #     Actual: '\NaN + 3.0i'
 #   Expected: 'Complex'
 #     Actual: 'Complex()'
-#   Expected: '<1/2>'
-#     Actual: '\1/2'
-#   Expected: '<-1/2>'
-#     Actual: '\-1/2'
-#   Expected: '<0/1>'
-#     Actual: '\0/1'
-#   Expected: '<1/1>'
-#     Actual: '\1/1'
-#   Expected: '<1/3>'
-#     Actual: '\1/3'
-#   Expected: '<1797010299914431210413179829509605039731475627537851106401/1152921504606846976>'
-#     Actual: '\1797010299914431210413179829509605039731475627537851106401/1152921504606846976'
-#   Expected: 'Rat'
-#     Actual: 'Rat()'
-   3    0   24   49   76
+# Looks like you planned 115 tests, but ran 48
+*** Undeclared variable: ("$str",MkPad (padToList [("$_",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6eab5fd>, pe_flags = MkEntryFlags {ef_isContext = True}, pe_store = <ref:0xf6f0b441>}),("@_",PELexical {pe_type = (mkType "Array"), pe_proto = <Array:0xf6f4324d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f0a305>}),("&?BLOCK",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf7084ec5>, pe_flags = MkEntryFlags {ef_isContext = True}, pe_store = <ref:0xf6f0c8e5>}),("&skip",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f73655>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f0b7a9>}),("&?ROUTINE",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf7084ec5>, pe_flags = MkEntryFlags {ef_isContext = True}, pe_store = <ref:0xf6f0b45d>}),("&is",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f7215d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f52c61>}),("&approx",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f721a1>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f52fe1>}),("&plan",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f74cd1>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f0cbcd>}),("&force_todo",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f722e1>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f73761>}),("&todo",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f7229d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f0a75d>}),("&ok",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f72335>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f73779>}),("&nok",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f74d5d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f0b845>}),("&is_deeply",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f723f1>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f737d5>}),("&is_approx",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f73781>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f524b5>}),("&isnt",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f72445>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f52989>}),("&like",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f75f6d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f0c189>}),("&unlike",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f725a9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f52a2d>}),("&eval_dies_ok",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f738bd>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f5276d>}),("&cmp_ok",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f725ed>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f73921>}),("&isa_ok",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f74e61>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f52ae1>}),("&use_ok",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f726a9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f7397d>}),("&throws_ok",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f73929>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f528d1>}),("&dies_ok",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f726fd>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f73995>}),("&lives_ok",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f74e1d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f0cc69>}),("&eval_lives_ok",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f72829>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f73a59>}),("&done_testing",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f73a05>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f0a87d>}),("&done",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f7287d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f73a71>}),("&skip_rest",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f74f25>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f0b985>}),("&pass",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f72939>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f73acd>}),("&flunk",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f73a79>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f52819>}),("&diag",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f71ac9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f729a9>}),("&Complex_str_test",PEStatic {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f71a85>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f51c85>}),("&Rat_str_test",PEStatic {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6fffaa5>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f729bd>})]),[PRuntime {pr_pad = MkPad (padToList [("$_",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6eab5fd>, pe_flags = MkEntryFlags {ef_isContext = True}, pe_store = <ref:0xf6f0b441>}),("@_",PELexical {pe_type = (mkType "Array"), pe_proto = <Array:0xf6f4324d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f0a305>}),("&?BLOCK",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf7084ec5>, pe_flags = MkEntryFlags {ef_isContext = True}, pe_store = <ref:0xf6f0c8e5>}),("&skip",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6eab981>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f0b7a9>}),("&?ROUTINE",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf7084ec5>, pe_flags = MkEntryFlags {ef_isContext = True}, pe_store = <ref:0xf6f0b45d>}),("&is",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f50029>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f52c61>}),("&approx",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f508b9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f52fe1>}),("&plan",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f0a679>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f0cbcd>}),("&force_todo",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f42161>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f73761>}),("&todo",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f43551>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f0a75d>}),("&ok",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f421a5>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f73779>}),("&nok",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6eab9d1>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f0b845>}),("&is_deeply",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f421e9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f737d5>}),("&is_approx",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f51395>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f524b5>}),("&isnt",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f51b8d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f52989>}),("&like",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f0b72d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f0c189>}),("&unlike",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f51cc1>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f52a2d>}),("&eval_dies_ok",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f517e5>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f5276d>}),("&cmp_ok",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f4222d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f73921>}),("&isa_ok",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f51dd1>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f52ae1>}),("&use_ok",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f42271>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f7397d>}),("&throws_ok",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f51a51>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f528d1>}),("&dies_ok",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f422b5>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f73995>}),("&lives_ok",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f0a7b5>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f0cc69>}),("&eval_lives_ok",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f423ed>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f73a59>}),("&done_testing",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f43645>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f0a87d>}),("&done",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f42431>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f73a71>}),("&skip_rest",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6eaba95>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f0b985>}),("&pass",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f42475>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f73acd>}),("&flunk",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f51929>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f52819>}),("&diag",PELexical {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f41181>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f729a9>}),("&Complex_str_test",PEStatic {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f424b9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f51c85>}),("&Rat_str_test",PEStatic {pe_type = (mkType "Sub"), pe_proto = <Sub:0xf6f411c5>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6f729bd>})])}])
+    at t/spec/S32-num/stringify.pugs line 61, column 54-58
+   1   67   17   30  115
      1 skipped: gist
-    21 skipped: coercion
+     9 skipped: coercion
     12 skipped: parsefail
-    15 skipped: .gist
-    24 todo   : fix by Christmas
+     8 skipped: .gist
+    17 todo   : fix by Christmas
+    67 tests aborted (missing ok/not ok)
 S32-scalar/defined.pugs............................  30    0    0   26   56
      3 skipped: Mu
     20 skipped: isa_ok
@@ -5504,7 +5510,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S02",        1405,    48,   303,   438,  2194,  3620
 "S03",        1866,     2,   286,   306,  2460,  4209
 "S04",         487,     1,   109,    86,   683,   971
-"S05",        2205,    41,  2172,    53,  4471,  5756
+"S05",        2205,    43,  2172,    53,  4473,  5758
 "S06",         407,     0,    80,   123,   610,  1278
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          68,     0,    22,     8,    98,   175
@@ -5520,9 +5526,9 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S26",           0,     0,     0,     0,     0,   258
 "S28",           4,     0,     0,     1,     5,    13
 "S29",          32,     0,     6,     6,    44,    78
-"S32",        2266,     2,   288,   563,  3119,  5348
+"S32",        2264,    72,   281,   544,  3161,  5390
 "int",         127,     4,    35,    26,   192,   542
-"total",      9448,   100,  3426,  1733, 14707, 24715
+"total",      9446,   172,  3419,  1714, 14751, 24759
 ----------------
 Failure summary:
 S02-literals/quoting.pugs 160 - /.../ literals match in void context
@@ -5535,6 +5541,8 @@ S05-interpolation/regex-in-variable.pugs aborted 34 test(s)
 S05-mass/rx.pugs 651 - $( $_ ) will match literally
 S05-mass/rx.pugs 652 - ... will match correctly
 S05-metasyntax/charset.pugs 9 - Difference set match
+S05-metasyntax/charset.pugs 11 - Difference set match
+S05-metasyntax/charset.pugs 12 - Difference set match
 S05-metasyntax/litvar.pugs 19 - $( $_ ) will match
 S05-metasyntax/litvar.pugs 20 - ... $( $_ ) matched entire string
 S05-metasyntax/litvar.pugs 21 - Contextualizer with functions calls
@@ -5542,6 +5550,10 @@ S05-metasyntax/litvar.pugs 22 - @( <a b c o> )+
 S12-class/lexical.pugs 8 - lexical type object stringifies correct
 S14-roles/lexical.pugs 4 - lexical role type object stringifies OK
 S32-list/pick.pugs aborted 1 test(s)
+S32-num/rat.pugs 11 - (1/10).perl is 0.1
+S32-num/rat.pugs 12 - (1/5).perl is .2
+S32-num/rat.pugs 13 - (1/2).perl is .5
+S32-num/stringify.pugs aborted 67 test(s)
 S32-str/substr.pugs 92 - substr with Int and WhateverCode arg
 integration/advent2009-day01.t 1 - WHAT
 integration/pair-in-array.t 1 - array of single Pair holds a Pair
