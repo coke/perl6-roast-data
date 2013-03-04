@@ -2088,8 +2088,8 @@ S05-mass/rx.niecza.................................Potential difficulties:
   $rt112450 is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-mass/rx.niecza line 2572:
 ------> [32m    my [33m?[31m$rt112450 = 4;[0m
 
-sh: line 1: 32546 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
- 669    4   19   47  739
+sh: line 1:  7399 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
+ 665    8   19   47  739
      1 skipped: Unable to resolve method alpha in class Cursor
      2 skipped: Dubious test, http://irclog.perlgeek.de/perl6/2012-05-27#i_5643089
     13 skipped: Unable to resolve method wb in class Cursor
@@ -2103,7 +2103,7 @@ sh: line 1: 32546 Killed                  nice -20 mono ./run/Niecza.exe t/spec/
      3 todo   : ::: issue
      2 todo   : :: issues
      3 todo   : Unable to resolve method cntrl in class Cursor
-     4 tests aborted (missing ok/not ok)
+     8 tests aborted (missing ok/not ok)
 S05-mass/stdrules.niecza........................... 183    0    0    3  186
      3 skipped: <at>
 S05-match/arrayhash.niecza.........................   4    0    4    0    8
@@ -2175,8 +2175,9 @@ S05-metasyntax/angle-brackets.niecza...............  53    0    3   24   80
      1 todo   : <.$foo> syntax placeholder
      1 todo   : string value was cached
 S05-metasyntax/changed.t...........................  12    0    0    0   12
-S05-metasyntax/charset.niecza......................  37    0    1    0   38
+S05-metasyntax/charset.niecza......................  38    0    2    0   40
      1 todo   : 
+     1 todo   : gives c123?
 S05-metasyntax/interpolating-closure.niecza........   5    0    1    0    6
      1 todo   : dunno
 S05-metasyntax/litvar.niecza.......................Potential difficulties:
@@ -2236,7 +2237,7 @@ S05-modifier/counted-match.niecza..................  11    0    1   10   22
      1 todo   : 
 S05-modifier/counted.niecza........................ 116    0    0    2  118
      2 skipped: m:g
-S05-modifier/ignorecase.niecza.....................  18    0    3    0   21
+S05-modifier/ignorecase.niecza.....................  20    1    3    0   24
      3 todo   : 
 S05-modifier/pos.niecza............................  36    0    0    4   40
      4 skipped: :i
@@ -2809,9 +2810,30 @@ S10-packages/basic.niecza..........................Potential difficulties:
 S12-attributes/augment-and-initialization.niecza...   2    0    4    2    8
      2 skipped: Unable to resolve method t in class T1
      4 todo   : 
-S12-attributes/class.niecza........................  11    0    0   12   23
-     8 skipped: method ^foo
-     4 skipped: Exception
+S12-attributes/class.niecza........................[31m===[0mSORRY![31m===[0m
+
+Two definitions of method b (see line 110) at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/class.niecza line 111:
+------> [32m        method b[33m?[31m() { 2; } [0m
+
+Two definitions of method b (see line 117) at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-attributes/class.niecza line 118:
+------> [32m        method b[33m?[31m() { 2; } [0m
+
+Unhandled exception: Check failed
+
+  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 1443 (die @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1147 (P6.comp_unit @ 37) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 101 (STD.TOP @ 11) 
+  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 2923 (Grammar.parse @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/src/NieczaFrontendSTD.pm6 line 281 (NieczaFrontendSTD.parse @ 70) 
+  at /home/coke/sandbox/perl6pass/niecza/src/NieczaCompiler.pm6 line 34 (NieczaCompiler.compile @ 18) 
+  at /home/coke/sandbox/perl6pass/niecza/src/NieczaCompiler.pm6 line 60 (NieczaCompiler.compile_file @ 8) 
+  at /home/coke/sandbox/perl6pass/niecza/src/niecza line 159 (mainline @ 141) 
+  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4211 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4212 (module-CORE @ 578) 
+  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4212 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+   0   25    0    0   25
+    25 tests aborted (missing ok/not ok)
 S12-attributes/clone.niecza........................Use of uninitialized value in string context
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1331 (warn @ 5) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
@@ -3914,16 +3936,15 @@ S32-num/rat.niecza.................................Use of uninitialized value in
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1331 (warn @ 5) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 294 (Any.Numeric @ 8) 
   at <unknown> line 0 (ExitRunloop @ 0) 
-  at /home/coke/sandbox/perl6pass/niecza/t/spec/S32-num/rat.niecza line 272 (mainline @ 517) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S32-num/rat.niecza line 275 (mainline @ 521) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4274 (ANON @ 3) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4275 (module-CORE @ 581) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4275 (mainline @ 3) 
   at <unknown> line 0 (ExitRunloop @ 0) 
- 813    2    4    5  824
+ 814    0    5    5  824
      3 skipped: No value for parameter $n in CORE Rat.new
      2 skipped: Unable to resolve method nude in class Num
-     3 todo   : 
-     1 todo PASSED: got 241025348275725.31
+     5 todo   : 
 S32-num/real-bridge.t.............................. 200    0    0    0  200
 S32-num/roots.t....................................  55    0    0    0   55
 S32-num/rounders.t................................. 120    0    0    0  120
@@ -5449,13 +5470,13 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 "S02",        2981,     5,   106,   265,  3357,  3520
 "S03",        3974,    12,   192,   358,  4536,  4209
 "S04",         791,     0,    34,    60,   885,   971
-"S05",        3963,   142,   101,   179,  4385,  5758
+"S05",        3962,   147,   102,   179,  4390,  5763
 "S06",         771,     0,    56,   161,   988,  1278
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          65,     0,     0,     8,    73,   175
 "S10",          35,     0,     5,    19,    59,   127
 "S11",           0,     0,     0,     0,     0,   129
-"S12",         732,     3,    60,   151,   946,  1321
+"S12",         721,    28,    60,   139,   948,  1323
 "S13",          31,     0,     1,    10,    42,    80
 "S14",         167,     1,     1,    10,   179,   327
 "S16",         189,     0,    21,    25,   235,   290
@@ -5465,9 +5486,9 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 "S26",           0,     0,     0,     0,     0,   258
 "S28",           6,     0,     1,     0,     7,    13
 "S29",         305,     0,     5,     5,   315,   328
-"S32",        6421,     8,   130,   238,  6797,  5379
+"S32",        6422,     6,   131,   238,  6797,  5379
 "int",         453,     3,    21,    27,   504,   552
-"total",     20888,   175,   734,  1516, 23313, 24896
+"total",     20877,   203,   736,  1504, 23320, 24903
 ----------------
 Failure summary:
 S02-literals/quoting.niecza 160 - /.../ literals match in void context
@@ -5487,10 +5508,12 @@ S03-sequence/basic.niecza 48 - tricky sequence with one item and closure on the 
 S03-sequence/basic.niecza 66 - geometric sequence that never reaches its limit
 S03-sequence/basic.niecza 67 - alternating geometric sequence that never reaches its limit
 S03-sequence/basic.niecza 68 - "harmonic" sequence that never reaches its limit
-S05-mass/rx.niecza aborted 4 test(s)
+S05-mass/rx.niecza aborted 8 test(s)
 S05-metasyntax/litvar.niecza 4 - Array ref 0
 S05-metasyntax/litvar.niecza 5 - Array ref dot 0
+S05-modifier/ignorecase.niecza 23 - ignore case of character classes
 S05-substitution/subst.niecza aborted 136 test(s)
+S12-attributes/class.niecza aborted 25 test(s)
 S12-enums/basic.niecza 16 - .WHAT.gist on enum value stringifies to the enum name
 S12-methods/what.t 19 - WHAT function on bool and int
 S12-methods/what.t 20 - WHAT method on bool and int
@@ -5502,8 +5525,6 @@ S32-hash/kv.niecza 8 - .kv works with normal hashes (sanity check)
 S32-hash/kv.niecza 9 - .kv works with constant hash references
 S32-hash/kv.niecza 10 - .kv works with normal hashes (sanity check)
 S32-hash/kv.niecza 11 - .kv works with dereferenced constant hash references
-S32-num/rat.niecza 747 - Inf.Rat == Inf
-S32-num/rat.niecza 748 - (-Inf).Rat == -Inf
 integration/advent2009-day14.t 16
 integration/advent2009-day14.t 20
 integration/advent2009-day14.t 21
