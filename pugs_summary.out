@@ -20,9 +20,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xaccc858)'
+#     Actual: 'CODE(0xab48858)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xacccb78)'
+#     Actual: 'CODE(0xab48b78)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -914,10 +914,8 @@ S03-operators/assign.pugs..........................#   Expected: '0'
 #   Expected: 'c'
 #     Actual: 'a b c'
 #     Actual: No exception thrown
-#   Expected: 'Array.new()'
-#     Actual: '\(3,)'
-#   Expected: 'Array.new(3)'
-#     Actual: '\(3,)'
+#   Expected: ''
+#     Actual: '3'
  168    0   45   72  285
      2 skipped: Can't modify constant item: VNum Infinity
     12 skipped: Cannot cast from VInt 42 to Handle
@@ -935,7 +933,8 @@ S03-operators/assign.pugs..........................#   Expected: '0'
      3 skipped: div=
      1 skipped: Cannot cast from VList to VCode
      3 todo   : feature by Christmas
-    42 todo   : fix by Christmas
+    41 todo   : fix by Christmas
+     1 todo PASSED: fix by Christmas
 S03-operators/autoincrement-range.pugs.............# Tests for 'A' .. 'Z'
 #   Expected: '0A'
 #     Actual: '-1'
@@ -3858,6 +3857,8 @@ S05-metasyntax/charset.pugs........................#     Actual: undef
 #     Actual: ''
 #   Expected: '123'
 #     Actual: ''
+#   Expected: 'abc'
+#     Actual: ''
 #     Actual: undef
 #   Expected: 'y'
 #     Actual: 'undef'
@@ -3884,8 +3885,8 @@ S05-metasyntax/charset.pugs........................#     Actual: undef
 #     Actual: undef
 #     Actual: undef
 #     Actual: undef
-   8    0   32    0   40
-    31 todo   : fix by Christmas
+   8    0   33    0   41
+    32 todo   : fix by Christmas
      1 todo PASSED: fix by Christmas
 S05-metasyntax/litvar.pugs.........................#     Actual: undef
 #     Actual: undef
@@ -4440,7 +4441,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6ecdf41>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6ecdb9d>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6ecdf41>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6ecdb9d>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6a5b5ed>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6a5b289>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6a5b5ed>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6a5b289>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
   16    0    2    1   19
@@ -4594,13 +4595,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.23839.561
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.23839.561
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.23839.561
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.23839.561
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.23839.561
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.23839.561
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.23839.561
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.13515.301
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.13515.301
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.13515.301
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.13515.301
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.13515.301
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.13515.301
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.13515.301
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -5403,7 +5404,7 @@ integration/advent2009-day14.pugs..................#   Expected: '<3/7>'
 #     Actual: '3/7'
 #   Expected: '<1/30000>'
 #     Actual: '\1/30000'
-#   Expected: '<157/50>'
+#   Expected: '3.14'
 #     Actual: '157/50'
 #   Expected: '<355/113>'
 #     Actual: '3141592653589793/1000000000000000'
@@ -5460,7 +5461,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S02",        1420,     0,   318,   456,  2194,  3620
 "S03",        1866,     0,   288,   306,  2460,  4209
 "S04",         487,     0,   110,    86,   683,   971
-"S05",        2214,     0,  2205,    56,  4475,  5763
+"S05",        2214,     0,  2206,    56,  4476,  5764
 "S06",         407,     0,    80,   123,   610,  1278
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          68,     0,    22,     8,    98,   175
@@ -5478,6 +5479,6 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S29",          32,     0,     6,     6,    44,    78
 "S32",        2263,     0,   268,   515,  3046,  5390
 "int",         131,     0,    35,    26,   192,   542
-"total",      9475,     0,  3457,  1706, 14638, 24766
+"total",      9475,     0,  3458,  1706, 14639, 24767
 ----------------
 No failures!
