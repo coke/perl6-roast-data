@@ -15,5 +15,9 @@ echo "#!/usr/bin/env perl" > perl6
 echo 'exec "ulimit -t 15; ulimit -v 1260720; nice -20 mono ./run/Niecza.exe @ARGV"' >> perl6
 chmod a+x ./perl6
 make all
+
+# some tests require a LANG.
+export LANG=en_US.UTF-8
+
 mono ./run/Niecza.exe -e "say 'BUILD SETTING'"
 perl t/spec/test_summary niecza 2>&1 | tee ../niecza_summary.out
