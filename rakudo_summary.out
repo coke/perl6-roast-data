@@ -5,9 +5,7 @@ S01-perl-5-integration/basic.rakudo................   0    0    0   20   20
                                                    pass fail todo skip plan
 S02-lexical-conventions/begin_end_pod.t............   1    0    0    0    1
 S02-lexical-conventions/bom.t......................   1    0    0    0    1
-S02-lexical-conventions/comments.rakudo............  48    0    1    1   50
-     1 skipped: NYI
-     1 todo   : nom regression
+S02-lexical-conventions/comments.rakudo............   0    0    0    0    0
 S02-lexical-conventions/end-pod.t..................   1    0    0    0    1
 S02-lexical-conventions/minimal-whitespace.t.......   9    0    0    0    9
 S02-lexical-conventions/one-pass-parsing.t.........   1    0    0    0    1
@@ -93,7 +91,7 @@ S02-magicals/dollar-underscore.rakudo..............use of uninitialized value of
      1 skipped: for() with nullary block
 S02-magicals/dollar_bang.rakudo....................  15    0    1    0   16
      1 todo   : stringification of $!
-S02-magicals/env.rakudo............................  15    0    0    1   16
+S02-magicals/env.rakudo............................  13    2    0    1   16
      1 skipped: import keyword
 S02-magicals/file_line.t...........................   2    0    0    0    2
 S02-magicals/pid.t.................................   1    0    0    0    1
@@ -1458,13 +1456,13 @@ S12-introspection/methods.rakudo...................  37    0    2   11   50
     11 skipped: nom regression
      2 todo   : nom regression
 S12-introspection/parents.t........................  59    0    0    0   59
-S12-introspection/roles.rakudo.....................use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1338
+S12-introspection/roles.rakudo.....................use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1342
 
-use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1338
+use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1342
 
-use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1338
+use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1342
 
-use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1338
+use of uninitialized value of type R3 in string context  in  at src/gen/Metamodel.pm:1342
 
    8    0    0    4   12
      4 skipped: .^roles(:tree)
@@ -1672,7 +1670,7 @@ S32-container/roundrobin.rakudo....................   4    0    1    0    5
 S32-container/zip.rakudo...........................   8    0    0    4   12
      2 skipped: Seq
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo......................... 517    0    0    4  521
+S32-exceptions/misc.rakudo......................... 519    0    0    4  523
      1 skipped: RT 114134
      1 skipped: RT 78370
      1 skipped: parsing of $& and other p5 variables
@@ -1792,11 +1790,11 @@ S32-num/stringify.rakudo...........................use of uninitialized value of
 
 use of uninitialized value of type Complex in string context  in block  at t/spec/S32-num/stringify.rakudo:49
 
+use of uninitialized value of type Rat in string context  in block  at t/spec/S32-num/stringify.rakudo:92
+
 use of uninitialized value of type Rat in string context  in block  at t/spec/S32-num/stringify.rakudo:93
 
-use of uninitialized value of type Rat in string context  in block  at t/spec/S32-num/stringify.rakudo:94
-
-  95    0   20    0  115
+  89    6   20    0  115
     11 todo   : Complex.perl
      1 todo   : Rat.perl
      8 todo PASSED: Rat.perl
@@ -2216,7 +2214,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3178,     0,   141,   261,  3580,  3520
+"S02",        3128,     2,   140,   260,  3530,  3520
 "S03",        4356,     0,   141,   369,  4866,  4209
 "S04",         852,     0,    33,    50,   935,   971
 "S05",        4687,     0,   115,   518,  5320,  5764
@@ -2235,10 +2233,18 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         300,     0,     0,     1,   301,   258
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         310,     0,     1,     7,   318,   328
-"S32",        7495,     0,   107,   235,  7837,  5379
+"S32",        7491,     6,   107,   235,  7839,  5379
 "int",         528,     0,     9,    25,   562,   552
 "ros",           2,     0,     0,     0,     2,     2
-"total",     24961,     0,   642,  1818, 27421, 24906
+"total",     24907,     8,   641,  1817, 27373, 24906
 ----------------
 Failure summary:
+S02-magicals/env.rakudo 15 - %*ENV.gist generates something with abc in it
+S02-magicals/env.rakudo 16 - %*ENV.perl generates something with abc in it
+S32-num/stringify.rakudo 105 - ~<1797010299914431210413179829509605039731475627537851106401/1152921504606846976>
+S32-num/stringify.rakudo 106 - <1797010299914431210413179829509605039731475627537851106401/1152921504606846976>.Str
+S32-num/stringify.rakudo 107 - <1797010299914431210413179829509605039731475627537851106401/1152921504606846976>.gist
+S32-num/stringify.rakudo 109 - ~<1797010299914431210413179829509605039731475627537851106401/1152921504606846976>.FatRat
+S32-num/stringify.rakudo 110 - <1797010299914431210413179829509605039731475627537851106401/1152921504606846976>.FatRat.Str
+S32-num/stringify.rakudo 111 - <1797010299914431210413179829509605039731475627537851106401/1152921504606846976>.FatRat.gist
 note: test_summary.pl @syn does not have ros
