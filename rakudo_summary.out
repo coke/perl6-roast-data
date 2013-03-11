@@ -111,8 +111,9 @@ S02-magicals/dollar-underscore.rakudo..............use of uninitialized value of
      1 skipped: for() with nullary block
 S02-magicals/dollar_bang.rakudo....................  15    0    1    0   16
      1 todo   : stringification of $!
-S02-magicals/env.rakudo............................  13    2    0    1   16
+S02-magicals/env.rakudo............................  13    0    2    1   16
      1 skipped: import keyword
+     2 todo   : %*ENV.gist and %*ENV.perl do not contain abc
 S02-magicals/file_line.t...........................   2    0    0    0    2
 S02-magicals/pid.t.................................   1    0    0    0    1
 S02-magicals/progname.t............................   4    0    0    0    4
@@ -429,7 +430,8 @@ S03-feeds/basic.rakudo.............................   9    0    6    4   19
      1 todo   : * feeds
      3 todo   : feeds + eager
 S03-junctions/associative.t........................  10    0    0    0   10
-S03-junctions/autothreading.t......................  87    0    0    0   87
+S03-junctions/autothreading.rakudo.................  88    0    1    0   89
+     1 todo   : junction autothreading order
 S03-junctions/boolean-context.rakudo...............  72    0    1    0   73
      1 todo   : named unary as function call
 S03-junctions/misc.rakudo..........................  93    0    4    6  103
@@ -619,35 +621,7 @@ S03-operators/minmax.rakudo........................  21    0    4    0   25
 S03-operators/misc.rakudo..........................  32    0    1    0   33
      1 todo   : nom regression
 S03-operators/names.t..............................   7    0    0    0    7
-S03-operators/nesting.t............................Potential difficulties:
-    Useless use of [] around infix op
-    at t/spec/S03-operators/nesting.t:17
-    ------> [32mis 1 [[33m⏏[31m+] 2, 3, '[+] as an infix';   #OK Useles[0m
-    Useless use of [] around infix op
-    at t/spec/S03-operators/nesting.t:23
-    ------> [32mis 4 [R[33m⏏[31m-] 5, 5 - 4, "4 [R-] 5";[0m
-    Useless use of [] around infix op
-    at t/spec/S03-operators/nesting.t:24
-    ------> [32misa_ok 4 [R[33m⏏[31m-] 5, (5 - 4).WHAT, "4 [R-] 5 is the sam[0m
-    Useless use of [] around infix op
-    at t/spec/S03-operators/nesting.t:25
-    ------> [32mis 4 [R[33m⏏[31m*] 5, 5 * 4, "4 [R*] 5";[0m
-    Useless use of [] around infix op
-    at t/spec/S03-operators/nesting.t:26
-    ------> [32misa_ok 4 [R[33m⏏[31m*] 5, (5 * 4).WHAT, "4 [R*] 5 is the sam[0m
-    Useless use of [] around infix op
-    at t/spec/S03-operators/nesting.t:34
-    ------> [32mis 4 R[-] 5 [R[33m⏏[31m/] 10, -2, "Rop gets the precedence of o[0m
-    Useless use of [] around infix op
-    at t/spec/S03-operators/nesting.t:40
-    ------> [32mis (1,2 [Z[33m⏏[31m*] 3,4), (3,8), 'zip-product works';[0m
-    Useless use of [] around infix op
-    at t/spec/S03-operators/nesting.t:41
-    ------> [32mis (1,2 [Z[[33m⏏[31mcmp]] 3,2,0).map(*.sign), (-1, 0), 'zip-[0m
-    Useless use of [] around infix op
-    at t/spec/S03-operators/nesting.t:58
-    ------> [32m    is 1031 [[33m⏏[31mblue] 4, 3, "1031 [blue] 4 == 3";[0m
-  26    0    0    0   26
+S03-operators/nesting.t............................  26    0    0    0   26
 S03-operators/not.rakudo...........................  21    0    1    0   22
      1 todo   : RT 65556
 S03-operators/overflow.t...........................  98    0    0    0   98
@@ -2417,8 +2391,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3177,     2,   140,   261,  3580,  3520
-"S03",        4357,     0,   140,   369,  4866,  4209
+"S02",        3177,     0,   142,   261,  3580,  3520
+"S03",        4358,     0,   141,   369,  4868,  4211
 "S04",         853,     0,    32,    50,   935,   971
 "S05",        4687,     0,   115,   518,  5320,  5764
 "S06",        1134,     0,    29,   131,  1294,  1280
@@ -2439,11 +2413,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        7493,     6,   107,   235,  7841,  5379
 "int",         529,     0,     8,    25,   562,   552
 "ros",           2,     0,     0,     0,     2,     2
-"total",     24955,    16,   638,  1818, 27427, 24908
+"total",     24956,    14,   641,  1818, 27429, 24910
 ----------------
 Failure summary:
-S02-magicals/env.rakudo 15 - %*ENV.gist generates something with abc in it
-S02-magicals/env.rakudo 16 - %*ENV.perl generates something with abc in it
 S26-documentation/09-configuration.t 2 - 
 S26-documentation/09-configuration.t 5 - 
 S26-documentation/09-configuration.t 6 - 
