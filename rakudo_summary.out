@@ -431,14 +431,14 @@ S03-feeds/basic.rakudo.............................   9    0    6    4   19
      3 todo   : feeds + eager
 S03-junctions/associative.t........................  10    0    0    0   10
 S03-junctions/autothreading.rakudo.................  88    0    1    0   89
-     1 todo   : junction autothreading order
+     1 todo PASSED: junction autothreading order
 S03-junctions/boolean-context.rakudo...............  72    0    1    0   73
      1 todo   : named unary as function call
 S03-junctions/misc.rakudo..........................  93    0    4    6  103
      2 skipped: nom regression
      4 skipped: lower case junction
      2 todo   : lower case junction type
-     2 todo   : nom regression
+     2 todo PASSED: nom regression
 S03-metaops/cross.rakudo...........................  22    0    1    5   28
      1 skipped: .slice for iterators NYI
      4 skipped: =:= NYI
@@ -1690,11 +1690,21 @@ S32-container/roundrobin.rakudo....................   4    0    1    0    5
 S32-container/zip.rakudo...........................   8    0    0    4   12
      2 skipped: Seq
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo......................... 521    0    0    4  525
+S32-exceptions/misc.rakudo.........................Could not find symbol '&Elsif'
+  in method <anon> at src/gen/CORE.setting:10545
+  in  at src/gen/Metamodel.pm:2493
+  in any find_method_fallback at src/gen/Metamodel.pm:2481
+  in any find_method at src/gen/Metamodel.pm:929
+  in  at src/gen/BOOTSTRAP.pm:895
+  in any  at src/gen/BOOTSTRAP.pm:879
+  in block  at t/spec/S32-exceptions/misc.rakudo:394
+
+ 521    0    0    4    0
      1 skipped: RT 114134
      1 skipped: RT 78370
      1 skipped: parsing of $& and other p5 variables
      1 skipped: parsing regression
+   525 tests more than planned were run
 S32-hash/delete.t..................................  11    0    0    0   11
 S32-hash/delete_adverb.t...........................   9    0    0    0    9
 S32-hash/exists.rakudo.............................  20    0    0    1   21
@@ -2410,10 +2420,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         292,     8,     0,     1,   301,   258
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         310,     0,     1,     7,   318,   328
-"S32",        7493,     6,   107,   235,  7841,  5379
+"S32",        7493,     6,   107,   235,  7316,  5379
 "int",         529,     0,     8,    25,   562,   552
 "ros",           2,     0,     0,     0,     2,     2
-"total",     24956,    14,   641,  1818, 27429, 24910
+"total",     24956,    14,   641,  1818, 26904, 24910
 ----------------
 Failure summary:
 S26-documentation/09-configuration.t 2 - 
@@ -2424,6 +2434,7 @@ S26-documentation/09-configuration.t 10 -
 S26-documentation/09-configuration.t 11 - 
 S26-documentation/09-configuration.t 12 - 
 S26-documentation/09-configuration.t 14 - 
+S32-exceptions/misc.rakudo passed 525 unplanned test(s)
 S32-num/stringify.rakudo 105 - ~<1797010299914431210413179829509605039731475627537851106401/1152921504606846976>
 S32-num/stringify.rakudo 106 - <1797010299914431210413179829509605039731475627537851106401/1152921504606846976>.Str
 S32-num/stringify.rakudo 107 - <1797010299914431210413179829509605039731475627537851106401/1152921504606846976>.gist
