@@ -645,7 +645,7 @@ S03-junctions/boolean-context.niecza...............  69    0    4    0   73
      2 todo   : Difficulties overloading | and &
      2 todo PASSED: Difficulties overloading | and &
 S03-junctions/misc.niecza..........................Potential difficulties:
-  $x is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-junctions/misc.niecza line 365:
+  $x is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-junctions/misc.niecza line 363:
 ------> [32m    lives_ok { try { for any(1,2) -> [33m⏏[31m$x {}; } },[0m
 
   97    0    2    4  103
@@ -2155,8 +2155,8 @@ S05-mass/rx.niecza.................................Potential difficulties:
   $rt112450 is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-mass/rx.niecza line 2572:
 ------> [32m    my [33m⏏[31m$rt112450 = 4;[0m
 
-sh: line 1:  6451 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
- 666    7   19   47  739
+sh: line 1:  5970 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
+ 665    8   19   47  739
      1 skipped: Unable to resolve method alpha in class Cursor
      2 skipped: Dubious test, http://irclog.perlgeek.de/perl6/2012-05-27#i_5643089
     13 skipped: Unable to resolve method wb in class Cursor
@@ -2170,7 +2170,7 @@ sh: line 1:  6451 Killed                  nice -20 mono ./run/Niecza.exe t/spec/
      3 todo   : ::: issue
      2 todo   : :: issues
      3 todo   : Unable to resolve method cntrl in class Cursor
-     7 tests aborted (missing ok/not ok)
+     8 tests aborted (missing ok/not ok)
 S05-mass/stdrules.niecza........................... 183    0    0    3  186
      3 skipped: <at>
 S05-match/arrayhash.niecza.........................   4    0    4    0    8
@@ -4141,7 +4141,16 @@ S32-num/sign.niecza................................  32    0    2    1   35
      1 skipped: #90
      2 todo   : 
 S32-num/sqrt.t.....................................  18    0    0    0   18
-S32-num/stringify.t................................ 115    0    0    0  115
+S32-num/stringify.t................................Unhandled exception: Invalid argument to plan
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1490 (die @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/Test.pm6 line 70 (Builder.plan @ 15) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/Test.pm6 line 164 (plan @ 4) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S32-num/stringify.t line 3 (mainline @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4285 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4286 (module-CORE @ 581) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4286 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+   0    0    0    0    0
 S32-num/unpolar.t..................................Potential difficulties:
   $angle is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S32-num/unpolar.t line 23:
 ------> [32m        my [33m⏏[31m$angle = 2 * $pi * $i / 20;[0m
@@ -5654,12 +5663,14 @@ integration/weird-errors.niecza....................   4    0    1    3    8
      3 skipped: todo
      1 todo   : 
 ----------------
+    'plan *;' could become 'plan 0;' in S32-num/stringify.t
+----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
 "S02",        2984,     0,   111,   265,  3360,  3523
 "S03",        3984,     0,   196,   358,  4538,  4211
 "S04",         792,     0,    33,    60,   885,   971
-"S05",        4066,     7,   111,   207,  4391,  5764
+"S05",        4065,     8,   111,   207,  4391,  5764
 "S06",         773,     0,    56,   161,   990,  1280
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          65,     0,     0,     8,    73,   175
@@ -5675,9 +5686,9 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 "S26",           0,     0,     0,     0,     0,   258
 "S28",           6,     0,     1,     0,     7,    13
 "S29",         305,     0,     5,     5,   315,   328
-"S32",        6428,     0,   131,   238,  6797,  5379
+"S32",        6313,     0,   131,   238,  6682,  5264
 "int",         456,     0,    21,    27,   504,   552
-"total",     21022,     7,   753,  1546, 23328, 24911
+"total",     20906,     8,   753,  1546, 23213, 24796
 ----------------
 Failure summary:
-S05-mass/rx.niecza aborted 7 test(s)
+S05-mass/rx.niecza aborted 8 test(s)

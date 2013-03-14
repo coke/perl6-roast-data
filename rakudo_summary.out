@@ -430,15 +430,13 @@ S03-feeds/basic.rakudo.............................   9    0    6    4   19
      1 todo   : * feeds
      3 todo   : feeds + eager
 S03-junctions/associative.t........................  10    0    0    0   10
-S03-junctions/autothreading.rakudo.................  88    0    1    0   89
-     1 todo PASSED: junction autothreading order
+S03-junctions/autothreading.t......................  89    0    0    0   89
 S03-junctions/boolean-context.rakudo...............  72    0    1    0   73
      1 todo   : named unary as function call
-S03-junctions/misc.rakudo..........................  93    0    4    6  103
+S03-junctions/misc.rakudo..........................  95    0    2    6  103
      2 skipped: nom regression
      4 skipped: lower case junction
      2 todo   : lower case junction type
-     2 todo PASSED: nom regression
 S03-metaops/cross.rakudo...........................  22    0    1    5   28
      1 skipped: .slice for iterators NYI
      4 skipped: =:= NYI
@@ -1690,7 +1688,7 @@ S32-container/roundrobin.rakudo....................   4    0    1    0    5
 S32-container/zip.rakudo...........................   8    0    0    4   12
      2 skipped: Seq
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo......................... 523    0    0    4  527
+S32-exceptions/misc.rakudo......................... 527    0    0    4  531
      1 skipped: RT 114134
      1 skipped: RT 78370
      1 skipped: parsing of $& and other p5 variables
@@ -1810,14 +1808,13 @@ S32-num/stringify.rakudo...........................use of uninitialized value of
 
 use of uninitialized value of type Complex in string context  in block  at t/spec/S32-num/stringify.rakudo:49
 
-use of uninitialized value of type Rat in string context  in block  at t/spec/S32-num/stringify.rakudo:92
+use of uninitialized value of type Rat in string context  in block  at t/spec/S32-num/stringify.rakudo:95
 
-use of uninitialized value of type Rat in string context  in block  at t/spec/S32-num/stringify.rakudo:93
+use of uninitialized value of type Rat in string context  in block  at t/spec/S32-num/stringify.rakudo:96
 
-  89    6   20    0  115
+  90    0   11    8  109
+     8 skipped: big stuff
     11 todo   : Complex.perl
-     1 todo   : Rat.perl
-     8 todo PASSED: Rat.perl
 S32-num/unpolar.t.................................. 199    0    0    0  199
 S32-scalar/defined.t...............................  56    0    0    0   56
 S32-scalar/undef.rakudo............................use of uninitialized value of type Any in string context  in block  at t/spec/S32-scalar/undef.rakudo:48
@@ -2384,15 +2381,17 @@ integration/role-composition-vs-attribute.t........   1    0    0    0    1
 integration/rule-in-class-Str.t....................   3    0    0    0    3
 integration/say-crash.t............................   4    0    0    0    4
 integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
-integration/weird-errors.t.........................   8    0    0    0    8
+integration/weird-errors.t.........................   7    1    0    0    8
                                                    pass fail todo skip plan
 rosettacode/greatest_element_of_a_list.t...........   1    0    0    0    1
 rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
+    'plan *;' could become 'plan 109;' in S32-num/stringify.rakudo
+----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        3180,     0,   142,   261,  3583,  3523
-"S03",        4358,     0,   141,   369,  4868,  4211
+"S03",        4361,     0,   138,   369,  4868,  4211
 "S04",         853,     0,    32,    50,   935,   971
 "S05",        4687,     0,   115,   518,  5320,  5764
 "S06",        1134,     0,    29,   131,  1294,  1280
@@ -2410,10 +2409,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         292,     8,     0,     1,   301,   258
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         310,     0,     1,     7,   318,   328
-"S32",        7495,     6,   107,   235,  7843,  5379
-"int",         529,     0,     8,    25,   562,   552
+"S32",        7500,     0,    98,   243,  7841,  5373
+"int",         528,     1,     8,    25,   562,   552
 "ros",           2,     0,     0,     0,     2,     2
-"total",     24961,    14,   641,  1818, 27434, 24913
+"total",     24968,     9,   629,  1826, 27432, 24907
 ----------------
 Failure summary:
 S26-documentation/09-configuration.t 2 - 
@@ -2424,10 +2423,5 @@ S26-documentation/09-configuration.t 10 -
 S26-documentation/09-configuration.t 11 - 
 S26-documentation/09-configuration.t 12 - 
 S26-documentation/09-configuration.t 14 - 
-S32-num/stringify.rakudo 105 - ~<1797010299914431210413179829509605039731475627537851106401/1152921504606846976>
-S32-num/stringify.rakudo 106 - <1797010299914431210413179829509605039731475627537851106401/1152921504606846976>.Str
-S32-num/stringify.rakudo 107 - <1797010299914431210413179829509605039731475627537851106401/1152921504606846976>.gist
-S32-num/stringify.rakudo 109 - ~<1797010299914431210413179829509605039731475627537851106401/1152921504606846976>.FatRat
-S32-num/stringify.rakudo 110 - <1797010299914431210413179829509605039731475627537851106401/1152921504606846976>.FatRat.Str
-S32-num/stringify.rakudo 111 - <1797010299914431210413179829509605039731475627537851106401/1152921504606846976>.FatRat.gist
+integration/weird-errors.t 7 - Typed, non-internal exception
 note: test_summary.pl @syn does not have ros
