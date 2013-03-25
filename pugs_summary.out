@@ -20,9 +20,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xaa70858)'
+#     Actual: 'CODE(0x942f858)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xaa70b78)'
+#     Actual: 'CODE(0x942fb78)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -241,12 +241,8 @@ S02-literals/subscript.pugs........................#     Actual: No exception th
 S02-literals/underscores.t.........................  19    0    0    0   19
 S02-magicals/block.t...............................   1    0    0    0    1
 S02-magicals/dollar-underscore.t...................   9    0    0    0    9
-S02-magicals/sub.t.................................*** 
-    Unexpected "foo"
-    expecting ":" or "("
-    at t/spec/S02-magicals/sub.t line 30, column 14
-   0    6    0    0    6
-     6 tests aborted (missing ok/not ok)
+S02-magicals/sub.pugs..............................   3    0    0    3    6
+     3 skipped: ROUTINE
 S02-magicals/subname.pugs..........................#     Actual: undef
    3    0    1    0    4
      1 todo   : fix by Christmas
@@ -921,7 +917,7 @@ S03-operators/assign.pugs..........................#   Expected: '0'
 #     Actual: No exception thrown
 #   Expected: ''
 #     Actual: '3'
- 168    0   45   72  285
+ 169    0   44   72  285
      2 skipped: Can't modify constant item: VNum Infinity
     12 skipped: Cannot cast from VInt 42 to Handle
      4 skipped: min=
@@ -939,7 +935,6 @@ S03-operators/assign.pugs..........................#   Expected: '0'
      1 skipped: Cannot cast from VList to VCode
      3 todo   : feature by Christmas
     41 todo   : fix by Christmas
-     1 todo PASSED: fix by Christmas
 S03-operators/autoincrement-range.pugs.............# Tests for 'A' .. 'Z'
 #   Expected: '0A'
 #     Actual: '-1'
@@ -1302,7 +1297,7 @@ S03-operators/range.pugs...........................#   Expected: ''
 #   Expected: '1 2 3'
 #     Actual: ''
 #     Actual: undef
-  80    0   25   15  120
+  81    0   24   15  120
      6 skipped: empty list
      2 skipped: Missing required parameters: $_
      4 skipped: Numeric
@@ -1310,7 +1305,6 @@ S03-operators/range.pugs...........................#   Expected: ''
      4 todo   : wrong type by Christmas
      1 todo   : bug by Christmas
     19 todo   : fix by Christmas
-     1 todo PASSED: fix by Christmas
 S03-operators/relational.pugs...................... 116    0    0    2  118
      2 skipped: Order enum
 S03-operators/repeat.pugs..........................#   Expected: '1 2'
@@ -1698,15 +1692,13 @@ S04-statements/repeat.pugs.........................#     Actual: undef
      3 skipped: Test Util parsefail
      2 skipped: Cannot bind to non-existing variable: "$another_x"
      1 todo   : fix by Christmas
-S04-statements/terminator.pugs.....................#   Failed test (t/spec/S04-statements/terminator.pugs line 44, column 5-61)
-#   Expected: '2'
+S04-statements/terminator.pugs.....................#   Expected: '2'
 #     Actual: '3'
 #     Actual: An exception was thrown : 
 # Unexpected "&f"
 # expecting bare trait, trait or block
-# Looks like you failed 1 tests of 15
-  13    1    1    0   15
-     1 todo   : fix by Christmas
+  13    0    2    0   15
+     2 todo   : fix by Christmas
 S04-statements/try.pugs............................#     Actual: undef
 #   Expected: '1'
 #     Actual: '0'
@@ -3894,9 +3886,8 @@ S05-metasyntax/charset.pugs........................#     Actual: undef
 #     Actual: undef
 #     Actual: undef
 #     Actual: undef
-   8    0   33    0   41
+   9    0   32    0   41
     32 todo   : fix by Christmas
-     1 todo PASSED: fix by Christmas
 S05-metasyntax/litvar.pugs.........................#     Actual: undef
 #     Actual: undef
 #     Actual: undef
@@ -4175,11 +4166,9 @@ S06-operator-overloading/imported-subs.pugs........#     Actual: undef
 #   Expected: '3'
 #     Actual: 'undef'
 #     Actual: No exception thrown
-*** Cannot cast from VUndef to VCode (VCode)
-    at t/spec/S06-operator-overloading/imported-subs.pugs line 44, column 15-44
-  12    3    4    0   19
+  13    0    4    2   19
+     2 skipped: eek
      4 todo   : fix by Christmas
-     3 tests aborted (missing ok/not ok)
 S06-other/anon-hashes-vs-blocks.pugs...............  11    0    0    7   18
      4 skipped: Missing required parameters
      3 skipped: Thinks the block is a hash
@@ -4453,7 +4442,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6aaf6a9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6aaf06d>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6aaf6a9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6aaf06d>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d1a031>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6d1bd71>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d1a031>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6d1bd71>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
   16    0    2    1   19
@@ -4607,13 +4596,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.26327.740
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.26327.740
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.26327.740
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.26327.740
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.26327.740
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.26327.740
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.26327.740
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.4958.74
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.4958.74
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.4958.74
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.4958.74
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.4958.74
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.4958.74
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.4958.74
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -5470,11 +5459,11 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",          27,     0,     8,    12,    47,    79
-"S02",        1418,     6,   318,   456,  2198,  3624
-"S03",        1866,     0,   288,   306,  2460,  4219
-"S04",         486,     1,   110,    86,   683,   972
-"S05",        2214,     0,  2206,    56,  4476,  5768
-"S06",         406,     3,    80,   123,   612,  1282
+"S02",        1421,     0,   318,   459,  2198,  3624
+"S03",        1868,     0,   286,   306,  2460,  4219
+"S04",         486,     0,   111,    86,   683,   972
+"S05",        2215,     0,  2205,    56,  4476,  5768
+"S06",         407,     0,    80,   125,   612,  1282
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          68,     0,    22,     8,    98,   175
 "S10",          30,     0,     9,     0,    39,   127
@@ -5491,9 +5480,6 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S29",          32,     0,     6,     6,    44,    78
 "S32",        2263,     0,   268,   515,  3046,  5275
 "int",         131,     0,    35,    26,   192,   542
-"total",      9471,    10,  3458,  1706, 14645, 24675
+"total",      9478,     0,  3456,  1711, 14645, 24675
 ----------------
-Failure summary:
-S02-magicals/sub.t aborted 6 test(s)
-S04-statements/terminator.pugs 12 - auto-curly applies inside array composer
-S06-operator-overloading/imported-subs.pugs aborted 3 test(s)
+No failures!
