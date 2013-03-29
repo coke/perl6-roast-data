@@ -20,9 +20,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xa86b858)'
+#     Actual: 'CODE(0x906b858)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xa86bb78)'
+#     Actual: 'CODE(0x906bb78)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -672,39 +672,14 @@ S02-types/range.pugs...............................#   Expected: '1..5'
 #     Actual: '("a",)'
 #     Actual: undef
 #     Actual: undef
-#     Actual: No exception thrown
-#     Actual: No exception thrown
-#     Actual: No exception thrown
-#     Actual: No exception thrown
-#   Expected: '1 2 3 4 5'
-#     Actual: '10 2 3 4 10'
-#   Expected: '1'
-#     Actual: '0'
-#   Expected: '5'
-#     Actual: '0'
-#   Expected: '1'
-#     Actual: '1 2 3 4 5'
-#   Expected: '5'
-#     Actual: '1 2 3 4 5'
-#   Expected: '1'
-#     Actual: '0'
-#   Expected: '4.5'
-#     Actual: '0'
-#   Expected: '1'
-#     Actual: '1 2 3 4'
-#   Expected: '4.5'
-#     Actual: '1 2 3 4'
-#   Expected: '8'
-#     Actual: '1'
-  19    0   24   81  124
-    30 skipped: roll
-    32 skipped: pick *
-     2 skipped: .bounds
+# Looks like you planned 133 tests, but ran 43
+*** No such subroutine: "&Range"
+    at t/spec/S02-types/range.pugs line 112, column 4-10
+  24   90   10    9  133
      3 skipped: Range
      6 skipped: ACCEPTS
-     7 skipped: hangs
-     1 skipped: Cannot cast from VList to VCode
-    24 todo   : fix by Christmas
+    10 todo   : fix by Christmas
+    90 tests aborted (missing ok/not ok)
 S02-types/subscripts_and_context.t.................   8    0    0    0    8
 S02-types/subset.pugs..............................#     Actual: No exception thrown
 #     Actual: No exception thrown
@@ -1507,8 +1482,12 @@ S04-phasers/enter-leave.pugs.......................#   Expected: '(3,4)'
 #     Actual: '2'
 #   Expected: '21'
 #     Actual: '2'
-   6    0   13    0   19
+# Looks like you planned 20 tests, but ran 19
+*** No such subroutine: "&LEAVE"
+    at t/spec/S04-phasers/enter-leave.pugs line 205, column 36-48
+   6    1   13    0   20
     13 todo   : fix by Christmas
+     1 tests aborted (missing ok/not ok)
 S04-phasers/eval-in-begin.t........................   3    0    0    0    3
 S04-phasers/exit-in-begin.t........................   2    0    0    0    2
 S04-phasers/first.pugs.............................#   Expected: '1'
@@ -4151,7 +4130,7 @@ S06-multi/syntax.pugs..............................#   Expected: 'one'
 #     Actual: '2'
 #   Expected: '2'
 #     Actual: '1'
-  21    0    7   13   41
+  22    0    7   13   42
      1 skipped: Named argument found where no matched parameter expected
      1 skipped: with_cap not found
      1 skipped: missing invocant
@@ -4442,7 +4421,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6a24cad>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6a24949>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6a24cad>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6a24949>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6e92671>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6e922fd>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6e92671>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6e922fd>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
   16    0    2    1   19
@@ -4596,13 +4575,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.11190.104
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.11190.104
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.11190.104
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.11190.104
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.11190.104
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.11190.104
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.11190.104
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.16020.682
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.16020.682
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.16020.682
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.16020.682
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.16020.682
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.16020.682
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.16020.682
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -4661,7 +4640,7 @@ S29-context/eval.pugs..............................#     Actual: No exception th
 #     Actual: No exception thrown
 #     Actual: No exception thrown
 #     Actual: No exception thrown
-  11    0    4    2   17
+  12    0    4    2   18
      1 skipped: encode
      1 skipped: Cannot cast from VUndef to VCode
      4 todo   : fix by Christmas
@@ -4864,10 +4843,12 @@ S32-list/map.pugs..................................#   Expected: 'acd bcd ccd dc
 #     Actual: 'a b c d'
 #   Expected: '4'
 #     Actual: '0'
-  43    0    3    6   52
+sh: line 1: 16115 Killed                  nice -20 ./Pugs/pugs -IPugs/ext/Test/lib t/spec/S32-list/map.pugs
+  43    1    3    6   53
      6 skipped: unimpl
      1 todo   : bug by Christmas
      2 todo   : fix by Christmas
+     1 tests aborted (missing ok/not ok)
 S32-list/pick.pugs.................................#     Actual: undef
 #   Expected: 'undef'
 #     Actual: '(Array::Const)'
@@ -4928,7 +4909,7 @@ S32-list/uniq.pugs.................................#   Expected: 'a b c d'
 #     Actual: '5'
 #   Expected: '2'
 #     Actual: '5'
-   8    0    5    0   13
+   9    0    5    0   14
      1 todo   : bug by Christmas
      4 todo   : fix by Christmas
 S32-num/abs.t......................................  49    0    0    0   49
@@ -5459,11 +5440,11 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",          27,     0,     8,    12,    47,    79
-"S02",        1421,     0,   318,   459,  2198,  3624
+"S02",        1426,    90,   304,   387,  2207,  3633
 "S03",        1868,     0,   286,   306,  2460,  4219
-"S04",         486,     0,   111,    86,   683,   972
+"S04",         486,     1,   111,    86,   684,   973
 "S05",        2215,     0,  2205,    56,  4476,  5768
-"S06",         407,     0,    80,   125,   612,  1282
+"S06",         408,     0,    80,   125,   613,  1283
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          68,     0,    22,     8,    98,   175
 "S10",          30,     0,     9,     0,    39,   127
@@ -5477,9 +5458,12 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S24",          47,     0,    25,     4,    76,    88
 "S26",           0,     0,     0,     0,     0,   258
 "S28",           4,     0,     0,     1,     5,    13
-"S29",          32,     0,     6,     6,    44,    78
-"S32",        2263,     0,   268,   515,  3046,  5275
+"S29",          33,     0,     6,     6,    45,    79
+"S32",        2264,     1,   268,   515,  3048,  5277
 "int",         131,     0,    35,    26,   192,   542
-"total",      9478,     0,  3456,  1711, 14645, 24675
+"total",      9486,    92,  3442,  1639, 14659, 24689
 ----------------
-No failures!
+Failure summary:
+S02-types/range.pugs aborted 90 test(s)
+S04-phasers/enter-leave.pugs aborted 1 test(s)
+S32-list/map.pugs aborted 1 test(s)
