@@ -5,9 +5,9 @@ S01-perl-5-integration/basic.rakudo................   0    0    0   20   20
                                                    pass fail todo skip plan
 S02-lexical-conventions/begin_end_pod.t............   1    0    0    0    1
 S02-lexical-conventions/bom.t......................   1    0    0    0    1
-S02-lexical-conventions/comments.rakudo............  48    0    1    1   50
-     1 skipped: NYI
+S02-lexical-conventions/comments.rakudo............  48    0    2    0   50
      1 todo   : nom regression
+     1 todo   : NYI
 S02-lexical-conventions/end-pod.t..................   1    0    0    0    1
 S02-lexical-conventions/minimal-whitespace.t.......   9    0    0    0    9
 S02-lexical-conventions/one-pass-parsing.t.........   1    0    0    0    1
@@ -66,15 +66,15 @@ S02-literals/pairs.rakudo..........................use of uninitialized value of
      1 todo   : reduce meta op
      1 todo   : prefix:<|>
 S02-literals/quoting-unicode.t.....................  72    0    0    0   72
-S02-literals/quoting.rakudo........................ 146    0    4   12  162
+S02-literals/quoting.rakudo........................ 151    0    8    3  162
      3 skipped: \c@ etc
-     9 skipped: quoting adverbs
      1 todo   : retriage
      1 todo   : «...»
      2 todo   : q:x assigned to array
-S02-literals/radix.rakudo.......................... 129    0    4    1  134
-     1 skipped: Really?!
+     4 todo   : quoting adverbs
+S02-literals/radix.rakudo.......................... 129    0    5    0  134
      4 todo   : Some question of what this form should actually do
+     1 todo   : Really?!
 S02-literals/string-interpolation.t................Potential difficulties:
     Leading 0 does not indicate octal in Perl 6; please use 0o1 if you mean that
     at t/spec/S02-literals/string-interpolation.t:10
@@ -140,7 +140,7 @@ use of uninitialized value of type Mu in string context  in block  at t/spec/S02
 
 use of uninitialized value of type Mu in string context  in block  at t/spec/S02-names-vars/perl.rakudo:59
 
-  97    0    0    6  103
+  98    0    0    6  104
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -149,7 +149,7 @@ S02-names-vars/signature.rakudo....................  11    0    2    0   13
 S02-names-vars/variables-and-packages.rakudo.......  31    0    3    3   37
      3 skipped: nom regression
      3 todo   : nom regression
-S02-names-vars/varnames.rakudo.....................Potential difficulties:
+S02-names-vars/varnames.t..........................Potential difficulties:
     Redeclaration of symbol $!
     at eval_0:1
     ------> [32mmy $![33m⏏[31m<EOL>[0m
@@ -165,8 +165,7 @@ Potential difficulties:
     Redeclaration of symbol $/
     at eval_3:1
     ------> [32mmy proto $/[33m⏏[31m<EOL>[0m
-   6    0    0    2    8
-     2 skipped: binding to $/ (questionable?)
+   8    0    0    0    8
 S02-names/caller.rakudo............................  14    0    1    0   15
      1 todo   : strictness
 S02-names/identifier.t.............................  22    0    0    0   22
@@ -435,10 +434,10 @@ S03-junctions/associative.t........................  10    0    0    0   10
 S03-junctions/autothreading.t......................  89    0    0    0   89
 S03-junctions/boolean-context.rakudo...............  72    0    1    0   73
      1 todo   : named unary as function call
-S03-junctions/misc.rakudo..........................  95    0    2    6  103
-     2 skipped: nom regression
+S03-junctions/misc.rakudo..........................  95    0    4    4  103
      4 skipped: lower case junction
      2 todo   : lower case junction type
+     2 todo   : nom regression
 S03-metaops/cross.rakudo...........................  22    0    1    5   28
      1 skipped: .slice for iterators NYI
      4 skipped: =:= NYI
@@ -1746,9 +1745,7 @@ S32-list/map.rakudo................................  45    0    0    8   53
      2 skipped: adverbial block
 S32-list/map_function_return_values.rakudo.........   1    0    0    1    2
      1 skipped: Awaiting p6l clarification on Hash composer/block
-S32-list/minmax.rakudo.............................  55    0    0    4   59
-     2 skipped: Range.max not fully implemented yet (RT #105118)
-     2 skipped: Range.min not fully implemented yet (RT #105118)
+S32-list/minmax.t..................................  55    0    0    0   55
 S32-list/pick.rakudo...............................  46    0    1    0   47
      1 todo   : error on pick :replace
 S32-list/reduce.rakudo.............................use of uninitialized value of type Any in numeric context  in block  at t/spec/S32-list/reduce.rakudo:29
@@ -2391,8 +2388,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3190,     0,   142,   261,  3593,  3533
-"S03",        4371,     0,   136,   369,  4876,  4219
+"S02",        3198,     0,   148,   248,  3594,  3533
+"S03",        4371,     0,   138,   367,  4876,  4219
 "S04",         872,     0,    32,    50,   954,   991
 "S05",        4692,     0,   115,   518,  5325,  5769
 "S06",        1137,     0,    29,   131,  1297,  1283
@@ -2410,10 +2407,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         300,     0,     0,     1,   301,   258
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         311,     0,     1,     7,   319,   329
-"S32",        7504,     0,    98,   243,  7845,  5266
+"S32",        7504,     0,    98,   239,  7841,  5262
 "int",         530,     0,     8,    25,   563,   552
 "ros",           2,     0,     0,     0,     2,     2
-"total",     25030,     0,   627,  1826, 27483, 24847
+"total",     25038,     0,   635,  1807, 27480, 24843
 ----------------
 Failure summary:
 note: test_summary.pl @syn does not have ros
