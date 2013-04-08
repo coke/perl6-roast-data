@@ -20,9 +20,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x998a858)'
+#     Actual: 'CODE(0x9872858)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x998ab78)'
+#     Actual: 'CODE(0x9872b78)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -246,12 +246,13 @@ S02-magicals/sub.pugs..............................   3    0    0    3    6
 S02-magicals/subname.pugs..........................#     Actual: undef
    3    0    1    0    4
      1 todo   : fix by Christmas
-S02-names-vars/perl.pugs...........................*** 
-    Unexpected "t"
-    expecting term postfix, operator, ":" or ")"
-    at t/spec/S02-names-vars/perl.pugs line 175, column 13
-   0   83    0    0   83
-    83 tests aborted (missing ok/not ok)
+S02-names-vars/perl.pugs...........................#     Actual: undef
+  71    0    1   17   89
+     6 skipped: doesn't have encode()
+     2 skipped: hanging test
+     3 skipped: >>>Stub code executed
+     6 skipped: &ITEM not found
+     1 todo   : fix by Christmas
 S02-names-vars/variables-and-packages.pugs.........#     Actual: No exception thrown
 #     Actual: undef
 #     Actual: undef
@@ -4153,7 +4154,11 @@ S06-multi/syntax.pugs..............................#   Expected: 'one'
 #     Actual: '2'
 #   Expected: '2'
 #     Actual: '1'
-  22    0    7   13   42
+#   Failed test (t/spec/S06-multi/syntax.pugs line 192, column 5-75)
+#   Expected: 'first'
+#     Actual: 'second'
+# Looks like you failed 1 tests of 42
+  21    1    7   13   42
      1 skipped: Named argument found where no matched parameter expected
      1 skipped: with_cap not found
      1 skipped: missing invocant
@@ -4444,7 +4449,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf69b83f5>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf69b826d>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf69b83f5>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf69b826d>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d882f9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6d88001>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d882f9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6d88001>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
   16    0    2    1   19
@@ -4598,13 +4603,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.19855.137
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.19855.137
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.19855.137
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.19855.137
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.19855.137
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.19855.137
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.19855.137
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.21738.458
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.21738.458
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.21738.458
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.21738.458
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.21738.458
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.21738.458
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.21738.458
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -5464,11 +5469,11 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",          27,     0,     8,    12,    47,    79
-"S02",        1358,    83,   317,   449,  2207,  3633
+"S02",        1429,     0,   318,   466,  2213,  3633
 "S03",        1868,     0,   286,   306,  2460,  4219
 "S04",         488,     0,   111,    87,   686,   991
 "S05",        2215,     0,  2205,    56,  4476,  5769
-"S06",         408,     0,    80,   125,   613,  1283
+"S06",         407,     1,    80,   125,   613,  1283
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          68,     0,    22,     8,    98,   175
 "S10",          30,     0,     9,     0,    39,   127
@@ -5485,8 +5490,8 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S29",          33,     0,     6,     6,    45,    79
 "S32",        2264,     0,   268,   517,  3048,  5273
 "int",         131,     0,    35,    26,   192,   542
-"total",      9420,    83,  3455,  1704, 14661, 24704
+"total",      9490,     1,  3456,  1721, 14667, 24704
 ----------------
 Failure summary:
-S02-names-vars/perl.pugs aborted 83 test(s)
+S06-multi/syntax.pugs 42 - RT \#68528 - first defined wins the tie
 S32-list/map.pugs passed 1 unplanned test(s)
