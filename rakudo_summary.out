@@ -1355,8 +1355,8 @@ use of uninitialized value of type Any in string context  in block  at t/spec/S0
      1 skipped: isa multi variant
      2 todo   : autoviv, binding
      2 todo   : unknown
-S09-hashes/objecthash.rakudo.......................  24    0    1    0   25
-     1 todo   : %h.push on typed hashes
+S09-hashes/objecthash.rakudo.......................   2   23    0    0   25
+    23 tests aborted (missing ok/not ok)
 S09-subscript/slice.rakudo.........................  22    0    0    2   24
      2 skipped: RT 61844
 S09-typed-arrays/arrays.rakudo.....................  29    0   12   18   59
@@ -1784,11 +1784,12 @@ S32-num/log.rakudo.................................  28    0    1    0   29
      1 todo   : HugeInt.log
 S32-num/pi.t.......................................   4    0    0    0    4
 S32-num/polar.t....................................  48    0    0    0   48
-S32-num/power.rakudo...............................  39    0    0    4   43
+S32-num/power.rakudo...............................  43    0    3    4   50
      1 skipped: NaN**1i should be NaN
      1 skipped: i
      1 skipped: NaN**0 should be NaN
      1 skipped: 1i**NaN should be NaN
+     3 todo   : Simple bigint optimizations NYI
 S32-num/rand.rakudo................................ 113    0    0    1  114
      1 skipped: Test is too slow
 S32-num/rat.rakudo................................. 816    0    6    2  824
@@ -2394,7 +2395,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S05",        4692,     0,   115,   518,  5325,  5769
 "S06",        1137,     0,    29,   131,  1297,  1283
 "S07",           0,     0,     0,     0,     0,     0
-"S09",         135,     0,    19,    21,   175,   175
+"S09",         113,    23,    18,    21,   175,   175
 "S10",          64,     0,     1,     5,    70,   127
 "S11",          67,     0,     0,     7,    74,   129
 "S12",        1257,     0,    36,   129,  1422,  1323
@@ -2407,10 +2408,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         300,     0,     0,     1,   301,   258
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         311,     0,     1,     7,   319,   329
-"S32",        7504,     0,    98,   239,  7841,  5262
+"S32",        7508,     0,   101,   239,  7848,  5269
 "int",         530,     0,     8,    25,   563,   552
 "ros",           2,     0,     0,     0,     2,     2
-"total",     25038,     0,   635,  1807, 27480, 24843
+"total",     25020,    23,   637,  1807, 27487, 24850
 ----------------
 Failure summary:
+S09-hashes/objecthash.rakudo aborted 23 test(s)
 note: test_summary.pl @syn does not have ros
