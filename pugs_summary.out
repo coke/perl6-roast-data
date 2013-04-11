@@ -20,9 +20,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xa6d3858)'
+#     Actual: 'CODE(0x90b0858)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xa6d3b78)'
+#     Actual: 'CODE(0x90b0b78)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -4154,7 +4154,11 @@ S06-multi/syntax.pugs..............................#   Expected: 'one'
 #     Actual: '2'
 #   Expected: '2'
 #     Actual: '1'
-  22    0    7   13   42
+#   Failed test (t/spec/S06-multi/syntax.pugs line 192, column 5-75)
+#   Expected: 'first'
+#     Actual: 'second'
+# Looks like you failed 1 tests of 42
+  21    1    7   13   42
      1 skipped: Named argument found where no matched parameter expected
      1 skipped: with_cap not found
      1 skipped: missing invocant
@@ -4445,7 +4449,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c44501>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6c440e9>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c44501>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6c440e9>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6bca505>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6bcb30d>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6bca505>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6bcb30d>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
   16    0    2    1   19
@@ -4599,13 +4603,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.22941.711
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.22941.711
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.22941.711
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.22941.711
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.22941.711
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.22941.711
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.22941.711
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.32553.12
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.32553.12
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.32553.12
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.32553.12
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.32553.12
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.32553.12
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.32553.12
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -5067,7 +5071,7 @@ S32-num/log.pugs...................................#     Actual: Inf
 S32-num/pi.pugs....................................#     Actual: No exception thrown
    3    0    1    0    4
      1 todo   : fix by Christmas
-S32-num/power.pugs.................................sh: line 1: 23131 Killed                  nice -20 ./Pugs/pugs -IPugs/ext/Test/lib t/spec/S32-num/power.pugs
+S32-num/power.pugs.................................sh: line 1: 32700 Killed                  nice -20 ./Pugs/pugs -IPugs/ext/Test/lib t/spec/S32-num/power.pugs
   10   40    0    0   50
     40 tests aborted (missing ok/not ok)
 S32-num/rat.pugs...................................#   Expected: 'undef'
@@ -5456,7 +5460,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S03",        1868,     0,   286,   306,  2460,  4219
 "S04",         488,     0,   111,    87,   686,   991
 "S05",        2215,     0,  2205,    56,  4476,  5769
-"S06",         408,     0,    80,   125,   613,  1283
+"S06",         407,     1,    80,   125,   613,  1283
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          68,     0,    22,     8,    98,   175
 "S10",          30,     0,     9,     0,    39,   127
@@ -5473,8 +5477,9 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S29",          33,     0,     6,     6,    45,    79
 "S32",        2246,    40,   259,   511,  3055,  5280
 "int",         131,     0,    35,    26,   192,   542
-"total",      9473,    40,  3447,  1715, 14674, 24713
+"total",      9472,    41,  3447,  1715, 14674, 24713
 ----------------
 Failure summary:
+S06-multi/syntax.pugs 42 - RT \#68528 - first defined wins the tie
 S32-list/map.pugs passed 1 unplanned test(s)
 S32-num/power.pugs aborted 40 test(s)
