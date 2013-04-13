@@ -1330,7 +1330,11 @@ use of uninitialized value of type Any in string context  in sub both at t/spec/
      1 todo   : RT 71112: Cannot assign to readonly variable.
 S06-traits/is-assoc.rakudo.........................   4    0    0    2    6
      2 skipped: RT 116244
-S06-traits/is-copy.t...............................  23    0    0    0   23
+S06-traits/is-copy.t...............................Potential difficulties:
+    Redeclaration of symbol $x
+    at eval_0:1
+    ------> [32msub f ($x is copy) { my $x [33m⏏[31m}[0m
+  24    0    0    0   24
 S06-traits/is-readonly.rakudo......................   7    0    4    3   14
      2 skipped: segfault
      1 skipped: VAR
@@ -1710,7 +1714,7 @@ S32-hash/pairs.rakudo..............................  20    0    1    0   21
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo..............................  16    0    0   13   29
     13 skipped: binding on hash elements unimplemented
-S32-io/IO-Socket-INET.t............................  21    0    0    0   21
+S32-io/IO-Socket-INET.t............................  20    1    0    0   21
 S32-io/chdir.rakudo................................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
@@ -2394,7 +2398,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S03",        4371,     0,   138,   367,  4876,  4219
 "S04",         872,     0,    32,    50,   954,   991
 "S05",        4692,     0,   115,   518,  5325,  5769
-"S06",        1137,     0,    29,   131,  1297,  1283
+"S06",        1138,     0,    29,   131,  1298,  1284
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         135,     0,    19,    21,   175,   175
 "S10",          64,     0,     1,     5,    70,   127
@@ -2409,10 +2413,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         300,     0,     0,     1,   301,   258
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         311,     0,     1,     7,   319,   329
-"S32",        7537,     0,   101,   239,  7877,  5298
+"S32",        7536,     1,   101,   239,  7877,  5298
 "int",         530,     0,     8,    25,   563,   552
 "ros",           2,     0,     0,     0,     2,     2
-"total",     25073,     0,   638,  1807, 27518, 24881
+"total",     25073,     1,   638,  1807, 27519, 24882
 ----------------
 Failure summary:
+S32-io/IO-Socket-INET.t 21 - successful received binary data
 note: test_summary.pl @syn does not have ros
