@@ -643,7 +643,13 @@ S03-junctions/autothreading.niecza.................Potential difficulties:
 
   88    0    0    1   89
      1 skipped: interferes hard with inlining
-S03-junctions/boolean-context.niecza...............  69    0    4    0   73
+S03-junctions/boolean-context.niecza...............Potential difficulties:
+  $a is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-junctions/boolean-context.niecza line 152:
+------> [32m    sub infix:<test>(Mu [33m⏏[31m$a, Mu $b) { $invoc++; True };[0m
+  $b is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-junctions/boolean-context.niecza line 152:
+------> [32m    sub infix:<test>(Mu $a, Mu [33m⏏[31m$b) { $invoc++; True };[0m
+
+  73    0    4    0   77
      2 todo   : Difficulties overloading | and &
      2 todo PASSED: Difficulties overloading | and &
 S03-junctions/misc.niecza..........................Potential difficulties:
@@ -2165,8 +2171,8 @@ S05-mass/rx.niecza.................................Potential difficulties:
   $rt112450 is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-mass/rx.niecza line 2572:
 ------> [32m    my [33m⏏[31m$rt112450 = 4;[0m
 
-sh: line 1: 26696 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
- 661   12   19   47  739
+sh: line 1: 13400 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
+ 662   11   19   47  739
      1 skipped: Unable to resolve method alpha in class Cursor
      2 skipped: Dubious test, http://irclog.perlgeek.de/perl6/2012-05-27#i_5643089
     13 skipped: Unable to resolve method wb in class Cursor
@@ -2180,7 +2186,7 @@ sh: line 1: 26696 Killed                  nice -20 mono ./run/Niecza.exe t/spec/
      3 todo   : ::: issue
      2 todo   : :: issues
      3 todo   : Unable to resolve method cntrl in class Cursor
-    12 tests aborted (missing ok/not ok)
+    11 tests aborted (missing ok/not ok)
 S05-mass/stdrules.niecza........................... 183    0    0    3  186
      3 skipped: <at>
 S05-match/arrayhash.niecza.........................   4    0    4    0    8
@@ -5687,14 +5693,14 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
 "S02",        2993,     0,   111,   272,  3376,  3533
-"S03",        3984,     0,   196,   366,  4546,  4219
+"S03",        3988,     0,   196,   366,  4550,  4223
 "S04",         805,     3,    33,    63,   904,   991
-"S05",        4064,    14,   111,   207,  4396,  5769
+"S05",        4065,    13,   111,   207,  4396,  5769
 "S06",         772,     2,    56,   162,   992,  1284
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          65,     0,     0,     8,    73,   175
 "S10",          35,     0,     5,    19,    59,   127
-"S11",           0,     0,     0,     0,     0,   129
+"S11",           0,     0,     0,     0,     0,   131
 "S12",         735,     0,    60,   153,   948,  1325
 "S13",          31,     0,     1,    10,    42,    80
 "S14",         168,     0,     1,    10,   179,   327
@@ -5707,13 +5713,13 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 "S29",         291,    18,     4,     3,   316,   329
 "S32",        6433,     1,   131,   236,  6801,  5298
 "int",         455,     1,    21,    27,   504,   552
-"total",     21031,    39,   752,  1561, 23383, 24880
+"total",     21036,    38,   752,  1561, 23387, 24886
 ----------------
 Failure summary:
 S04-statement-modifiers/if.t 6 - if expr on false cond
 S04-statement-modifiers/unless.t 4 - unless expr on true cond
 S04-statements/for.niecza 71 - Can use statement-modifying "for" in list comprehension
-S05-mass/rx.niecza aborted 12 test(s)
+S05-mass/rx.niecza aborted 11 test(s)
 S05-substitution/subst.niecza aborted 2 test(s)
 S06-signature/unpack-array.t 12 - array unpacking and only-subs
 S06-signature/unpack-array.t 13 - array unpacking and only-multi
