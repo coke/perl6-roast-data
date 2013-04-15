@@ -20,9 +20,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xaaae858)'
+#     Actual: 'CODE(0xab4c858)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xaaaeb78)'
+#     Actual: 'CODE(0xab4cb78)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -4366,11 +4366,10 @@ S11-modules/importing.pugs.........................#     Actual: No exception th
      1 skipped: Cannot cast from VUndef to VCode
      1 skipped: Undeclared variable
      4 todo   : fix by Christmas
-S11-modules/require.pugs...........................*** 
-    Unexpected "<&bar"
-    at t/spec/S11-modules/require.pugs line 7, column 42
-   0    8    0    0    8
-     8 tests aborted (missing ok/not ok)
+S11-modules/require.pugs...........................   4    0    0    4    8
+     1 skipped: NYI
+     1 skipped: Must only use named arguments to new() constructor
+     2 skipped: parsefail
                                                    pass fail todo skip plan
 S12-attributes/clone.pugs..........................#     Actual: An exception was thrown : Pattern match failure in do expression at src/Pugs/Prim.hs:1386:5-15
 #   Expected: 'a'
@@ -4447,7 +4446,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d9a349>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6d9b979>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d9a349>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6d9b979>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6dc6469>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6dc7b55>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6dc6469>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6dc7b55>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
   16    0    2    1   19
@@ -4601,13 +4600,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.9579.251
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.9579.251
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.9579.251
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.9579.251
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.9579.251
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.9579.251
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.9579.251
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.22337.112
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.22337.112
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.22337.112
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.22337.112
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.22337.112
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.22337.112
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.22337.112
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -5476,7 +5475,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          68,     0,    22,     8,    98,   175
 "S10",          30,     0,     9,     0,    39,   127
-"S11",          10,     8,     4,     2,    24,   131
+"S11",          14,     0,     4,     6,    24,   131
 "S12",         358,     0,    65,    88,   511,  1325
 "S13",           7,     0,     1,     1,     9,    80
 "S14",          64,     0,    11,     0,    75,   327
@@ -5489,8 +5488,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S29",          33,     0,     6,     6,    45,    79
 "S32",        2268,     0,   268,   520,  3055,  5309
 "int",         131,     0,    35,    26,   192,   542
-"total",      9492,     8,  3456,  1722, 14677, 24749
+"total",      9496,     0,  3456,  1726, 14677, 24749
 ----------------
 Failure summary:
-S11-modules/require.pugs aborted 8 test(s)
 S32-list/map.pugs passed 1 unplanned test(s)
