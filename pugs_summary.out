@@ -21,9 +21,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xaa01858)'
+#     Actual: 'CODE(0x9da9858)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xaa01b78)'
+#     Actual: 'CODE(0x9da9b78)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -334,8 +334,11 @@ S02-types/array_extending.pugs.....................#     Actual: undef
 #     Actual: 'undef'
   19    0    2    0   21
      2 todo   : fix by Christmas
-S02-types/array_ref.pugs...........................  44    0    0    1   45
-     1 skipped: Seq
+S02-types/array_ref.pugs...........................# Looks like you planned 45 tests, but ran 0
+*** No such subroutine: "&Parcel"
+    at t/spec/S02-types/array_ref.pugs line 11, column 48-54
+   0   45    0    0   45
+    45 tests aborted (missing ok/not ok)
 S02-types/assigning-refs.pugs......................#   Expected: '0'
 #     Actual: '3'
 #   Expected: '0'
@@ -595,13 +598,15 @@ S02-types/lists.pugs...............................#   Expected: '23'
 #     Actual: undef
 #     Actual: undef
 #     Actual: undef
-  13    0    8    7   28
+# Looks like you planned 28 tests, but ran 21
+*** No such subroutine: "&Parcel"
+    at t/spec/S02-types/lists.pugs line 163, column 30-36
+  12    7    8    1   28
      1 skipped: augment
-     2 skipped: Must only use named arguments to new() constructor
-     4 skipped: Seq
      2 todo   : unspecced by Christmas
      2 todo   : bug by Christmas
      4 todo   : fix by Christmas
+     7 tests aborted (missing ok/not ok)
 S02-types/mixed_multi_dimensional.pugs.............#   Expected: 'undef'
 #     Actual: '(Array)'
 #   Expected: 'undef'
@@ -716,13 +721,11 @@ S02-types/subset.pugs..............................#     Actual: No exception th
 #     Actual: No exception thrown
 #     Actual: No exception thrown
 #     Actual: No exception thrown
-#     Actual: An exception was thrown : No such method in class Array: "&Seq"
-#     Actual: An exception was thrown : No such method in class Array: "&Seq"
 #     Actual: No exception thrown
 #     Actual: No exception thrown
 #   Expected: 'FOO'
 #     Actual: 'OH HAI'
-  15    0   13   18   46
+  14    0   11   18   43
      2 skipped: Can't find aboveLexVarLimit
      3 skipped: MI not found
      2 skipped: Can't find SY
@@ -732,7 +735,7 @@ S02-types/subset.pugs..............................#     Actual: No exception th
      2 skipped: where
      2 skipped: Can't find aboveLexLimit
      2 skipped: Exception NYI
-    13 todo   : fix by Christmas
+    11 todo   : fix by Christmas
 S02-types/type.pugs................................#     Actual: No exception thrown
 #     Actual: No exception thrown
 #     Actual: No exception thrown
@@ -740,9 +743,9 @@ S02-types/type.pugs................................#     Actual: No exception th
 #     Actual: An exception was thrown : No such subroutine: "&Nil"
 #     Actual: An exception was thrown : No such subroutine: "&Nil"
 #     Actual: No exception thrown
-  22    0    7   22   51
+  22    0    7   21   50
      2 skipped: Numeric
-     2 skipped: Positional
+     1 skipped: Positional
     18 skipped: parsefail
      7 todo   : fix by Christmas
 S02-types/unicode.pugs.............................#   Expected: '1'
@@ -1170,15 +1173,12 @@ S03-operators/context.pugs.........................#   Expected: 'undef'
 #     Actual: '(Int)'
 #   Expected: 'undef'
 #     Actual: '(Int)'
-#     Actual: undef
-#     Actual: undef
-#     Actual: undef
-#   Expected: '1'
-#     Actual: '4'
-  21    0    6    5   32
-     2 skipped: Cannot cast into Hash: VRef
-     3 skipped: Seq
-     6 todo   : fix by Christmas
+# Looks like you planned 32 tests, but ran 16
+*** No such subroutine: "&Parcel"
+    at t/spec/S03-operators/context.pugs line 51, column 32-38
+  14   16    2    0   32
+     2 todo   : fix by Christmas
+    16 tests aborted (missing ok/not ok)
 S03-operators/equality.pugs........................  28    0    0    4   32
      2 skipped: Missing required parameters: $?2 $?1
      2 skipped: Non-exhaustive patterns in lambda
@@ -4448,7 +4448,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6e9a349>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6e9b979>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6e9a349>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6e9b979>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6cec515>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6ced755>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6cec515>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6ced755>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
   16    0    2    1   19
@@ -4602,13 +4602,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.28511.933
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.28511.933
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.28511.933
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.28511.933
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.28511.933
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.28511.933
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.28511.933
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.1999.862
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.1999.862
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.1999.862
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.1999.862
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.1999.862
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.1999.862
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.1999.862
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -4752,11 +4752,7 @@ S32-container/roundrobin.pugs......................#   Expected: '1'
    2    0    2    1    5
      1 skipped: No such method in class Array: "&Str"
      2 todo   : fix by Christmas
-S32-container/zip.pugs.............................#   Expected: ''
-#     Actual: '0 2 1 4 6 3'
-#   Expected: ''
-#     Actual: '0 2 1 4 6 3'
-#   Expected: '1 3'
+S32-container/zip.pugs.............................#   Expected: '1 3'
 #     Actual: ''
 #   Expected: '2 4'
 #     Actual: ''
@@ -4766,9 +4762,8 @@ S32-container/zip.pugs.............................#   Expected: ''
 #     Actual: 'a 1,b 2,c 3'
 #   Expected: 'a|?|b|a|c|b'
 #     Actual: 'a ?|b a|c b'
-   5    0    7    0   12
+   5    0    5    0   10
      2 todo   : unimpl by Christmas
-     2 todo   : needs Seq by Christmas
      3 todo   : fix by Christmas
 S32-hash/delete.t..................................  11    0    0    0   11
 S32-hash/keys_values.pugs..........................#   Expected: '1 2 3 4'
@@ -5469,8 +5464,8 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",          27,     0,     8,    12,    47,    79
-"S02",        1429,     0,   318,   466,  2213,  3633
-"S03",        1862,     0,   286,   306,  2454,  4217
+"S02",        1383,    52,   316,   458,  2209,  3628
+"S03",        1855,    16,   282,   301,  2454,  4217
 "S04",         488,     0,   111,    87,   686,   991
 "S05",        2215,     0,  2205,    56,  4476,  5769
 "S06",         408,     0,    80,   126,   614,  1284
@@ -5478,7 +5473,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S09",          68,     0,    22,     8,    98,   175
 "S10",          30,     0,     9,     0,    39,   127
 "S11",          10,    11,     4,     2,    27,   134
-"S12",         358,     0,    65,    88,   511,  1325
+"S12",         358,     0,    65,    88,   511,  1319
 "S13",           7,     0,     1,     1,     9,    80
 "S14",          64,     0,    11,     0,    75,   327
 "S16",          20,     0,     0,     1,    21,   277
@@ -5488,10 +5483,13 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S26",           0,     0,     0,     0,     0,   258
 "S28",           4,     0,     0,     1,     5,    13
 "S29",          33,     0,     6,     6,    45,    79
-"S32",        2268,     0,   268,   520,  3055,  5316
+"S32",        2268,     0,   266,   520,  3053,  5314
 "int",         131,     0,    35,    26,   192,   542
-"total",      9486,    11,  3456,  1722, 14674, 24753
+"total",      9433,    79,  3448,  1709, 14668, 24740
 ----------------
 Failure summary:
+S02-types/array_ref.pugs aborted 45 test(s)
+S02-types/lists.pugs aborted 7 test(s)
+S03-operators/context.pugs aborted 16 test(s)
 S11-modules/require.pugs aborted 11 test(s)
 S32-list/map.pugs passed 1 unplanned test(s)

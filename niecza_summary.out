@@ -424,8 +424,7 @@ Use of uninitialized value in string context
   15    0    1    5   21
      5 skipped: Unable to resolve method exists in class Array
      1 todo   : min on list with undefined el ignores it
-S02-types/array_ref.niecza.........................  44    0    0    1   45
-     1 skipped: Seq NYI
+S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.niecza....................  15    0    3    0   18
      3 todo   : 
 S02-types/autovivification.niecza..................Potential difficulties:
@@ -516,12 +515,11 @@ S02-types/keybag.niecza............................ 114    0    2   25  141
      2 todo   : 
 S02-types/keyset.niecza............................ 100    0    0   10  110
     10 skipped: is KeySet doesn't work yet
-S02-types/lists.niecza.............................  16    0    0   12   28
+S02-types/lists.niecza.............................  20    0    0    8   28
      1 skipped: loops
      2 skipped: Cannot use value like Capture as a number
      2 skipped: Excess arguments to CORE List.new
      3 skipped: Cannot use bind operator with this LHS
-     4 skipped: Undeclared name: "Seq"
 S02-types/mixed_multi_dimensional.niecza...........  69    0    3    8   80
      8 skipped: Cannot use hash access on an object of type Pair
      2 todo   : 
@@ -553,11 +551,10 @@ S02-types/set.niecza...............................  87    0    3   13  103
     10 skipped: Hypers not yet Set compatible
      3 skipped: Unmatched key in Hash.LISTSTORE
      3 todo   : 
-S02-types/sigils-and-types.niecza..................  21    0    1    7   29
+S02-types/sigils-and-types.niecza..................  21    0    1    6   28
      1 skipped: Undeclared name KeyHash
      1 skipped: Undeclared name Buf
      4 skipped: Methods must be used in some kind of package
-     1 skipped: Undeclared name Seq
      1 todo   : 
 S02-types/subscripts_and_context.t.................   8    0    0    0    8
 S02-types/subset.niecza............................Potential difficulties:
@@ -571,15 +568,14 @@ S02-types/subset.niecza............................Potential difficulties:
 ------> [32m    lives_ok { my NumArray [33m⏏[31m$n = [] },[0m
   $o is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-types/subset.niecza line 86:
 ------> [32m    lives_ok { my Ordered [33m⏏[31m$o = 23 => 42 },[0m
-  $rt80930 is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-types/subset.niecza line 179:
+  $rt80930 is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-types/subset.niecza line 161:
 ------> [32mlives_ok { my Bug::RT80930 [33m⏏[31m$rt80930 }, 'subset with "::" in the nam[0m
 
 Potential difficulties:
   $x is declared but not used at (eval) line 1:
 ------> [32mmy Even [33m⏏[31m$x = 3[0m
 
-  38    0    2    6   46
-     3 skipped: Seq NYI
+  38    0    2    3   43
      1 skipped: Methods must be used in some kind of package
      2 skipped: Exception NYI
      2 todo   : 
@@ -589,8 +585,7 @@ S02-types/type.niecza..............................Potential difficulties:
   $bar is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S02-types/type.niecza line 16:
 ------> [32m    ok(try {my Str [33m⏏[31m$bar; 1}, 'compile my Str $bar');[0m
 
-  34    0    8    9   51
-     1 skipped: Expecting a term
+  34    0    8    8   50
      6 skipped: native types (noauto)
      2 skipped: Trait of not available on variables
      8 todo   : retrun value type checking NYI
@@ -1106,20 +1101,35 @@ Use of uninitialized value in string context
      4 skipped: Trait context not available on variables
      3 skipped: Stringy NYI
      2 skipped: Unmatched key in Hash.LISTSTORE
-S03-operators/context.niecza.......................Potential difficulties:
-  @array is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/context.niecza line 57:
-------> [32m    my [33m⏏[31m@array = ($a, $b);[0m
-  $scalar is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/context.niecza line 80:
+S03-operators/context.niecza.......................[31m===[0mSORRY![31m===[0m
+
+Variable @array is not predeclared at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/context.niecza line 57:
+------> [32m    is((item $a, $b), [33m⏏[31m@array, 'item($a, $b) is the same as <<$[0m
+
+Potential difficulties:
+  $scalar is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/context.niecza line 77:
 ------> [32m    my [33m⏏[31m$scalar = 'abcd';[0m
-  $array is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/context.niecza line 83:
+  $array is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/context.niecza line 80:
 ------> [32m    my [33m⏏[31m$array  = [1, 2, 3];[0m
-  $hash is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/context.niecza line 86:
+  $hash is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-operators/context.niecza line 83:
 ------> [32m    my [33m⏏[31m$hash  = {a => 1, b => 2, c => 3};[0m
 
-  27    0    0    5   32
-     1 skipped: Invalid hard reference syntax
-     3 skipped: Undeclared name Seq
-     1 skipped: Excess arguments to item, used 1 of 2 positionals
+Unhandled exception: Check failed
+
+  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 1443 (die @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1147 (P6.comp_unit @ 37) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 101 (STD.TOP @ 11) 
+  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 2923 (Grammar.parse @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/src/NieczaFrontendSTD.pm6 line 281 (NieczaFrontendSTD.parse @ 70) 
+  at /home/coke/sandbox/perl6pass/niecza/src/NieczaCompiler.pm6 line 34 (NieczaCompiler.compile @ 18) 
+  at /home/coke/sandbox/perl6pass/niecza/src/NieczaCompiler.pm6 line 60 (NieczaCompiler.compile_file @ 8) 
+  at /home/coke/sandbox/perl6pass/niecza/src/niecza line 159 (mainline @ 141) 
+  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4211 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4212 (module-CORE @ 578) 
+  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4212 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+   0   32    0    0   32
+    32 tests aborted (missing ok/not ok)
 S03-operators/equality.niecza......................Use of uninitialized value in string context
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 1356 (warn @ 5) 
   at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 266 (Mu.Str @ 15) 
@@ -2170,8 +2180,8 @@ S05-mass/rx.niecza.................................Potential difficulties:
   $rt112450 is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-mass/rx.niecza line 2572:
 ------> [32m    my [33m⏏[31m$rt112450 = 4;[0m
 
-sh: line 1: 32306 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
- 661   12   19   47  739
+sh: line 1:  6063 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
+ 664    9   19   47  739
      1 skipped: Unable to resolve method alpha in class Cursor
      2 skipped: Dubious test, http://irclog.perlgeek.de/perl6/2012-05-27#i_5643089
     13 skipped: Unable to resolve method wb in class Cursor
@@ -2185,7 +2195,7 @@ sh: line 1: 32306 Killed                  nice -20 mono ./run/Niecza.exe t/spec/
      3 todo   : ::: issue
      2 todo   : :: issues
      3 todo   : Unable to resolve method cntrl in class Cursor
-    12 tests aborted (missing ok/not ok)
+     9 tests aborted (missing ok/not ok)
 S05-mass/stdrules.niecza........................... 183    0    0    3  186
      3 skipped: <at>
 S05-match/arrayhash.niecza.........................   4    0    4    0    8
@@ -3529,8 +3539,7 @@ S12-class/mro.niecza...............................   3    0    0    1    4
      1 skipped: .^mro
 S12-class/namespaced.niecza........................  11    0    0    2   13
      2 skipped: Cannot dispatch to a method on D because it is not inherited or done by Cursor
-S12-class/open.niecza..............................   8    0    0    2   10
-     2 skipped: Seq NYI
+S12-class/open.t...................................   8    0    0    0    8
 S12-class/self-inheritance.t.......................   2    0    0    0    2
 S12-class/stubs.niecza.............................Potential difficulties:
   &foo is declared but not used at (eval) line 1:
@@ -3594,8 +3603,7 @@ Potential difficulties:
 ------> [32mmy $a; role Td { has $.a }; my Td [33m⏏[31m$c .= new(:$a )[0m
 
    4    0    0    0    4
-S12-construction/construction.niecza...............  16    0    0    3   19
-     1 skipped: Seq NYI
+S12-construction/construction.niecza...............  13    0    0    2   15
      2 skipped: System.NullReferenceException: Object reference not set to an instance of an object
 S12-construction/named-params-in-BUILD.t...........   3    0    0    0    3
 S12-construction/new.niecza........................  11    0   10    4   25
@@ -3972,8 +3980,7 @@ S32-basics/warn.niecza.............................# It's OK to see this warning
    5    0    2    0    7
      1 todo   : 
      1 todo   : quietly NYI
-S32-container/zip.niecza...........................   6    0    0    6   12
-     2 skipped: Seq & Slicel lists are NYI
+S32-container/zip.niecza...........................   6    0    0    4   10
      2 skipped: Unable to resolve method LISTSTORE in class List
      2 skipped: Slicel lists are NYI
 S32-hash/delete.niecza.............................Potential difficulties:
@@ -5691,16 +5698,16 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        2993,     0,   111,   272,  3376,  3533
-"S03",        3985,     0,   193,   366,  4544,  4217
+"S02",        2998,     0,   111,   262,  3371,  3528
+"S03",        3958,    32,   193,   361,  4544,  4217
 "S04",         805,     3,    33,    63,   904,   991
-"S05",        4064,    14,   111,   207,  4396,  5769
+"S05",        4067,    11,   111,   207,  4396,  5769
 "S06",         772,     2,    56,   162,   992,  1284
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          65,     0,     0,     8,    73,   175
 "S10",          35,     0,     5,    19,    59,   127
 "S11",           0,     0,     0,     0,     0,   134
-"S12",         735,     0,    60,   153,   948,  1325
+"S12",         732,     0,    60,   150,   942,  1319
 "S13",          31,     0,     1,    10,    42,    80
 "S14",         168,     0,     1,    10,   179,   327
 "S16",         189,     0,    21,    25,   235,   290
@@ -5710,15 +5717,16 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 "S26",           0,     0,     0,     0,     0,   258
 "S28",           6,     0,     1,     0,     7,    13
 "S29",         291,    18,     4,     3,   316,   329
-"S32",        6433,     1,   131,   236,  6801,  5305
+"S32",        6433,     1,   131,   234,  6799,  5303
 "int",         455,     1,    21,    27,   504,   552
-"total",     21032,    39,   749,  1561, 23381, 24890
+"total",     21010,    68,   749,  1541, 23368, 24877
 ----------------
 Failure summary:
+S03-operators/context.niecza aborted 32 test(s)
 S04-statement-modifiers/if.t 6 - if expr on false cond
 S04-statement-modifiers/unless.t 4 - unless expr on true cond
 S04-statements/for.niecza 71 - Can use statement-modifying "for" in list comprehension
-S05-mass/rx.niecza aborted 12 test(s)
+S05-mass/rx.niecza aborted 9 test(s)
 S05-substitution/subst.niecza aborted 2 test(s)
 S06-signature/unpack-array.t 12 - array unpacking and only-subs
 S06-signature/unpack-array.t 13 - array unpacking and only-multi
