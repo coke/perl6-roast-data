@@ -20,9 +20,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x95f8858)'
+#     Actual: 'CODE(0xa9e8858)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x95f8b78)'
+#     Actual: 'CODE(0xa9e8b78)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -4445,7 +4445,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6a16fd9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6a16c8d>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6a16fd9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6a16c8d>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6a3aead>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6a3ab61>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6a3aead>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6a3ab61>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
   16    0    2    1   19
@@ -4600,13 +4600,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.7887.510
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.7887.510
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.7887.510
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.7887.510
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.7887.510
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.7887.510
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.7887.510
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.9973.792
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.9973.792
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.9973.792
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.9973.792
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.9973.792
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.9973.792
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.9973.792
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -5259,40 +5259,13 @@ S32-str/substr.pugs................................#   Expected: 'r'
 #     Actual: ''
 #   Expected: 'oba'
 #     Actual: ''
-#   Expected: 'r'
-#     Actual: 'f'
-#   Expected: 'ob'
-#     Actual: 'fo'
-#     Actual: undef
-#   Expected: ''
-#     Actual: 'bar'
-#   Expected: 'oo'
-#     Actual: 'oob'
-#     Actual: undef
-#   Expected: 'boing ding'
-#     Actual: 'gloop ding'
-#   Expected: 'ng'
-#     Actual: 'op'
-#   Expected: 'foo ding'
-#     Actual: 'gloop ding'
-#   Expected: ' d'
-#     Actual: 'op'
-#   Expected: 'boing'
-#     Actual: 'gloop'
-#   Expected: ' d'
-#     Actual: 'ng'
-#     Actual: No exception thrown
-#   Expected: 'cd'
-#     Actual: ''
-#   Expected: '789'
-#     Actual: '123456789'
-  56    0   21   15   92
-     1 skipped: Failure NYI
-    11 skipped: more discussion needed
-     3 skipped: chrs
-     2 todo   : bug by Christmas
-     2 todo   : scalarrefs are not handled correctly by Christmas
-    17 todo   : fix by Christmas
+# Looks like you planned 92 tests, but ran 24
+*** No such method in class Str: "&wordcase"
+    at t/spec/S32-str/substr.pugs line 62, column 8-54
+  14   68    6    4   92
+     4 skipped: more discussion needed
+     6 todo   : fix by Christmas
+    68 tests aborted (missing ok/not ok)
 S32-str/tc.pugs....................................#   Expected: 'Ssß'
 #     Actual: 'ßß'
 #   Expected: 'ǈ'
@@ -5459,7 +5432,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",          27,     0,     8,    12,    47,    79
 "S02",        1427,     0,   316,   465,  2208,  3627
-"S03",        1864,     0,   286,   304,  2454,  4217
+"S03",        1864,     0,   286,   304,  2454,  4223
 "S04",         488,     0,   111,    87,   686,   991
 "S05",        2215,     0,  2205,    56,  4476,  5772
 "S06",         408,     0,    80,   126,   614,  1285
@@ -5477,9 +5450,10 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S26",           0,     0,     0,     0,     0,   258
 "S28",           4,     0,     0,     1,     5,    13
 "S29",          33,     0,     6,     6,    45,    79
-"S32",        2258,    15,   263,   517,  3053,  5735
+"S32",        2216,    83,   248,   506,  3053,  5829
 "int",         131,     0,    35,    26,   192,   542
-"total",      9477,    15,  3450,  1725, 14667, 25164
+"total",      9435,    83,  3435,  1714, 14667, 25264
 ----------------
 Failure summary:
 S32-str/capitalize.pugs aborted 15 test(s)
+S32-str/substr.pugs aborted 68 test(s)
