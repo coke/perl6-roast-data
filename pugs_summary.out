@@ -20,9 +20,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xa9e8858)'
+#     Actual: 'CODE(0xa737858)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xa9e8b78)'
+#     Actual: 'CODE(0xa737b78)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -2600,6 +2600,7 @@ S05-mass/properties-derived.pugs...................#     Actual: undef
  108    0  148    0  256
    148 todo   : fix by Christmas
 S05-mass/properties-general.pugs...................#     Actual: undef
+#   Failed test (t/spec/S05-mass/properties-general.pugs line 26, column 1-53)
 #     Actual: undef
 #     Actual: undef
 #     Actual: undef
@@ -2949,7 +2950,9 @@ S05-mass/properties-general.pugs...................#     Actual: undef
 #     Actual: undef
 #     Actual: undef
 #     Actual: undef
- 244    0  350    0  594
+#     Actual: undef
+# Looks like you failed 1 tests of 596
+ 245    1  350    0  596
    350 todo   : fix by Christmas
 S05-mass/properties-script.pugs....................#     Actual: undef
 #     Actual: undef
@@ -3912,10 +3915,11 @@ S05-metasyntax/litvar.pugs.........................#     Actual: undef
 #     Actual: ''
 #   Expected: 'ooba'
 #     Actual: ''
-   4    0   18    0   22
-    11 todo   : feature by Christmas
+   3    0   19    0   22
+    12 todo   : feature by Christmas
      2 todo   : bug by Christmas
-     5 todo   : fix by Christmas
+     4 todo   : fix by Christmas
+     1 todo PASSED: feature by Christmas
 S05-metasyntax/prior.pugs..........................#     Actual: undef
 #     Actual: undef
 #     Actual: undef
@@ -4445,7 +4449,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6a3aead>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6a3ab61>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6a3aead>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6a3ab61>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6bca505>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6bcb30d>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6bca505>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6bcb30d>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
   16    0    2    1   19
@@ -4600,13 +4604,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.9973.792
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.9973.792
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.9973.792
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.9973.792
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.9973.792
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.9973.792
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.9973.792
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.11440.821
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.11440.821
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.11440.821
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.11440.821
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.11440.821
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.11440.821
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.11440.821
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -5145,7 +5149,7 @@ S32-str/append.t...................................   7    0    0    0    7
 S32-str/bool.t.....................................  12    0    0    0   12
 S32-str/capitalize.pugs............................# Looks like you planned 15 tests, but ran 0
 *** No such subroutine: "&wordcase"
-    at t/spec/S32-str/capitalize.pugs line 9, column 4-16
+    at t/spec/S32-str/capitalize.pugs line 10, column 4-16
    0   15    0    0   15
     15 tests aborted (missing ok/not ok)
 S32-str/chomp.pugs.................................#   Expected: 'foo'
@@ -5434,7 +5438,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S02",        1427,     0,   316,   465,  2208,  3627
 "S03",        1864,     0,   286,   304,  2454,  4223
 "S04",         488,     0,   111,    87,   686,   991
-"S05",        2215,     0,  2205,    56,  4476,  5772
+"S05",        2215,     1,  2206,    56,  4478,  5774
 "S06",         408,     0,    80,   126,   614,  1285
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          68,     0,    22,     8,    98,   175
@@ -5452,8 +5456,9 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S29",          33,     0,     6,     6,    45,    79
 "S32",        2216,    83,   248,   506,  3053,  5829
 "int",         131,     0,    35,    26,   192,   542
-"total",      9435,    83,  3435,  1714, 14667, 25264
+"total",      9435,    84,  3436,  1714, 14669, 25266
 ----------------
 Failure summary:
+S05-mass/properties-general.pugs 3 - Match <:L> (Letter)
 S32-str/capitalize.pugs aborted 15 test(s)
 S32-str/substr.pugs aborted 68 test(s)
