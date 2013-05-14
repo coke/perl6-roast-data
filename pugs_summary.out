@@ -20,9 +20,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x97db858)'
+#     Actual: 'CODE(0xa2da858)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x97dbb78)'
+#     Actual: 'CODE(0xa2dab78)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -1691,10 +1691,8 @@ S04-statements/repeat.pugs.........................#     Actual: undef
      3 skipped: Test Util parsefail
      2 skipped: Cannot bind to non-existing variable: "$another_x"
      1 todo   : fix by Christmas
-S04-statements/sink.t..............................#   Failed test (t/spec/S04-statements/sink.t line 16, column 5-49)
-#     Actual: An exception was thrown : No such method in class List: "&sink"
-# Looks like you failed 1 tests of 2
-   1    1    0    0    2
+S04-statements/sink.pugs...........................   1    0    0    1    2
+     1 skipped: no such method
 S04-statements/terminator.pugs.....................#   Expected: '2'
 #     Actual: '3'
 #     Actual: An exception was thrown : 
@@ -4333,9 +4331,12 @@ S09-hashes/objecthash.pugs.........................#     Actual: undef
 #     Actual: No exception thrown
 #     Actual: An exception was thrown : Can't modify constant item: VUndef
 #     Actual: undef
-   7    0   16    2   25
+#   Expected: '2,3'
+#     Actual: ''
+   7    0   20    2   29
      2 skipped: flat
-    16 todo   : fix by Christmas
+    17 todo   : fix by Christmas
+     3 todo PASSED: fix by Christmas
 S09-subscript/slice.pugs...........................  20    0    0    4   24
      4 skipped: No such subroutine: "&Positional"
                                                    pass fail todo skip plan
@@ -4450,7 +4451,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c465f9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6c47a41>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c465f9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6c47a41>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6ae1a41>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6ae3bdd>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6ae1a41>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6ae3bdd>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
   16    0    2    1   19
@@ -4605,13 +4606,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.21227.697
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.21227.697
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.21227.697
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.21227.697
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.21227.697
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.21227.697
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.21227.697
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.5044.572
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.5044.572
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.5044.572
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.5044.572
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.5044.572
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.5044.572
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.5044.572
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -5466,12 +5467,12 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",          27,     0,     8,    12,    47,    79
 "S02",        1427,     0,   316,   465,  2208,  3627
-"S03",        1864,     0,   286,   304,  2454,  4223
-"S04",         488,     1,   111,    87,   687,  1008
+"S03",        1864,     0,   286,   304,  2454,  4229
+"S04",         488,     0,   111,    88,   687,  1008
 "S05",        2215,     0,  2207,    56,  4478,  5774
 "S06",         408,     0,    80,   126,   614,  1285
 "S07",           0,     0,     0,     0,     0,     0
-"S09",          68,     0,    22,     8,    98,   175
+"S09",          68,     0,    26,     8,   102,   179
 "S10",          30,     0,     9,     0,    39,   127
 "S11",          13,     0,     5,     9,    27,   134
 "S12",         356,     0,    65,    90,   511,  1319
@@ -5486,7 +5487,6 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S29",          33,     0,     6,     6,    45,    79
 "S32",        2270,     0,   266,   517,  3053,  5845
 "int",         131,     0,    35,    26,   192,   542
-"total",      9489,     1,  3455,  1725, 14670, 25310
+"total",      9489,     0,  3459,  1726, 14674, 25320
 ----------------
-Failure summary:
-S04-statements/sink.t 2 - can sink a List
+No failures!
