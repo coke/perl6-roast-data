@@ -20,9 +20,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xab41858)'
+#     Actual: 'CODE(0x9e8f858)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xab41b78)'
+#     Actual: 'CODE(0x9e8fb78)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -4333,10 +4333,12 @@ S09-hashes/objecthash.pugs.........................#     Actual: undef
 #     Actual: undef
 #   Expected: '2,3'
 #     Actual: ''
-   7    0   20    2   29
+# Looks like you planned 31 tests, but ran 29
+   7    2   20    2   31
      2 skipped: flat
     17 todo   : fix by Christmas
      3 todo PASSED: fix by Christmas
+     2 tests aborted (missing ok/not ok)
 S09-subscript/slice.pugs...........................  20    0    0    4   24
      4 skipped: No such subroutine: "&Positional"
                                                    pass fail todo skip plan
@@ -4451,7 +4453,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d48f25>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6d48d85>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d48f25>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6d48d85>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6b50a41>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6b52bdd>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6b50a41>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6b52bdd>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
   16    0    2    1   19
@@ -4606,13 +4608,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.8695.448
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.8695.448
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.8695.448
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.8695.448
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.8695.448
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.8695.448
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.8695.448
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.3285.601
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.3285.601
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.3285.601
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.3285.601
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.3285.601
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.3285.601
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.3285.601
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -5469,10 +5471,10 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S02",        1427,     0,   316,   465,  2208,  3631
 "S03",        1864,     0,   286,   304,  2454,  4229
 "S04",         488,     0,   111,    88,   687,  1008
-"S05",        2215,     0,  2207,    56,  4478,  5774
+"S05",        2215,     0,  2207,    56,  4478,  5797
 "S06",         408,     0,    80,   126,   614,  1285
 "S07",           0,     0,     0,     0,     0,     0
-"S09",          68,     0,    26,     8,   102,   179
+"S09",          68,     2,    26,     8,   104,   181
 "S10",          30,     0,     9,     0,    39,   127
 "S11",          13,     0,     5,     9,    27,   134
 "S12",         356,     0,    65,    90,   511,  1319
@@ -5487,6 +5489,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S29",          33,     0,     6,     6,    45,    79
 "S32",        2270,     0,   266,   517,  3053,  5845
 "int",         131,     0,    35,    26,   192,   542
-"total",      9489,     0,  3459,  1726, 14674, 25324
+"total",      9489,     2,  3459,  1726, 14676, 25349
 ----------------
-No failures!
+Failure summary:
+S09-hashes/objecthash.pugs aborted 2 test(s)
