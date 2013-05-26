@@ -1,36 +1,68 @@
 use v6;
 
-my $day;
 my %status;
 
-my @dates;
-for lines open 'perl6_pass_rates' -> $line {
-    if $line ~~ /^ '#' \s* (\d\d)\/(\d\d)\/(\d\d\d\d) / {
-       $day  = Date.new(+$2, +$0, +$1);
-       @dates.push($day);
-    } elsif $line ~~ /^ '"' (\w+) '"' \s* ',' \s* (\d+) \s* ',' \s* (\d+)/ {
-        %status{~$0}{$day} = $2 eq "0";
-    }
-}
+my $data-file = open 'perl6_pass_rates';
 
-my @x = gather for %status.keys -> $impl {
-    my $state;
-    my $date;
-    for @dates -> $day {
-        my $new_state = %status{$impl}{$day};
+my @lines = $data-file.lines;
+@lines.shift; # skip headers
 
-        FIRST $date = $day;
-        if ! $state.defined { $state = $new_state }
+my $day;
+sub get-a-day() {
+    loop {
+        my $line = shift @lines;
 
-        if ($state ne $new_state) {
-            my $diff = @dates[0] - $day;
-            take "$impl has been " ~ ($state ?? "clean" !! "dirty") ~
-               " for " ~ $diff ~ " day" ~ ($diff != 1 ?? "s" !! "") ~ ".";
-            last;
+        if $line ~~ /^ '#' \s* (\d\d)\/(\d\d)\/(\d\d\d\d) / {
+           $day  = ~$2 ~ "-" ~ $0 ~ "-" ~ $1;
+           return ~$day;
+        } elsif $line ~~ /^ '"' (\w+) '"' \s* ',' \s* (\d+) \s* ',' \s* (\d+)/ {
+            %status{$day}{~$0} = $2 eq "0";
         }
- 
-        $date = $day;
     }
 }
 
-say @x.join(" ");
+# only process as much as we need to get a state for each implementation
+
+my $date;
+my $next-date;
+
+my $impl;
+my $first = True; # work around no NOTFIRST and bug RT#118179
+
+loop {
+    FIRST $date = get-a-day(); # prime the pump
+     
+    $next-date = get-a-day();
+
+    # Did the state change for any implemention?
+    my $status = %status{$date};
+
+    if ($first) {
+        for $status.kv -> $compiler, $stats {
+            $impl{$compiler}<end> = $date;
+            $impl{$compiler}<state> = $stats;
+        }
+    } else {
+        my $done = True;
+        for $status.kv -> $compiler, $stats {
+            next if $impl{$compiler}<start>:exists;
+            if $impl{$compiler}<state> ne $status{$compiler} {
+                $impl{$compiler}<start> = $date;
+            } else {
+                $done = False;
+            }
+        }
+        last if $done;
+    }
+
+    $date = $next-date;
+    $first = False;
+}
+
+my @results = gather for $impl.keys -> $compiler {
+    my $diff = Date.new($impl{$compiler}<end>) - Date.new($impl{$compiler}<start>);
+    take "$compiler has been " ~ ($impl{$compiler}<state> ?? "clean" !! "dirty") ~
+               " for " ~ $diff ~ " day" ~ ($diff != 1 ?? "s" !! "") ~ ".";
+}
+
+say @results.join(" ");
