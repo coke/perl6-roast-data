@@ -213,11 +213,11 @@ S02-types/autovivification.rakudo..................   7    0    2    4   13
      2 skipped: Undef to integer
      1 todo   : get_pmc_keyed() not implemented in class Undef
      1 todo   : prefix:<\>
-S02-types/bag.rakudo............................... 111    0    3    0  114
+S02-types/bag.rakudo............................... 111    0    3   11  125
+    11 skipped: .Set NYI
      2 todo   : 
      1 todo   : Bag stringification
-S02-types/bool.t...................................  44    7    0    0   51
-     7 tests aborted (missing ok/not ok)
+S02-types/bool.t...................................  51    0    0    0   51
 S02-types/capture.rakudo...........................  18    0    2    1   21
      1 skipped: nom regression
      2 todo   : nom regression
@@ -275,8 +275,9 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
      2 todo   : 
      1 todo   : KeyBag stringification
     12 todo   : todo
-S02-types/keyset.rakudo............................ 100    0    9    2  111
+S02-types/keyset.rakudo............................ 100    0    9   13  122
      2 skipped: :delete NYI
+    11 skipped: .Set NYI
      9 todo   : todo
 S02-types/lists.rakudo.............................use of uninitialized value of type Any in numeric context  in block  at t/spec/S02-types/lists.rakudo:140
 
@@ -345,7 +346,8 @@ S02-types/range.rakudo.............................use of uninitialized value of
 
  127    0    0    6  133
      6 skipped: Range .from/.to still specced?
-S02-types/set.rakudo...............................  89    0   15    0  104
+S02-types/set.rakudo...............................  89    0   15   11  115
+    11 skipped: .Set NYI
      3 todo   : 
      1 todo   : got bp
      1 todo   : got ao
@@ -1353,8 +1355,8 @@ use of uninitialized value of type Any in string context  in block  at t/spec/S0
      1 skipped: isa multi variant
      2 todo   : autoviv, binding
      2 todo   : unknown
-S09-hashes/objecthash.rakudo.......................  25    0    0    6   31
-     6 skipped: oh noes, it dies
+S09-hashes/objecthash.rakudo.......................   2   29    0    0   31
+    29 tests aborted (missing ok/not ok)
 S09-subscript/slice.rakudo.........................  22    0    0    2   24
      2 skipped: RT 61844
 S09-typed-arrays/arrays.rakudo.....................  29    0   12   18   59
@@ -1697,8 +1699,7 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:85
 
-  98    0    8    2  108
-     2 skipped: pair with non-delete slice still fails
+ 100    0    8    0  108
      8 todo   : not being destructively read yet
 S32-hash/delete.t..................................  11    0    0    0   11
 S32-hash/exists-adverb.rakudo......................  30    0    2   12   44
@@ -1721,7 +1722,13 @@ S32-hash/slice.rakudo..............................  16    0    0   13   29
 S32-io/IO-Socket-INET.t............................  21    0    0    0   21
 S32-io/chdir.rakudo................................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
-S32-io/copy.t......................................  29    0    0    0   29
+S32-io/copy.t......................................IO::Handle.copy is deprecated.  Please use IO::Path.copy instead.  in block  at t/spec/S32-io/copy.t:33
+
+IO::Handle.copy is deprecated.  Please use IO::Path.copy instead.  in block  at t/spec/S32-io/copy.t:38
+
+IO::Handle.copy is deprecated.  Please use IO::Path.copy instead.  in block  at t/spec/S32-io/copy.t:41
+
+  29    0    0    0   29
 S32-io/dir.t.......................................  12    0    0    0   12
 S32-io/file-tests.t................................  30    0    0    0   30
 S32-io/io-path-cygwin.rakudo.......................  44    0    0    3   47
@@ -1924,7 +1931,7 @@ S32-str/substr.rakudo..............................use of uninitialized value of
     28 skipped: No support for StrPos
      1 skipped: lvalue substr
      7 skipped: too many args
-S32-str/tclc.rakudo................................   4    0    1    0    5
+S32-str/tclc.rakudo................................   5    0    1    0    6
      1 todo   : unknown tclc problem
 S32-str/trim.t.....................................  36    0    0    0   36
 S32-str/uc.rakudo..................................  13    0    0    5   18
@@ -2412,13 +2419,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3206,     7,   141,   248,  3602,  3541
+"S02",        3213,     0,   141,   281,  3635,  3574
 "S03",        4393,     0,   115,   372,  4880,  4229
 "S04",         888,     0,    34,    50,   972,  1008
 "S05",        4721,     0,   115,   517,  5353,  5797
 "S06",        1141,     0,    29,   131,  1301,  1285
 "S07",           0,     0,     0,     0,     0,     0
-"S09",         136,     0,    18,    27,   181,   181
+"S09",         113,    29,    18,    21,   181,   181
 "S10",          64,     0,     1,     5,    70,   127
 "S11",          71,     0,     1,     7,    79,   134
 "S12",        1256,     0,    35,   127,  1418,  1319
@@ -2431,11 +2438,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         300,     0,     0,     1,   301,   258
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         311,     0,     1,     7,   319,   329
-"S32",        8256,     0,   107,   260,  8623,  5883
+"S32",        8259,     0,   107,   258,  8624,  5884
 "int",         530,     0,     8,    25,   563,   552
 "ros",           2,     0,     0,     0,     2,     2
-"total",     25875,     7,   614,  1831, 28327, 25543
+"total",     25862,    29,   614,  1856, 28361, 25577
 ----------------
 Failure summary:
-S02-types/bool.t aborted 7 test(s)
+S09-hashes/objecthash.rakudo aborted 29 test(s)
 note: test_summary.pl @syn does not have ros
