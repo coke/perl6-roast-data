@@ -20,9 +20,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xaaec858)'
+#     Actual: 'CODE(0x9101858)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xaaecb78)'
+#     Actual: 'CODE(0x9101b78)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -1695,11 +1695,9 @@ S04-statements/sink.pugs...........................   1    0    0    1    2
      1 skipped: no such method
 S04-statements/terminator.pugs.....................#   Expected: '2'
 #     Actual: '3'
-#     Actual: An exception was thrown : 
-# Unexpected "&f"
-# expecting bare trait, trait or block
   13    0    2    0   15
-     2 todo   : fix by Christmas
+     1 todo   : fix by Christmas
+     1 todo PASSED: fix by Christmas
 S04-statements/try.pugs............................#     Actual: undef
 #   Expected: '1'
 #     Actual: '0'
@@ -4456,7 +4454,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6984ce1>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6984091>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6984ce1>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6984091>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d99449>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6d9a939>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d99449>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6d9a939>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
   16    0    2    1   19
@@ -4611,13 +4609,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.25201.379
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.25201.379
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.25201.379
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.25201.379
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.25201.379
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.25201.379
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.25201.379
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.31892.178
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.31892.178
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.31892.178
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.31892.178
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.31892.178
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.31892.178
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.31892.178
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -5473,7 +5471,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",          27,     0,     8,    12,    47,    79
-"S02",        1427,     0,   316,   465,  2208,  3685
+"S02",        1427,     0,   316,   465,  2208,  3705
 "S03",        1864,     0,   286,   304,  2454,  4229
 "S04",         488,     0,   111,    88,   687,  1008
 "S05",        2215,     0,  2207,    56,  4478,  5797
@@ -5482,7 +5480,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S09",          70,     0,    26,     8,   104,   181
 "S10",          30,     0,     9,     0,    39,   127
 "S11",          13,     0,     5,     9,    27,   134
-"S12",         356,     0,    65,    90,   511,  1319
+"S12",         356,     0,    65,    90,   511,  1324
 "S13",           7,     0,     1,     1,     9,    80
 "S14",          64,     0,    11,     0,    75,   327
 "S16",          20,     0,     0,     1,    21,   284
@@ -5494,6 +5492,6 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S29",          33,     0,     6,     6,    45,    79
 "S32",        2270,     0,   266,   538,  3074,  5895
 "int",         131,     0,    35,    26,   192,   542
-"total",      9491,     0,  3459,  1747, 14697, 25449
+"total",      9491,     0,  3459,  1747, 14697, 25474
 ----------------
 No failures!
