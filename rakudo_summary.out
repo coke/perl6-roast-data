@@ -645,22 +645,16 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 S03-operators/relational.t......................... 118    0    0    0  118
 S03-operators/repeat.t.............................  32    0    0    0   32
 S03-operators/scalar-assign.t......................   4    0    0    0    4
-S03-operators/set.rakudo........................... 148    0    0  132  280
-    12 skipped: ⊇ NYI
-    12 skipped: ⊂ NYI
-    12 skipped: ⊃ NYI
-     8 skipped: ∪ NYI
-     5 skipped: ∈ NYI
-    12 skipped: ⊈ NYI
-     2 skipped: ∅ NYI
-    12 skipped: ⊉ NYI
-    12 skipped: ⊆ NYI
-     5 skipped: ∉ NYI
-     5 skipped: ∌ NYI
-     6 skipped: ∩ NYI
-    12 skipped: ⊄ NYI
-     5 skipped: ∋ NYI
-    12 skipped: ⊅ NYI
+S03-operators/set.rakudo...........................[31m===[0mSORRY![31m===[0m
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/S03-operators/set.rakudo:575
+------> [32m    is showset([(|)] @d), showset([33m⏏[31m∅), "Union reduce works on nothing (texa[0m
+    expecting any of:
+        argument list
+        prefix or term
+        prefix or meta-prefix
+   0  296    0    0  296
+   296 tests aborted (missing ok/not ok)
 S03-operators/short-circuit.rakudo.................use of uninitialized value of type Nil in numeric context  in block  at t/spec/S03-operators/short-circuit.rakudo:217
 
   77    0    6    0   83
@@ -1755,9 +1749,9 @@ S32-io/note.rakudo.................................   5    0    1    0    6
      1 todo   : nom regression
 S32-io/slurp.t.....................................  16    0    0    0   16
 S32-io/spurt.t.....................................  33    0    0    0   33
-S32-list/categorize.t..............................   4    0    0    0    4
-S32-list/classify.rakudo...........................  13    0    0    3   16
-     3 skipped: binding
+S32-list/categorize.t..............................  31    0    0    0   31
+S32-list/classify.rakudo...........................  18    0    0    3   21
+     3 skipped: Cannot use bind operator with this LHS
 S32-list/create.t..................................   6    0    0    0    6
 S32-list/end.t.....................................  14    0    0    0   14
 S32-list/first.rakudo..............................  19    0    0    2   21
@@ -2424,7 +2418,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        3111,     0,   178,   428,  3717,  3656
-"S03",        4393,     0,   115,   372,  4880,  4229
+"S03",        4245,   296,   115,   240,  4896,  4245
 "S04",         889,     0,    33,    50,   972,  1008
 "S05",        4721,     0,   115,   517,  5353,  5797
 "S06",        1141,     0,    29,   131,  1301,  1285
@@ -2442,10 +2436,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         300,     0,     0,     1,   301,   258
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         311,     0,     1,     7,   319,   329
-"S32",        8343,     0,   105,   262,  8710,  5883
+"S32",        8375,     0,   105,   262,  8742,  5915
 "int",         530,     0,     8,    25,   563,   552
 "ros",           2,     0,     0,     0,     2,     2
-"total",     25873,     0,   648,  2014, 28535, 25664
+"total",     25757,   296,   648,  1882, 28583, 25712
 ----------------
 Failure summary:
+S03-operators/set.rakudo aborted 296 test(s)
 note: test_summary.pl @syn does not have ros
