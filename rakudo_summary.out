@@ -20,7 +20,7 @@ S02-lexical-conventions/unicode.rakudo.............  33    0    1    4   38
      2 skipped: tc
      2 skipped: VOWEL SIGNs in identifiers
      1 todo   : PS does not work to separate lines
-S02-lexical-conventions/unspace.rakudo.............  48    1    2   26   77
+S02-lexical-conventions/unspace.rakudo.............  49    0    2   26   77
      1 skipped: dotty postfix
      4 skipped: =for pod not implemented (in STD.pm)
      1 skipped: parse fail
@@ -692,12 +692,10 @@ S03-sequence/misc.rakudo...........................   5    0    3   11   19
      2 skipped: chained sequences NYI
      2 todo   : NYI
      1 todo   : RT 80574
-S03-sequence/nonnumeric.rakudo.....................  12    0    0   23   35
+S03-sequence/nonnumeric.rakudo.....................  16    0    0   19   35
     11 skipped: loops
      6 skipped: lifting comparison ops
-     2 skipped: hangs
      2 skipped: Decrement out of range
-     2 skipped: Unicode stuff
 S03-smartmatch/any-any.t...........................   8    0    0    0    8
 S03-smartmatch/any-array.rakudo....................   4    0    2    0    6
      2 todo   : nom regression
@@ -1252,7 +1250,8 @@ S06-signature/errors.t.............................  10    0    0    0   10
 S06-signature/introspection.rakudo.................  51    0    0    1   52
      1 skipped: default closure when no call made fails lexical lookup with NPMCA
 S06-signature/mixed-placeholders.t.................  12    0    0    0   12
-S06-signature/multidimensional.t...................   5    0    0    0    5
+S06-signature/multidimensional.rakudo..............   5    0    0    5   10
+     5 skipped: multi sub multidim arglist broken
 S06-signature/named-parameters.rakudo..............  72    0    0   21   93
      4 skipped: where constraints
      1 skipped: nom regression
@@ -1737,15 +1736,15 @@ IO::Handle.copy is deprecated.  Please use IO::Path.copy instead.  in block  at 
   29    0    0    0   29
 S32-io/dir.t.......................................  12    0    0    0   12
 S32-io/file-tests.t................................  30    0    0    0   30
-S32-io/io-path-cygwin.rakudo.......................  44    0    0    3   47
+S32-io/io-path-cygwin.rakudo.......................  49    0    1    2   52
      2 skipped: On-system tests for filetest inheritance
-     1 skipped: resolve NYI, needs nqp::readlink
-S32-io/io-path-unix.rakudo.........................  31    0    0    1   32
-     1 skipped: resolve NYI, needs nqp::readlink
-S32-io/io-path-win.rakudo..........................  43    0    0    3   46
+     1 todo   : resolve NYI, needs nqp::readlink
+S32-io/io-path-unix.rakudo.........................  36    0    1    0   37
+     1 todo   : resolve NYI, needs nqp::readlink
+S32-io/io-path-win.rakudo..........................  48    0    1    2   51
      2 skipped: On-system tests for filetest inheritance
-     1 skipped: resolve NYI, needs nqp::readlink
-S32-io/io-path.t...................................  10    0    0    0   10
+     1 todo   : resolve NYI, needs nqp::readlink
+S32-io/io-path.t...................................  13    0    0    0   13
 S32-io/io-spec-cygwin.t............................ 100    0    0    2  102
      2 skipped: cygwin on-platform tests
 S32-io/io-spec-unix.t.............................. 111    0    0    0  111
@@ -2423,11 +2422,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3111,     1,   178,   428,  3718,  3657
-"S03",        4397,     0,   115,   384,  4896,  4245
+"S02",        3112,     0,   178,   428,  3718,  3657
+"S03",        4401,     0,   115,   380,  4896,  4251
 "S04",         889,     0,    33,    50,   972,  1008
 "S05",        4721,     0,   115,   517,  5353,  5797
-"S06",        1141,     0,    29,   131,  1301,  1285
+"S06",        1141,     0,    29,   136,  1306,  1290
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         136,     0,    18,    27,   181,   181
 "S10",          64,     0,     1,     5,    70,   127
@@ -2442,11 +2441,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         300,     0,     0,     1,   301,   258
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         311,     0,     1,     7,   319,   329
-"S32",        8416,     0,   105,   262,  8783,  5956
+"S32",        8434,     0,   108,   259,  8801,  5974
 "int",         530,     0,     8,    25,   563,   552
 "ros",           2,     0,     0,     0,     2,     2
-"total",     25950,     1,   648,  2026, 28625, 25754
+"total",     25973,     0,   651,  2024, 28648, 25783
 ----------------
 Failure summary:
-S02-lexical-conventions/unspace.rakudo 15 - unspace with postfix pre-dot hyperops
 note: test_summary.pl @syn does not have ros
