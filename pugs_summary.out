@@ -20,9 +20,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x91f6858)'
+#     Actual: 'CODE(0xa0a2858)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x91f6b78)'
+#     Actual: 'CODE(0xa0a2b78)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -4372,7 +4372,7 @@ S11-modules/importing.pugs.........................#     Actual: No exception th
      1 skipped: Cannot cast from VUndef to VCode
      1 skipped: Undeclared variable
      4 todo   : fix by Christmas
-S11-modules/require.pugs...........................#     Actual: An exception was thrown : Can't locate (A).pm in @*INC (@*INC contains: Pugs/ext/Test/lib /usr/local/lib/perl6/darwin-2level /usr/local/lib/perl6 /usr/local/lib/perl6/site_perl/darwin-2level /usr/local/lib/perl6/site_perl /usr/local/lib/perl6/auto/pugs/perl6/lib /usr/local/lib/perl6/site_perl/auto/pugs/perl6/lib . t/spec/packages).
+S11-modules/require.pugs...........................#     Actual: An exception was thrown : Can't locate (A).pm in @*INC (@*INC contains: t/spec/packages Pugs/ext/Test/lib /usr/local/lib/perl6/darwin-2level /usr/local/lib/perl6 /usr/local/lib/perl6/site_perl/darwin-2level /usr/local/lib/perl6/site_perl /usr/local/lib/perl6/auto/pugs/perl6/lib /usr/local/lib/perl6/site_perl/auto/pugs/perl6/lib .).
    3    0    1    8   12
      1 skipped: NYI
      1 skipped: Must only use named arguments to new() constructor
@@ -4455,7 +4455,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c677a9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6c68e6d>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c677a9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6c68e6d>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d5583d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6d55615>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d5583d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6d55615>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
   16    0    2    1   19
@@ -4610,13 +4610,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.27834.280
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.27834.280
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.27834.280
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.27834.280
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.27834.280
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.27834.280
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.27834.280
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.31556.909
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.31556.909
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.31556.909
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.31556.909
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.31556.909
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.31556.909
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.31556.909
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -5493,12 +5493,12 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S17",          10,     0,     2,    12,    24,    28
 "S19",           7,     0,     0,     0,     7,    11
 "S24",          47,     0,    25,     4,    76,    88
-"S26",           0,     0,     0,     0,     0,   258
+"S26",           0,     0,     0,     0,     0,   266
 "S28",           4,     0,     0,     1,     5,    13
 "S29",          30,     7,     9,     6,    52,    86
-"S32",        2270,     0,   266,   538,  3074,  5985
-"int",         131,     0,    35,    26,   192,   542
-"total",      9502,     7,  3462,  1754, 14725, 25731
+"S32",        2270,     0,   266,   538,  3074,  5986
+"int",         131,     0,    35,    26,   192,   550
+"total",      9502,     7,  3462,  1754, 14725, 25748
 ----------------
 Failure summary:
 S29-context/sleep.pugs aborted 7 test(s)
