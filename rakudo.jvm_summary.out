@@ -77,7 +77,7 @@ S02-literals/version.rakudo.jvm....................  25    0    3    0   28
      3 todo   : trailing zeroes fail
 S02-magicals/args.t................................   3    3    0    0    6
      3 tests aborted (missing ok/not ok)
-S02-magicals/config.rakudo.jvm.....................   2    1    0    2    5
+S02-magicals/config.rakudo.jvm.....................   3    0    0    2    5
      2 skipped: unimpl $?OS
 S02-magicals/dollar-underscore.rakudo.jvm..........   7    0    0    2    9
      1 skipped: nom regression RT #113904
@@ -106,7 +106,7 @@ S02-names-vars/names.rakudo.jvm.................... 126    1    2   13  142
      7 skipped: package variable autovivification
      1 todo   : nom regression
      1 todo   : dubious test - otherwise why is ::<$foo> allowed?
-S02-names-vars/perl.rakudo.jvm.....................  96    1    0    6    0
+S02-names-vars/perl.rakudo.jvm.....................  97    0    0    6    0
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -126,10 +126,17 @@ S02-names/indirect.t...............................   6    0    0    0    6
 S02-names/our.rakudo.jvm...........................   8    0    0    2   10
      1 skipped: Null PMC access in invoke()
      1 skipped: OUR::subname() does not work
-S02-names/pseudo.rakudo.jvm........................   5   97    0   40  142
+S02-names/pseudo.rakudo.jvm........................  46    0    8   88  142
+    19 skipped: CORE NYI
+     6 skipped: SETTING NYI
     36 skipped: various issues, skipping all for now
      4 skipped: the binding in here is NYI
-    97 tests aborted (missing ok/not ok)
+    23 skipped: various issues to resolve
+     1 todo   : GLOBAL and interpolation
+     2 todo   : binding and interpolation together NYI
+     1 todo   : interpolation and auto-viv NYI
+     2 todo   : these tests disagree with STD
+     2 todo   : not entirely sure these make sense...
 S02-names/symbolic-deref.rakudo.jvm................  27    0    1    7   35
      7 skipped: NYI
      1 todo   : NYI
@@ -265,7 +272,10 @@ S02-types/subset.rakudo.jvm........................  26   16    0    1   43
 S02-types/type.rakudo.jvm..........................  30   13    1    6   50
      6 skipped: native types (causes false positives if marked with todo)
      1 todo   : of
-S02-types/undefined-types.t........................  23    0    0    0   23
+S02-types/undefined-types.rakudo.jvm...............  40    0    6    3   49
+     3 skipped: not allowed to assign Nil to Int scalar
+     4 todo   : .clone doesn't copy typedness
+     2 todo   : not allowed to assign Nil to Int scalar
 S02-types/version.t................................   0   35    0    0   35
     35 tests aborted (missing ok/not ok)
 S02-types/whatever.rakudo.jvm......................  72    0    3    5   80
@@ -296,7 +306,7 @@ S03-feeds/basic.rakudo.jvm.........................   9    0    7    9   25
      1 todo   : * feeds
      3 todo   : feeds + eager
 S03-junctions/associative.t........................  10    0    0    0   10
-S03-junctions/autothreading.t......................  84    5    0    0   89
+S03-junctions/autothreading.t......................  89    0    0    0   89
 S03-junctions/boolean-context.rakudo.jvm...........  76    0    1    0   77
      1 todo   : named unary as function call
 S03-junctions/misc.rakudo.jvm......................  95    0    4    4  103
@@ -492,7 +502,7 @@ S03-smartmatch/any-hash-pair.t.....................   7    0    0    0    7
 S03-smartmatch/any-method.t........................   4    0    0    0    4
 S03-smartmatch/any-num.rakudo.jvm..................  16    0    0    2   18
      2 skipped: Mu ~~ Num doesn't work yet
-S03-smartmatch/any-pair.t..........................   4    6    0    0   10
+S03-smartmatch/any-pair.t..........................  10    0    0    0   10
 S03-smartmatch/any-str.rakudo.jvm..................   4    0    0    1    5
      1 skipped: smartmatching Mu against Str
 S03-smartmatch/any-sub.t...........................   8    0    0    0    8
@@ -529,8 +539,8 @@ S04-declarations/my.rakudo.jvm.....................  58   13    2    2   75
      1 todo   : previous test skipped
      1 todo   : fails
     11 tests aborted (missing ok/not ok)
-S04-declarations/our.rakudo.jvm....................  11   22    0    0   33
-    22 tests aborted (missing ok/not ok)
+S04-declarations/our.rakudo.jvm....................  32    0    1    0   33
+     1 todo   : our-scoped var in role
 S04-declarations/state.rakudo.jvm..................  33    0    5    6   44
      1 skipped: references
      5 skipped: parse error
@@ -552,8 +562,7 @@ S04-phasers/enter-leave.rakudo.jvm.................   5   14    1    1   21
      1 skipped: some syntax error while parsing
      1 todo   : is this spec? why would LEAVE not see outer $!? fossil?
 S04-phasers/eval-in-begin.t........................   3    0    0    0    3
-S04-phasers/first.t................................   0    4    0    0    4
-     4 tests aborted (missing ok/not ok)
+S04-phasers/first.t................................   4    0    0    0    4
 S04-phasers/keep-undo.t............................   4    8    0    0   12
 S04-phasers/multiple.t.............................   2    0    0    0    2
 S04-phasers/next.rakudo.jvm........................  10    0    2    1   13
@@ -806,7 +815,7 @@ S05-transliteration/with-closure.rakudo.jvm........   7    3    5    1   16
                                                    pass fail todo skip plan
 S06-advanced/callframe.rakudo.jvm..................   0    6    0    0    6
      6 tests aborted (missing ok/not ok)
-S06-advanced/callsame.t............................   0    3    0    0    3
+S06-advanced/callsame.t............................   2    1    0    0    3
 S06-advanced/lexical-subs.rakudo.jvm...............   9    0    0    2   11
      2 skipped: cannot parse operator names yet
 S06-advanced/recurse.t.............................  13    0    0    0   13
@@ -831,7 +840,7 @@ S06-multi/positional-vs-named.rakudo.jvm...........   6   21    0    0   27
 S06-multi/proto.rakudo.jvm.........................  22    0    0    6   28
      5 skipped: todo
      1 skipped: operator protos
-S06-multi/redispatch.t.............................   0   10    0    0   10
+S06-multi/redispatch.t.............................   7    3    0    0   10
 S06-multi/syntax.rakudo.jvm........................  40    1    0    1   42
      1 skipped: Multi typename...maybe deprecated?
 S06-multi/type-based.rakudo.jvm....................   0   53    0    0   53
@@ -885,7 +894,7 @@ S06-signature/introspection.rakudo.jvm.............  51    0    0    1   52
 S06-signature/mixed-placeholders.t.................  12    0    0    0   12
 S06-signature/multidimensional.rakudo.jvm..........   5    0    0    5   10
      5 skipped: multi sub multidim arglist broken
-S06-signature/named-parameters.rakudo.jvm..........  62   10    0   21   93
+S06-signature/named-parameters.rakudo.jvm..........  64    8    0   21   93
      4 skipped: where constraints
      1 skipped: nom regression
     16 skipped: multiple same-named arguments NYI
@@ -920,7 +929,7 @@ S06-signature/unspecified.rakudo.jvm...............   8    4    1    4   17
 S06-traits/is-assoc.rakudo.jvm.....................   4    0    0    2    6
      2 skipped: RT 116244
 S06-traits/is-copy.t...............................  24    0    0    0   24
-S06-traits/is-readonly.rakudo.jvm..................   6    1    4    3   14
+S06-traits/is-readonly.rakudo.jvm..................   7    0    4    3   14
      2 skipped: segfault
      1 skipped: VAR
      1 todo   : readonly attributes
@@ -977,19 +986,22 @@ S11-modules/require.rakudo.jvm.....................  10    0    1    1   12
      1 skipped: Null PMC access
      1 todo   : variable form plus imports NYI
                                                    pass fail todo skip plan
-S12-attributes/class.rakudo.jvm....................   8    9    0    8   25
+S12-attributes/class.rakudo.jvm....................   9    8    0    8   25
      8 skipped: nom regression - method ^foo
      8 tests aborted (missing ok/not ok)
 S12-attributes/clone.rakudo.jvm....................   9   25    0    0   34
     25 tests aborted (missing ok/not ok)
-S12-attributes/defaults.t..........................   4   30    0    0   34
-    26 tests aborted (missing ok/not ok)
-S12-attributes/delegation.t........................  61    4    0    0   65
-     4 tests aborted (missing ok/not ok)
-S12-attributes/inheritance.t.......................   5    2    0    0    7
-S12-attributes/instance.rakudo.jvm.................  55   83    2    0  140
+S12-attributes/defaults.t..........................  34    0    0    0   34
+S12-attributes/delegation.t........................  65    0    0    0   65
+S12-attributes/inheritance.t.......................   7    0    0    0    7
+S12-attributes/instance.rakudo.jvm................. 126    5    7    2  140
+     1 skipped: dubious test - the initializer becomes a submethod here, implying a scope
+     1 skipped: is_deeply explodes
+     2 todo   : ro array/hash with accessor
+     1 todo   : over-eager auto-vivification bugs
+     1 todo   : typed array assignment
+     1 todo   : typed array push
      2 todo   : ro on list attributes
-    77 tests aborted (missing ok/not ok)
 S12-attributes/mutators.rakudo.jvm.................   5    0    0    7   12
      7 skipped: No applicable candidates found to dispatch to for 'Numeric'.
 S12-attributes/recursive.t.........................  19    0    0    0   19
@@ -1007,7 +1019,7 @@ S12-class/declaration-order.t......................   2    0    0    0    2
 S12-class/extending-arrays.t.......................   0   11    0    0   11
     11 tests aborted (missing ok/not ok)
 S12-class/inheritance-class-methods.t..............   5    0    0    0    5
-S12-class/inheritance.t............................  33    6    0    0   39
+S12-class/inheritance.t............................  35    4    0    0   39
      4 tests aborted (missing ok/not ok)
 S12-class/instantiate.rakudo.jvm...................   5    1    1    0    7
      1 todo   : error reporting
@@ -1018,7 +1030,7 @@ S12-class/literal.t................................   2    0    0    0    2
 S12-class/magical-vars.t...........................  17    0    0    0   17
 S12-class/mro.t....................................   0    4    0    0    4
      4 tests aborted (missing ok/not ok)
-S12-class/namespaced.t.............................   9    4    0    0   13
+S12-class/namespaced.t.............................  13    0    0    0   13
 S12-class/open.t...................................   0    8    0    0    8
      8 tests aborted (missing ok/not ok)
 S12-class/rw.t.....................................   5    0    0    0    5
@@ -1030,12 +1042,11 @@ S12-construction/BUILD.rakudo.jvm..................   8    0    0    1    9
      1 skipped: method BUILD should warn
 S12-construction/autopairs.rakudo.jvm..............   2    0    2    0    4
      2 todo   : nom regression
-S12-construction/construction.t....................  14    1    0    0   15
+S12-construction/construction.t....................  15    0    0    0   15
 S12-construction/named-params-in-BUILD.t...........   3    0    0    0    3
-S12-construction/new.rakudo.jvm....................  12    3   10    0   25
+S12-construction/new.rakudo.jvm....................  15    0   10    0   25
      9 todo   : parent attributes in initialization
      1 todo   : nested package handling does't quite get this one right
-     3 tests aborted (missing ok/not ok)
 S12-enums/anonymous.t..............................   7    0    0    0    7
 S12-enums/as-role.t................................   9    0    0    0    9
 S12-enums/basic.rakudo.jvm.........................  28    1    0    5   34
@@ -1074,10 +1085,9 @@ S12-methods/calling_syntax.t.......................  11    0    0    0   11
 S12-methods/chaining.t.............................  17    0    0    0   17
 S12-methods/class-and-instance.t...................   4    0    0    0    4
 S12-methods/default-trait.t........................   6    0    0    0    6
-S12-methods/defer-call.t...........................   0   14    0    0   14
-    14 tests aborted (missing ok/not ok)
-S12-methods/defer-next.rakudo.jvm..................   0   15    0    0   15
-    15 tests aborted (missing ok/not ok)
+S12-methods/defer-call.t...........................   8    6    0    0   14
+S12-methods/defer-next.rakudo.jvm..................   8    6    1    0   15
+     1 todo   : variant of RT 69608
 S12-methods/delegation.t...........................   5    0    0    0    5
 S12-methods/how.t..................................   2    0    0    0    2
 S12-methods/indirect_notation.rakudo.jvm...........  10    0    0   23   33
@@ -1086,8 +1096,7 @@ S12-methods/indirect_notation.rakudo.jvm...........  10    0    0   23   33
     15 skipped: .*, .+ and .? with @foo
 S12-methods/instance.rakudo.jvm....................  36    0    0    2   38
      2 skipped: indirect object notation
-S12-methods/lastcall.t.............................   0    6    0    0    6
-     6 tests aborted (missing ok/not ok)
+S12-methods/lastcall.t.............................   4    2    0    0    6
 S12-methods/lvalue.t...............................  12    4    0    0   16
 S12-methods/method-vs-sub.rakudo.jvm...............   4    0    0    1    5
      1 skipped: confused near "($obj:),  "
@@ -1101,7 +1110,7 @@ S12-methods/parallel-dispatch.rakudo.jvm...........  30    0    5    0   35
 S12-methods/private.rakudo.jvm.....................  12    0    1    0   13
      1 todo   : role private methods - spec?
 S12-methods/qualified.t............................   2    0    0    0    2
-S12-methods/submethods.rakudo.jvm..................  19    2    0    6   27
+S12-methods/submethods.rakudo.jvm..................  21    0    0    6   27
      2 skipped: outer lexicals in roles
      4 skipped: roles and submethods
 S12-methods/syntax.rakudo.jvm......................   8    0    0    4   12
@@ -1121,11 +1130,11 @@ S13-overloading/operators.t........................   4    0    0    0    4
 S13-overloading/typecasting-long.t.................  16    0    0    0   16
 S13-overloading/typecasting-mixed.t................  14    0    0    0   14
 S13-overloading/typecasting-short.t................  14    0    0    0   14
-S13-type-casting/methods.t.........................   9    4    0    0   13
+S13-type-casting/methods.t.........................  13    0    0    0   13
                                                    pass fail todo skip plan
 S14-roles/anonymous.rakudo.jvm.....................  10    2    0    1   13
      1 skipped: anonymous roles only created once
-S14-roles/basic.rakudo.jvm.........................  32    6    2    3   43
+S14-roles/basic.rakudo.jvm.........................  34    4    2    3   43
      3 skipped: RT 67768
      1 todo   : nom regression
      1 todo   : can see it in the position, but even STD message doesn't include it
@@ -1147,7 +1156,7 @@ S14-roles/parameter-subtyping.t....................  10   12    0    0   22
      5 tests aborted (missing ok/not ok)
 S14-roles/parameterized-basic.t....................   0   32    0    0   32
     32 tests aborted (missing ok/not ok)
-S14-roles/parameterized-mixin.rakudo.jvm...........   3   25    0    0   28
+S14-roles/parameterized-mixin.rakudo.jvm...........   4   24    0    0   28
     24 tests aborted (missing ok/not ok)
 S14-roles/parameterized-type.rakudo.jvm............   2   27    0    0   29
     25 tests aborted (missing ok/not ok)
@@ -1214,8 +1223,7 @@ S26-documentation/10-doc-cli.t.....................   0    1    0    0    1
 S26-documentation/why.t............................  18    0    0    1   19
      1 skipped: segfault
                                                    pass fail todo skip plan
-S28-named-variables/cwd.t..........................   0    2    0    0    2
-     1 tests aborted (missing ok/not ok)
+S28-named-variables/cwd.t..........................   2    0    0    0    2
 S28-named-variables/inc.t..........................   5    0    0    0    5
                                                    pass fail todo skip plan
 S29-any/cmp.t......................................   6    0    0    0    6
@@ -1240,9 +1248,8 @@ S29-os/system.t....................................   0    3    0    0    3
                                                    pass fail todo skip plan
 S32-array/bool.t...................................  15    0    0    0   15
 S32-array/create.t.................................   3    0    0    0    3
-S32-array/delete.rakudo.jvm........................  15   11    3    0   29
+S32-array/delete.rakudo.jvm........................  26    0    3    0   29
      3 todo   : Not sure if this test is correct or not
-    11 tests aborted (missing ok/not ok)
 S32-array/elems.rakudo.jvm.........................   9    0    0    2   11
      2 skipped: unspecced
 S32-array/end.rakudo.jvm...........................   9    0    0    3   12
@@ -1266,8 +1273,8 @@ S32-container/roundrobin.rakudo.jvm................   4    0    1    0    5
      1 todo   : over-flattening
 S32-container/zip.rakudo.jvm.......................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.jvm..................... 372    8    0   15    0
-     8 skipped: wrong exception type
+S32-exceptions/misc.rakudo.jvm..................... 374    7    0   14    0
+     7 skipped: wrong exception type
      1 skipped: parsing of $& and other p5 variables
      5 skipped: Code did not die, can not check exception
      1 skipped: parsing regression
@@ -1300,19 +1307,19 @@ S32-io/copy.t......................................  27    2    0    0   29
 S32-io/dir.t.......................................   0   12    0    0   12
     12 tests aborted (missing ok/not ok)
 S32-io/file-tests.t................................  30    0    0    0   30
-S32-io/io-path-cygwin.rakudo.jvm...................  30   22    0    0   52
-    22 tests aborted (missing ok/not ok)
-S32-io/io-path-unix.rakudo.jvm.....................  16   21    0    0   37
-    21 tests aborted (missing ok/not ok)
-S32-io/io-path-win.rakudo.jvm......................  30   21    0    0   51
-    21 tests aborted (missing ok/not ok)
+S32-io/io-path-cygwin.rakudo.jvm...................  35   17    0    0   52
+    17 tests aborted (missing ok/not ok)
+S32-io/io-path-unix.rakudo.jvm.....................  21   16    0    0   37
+    16 tests aborted (missing ok/not ok)
+S32-io/io-path-win.rakudo.jvm......................  35   16    0    0   51
+    16 tests aborted (missing ok/not ok)
 S32-io/io-path.t...................................  13    0    0    0   13
 S32-io/io-spec-cygwin.t............................ 100    0    0    2  102
      2 skipped: cygwin on-platform tests
 S32-io/io-spec-unix.t.............................. 109    2    0    0  111
-     2 tests aborted (missing ok/not ok)
-S32-io/io-spec-win.t............................... 157   36    0    0  193
-    36 tests aborted (missing ok/not ok)
+     1 tests aborted (missing ok/not ok)
+S32-io/io-spec-win.t............................... 190    0    0    3  193
+     3 skipped: Win32ish on-platform tests
 S32-io/note.rakudo.jvm.............................   0    6    0    0    6
      6 tests aborted (missing ok/not ok)
 S32-io/slurp.t.....................................   2   14    0    0   16
@@ -1454,12 +1461,12 @@ S32-str/unpack.t...................................   0   12    0    0   12
     12 tests aborted (missing ok/not ok)
 S32-str/words.rakudo.jvm...........................  10    0    0    2   12
      2 skipped: graphemes not implemented
-S32-temporal/Date.t................................  14   58    0    0   72
+S32-temporal/Date.t................................  15   57    0    0   72
     56 tests aborted (missing ok/not ok)
-S32-temporal/DateTime-Instant-Duration.rakudo.jvm..   0   33    0    0   33
-    33 tests aborted (missing ok/not ok)
-S32-temporal/DateTime.rakudo.jvm...................   0  201    0    0  201
-   201 tests aborted (missing ok/not ok)
+S32-temporal/DateTime-Instant-Duration.rakudo.jvm..   3   30    0    0   33
+    30 tests aborted (missing ok/not ok)
+S32-temporal/DateTime.rakudo.jvm...................  64  137    0    0  201
+   131 tests aborted (missing ok/not ok)
 S32-temporal/calendar.t............................   0  130    0    0  130
    130 tests aborted (missing ok/not ok)
 S32-temporal/local.t...............................   0   25    0    0   25
@@ -1565,29 +1572,29 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        2849,   329,   159,   380,  3614,  3657
-"S03",        4365,    87,   114,   396,  4962,  4311
-"S04",         690,   166,    26,    43,   925,  1008
+"S02",        2909,   230,   173,   431,  3640,  3683
+"S03",        4376,    76,   114,   396,  4962,  4311
+"S04",         715,   140,    27,    43,   925,  1008
 "S05",        4470,   351,   110,   422,  5353,  5797
-"S06",         777,   306,    17,   122,  1222,  1290
+"S06",         789,   294,    17,   122,  1222,  1290
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         125,    11,    18,    27,   181,   181
 "S10",          59,     5,     1,     5,    70,   127
 "S11",          57,    17,     1,     5,    80,   135
-"S12",         980,   311,    29,   123,  1443,  1344
-"S13",          66,     4,     0,     0,    70,    80
-"S14",         162,   134,     3,     9,   308,   327
+"S12",        1120,   163,    35,   125,  1443,  1344
+"S13",          70,     0,     0,     0,    70,    80
+"S14",         165,   131,     3,     9,   308,   327
 "S16",          86,   154,     3,    10,   253,   297
 "S17",           0,     0,     0,     0,     0,    28
 "S19",           0,     4,     0,     0,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         255,    53,     0,     1,   309,   266
-"S28",           5,     2,     0,     0,     7,    13
+"S28",           7,     0,     0,     0,     7,    13
 "S29",         309,     9,     1,     7,   326,   336
-"S32",        7315,   991,    60,   231,  8202,  5975
+"S32",        7444,   860,    60,   233,  8202,  5975
 "int",         479,    55,     8,    25,   560,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     23052,  2989,   550,  1826, 27912, 25887
+"total",     23438,  2553,   571,  1881, 27938, 25913
 ----------------
 Failure summary:
 S02-literals/hex_chars.t 4 - Does a character codepoint (\x..) evaluate to the same thing as its literal?
@@ -1597,16 +1604,13 @@ S02-literals/quoting.rakudo.jvm 84 - here doc interpolating with indentation
 S02-literals/quoting.rakudo.jvm 86 - indentation stripped
 S02-literals/quoting.rakudo.jvm aborted 44 test(s)
 S02-magicals/args.t aborted 3 test(s)
-S02-magicals/config.rakudo.jvm 4 - we know of the OS we are running under
 S02-magicals/env.rakudo.jvm aborted 3 test(s)
 S02-magicals/pid.t aborted 1 test(s)
 S02-magicals/progname.t aborted 1 test(s)
 S02-names-vars/fmt.rakudo.jvm aborted 20 test(s)
 S02-names-vars/names.rakudo.jvm 139 - error message mentions name not recognized, no maximum recursion depth exceeded
-S02-names-vars/perl.rakudo.jvm 89 - attribute value appears in .perl output
 S02-names-vars/perl.rakudo.jvm passed 103 unplanned test(s)
 S02-names-vars/signature.rakudo.jvm aborted 1 test(s)
-S02-names/pseudo.rakudo.jvm aborted 97 test(s)
 S02-types/array.rakudo.jvm 56 - stuffing IO in an Int array does not work
 S02-types/bag.rakudo.jvm 52 - And Str keys are permitted in the same set
 S02-types/capture.rakudo.jvm 2 - simply capture creation with \( works (2)
@@ -1646,11 +1650,6 @@ S02-types/type.rakudo.jvm 34 - bad implicit return value dies (of)
 S02-types/type.rakudo.jvm 36 - bad implicit return value dies (my Type sub)
 S02-types/type.rakudo.jvm 38 - bad implicit return value dies (-->)
 S02-types/version.t aborted 35 test(s)
-S03-junctions/autothreading.t 24 - incorrect multi-method not called
-S03-junctions/autothreading.t 25 - incorrect multi-method not called
-S03-junctions/autothreading.t 28 - incorrect multi-method not called
-S03-junctions/autothreading.t 29 - incorrect multi-method not called
-S03-junctions/autothreading.t 32 - incorrect multi-method not called
 S03-operators/adverbial-modifiers.rakudo.jvm aborted 42 test(s)
 S03-operators/arith.rakudo.jvm 6 - -1 == 3
 S03-operators/arith.rakudo.jvm 7 - 1 == -3
@@ -1659,12 +1658,6 @@ S03-operators/arith.rakudo.jvm 15 -
 S03-operators/arith.rakudo.jvm 112 - 
 S03-operators/assign.rakudo.jvm 7 - assignment as function with types (2)
 S03-operators/buf.t aborted 26 test(s)
-S03-smartmatch/any-pair.t 1 - $obj ~~ Pair (Int, +)
-S03-smartmatch/any-pair.t 2 - $obj ~~ Pair (Int, +)
-S03-smartmatch/any-pair.t 3 - $obj ~~ Pair (different types)
-S03-smartmatch/any-pair.t 4 - $obj ~~ Pair (Str, +)
-S03-smartmatch/any-pair.t 5 - $obj ~~ Pair (Str, -)
-S03-smartmatch/any-pair.t 8 - $obj ~~ Pair (Mu, -)
 S03-smartmatch/capture-signature.t 2 - signature smart-match against hash works (1)
 S03-smartmatch/capture-signature.t 4 - signature smart-match against array works (2)
 S04-blocks-and-statements/let.t 4 - let() should restore the variable, as our block failed
@@ -1685,7 +1678,6 @@ S04-declarations/implicit-parameter.rakudo.jvm 12 - Even when we use $_>
 S04-declarations/my.rakudo.jvm 58 - type error
 S04-declarations/my.rakudo.jvm 59 - also a type error
 S04-declarations/my.rakudo.jvm aborted 11 test(s)
-S04-declarations/our.rakudo.jvm aborted 22 test(s)
 S04-phasers/enter-leave.rakudo.jvm 1 - 
 S04-phasers/enter-leave.rakudo.jvm 2 - 
 S04-phasers/enter-leave.rakudo.jvm 3 - 
@@ -1700,7 +1692,6 @@ S04-phasers/enter-leave.rakudo.jvm 17 - die in ENTER calls LEAVE
 S04-phasers/enter-leave.rakudo.jvm 19 - die doesn't abort LEAVE queue
 S04-phasers/enter-leave.rakudo.jvm 20 - LEAVE fires in a multi sub
 S04-phasers/enter-leave.rakudo.jvm 21 - next triggers LEAVE
-S04-phasers/first.t aborted 4 test(s)
 S04-phasers/keep-undo.t 2 - KEEP ran as expected
 S04-phasers/keep-undo.t 4 - UNDO worked as expected
 S04-phasers/keep-undo.t 6 - UNDO worked as expected
@@ -1774,9 +1765,7 @@ S05-transliteration/with-closure.rakudo.jvm 1 - Can use a closure on the RHS
 S05-transliteration/with-closure.rakudo.jvm 3 - Can use two closures in trans
 S05-transliteration/with-closure.rakudo.jvm 7 - can use closures in pairs of arrays
 S06-advanced/callframe.rakudo.jvm aborted 6 test(s)
-S06-advanced/callsame.t 1 - Can call multi that uses "callsame"
 S06-advanced/callsame.t 2 - multi with "callsame" worked
-S06-advanced/callsame.t 3 - Calling callsame directly from a sub works
 S06-advanced/wrap.rakudo.jvm aborted 62 test(s)
 S06-macros/quasi-blocks.t aborted 5 test(s)
 S06-multi/positional-vs-named.rakudo.jvm 3 - named me, named him
@@ -1787,15 +1776,8 @@ S06-multi/positional-vs-named.rakudo.jvm 7 - named her named me named him
 S06-multi/positional-vs-named.rakudo.jvm 8 - named her named him named me
 S06-multi/positional-vs-named.rakudo.jvm 13 - named me
 S06-multi/positional-vs-named.rakudo.jvm aborted 14 test(s)
-S06-multi/redispatch.t 1 - can call nextsame inside a multi sub
 S06-multi/redispatch.t 2 - called in the right order
-S06-multi/redispatch.t 3 - can call callsame inside a multi sub
 S06-multi/redispatch.t 4 - called in the right order
-S06-multi/redispatch.t 5 - can call nextwith inside a multi sub
-S06-multi/redispatch.t 6 - called in the right order
-S06-multi/redispatch.t 7 - can call callwith inside a multi sub
-S06-multi/redispatch.t 8 - called in the right order
-S06-multi/redispatch.t 9 - It's ok to call nextsame in the last/only candidate
 S06-multi/redispatch.t 10 - nextsame in main block dies due to lack of dispatcher
 S06-multi/syntax.rakudo.jvm 41 - ordered multi subs
 S06-multi/type-based.rakudo.jvm aborted 53 test(s)
@@ -1817,8 +1799,6 @@ S06-signature/errors.t 4 - argument passed to sub with empty signature
 S06-signature/errors.t 10 - 
 S06-signature/named-parameters.rakudo.jvm 2 - Dies on passing superfluous arguments
 S06-signature/named-parameters.rakudo.jvm 5 - colonpair with wrong variable name dies
-S06-signature/named-parameters.rakudo.jvm 6 - colonpair with a privare variable
-S06-signature/named-parameters.rakudo.jvm 7 - colonpair with a public variable
 S06-signature/named-parameters.rakudo.jvm 11 - using a named as a positional fails
 S06-signature/named-parameters.rakudo.jvm 15 - using a named as a positional fails (foo2)
 S06-signature/named-parameters.rakudo.jvm 16 - using a named as a positional fails (foo2)
@@ -1841,7 +1821,6 @@ S06-signature/unspecified.rakudo.jvm 3 - sub with no signature dies when given a
 S06-signature/unspecified.rakudo.jvm 4 - sub with no signature dies when given positional argument
 S06-signature/unspecified.rakudo.jvm 8 - sub using positional param called with named param
 S06-signature/unspecified.rakudo.jvm 12 - named param sub dies with positional param
-S06-traits/is-readonly.rakudo.jvm 13 - can read from readonly private attributes
 S06-traits/precedence.rakudo.jvm aborted 10 test(s)
 S09-hashes/objecthash.rakudo.jvm 8 - value type mismatch
 S09-hashes/objecthash.rakudo.jvm 11 - .values
@@ -1860,40 +1839,21 @@ S10-packages/basic.rakudo.jvm 17 - error message mentions the undefined role
 S10-packages/basic.rakudo.jvm 19 - error message mentions the undefined class
 S10-packages/basic.rakudo.jvm 21 - error message mentions the undefined package
 S11-modules/import-multi.rakudo.jvm aborted 17 test(s)
-S12-attributes/class.rakudo.jvm 8 - Instance call gets instance attribute, not class attribute
 S12-attributes/class.rakudo.jvm aborted 8 test(s)
 S12-attributes/clone.rakudo.jvm aborted 25 test(s)
-S12-attributes/defaults.t 3 - default should be called only once in construction
-S12-attributes/defaults.t 4 - attribute default worked
-S12-attributes/defaults.t 5 - default should be called only once
-S12-attributes/defaults.t 7 - attribute default is a closure
-S12-attributes/defaults.t aborted 26 test(s)
-S12-attributes/delegation.t aborted 4 test(s)
-S12-attributes/inheritance.t 4 - private attributes do not leak from child to parent class (1)
-S12-attributes/inheritance.t 5 - private attributes do not leak from child to parent class (2)
-S12-attributes/instance.rakudo.jvm 9 - .. autogenerated accessor works
-S12-attributes/instance.rakudo.jvm 10 - .. autogenerated accessor works w/out parens
-S12-attributes/instance.rakudo.jvm 44 - default attribute value (1)
-S12-attributes/instance.rakudo.jvm 45 - default attribute value (4)
-S12-attributes/instance.rakudo.jvm 46 - forty_two_supplier() was actually executed
-S12-attributes/instance.rakudo.jvm 47 - forty_two_supplier() is executed per instantiation
-S12-attributes/instance.rakudo.jvm aborted 77 test(s)
+S12-attributes/instance.rakudo.jvm 104 - type enforced on array attrib (item assignment)
+S12-attributes/instance.rakudo.jvm 106 - no autovivification (typed array)
+S12-attributes/instance.rakudo.jvm 114 - Type enforced (hash, insertion)
+S12-attributes/instance.rakudo.jvm 115 - Type enforced (hash, push)
+S12-attributes/instance.rakudo.jvm 116 - No autovivification (typed hash)
 S12-class/augment-supersede.rakudo.jvm aborted 11 test(s)
 S12-class/extending-arrays.t aborted 11 test(s)
-S12-class/inheritance.t 25 - initializer carries through
-S12-class/inheritance.t 26 - initializer can be overridden by derived classes
 S12-class/inheritance.t aborted 4 test(s)
 S12-class/instantiate.rakudo.jvm 4 - error for "NoSuchClass.new()" mentions NoSuchClass
 S12-class/interface-consistency.t 5 - is hidden means no implicit *%_
 S12-class/interface-consistency.t aborted 2 test(s)
 S12-class/mro.t aborted 4 test(s)
-S12-class/namespaced.t 4 - could access attribute in class A
-S12-class/namespaced.t 5 - method access correct attribute in class A
-S12-class/namespaced.t 8 - could access attribute in class A::B
-S12-class/namespaced.t 9 - method access correct attribute in class A::B
 S12-class/open.t aborted 8 test(s)
-S12-construction/construction.t 2 - basic attribute access
-S12-construction/new.rakudo.jvm aborted 3 test(s)
 S12-enums/basic.rakudo.jvm 25 - enum as a type enforces checks
 S12-enums/misc.rakudo.jvm 8 - enum key wins in case of conflict
 S12-enums/misc.rakudo.jvm 11 - non-conflicting enum key
@@ -1901,9 +1861,20 @@ S12-introspection/methods.rakudo.jvm 34 - can get methods for List (instance)
 S12-introspection/methods.rakudo.jvm 35 - can get methods for Str (proto)
 S12-introspection/methods.rakudo.jvm 36 - can get methods for Str (instance)
 S12-introspection/walk.t aborted 1 test(s)
-S12-methods/defer-call.t aborted 14 test(s)
-S12-methods/defer-next.rakudo.jvm aborted 15 test(s)
-S12-methods/lastcall.t aborted 6 test(s)
+S12-methods/defer-call.t 5 - callsame inheritance test
+S12-methods/defer-call.t 7 - callsame multimethod/inheritance test
+S12-methods/defer-call.t 8 - callwith() inheritance test
+S12-methods/defer-call.t 10 - callwith() multimethod/inheritance test
+S12-methods/defer-call.t 11 - callwith(42) inheritance test
+S12-methods/defer-call.t 13 - callwith(42) multimethod/inheritance test
+S12-methods/defer-next.rakudo.jvm 5 - nextsame inheritance test
+S12-methods/defer-next.rakudo.jvm 7 - nextsame multimethod/inheritance test
+S12-methods/defer-next.rakudo.jvm 8 - nextwith() inheritance test
+S12-methods/defer-next.rakudo.jvm 10 - nextwith() multimethod/inheritance test
+S12-methods/defer-next.rakudo.jvm 11 - nextwith(42) inheritance test
+S12-methods/defer-next.rakudo.jvm 13 - nextwith(42) multimethod/inheritance test
+S12-methods/lastcall.t 1 - no lastcall, so we defer up the inheritance tree
+S12-methods/lastcall.t 6 - lastcall trimming does not affect stuff earlier in chain
 S12-methods/lvalue.t 10 - ... and the value was reset
 S12-methods/lvalue.t 11 - ... also on the attribute
 S12-methods/lvalue.t 14 - ... and the value was reset
@@ -1911,8 +1882,6 @@ S12-methods/lvalue.t 15 - ... also on the attribute
 S12-methods/multi.rakudo.jvm 18 - .^methods returns one element for a multi
 S12-methods/multi.rakudo.jvm 19 - multi method from ^methods is a Routine
 S12-methods/multi.rakudo.jvm aborted 13 test(s)
-S12-methods/submethods.rakudo.jvm 13 - Grtz's submethod blarb was not called
-S12-methods/submethods.rakudo.jvm 15 - Baz's submethod blarb was not called
 S12-subset/multi-dispatch.t 1 - mutli dispatch with type mutual exclusive type constaints 1
 S12-subset/multi-dispatch.t 3 - MMD with subset type multi works
 S12-subset/multi-dispatch.t 6 - value that doesn't meet single constraint causes failed dispatch
@@ -1956,18 +1925,12 @@ S12-subset/subtypes.rakudo.jvm 71 - subset names with many parts work
 S12-subset/subtypes.rakudo.jvm 72 - Cannot violate Int::Positive constraint
 S12-subset/subtypes.rakudo.jvm 73 - error message mentions subset name
 S12-subset/subtypes.rakudo.jvm 75 - my str subset MyStr creates basically a type alias (2)
-S13-type-casting/methods.t 3 - call to .Str works
-S13-type-casting/methods.t 4 - call to RT69378str.new properly initializes $.a
-S13-type-casting/methods.t 5 - call to .Str works on "class is Str"
-S13-type-casting/methods.t 6 - Str(...) coercion syntax calls our .Str too
-S14-roles/anonymous.rakudo.jvm 4 - anonymous role gave us an attribute
+S14-roles/anonymous.rakudo.jvm 7 - anonymous role variable mixin
 S14-roles/anonymous.rakudo.jvm 9 - anonymous role variable gave us an attribute
-S14-roles/basic.rakudo.jvm 15 - $b "inherited" the $.attr attribute of B (1)
 S14-roles/basic.rakudo.jvm 23 - type-check enforced
 S14-roles/basic.rakudo.jvm 24 - type-check enforced in future assignments too
 S14-roles/basic.rakudo.jvm 29 - typed attribute rejects things it should
 S14-roles/basic.rakudo.jvm 30 - typed attribute rejects things it should
-S14-roles/basic.rakudo.jvm 43 - $obj.Role::method() passes correct invocant
 S14-roles/instantiation.t aborted 10 test(s)
 S14-roles/mixin.rakudo.jvm aborted 7 test(s)
 S14-roles/parameter-subtyping.t 2 - basic sanity
@@ -1979,7 +1942,6 @@ S14-roles/parameter-subtyping.t 13 - subtyping by role parameters (two params)
 S14-roles/parameter-subtyping.t 14 - subtyping by role parameters (two params)
 S14-roles/parameter-subtyping.t aborted 5 test(s)
 S14-roles/parameterized-basic.t aborted 32 test(s)
-S14-roles/parameterized-mixin.rakudo.jvm 2 - attribute was initialized correctly (1)
 S14-roles/parameterized-mixin.rakudo.jvm aborted 24 test(s)
 S14-roles/parameterized-type.rakudo.jvm 2 - using of as type constraint on variable works (class does role)
 S14-roles/parameterized-type.rakudo.jvm 4 - using of as type constraint on variable works (role instantiation)
@@ -2000,18 +1962,14 @@ S19-command-line/help.t aborted 1 test(s)
 S26-documentation/07-tables.t aborted 38 test(s)
 S26-documentation/09-configuration.t aborted 14 test(s)
 S26-documentation/10-doc-cli.t aborted 1 test(s)
-S28-named-variables/cwd.t 1 - we have something in our $CWD
-S28-named-variables/cwd.t aborted 1 test(s)
 S29-context/die.rakudo.jvm aborted 3 test(s)
 S29-context/exit.t aborted 3 test(s)
 S29-os/system.t aborted 3 test(s)
-S32-array/delete.rakudo.jvm aborted 11 test(s)
 S32-array/pop.t 33 - pop() should not allow extra arguments
 S32-array/shift.t 31 - shift() should not allow extra arguments
 S32-basics/warn.rakudo.jvm aborted 4 test(s)
 S32-exceptions/misc.rakudo.jvm 2 - right exception type (X::Buf::AsStr)
 S32-exceptions/misc.rakudo.jvm 8 - right exception type (X::Buf::Pack)
-S32-exceptions/misc.rakudo.jvm 308 - right exception type (X::OutOfRange)
 S32-exceptions/misc.rakudo.jvm 345 - right exception type (X::Phaser::PrePost)
 S32-exceptions/misc.rakudo.jvm 348 - 'my sub a { POST 0 }; a()' died
 S32-exceptions/misc.rakudo.jvm 360 - '"a".trans([Any.new] => [Any.new])' died
@@ -2070,11 +2028,11 @@ S32-io/chdir.rakudo.jvm aborted 9 test(s)
 S32-io/copy.t 8 - .IO.copy missing file
 S32-io/copy.t 20 - copy() missing file
 S32-io/dir.t aborted 12 test(s)
-S32-io/io-path-cygwin.rakudo.jvm aborted 22 test(s)
-S32-io/io-path-unix.rakudo.jvm aborted 21 test(s)
-S32-io/io-path-win.rakudo.jvm aborted 21 test(s)
-S32-io/io-spec-unix.t aborted 2 test(s)
-S32-io/io-spec-win.t aborted 36 test(s)
+S32-io/io-path-cygwin.rakudo.jvm aborted 17 test(s)
+S32-io/io-path-unix.rakudo.jvm aborted 16 test(s)
+S32-io/io-path-win.rakudo.jvm aborted 16 test(s)
+S32-io/io-spec-unix.t 110 - rel2abs: $*CWD test
+S32-io/io-spec-unix.t aborted 1 test(s)
 S32-io/note.rakudo.jvm aborted 6 test(s)
 S32-io/slurp.t aborted 14 test(s)
 S32-list/map.rakudo.jvm aborted 1 test(s)
@@ -2153,10 +2111,15 @@ S32-str/substr.rakudo.jvm 86 - .substr.wordcase on literal string (substr(Int, S
 S32-str/tclc.rakudo.jvm 3 - tclc and German sharp s
 S32-str/unpack.t aborted 12 test(s)
 S32-temporal/Date.t 4 - Date.today
-S32-temporal/Date.t 5 - Date.new from DateTime
 S32-temporal/Date.t aborted 56 test(s)
-S32-temporal/DateTime-Instant-Duration.rakudo.jvm aborted 33 test(s)
-S32-temporal/DateTime.rakudo.jvm aborted 201 test(s)
+S32-temporal/DateTime-Instant-Duration.rakudo.jvm aborted 30 test(s)
+S32-temporal/DateTime.rakudo.jvm 56 - Leap-second validation: Okay; December 31
+S32-temporal/DateTime.rakudo.jvm 59 - Leap-second validation: Okay; June 30
+S32-temporal/DateTime.rakudo.jvm 60 - Leap-second validation: Okay; June 30 (second 60.9)
+S32-temporal/DateTime.rakudo.jvm 63 - Leap-second validation: Okay because of TZ; January 1
+S32-temporal/DateTime.rakudo.jvm 65 - Leap-second validation: Okay because of TZ; June 30
+S32-temporal/DateTime.rakudo.jvm 67 - Leap-second validation: Okay because of TZ; January 1 (second 60.9)
+S32-temporal/DateTime.rakudo.jvm aborted 131 test(s)
 S32-temporal/calendar.t aborted 130 test(s)
 S32-temporal/local.t 1 - $*TZ is defined
 S32-temporal/local.t aborted 24 test(s)
