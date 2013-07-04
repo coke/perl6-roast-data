@@ -1183,8 +1183,8 @@ use of uninitialized value of type Any in string context  in block  at t/spec/S0
 S06-advanced/callframe.rakudo......................   5    0    0    1    6
      1 skipped: .inline
 S06-advanced/callsame.t............................   3    0    0    0    3
-S06-advanced/lexical-subs.rakudo...................   9    0    0    2   11
-     2 skipped: cannot parse operator names yet
+S06-advanced/lexical-subs.rakudo...................   0   11    0    0   11
+    11 tests aborted (missing ok/not ok)
 S06-advanced/recurse.t.............................  13    0    0    0   13
 S06-advanced/return.rakudo.........................  75    0    1    3   79
      3 skipped: RT 75118
@@ -1271,7 +1271,8 @@ S06-signature/named-parameters.rakudo..............  72    0    0   21   93
 S06-signature/named-placeholders.t.................   3    0    0    0    3
 S06-signature/named-renaming.t.....................  10    0    0    0   10
 S06-signature/optional.t...........................  25    0    0    0   25
-S06-signature/passing-arrays.t.....................  11    0    0    0   11
+S06-signature/passing-arrays.t.....................   0   11    0    0   11
+    11 tests aborted (missing ok/not ok)
 S06-signature/passing-hashes.t.....................   3    0    0    0    3
 S06-signature/positional-placeholders.t............  10    0    0    0   10
 S06-signature/positional.t.........................   7    0    0    0    7
@@ -1677,7 +1678,7 @@ S32-array/keys_values.t............................   8    0    0    0    8
 S32-array/kv.t.....................................  18    0    0    0   18
 S32-array/pairs.rakudo.............................  13    0    1    0   14
      1 todo   : Apparently not rw yet?
-S32-array/pop.t....................................  33    0    0    0   33
+S32-array/pop.t....................................  36    0    0    0   36
 S32-array/push.t...................................  50    0    0    0   50
 S32-array/rotate.rakudo............................  27    0    0    1   28
      1 skipped: Parcel.rotate
@@ -1750,12 +1751,18 @@ S32-io/io-path-unix.rakudo.........................  36    0    1    0   37
 S32-io/io-path-win.rakudo..........................  48    0    1    2   51
      2 skipped: On-system tests for filetest inheritance
      1 todo   : resolve NYI, needs nqp::readlink
-S32-io/io-path.t...................................  13    0    0    0   13
+S32-io/io-path.t...................................   0   13    0    0   13
+    13 tests aborted (missing ok/not ok)
 S32-io/io-spec-cygwin.t............................ 100    0    0    2  102
      2 skipped: cygwin on-platform tests
-S32-io/io-spec-unix.t.............................. 111    0    0    0  111
-S32-io/io-spec-win.t............................... 190    0    0    3  193
-     3 skipped: Win32ish on-platform tests
+S32-io/io-spec-unix.t..............................use of uninitialized value of type Any in string context  in block  at t/spec/S32-io/io-spec-unix.t:48
+
+ 128    1    0    0  129
+     1 tests aborted (missing ok/not ok)
+S32-io/io-spec-win.t...............................use of uninitialized value of type Any in string context  in block  at t/spec/S32-io/io-spec-win.t:52
+
+ 205    1    0    0  206
+     1 tests aborted (missing ok/not ok)
 S32-io/note.rakudo.................................   5    0    1    0    6
      1 todo   : nom regression
 S32-io/slurp.t.....................................  16    0    0    0   16
@@ -1884,7 +1891,7 @@ use of uninitialized value of type Any in numeric context  in block  at t/spec/S
      1 todo   : definedness of array
 S32-str/append.t...................................   7    0    0    0    7
 S32-str/bool.t.....................................  12    0    0    0   12
-S32-str/capitalize.rakudo..........................  11    0    2    2   15
+S32-str/capitalize.rakudo..........................  13    0    2    2   17
      2 skipped: related to RT #117889
      2 todo   : graphemes results wrong
 S32-str/chomp.t....................................  39    0    0    0   39
@@ -1894,9 +1901,8 @@ S32-str/comb.rakudo................................  32    0    2    7   41
      6 skipped: .comb with limit
      1 skipped: bad all around in Rakudo-ng
      2 todo   : graphemes not implemented
-S32-str/encode.rakudo..............................  12    0    1    1   14
-     1 skipped: We do not handle NDF yet
-     1 todo   : stringy
+S32-str/encode.rakudo..............................   0   14    0    0   14
+    14 tests aborted (missing ok/not ok)
 S32-str/flip.rakudo................................  11    0    0    2   13
      2 skipped: graphemes not implemented
 S32-str/indent.rakudo..............................Asked to remove 4 spaces, but the shortest indent is 3 spaces  in block  at t/spec/S32-str/indent.rakudo:61
@@ -2428,10 +2434,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        3130,     0,   182,   432,  3744,  3683
-"S03",        4447,     0,   119,   396,  4962,  4311
+"S03",        4447,     0,   119,   396,  4962,  4347
 "S04",         890,     0,    33,    49,   972,  1008
 "S05",        4721,     0,   115,   517,  5353,  5797
-"S06",        1141,     0,    29,   136,  1306,  1290
+"S06",        1121,    22,    29,   134,  1306,  1290
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         136,     0,    18,    27,   181,   181
 "S10",          64,     0,     1,     5,    70,   127
@@ -2446,10 +2452,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         318,     0,     1,     7,   326,   336
-"S32",        8460,     0,   107,   252,  8819,  6181
+"S32",        8472,    29,   106,   248,  8855,  6217
 "int",         538,     0,     8,    25,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26105,     0,   660,  2036, 28801, 26119
+"total",     26097,    51,   659,  2030, 28837, 26191
 ----------------
 Failure summary:
+S06-advanced/lexical-subs.rakudo aborted 11 test(s)
+S06-signature/passing-arrays.t aborted 11 test(s)
+S32-io/io-path.t aborted 13 test(s)
+S32-io/io-spec-unix.t aborted 1 test(s)
+S32-io/io-spec-win.t aborted 1 test(s)
+S32-str/encode.rakudo aborted 14 test(s)
 note: test_summary.pl @syn does not have ros

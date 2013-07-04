@@ -658,8 +658,16 @@ S05-mass/named-chars.rakudo.jvm.................... 284    0   53   94  431
     53 todo   : \C escape
 S05-mass/properties-block.rakudo.jvm............... 669    0    0    1  670
      1 skipped: Malformed UTF-8 string
-S05-mass/properties-derived.rakudo.jvm.............   0  256    0    0  256
-   256 tests aborted (missing ok/not ok)
+S05-mass/properties-derived.rakudo.jvm............. 169    0    0   87  256
+     7 skipped: isUnassigned not implemented
+     6 skipped: icu
+    10 skipped: isCommon not implemented
+     3 skipped: icu problems
+     7 skipped: isGraphemeLink
+     7 skipped: isAssigned not implemented
+     4 skipped: isAny not implemented
+    42 skipped: isOther* not implemented
+     1 skipped: Malformed UTF-8 string
 S05-mass/properties-general.rakudo.jvm............. 555    4    0   37  596
     10 skipped: No [Lr] property defined
      4 skipped: Uninvestigated nqp-rx regression
@@ -808,8 +816,8 @@ S05-transliteration/with-closure.rakudo.jvm........  10    0    5    1   16
      1 skipped: .ord on Match unimplemented
      5 todo   : nom regression
                                                    pass fail todo skip plan
-S06-advanced/callframe.rakudo.jvm..................   0    6    0    0    6
-     6 tests aborted (missing ok/not ok)
+S06-advanced/callframe.rakudo.jvm..................   4    1    0    1    6
+     1 skipped: .inline
 S06-advanced/callsame.t............................   2    1    0    0    3
 S06-advanced/lexical-subs.rakudo.jvm...............   9    0    0    2   11
      2 skipped: cannot parse operator names yet
@@ -863,12 +871,11 @@ S06-operator-overloading/sub.rakudo.jvm............  37    0    1   32   70
 S06-operator-overloading/workout.t.................   0    0    0    0    0
 S06-other/anon-hashes-vs-blocks.t..................  18    0    0    0   18
 S06-other/introspection.t..........................  12    0    0    0   12
-S06-other/main-eval.rakudo.jvm.....................   0    3    0    0    3
-     3 tests aborted (missing ok/not ok)
+S06-other/main-eval.rakudo.jvm.....................   2    0    1    0    3
+     1 todo   : MAIN in eval
 S06-other/main-usage.rakudo.jvm....................   0   22    0    0   22
     22 tests aborted (missing ok/not ok)
-S06-other/main.t...................................   2    4    0    0    6
-     4 tests aborted (missing ok/not ok)
+S06-other/main.t...................................   6    0    0    0    6
 S06-other/misc.t...................................   2    1    0    0    3
 S06-routine-modifiers/lvalue-subroutines.rakudo.j..  11    0    0    3   14
      2 skipped: maximum recursion depth exceeded
@@ -1157,9 +1164,8 @@ S14-traits/routines.rakudo.jvm.....................   8    5    0    0   13
 S16-filehandles/chmod.t............................   5   11    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
     11 tests aborted (missing ok/not ok)
-S16-filehandles/filestat.rakudo.jvm................   5    6    0    2   13
+S16-filehandles/filestat.rakudo.jvm................  11    0    0    2   13
      2 skipped: platform dependent
-     6 tests aborted (missing ok/not ok)
 S16-filehandles/filetest.rakudo.jvm................   7   34    0    0   41
     34 tests aborted (missing ok/not ok)
 S16-filehandles/io.rakudo.jvm......................  76    7    0    1   84
@@ -1242,7 +1248,8 @@ S32-array/keys_values.t............................   8    0    0    0    8
 S32-array/kv.t.....................................  18    0    0    0   18
 S32-array/pairs.rakudo.jvm.........................  13    0    1    0   14
      1 todo   : Apparently not rw yet?
-S32-array/pop.t....................................  32    1    0    0   33
+S32-array/pop.rakudo.jvm...........................  35    0    0    1   36
+     1 skipped: may run forever
 S32-array/push.t...................................  50    0    0    0   50
 S32-array/rotate.rakudo.jvm........................  27    0    0    1   28
      1 skipped: Parcel.rotate
@@ -1300,14 +1307,13 @@ S32-io/io-path-win.rakudo.jvm......................  48    0    1    2   51
 S32-io/io-path.t...................................  13    0    0    0   13
 S32-io/io-spec-cygwin.t............................ 100    0    0    2  102
      2 skipped: cygwin on-platform tests
-S32-io/io-spec-unix.t.............................. 109    2    0    0  111
+S32-io/io-spec-unix.t.............................. 127    2    0    0  129
      1 tests aborted (missing ok/not ok)
-S32-io/io-spec-win.t............................... 190    0    0    3  193
-     3 skipped: Win32ish on-platform tests
+S32-io/io-spec-win.t............................... 206    0    0    0  206
 S32-io/note.rakudo.jvm.............................   0    6    0    0    6
      6 tests aborted (missing ok/not ok)
-S32-io/slurp.t.....................................   2   14    0    0   16
-    14 tests aborted (missing ok/not ok)
+S32-io/slurp.t.....................................   9    7    0    0   16
+     7 tests aborted (missing ok/not ok)
 S32-io/spurt.t.....................................   0    0    0    0    0
 S32-list/categorize.t..............................  47    0    0    0   47
 S32-list/classify.rakudo.jvm.......................  43    0    0    3   46
@@ -1390,7 +1396,7 @@ S32-scalar/undef.rakudo.jvm........................   4   82    0    0   86
     82 tests aborted (missing ok/not ok)
 S32-str/append.t...................................   7    0    0    0    7
 S32-str/bool.t.....................................  12    0    0    0   12
-S32-str/capitalize.rakudo.jvm......................   4    7    2    2   15
+S32-str/capitalize.rakudo.jvm......................   4    9    2    2   17
      2 skipped: related to RT #117889
      2 todo   : graphemes results wrong
 S32-str/chomp.t....................................  39    0    0    0   39
@@ -1539,8 +1545,7 @@ integration/no-indirect-new.t......................   2    0    0    0    2
 integration/packages.t.............................   3    0    0    0    3
 integration/pair-in-array.t........................   3    0    0    0    3
 integration/passing-pair-class-to-sub.t............   2    0    0    0    2
-integration/real-strings.t.........................  20    1    0    0   21
-     1 tests aborted (missing ok/not ok)
+integration/real-strings.t.........................  21    0    0    0   21
 integration/role-composition-vs-attribute.t........   1    0    0    0    1
 integration/rule-in-class-Str.t....................   3    0    0    0    3
 integration/say-crash.t............................   4    0    0    0    4
@@ -1556,10 +1561,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        2932,   208,   171,   432,  3640,  3683
-"S03",        4378,    74,   114,   396,  4962,  4311
+"S03",        4378,    74,   114,   396,  4962,  4347
 "S04",         774,    81,    27,    43,   925,  1008
-"S05",        4508,   313,   110,   422,  5353,  5797
-"S06",         849,   227,    17,   129,  1222,  1290
+"S05",        4677,    57,   110,   509,  5353,  5797
+"S06",         859,   215,    18,   130,  1222,  1290
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         132,     4,    18,    27,   181,   181
 "S10",          59,     5,     1,     5,    70,   127
@@ -1567,17 +1572,17 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S12",        1198,    83,    37,   125,  1443,  1344
 "S13",          70,     0,     0,     0,    70,    80
 "S14",         252,    40,     3,    13,   308,   327
-"S16",         172,    67,     3,    11,   253,   297
+"S16",         178,    61,     3,    11,   253,   297
 "S17",           0,     0,     0,     0,     0,    28
 "S19",           0,     4,     0,     0,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         307,     1,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         311,     7,     1,     7,   326,   336
-"S32",        7637,   679,    62,   236,  8219,  6181
-"int",         501,    33,     8,    25,   560,   560
+"S32",        7681,   673,    62,   234,  8255,  6217
+"int",         502,    32,     8,    25,   560,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     24161,  1826,   573,  1900, 27955, 26119
+"total",     24391,  1545,   574,  1986, 27991, 26191
 ----------------
 Failure summary:
 S02-literals/hex_chars.t 4 - Does a character codepoint (\x..) evaluate to the same thing as its literal?
@@ -1672,7 +1677,6 @@ S04-statements/loop.t aborted 1 test(s)
 S04-statements/try.rakudo.jvm aborted 7 test(s)
 S05-capture/caps.rakudo.jvm aborted 30 test(s)
 S05-interpolation/regex-in-variable.rakudo.jvm aborted 4 test(s)
-S05-mass/properties-derived.rakudo.jvm aborted 256 test(s)
 S05-mass/properties-general.rakudo.jvm 553 - Match <:Other>
 S05-mass/properties-general.rakudo.jvm 554 - Don't match negated <Other>
 S05-mass/properties-general.rakudo.jvm 555 - Don't match inverted <Other>
@@ -1681,7 +1685,7 @@ S05-match/capturing-contexts.rakudo.jvm aborted 16 test(s)
 S05-metachars/newline.rakudo.jvm 6 - NEL
 S05-metachars/newline.rakudo.jvm 13 - not NEL
 S05-modifier/perl5_5.rakudo.jvm 5 - re_tests 617/1 (801)
-S06-advanced/callframe.rakudo.jvm aborted 6 test(s)
+S06-advanced/callframe.rakudo.jvm 2 - callframe().line
 S06-advanced/callsame.t 2 - multi with "callsame" worked
 S06-advanced/wrap.rakudo.jvm aborted 62 test(s)
 S06-macros/quasi-blocks.t aborted 5 test(s)
@@ -1702,9 +1706,7 @@ S06-multi/unpackability.t 4 - multi dispatch on array packed with four elements
 S06-multi/unpackability.t 10 - Multi-dispatch descends into sub signatures (2)
 S06-operator-overloading/imported-subs.t aborted 19 test(s)
 S06-operator-overloading/methods.rakudo.jvm aborted 2 test(s)
-S06-other/main-eval.rakudo.jvm aborted 3 test(s)
 S06-other/main-usage.rakudo.jvm aborted 22 test(s)
-S06-other/main.t aborted 4 test(s)
 S06-other/misc.t 3 - this should die, no arguments defined
 S06-signature/arity.t 48 - no matching sub signature
 S06-signature/errors.t 4 - argument passed to sub with empty signature
@@ -1793,7 +1795,6 @@ S14-roles/parameterized-type.rakudo.jvm 11 - roles parameterized with themselves
 S14-roles/parameterized-type.rakudo.jvm aborted 17 test(s)
 S14-traits/routines.rakudo.jvm aborted 5 test(s)
 S16-filehandles/chmod.t aborted 11 test(s)
-S16-filehandles/filestat.rakudo.jvm aborted 6 test(s)
 S16-filehandles/filetest.rakudo.jvm aborted 34 test(s)
 S16-filehandles/io.rakudo.jvm aborted 7 test(s)
 S16-io/bare-say.rakudo.jvm aborted 5 test(s)
@@ -1805,7 +1806,6 @@ S26-documentation/10-doc-cli.t aborted 1 test(s)
 S29-context/die.rakudo.jvm aborted 3 test(s)
 S29-context/exit.t aborted 3 test(s)
 S29-os/system.t 1 - run() to an existing program does not die (and returns something true)
-S32-array/pop.t 33 - pop() should not allow extra arguments
 S32-array/shift.t 31 - shift() should not allow extra arguments
 S32-basics/warn.rakudo.jvm aborted 4 test(s)
 S32-exceptions/misc.rakudo.jvm 2 - right exception type (X::Buf::AsStr)
@@ -1824,10 +1824,10 @@ S32-hash/delete-adverb.rakudo.jvm 105 - Test deletion with (1) *
 S32-io/chdir.rakudo.jvm aborted 9 test(s)
 S32-io/copy.t 8 - .IO.copy missing file
 S32-io/copy.t 20 - copy() missing file
-S32-io/io-spec-unix.t 110 - rel2abs: $*CWD test
+S32-io/io-spec-unix.t 128 - rel2abs: $*CWD test
 S32-io/io-spec-unix.t aborted 1 test(s)
 S32-io/note.rakudo.jvm aborted 6 test(s)
-S32-io/slurp.t aborted 14 test(s)
+S32-io/slurp.t aborted 7 test(s)
 S32-list/map.rakudo.jvm aborted 1 test(s)
 S32-list/roll.t aborted 1 test(s)
 S32-num/power.rakudo.jvm 18 - 1**Inf=1
@@ -1835,11 +1835,13 @@ S32-num/rounders.t 116 - (123.456789).round(1e-5) == 123.45679
 S32-scalar/undef.rakudo.jvm aborted 82 test(s)
 S32-str/capitalize.rakudo.jvm 2 - wordcase('...') works
 S32-str/capitalize.rakudo.jvm 3 - '...'.wordcase works
-S32-str/capitalize.rakudo.jvm 5 - wordcase string works
+S32-str/capitalize.rakudo.jvm 4 - wordcase works properly with apostrophes
+S32-str/capitalize.rakudo.jvm 5 - wordcase works properly with apostrophes and dashes
 S32-str/capitalize.rakudo.jvm 7 - wordcase string works
-S32-str/capitalize.rakudo.jvm 9 - works on ordinary string
-S32-str/capitalize.rakudo.jvm 10 - wordcase() uses \$_ as default
-S32-str/capitalize.rakudo.jvm 11 - wordcase() works on non-ASCII chars
+S32-str/capitalize.rakudo.jvm 9 - wordcase string works
+S32-str/capitalize.rakudo.jvm 11 - works on ordinary string
+S32-str/capitalize.rakudo.jvm 12 - wordcase() uses \$_ as default
+S32-str/capitalize.rakudo.jvm 13 - wordcase() works on non-ASCII chars
 S32-str/encode.rakudo.jvm aborted 14 test(s)
 S32-str/pack.t aborted 6 test(s)
 S32-str/sprintf.rakudo.jvm aborted 123 test(s)
@@ -1866,6 +1868,5 @@ integration/advent2009-day09.t 17 - Test one liner at end of post (part2)
 integration/advent2009-day11.t 6 - can introspect Dog
 integration/advent2009-day16.t passed 7 unplanned test(s)
 integration/error-reporting.t aborted 16 test(s)
-integration/real-strings.t aborted 1 test(s)
 integration/weird-errors.t aborted 8 test(s)
 note: test_summary.pl @syn does not have ros
