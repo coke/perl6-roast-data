@@ -2151,7 +2151,7 @@ S05-mass/rx.niecza.................................Potential difficulties:
   $rt112450 is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-mass/rx.niecza line 2572:
 ------> [32m    my [33m⏏[31m$rt112450 = 4;[0m
 
-sh: line 1: 22029 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
+sh: line 1: 25471 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
  667    6   19   47  739
      1 skipped: Unable to resolve method alpha in class Cursor
      2 skipped: Dubious test, http://irclog.perlgeek.de/perl6/2012-05-27#i_5643089
@@ -4167,8 +4167,17 @@ S32-list/create.niecza.............................   3    0    0    3    6
      3 skipped: Excess arguments to List.new, used 1 of 4 positionals
 S32-list/end.niecza................................  13    0    0    1   14
      1 skipped: Unable to resolve method end in class Int
-S32-list/first.niecza..............................  19    0    0    2   21
+S32-list/first.niecza..............................Unhandled exception: No value for parameter '$obj' in 'isa_ok'
+  at /home/coke/sandbox/perl6pass/niecza/lib/Test.pm6 line 0 (isa_ok @ 1) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S32-list/first.niecza line 77 (ANON @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/t/spec/S32-list/first.niecza line 85 (mainline @ 63) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4579 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4580 (module-CORE @ 576) 
+  at /home/coke/sandbox/perl6pass/niecza/lib/CORE.setting line 4580 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  19    2    0    2   23
      2 skipped: No value for parameter Mu $filter in CORE Any.first
+     2 tests aborted (missing ok/not ok)
 S32-list/grep.niecza...............................  19    0    0   19   38
     12 skipped: No value for parameter Mu $sm in Any.grep
      6 skipped: Invocant handling is NYI
@@ -5849,7 +5858,7 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 "S05",        4095,     8,   115,   206,  4424,  5797
 "S06",         773,     2,    56,   162,   993,  1290
 "S07",           0,     0,     0,     0,     0,     0
-"S09",          65,     0,     0,     8,    73,   181
+"S09",          65,     0,     0,     8,    73,   193
 "S10",          35,     0,     5,    19,    59,   127
 "S11",           0,     0,     0,     0,     0,   135
 "S12",         751,     0,    60,   151,   962,  1344
@@ -5862,9 +5871,9 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 "S26",           0,     0,     0,     0,     0,   266
 "S28",           6,     0,     1,     0,     7,    13
 "S29",         301,    11,     5,     6,   323,   336
-"S32",        6529,     1,   131,   279,  6940,  6217
+"S32",        6529,     3,   131,   279,  6942,  6219
 "int",         463,     1,    21,    27,   512,   560
-"total",     21332,    62,   751,  1606, 23751, 26189
+"total",     21332,    64,   751,  1606, 23753, 26203
 ----------------
 Failure summary:
 S03-operators/subscript-adverbs.niecza aborted 36 test(s)
@@ -5876,5 +5885,6 @@ S05-substitution/subst.niecza aborted 2 test(s)
 S06-signature/unpack-array.t 12 - array unpacking and only-subs
 S06-signature/unpack-array.t 13 - array unpacking and only-multi
 S29-context/sleep.niecza aborted 11 test(s)
+S32-list/first.niecza aborted 2 test(s)
 S32-list/map.niecza 53 - map over a callable with a slurpy
 integration/99problems-11-to-20.niecza 15 - We should be able to drop list elements based on if returning ()
