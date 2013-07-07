@@ -44,8 +44,8 @@ S02-literals/char-by-number.rakudo.jvm.............  38    0    4    0   42
 S02-literals/fmt-interpolation.t...................  11    0    0    0   11
 S02-literals/hash-interpolation.t..................  10    0    0    0   10
 S02-literals/hex_chars.t...........................   3    1    0    0    4
-S02-literals/listquote-whitespace.rakudo.jvm.......   0   12    0    0   12
-    12 tests aborted (missing ok/not ok)
+S02-literals/listquote-whitespace.rakudo.jvm.......  11    0    1    0   12
+     1 todo   : \xa0 should not be a separator for list quotes
 S02-literals/listquote.rakudo.jvm..................  18    0    4    1   23
      1 skipped: meta operators
      3 todo   : magic type of <...> contents
@@ -58,8 +58,7 @@ S02-literals/pairs.rakudo.jvm......................  75    0    2    2   79
      1 skipped: prefix:<|>
      1 todo   : reduce meta op
      1 todo   : prefix:<|>
-S02-literals/quoting-unicode.t.....................   4   68    0    0   72
-    68 tests aborted (missing ok/not ok)
+S02-literals/quoting-unicode.t.....................  72    0    0    0   72
 S02-literals/quoting.rakudo.jvm.................... 113   44    2    3  162
      3 skipped: \c@ etc
      1 todo   : retriage
@@ -92,8 +91,9 @@ S02-magicals/progname.t............................   4    0    0    0    4
 S02-magicals/sub.t.................................   6    0    0    0    6
 S02-magicals/vm.t..................................   3    0    0    0    3
 S02-names-vars/contextual.t........................  23    0    0    0   23
-S02-names-vars/fmt.rakudo.jvm......................   1   20    0    0   21
-    20 tests aborted (missing ok/not ok)
+S02-names-vars/fmt.rakudo.jvm......................  19    0    2    0   21
+     1 todo   : precision in Num.fmt
+     1 todo   : %f
 S02-names-vars/list_array_perl.rakudo.jvm..........  18    0    1    2   21
      2 skipped: recursive data structure
      1 todo   : List.perl bug
@@ -272,8 +272,7 @@ S02-types/undefined-types.rakudo.jvm...............  40    0    6    3   49
      3 skipped: not allowed to assign Nil to Int scalar
      4 todo   : .clone doesn't copy typedness
      2 todo   : not allowed to assign Nil to Int scalar
-S02-types/version.t................................   0   35    0    0   35
-    35 tests aborted (missing ok/not ok)
+S02-types/version.t................................  35    0    0    0   35
 S02-types/whatever.rakudo.jvm......................  72    0    3    5   80
      5 skipped: currying plus meta ops
      2 todo   : RT 102466
@@ -525,7 +524,11 @@ S04-blocks-and-statements/temp.rakudo.jvm..........  10    9    2   15   36
     15 skipped: TEMP phasers NYI
      1 todo   : temp + recursion
      1 todo   : temp and recursion
-S04-declarations/constant.rakudo.jvm...............   0    0    0    0    0
+S04-declarations/constant.rakudo.jvm...............  38    0    3    6   47
+     2 skipped: binding
+     3 skipped: constants as type constraints
+     1 skipped: unicode constant name
+     3 todo   : COMPILING
 S04-declarations/implicit-parameter.rakudo.jvm.....  14    2    2    0   18
      2 todo   : pointy blocks and $_
 S04-declarations/multiple.rakudo.jvm...............   5    0    1    0    6
@@ -614,8 +617,8 @@ S04-statements/unless.t............................  10    0    0    0   10
 S04-statements/until.t.............................   4    0    0    0    4
 S04-statements/while.t.............................   9    0    0    0    9
                                                    pass fail todo skip plan
-S05-capture/caps.rakudo.jvm........................   0   30    0    0   30
-    30 tests aborted (missing ok/not ok)
+S05-capture/caps.rakudo.jvm........................  29    0    1    0   30
+     1 todo   : return type of .chunks
 S05-capture/dot.rakudo.jvm.........................  45    0    8    8   61
      8 skipped: wrong tests? needs review
      1 todo   : really? :-)
@@ -1314,11 +1317,10 @@ S32-list/grep.rakudo.jvm...........................  17    0    0   21   38
      2 skipped: test error -- is $_ rw here?
     12 skipped: adverbial block
 S32-list/join.t....................................  34    0    0    0   34
-S32-list/map.rakudo.jvm............................  44    1    0    8   53
+S32-list/map.rakudo.jvm............................  45    0    0    8   53
      4 skipped: adverbial block; RT #53804
      2 skipped: closure as non-final argument
      2 skipped: adverbial block
-     1 tests aborted (missing ok/not ok)
 S32-list/map_function_return_values.t..............   2    0    0    0    2
 S32-list/minmax.t..................................  55    0    0    0   55
 S32-list/pick.rakudo.jvm...........................  46    0    1    0   47
@@ -1423,8 +1425,11 @@ S32-str/split-simple.rakudo.jvm....................  48    0    1    0   49
 S32-str/split.rakudo.jvm...........................  34    0    0    3   37
      2 skipped: RT #63066 loops forever
      1 skipped: loops on zero-width match
-S32-str/sprintf.rakudo.jvm.........................   2  123    0    0  125
-   123 tests aborted (missing ok/not ok)
+S32-str/sprintf.rakudo.jvm.........................  43   62   20    1  126
+     1 skipped: sprintf %F NYI
+    10 todo   : sprintf does not handle bigints yet
+    10 todo   : sprintf does not handle big Rats yet
+    62 tests aborted (missing ok/not ok)
 S32-str/substr-rw.rakudo.jvm.......................   0    0    0    0    0
 S32-str/substr.rakudo.jvm..........................  53    3    0   36   92
     28 skipped: No support for StrPos
@@ -1440,16 +1445,15 @@ S32-str/unpack.t...................................   0   12    0    0   12
     12 tests aborted (missing ok/not ok)
 S32-str/words.rakudo.jvm...........................  10    0    0    2   12
      2 skipped: graphemes not implemented
-S32-temporal/Date.t................................  16   56    0    0   72
-    56 tests aborted (missing ok/not ok)
-S32-temporal/DateTime-Instant-Duration.rakudo.jvm..   3   30    0    0   33
-    30 tests aborted (missing ok/not ok)
-S32-temporal/DateTime.rakudo.jvm...................  64  137    0    0  201
-   131 tests aborted (missing ok/not ok)
-S32-temporal/calendar.t............................   0  130    0    0  130
-   130 tests aborted (missing ok/not ok)
-S32-temporal/local.t...............................   3   22    0    0   25
-    22 tests aborted (missing ok/not ok)
+S32-temporal/Date.t................................  72    0    0    0   72
+S32-temporal/DateTime-Instant-Duration.rakudo.jvm..  27    1    4    1   33
+     1 skipped: nom regression
+     4 todo   : high-precision Instants NYI (need FatRats)
+S32-temporal/DateTime.rakudo.jvm................... 200    0    1    0  201
+     1 todo   : nom regression
+S32-temporal/calendar.t............................ 130    0    0    0  130
+S32-temporal/local.t...............................   6    0    0   19   25
+    19 skipped: The local time zone may not be America/New_York.
 S32-trig/atan2.t................................... 115    0    0    0  115
 S32-trig/cos.t..................................... 154    0    0    0  154
 S32-trig/cosec.t................................... 114    0    0    0  114
@@ -1492,8 +1496,8 @@ integration/99problems-61-to-70.t..................   9    0    0    6   15
      1 skipped: Test(s) not yet written: (**) Preorder and inorder sequences of binary trees
      1 skipped: Test(s) not yet written: (**) Construct a complete binary tree
 integration/advent2009-day01.t.....................   2    0    0    0    2
-integration/advent2009-day02.t.....................   5    5    0    0   10
-     5 tests aborted (missing ok/not ok)
+integration/advent2009-day02.t.....................   8    2    0    0   10
+     1 tests aborted (missing ok/not ok)
 integration/advent2009-day03.t.....................   6    0    0    0    6
 integration/advent2009-day04.t.....................   6    0    0    0    6
 integration/advent2009-day05.t.....................  17    0    0    0   17
@@ -1502,7 +1506,7 @@ integration/advent2009-day06.rakudo.jvm............  14    0    0    1   15
 integration/advent2009-day07.rakudo.jvm............  12    0    0    1   13
      1 skipped: No candidates found to invoke
 integration/advent2009-day08.t.....................   8    0    0    0    8
-integration/advent2009-day09.t.....................  15    2    0    0   17
+integration/advent2009-day09.t.....................  16    1    0    0   17
 integration/advent2009-day10.t.....................   5    0    0    0    5
 integration/advent2009-day11.t.....................   6    0    0    0    6
 integration/advent2009-day12.rakudo.jvm............   5    0    0    4    9
@@ -1549,10 +1553,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        2940,   198,   173,   432,  3640,  3683
+"S02",        3072,    63,   176,   432,  3640,  3683
 "S03",        4415,    32,   119,   396,  4962,  4347
-"S04",         774,    81,    27,    43,   925,  1008
-"S05",        4689,    37,   114,   517,  5357,  5801
+"S04",         812,    81,    30,    49,   972,  1008
+"S05",        4718,     7,   115,   517,  5357,  5801
 "S06",        1002,   148,    26,   130,  1306,  1290
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         144,     4,    18,    27,   193,   193
@@ -1568,19 +1572,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         313,     5,     1,     7,   326,   336
-"S32",        7745,   588,    67,   252,  8257,  6219
-"int",         513,    21,     8,    25,   560,   560
+"S32",        8136,   152,    92,   273,  8258,  6220
+"int",         517,    17,     8,    25,   560,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     24770,  1213,   601,  2014, 28093, 26209
+"total",     25364,   608,   633,  2041, 28141, 26210
 ----------------
 Failure summary:
 S02-literals/hex_chars.t 4 - Does a character codepoint (\x..) evaluate to the same thing as its literal?
-S02-literals/listquote-whitespace.rakudo.jvm aborted 12 test(s)
-S02-literals/quoting-unicode.t aborted 68 test(s)
 S02-literals/quoting.rakudo.jvm aborted 44 test(s)
 S02-magicals/env.rakudo.jvm 14 - ENV members persist to child processes
 S02-magicals/pid.t 1 - my $*PID is different from a child $*PID
-S02-names-vars/fmt.rakudo.jvm aborted 20 test(s)
 S02-names-vars/names.rakudo.jvm 139 - error message mentions name not recognized, no maximum recursion depth exceeded
 S02-names-vars/perl.rakudo.jvm passed 103 unplanned test(s)
 S02-types/bag.rakudo.jvm 52 - And Str keys are permitted in the same set
@@ -1598,7 +1599,6 @@ S02-types/type.rakudo.jvm 32 - bad implicit return value dies (returns)
 S02-types/type.rakudo.jvm 34 - bad implicit return value dies (of)
 S02-types/type.rakudo.jvm 36 - bad implicit return value dies (my Type sub)
 S02-types/type.rakudo.jvm 38 - bad implicit return value dies (-->)
-S02-types/version.t aborted 35 test(s)
 S03-operators/arith.rakudo.jvm 6 - -1 == 3
 S03-operators/arith.rakudo.jvm 7 - 1 == -3
 S03-operators/arith.rakudo.jvm 14 - 
@@ -1657,7 +1657,6 @@ S04-phasers/rvalue.t 12 - CHECK {} runs only once
 S04-statements/gather.rakudo.jvm aborted 6 test(s)
 S04-statements/loop.t aborted 1 test(s)
 S04-statements/try.rakudo.jvm aborted 7 test(s)
-S05-capture/caps.rakudo.jvm aborted 30 test(s)
 S05-mass/properties-general.rakudo.jvm 553 - Match <:Other>
 S05-mass/properties-general.rakudo.jvm 554 - Don't match negated <Other>
 S05-mass/properties-general.rakudo.jvm 555 - Don't match inverted <Other>
@@ -1781,7 +1780,6 @@ S32-io/note.rakudo.jvm 3 - note array
 S32-io/note.rakudo.jvm 4 - note an array reference
 S32-io/note.rakudo.jvm 6 - try { } block does not prevent note() from outputting something
 S32-io/slurp.t aborted 7 test(s)
-S32-list/map.rakudo.jvm aborted 1 test(s)
 S32-list/roll.t aborted 1 test(s)
 S32-num/power.rakudo.jvm 18 - 1**Inf=1
 S32-num/rounders.t 116 - (123.456789).round(1e-5) == 123.45679
@@ -1796,27 +1794,17 @@ S32-str/capitalize.rakudo.jvm 12 - wordcase() uses \$_ as default
 S32-str/capitalize.rakudo.jvm 13 - wordcase() works on non-ASCII chars
 S32-str/encode.rakudo.jvm aborted 14 test(s)
 S32-str/pack.t aborted 6 test(s)
-S32-str/sprintf.rakudo.jvm aborted 123 test(s)
+S32-str/sprintf.rakudo.jvm aborted 62 test(s)
 S32-str/substr.rakudo.jvm 25 - .substr.wordcase on literal string
 S32-str/substr.rakudo.jvm 49 - .substr.wordcase on literal string (substr(Int, StrLen)).
 S32-str/substr.rakudo.jvm 86 - .substr.wordcase on literal string (substr(Int, StrPos)).
 S32-str/tclc.rakudo.jvm 3 - tclc and German sharp s
 S32-str/unpack.t aborted 12 test(s)
-S32-temporal/Date.t aborted 56 test(s)
-S32-temporal/DateTime-Instant-Duration.rakudo.jvm aborted 30 test(s)
-S32-temporal/DateTime.rakudo.jvm 56 - Leap-second validation: Okay; December 31
-S32-temporal/DateTime.rakudo.jvm 59 - Leap-second validation: Okay; June 30
-S32-temporal/DateTime.rakudo.jvm 60 - Leap-second validation: Okay; June 30 (second 60.9)
-S32-temporal/DateTime.rakudo.jvm 63 - Leap-second validation: Okay because of TZ; January 1
-S32-temporal/DateTime.rakudo.jvm 65 - Leap-second validation: Okay because of TZ; June 30
-S32-temporal/DateTime.rakudo.jvm 67 - Leap-second validation: Okay because of TZ; January 1 (second 60.9)
-S32-temporal/DateTime.rakudo.jvm aborted 131 test(s)
-S32-temporal/calendar.t aborted 130 test(s)
-S32-temporal/local.t aborted 22 test(s)
+S32-temporal/DateTime-Instant-Duration.rakudo.jvm 32 - DateTime.new(Instant) with time zone and formatter
 S32-trig/cosech.t 62 - cosech(-Inf) -
-integration/advent2009-day02.t aborted 5 test(s)
+integration/advent2009-day02.t 1 - 
+integration/advent2009-day02.t aborted 1 test(s)
 integration/advent2009-day09.t 6 - Must be named
-integration/advent2009-day09.t 17 - Test one liner at end of post (part2)
 integration/advent2009-day16.t passed 7 unplanned test(s)
 integration/error-reporting.t 1 - Parse error contains line number
 integration/error-reporting.t 2 - Runtime error contains line number
