@@ -622,7 +622,30 @@ Potential difficulties:
 S03-binding/attributes.t...........................  12    0    0    0   12
 S03-binding/closure.t..............................   8    0    0    0    8
 S03-binding/hashes.t...............................  38    0    0    0   38
-S03-binding/nested.t...............................  43    0    0    0   43
+S03-binding/nested.t...............................[31m===[0mSORRY![31m===[0m
+
+Unhandled trait rwt for this context at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-binding/nested.t line 85:
+------> [32m    my sub get_innerstruct () is parcel [33m⏏[31m{ $innerstruct }[0m
+
+Unhandled trait rwt for this context at /home/coke/sandbox/perl6pass/niecza/t/spec/S03-binding/nested.t line 120:
+------> [32m    my sub get_innerstruct () is parcel [33m⏏[31m{ $innerstruct }[0m
+
+Unhandled exception: Check failed
+
+  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 1502 (die @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1147 (P6.comp_unit @ 36) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 101 (STD.TOP @ 11) 
+  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 3018 (Grammar.parse @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/src/NieczaFrontendSTD.pm6 line 281 (NieczaFrontendSTD.parse @ 70) 
+  at /home/coke/sandbox/perl6pass/niecza/src/NieczaCompiler.pm6 line 34 (NieczaCompiler.compile @ 18) 
+  at /home/coke/sandbox/perl6pass/niecza/src/NieczaCompiler.pm6 line 60 (NieczaCompiler.compile_file @ 8) 
+  at /home/coke/sandbox/perl6pass/niecza/src/niecza line 165 (mainline @ 144) 
+  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4327 (ANON @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4328 (module-CORE @ 582) 
+  at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 4328 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+   0   43    0    0   43
+    43 tests aborted (missing ok/not ok)
 S03-binding/ro.niecza..............................   5    0    4    0    9
      4 todo   : 
 S03-binding/scalars.niecza.........................  21    0    2   10   33
@@ -2151,8 +2174,8 @@ S05-mass/rx.niecza.................................Potential difficulties:
   $rt112450 is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-mass/rx.niecza line 2572:
 ------> [32m    my [33m⏏[31m$rt112450 = 4;[0m
 
-sh: line 1:  7775 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
- 666    7   19   47  739
+sh: line 1: 13897 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
+ 667    6   19   47  739
      1 skipped: Unable to resolve method alpha in class Cursor
      2 skipped: Dubious test, http://irclog.perlgeek.de/perl6/2012-05-27#i_5643089
     13 skipped: Unable to resolve method wb in class Cursor
@@ -2166,7 +2189,7 @@ sh: line 1:  7775 Killed                  nice -20 mono ./run/Niecza.exe t/spec/
      3 todo   : ::: issue
      2 todo   : :: issues
      3 todo   : Unable to resolve method cntrl in class Cursor
-     7 tests aborted (missing ok/not ok)
+     6 tests aborted (missing ok/not ok)
 S05-mass/stdrules.niecza........................... 183    0    0    3  186
      3 skipped: <at>
 S05-match/arrayhash.niecza.........................   4    0    4    0    8
@@ -5852,10 +5875,10 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        3080,     0,   118,   263,  3461,  3683
-"S03",        4022,    36,   196,   366,  4620,  4347
+"S02",        3080,     0,   118,   263,  3461,  3703
+"S03",        3979,    79,   196,   366,  4620,  4347
 "S04",         823,     3,    34,    60,   920,  1008
-"S05",        4098,     9,   115,   206,  4428,  5801
+"S05",        4099,     8,   115,   206,  4428,  5801
 "S06",         773,     2,    56,   162,   993,  1290
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          65,     0,     0,     8,    73,   193
@@ -5871,16 +5894,17 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 "S26",           0,     0,     0,     0,     0,   266
 "S28",           6,     0,     1,     0,     7,    13
 "S29",         301,    11,     5,     6,   323,   336
-"S32",        6530,     3,   131,   279,  6943,  6220
+"S32",        6530,     3,   131,   279,  6943,  6238
 "int",         463,     1,    21,    27,   512,   560
-"total",     21336,    65,   751,  1606, 23758, 26208
+"total",     21294,   107,   751,  1606, 23758, 26246
 ----------------
 Failure summary:
+S03-binding/nested.t aborted 43 test(s)
 S03-operators/subscript-adverbs.niecza aborted 36 test(s)
 S04-statement-modifiers/if.t 6 - if expr on false cond
 S04-statement-modifiers/unless.t 4 - unless expr on true cond
 S04-statements/for.niecza 71 - Can use statement-modifying "for" in list comprehension
-S05-mass/rx.niecza aborted 7 test(s)
+S05-mass/rx.niecza aborted 6 test(s)
 S05-substitution/subst.niecza aborted 2 test(s)
 S06-signature/unpack-array.t 12 - array unpacking and only-subs
 S06-signature/unpack-array.t 13 - array unpacking and only-multi
