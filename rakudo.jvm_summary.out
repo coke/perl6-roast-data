@@ -104,7 +104,7 @@ S02-names-vars/names.rakudo.jvm.................... 126    1    2   13  142
      7 skipped: package variable autovivification
      1 todo   : nom regression
      1 todo   : dubious test - otherwise why is ::<$foo> allowed?
-S02-names-vars/perl.rakudo.jvm.....................  96    1    0    6    0
+S02-names-vars/perl.rakudo.jvm.....................  97    0    0    6    0
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -155,11 +155,11 @@ S02-types/autovivification.rakudo.jvm..............   7    0    2    4   13
      2 skipped: Undef to integer
      1 todo   : get_pmc_keyed() not implemented in class Undef
      1 todo   : prefix:<\>
-S02-types/bag.rakudo.jvm...........................  62    1   10   64  137
+S02-types/bag.rakudo.jvm...........................  62    0    8   67  137
     42 skipped: .Bag NYI
+     3 skipped: Non-Str keys NYI
     11 skipped: Bag.ACCEPTS NYI
     11 skipped: .Set NYI
-     2 todo   : 
      6 todo   : New bag constructor NYI
      2 todo   : Old implementation used values as bag counts
 S02-types/bool.t...................................  51    0    0    0   51
@@ -207,12 +207,12 @@ S02-types/infinity.rakudo.jvm......................   6    0    3    4   13
      4 skipped: integer Inf
      3 todo   : Int conversion of NaN and Inf
 S02-types/instants-and-durations.t.................  12    0    0    0   12
-S02-types/keybag.rakudo.jvm........................  83    1   21   66  171
+S02-types/keybag.rakudo.jvm........................  83    0   19   69  171
      2 skipped: :delete NYI
     32 skipped: Needs to catch up with spec
     21 skipped: .KeyBag NYI
+     3 skipped: Non-Str keys NYI
     11 skipped: KeyBag.ACCEPTS NYI
-     2 todo   : 
      7 todo   : Needs to catch up with spec
     12 todo   : todo
 S02-types/keyset.rakudo.jvm........................ 101    0   20   23  144
@@ -268,7 +268,7 @@ S02-types/sigils-and-types.rakudo.jvm..............  26    0    2    0   28
 S02-types/subscripts_and_context.t.................   8    0    0    0    8
 S02-types/subset.rakudo.jvm........................  41    1    0    1   43
      1 skipped: (noauto) succeeds for the wrong reason (need to test the error)
-S02-types/type.rakudo.jvm..........................  35    8    1    6   50
+S02-types/type.rakudo.jvm..........................  43    0    1    6   50
      6 skipped: native types (causes false positives if marked with todo)
      1 todo   : of
 S02-types/undefined-types.rakudo.jvm...............  40    0    6    3   49
@@ -340,9 +340,7 @@ S03-operators/adverbial-modifiers.rakudo.jvm.......  37    0    5    0   42
 S03-operators/also.rakudo.jvm......................   4    0    4    0    8
      4 todo   : nom regression
 S03-operators/andthen.t............................   8    0    0    0    8
-S03-operators/arith.rakudo.jvm..................... 139    0    4    0  143
-     2 todo   : negative div
-     2 todo   : negative mod
+S03-operators/arith.t.............................. 143    0    0    0  143
 S03-operators/assign-is-not-binding.t..............   8    0    0    0    8
 S03-operators/assign.rakudo.jvm.................... 246    0   17   22  285
      6 skipped: unknown reasons
@@ -851,8 +849,10 @@ S06-multi/proto.rakudo.jvm.........................  22    0    0    6   28
 S06-multi/redispatch.t.............................   9    1    0    0   10
 S06-multi/syntax.rakudo.jvm........................  41    0    0    1   42
      1 skipped: Multi typename...maybe deprecated?
-S06-multi/type-based.rakudo.jvm....................   0   53    0    0   53
-    53 tests aborted (missing ok/not ok)
+S06-multi/type-based.rakudo.jvm....................  43    0    0   10   53
+     3 skipped: our sub in class
+     6 skipped: Ambiguous dispatch for &f4
+     1 skipped: Cannot call 'rt107638'; none of these signatures match:
 S06-multi/unpackability.t..........................   6    4    0    0   10
 S06-multi/value-based.t............................  12    0    0    0   12
 S06-operator-overloading/imported-subs.t...........  19    0    0    0   19
@@ -923,7 +923,7 @@ S06-signature/tree-node-parameters.rakudo.jvm......  16    0    0    4   20
      4 skipped: signautre binding of return values NYI
 S06-signature/type-capture.rakudo.jvm..............   7    0    0    1    8
      1 skipped: nom regression
-S06-signature/types.t..............................   4    2    0    0    6
+S06-signature/types.t..............................   6    0    0    0    6
 S06-signature/unpack-array.t.......................  11    2    0    0   13
 S06-signature/unpack-object.t......................   4    0    0    0    4
 S06-signature/unspecified.rakudo.jvm...............   8    4    1    4   17
@@ -957,14 +957,13 @@ S09-hashes/objecthash.rakudo.jvm...................  25    0    0    6   31
      6 skipped: oh noes, it dies
 S09-subscript/slice.rakudo.jvm.....................  22    0    0    2   24
      2 skipped: RT 61844
-S09-typed-arrays/arrays.rakudo.jvm.................  25    4   12   18   59
+S09-typed-arrays/arrays.rakudo.jvm.................  29    0   12   18   59
      6 skipped: Array not parametric
      1 skipped: need parameterized Lists
      8 skipped: of Int
      1 skipped: type on our-variables
      2 skipped: initialization
-    10 todo   : no parametrization
-     2 todo PASSED: no parametrization
+    12 todo   : no parametrization
 S09-typed-arrays/hashes.rakudo.jvm.................  28    0    2    0   30
      2 todo   : of trait on vars
                                                    pass fail todo skip plan
@@ -1257,12 +1256,13 @@ S32-container/roundrobin.rakudo.jvm................   4    0    1    0    5
      1 todo   : over-flattening
 S32-container/zip.rakudo.jvm.......................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.jvm..................... 377    6    0   12    0
-     7 skipped: wrong exception type
+S32-exceptions/misc.rakudo.jvm..................... 467   18    0   22    0
+     1 skipped: RT 114134
+    16 skipped: wrong exception type
      1 skipped: parsing of $& and other p5 variables
      3 skipped: Code did not die, can not check exception
      1 skipped: parsing regression
-   395 tests more than planned were run
+   507 tests more than planned were run
 S32-hash/delete-adverb.rakudo.jvm.................. 154    6    8    0  168
      8 todo   : not being destructively read yet
 S32-hash/delete.t..................................  11    0    0    0   11
@@ -1566,13 +1566,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3107,    21,   188,   440,  3653,  3709
-"S03",        4423,    27,   116,   396,  4962,  4347
+"S02",        3116,    10,   184,   446,  3653,  3709
+"S03",        4427,    27,   112,   396,  4962,  4347
 "S04",         825,    54,    40,    53,   972,  1008
 "S05",        4718,     7,   115,   517,  5357,  5801
-"S06",        1002,   148,    26,   130,  1306,  1290
+"S06",        1047,    93,    26,   140,  1306,  1290
 "S07",           0,     0,     0,     0,     0,     0
-"S09",         144,     4,    18,    27,   193,   193
+"S09",         148,     0,    18,    27,   193,   193
 "S10",          59,     5,     1,     5,    70,   127
 "S11",          71,     0,     1,     8,    80,   135
 "S12",        1271,     8,    37,   127,  1443,  1344
@@ -1585,34 +1585,23 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         313,     5,     1,     7,   326,   336
-"S32",        8221,    70,   103,   279,  8278,  6240
+"S32",        8311,    82,   103,   289,  8278,  6240
 "int",         517,     0,    20,    34,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     25553,   371,   677,  2082, 28185, 26256
+"total",     25705,   313,   669,  2108, 28185, 26256
 ----------------
 Failure summary:
 S02-magicals/env.rakudo.jvm 14 - ENV members persist to child processes
 S02-magicals/pid.t 1 - my $*PID is different from a child $*PID
 S02-names-vars/names.rakudo.jvm 139 - error message mentions name not recognized, no maximum recursion depth exceeded
-S02-names-vars/perl.rakudo.jvm 90 - .perl on user-defined type roundtrips okay
 S02-names-vars/perl.rakudo.jvm passed 103 unplanned test(s)
 S02-names/is_default.rakudo.jvm 14 - should be able to assign Nil to typed variable
 S02-names/is_default.rakudo.jvm 18 - should be able to undefine typed variable
-S02-types/bag.rakudo.jvm 52 - And Str keys are permitted in the same set
 S02-types/capture.rakudo.jvm 2 - simply capture creation with \( works (2)
 S02-types/capture.rakudo.jvm 7 - capture creation with \$ works (2)
-S02-types/keybag.rakudo.jvm 69 - And Str keys are permitted in the same set
 S02-types/lists.rakudo.jvm 20 - error message contains name of class
 S02-types/nil.rakudo.jvm 20 - can assign Nil to subsets
 S02-types/subset.rakudo.jvm 26 - error for bad assignment mentions subset
-S02-types/type.rakudo.jvm 24 - bad return value dies (returns)
-S02-types/type.rakudo.jvm 26 - bad return value dies (of)
-S02-types/type.rakudo.jvm 28 - bad return value dies (my Type sub)
-S02-types/type.rakudo.jvm 30 - bad return value dies (-->)
-S02-types/type.rakudo.jvm 32 - bad implicit return value dies (returns)
-S02-types/type.rakudo.jvm 34 - bad implicit return value dies (of)
-S02-types/type.rakudo.jvm 36 - bad implicit return value dies (my Type sub)
-S02-types/type.rakudo.jvm 38 - bad implicit return value dies (-->)
 S03-operators/buf.t aborted 26 test(s)
 S03-smartmatch/capture-signature.t 4 - signature smart-match against array works (2)
 S04-blocks-and-statements/let.t 4 - let() should restore the variable, as our block failed
@@ -1676,7 +1665,6 @@ S06-multi/positional-vs-named.rakudo.jvm 7 - named her named me named him
 S06-multi/positional-vs-named.rakudo.jvm 8 - named her named him named me
 S06-multi/positional-vs-named.rakudo.jvm 13 - named me
 S06-multi/redispatch.t 10 - nextsame in main block dies due to lack of dispatcher
-S06-multi/type-based.rakudo.jvm aborted 53 test(s)
 S06-multi/unpackability.t 2 - multi dispatch on array packed with two elements
 S06-multi/unpackability.t 3 - multi dispatch on array packed with three elements
 S06-multi/unpackability.t 4 - multi dispatch on array packed with four elements
@@ -1703,18 +1691,12 @@ S06-signature/slurpy-params.rakudo.jvm 20 - Testing: `sub foo($n, *%h) { }; foo 
 S06-signature/sub-ref.rakudo.jvm 5 - invocation of a parameterless anonymous sub with a parameter dies
 S06-signature/sub-ref.rakudo.jvm 9 - invocation of a parameterless pointy block with a parameter dies
 S06-signature/sub-ref.rakudo.jvm 26 - calling an anonymous sub expecting one param with two params dies
-S06-signature/types.t 4 - type check forbids bad return
-S06-signature/types.t 6 - type check forbids bad  implicitreturn
 S06-signature/unpack-array.t 4 - fixed length array unpacking too long
 S06-signature/unpack-array.t 9 - unpack optional scalars; one required + too many optional
 S06-signature/unspecified.rakudo.jvm 3 - sub with no signature dies when given a named argument
 S06-signature/unspecified.rakudo.jvm 4 - sub with no signature dies when given positional argument
 S06-signature/unspecified.rakudo.jvm 8 - sub using positional param called with named param
 S06-signature/unspecified.rakudo.jvm 12 - named param sub dies with positional param
-S09-typed-arrays/arrays.rakudo.jvm 52 - type check Positional of Int prevents untyped array to be returned explicitly
-S09-typed-arrays/arrays.rakudo.jvm 53 - type check Positional of Int prevents untyped array to be returned implicitly
-S09-typed-arrays/arrays.rakudo.jvm 54 - type check Positional of Int prevents incorrectly typed array to be returned explicitly
-S09-typed-arrays/arrays.rakudo.jvm 55 - type check Positional of Int prevents incorrectly typed array to be returned implicitly
 S10-packages/basic.rakudo.jvm 13 - error message mentions the undefined grammar
 S10-packages/basic.rakudo.jvm 15 - error message mentions the undefined module
 S10-packages/basic.rakudo.jvm 17 - error message mentions the undefined role
@@ -1758,7 +1740,19 @@ S32-exceptions/misc.rakudo.jvm 345 - right exception type (X::Phaser::PrePost)
 S32-exceptions/misc.rakudo.jvm 348 - 'my sub a { POST 0 }; a()' died
 S32-exceptions/misc.rakudo.jvm 367 - right exception type (X::Method::NotFound)
 S32-exceptions/misc.rakudo.jvm 380 - right exception type (X::Method::NotFound)
-S32-exceptions/misc.rakudo.jvm passed 395 unplanned test(s)
+S32-exceptions/misc.rakudo.jvm 404 - right exception type (X::TypeCheck::Binding)
+S32-exceptions/misc.rakudo.jvm 408 - right exception type (X::TypeCheck::Return)
+S32-exceptions/misc.rakudo.jvm 412 - right exception type (X::TypeCheck::Assignment)
+S32-exceptions/misc.rakudo.jvm 417 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.jvm 419 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.jvm 421 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.jvm 423 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.jvm 425 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.jvm 427 - right exception type (X::Method::NotFound)
+S32-exceptions/misc.rakudo.jvm 461 - right exception type (X::ControlFlow::Return)
+S32-exceptions/misc.rakudo.jvm 485 - nextsame in proto
+S32-exceptions/misc.rakudo.jvm 507 - huc throws X::Undeclared::Symbols
+S32-exceptions/misc.rakudo.jvm passed 507 unplanned test(s)
 S32-hash/delete-adverb.rakudo.jvm 98 - Test deletion with whatever
 S32-hash/delete-adverb.rakudo.jvm 100 - Test non-deletion with ! *
 S32-hash/delete-adverb.rakudo.jvm 101 - Test non-deletion with (0) *
