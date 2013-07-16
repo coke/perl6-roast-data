@@ -1961,7 +1961,13 @@ Use of uninitialized value in string context
   at <unknown> line 0 (ExitRunloop @ 0) 
   20    0    1    0   21
      1 todo   : 
-S04-statement-modifiers/for.niecza.................  18    0    2    0   20
+S04-statement-modifiers/for.niecza.................Potential difficulties:
+  'for $v' will never flatten a $ variable;
+	to force list interpolation, please use either 'for @$v' or 'for $v[]';
+	if you just want item topicalization, use 'given $v' instead at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-statement-modifiers/for.niecza line 60:
+------> [32m    $a ~= "<$_>" for [33m⏏[31m$v;[0m
+
+  18    0    2    0   20
      2 todo   : closure for
 S04-statement-modifiers/given.t....................   5    0    0    0    5
 S04-statement-modifiers/if.t.......................Potential difficulties:
@@ -2028,7 +2034,17 @@ Use of Nil as a string
      1 skipped: slice context
      2 todo   : array iterator does not track a growing array
      2 todo   : NYI
-S04-statements/for_with_only_one_item.t............   9    0    0    0    9
+S04-statements/for_with_only_one_item.t............Potential difficulties:
+  'for $arrayref' will never flatten a $ variable;
+	to force list interpolation, please use either 'for @$arrayref' or 'for $arrayref[]';
+	if you just want item topicalization, use 'given $arrayref' instead at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-statements/for_with_only_one_item.t line 73:
+------> [32m  for [33m⏏[31m$arrayref { $count++ }[0m
+  'for $capture' will never flatten a $ variable;
+	to force list interpolation, please use either 'for @$capture' or 'for $capture[]';
+	if you just want item topicalization, use 'given $capture' instead at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-statements/for_with_only_one_item.t line 82:
+------> [32m  for [33m⏏[31m$capture { $count++ }[0m
+
+   9    0    0    0    9
 S04-statements/gather.niecza.......................Potential difficulties:
   $result is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S04-statements/gather.niecza line 111:
 ------> [32m    my [33m⏏[31m$result = @list[2];[0m
@@ -2182,7 +2198,7 @@ S05-mass/rx.niecza.................................Potential difficulties:
   $rt112450 is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S05-mass/rx.niecza line 2572:
 ------> [32m    my [33m⏏[31m$rt112450 = 4;[0m
 
-sh: line 1:  8385 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
+sh: line 1:  8760 Killed                  nice -20 mono ./run/Niecza.exe t/spec/S05-mass/rx.niecza
  666    7   19   47  739
      1 skipped: Unable to resolve method alpha in class Cursor
      2 skipped: Dubious test, http://irclog.perlgeek.de/perl6/2012-05-27#i_5643089
@@ -3029,6 +3045,10 @@ S06-signature/named-placeholders.t.................   3    0    0    0    3
 S06-signature/named-renaming.t.....................  10    0    0    0   10
 S06-signature/optional.t...........................  25    0    0    0   25
 S06-signature/passing-arrays.t.....................Potential difficulties:
+  'for $a' will never flatten a $ variable;
+	to force list interpolation, please use either 'for @$a' or 'for $a[]';
+	if you just want item topicalization, use 'given $a' instead at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-signature/passing-arrays.t line 22:
+------> [32m        $x++ for [33m⏏[31m$a;[0m
   @b is declared but not used at /home/coke/sandbox/perl6pass/niecza/t/spec/S06-signature/passing-arrays.t line 17:
 ------> [32m    is count(my [33m⏏[31m@b = 1, 2, 3, 4), 4, 'count(my @b = 1, 2[0m
 
@@ -3685,24 +3705,24 @@ S12-enums/anonymous.t..............................Use of uninitialized value in
   at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 266 (Mu.Str @ 15) 
   at <unknown> line 0 (ExitRunloop @ 0) 
   at /home/coke/sandbox/perl6pass/niecza/src/NieczaActions.pm6 line 3139 (NieczaActions.type_declarator:enum @ 52) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 2745 (P6.type_declarator:enum @ 21) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 2757 (P6.type_declarator:enum @ 21) 
   at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 0 (STD.type_declarator @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 2007 (P6.term:type_declarator @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 2019 (P6.term:type_declarator @ 3) 
   at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 0 (STD.term @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1999 (P6.termish @ 15) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 4543 (ANON @ 10) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 4651 (STD.EXPR @ 25) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 2769 (P6.initializer:sym<=> @ 8) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 2011 (P6.termish @ 15) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 4555 (ANON @ 10) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 4663 (STD.EXPR @ 25) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 2781 (P6.initializer:sym<=> @ 8) 
   at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 0 (STD.initializer @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1767 (P6.declarator @ 16) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1632 (P6.scoped @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1632 (P6.scope_declarator:my @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1779 (P6.declarator @ 16) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1644 (P6.scoped @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1644 (P6.scope_declarator:my @ 5) 
   at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 0 (STD.scope_declarator @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 2003 (P6.term:scope_declarator @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 2015 (P6.term:scope_declarator @ 3) 
   at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 0 (STD.term @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1999 (P6.termish @ 15) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 4543 (ANON @ 10) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 4651 (STD.EXPR @ 25) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 2011 (P6.termish @ 15) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 4555 (ANON @ 10) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 4663 (STD.EXPR @ 25) 
   at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1351 (P6.statement @ 13) 
   at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1287 (P6.statementlist @ 16) 
   at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1158 (P6.comp_unit @ 9) 
@@ -3721,24 +3741,24 @@ Use of uninitialized value in string context
   at /home/coke/sandbox/perl6pass/niecza/boot/lib/CORE.setting line 266 (Mu.Str @ 15) 
   at <unknown> line 0 (ExitRunloop @ 0) 
   at /home/coke/sandbox/perl6pass/niecza/src/NieczaActions.pm6 line 3139 (NieczaActions.type_declarator:enum @ 52) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 2745 (P6.type_declarator:enum @ 21) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 2757 (P6.type_declarator:enum @ 21) 
   at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 0 (STD.type_declarator @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 2007 (P6.term:type_declarator @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 2019 (P6.term:type_declarator @ 3) 
   at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 0 (STD.term @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1999 (P6.termish @ 15) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 4543 (ANON @ 10) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 4651 (STD.EXPR @ 25) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 2769 (P6.initializer:sym<=> @ 8) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 2011 (P6.termish @ 15) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 4555 (ANON @ 10) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 4663 (STD.EXPR @ 25) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 2781 (P6.initializer:sym<=> @ 8) 
   at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 0 (STD.initializer @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1767 (P6.declarator @ 16) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1632 (P6.scoped @ 5) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1632 (P6.scope_declarator:my @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1779 (P6.declarator @ 16) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1644 (P6.scoped @ 5) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1644 (P6.scope_declarator:my @ 5) 
   at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 0 (STD.scope_declarator @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 2003 (P6.term:scope_declarator @ 3) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 2015 (P6.term:scope_declarator @ 3) 
   at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 0 (STD.term @ 3) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1999 (P6.termish @ 15) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 4543 (ANON @ 10) 
-  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 4651 (STD.EXPR @ 25) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 2011 (P6.termish @ 15) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 4555 (ANON @ 10) 
+  at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 4663 (STD.EXPR @ 25) 
   at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1351 (P6.statement @ 13) 
   at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1287 (P6.statementlist @ 16) 
   at /home/coke/sandbox/perl6pass/niecza/src/STD.pm6 line 1158 (P6.comp_unit @ 9) 
@@ -3779,7 +3799,17 @@ S12-introspection/can.niecza.......................Potential difficulties:
     10 skipped: No match
      1 todo   : 
      1 todo   : .can returns something Positional
-S12-methods/accessors.niecza.......................   6    0    2    0    8
+S12-methods/accessors.niecza.......................Potential difficulties:
+  'for $.a' will never flatten a $ variable;
+	to force list interpolation, please use either 'for @$.a' or 'for $.a[]';
+	if you just want item topicalization, use 'given $.a' instead at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-methods/accessors.niecza line 16:
+------> [32m        $x++ for [33m⏏[31m$.a;[0m
+  'for $.b' will never flatten a $ variable;
+	to force list interpolation, please use either 'for @$.b' or 'for $.b[]';
+	if you just want item topicalization, use 'given $.b' instead at /home/coke/sandbox/perl6pass/niecza/t/spec/S12-methods/accessors.niecza line 26:
+------> [32m        $x++ for [33m⏏[31m$.b;[0m
+
+   6    0    2    0    8
      2 todo   : 
 S12-methods/attribute-params.t.....................  13    0    0    0   13
 S12-methods/calling_syntax.t.......................  11    0    0    0   11
