@@ -20,7 +20,7 @@ S02-lexical-conventions/unicode.rakudo.jvm.........  33    0    1    4   38
      2 skipped: tc
      2 skipped: VOWEL SIGNs in identifiers
      1 todo   : PS does not work to separate lines
-S02-lexical-conventions/unspace.rakudo.jvm.........  49    0    2   26   77
+S02-lexical-conventions/unspace.rakudo.jvm.........  50    0    2   26   78
      1 skipped: dotty postfix
      4 skipped: =for pod not implemented (in STD.pm)
      1 skipped: parse fail
@@ -512,17 +512,17 @@ S03-smartmatch/regex-hash.t........................   4    0    0    0    4
 S03-smartmatch/scalar-hash.t.......................   3    0    0    0    3
 S03-smartmatch/signature-signature.t...............   5    0    0    0    5
                                                    pass fail todo skip plan
-S04-blocks-and-statements/let.t....................   8    4    0    0   12
+S04-blocks-and-statements/let.t....................  12    0    0    0   12
 S04-blocks-and-statements/pointy-rw.rakudo.jvm.....   8    0    2    0   10
      2 todo   : rw Hash.values
 S04-blocks-and-statements/pointy.rakudo.jvm........  12    0    2    3   17
      3 skipped: Could not find non-existent sub junction
      1 todo   : pointy blocks and last/redo
      1 todo   : &?ROUTINE
-S04-blocks-and-statements/temp.rakudo.jvm..........  10    9    2   15   36
+S04-blocks-and-statements/temp.rakudo.jvm..........  19    0    2   15   36
     15 skipped: TEMP phasers NYI
-     1 todo   : temp + recursion
-     1 todo   : temp and recursion
+     1 todo PASSED: temp and recursion
+     1 todo PASSED: temp + recursion
 S04-declarations/constant.rakudo.jvm...............  37    1    3    6   47
      2 skipped: binding
      3 skipped: constants as type constraints
@@ -556,12 +556,13 @@ S04-phasers/check.t................................   5    0    0    0    5
 S04-phasers/descending-order.t.....................   7    0    0    0    7
 S04-phasers/end.rakudo.jvm.........................   3    0    2    0    5
      2 todo   : lexicals and eval()
-S04-phasers/enter-leave.rakudo.jvm.................   5   14    1    1   21
+S04-phasers/enter-leave.rakudo.jvm.................  17    2    1    1   21
      1 skipped: some syntax error while parsing
      1 todo   : is this spec? why would LEAVE not see outer $!? fossil?
+     1 tests aborted (missing ok/not ok)
 S04-phasers/eval-in-begin.t........................   3    0    0    0    3
 S04-phasers/first.t................................   4    0    0    0    4
-S04-phasers/keep-undo.t............................   4    8    0    0   12
+S04-phasers/keep-undo.t............................  12    0    0    0   12
 S04-phasers/multiple.t.............................   2    0    0    0    2
 S04-phasers/next.rakudo.jvm........................  10    0    2    1   13
      1 skipped: leave NYI
@@ -828,8 +829,11 @@ S06-advanced/recurse.t.............................  13    0    0    0   13
 S06-advanced/return.rakudo.jvm.....................  75    0    1    3   79
      3 skipped: RT 75118
      1 todo   : RT 61732
-S06-advanced/wrap.rakudo.jvm.......................  21   47    0    0   68
-    47 tests aborted (missing ok/not ok)
+S06-advanced/wrap.rakudo.jvm.......................  61    2    2    3   68
+     3 skipped: temp and wrap
+     1 todo   : RT 70267: call to nextsame with nowhere to go
+     1 todo   : callwith
+     2 tests aborted (missing ok/not ok)
 S06-currying/assuming-and-mmd.t....................   6    0    0    0    6
 S06-currying/named.t...............................   3    0    0    0    3
 S06-macros/errors.t................................   2    0    0    0    2
@@ -1093,7 +1097,7 @@ S12-methods/indirect_notation.rakudo.jvm...........  10    0    0   23   33
 S12-methods/instance.rakudo.jvm....................  36    0    0    2   38
      2 skipped: indirect object notation
 S12-methods/lastcall.t.............................   6    0    0    0    6
-S12-methods/lvalue.t...............................  12    4    0    0   16
+S12-methods/lvalue.t...............................  16    0    0    0   16
 S12-methods/method-vs-sub.rakudo.jvm...............   4    0    0    1    5
      1 skipped: confused near "($obj:),  "
 S12-methods/multi.rakudo.jvm.......................  26    0    1    5   32
@@ -1154,9 +1158,8 @@ S14-roles/parameterized-type.rakudo.jvm............  23    0    2    4   29
 S14-roles/stubs.t..................................   9    0    0    0    9
 S14-roles/submethods.t.............................   4    0    0    0    4
 S14-traits/attributes.t............................   8    0    0    0    8
-S14-traits/routines.rakudo.jvm.....................  11    1    1    0   13
+S14-traits/routines.rakudo.jvm.....................  12    0    1    0   13
      1 todo   : trait mod / .wrap interaction
-     1 tests aborted (missing ok/not ok)
                                                    pass fail todo skip plan
 S16-filehandles/chmod.t............................  16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
@@ -1485,7 +1488,8 @@ integration/99problems-11-to-20.rakudo.jvm.........  23    0    2    0   25
      2 todo   : unknown
 integration/99problems-21-to-30.rakudo.jvm.........  11    0    3    1   15
      1 skipped: autovivification
-     3 todo   : unknown
+     2 todo   : unknown
+     1 todo PASSED: unknown
 integration/99problems-31-to-40.t..................  66    0    0    1   67
      1 skipped: No Benchmark module yet
 integration/99problems-41-to-50.rakudo.jvm.........   5    0    0    6   11
@@ -1538,9 +1542,8 @@ integration/advent2009-day23.rakudo.jvm............   3    0    0    1    4
      1 skipped: lists aren't properly lazy in Rakudo yet
 integration/advent2010-day04.t.....................  11    0    0    0   11
 integration/code-blocks-as-sub-args.t..............   4    0    0    0    4
-integration/error-reporting.rakudo.jvm.............   3    0    9    4   16
-     4 skipped: No such attribute "$!do" for this object
-     9 todo   : nigh
+integration/error-reporting.rakudo.jvm.............   6    4    6    0   16
+     6 todo   : nigh
 integration/lazy-bentley-generator.t...............   1    0    0    0    1
 integration/lexical-array-in-inner-block.t.........   2    0    0    0    2
 integration/lexicals-and-attributes.t..............   8    0    0    0    8
@@ -1565,18 +1568,18 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3120,     6,   184,   446,  3653,  3709
+"S02",        3121,     6,   184,   446,  3654,  3710
 "S03",        4428,    26,   112,   396,  4962,  4347
-"S04",         826,    53,    40,    53,   972,  1008
+"S04",         859,    20,    40,    53,   972,  1008
 "S05",        4718,     7,   115,   517,  5357,  5801
-"S06",        1082,    58,    26,   140,  1306,  1290
+"S06",        1122,    13,    28,   143,  1306,  1290
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         148,     0,    18,    27,   193,   193
 "S10",          64,     0,     1,     5,    70,   127
 "S11",          71,     0,     1,     8,    80,   135
-"S12",        1274,     5,    37,   127,  1443,  1344
+"S12",        1278,     1,    37,   127,  1443,  1344
 "S13",          70,     0,     0,     0,    70,    80
-"S14",         275,    10,     6,    17,   308,   327
+"S14",         276,     9,     6,    17,   308,   327
 "S16",         218,     9,     5,    21,   253,   297
 "S17",           0,     0,     0,     0,     0,    28
 "S19",           1,     3,     0,     0,     4,     4
@@ -1585,9 +1588,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         313,     5,     1,     7,   326,   336
 "S32",        8351,    76,   103,   284,  8814,  6240
-"int",         517,     0,    20,    34,   571,   560
+"int",         520,     4,    17,    30,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     25794,   258,   669,  2103, 28721, 26256
+"total",     25876,   179,   668,  2102, 28722, 26257
 ----------------
 Failure summary:
 S02-magicals/env.rakudo.jvm 14 - ENV members persist to child processes
@@ -1598,42 +1601,9 @@ S02-names/is_default.rakudo.jvm 18 - should be able to undefine typed variable
 S02-types/lists.rakudo.jvm 20 - error message contains name of class
 S02-types/nil.rakudo.jvm 20 - can assign Nil to subsets
 S03-operators/buf.t aborted 26 test(s)
-S04-blocks-and-statements/let.t 4 - let() should restore the variable, as our block failed
-S04-blocks-and-statements/let.t 9 - let() restored the variable, the block was exited using an exception
-S04-blocks-and-statements/let.t 11 - let() restored our array element
-S04-blocks-and-statements/let.t 12 - fail() resets let variables
-S04-blocks-and-statements/temp.rakudo.jvm 2 - temp() restored the variable (1)
-S04-blocks-and-statements/temp.rakudo.jvm 5 - temp() restored the variable (2)
-S04-blocks-and-statements/temp.rakudo.jvm 8 - temp() restored the package variable (3-2)
-S04-blocks-and-statements/temp.rakudo.jvm 10 - temp() restored the variable, the block was exited using an exception
-S04-blocks-and-statements/temp.rakudo.jvm 12 - temp() restored our array element
-S04-blocks-and-statements/temp.rakudo.jvm 14 - temp() restored our array element
-S04-blocks-and-statements/temp.rakudo.jvm 16 - temp() restored our nested arrayref/hashref element
-S04-blocks-and-statements/temp.rakudo.jvm 33 - multiple temps in the same scope are restored properly
-S04-blocks-and-statements/temp.rakudo.jvm 35 - non-recursive function properly resets value
 S04-declarations/constant.rakudo.jvm 23 - a constant declared using 'constant' is actually constant (1)
-S04-phasers/enter-leave.rakudo.jvm 1 - 
-S04-phasers/enter-leave.rakudo.jvm 2 - 
-S04-phasers/enter-leave.rakudo.jvm 3 - 
-S04-phasers/enter-leave.rakudo.jvm 4 - 
-S04-phasers/enter-leave.rakudo.jvm 5 - multiple ENTER/LEAVE worked
-S04-phasers/enter-leave.rakudo.jvm 6 - ENTER/LEAVE repeats on loop blocks
-S04-phasers/enter-leave.rakudo.jvm 8 - LEAVE executed at the 1st explicit return
-S04-phasers/enter-leave.rakudo.jvm 10 - LEAVE executed at the 2nd explicit return
-S04-phasers/enter-leave.rakudo.jvm 12 - die calls LEAVE blocks
-S04-phasers/enter-leave.rakudo.jvm 13 - $! set in LEAVE if exception thrown
-S04-phasers/enter-leave.rakudo.jvm 17 - die in ENTER calls LEAVE
-S04-phasers/enter-leave.rakudo.jvm 19 - die doesn't abort LEAVE queue
-S04-phasers/enter-leave.rakudo.jvm 20 - LEAVE fires in a multi sub
-S04-phasers/enter-leave.rakudo.jvm 21 - next triggers LEAVE
-S04-phasers/keep-undo.t 2 - KEEP ran as expected
-S04-phasers/keep-undo.t 4 - UNDO worked as expected
-S04-phasers/keep-undo.t 6 - UNDO worked as expected
-S04-phasers/keep-undo.t 7 - KEEP triggered as part of LEAVE blocks
-S04-phasers/keep-undo.t 8 - UNDO triggered as part of LEAVE blocks
-S04-phasers/keep-undo.t 9 - 2 KEEP blocks triggered
-S04-phasers/keep-undo.t 10 - 2 UNDO blocks triggered
-S04-phasers/keep-undo.t 12 - fail() triggers UNDO
+S04-phasers/enter-leave.rakudo.jvm 16 - die in LEAVE caught by try
+S04-phasers/enter-leave.rakudo.jvm aborted 1 test(s)
 S04-phasers/rvalue.t 10 - CHECK {} runs only once
 S04-phasers/rvalue.t 11 - CHECK {} as rval is its ret val
 S04-phasers/rvalue.t 12 - CHECK {} runs only once
@@ -1648,17 +1618,13 @@ S05-metachars/newline.rakudo.jvm 6 - NEL
 S05-metachars/newline.rakudo.jvm 13 - not NEL
 S05-modifier/perl5_5.rakudo.jvm 5 - re_tests 617/1 (801)
 S06-advanced/callframe.rakudo.jvm 2 - callframe().line
-S06-advanced/wrap.rakudo.jvm aborted 47 test(s)
+S06-advanced/wrap.rakudo.jvm aborted 2 test(s)
 S06-macros/quasi-blocks.t aborted 5 test(s)
 S06-other/main-usage.rakudo.jvm 3 - if the MAIN dispatch results in an error, that error should be printed, not USAGE
 S06-other/main-usage.rakudo.jvm 4 - auto-generated USAGE message goes to $*ERR and contains parameter name
 S06-other/main-usage.rakudo.jvm 11 - Non Bool option last with no value
 S06-other/main-usage.rakudo.jvm 20 - superfluous options trigger usage message
 S06-signature/errors.t 10 - 
-S12-methods/lvalue.t 10 - ... and the value was reset
-S12-methods/lvalue.t 11 - ... also on the attribute
-S12-methods/lvalue.t 14 - ... and the value was reset
-S12-methods/lvalue.t 15 - ... also on the attribute
 S12-subset/subtypes.rakudo.jvm 68 - subsets of roles (2)
 S14-roles/anonymous.rakudo.jvm 7 - anonymous role variable mixin
 S14-roles/anonymous.rakudo.jvm 9 - anonymous role variable gave us an attribute
@@ -1669,7 +1635,6 @@ S14-roles/parameter-subtyping.t 8 - subtyping by role parameters (nested)
 S14-roles/parameter-subtyping.t 12 - basic sanity
 S14-roles/parameter-subtyping.t 13 - subtyping by role parameters (two params)
 S14-roles/parameter-subtyping.t 14 - subtyping by role parameters (two params)
-S14-traits/routines.rakudo.jvm aborted 1 test(s)
 S16-filehandles/io.rakudo.jvm aborted 7 test(s)
 S16-io/bare-say.rakudo.jvm 8 - for %h { .say } (RT 74822)
 S16-io/getc.t aborted 1 test(s)
@@ -1720,4 +1685,8 @@ S32-str/substr.rakudo.jvm 28 - Sanity check string
 S32-str/substr.rakudo.jvm 29 - Taking first char of Deseret string
 S32-str/substr.rakudo.jvm 30 - Taking second char of Deseret string
 S32-str/unpack.t aborted 12 test(s)
+integration/error-reporting.rakudo.jvm 1 - Parse error contains line number
+integration/error-reporting.rakudo.jvm 4 - got the right line number for nonexisting sub inside another sub
+integration/error-reporting.rakudo.jvm 5 - non-existing subroutine is caught before run time
+integration/error-reporting.rakudo.jvm 12 - END phasers are run after die()
 note: test_summary.pl @syn does not have ros
