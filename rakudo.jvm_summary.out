@@ -92,9 +92,7 @@ S02-magicals/progname.t............................   4    0    0    0    4
 S02-magicals/sub.t.................................   6    0    0    0    6
 S02-magicals/vm.t..................................   3    0    0    0    3
 S02-names-vars/contextual.t........................  23    0    0    0   23
-S02-names-vars/fmt.rakudo.jvm......................  19    0    2    0   21
-     1 todo   : precision in Num.fmt
-     1 todo   : %f
+S02-names-vars/fmt.t...............................  21    0    0    0   21
 S02-names-vars/list_array_perl.rakudo.jvm..........  18    0    1    2   21
      2 skipped: recursive data structure
      1 todo   : List.perl bug
@@ -104,7 +102,7 @@ S02-names-vars/names.rakudo.jvm.................... 127    0    2   13  142
      7 skipped: package variable autovivification
      1 todo   : nom regression
      1 todo   : dubious test - otherwise why is ::<$foo> allowed?
-S02-names-vars/perl.rakudo.jvm.....................  97    0    0    6    0
+S02-names-vars/perl.rakudo.jvm.....................  96    1    0    6    0
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -201,7 +199,8 @@ S02-types/declare.rakudo.jvm.......................  48    0    2   28   78
      1 todo   : num not implemented
 S02-types/fatrat.t.................................   1    0    0    0    1
 S02-types/flattening.t.............................  37    0    0    0   37
-S02-types/hash.t...................................  81    0    0    0   81
+S02-types/hash.rakudo.jvm..........................  85    0    0    1   86
+     1 skipped: Oh no, it dies
 S02-types/hash_ref.t...............................  31    0    0    0   31
 S02-types/infinity.rakudo.jvm......................   6    0    3    4   13
      4 skipped: integer Inf
@@ -1428,11 +1427,9 @@ S32-str/split-simple.rakudo.jvm....................  48    0    1    0   49
 S32-str/split.rakudo.jvm...........................  34    0    0    3   37
      2 skipped: RT #63066 loops forever
      1 skipped: loops on zero-width match
-S32-str/sprintf.rakudo.jvm......................... 104    0   20    2  126
+S32-str/sprintf.rakudo.jvm......................... 126    0    0    2  128
      1 skipped: %p doesn't yet throw exception - but should it, or just Failure?
      1 skipped: doesn't work in master (as of 2010-07)
-    10 todo PASSED: sprintf does not handle bigints yet
-    10 todo PASSED: sprintf does not handle big Rats yet
 S32-str/substr-rw.rakudo.jvm.......................   0    0    0    0    0
 S32-str/substr.rakudo.jvm..........................  53    3    0   36   92
     28 skipped: No support for StrPos
@@ -1561,7 +1558,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3140,     6,   184,   446,  3673,  3717
+"S02",        3145,     7,   182,   447,  3678,  3722
 "S03",        4428,    26,   112,   396,  4962,  4347
 "S04",         869,    20,    32,    51,   972,  1008
 "S05",        4718,     7,   115,   517,  5357,  5801
@@ -1580,14 +1577,15 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         313,     5,     1,     7,   326,   336
-"S32",        8387,    65,    91,   276,  8819,  6241
+"S32",        8409,    65,    71,   276,  8821,  6243
 "int",         520,     4,    17,    30,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     25961,   159,   646,  2083, 28746, 26265
+"total",     25988,   160,   624,  2084, 28753, 26272
 ----------------
 Failure summary:
 S02-magicals/env.rakudo.jvm 14 - ENV members persist to child processes
 S02-magicals/pid.t 1 - my $*PID is different from a child $*PID
+S02-names-vars/perl.rakudo.jvm 90 - .perl on user-defined type roundtrips okay
 S02-names-vars/perl.rakudo.jvm passed 103 unplanned test(s)
 S02-names/is_default.rakudo.jvm 14 - should be able to assign Nil to typed variable
 S02-names/is_default.rakudo.jvm 18 - should be able to undefine typed variable

@@ -119,9 +119,7 @@ S02-magicals/progname.t............................   4    0    0    0    4
 S02-magicals/sub.t.................................   6    0    0    0    6
 S02-magicals/vm.t..................................   3    0    0    0    3
 S02-names-vars/contextual.t........................  23    0    0    0   23
-S02-names-vars/fmt.rakudo.parrot...................  19    0    2    0   21
-     1 todo   : precision in Num.fmt
-     1 todo   : %f
+S02-names-vars/fmt.t...............................  21    0    0    0   21
 S02-names-vars/list_array_perl.rakudo.parrot.......  18    0    1    2   21
      2 skipped: recursive data structure
      1 todo   : List.perl bug
@@ -277,11 +275,12 @@ S02-types/declare.rakudo.parrot....................  48    0    2   28   78
      1 todo   : num not implemented
 S02-types/fatrat.t.................................   1    0    0    0    1
 S02-types/flattening.t.............................  37    0    0    0   37
-S02-types/hash.t...................................use of uninitialized value of type Any in string context  in block  at t/spec/S02-types/hash.t:201
+S02-types/hash.rakudo.parrot.......................use of uninitialized value of type Any in string context  in block  at t/spec/S02-types/hash.rakudo.parrot:201
 
 use of uninitialized value of type Failure in string context  in sub is at lib/Test.pm:81
 
-  81    0    0    0   81
+  85    0    0    1   86
+     1 skipped: Oh no, it dies
 S02-types/hash_ref.t...............................  31    0    0    0   31
 S02-types/infinity.rakudo.parrot...................   6    0    3    4   13
      4 skipped: integer Inf
@@ -1178,11 +1177,8 @@ use of uninitialized value of type Any in string context  in block  at t/spec/S0
      2 skipped: s:g[...] =
      3 skipped: s[...] op= RHS
      1 todo   : be smarter about constant detection
-S05-transliteration/trans.rakudo.parrot............  41    0    0   19   60
-     2 skipped: closures and regexes
-     5 skipped: tr///, feed operator not implemented
-    11 skipped: flags
-     1 skipped: disambiguate ranges
+S05-transliteration/trans.rakudo.parrot............   0   60    0    0   60
+    60 tests aborted (missing ok/not ok)
 S05-transliteration/with-closure.rakudo.parrot.....use of uninitialized value of type Any in string context  in block  at t/spec/S05-transliteration/with-closure.rakudo.parrot:48
 
 use of uninitialized value of type Any in string context  in block  at t/spec/S05-transliteration/with-closure.rakudo.parrot:48
@@ -1965,13 +1961,13 @@ S32-str/split-simple.rakudo.parrot.................  48    0    1    0   49
 S32-str/split.rakudo.parrot........................  34    0    0    3   37
      2 skipped: RT #63066 loops forever
      1 skipped: loops on zero-width match
-S32-str/sprintf.rakudo.parrot......................  98    0   20    8  126
+S32-str/sprintf.rakudo.parrot......................  98    0   22    8  128
      5 skipped: sprintf %F NYI
      1 skipped: %p doesn't yet throw exception - but should it, or just Failure?
      1 skipped: doesn't work in master (as of 2010-07)
      1 skipped: Underlying Parrot problem
     10 todo   : sprintf does not handle bigints yet
-    10 todo   : sprintf does not handle big Rats yet
+    12 todo   : sprintf does not handle big Rats yet
 S32-str/substr-rw.rakudo.parrot....................  19    0   12    0   31
     12 todo   : NYI
 S32-str/substr.rakudo.parrot.......................use of uninitialized value of type Failure in string context  in sub is at lib/Test.pm:81
@@ -2470,10 +2466,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3153,     0,   186,   438,  3777,  3717
+"S02",        3159,     0,   184,   439,  3782,  3722
 "S03",        4447,     0,   119,   396,  4962,  4347
 "S04",         890,     0,    33,    49,   972,  1008
-"S05",        4725,     0,   115,   517,  5357,  5801
+"S05",        4684,    60,   115,   498,  5357,  5801
 "S06",        1141,     0,    29,   136,  1306,  1290
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         148,     0,    18,    27,   193,   193
@@ -2489,12 +2485,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         318,     0,     1,     7,   326,   336
-"S32",        8520,     2,   106,   251,  8879,  6241
+"S32",        8520,     2,   108,   251,  8881,  6243
 "int",         538,     0,     8,    25,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26204,     2,   663,  2041, 28910, 26265
+"total",     26169,    62,   663,  2023, 28917, 26272
 ----------------
 Failure summary:
+S05-transliteration/trans.rakudo.parrot aborted 60 test(s)
 S32-io/io-spec-unix.t aborted 1 test(s)
 S32-io/io-spec-win.t aborted 1 test(s)
 note: test_summary.pl @syn does not have ros

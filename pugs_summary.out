@@ -20,9 +20,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xa5f2858)'
+#     Actual: 'CODE(0xacfd858)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xa5f2b78)'
+#     Actual: 'CODE(0xacfdb78)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -483,22 +483,17 @@ S02-types/hash.pugs................................#   Expected: '1'
 #     Actual: No exception thrown
 #     Actual: An exception was thrown : Must only use named arguments to new() constructor
 # Be sure to use bareword keys.
-#     Actual: No exception thrown
-#   Expected: 'Inf	|a	1|b	2|c	3'
-#     Actual: ''
-#   Expected: 'x'
-#     Actual: 'undef'
-#   Expected: 'y'
-#     Actual: 'undef'
-#     Actual: An exception was thrown : 
-# Unexpected "-"
-# expecting "=", "::", qualified identifier, "?" or variable name
-#     Actual: An exception was thrown : 
-# Unexpected end of input
-  61    0   15    5   81
+#   Failed test (t/spec/S02-types/hash.pugs line 237, column 5-84)
+#   Expected: '0'
+#     Actual: '1'
+# Looks like you planned 86 tests, but ran 71
+# Looks like you failed 1 tests of 71
+*** Unimplemented unaryOp: hash
+    at t/spec/S02-types/hash.pugs line 240, column 24-43
+  57   16    9    4   86
      4 skipped: .value
-     1 skipped: No compatible multi variant found: "&is"
-    15 todo   : fix by Christmas
+     9 todo   : fix by Christmas
+    15 tests aborted (missing ok/not ok)
 S02-types/hash_ref.pugs............................#   Expected: 'undef'
 #     Actual: '(Array)'
   27    0    1    3   31
@@ -4455,7 +4450,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c1fae1>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6c1f995>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c1fae1>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6c1f995>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d360f9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6d387c9>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d360f9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6d387c9>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
   16    0    2    1   19
@@ -4610,13 +4605,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.28189.910
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.28189.910
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.28189.910
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.28189.910
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.28189.910
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.28189.910
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.28189.910
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.7430.477
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.7430.477
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.7430.477
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.7430.477
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.7430.477
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.7430.477
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.7430.477
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -5478,7 +5473,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",          27,     0,     8,    12,    47,    79
-"S02",        1420,     0,   316,   465,  2201,  3817
+"S02",        1416,    16,   310,   464,  2206,  3822
 "S03",        1864,     0,   286,   304,  2454,  4347
 "S04",         488,     0,   111,    88,   687,  1008
 "S05",        2215,     0,  2207,    56,  4478,  5801
@@ -5497,9 +5492,11 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S26",           0,     0,     0,     0,     0,   266
 "S28",           4,     0,     0,     1,     5,    13
 "S29",          30,     7,     9,     6,    52,    86
-"S32",        2272,     0,   268,   538,  3078,  6252
+"S32",        2272,     0,   268,   538,  3078,  6254
 "int",         131,     0,    35,    26,   192,   550
-"total",      9497,     7,  3464,  1754, 14722, 26126
+"total",      9493,    23,  3458,  1753, 14727, 26133
 ----------------
 Failure summary:
+S02-types/hash.pugs 70 - reading multi-level non-existing hash keys does not create it
+S02-types/hash.pugs aborted 15 test(s)
 S29-context/sleep.pugs aborted 7 test(s)
