@@ -20,9 +20,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x9c41858)'
+#     Actual: 'CODE(0x9769858)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x9c41b78)'
+#     Actual: 'CODE(0x9769b78)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -4450,7 +4450,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d9c2c9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6d9dec5>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d9c2c9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6d9dec5>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6b33dcd>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6b33a69>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6b33dcd>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6b33a69>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
   16    0    2    1   19
@@ -4526,7 +4526,10 @@ S12-methods/attribute-params.pugs..................  11    0    0    2   13
      2 skipped: Cannot cast into Hash
 S12-methods/chaining.pugs..........................  15    0    0    2   17
      2 skipped: Mu
-S12-methods/class-and-instance.t...................   4    0    0    0    4
+S12-methods/class-and-instance.t...................#   Failed test (t/spec/S12-methods/class-and-instance.t line 36, column 1-68)
+#     Actual: No exception thrown
+# Looks like you failed 1 tests of 8
+   7    1    0    0    8
 S12-methods/default-trait.pugs.....................#   Expected: '9'
 #     Actual: '6'
    4    0    1    1    6
@@ -4605,13 +4608,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.20366.364
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.20366.364
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.20366.364
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.20366.364
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.20366.364
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.20366.364
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.20366.364
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.23801.990
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.23801.990
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.23801.990
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.23801.990
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.23801.990
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.23801.990
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.23801.990
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -5477,7 +5480,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S09",          70,     0,    26,     8,   104,   193
 "S10",          30,     0,     9,     0,    39,   127
 "S11",          13,     0,     5,    10,    28,   135
-"S12",         370,     0,    65,    96,   531,  1344
+"S12",         373,     1,    65,    96,   535,  1348
 "S13",           7,     0,     1,     1,     9,    80
 "S14",          64,     0,    11,     0,    75,   327
 "S16",          20,     0,     0,     1,    21,   284
@@ -5487,12 +5490,13 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S26",           0,     0,     0,     0,     0,   266
 "S28",           4,     0,     0,     1,     5,    13
 "S29",          30,     8,     9,     6,    53,    87
-"S32",        2272,     0,   268,   538,  3078,  6274
+"S32",        2272,     0,   268,   538,  3078,  6277
 "int",         125,    13,    32,    22,   192,   550
-"total",      9487,    37,  3455,  1749, 14728, 26154
+"total",      9490,    38,  3455,  1749, 14732, 26161
 ----------------
 Failure summary:
 S02-types/hash.pugs 70 - reading multi-level non-existing hash keys does not create it
 S02-types/hash.pugs aborted 15 test(s)
+S12-methods/class-and-instance.t 8 - our method not installed in methods table
 S29-context/sleep.pugs aborted 8 test(s)
 integration/99problems-21-to-30.pugs aborted 13 test(s)
