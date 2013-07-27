@@ -152,24 +152,8 @@ S02-names/caller.rakudo.parrot.....................  14    0    1    0   15
      1 todo   : strictness
 S02-names/identifier.t.............................  22    0    0    0   22
 S02-names/indirect.t...............................   6    0    0    0    6
-S02-names/is_default.rakudo.parrot.................use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
-
-use of uninitialized value of type Int in string context  in sub is at lib/Test.pm:81
-
-use of uninitialized value of type Int in string context  in sub is at lib/Test.pm:84
-
-use of uninitialized value of type Int in string context  in sub is at lib/Test.pm:81
-
-use of uninitialized value of type Int in string context  in sub is at lib/Test.pm:84
-
-use of uninitialized value of type Int in string context  in sub is at lib/Test.pm:81
-
-use of uninitialized value of type Int in string context  in sub is at lib/Test.pm:84
-
-  12    0    8    0   20
-     8 todo   : is default not functioning yet
+S02-names/is_default.rakudo.parrot.................  18    0    2    0   20
+     2 todo   : is default not functioning yet
 S02-names/our.rakudo.parrot........................   8    0    0    2   10
      1 skipped: Null PMC access in invoke()
      1 skipped: OUR::subname() does not work
@@ -285,26 +269,22 @@ S02-types/infinity.rakudo.parrot...................   6    0    3    4   13
      4 skipped: integer Inf
      3 todo   : Int conversion of NaN and Inf
 S02-types/instants-and-durations.t.................  12    0    0    0   12
-S02-types/keybag.rakudo.parrot.....................use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
-
-  83    0   19   69  171
+S02-types/keybag.rakudo.parrot.....................  74    0    7   90  171
      2 skipped: :delete NYI
     32 skipped: Needs to catch up with spec
     21 skipped: .KeyBag NYI
+    21 skipped: 'is ObjectType' NYI
      3 skipped: Non-Str keys NYI
     11 skipped: KeyBag.ACCEPTS NYI
      7 todo   : Needs to catch up with spec
-    12 todo   : todo
-S02-types/keyset.rakudo.parrot..................... 101    0   20   23  144
+S02-types/keyset.rakudo.parrot..................... 100    0   11   33  144
      2 skipped: :delete NYI
+    10 skipped: 'is ObjectType' NYI
     11 skipped: .Set NYI
     10 skipped: .KeySet NYI
      4 todo   : KeySet.ACCEPTS
      1 todo   : Not up to current spec
      6 todo   : New set constructor NYI
-     9 todo   : todo
 S02-types/lazy-lists.t.............................  19    0    0    0   19
 S02-types/lists.rakudo.parrot......................use of uninitialized value of type Any in numeric context  in block  at t/spec/S02-types/lists.rakudo.parrot:140
 
@@ -389,9 +369,8 @@ S02-types/sigils-and-types.rakudo.parrot...........  26    0    2    0   28
 S02-types/subscripts_and_context.t.................   8    0    0    0    8
 S02-types/subset.rakudo.parrot.....................  42    0    0    1   43
      1 skipped: (noauto) succeeds for the wrong reason (need to test the error)
-S02-types/type.rakudo.parrot.......................  43    0    1    6   50
+S02-types/type.rakudo.parrot.......................  44    0    0    6   50
      6 skipped: native types (causes false positives if marked with todo)
-     1 todo   : of
 S02-types/undefined-types.rakudo.parrot............use of uninitialized value of type Int in string context  in sub is at lib/Test.pm:81
 
 use of uninitialized value of type Int in string context  in sub is at lib/Test.pm:84
@@ -821,22 +800,30 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 
   32    0    1    0   33
      1 todo   : our-scoped var in role
-S04-declarations/state.rakudo.parrot...............use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
-
-  33    0    5    6   44
-     1 skipped: references
-     5 skipped: parse error
-     1 todo   : embedded closures in regexen
-     1 todo   : nom regression
-     1 todo   : initialization happens only on first call(?)
-     1 todo   : will start { ... }
-     1 todo   : references and anonymous state vars
+S04-declarations/state.rakudo.parrot...............[31m===[0mSORRY![31m===[0m
+You cannot say 'will start' in a variable declaration.
+at t/spec/S04-declarations/state.rakudo.parrot:124
+------> 
+    expecting any of:
+        begin
+        check
+        final
+        init
+        end
+        enter
+        leave
+        keep
+        undo
+        first
+        next
+        last
+        pre
+        post
+        catch
+        control
+        compose
+   0   44    0    0   44
+    44 tests aborted (missing ok/not ok)
 S04-exception-handlers/catch.t.....................  27    0    0    0   27
 S04-exceptions/fail.rakudo.parrot..................  11    0    0    2   13
      2 skipped: RT 64990
@@ -1365,7 +1352,8 @@ S06-traits/is-readonly.rakudo.parrot...............   7    0    4    3   14
      2 skipped: segfault
      1 skipped: VAR
      1 todo   : readonly attributes
-     3 todo   : todo
+     2 todo   : todo
+     1 todo PASSED: todo
 S06-traits/is-rw.rakudo.parrot.....................   5    0    2    0    7
      1 todo   : Depends on preceding test working
      1 todo   : 
@@ -1428,7 +1416,7 @@ S11-modules/import-multi.rakudo.parrot.............  14    0    0    3   17
      1 skipped: A symbol "&Gfoo" has already been exported
      2 skipped: it just dies, can't check using throws_like
 S11-modules/import-tag.t...........................  12    0    0    0   12
-S11-modules/import.rakudo.parrot...................   9    0    0    4   13
+S11-modules/import.rakudo.parrot...................  10    0    0    4   14
      4 skipped: import plus inline module
 S11-modules/importing.t............................  16    0    0    0   16
 S11-modules/lexical.t..............................   2    0    0    0    2
@@ -2461,15 +2449,15 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3160,     0,   184,   438,  3782,  3722
+"S02",        3157,     0,   156,   469,  3782,  3722
 "S03",        4451,     0,   119,   392,  4962,  4347
-"S04",         894,     0,    29,    49,   972,  1008
+"S04",         861,    44,    24,    43,   972,  1008
 "S05",        4725,     0,   115,   517,  5357,  5801
 "S06",        1141,     0,    29,   136,  1306,  1290
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         148,     0,    18,    27,   193,   193
 "S10",          64,     0,     1,     5,    70,   127
-"S11",          71,     0,     1,     8,    80,   135
+"S11",          72,     0,     1,     8,    81,   136
 "S12",        1284,     0,    36,   127,  1447,  1348
 "S13",          70,     0,     0,     0,    70,    80
 "S14",         290,     0,     4,    14,   308,   327
@@ -2483,16 +2471,17 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        8542,     9,   102,   251,  8904,  6266
 "int",         538,     0,     8,    25,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26247,     9,   652,  2037, 28945, 26300
+"total",     26212,    53,   619,  2062, 28946, 26301
 ----------------
 Failure summary:
-S32-io/IO-Socket-INET.t 2 - took too long 1
-S32-io/IO-Socket-INET.t 4 - took too long 2
-S32-io/IO-Socket-INET.t 6 - took too long 3
-S32-io/IO-Socket-INET.t 20 - took too long 10
-S32-io/IO-Socket-INET.t 33 - took too long 16
-S32-io/IO-Socket-INET.t 39 - took too long 19
-S32-io/IO-Socket-INET.t 41 - took too long 20
+S04-declarations/state.rakudo.parrot aborted 44 test(s)
+S32-io/IO-Socket-INET.t 2 - finished in time #1
+S32-io/IO-Socket-INET.t 4 - finished in time #2
+S32-io/IO-Socket-INET.t 6 - finished in time #3
+S32-io/IO-Socket-INET.t 20 - finished in time #10
+S32-io/IO-Socket-INET.t 33 - finished in time #16
+S32-io/IO-Socket-INET.t 39 - finished in time #19
+S32-io/IO-Socket-INET.t 41 - finished in time #20
 S32-io/io-spec-unix.t aborted 1 test(s)
 S32-io/io-spec-win.t aborted 1 test(s)
 note: test_summary.pl @syn does not have ros
