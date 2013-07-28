@@ -533,8 +533,13 @@ S04-declarations/my.rakudo.jvm.....................  70    0    2    3   75
      1 todo   : fails
 S04-declarations/our.rakudo.jvm....................  32    0    1    0   33
      1 todo   : our-scoped var in role
-S04-declarations/state.rakudo.jvm..................   0   44    0    0   44
-    44 tests aborted (missing ok/not ok)
+S04-declarations/state.rakudo.jvm..................  33    0    4    6   43
+     1 skipped: references
+     5 skipped: parse error
+     1 todo   : embedded closures in regexen
+     1 todo   : nom regression
+     1 todo   : initialization happens only on first call(?)
+     1 todo   : references and anonymous state vars
 S04-exception-handlers/catch.t.....................  27    0    0    0   27
 S04-exceptions/fail.rakudo.jvm.....................  11    0    0    2   13
      2 skipped: RT 64990
@@ -922,12 +927,9 @@ S06-signature/unspecified.rakudo.jvm...............  12    0    1    4   17
 S06-traits/is-assoc.rakudo.jvm.....................   4    0    0    2    6
      2 skipped: RT 116244
 S06-traits/is-copy.t...............................  24    0    0    0   24
-S06-traits/is-readonly.rakudo.jvm..................   7    0    4    3   14
-     2 skipped: segfault
+S06-traits/is-readonly.rakudo.jvm..................   1    0    1    1    3
      1 skipped: VAR
      1 todo   : readonly attributes
-     2 todo   : todo
-     1 todo PASSED: todo
 S06-traits/is-rw.rakudo.jvm........................   5    0    2    0    7
      1 todo   : Depends on preceding test working
      1 todo   : 
@@ -1543,9 +1545,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        3143,     8,   154,   477,  3782,  3722
 "S03",        4458,     0,   112,   392,  4962,  4347
-"S04",         840,    64,    23,    45,   972,  1008
+"S04",         873,    20,    27,    51,   971,  1007
 "S05",        4718,     7,   115,   517,  5357,  5801
-"S06",        1128,    13,    28,   137,  1306,  1290
+"S06",        1122,    13,    25,   135,  1295,  1279
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         148,     0,    18,    27,   193,   193
 "S10",          64,     0,     1,     5,    70,   127
@@ -1563,7 +1565,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        8450,    33,    66,   295,  8844,  6266
 "int",         520,     4,    17,    30,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26035,   147,   581,  2123, 28886, 26301
+"total",     26062,   103,   582,  2127, 28874, 26289
 ----------------
 Failure summary:
 S02-magicals/env.rakudo.jvm 14 - ENV members persist to child processes
@@ -1575,7 +1577,6 @@ S02-names/is_default.rakudo.jvm 19 - typed variable returned to its default with
 S02-types/lists.rakudo.jvm 20 - error message contains name of class
 S02-types/nil.rakudo.jvm 20 - can assign Nil to subsets
 S04-declarations/constant.rakudo.jvm 23 - a constant declared using 'constant' is actually constant (1)
-S04-declarations/state.rakudo.jvm aborted 44 test(s)
 S04-phasers/enter-leave.rakudo.jvm 16 - die in LEAVE caught by try
 S04-phasers/enter-leave.rakudo.jvm aborted 1 test(s)
 S04-phasers/rvalue.t 10 - CHECK {} runs only once
