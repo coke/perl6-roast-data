@@ -102,7 +102,7 @@ S02-names-vars/names.rakudo.jvm.................... 127    0    2   13  142
      7 skipped: package variable autovivification
      1 todo   : nom regression
      1 todo   : dubious test - otherwise why is ::<$foo> allowed?
-S02-names-vars/perl.rakudo.jvm.....................  98    0    0    6  104
+S02-names-vars/perl.rakudo.jvm.....................  97    1    0    6  104
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -1293,8 +1293,8 @@ S32-io/note.rakudo.jvm.............................   0    5    1    0    6
 S32-io/slurp.rakudo.jvm............................  13    0    0    3   16
      3 skipped: IO::Handle.read NYI on this backend
 S32-io/spurt.t.....................................   0    0    0    0    0
-S32-list/categorize.t..............................  48    0    0    0   48
-S32-list/classify.rakudo.jvm.......................  44    0    0    3   47
+S32-list/categorize.t..............................  12    0    0    0   12
+S32-list/classify.rakudo.jvm.......................  12    0    0    3   15
      3 skipped: Cannot use bind operator with this LHS
 S32-list/create.t..................................   6    0    0    0    6
 S32-list/end.t.....................................  14    0    0    0   14
@@ -1542,7 +1542,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3143,     8,   154,   477,  3782,  3722
+"S02",        3142,     9,   154,   477,  3782,  3722
 "S03",        4458,     0,   112,   392,  4962,  4347
 "S04",         870,    20,    29,    51,   970,  1006
 "S05",        4718,     7,   115,   517,  5357,  5801
@@ -1561,14 +1561,15 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         314,     5,     1,     7,   327,   337
-"S32",        8454,    33,    66,   295,  8848,  6270
+"S32",        8386,    33,    66,   295,  8780,  6202
 "int",         520,     4,    17,    30,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26067,   103,   580,  2127, 28877, 26292
+"total",     25998,   104,   580,  2127, 28809, 26224
 ----------------
 Failure summary:
 S02-magicals/env.rakudo.jvm 14 - ENV members persist to child processes
 S02-magicals/pid.t 1 - my $*PID is different from a child $*PID
+S02-names-vars/perl.rakudo.jvm 90 - .perl on user-defined type roundtrips okay
 S02-names/is_default.rakudo.jvm 14 - should be able to assign Nil to typed variable
 S02-names/is_default.rakudo.jvm 15 - typed variable returned to its default with Nil
 S02-names/is_default.rakudo.jvm 18 - should be able to undefine typed variable
