@@ -213,7 +213,7 @@ S02-types/autovivification.rakudo.parrot...........   7    0    2    4   13
      2 skipped: Undef to integer
      1 todo   : get_pmc_keyed() not implemented in class Undef
      1 todo   : prefix:<\>
-S02-types/bag.rakudo.parrot........................  61    1    8   67  137
+S02-types/bag.rakudo.parrot........................  62    0    8   67  137
     42 skipped: .Bag NYI
      3 skipped: Non-Str keys NYI
     11 skipped: Bag.ACCEPTS NYI
@@ -512,10 +512,8 @@ use of uninitialized value of type Any in string context  in sub f1 at t/spec/S0
 S03-operators/also.rakudo.parrot...................   4    0    4    0    8
      4 todo   : nom regression
 S03-operators/andthen.t............................   8    0    0    0    8
-S03-operators/arith.rakudo.parrot.................. 136    0    7    0  143
+S03-operators/arith.rakudo.parrot.................. 139    0    4    0  143
      2 todo   : negative div
-     2 todo   : modulo by zero
-     1 todo   : die or fail?
      2 todo   : negative mod
 S03-operators/assign-is-not-binding.t..............   8    0    0    0    8
 S03-operators/assign.rakudo.parrot.................use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
@@ -815,10 +813,20 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
      1 todo   : nom regression
      1 todo   : initialization happens only on first call(?)
      1 todo   : references and anonymous state vars
-S04-declarations/will.rakudo.parrot................   5    0    2    3   10
+S04-declarations/will.rakudo.parrot................use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
+
+  10    0    4    3   17
      2 skipped: declared variable not visible in block yet
-     1 skipped: these tests will all fail except on rakudo
-     2 todo   : will init NYI
+     1 skipped: declared variable not visible in block yet# TODO will init NYI
+     1 todo   : will init NYI
+     1 todo   : will post NYI
+     2 todo   : declared variable not visible in block yet
 S04-exception-handlers/catch.t.....................  27    0    0    0   27
 S04-exceptions/fail.rakudo.parrot..................  11    0    0    2   13
      2 skipped: RT 64990
@@ -2440,9 +2448,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3156,     1,   156,   469,  3782,  3725
-"S03",        4451,     0,   119,   392,  4962,  4347
-"S04",         896,     0,    32,    52,   980,  1006
+"S02",        3157,     0,   156,   469,  3782,  3725
+"S03",        4454,     0,   116,   392,  4962,  4347
+"S04",         901,     0,    34,    52,   987,  1006
 "S05",        4725,     0,   115,   517,  5357,  5801
 "S06",        1136,     0,    25,   134,  1295,  1279
 "S07",           0,     0,     0,     0,     0,     0
@@ -2462,10 +2470,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        8478,     9,   102,   251,  8840,  6202
 "int",         538,     0,     8,    25,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26180,    10,   620,  2069, 28879, 26227
+"total",     26189,     9,   619,  2069, 28886, 26227
 ----------------
 Failure summary:
-S02-types/bag.rakudo.parrot 112 - .roll(100) (2)
 S32-io/IO-Socket-INET.t 2 - finished in time #1
 S32-io/IO-Socket-INET.t 4 - finished in time #2
 S32-io/IO-Socket-INET.t 6 - finished in time #3
