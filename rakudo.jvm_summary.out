@@ -102,7 +102,7 @@ S02-names-vars/names.rakudo.jvm.................... 127    0    2   13  142
      7 skipped: package variable autovivification
      1 todo   : nom regression
      1 todo   : dubious test - otherwise why is ::<$foo> allowed?
-S02-names-vars/perl.rakudo.jvm.....................  98    0    0    6  104
+S02-names-vars/perl.rakudo.jvm.....................  97    1    0    6  104
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -1332,8 +1332,9 @@ S32-list/sort.rakudo.jvm...........................  28    0    0    4   32
      1 skipped: method fallback to sub unimpl
      1 skipped: closure as non-final argument
      2 skipped: determine behavior of 0-arity methods passed to sort
-S32-list/squish.t..................................  10    4    0    0   14
-S32-list/uniq.rakudo.jvm...........................  11    0    0    3   14
+S32-list/squish.t..................................  18    8    0    0   26
+     8 tests aborted (missing ok/not ok)
+S32-list/uniq.rakudo.jvm...........................  27    0    0    3   30
      3 skipped: Not spec'd, and this seems unlikely to be how it will be spec'd
 S32-num/abs.t......................................  49    0    0    0   49
 S32-num/base.t.....................................  12    0    0    0   12
@@ -1550,7 +1551,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3143,     8,   154,   478,  3783,  3726
+"S02",        3142,     9,   154,   478,  3783,  3726
 "S03",        4459,     0,   113,   392,  4964,  4349
 "S04",         880,    20,    33,    54,   987,  1006
 "S05",        4718,     7,   115,   517,  5357,  5801
@@ -1569,14 +1570,15 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         314,     5,     1,     7,   327,   337
-"S32",        8386,    37,    66,   295,  8784,  6206
+"S32",        8410,    41,    66,   295,  8812,  6234
 "int",         520,     4,    17,    30,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26011,   106,   585,  2131, 28833, 26234
+"total",     26034,   111,   585,  2131, 28861, 26262
 ----------------
 Failure summary:
 S02-magicals/env.rakudo.jvm 14 - ENV members persist to child processes
 S02-magicals/pid.t 1 - my $*PID is different from a child $*PID
+S02-names-vars/perl.rakudo.jvm 90 - .perl on user-defined type roundtrips okay
 S02-names/is_default.rakudo.jvm 14 - should be able to assign Nil to typed variable
 S02-names/is_default.rakudo.jvm 15 - typed variable returned to its default with Nil
 S02-names/is_default.rakudo.jvm 18 - should be able to undefine typed variable
@@ -1638,10 +1640,7 @@ S32-io/note.rakudo.jvm 2 - note multiple parameters
 S32-io/note.rakudo.jvm 3 - note array
 S32-io/note.rakudo.jvm 4 - note an array reference
 S32-io/note.rakudo.jvm 6 - try { } block does not prevent note() from outputting something
-S32-list/squish.t 11 - method form of squish works
-S32-list/squish.t 12 - subroutine form of squish works
-S32-list/squish.t 13 - inplace form of squish works
-S32-list/squish.t 14 - final result of in place
+S32-list/squish.t aborted 8 test(s)
 S32-str/encode.rakudo.jvm 6 - indexing a utf8 gives correct value (1)
 S32-str/encode.rakudo.jvm 7 - indexing a utf8 gives correct value (1)
 S32-str/substr.rakudo.jvm 28 - Sanity check string
