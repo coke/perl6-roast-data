@@ -117,8 +117,8 @@ S02-names/caller.rakudo.jvm........................  14    0    1    0   15
      1 todo   : strictness
 S02-names/identifier.t.............................  22    0    0    0   22
 S02-names/indirect.t...............................   6    0    0    0    6
-S02-names/is_default.rakudo.jvm....................  14    4    2    0   20
-     2 todo   : is default not functioning yet
+S02-names/is_default.rakudo.jvm....................   1   47    0    0   48
+    47 tests aborted (missing ok/not ok)
 S02-names/our.rakudo.jvm...........................   8    0    0    2   10
      1 skipped: Null PMC access in invoke()
      1 skipped: OUR::subname() does not work
@@ -1424,10 +1424,9 @@ S32-str/sprintf.rakudo.jvm......................... 126    0    0    2  128
      1 skipped: %p doesn't yet throw exception - but should it, or just Failure?
      1 skipped: doesn't work in master (as of 2010-07)
 S32-str/substr-rw.rakudo.jvm.......................   0    0    0    0    0
-S32-str/substr.rakudo.jvm..........................  53    3    0   36   92
-    28 skipped: No support for StrPos
-     1 skipped: lvalue substr
-     7 skipped: too many args
+S32-str/substr.rakudo.jvm..........................  23   65    0    4   92
+     4 skipped: too many args
+    63 tests aborted (missing ok/not ok)
 S32-str/tclc.rakudo.jvm............................   4    0    2    0    6
      1 todo   : nigh
      1 todo PASSED: unknown tclc problem
@@ -1550,7 +1549,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3143,     8,   154,   478,  3783,  3726
+"S02",        3130,    51,   152,   478,  3811,  3754
 "S03",        4459,     0,   113,   392,  4964,  4349
 "S04",         882,    20,    31,    54,   987,  1006
 "S05",        4718,     7,   115,   517,  5357,  5801
@@ -1569,18 +1568,15 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         314,     5,     1,     7,   327,   337
-"S32",        8410,    41,    66,   295,  8812,  6234
+"S32",        8380,   103,    66,   263,  8812,  6234
 "int",         520,     4,    17,    30,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26043,   110,   583,  2131, 28867, 26268
+"total",     26000,   215,   581,  2099, 28895, 26296
 ----------------
 Failure summary:
 S02-magicals/env.rakudo.jvm 14 - ENV members persist to child processes
 S02-magicals/pid.t 1 - my $*PID is different from a child $*PID
-S02-names/is_default.rakudo.jvm 14 - should be able to assign Nil to typed variable
-S02-names/is_default.rakudo.jvm 15 - typed variable returned to its default with Nil
-S02-names/is_default.rakudo.jvm 18 - should be able to undefine typed variable
-S02-names/is_default.rakudo.jvm 19 - typed variable returned to its default with undefine
+S02-names/is_default.rakudo.jvm aborted 47 test(s)
 S02-types/lists.rakudo.jvm 20 - error message contains name of class
 S02-types/nil.rakudo.jvm 20 - can assign Nil to subsets
 S04-declarations/constant.rakudo.jvm 23 - a constant declared using 'constant' is actually constant (1)
@@ -1643,7 +1639,7 @@ S32-str/encode.rakudo.jvm 6 - indexing a utf8 gives correct value (1)
 S32-str/encode.rakudo.jvm 7 - indexing a utf8 gives correct value (1)
 S32-str/substr.rakudo.jvm 28 - Sanity check string
 S32-str/substr.rakudo.jvm 29 - Taking first char of Deseret string
-S32-str/substr.rakudo.jvm 30 - Taking second char of Deseret string
+S32-str/substr.rakudo.jvm aborted 63 test(s)
 integration/error-reporting.rakudo.jvm 1 - Parse error contains line number
 integration/error-reporting.rakudo.jvm 4 - got the right line number for nonexisting sub inside another sub
 integration/error-reporting.rakudo.jvm 5 - non-existing subroutine is caught before run time
