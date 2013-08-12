@@ -21,9 +21,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x93b5858)'
+#     Actual: 'CODE(0x91a5858)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x93b5b78)'
+#     Actual: 'CODE(0x91a5b78)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -35,7 +35,13 @@ S02-lexical-conventions/begin_end_pod.t............   1    0    0    0    1
 S02-lexical-conventions/bom.t......................   1    0    0    0    1
 S02-lexical-conventions/end-pod.t..................   1    0    0    0    1
 S02-lexical-conventions/minimal-whitespace.t.......   9    0    0    0    9
-S02-lexical-conventions/sub-block-parsing.t........   5    0    0    0    5
+S02-lexical-conventions/sub-block-parsing.t........*** 
+    Unexpected ";"
+    expecting "::" or signature value
+    Variable "&fa" requires predeclaration or explicit package name
+    at t/spec/S02-lexical-conventions/sub-block-parsing.t line 43, column 31
+   0    7    0    0    7
+     7 tests aborted (missing ok/not ok)
 S02-lexical-conventions/unicode.pugs...............#     Actual: An exception was thrown : 
 # Unexpected "\8233"
 # expecting operator
@@ -4419,7 +4425,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d0d555>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6d0d289>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d0d555>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6d0d289>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6b2e9a9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6b2e7f5>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6b2e9a9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6b2e7f5>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
   16    0    2    1   19
@@ -4577,13 +4583,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.26426.309
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.26426.309
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.26426.309
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.26426.309
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.26426.309
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.26426.309
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.26426.309
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.26821.72
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.26821.72
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.26821.72
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.26821.72
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.26821.72
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.26821.72
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.26821.72
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -5447,8 +5453,8 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",          27,     0,     8,    12,    47,    79
-"S02",        1416,    16,   310,   464,  2206,  3878
-"S03",        1864,     0,   286,   304,  2454,  4350
+"S02",        1411,    23,   310,   464,  2208,  3880
+"S03",        1864,     0,   286,   304,  2454,  4349
 "S04",         479,     0,    98,    88,   665,  1006
 "S05",        2215,     0,  2207,    56,  4478,  5801
 "S06",         400,     0,    77,   126,   603,  1284
@@ -5457,7 +5463,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S10",          30,     0,     9,     0,    39,   127
 "S11",          13,     0,     5,    10,    28,   136
 "S12",         373,     1,    65,    96,   535,  1360
-"S13",           7,     0,     1,     1,     9,    82
+"S13",           7,     0,     1,     1,     9,    80
 "S14",          64,     0,    11,     0,    75,   327
 "S16",          20,     0,     0,     1,    21,   284
 "S17",          10,     0,     2,    12,    24,    28
@@ -5468,9 +5474,10 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S29",          30,     8,     9,     6,    53,    87
 "S32",        2272,     2,   268,   554,  3096,  6251
 "int",         125,    13,    32,    22,   192,   550
-"total",      9473,    40,  3439,  1765, 14717, 26201
+"total",      9468,    47,  3439,  1765, 14719, 26200
 ----------------
 Failure summary:
+S02-lexical-conventions/sub-block-parsing.t aborted 7 test(s)
 S02-types/hash.pugs 70 - reading multi-level non-existing hash keys does not create it
 S02-types/hash.pugs aborted 15 test(s)
 S12-methods/class-and-instance.t 8 - our method not installed in methods table

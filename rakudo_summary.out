@@ -12,7 +12,7 @@ S02-lexical-conventions/end-pod.t..................   1    0    0    0    1
 S02-lexical-conventions/minimal-whitespace.t.......   9    0    0    0    9
 S02-lexical-conventions/one-pass-parsing.t.........   1    0    0    0    1
 S02-lexical-conventions/pod-in-multi-line-exprs.t..   3    0    0    0    3
-S02-lexical-conventions/sub-block-parsing.rakudo...   3    0    0    2    5
+S02-lexical-conventions/sub-block-parsing.rakudo...   5    0    0    2    7
      1 skipped: confused near "(sub{ 42 }"
      1 skipped: confused near "(sub { 42 "
 S02-lexical-conventions/unicode-whitespace.t.......  52    0    0    0   52
@@ -148,12 +148,17 @@ S02-names-vars/variables-and-packages.rakudo.parr..  31    0    3    3   37
      3 todo   : nom regression
 S02-names-vars/varnames.t..........................   8    0    0    0    8
 S02-names/bare-sigil.t.............................  10    0    0    0   10
-S02-names/caller.t.................................  15    0    0    0   15
+S02-names/caller.rakudo.parrot.....................  14    0    1    0   15
+     1 todo PASSED: strictness
 S02-names/identifier.t.............................  22    0    0    0   22
 S02-names/indirect.t...............................   6    0    0    0    6
-S02-names/is_default.rakudo.parrot.................  62    0    6    4   72
+S02-names/is_default.rakudo.parrot.................  54    0   14    4   72
      4 skipped: is default not functioning yet
      6 todo   : is default not functioning yet
+     2 todo PASSED: @a is default does not work yet
+     2 todo PASSED: %a is default does not work yet
+     2 todo PASSED: Int %a is default does not work yet
+     2 todo PASSED: Int @a is default does not work yet
 S02-names/our.rakudo.parrot........................   8    0    0    2   10
      1 skipped: Null PMC access in invoke()
      1 skipped: OUR::subname() does not work
@@ -169,21 +174,23 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
 
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
+Cannot access '$y' through CALLER, because it is not declared as dynamic
+  in method at_key at src/gen/CORE.setting:8754
+  in method postcircumfix:<{ }> at src/gen/CORE.setting:1855
+  in method postcircumfix:<{ }> at src/gen/CORE.setting:1843
+  in block  at t/spec/S02-names/pseudo.rakudo.parrot:330
+  in block  at t/spec/S02-names/pseudo.rakudo.parrot:253
 
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
-
-  46    0    8   88  142
+  28   26    6   82  142
     19 skipped: CORE NYI
-     6 skipped: SETTING NYI
     36 skipped: various issues, skipping all for now
      4 skipped: the binding in here is NYI
     23 skipped: various issues to resolve
      1 todo   : GLOBAL and interpolation
      2 todo   : binding and interpolation together NYI
      1 todo   : interpolation and auto-viv NYI
-     2 todo   : these tests disagree with STD
      2 todo   : not entirely sure these make sense...
+    26 tests aborted (missing ok/not ok)
 S02-names/symbolic-deref.rakudo.parrot.............  27    0    1    7   35
      7 skipped: NYI
      1 todo   : NYI
@@ -1717,7 +1724,7 @@ S32-container/roundrobin.rakudo.parrot.............   4    0    1    0    5
      1 todo   : over-flattening
 S32-container/zip.rakudo.parrot....................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.parrot.................. 533    0    0    3  536
+S32-exceptions/misc.rakudo.parrot.................. 539    0    0    3  542
      1 skipped: RT 114134
      1 skipped: parsing of $& and other p5 variables
      1 skipped: parsing regression
@@ -2456,8 +2463,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3202,     0,   159,   474,  3835,  3778
-"S03",        4455,     0,   117,   392,  4964,  4350
+"S02",        3177,    26,   166,   468,  3837,  3780
+"S03",        4455,     0,   117,   392,  4964,  4349
 "S04",         903,     0,    32,    52,   987,  1006
 "S05",        4725,     0,   115,   517,  5357,  5801
 "S06",        1141,     0,    25,   134,  1300,  1284
@@ -2466,7 +2473,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S10",          64,     0,     1,     5,    70,   127
 "S11",          72,     0,     1,     8,    81,   136
 "S12",        1297,     0,    35,   127,  1459,  1360
-"S13",          70,     0,     0,     0,    70,    82
+"S13",          70,     0,     0,     0,    70,    80
 "S14",         290,     0,     4,    14,   308,   327
 "S16",         228,     0,     5,    20,   253,   297
 "S17",           0,     0,     0,     0,     0,    28
@@ -2475,12 +2482,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         319,     0,     1,     7,   327,   337
-"S32",        8514,     9,   104,   251,  8878,  6240
+"S32",        8520,     9,   104,   251,  8884,  6240
 "int",         538,     0,     8,    25,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26290,     9,   623,  2074, 28996, 26340
+"total",     26271,    35,   630,  2068, 29004, 26339
 ----------------
 Failure summary:
+S02-names/pseudo.rakudo.parrot aborted 26 test(s)
 S32-io/IO-Socket-INET.t 2 - finished in time #1
 S32-io/IO-Socket-INET.t 4 - finished in time #2
 S32-io/IO-Socket-INET.t 6 - finished in time #3
