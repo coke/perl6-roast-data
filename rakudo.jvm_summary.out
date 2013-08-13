@@ -102,7 +102,7 @@ S02-names-vars/names.rakudo.jvm.................... 127    0    2   13  142
      7 skipped: package variable autovivification
      1 todo   : nom regression
      1 todo   : dubious test - otherwise why is ::<$foo> allowed?
-S02-names-vars/perl.rakudo.jvm.....................  97    1    0    6  104
+S02-names-vars/perl.rakudo.jvm.....................  98    0    0    6  104
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -113,18 +113,14 @@ S02-names-vars/variables-and-packages.rakudo.jvm...  31    0    3    3   37
      3 todo   : nom regression
 S02-names-vars/varnames.t..........................   8    0    0    0    8
 S02-names/bare-sigil.t.............................  10    0    0    0   10
-S02-names/caller.rakudo.jvm........................   0   15    0    0   15
+S02-names/caller.t.................................   0   15    0    0   15
     15 tests aborted (missing ok/not ok)
 S02-names/identifier.t.............................  22    0    0    0   22
 S02-names/indirect.t...............................   6    0    0    0    6
-S02-names/is_default.rakudo.jvm....................  34    8   14   16   72
+S02-names/is_default.rakudo.jvm....................  42   10    4   16   72
      4 skipped: is default not functioning yet
     12 skipped: oh no, .VAR does not work on JVM
-     6 todo   : is default not functioning yet
-     2 todo PASSED: @a is default does not work yet
-     2 todo PASSED: %a is default does not work yet
-     2 todo PASSED: Int %a is default does not work yet
-     2 todo PASSED: Int @a is default does not work yet
+     4 todo   : is default not functioning yet
 S02-names/our.rakudo.jvm...........................   8    0    0    2   10
      1 skipped: Null PMC access in invoke()
      1 skipped: OUR::subname() does not work
@@ -243,11 +239,8 @@ S02-types/nan.rakudo.jvm...........................  18    0    1    2   21
 S02-types/native.t.................................  25    0    0    0   25
 S02-types/nested_arrays.t..........................   8    0    0    0    8
 S02-types/nested_pairs.t...........................  14    0    0    0   14
-S02-types/nil.rakudo.jvm...........................  21    1    4    3   29
-     2 skipped: triage
-     1 skipped: RT 93980
-     1 todo   : RT 93980
-     3 todo   : triage
+S02-types/nil.rakudo.jvm...........................  15   20    0    0   35
+    19 tests aborted (missing ok/not ok)
 S02-types/num.t....................................  65    0    0    0   65
 S02-types/pair.rakudo.jvm..........................  94    0    1    2   97
      2 skipped: method($invocant:) syntax missing
@@ -293,8 +286,11 @@ S03-binding/nested.t...............................  43    0    0    0   43
 S03-binding/ro.rakudo.jvm..........................   3    0    6    0    9
      4 todo   : ::= on arrays
      2 todo   : nom regression
-S03-binding/scalars.rakudo.jvm.....................   9   24    0    0   33
-    24 tests aborted (missing ok/not ok)
+S03-binding/scalars.rakudo.jvm.....................  21    0    2   10   33
+     2 skipped: List binding
+     1 skipped: is dynamic
+     7 skipped: list binding
+     2 todo   : nom regression
 S03-feeds/basic.rakudo.jvm.........................   9    0    7    9   25
      1 skipped: isn't lazy
      4 skipped: double-ended feeds
@@ -1430,9 +1426,11 @@ S32-str/sprintf.rakudo.jvm......................... 126    0    0    2  128
      1 skipped: %p doesn't yet throw exception - but should it, or just Failure?
      1 skipped: doesn't work in master (as of 2010-07)
 S32-str/substr-rw.rakudo.jvm.......................   0    0    0    0    0
-S32-str/substr.rakudo.jvm..........................  23   65    0    4   92
-     4 skipped: too many args
-    63 tests aborted (missing ok/not ok)
+S32-str/substr.rakudo.jvm..........................  53    0    0   39   92
+     3 skipped: java.nio.charset.MalformedInputException
+    28 skipped: No support for StrPos
+     1 skipped: lvalue substr
+     7 skipped: too many args
 S32-str/tclc.rakudo.jvm............................   4    0    2    0    6
      1 todo   : nigh
      1 todo PASSED: unknown tclc problem
@@ -1555,8 +1553,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3126,    62,   161,   488,  3837,  3780
-"S03",        4446,    24,   111,   383,  4964,  4349
+"S02",        3129,    82,   147,   485,  3843,  3786
+"S03",        4458,     0,   113,   393,  4964,  4349
 "S04",         882,    20,    31,    54,   987,  1006
 "S05",        4718,     7,   115,   517,  5357,  5801
 "S06",        1129,    12,    24,   135,  1300,  1284
@@ -1574,16 +1572,17 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         314,     5,     1,     7,   327,   337
-"S32",        8386,   108,    66,   264,  8824,  6240
+"S32",        8416,    43,    66,   299,  8824,  6240
 "int",         520,     4,    17,    30,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26000,   255,   588,  2101, 28944, 26339
+"total",     26045,   186,   576,  2143, 28950, 26345
 ----------------
 Failure summary:
 S02-magicals/env.rakudo.jvm 14 - ENV members persist to child processes
 S02-magicals/pid.t 1 - my $*PID is different from a child $*PID
-S02-names-vars/perl.rakudo.jvm 90 - .perl on user-defined type roundtrips okay
-S02-names/caller.rakudo.jvm aborted 15 test(s)
+S02-names/caller.t aborted 15 test(s)
+S02-names/is_default.rakudo.jvm 6 - untyped variable returned to its default with Nil
+S02-names/is_default.rakudo.jvm 10 - untyped variable returned to its default with undefine
 S02-names/is_default.rakudo.jvm 17 - should be able to assign Nil to typed variable
 S02-names/is_default.rakudo.jvm 18 - typed variable returned to its default with Nil
 S02-names/is_default.rakudo.jvm 21 - should be able to undefine typed variable
@@ -1595,8 +1594,8 @@ S02-names/is_default.rakudo.jvm 69 - undefine typed hash element
 S02-names/pseudo.rakudo.jvm aborted 33 test(s)
 S02-names/symbolic-deref.rakudo.jvm 22 - symbolic dereferentation works with ::CALLER, too
 S02-types/lists.rakudo.jvm 20 - error message contains name of class
-S02-types/nil.rakudo.jvm 20 - can assign Nil to subsets
-S03-binding/scalars.rakudo.jvm aborted 24 test(s)
+S02-types/nil.rakudo.jvm 16 - Nil assigned to scalar produces an Any
+S02-types/nil.rakudo.jvm aborted 19 test(s)
 S04-declarations/constant.rakudo.jvm 23 - a constant declared using 'constant' is actually constant (1)
 S04-phasers/enter-leave.rakudo.jvm 16 - die in LEAVE caught by try
 S04-phasers/enter-leave.rakudo.jvm aborted 1 test(s)
@@ -1657,9 +1656,6 @@ S32-list/squish.t aborted 8 test(s)
 S32-scalar/perl.rakudo.jvm aborted 4 test(s)
 S32-str/encode.rakudo.jvm 6 - indexing a utf8 gives correct value (1)
 S32-str/encode.rakudo.jvm 7 - indexing a utf8 gives correct value (1)
-S32-str/substr.rakudo.jvm 28 - Sanity check string
-S32-str/substr.rakudo.jvm 29 - Taking first char of Deseret string
-S32-str/substr.rakudo.jvm aborted 63 test(s)
 integration/error-reporting.rakudo.jvm 1 - Parse error contains line number
 integration/error-reporting.rakudo.jvm 4 - got the right line number for nonexisting sub inside another sub
 integration/error-reporting.rakudo.jvm 5 - non-existing subroutine is caught before run time
