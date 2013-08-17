@@ -147,7 +147,21 @@ S02-names/bare-sigil.t.............................  10    0    0    0   10
 S02-names/caller.t.................................  15    0    0    0   15
 S02-names/identifier.t.............................  22    0    0    0   22
 S02-names/indirect.t...............................   6    0    0    0    6
-S02-names/is_default.t.............................  72    0    0    0   72
+S02-names/is_default.t.............................use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
+
+No such method 'defined' for invocant of type 'TValue'
+  in sub is at lib/Test.pm:80
+  in sub is at lib/Test.pm:78
+  in block  at t/spec/S02-names/is_default.t:88
+
+  39   33    0    0   72
+    31 tests aborted (missing ok/not ok)
 S02-names/our.rakudo.parrot........................   8    0    0    2   10
      1 skipped: Null PMC access in invoke()
      1 skipped: OUR::subname() does not work
@@ -1860,7 +1874,7 @@ S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.parrot.......................  16    0    0   13   29
     13 skipped: binding on hash elements unimplemented
-S32-io/IO-Socket-INET.t............................  39    2    0    0   41
+S32-io/IO-Socket-INET.t............................  38    3    0    0   41
 S32-io/chdir.rakudo.parrot.........................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................IO::Handle.copy is deprecated.  Please use IO::Path.copy instead.  in block  at t/spec/S32-io/copy.t:33
@@ -2566,7 +2580,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3224,     0,   152,   469,  3845,  3788
+"S02",        3191,    33,   152,   469,  3845,  3788
 "S03",        4455,     0,   117,   392,  4964,  4349
 "S04",         903,     0,    32,    52,   987,  1006
 "S05",        4725,     0,   115,   517,  5357,  5801
@@ -2585,14 +2599,18 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         319,     0,     1,     7,   327,   337
-"S32",        8525,     4,   104,   251,  8884,  6240
+"S32",        8524,     5,   104,   251,  8884,  6240
 "int",         538,     0,     8,    25,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26323,     4,   616,  2069, 29012, 26347
+"total",     26289,    38,   616,  2069, 29012, 26347
 ----------------
 Failure summary:
+S02-names/is_default.t 30 - untyped array element returned to its default with Nil
+S02-names/is_default.t 34 - untyped array element returned to its default with undefine
+S02-names/is_default.t aborted 31 test(s)
 S32-io/IO-Socket-INET.t 4 - finished in time #2
 S32-io/IO-Socket-INET.t 33 - finished in time #16
+S32-io/IO-Socket-INET.t 41 - finished in time #20
 S32-io/io-spec-unix.t aborted 1 test(s)
 S32-io/io-spec-win.t aborted 1 test(s)
 note: test_summary.pl @syn does not have ros
