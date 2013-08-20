@@ -21,9 +21,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xad429f8)'
+#     Actual: 'CODE(0x92539f8)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xad42d18)'
+#     Actual: 'CODE(0x9253d18)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -35,13 +35,8 @@ S02-lexical-conventions/begin_end_pod.t............   1    0    0    0    1
 S02-lexical-conventions/bom.t......................   1    0    0    0    1
 S02-lexical-conventions/end-pod.t..................   1    0    0    0    1
 S02-lexical-conventions/minimal-whitespace.t.......   9    0    0    0    9
-S02-lexical-conventions/sub-block-parsing.t........*** 
-    Unexpected ";"
-    expecting "::" or signature value
-    Variable "&fa" requires predeclaration or explicit package name
-    at t/spec/S02-lexical-conventions/sub-block-parsing.t line 43, column 31
-   0    9    0    0    9
-     9 tests aborted (missing ok/not ok)
+S02-lexical-conventions/sub-block-parsing.pugs.....   5    0    0    4    9
+     4 skipped: Unexpected ";"
 S02-lexical-conventions/unicode.pugs...............#     Actual: An exception was thrown : 
 # Unexpected "\8233"
 # expecting operator
@@ -490,17 +485,25 @@ S02-types/hash.pugs................................#   Expected: '1'
 #     Actual: No exception thrown
 #     Actual: An exception was thrown : Must only use named arguments to new() constructor
 # Be sure to use bareword keys.
-#   Failed test (t/spec/S02-types/hash.pugs line 237, column 5-84)
 #   Expected: '0'
 #     Actual: '1'
-# Looks like you planned 86 tests, but ran 71
-# Looks like you failed 1 tests of 71
-*** Unimplemented unaryOp: hash
-    at t/spec/S02-types/hash.pugs line 240, column 24-43
-  57   16    9    4   86
+#     Actual: No exception thrown
+#   Expected: 'Inf	|a	1|b	2|c	3'
+#     Actual: ''
+#   Expected: 'x'
+#     Actual: 'undef'
+#   Expected: 'y'
+#     Actual: 'undef'
+#     Actual: An exception was thrown : 
+# Unexpected "-"
+# expecting "=", "::", qualified identifier, "?" or variable name
+#     Actual: An exception was thrown : 
+# Unexpected end of input
+  64    0   16    6   86
      4 skipped: .value
-     9 todo   : fix by Christmas
-    15 tests aborted (missing ok/not ok)
+     1 skipped: Unimplemented unaryOp: hash
+     1 skipped: No compatible multi variant found: "&is"
+    16 todo   : fix by Christmas
 S02-types/hash_ref.pugs............................#   Expected: 'undef'
 #     Actual: '(Array)'
   27    0    1    3   31
@@ -4425,7 +4428,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6afbec9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6afbb3d>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6afbec9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6afbb3d>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6a959f9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6a95761>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6a959f9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6a95761>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
   16    0    2    1   19
@@ -4501,10 +4504,9 @@ S12-methods/attribute-params.pugs..................  11    0    0    2   13
      2 skipped: Cannot cast into Hash
 S12-methods/chaining.pugs..........................  15    0    0    2   17
      2 skipped: Mu
-S12-methods/class-and-instance.t...................#   Failed test (t/spec/S12-methods/class-and-instance.t line 36, column 1-68)
-#     Actual: No exception thrown
-# Looks like you failed 1 tests of 8
-   7    1    0    0    8
+S12-methods/class-and-instance.pugs................#     Actual: No exception thrown
+   7    0    1    0    8
+     1 todo   : fix by Christmas
 S12-methods/default-trait.pugs.....................#   Expected: '9'
 #     Actual: '6'
    4    0    1    1    6
@@ -4583,13 +4585,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.13626.343
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.13626.343
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.13626.343
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.13626.343
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.13626.343
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.13626.343
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.13626.343
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.27113.180
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.27113.180
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.27113.180
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.27113.180
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.27113.180
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.27113.180
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.27113.180
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -4656,13 +4658,11 @@ S29-context/evalfile.t.............................   1    0    0    0    1
 S29-context/exit-in-if.t...........................   1    0    0    0    1
 S29-context/sleep.pugs.............................# Sleeping for 3s
 #     Actual: undef
-# Looks like you planned 12 tests, but ran 4
-*** No such subroutine: "&interval"
-    at t/spec/S29-context/sleep.pugs line 25, column 37-52
-   0    8    4    0   12
+#     Actual: No exception thrown
+   3    0    2    7   12
+     7 skipped: not yet implemented
+     1 todo   : not yet implemented by Christmas
      1 todo   : fix by Christmas
-     3 todo PASSED: fix by Christmas
-     8 tests aborted (missing ok/not ok)
 S29-conversions/hash.pugs..........................#     Actual: An exception was thrown : Unimplemented unaryOp: hash
    3    0    1    4    8
      4 skipped: Unimplemented unaryOp: hash
@@ -4721,18 +4721,15 @@ S32-array/pairs.pugs...............................#     Actual: An exception wa
 S32-array/push.pugs................................#     Actual: undef
 #   Expected: 'bughunt yo, check it !'
 #     Actual: '3'
-#   Failed test (t/spec/S32-array/push.pugs line 181, column 5-73)
 #     Actual: No exception thrown
-# Looks like you failed 1 tests of 51
-  40    1    2    8   51
+  40    0    3    8   51
      1 skipped: Odd number of elements
      7 skipped: ...
-     2 todo   : fix by Christmas
-S32-array/unshift.pugs.............................#   Failed test (t/spec/S32-array/unshift.pugs line 169, column 5-79)
-#     Actual: No exception thrown
-# Looks like you failed 1 tests of 57
-  53    1    0    3   57
+     3 todo   : fix by Christmas
+S32-array/unshift.pugs.............................#     Actual: No exception thrown
+  53    0    1    3   57
      3 skipped: ...
+     1 todo   : fix by Christmas
 S32-container/cat.pugs.............................#     Actual: undef
 #     Actual: undef
    4    0    2    0    6
@@ -5341,11 +5338,17 @@ integration/99problems-01-to-10.pugs...............#   Expected: 'd'
      1 skipped: Cannot 'shift' scalar
      2 skipped: todo
      5 todo   : fix by Christmas
-integration/99problems-21-to-30.pugs...............# Looks like you planned 15 tests, but ran 2
-*** pick not defined: VInt 3
-    at t/spec/integration/99problems-21-to-30.pugs line 38, column 16-33
-   2   13    0    0   15
-    13 tests aborted (missing ok/not ok)
+integration/99problems-21-to-30.pugs...............#   Expected: '1 2 3 1 2 4 1 3 2 1 3 4 1 4 2 1 4 3 2 3 1 2 3 4 2 4 1 2 4 3 3 4 1 3 4 2'
+#     Actual: '1 2 1 1 2 2 1 2 3 1 2 4 1 3 1 1 3 2 1 3 3 1 3 4 1 4 1 1 4 2 1 4 3 1 4 4 2 3 1 2 3 2 2 3 3 2 3 4 2 4 1 2 4 2 2 4 3 2 4 4 3 4 1 3 4 2 3 4 3 3 4 4'
+#   Expected: '<SubBlock(<anon>)> a b c d e d e f g h i j k l m n o'
+#     Actual: 'o d e d e m n a b c f g h i j k l'
+#   Expected: '1 o 2 d e d e m n 3 a b c f g h 4 i j k l <SubBlock(<anon>)>'
+#     Actual: 'o i j k l a b c f g h d e d e m n'
+   6    0    3    6   15
+     4 skipped: pick not defined: VInt 3
+     1 skipped: Missing required parameters: $_
+     1 skipped: autothread
+     3 todo   : fix by Christmas
 integration/99problems-41-to-50.pugs...............#   Expected: ''
 #     Actual: 'true true true
 # true fail true
@@ -5453,16 +5456,16 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",          27,     0,     8,    12,    47,    79
-"S02",        1411,    25,   310,   464,  2210,  3888
+"S02",        1423,     0,   317,   470,  2210,  3910
 "S03",        1864,     0,   286,   304,  2454,  4349
 "S04",         479,     0,    98,    88,   665,  1006
 "S05",        2215,     0,  2207,    56,  4478,  5801
 "S06",         400,     0,    77,   126,   603,  1284
 "S07",           0,     0,     0,     0,     0,     0
-"S09",          70,     0,    26,     8,   104,   193
+"S09",          70,     0,    26,     8,   104,   195
 "S10",          30,     0,     9,     0,    39,   127
 "S11",          13,     0,     5,    10,    28,   136
-"S12",         373,     1,    65,    96,   535,  1360
+"S12",         373,     0,    66,    96,   535,  1360
 "S13",           7,     0,     1,     1,     9,    80
 "S14",          64,     0,    11,     0,    75,   327
 "S16",          20,     0,     0,     1,    21,   284
@@ -5471,17 +5474,9 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S24",          47,     0,    25,     4,    76,    88
 "S26",           0,     0,     0,     0,     0,   266
 "S28",           4,     0,     0,     1,     5,    13
-"S29",          30,     8,     9,     6,    53,    87
-"S32",        2272,     2,   268,   554,  3096,  6251
-"int",         125,    13,    32,    22,   192,   550
-"total",      9468,    49,  3439,  1765, 14721, 26208
+"S29",          33,     0,     7,    13,    53,    87
+"S32",        2272,     0,   270,   554,  3096,  6251
+"int",         129,     0,    35,    28,   192,   550
+"total",      9487,     0,  3450,  1784, 14721, 26232
 ----------------
-Failure summary:
-S02-lexical-conventions/sub-block-parsing.t aborted 9 test(s)
-S02-types/hash.pugs 70 - reading multi-level non-existing hash keys does not create it
-S02-types/hash.pugs aborted 15 test(s)
-S12-methods/class-and-instance.t 8 - our method not installed in methods table
-S29-context/sleep.pugs aborted 8 test(s)
-S32-array/push.pugs 51 - cannot push strings onto in Int array
-S32-array/unshift.pugs 57 - cannot unshift strings onto in Int array
-integration/99problems-21-to-30.pugs aborted 13 test(s)
+No failures!
