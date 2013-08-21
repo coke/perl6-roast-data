@@ -1610,11 +1610,12 @@ S12-enums/thorough.rakudo.parrot...................  13    0    0   20   33
      2 skipped: NYI
     16 skipped: does &day::("Tue")
      2 skipped: does day::Tue
-S12-introspection/WHAT.rakudo.parrot...............  25    0   10    0   35
+S12-introspection/WHAT.rakudo.parrot...............  25    0   12    0   37
      3 todo   : of Type on scalars fails
      4 todo   : Foo[Int].new on scalars fails
      1 todo   : Foo[Int,Str].new on scalars fails
      2 todo   : looks like a type object, but is not
+     2 todo   : %h{Str} of Int fails
 S12-introspection/attributes.rakudo.parrot.........  25    0    0    5   30
      5 skipped: :tree not implemented for .^attributes
 S12-introspection/can.t............................  24    0    0    0   24
@@ -1829,8 +1830,9 @@ S32-container/roundrobin.rakudo.parrot.............   4    0    1    0    5
      1 todo   : over-flattening
 S32-container/zip.rakudo.parrot....................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.parrot.................. 539    0    0    3  542
+S32-exceptions/misc.rakudo.parrot.................. 647    0    0    6  653
      1 skipped: RT 114134
+     3 skipped: still handled by <special_var>
      1 skipped: parsing of $& and other p5 variables
      1 skipped: parsing regression
 S32-hash/delete-adverb.rakudo.parrot...............use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
@@ -1864,7 +1866,7 @@ S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.parrot.......................  16    0    0   13   29
     13 skipped: binding on hash elements unimplemented
-S32-io/IO-Socket-INET.t............................  36    5    0    0   41
+S32-io/IO-Socket-INET.t............................  37    4    0    0   41
 S32-io/chdir.rakudo.parrot.........................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................IO::Handle.copy is deprecated.  Please use IO::Path.copy instead.  in block  at t/spec/S32-io/copy.t:33
@@ -2579,7 +2581,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S09",         174,     0,     9,    12,   195,   195
 "S10",          64,     0,     1,     5,    70,   127
 "S11",          72,     0,     1,     8,    81,   136
-"S12",        1327,     0,    44,   127,  1498,  1399
+"S12",        1327,     0,    46,   127,  1500,  1401
 "S13",          70,     0,     0,     0,    70,    80
 "S14",         290,     0,     4,    14,   308,   327
 "S16",         228,     0,     5,    20,   253,   297
@@ -2589,13 +2591,12 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         319,     0,     1,     7,   327,   337
-"S32",        8522,     7,   104,   251,  8884,  6240
+"S32",        8631,     6,   104,   254,  8995,  6240
 "int",         538,     0,     8,    25,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26395,     7,   619,  2054, 29075, 26410
+"total",     26504,     6,   621,  2057, 29188, 26412
 ----------------
 Failure summary:
-S32-io/IO-Socket-INET.t 2 - finished in time #1
 S32-io/IO-Socket-INET.t 4 - finished in time #2
 S32-io/IO-Socket-INET.t 33 - finished in time #16
 S32-io/IO-Socket-INET.t 39 - finished in time #19

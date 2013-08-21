@@ -1056,11 +1056,12 @@ S12-enums/thorough.rakudo.jvm......................  13    0    0   20   33
      2 skipped: NYI
     16 skipped: does &day::("Tue")
      2 skipped: does day::Tue
-S12-introspection/WHAT.rakudo.jvm..................  25    0   10    0   35
+S12-introspection/WHAT.rakudo.jvm..................  25    0   12    0   37
      3 todo   : of Type on scalars fails
      4 todo   : Foo[Int].new on scalars fails
      1 todo   : Foo[Int,Str].new on scalars fails
      2 todo   : looks like a type object, but is not
+     2 todo   : %h{Str} of Int fails
 S12-introspection/attributes.rakudo.jvm............  25    0    0    5   30
      5 skipped: :tree not implemented for .^attributes
 S12-introspection/can.t............................  24    0    0    0   24
@@ -1256,9 +1257,10 @@ S32-container/roundrobin.rakudo.jvm................   4    0    1    0    5
      1 todo   : over-flattening
 S32-container/zip.rakudo.jvm.......................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.jvm..................... 525   10    0   11  546
+S32-exceptions/misc.rakudo.jvm..................... 633   10    0   14  657
      1 skipped: RT 114134
      8 skipped: wrong exception type
+     3 skipped: still handled by <special_var>
      1 skipped: parsing of $& and other p5 variables
      1 skipped: parsing regression
 S32-hash/delete-adverb.rakudo.jvm.................. 160    0    8    0  168
@@ -1567,7 +1569,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S09",         174,     0,     9,    12,   195,   195
 "S10",          64,     0,     1,     5,    70,   127
 "S11",          72,     0,     1,     8,    81,   136
-"S12",        1327,     0,    44,   127,  1498,  1399
+"S12",        1327,     0,    46,   127,  1500,  1401
 "S13",          70,     0,     0,     0,    70,    80
 "S14",         288,     2,     4,    14,   308,   327
 "S16",         219,     8,     5,    21,   253,   297
@@ -1577,10 +1579,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         314,     5,     1,     7,   327,   337
-"S32",        8420,    35,    66,   303,  8824,  6240
+"S32",        8528,    35,    66,   306,  8935,  6240
 "int",         520,     4,    17,    30,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26134,   151,   578,  2152, 29015, 26410
+"total",     26242,   151,   580,  2155, 29128, 26412
 ----------------
 Failure summary:
 S02-magicals/env.rakudo.jvm 14 - ENV members persist to child processes
@@ -1627,16 +1629,16 @@ S29-context/exit.t 3 - try-block does not catch exit exceptions
 S29-os/system.t 1 - run() to an existing program does not die (and returns something true)
 S32-basics/warn.rakudo.jvm 4 - warn() without arguments
 S32-basics/warn.rakudo.jvm 6 - try does not surpress warnings
-S32-exceptions/misc.rakudo.jvm 374 - right exception type (X::Method::NotFound)
-S32-exceptions/misc.rakudo.jvm 387 - right exception type (X::Method::NotFound)
-S32-exceptions/misc.rakudo.jvm 424 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.jvm 426 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.jvm 428 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.jvm 430 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.jvm 432 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.jvm 434 - right exception type (X::Method::NotFound)
-S32-exceptions/misc.rakudo.jvm 539 - right exception type (X::Method::NotFound)
-S32-exceptions/misc.rakudo.jvm 545 - right exception type (X::Caller::NotDynamic)
+S32-exceptions/misc.rakudo.jvm 485 - right exception type (X::Method::NotFound)
+S32-exceptions/misc.rakudo.jvm 498 - right exception type (X::Method::NotFound)
+S32-exceptions/misc.rakudo.jvm 535 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.jvm 537 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.jvm 539 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.jvm 541 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.jvm 543 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.jvm 545 - right exception type (X::Method::NotFound)
+S32-exceptions/misc.rakudo.jvm 650 - right exception type (X::Method::NotFound)
+S32-exceptions/misc.rakudo.jvm 656 - right exception type (X::Caller::NotDynamic)
 S32-io/chdir.rakudo.jvm aborted 9 test(s)
 S32-io/copy.t 8 - .IO.copy missing file
 S32-io/copy.t 20 - copy() missing file
