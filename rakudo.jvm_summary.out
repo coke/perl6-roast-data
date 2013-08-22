@@ -85,14 +85,15 @@ S02-magicals/dollar_bang.rakudo.jvm................  15    0    1    0   16
      1 todo   : stringification of $!
 S02-magicals/env.rakudo.jvm........................  12    1    2    1   16
      1 skipped: import keyword
-     2 todo   : %*ENV.gist and %*ENV.perl do not contain abc
+     2 todo PASSED: %*ENV.gist and %*ENV.perl do not contain abc
 S02-magicals/file_line.t...........................   2    0    0    0    2
 S02-magicals/pid.t.................................   0    1    0    0    1
 S02-magicals/progname.t............................   4    0    0    0    4
 S02-magicals/sub.t.................................   6    0    0    0    6
 S02-magicals/vm.t..................................   3    0    0    0    3
 S02-names-vars/contextual.t........................  23    0    0    0   23
-S02-names-vars/fmt.t...............................  21    0    0    0   21
+S02-names-vars/fmt.t...............................   7   14    0    0   21
+    14 tests aborted (missing ok/not ok)
 S02-names-vars/list_array_perl.rakudo.jvm..........  18    0    1    2   21
      2 skipped: recursive data structure
      1 todo   : List.perl bug
@@ -1294,14 +1295,14 @@ S32-io/io-path-cygwin.rakudo.jvm...................  49    0    1    2   52
      1 todo   : resolve NYI, needs nqp::readlink
 S32-io/io-path-unix.rakudo.jvm.....................  36    0    1    0   37
      1 todo   : resolve NYI, needs nqp::readlink
-S32-io/io-path-win.rakudo.jvm......................  48    0    1    2   51
-     2 skipped: On-system tests for filetest inheritance
-     1 todo   : resolve NYI, needs nqp::readlink
+S32-io/io-path-win.rakudo.jvm......................  32   19    0    0   51
+    19 tests aborted (missing ok/not ok)
 S32-io/io-path.t...................................  13    0    0    0   13
 S32-io/io-spec-cygwin.t............................ 100    0    0    2  102
      2 skipped: cygwin on-platform tests
-S32-io/io-spec-unix.t.............................. 128    1    0    0  129
-S32-io/io-spec-win.t............................... 206    0    0    0  206
+S32-io/io-spec-unix.t.............................. 129    0    0    0  129
+S32-io/io-spec-win.t............................... 173   33    0    0  206
+    33 tests aborted (missing ok/not ok)
 S32-io/note.rakudo.jvm.............................   0    5    1    0    6
      1 todo   : nom regression
 S32-io/slurp.rakudo.jvm............................  13    0    0    3   16
@@ -1429,9 +1430,8 @@ S32-str/split-simple.rakudo.jvm....................  48    0    1    0   49
 S32-str/split.rakudo.jvm...........................  34    0    0    3   37
      2 skipped: RT #63066 loops forever
      1 skipped: loops on zero-width match
-S32-str/sprintf.rakudo.jvm......................... 126    0    0    2  128
+S32-str/sprintf.rakudo.jvm......................... 127    0    0    1  128
      1 skipped: %p doesn't yet throw exception - but should it, or just Failure?
-     1 skipped: doesn't work in master (as of 2010-07)
 S32-str/substr-rw.rakudo.jvm.......................   0    0    0    0    0
 S32-str/substr.rakudo.jvm..........................  53    0    0   39   92
      3 skipped: java.nio.charset.MalformedInputException
@@ -1500,8 +1500,9 @@ integration/99problems-61-to-70.t..................   9    0    0    6   15
      1 skipped: Test(s) not yet written: (**) Preorder and inorder sequences of binary trees
      1 skipped: Test(s) not yet written: (**) Construct a complete binary tree
 integration/advent2009-day01.t.....................   2    0    0    0    2
-integration/advent2009-day02.rakudo.jvm............   8    0    0    2   10
-     2 skipped: Too few directives: found 1, fewer than the 2 arguments after the format string
+integration/advent2009-day02.rakudo.jvm............   6    3    0    1   10
+     1 skipped: Too few directives: found 1, fewer than the 2 arguments after the format string
+     3 tests aborted (missing ok/not ok)
 integration/advent2009-day03.t.....................   6    0    0    0    6
 integration/advent2009-day04.t.....................   6    0    0    0    6
 integration/advent2009-day05.t.....................  17    0    0    0   17
@@ -1560,7 +1561,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3160,    55,   147,   505,  3867,  3810
+"S02",        3146,    69,   147,   505,  3867,  3810
 "S03",        4458,     0,   113,   393,  4964,  4349
 "S04",         882,    20,    31,    54,   987,  1006
 "S05",        4718,     7,   115,   517,  5357,  5801
@@ -1579,14 +1580,15 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         314,     5,     1,     7,   327,   337
-"S32",        8528,    35,    66,   306,  8935,  6240
-"int",         520,     4,    17,    30,   571,   560
+"S32",        8481,    86,    65,   303,  8935,  6240
+"int",         518,     7,    17,    29,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26242,   151,   580,  2155, 29128, 26412
+"total",     26179,   219,   579,  2151, 29128, 26412
 ----------------
 Failure summary:
 S02-magicals/env.rakudo.jvm 14 - ENV members persist to child processes
 S02-magicals/pid.t 1 - my $*PID is different from a child $*PID
+S02-names-vars/fmt.t aborted 14 test(s)
 S02-names/caller.t aborted 15 test(s)
 S02-names/pseudo.rakudo.jvm aborted 33 test(s)
 S02-names/symbolic-deref.rakudo.jvm 22 - symbolic dereferentation works with ::CALLER, too
@@ -1642,7 +1644,8 @@ S32-exceptions/misc.rakudo.jvm 656 - right exception type (X::Caller::NotDynamic
 S32-io/chdir.rakudo.jvm aborted 9 test(s)
 S32-io/copy.t 8 - .IO.copy missing file
 S32-io/copy.t 20 - copy() missing file
-S32-io/io-spec-unix.t 128 - rel2abs: $*CWD test
+S32-io/io-path-win.rakudo.jvm aborted 19 test(s)
+S32-io/io-spec-win.t aborted 33 test(s)
 S32-io/note.rakudo.jvm 1 - basic form of note
 S32-io/note.rakudo.jvm 2 - note multiple parameters
 S32-io/note.rakudo.jvm 3 - note array
@@ -1651,6 +1654,7 @@ S32-io/note.rakudo.jvm 6 - try { } block does not prevent note() from outputting
 S32-scalar/perl.rakudo.jvm aborted 4 test(s)
 S32-str/encode.rakudo.jvm 6 - indexing a utf8 gives correct value (1)
 S32-str/encode.rakudo.jvm 7 - indexing a utf8 gives correct value (1)
+integration/advent2009-day02.rakudo.jvm aborted 3 test(s)
 integration/error-reporting.rakudo.jvm 1 - Parse error contains line number
 integration/error-reporting.rakudo.jvm 4 - got the right line number for nonexisting sub inside another sub
 integration/error-reporting.rakudo.jvm 5 - non-existing subroutine is caught before run time
