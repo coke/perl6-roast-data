@@ -2,7 +2,7 @@ use v6;
 
 my %status;
 
-my $data-file = open 'perl6_pass_rates';
+my $data-file = open 'perl6_pass_rates.csv';
 
 my @lines = $data-file.lines;
 @lines.shift; # skip headers
