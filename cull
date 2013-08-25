@@ -37,12 +37,13 @@ foreach my $type (sort @types) {
     if ($max != 0) {
         $per = int( $pass{$type}/$max *100*100)/100;
     }
-    $line .= "; $type ($per%)"
+    $line .= "; $type ($per%)";
 }
 
 say $line;
 foreach my $type (sort @types) {
     my $impl = shift @{$line{$type}};
+    my @vals = map { s/^\s+// } @{$line{$type}};
     $impl = '"' . $impl . '"';
-    printf "%-8s,%6s,%6s,%6s,%6s,%6s,%6s\n", $impl, @{$line{$type}};
+    print join(",", $impl, @{$line{$type}}), "\n";
 }
