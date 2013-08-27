@@ -32,6 +32,15 @@ implementation's .out file), please open a ticket with that implementation.
 
 # How to Help
 
+## rakudo.jvm
+
+rakudo.jvm is nearly passing 100% of the spec tests, but is not
+completely fudged yet - Any fudges marked "rakudo.jvm" will eventually
+need tickets opened in RT, or to be fixed. Any failures should be
+considered under development. Tickets can also be opened for those
+as well - if you open a ticket, please fudge the test and add the RT #
+to the ticket.
+
 ## pugs
 
 Since Pugs is in maintenance mode at this point, any new tests are not
@@ -48,3 +57,9 @@ or the word "parsefail", e.g.:
     #?pugs skip 'No compatible multi variant found: "&is"'
 
 If you still can't get a test file to pass, drop by #perl6 on freenode.
+
+## niecza
+
+Niecza is in maintenance mode. Any tests that are not passing need a ticket
+opened in https://github.com/sorear/niecza/issues, and then need to be fudged
+with a reference to that ticket number.
