@@ -21,9 +21,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x960f9f8)'
+#     Actual: 'CODE(0x9b509f8)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x960fd18)'
+#     Actual: 'CODE(0x9b50d18)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -345,9 +345,23 @@ S02-types/assigning-refs.pugs......................#   Expected: '0'
      2 todo   : non-flattening hash refs by Christmas
 S02-types/autovivification.pugs....................#   Expected: '0'
 #     Actual: '1'
+#   Failed test (t/spec/S02-types/autovivification.pugs line 13, column 5-57)
+#     Actual: undef
 #   Expected: '0'
 #     Actual: '1'
-   9    0    2    2   13
+#   Failed test (t/spec/S02-types/autovivification.pugs line 35, column 5-67)
+#   Expected: '0'
+#     Actual: '1'
+#   Failed test (t/spec/S02-types/autovivification.pugs line 36, column 5-47)
+#     Actual: undef
+#   Failed test (t/spec/S02-types/autovivification.pugs line 47, column 5-57)
+#   Expected: '0'
+#     Actual: '1'
+#   Failed test (t/spec/S02-types/autovivification.pugs line 53, column 5-63)
+#   Expected: '0'
+#     Actual: '1'
+# Looks like you failed 5 tests of 25
+  16    5    2    2   25
      2 skipped: :exists
      2 todo   : fix by Christmas
 S02-types/bool.pugs................................#   Expected: 'True'
@@ -499,7 +513,7 @@ S02-types/hash.pugs................................#   Expected: '1'
 # expecting "=", "::", qualified identifier, "?" or variable name
 #     Actual: An exception was thrown : 
 # Unexpected end of input
-  64    0   16    6   86
+  65    0   16    6   87
      4 skipped: .value
      1 skipped: Unimplemented unaryOp: hash
      1 skipped: No compatible multi variant found: "&is"
@@ -597,9 +611,16 @@ S02-types/lists.pugs...............................#   Expected: '23'
 #     Actual: undef
 #     Actual: An exception was thrown : Can't modify constant item: VNum Infinity
 #     Actual: undef
+#   Failed test (t/spec/S02-types/lists.pugs line 138, column 3-54)
+#   Expected: '1'
+#     Actual: '3'
+#   Failed test (t/spec/S02-types/lists.pugs line 139, column 3-54)
+#   Expected: '3'
+#     Actual: '1'
 #     Actual: undef
 #     Actual: undef
-  13    0    8    7   28
+# Looks like you failed 2 tests of 28
+  11    2    8    7   28
      4 skipped: Parcel
      1 skipped: augment
      2 skipped: Must only use named arguments to new() constructor
@@ -685,32 +706,24 @@ S02-types/range.pugs...............................#   Expected: '1..5'
 #   Expected: '1 2 3 4 5'
 #     Actual: '10 2 3 4 10'
 #   Expected: '1'
-#     Actual: '0'
-#   Expected: '5'
-#     Actual: '0'
-#   Expected: '1'
 #     Actual: '1 2 3 4 5'
 #   Expected: '5'
 #     Actual: '1 2 3 4 5'
-#   Expected: '1'
-#     Actual: '0'
-#   Expected: '4.5'
-#     Actual: '0'
 #   Expected: '1'
 #     Actual: '1 2 3 4'
 #   Expected: '4.5'
 #     Actual: '1 2 3 4'
 #   Expected: '8'
 #     Actual: '1'
-  27    0   24   82  133
+  27    0   20   80  127
     30 skipped: roll
     32 skipped: pick *
      2 skipped: .bounds
      4 skipped: Range
      6 skipped: ACCEPTS
-     7 skipped: hangs
+     5 skipped: hangs
      1 skipped: Cannot cast from VList to VCode
-    24 todo   : fix by Christmas
+    20 todo   : fix by Christmas
 S02-types/subscripts_and_context.t.................   8    0    0    0    8
 S02-types/subset.pugs..............................#     Actual: No exception thrown
 #     Actual: No exception thrown
@@ -740,9 +753,12 @@ S02-types/type.pugs................................#     Actual: No exception th
 #     Actual: No exception thrown
 #     Actual: No exception thrown
 #     Actual: An exception was thrown : No such subroutine: "&Nil"
+#   Failed test (t/spec/S02-types/type.pugs line 55, column 5-77)
+#     Actual: An exception was thrown : No such subroutine: "&Nil"
 #     Actual: An exception was thrown : No such subroutine: "&Nil"
 #     Actual: No exception thrown
-  22    0    7   21   50
+# Looks like you failed 1 tests of 50
+  21    1    7   21   50
      2 skipped: Numeric
      1 skipped: Positional
     18 skipped: parsefail
@@ -4432,7 +4448,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c611a9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf686a625>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c611a9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf686a625>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c561a9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6866625>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c561a9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6866625>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
 #   Expected: 'undef'
@@ -4593,13 +4609,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.13640.229
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.13640.229
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.13640.229
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.13640.229
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.13640.229
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.13640.229
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.13640.229
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.21352.814
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.21352.814
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.21352.814
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.21352.814
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.21352.814
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.21352.814
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.21352.814
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -5464,10 +5480,10 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",          27,     0,     8,    12,    47,    79
-"S02",        1423,     0,   317,   470,  2210,  3910
+"S02",        1428,     8,   313,   468,  2217,  3934
 "S03",        1864,     0,   286,   304,  2454,  4350
 "S04",         479,     0,    98,    88,   665,  1006
-"S05",        2215,     0,  2207,    56,  4478,  5801
+"S05",        2215,     0,  2207,    56,  4478,  5807
 "S06",         389,    22,    77,   119,   607,  1288
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          70,     0,    26,     8,   104,   195
@@ -5485,7 +5501,15 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S29",          33,     0,     7,    13,    53,    87
 "S32",        2272,     0,   270,   554,  3096,  6258
 "int",         129,     0,    35,    28,   192,   550
-"total",      9478,    22,  3452,  1777, 14729, 26291
+"total",      9483,    30,  3448,  1775, 14736, 26321
 ----------------
 Failure summary:
+S02-types/autovivification.pugs 2 - and the return value is not defined
+S02-types/autovivification.pugs 6 - binding does not immediately autovivify
+S02-types/autovivification.pugs 7 - ... to an undefined value
+S02-types/autovivification.pugs 11 - capturing does not autovivify
+S02-types/autovivification.pugs 12 - in rw arguments does not autovivify
+S02-types/lists.pugs 16 - \@array creates a capture (1)
+S02-types/lists.pugs 17 - \@array creates a capture (2)
+S02-types/type.pugs 17 - native num type can be undefined
 S06-other/anon-hashes-vs-blocks.pugs aborted 22 test(s)

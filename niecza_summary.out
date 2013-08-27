@@ -205,15 +205,16 @@ S02-names-vars/names.niecza........................Use of uninitialized value in
   at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4580 (mainline @ 3) 
   at <unknown> line 0 (ExitRunloop @ 0) 
 Killed
-  88   40    1   13  142
+  96   32    1   13  142
      7 skipped: Undeclared name: Terrain::
      4 skipped: Postconstraints, and shapes on variable declarators NYI
      2 skipped: Object reference not set to an instance of an object
      1 todo   : 
-    40 tests aborted (missing ok/not ok)
-S02-names-vars/perl.niecza.........................Killed
-  79    0    0    0    0
-    79 tests more than planned were run
+    32 tests aborted (missing ok/not ok)
+S02-names-vars/perl.niecza.........................  97    0    0   12  109
+     2 skipped: hanging test
+     4 skipped: >>>Stub code executed
+     6 skipped: Unhandled exception
 S02-names-vars/variables-and-packages.niecza.......Potential difficulties:
   $a is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-names-vars/variables-and-packages.niecza line 25:
 ------> [32m   my [33m⏏[31m$a=2; {[0m
@@ -428,12 +429,14 @@ S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.niecza....................  15    0    3    0   18
      3 todo   : 
 S02-types/autovivification.niecza..................Potential difficulties:
-  $b is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/autovivification.niecza line 45:
-------> [32maptures should be context neutral'); my [33m⏏[31m$b = \%a<b><c>;[0m
+  $b is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/autovivification.niecza line 46:
+------> [32maptures should be context neutral'); my [33m⏏[31m$b = \(%h<a><b>);[0m
+  $baz is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/autovivification.niecza line 68:
+------> [32msub bar ([33m⏏[31m$baz is readonly) { }[0m
 
-  10    0    1    2   13
-     2 skipped: Unable to resolve method push in type Any
-     1 todo   : disagree; captures should be context neutral
+  17    2    1    5   25
+     5 skipped: Unable to resolve method push in type Any
+     1 todo PASSED: disagree; captures should be context neutral
 S02-types/bag.niecza...............................Potential difficulties:
   @ks is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/bag.niecza line 90:
 ------> [32m    my [33m⏏[31m@ks = $b.keys;[0m
@@ -497,7 +500,7 @@ Use of uninitialized value in string context
   at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 269 (Mu.Str @ 15) 
   at <unknown> line 0 (ExitRunloop @ 0) 
   at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/hash.niecza line 201 (ANON @ 4) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/hash.niecza line 328 (mainline @ 240) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/hash.niecza line 330 (mainline @ 240) 
   at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4579 (ANON @ 3) 
   at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4580 (module-CORE @ 576) 
   at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4580 (mainline @ 3) 
@@ -510,7 +513,7 @@ Potential difficulties:
   $rt is declared but not used at (eval) line 1:
 ------> [32mmy [33m⏏[31m$rt = { grammar => 5 }[0m
 
-  79    0    5    2   86
+  80    0    5    2   87
      1 skipped: Excess arguments to Hash.new, unused named a
      1 skipped: Unsupported use of [-1] subscript to access from end of array
      5 todo   : 
@@ -552,10 +555,10 @@ S02-types/pair.niecza..............................  91    0    2    4   97
 S02-types/parcel.t.................................  15    0    0    0   15
 S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.niecza.............................Potential difficulties:
-  $j is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/range.niecza line 181:
+  $j is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/range.niecza line 169:
 ------> [32m        for $i..5 -> [33m⏏[31m$j { };[0m
 
- 129    0    0    4  133
+ 123    0    0    4  127
      2 skipped: Unable to resolve method reverse in class Range
      1 skipped: Attempted to access slot $!min of type object for Range
      1 skipped: Undeclared name: "Failure"
@@ -2081,7 +2084,16 @@ S04-statements/unless.t............................  10    0    0    0   10
 S04-statements/until.t.............................   4    0    0    0    4
 S04-statements/while.t.............................   9    0    0    0    9
                                                    pass fail todo skip plan
-S05-capture/caps.t.................................  30    0    0    0   30
+S05-capture/caps.t.................................Unhandled exception: No value for parameter '@x' in 'ca'
+  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S05-capture/caps.t line 0 (ca @ 1) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S05-capture/caps.t line 68 (ANON @ 9) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S05-capture/caps.t line 80 (mainline @ 121) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4579 (ANON @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4580 (module-CORE @ 576) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4580 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  30    6    0    0   36
+     5 tests aborted (missing ok/not ok)
 S05-capture/match-object.t.........................Use of Nil as a string
   at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 1384 (warn @ 5) 
   at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 468 (Nil.Str @ 4) 
@@ -2160,11 +2172,13 @@ S05-mass/rx.niecza.................................Potential difficulties:
 ------> [32m    my [33m⏏[31m$rt112450 = 4;[0m
 
 Killed
-  14  718    7    0  739
-     2 todo   : 
+ 231  493   10    5  739
+     1 skipped: space between - and [ ] is a problem?
+     4 skipped: Unsuppored elements in after list
+     5 todo   : 
      3 todo   : ::: issue
      2 todo   : :: issues
-   718 tests aborted (missing ok/not ok)
+   493 tests aborted (missing ok/not ok)
 S05-mass/stdrules.niecza........................... 183    0    0    3  186
      3 skipped: <at>
 S05-match/arrayhash.niecza.........................   4    0    4    0    8
@@ -5892,10 +5906,10 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        3025,    40,   112,   258,  3356,  3810
+"S02",        3053,    34,   112,   273,  3472,  3834
 "S03",        3981,    79,   196,   366,  4622,  4350
 "S04",         801,     3,    33,    60,   897,  1006
-"S05",        2776,  1390,   103,   159,  4428,  5801
+"S05",        2993,  1171,   106,   164,  4434,  5807
 "S06",         777,     2,    56,   162,   997,  1288
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          65,     0,     0,     8,    73,   195
@@ -5913,18 +5927,21 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 "S29",         301,    12,     5,    10,   328,   341
 "S32",        6370,   140,   133,   247,  6890,  6247
 "int",         463,     1,    21,    27,   512,   560
-"total",     19750,  1671,   734,  1526, 23602, 26432
+"total",     19995,  1446,   737,  1546, 23724, 26462
 ----------------
 Failure summary:
-S02-names-vars/names.niecza aborted 40 test(s)
-S02-names-vars/perl.niecza passed 79 unplanned test(s)
+S02-names-vars/names.niecza aborted 32 test(s)
+S02-types/autovivification.niecza 6 - binding does not immediately autovivify
+S02-types/autovivification.niecza 12 - in rw arguments does not autovivify
 S03-binding/nested.t aborted 43 test(s)
 S03-operators/subscript-adverbs.niecza aborted 36 test(s)
 S04-statement-modifiers/if.t 6 - if expr on false cond
 S04-statement-modifiers/unless.t 4 - unless expr on true cond
 S04-statements/for.niecza 71 - Can use statement-modifying "for" in list comprehension
+S05-capture/caps.t 31 - Regex matches
+S05-capture/caps.t aborted 5 test(s)
 S05-mass/properties-block.t aborted 670 test(s)
-S05-mass/rx.niecza aborted 718 test(s)
+S05-mass/rx.niecza aborted 493 test(s)
 S05-substitution/subst.niecza aborted 2 test(s)
 S06-signature/unpack-array.t 12 - array unpacking and only-subs
 S06-signature/unpack-array.t 13 - array unpacking and only-multi
