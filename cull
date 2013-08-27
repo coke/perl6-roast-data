@@ -28,22 +28,16 @@ my $date=`date +'%m/%d/%Y'`;
 chomp $date;
 my $roast_version=`(cd roast && git rev-parse --short HEAD)`;
 chomp $roast_version;
-my $line = "# $date $roast_version ${best}++ ($max)";
 
-foreach my $type (sort @types) {
-    next if $type eq $best;
-
-    my $per = 0; 
-    if ($max != 0) {
-        $per = int( $pass{$type}/$max *100*100)/100;
-    }
-    $line .= "; $type ($per%)";
-}
-
-say $line;
 foreach my $type (sort @types) {
     my $impl = shift @{$line{$type}};
-    my @vals = map { s/^\s+// } @{$line{$type}};
-    $impl = '"' . $impl . '"';
-    print join(",", $impl, @{$line{$type}}), "\n";
+    my @vals = map { s/^\s+//; $_ } @{$line{$type}};
+
+    my $per = "";
+    if ($max != 0) {
+        $per = sprintf "%05.2f%%", $pass{$type}/$max*100;
+    }
+
+    splice @vals, 0, 0, $date, $per, $roast_version;
+    print join(",", $impl, @vals), ",\n";
 }
