@@ -3,9 +3,9 @@
 # default to sysperl
 PATH=/usr/local/bin:$PATH
 
-rm -rf rakudo
-git clone git://github.com/rakudo/rakudo.git
-cd rakudo
+rm -rf rakudo.parrot
+git clone git://github.com/rakudo/rakudo.git rakudo.parrot
+cd rakudo.parrot
 ln -s ../../roast t/spec
 perl Configure.pl --gen-parrot
 make all
@@ -17,4 +17,4 @@ export PERL6LIB=`pwd`/lib:.
 # some tests require a LANG.
 export LANG=en_US.UTF-8
 
-perl t/spec/test_summary rakudo.parrot 2>&1 | tee ../rakudo_summary.out
+perl t/spec/test_summary rakudo.parrot 2>&1 | tee ../rakudo.parrot_summary.out
