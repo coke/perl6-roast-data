@@ -81,17 +81,15 @@ S02-magicals/dollar-underscore.rakudo.jvm..........   8    0    0    1    9
      1 skipped: for() with nullary block
 S02-magicals/dollar_bang.rakudo.jvm................  15    0    1    0   16
      1 todo   : stringification of $!
-S02-magicals/env.rakudo.jvm........................  12    1    2    1   16
+S02-magicals/env.rakudo.jvm........................  14    1    0    1   16
      1 skipped: import keyword
-     2 todo PASSED: %*ENV.gist and %*ENV.perl do not contain abc
 S02-magicals/file_line.t...........................   2    0    0    0    2
 S02-magicals/pid.t.................................   0    1    0    0    1
 S02-magicals/progname.t............................   4    0    0    0    4
 S02-magicals/sub.t.................................   6    0    0    0    6
 S02-magicals/vm.t..................................   3    0    0    0    3
 S02-names-vars/contextual.t........................  23    0    0    0   23
-S02-names-vars/fmt.t...............................   7   14    0    0   21
-    14 tests aborted (missing ok/not ok)
+S02-names-vars/fmt.t...............................  21    0    0    0   21
 S02-names-vars/list_array_perl.rakudo.jvm..........  18    0    1    2   21
      2 skipped: recursive data structure
      1 todo   : List.perl bug
@@ -116,8 +114,8 @@ S02-names/caller.t.................................   0   15    0    0   15
     15 tests aborted (missing ok/not ok)
 S02-names/identifier.t.............................  22    0    0    0   22
 S02-names/indirect.t...............................   6    0    0    0    6
-S02-names/is_default.rakudo.jvm....................  60    0    0   12   72
-    12 skipped: oh no, .VAR does not work on JVM
+S02-names/is_default.rakudo.jvm....................   0  114    0    0  114
+   114 tests aborted (missing ok/not ok)
 S02-names/is_dynamic.rakudo.jvm....................   0    0    0   22   22
     22 skipped: oh no, .VAR does not work on JVM
 S02-names/name.rakudo.jvm..........................   0    0    0   15   15
@@ -612,7 +610,7 @@ S04-statements/unless.t............................  10    0    0    0   10
 S04-statements/until.t.............................   4    0    0    0    4
 S04-statements/while.t.............................   9    0    0    0    9
                                                    pass fail todo skip plan
-S05-capture/caps.rakudo.jvm........................  34    0    2    0   36
+S05-capture/caps.rakudo.jvm........................  37    1    2    0   40
      1 todo   : return type of .chunks
      1 todo   : RT117995 - quantified conjunctive capture
 S05-capture/dot.rakudo.jvm.........................  45    0    8    8   61
@@ -1496,9 +1494,8 @@ integration/99problems-61-to-70.t..................   9    0    0    6   15
      1 skipped: Test(s) not yet written: (**) Preorder and inorder sequences of binary trees
      1 skipped: Test(s) not yet written: (**) Construct a complete binary tree
 integration/advent2009-day01.t.....................   2    0    0    0    2
-integration/advent2009-day02.rakudo.jvm............   6    3    0    1   10
+integration/advent2009-day02.rakudo.jvm............   9    0    0    1   10
      1 skipped: Too few directives: found 1, fewer than the 2 arguments after the format string
-     3 tests aborted (missing ok/not ok)
 integration/advent2009-day03.t.....................   6    0    0    0    6
 integration/advent2009-day04.t.....................   6    0    0    0    6
 integration/advent2009-day05.t.....................  17    0    0    0   17
@@ -1557,10 +1554,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3181,    70,   148,   492,  3891,  3834
+"S02",        3137,   170,   146,   480,  3933,  3876
 "S03",        4458,     0,   113,   393,  4964,  4350
 "S04",         882,    20,    31,    54,   987,  1006
-"S05",        4723,     7,   116,   517,  5363,  5807
+"S05",        4726,     8,   116,   517,  5367,  5811
 "S06",        1133,    12,    24,   135,  1304,  1288
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         174,     0,     9,    12,   195,   195
@@ -1577,15 +1574,15 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         318,     5,     1,     7,   331,   341
 "S32",        8485,    86,    65,   306,  8942,  6247
-"int",         518,     7,    19,    27,   571,   560
+"int",         521,     4,    19,    27,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26237,   220,   583,  2139, 29179, 26464
+"total",     26199,   318,   581,  2127, 29225, 26510
 ----------------
 Failure summary:
 S02-magicals/env.rakudo.jvm 14 - ENV members persist to child processes
 S02-magicals/pid.t 1 - my $*PID is different from a child $*PID
-S02-names-vars/fmt.t aborted 14 test(s)
 S02-names/caller.t aborted 15 test(s)
+S02-names/is_default.rakudo.jvm aborted 114 test(s)
 S02-names/pseudo.rakudo.jvm aborted 33 test(s)
 S02-names/symbolic-deref.rakudo.jvm 22 - symbolic dereferentation works with ::CALLER, too
 S02-types/lists.rakudo.jvm 20 - error message contains name of class
@@ -1600,6 +1597,7 @@ S04-phasers/rvalue.t 12 - CHECK {} runs only once
 S04-statements/gather.rakudo.jvm aborted 6 test(s)
 S04-statements/loop.t aborted 1 test(s)
 S04-statements/try.rakudo.jvm aborted 7 test(s)
+S05-capture/caps.rakudo.jvm 36 - .caps && - multiple terms
 S05-mass/properties-general.rakudo.jvm 553 - Match <:Other>
 S05-mass/properties-general.rakudo.jvm 554 - Don't match negated <Other>
 S05-mass/properties-general.rakudo.jvm 555 - Don't match inverted <Other>
@@ -1651,7 +1649,6 @@ S32-io/note.rakudo.jvm 6 - try { } block does not prevent note() from outputting
 S32-scalar/perl.rakudo.jvm aborted 4 test(s)
 S32-str/encode.rakudo.jvm 6 - indexing a utf8 gives correct value (1)
 S32-str/encode.rakudo.jvm 7 - indexing a utf8 gives correct value (1)
-integration/advent2009-day02.rakudo.jvm aborted 3 test(s)
 integration/error-reporting.rakudo.jvm 1 - Parse error contains line number
 integration/error-reporting.rakudo.jvm 4 - got the right line number for nonexisting sub inside another sub
 integration/error-reporting.rakudo.jvm 5 - non-existing subroutine is caught before run time
