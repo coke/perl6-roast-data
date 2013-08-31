@@ -99,7 +99,7 @@ S02-names-vars/names.rakudo.jvm.................... 127    0    2   13  142
      7 skipped: package variable autovivification
      1 todo   : nom regression
      1 todo   : dubious test - otherwise why is ::<$foo> allowed?
-S02-names-vars/perl.rakudo.jvm.....................  97    1    0    6  104
+S02-names-vars/perl.rakudo.jvm.....................  98    0    0    6  104
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -292,25 +292,26 @@ S03-junctions/misc.rakudo.jvm......................  95    0    4    4  103
      4 skipped: lower case junction
      2 todo   : lower case junction type
      2 todo   : nom regression
-S03-metaops/cross.rakudo.jvm.......................  22    0    1    5   28
+S03-metaops/cross.rakudo.jvm.......................  24    0    3    1   28
      1 skipped: .slice for iterators NYI
-     4 skipped: =:= NYI
      1 todo   : RT 74072
+     2 todo   : huh?
 S03-metaops/eager-hyper.rakudo.jvm.................   5    0    1    2    8
      2 skipped: hyper prefix NYI
      1 todo   : Array assignment is not lazy -- is this test wrong?
-S03-metaops/hyper.rakudo.jvm....................... 267    0    6    8  281
-     5 skipped: dotted postfix
+S03-metaops/hyper.rakudo.jvm....................... 269    0    6    6  281
+     3 skipped: dotted postfix
      1 skipped: eval(Buf)
      2 skipped: nom regression: possible spec change/improvement
      6 todo   : nom regression - whatever extension
 S03-metaops/not.t..................................  33    0    0    0   33
-S03-metaops/reduce.rakudo.jvm...................... 353    0    6    7  366
-     5 skipped: =:= NYI
+S03-metaops/reduce.rakudo.jvm...................... 354    0    8    4  366
+     2 skipped: huh?
      2 skipped: [!===]
      1 todo   : item context
      2 todo   : triangle [\^^] and [\xor]
      1 todo   : reduced hyper op
+     2 todo   : huh?
      2 todo   : orelse
 S03-metaops/reverse.t..............................  34    0    0    0   34
 S03-metaops/zip.rakudo.jvm.........................  18    0    4    2   24
@@ -323,21 +324,20 @@ S03-operators/also.rakudo.jvm......................   4    0    4    0    8
 S03-operators/andthen.t............................   8    0    0    0    8
 S03-operators/arith.t.............................. 143    0    0    0  143
 S03-operators/assign-is-not-binding.t..............   8    0    0    0    8
-S03-operators/assign.rakudo.jvm.................... 248    0   17   20  285
-     6 skipped: unknown reasons
-     6 skipped: unknown
-     1 skipped: $a[] autovivification (unspecced?)
-     2 skipped: ,=
+S03-operators/assign.rakudo.jvm.................... 252    0   22   12  286
+     3 skipped: expects a term, found infix >= instead
+     3 skipped: Two terms in a row
+     3 skipped: cannot modifiy an immutable value
      1 skipped: Odd number of elements found where hash expected
      2 skipped: RT #76734
-     2 skipped: @$a
      1 todo   : RT 80614
-     1 todo   : list assignment
+     5 todo   : list assignment
      5 todo   : list assignment to scalar
      3 todo   : list assignment, autovivification (?)
      3 todo   : item assignment
      1 todo   : list assignment with ($var, *)
      2 todo   : unknown
+     1 todo   : huh?
      1 todo   : item/list assignment
 S03-operators/autoincrement-range.t................  96    0    0    0   96
 S03-operators/autoincrement.t......................  78    0    0    0   78
@@ -357,17 +357,15 @@ S03-operators/cmp.t................................  22    0    0    0   22
 S03-operators/comparison-simple.t..................  24    0    0    0   24
 S03-operators/comparison.rakudo.jvm................  37    0    4    0   41
      4 todo   : nom regression
-S03-operators/context-forcers.rakudo.jvm...........  86    0    0    3   89
+S03-operators/context-forcers.rakudo.jvm...........  95    0    0    2   97
      2 skipped: failure modes of Str.Numeric
-     1 skipped: ~Mu
-S03-operators/context.rakudo.jvm...................  31    0    0    1   32
-     1 skipped: @() not implemented
+S03-operators/context.rakudo.jvm...................  31    0    1    0   32
+     1 todo   : @() not implemented
 S03-operators/div.t................................   6    0    0    0    6
 S03-operators/equality.t...........................  32    0    0    0   32
-S03-operators/eqv.rakudo.jvm.......................  46    0    0    8   54
-     4 skipped: binding NYI
-     3 skipped: captures
-     1 skipped: infix:<!eqv>
+S03-operators/eqv.rakudo.jvm.......................  50    0    3    1   54
+     1 skipped: huh?
+     3 todo   : huh?
 S03-operators/flip-flop.rakudo.jvm.................  37    0    0    2   39
      2 skipped: dubious scoping?
 S03-operators/gcd.t................................  16    0    0    0   16
@@ -376,8 +374,8 @@ S03-operators/identity.rakudo.jvm..................  37    0    8    0   45
      4 todo   : misuse of =:=
 S03-operators/increment.rakudo.jvm.................  30    0    1    0   31
      1 todo   : nom regression
-S03-operators/inplace.rakudo.jvm...................  22    0    0    5   27
-     5 skipped: Method '' not found for invocant of class 'Str'
+S03-operators/inplace.rakudo.jvm...................  23    0    0    4   27
+     4 skipped: Method '' not found for invocant of class 'Str'
 S03-operators/is-divisible-by.rakudo.jvm...........  14    0    1    0   15
      1 todo   : not sure why this doesn't fire
 S03-operators/lcm.t................................  15    0    0    0   15
@@ -1517,8 +1515,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3310,   172,   140,   311,  3933,  3876
-"S03",        4583,     0,   139,   250,  4972,  4358
+"S02",        3311,   171,   140,   311,  3933,  3876
+"S03",        4606,     0,   152,   223,  4981,  4367
 "S04",         882,    20,    31,    54,   987,  1006
 "S05",        4726,     8,   116,   517,  5367,  5811
 "S06",        1139,    12,    24,   129,  1304,  1288
@@ -1539,12 +1537,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        8579,    76,    64,   305,  9000,  6307
 "int",         523,     9,    12,    27,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26614,   308,   593,  1801, 29292, 26579
+"total",     26638,   307,   606,  1774, 29301, 26588
 ----------------
 Failure summary:
 S02-magicals/env.rakudo.jvm 14 - ENV members persist to child processes
 S02-magicals/pid.t 1 - my $*PID is different from a child $*PID
-S02-names-vars/perl.rakudo.jvm 90 - .perl on user-defined type roundtrips okay
 S02-names/caller.t aborted 15 test(s)
 S02-names/is_default.rakudo.jvm aborted 114 test(s)
 S02-names/pseudo.rakudo.jvm aborted 33 test(s)
