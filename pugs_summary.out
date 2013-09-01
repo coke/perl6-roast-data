@@ -21,9 +21,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x98499f8)'
+#     Actual: 'CODE(0x972c9f8)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x9849d18)'
+#     Actual: 'CODE(0x972cd18)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -1309,7 +1309,7 @@ S03-operators/range.pugs...........................#   Expected: ''
 #   Expected: '1 2 3'
 #     Actual: ''
 #     Actual: undef
-  81    0   24   15  120
+  85    0   24   15  124
      6 skipped: empty list
      2 skipped: Missing required parameters: $_
      4 skipped: Numeric
@@ -4437,7 +4437,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6edf011>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf696a625>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6edf011>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf696a625>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c561a9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6866625>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c561a9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6866625>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
 #   Expected: 'undef'
@@ -4598,13 +4598,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.14080.816
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.14080.816
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.14080.816
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.14080.816
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.14080.816
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.14080.816
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.14080.816
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.15225.584
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.15225.584
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.15225.584
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.15225.584
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.15225.584
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.15225.584
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.15225.584
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -5469,10 +5469,10 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",          27,     0,     8,    12,    47,    79
-"S02",        1428,     0,   321,   468,  2217,  3976
-"S03",        1870,     1,   288,   304,  2463,  4367
+"S02",        1428,     0,   321,   468,  2217,  3986
+"S03",        1874,     1,   288,   304,  2467,  4372
 "S04",         479,     0,    98,    88,   665,  1006
-"S05",        2215,     0,  2207,    56,  4478,  5811
+"S05",        2215,     0,  2207,    56,  4478,  5813
 "S06",         400,     0,    77,   130,   607,  1288
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          70,     0,    26,     8,   104,   195
@@ -5490,7 +5490,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S29",          33,     0,     7,    13,    53,    87
 "S32",        2272,     0,   270,   554,  3096,  6318
 "int",         129,     0,    35,    28,   192,   550
-"total",      9501,     1,  3458,  1786, 14746, 26445
+"total",      9505,     1,  3458,  1786, 14750, 26462
 ----------------
 Failure summary:
 S03-operators/context-forcers.pugs 32 - - context forcer works (13)
