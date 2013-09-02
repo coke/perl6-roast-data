@@ -21,9 +21,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x972c9f8)'
+#     Actual: 'CODE(0xa0a49f8)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x972cd18)'
+#     Actual: 'CODE(0xa0a4d18)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -797,7 +797,7 @@ S03-binding/hashes.pugs............................#   Expected: 'x z'
 #   Expected: 'f x z'
 #     Actual: 'a	x b	y c	z'
 #     Actual: No exception thrown
-  29    0    9    0   38
+  30    0    9    0   39
      9 todo   : fix by Christmas
 S03-binding/nested.t...............................  43    0    0    0   43
 S03-binding/ro.pugs................................#     Actual: No exception thrown
@@ -1158,7 +1158,6 @@ S03-operators/boolean-bitwise.pugs.................  33    0    0   12   45
 S03-operators/chained-declarators.t................   5    0    0    0    5
 S03-operators/context-forcers.pugs.................#     Actual: No exception thrown
 #     Actual: No exception thrown
-#   Failed test (t/spec/S03-operators/context-forcers.pugs line 64, column 3-52)
 #   Expected: '0'
 #     Actual: '-0'
 #     Actual: No exception thrown
@@ -1168,13 +1167,12 @@ S03-operators/context-forcers.pugs.................#     Actual: No exception th
 #     Actual: undef
 #     Actual: undef
 #     Actual: undef
-# Looks like you failed 1 tests of 97
-  72    1    9   15   97
+  72    0   10   15   97
      2 skipped: Range
      6 skipped: Stringy
      4 skipped: Failure
      3 skipped: Cannot cast into a Hash
-     6 todo   : fix by Christmas
+     7 todo   : fix by Christmas
      3 todo   : Mu by Christmas
 S03-operators/context.pugs.........................#   Expected: 'undef'
 #     Actual: '(Int)'
@@ -4137,11 +4135,10 @@ S06-multi/syntax.pugs..............................#   Expected: 'one'
 #     Actual: '2'
 #   Expected: '2'
 #     Actual: '1'
-  21    0    7   14   42
+  21    0    7   13   41
      1 skipped: Named argument found where no matched parameter expected
      1 skipped: with_cap not found
      1 skipped: missing invocant
-     1 skipped: Undeclared name Multi
      1 skipped: unknown
      2 skipped: todo flipflops the first test response
      5 skipped: parsefail
@@ -4420,8 +4417,8 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
 #     Actual: No exception thrown
 #     Actual: No exception thrown
 #     Actual: No exception thrown
-#   Expected: '\(1, 2, 3, 4)'
-#     Actual: '\("b", undef, undef, undef)'
+#   Expected: '1 2 3 4'
+#     Actual: 'b   '
 #     Actual: No exception thrown
 #   Expected: '3'
 #     Actual: '1'
@@ -4598,13 +4595,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.15225.584
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.15225.584
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.15225.584
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.15225.584
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.15225.584
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.15225.584
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.15225.584
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.5452.276
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.5452.276
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.5452.276
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.5452.276
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.5452.276
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.5452.276
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.5452.276
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -5470,14 +5467,14 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",          27,     0,     8,    12,    47,    79
 "S02",        1428,     0,   321,   468,  2217,  3986
-"S03",        1874,     1,   288,   304,  2467,  4372
-"S04",         479,     0,    98,    88,   665,  1006
-"S05",        2215,     0,  2207,    56,  4478,  5813
-"S06",         400,     0,    77,   130,   607,  1288
+"S03",        1875,     0,   289,   304,  2468,  4654
+"S04",         479,     0,    98,    88,   665,  1038
+"S05",        2215,     0,  2207,    56,  4478,  5814
+"S06",         400,     0,    77,   129,   606,  1291
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          70,     0,    26,     8,   104,   195
 "S10",          30,     0,     9,     0,    39,   127
-"S11",          14,     0,     5,    10,    29,   137
+"S11",          14,     0,     5,    10,    29,   139
 "S12",         375,     0,    68,    96,   539,  1401
 "S13",           7,     0,     1,     1,     9,    80
 "S14",          64,     0,    11,     0,    75,   327
@@ -5490,7 +5487,6 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S29",          33,     0,     7,    13,    53,    87
 "S32",        2272,     0,   270,   554,  3096,  6318
 "int",         129,     0,    35,    28,   192,   550
-"total",      9505,     1,  3458,  1786, 14750, 26462
+"total",      9506,     0,  3459,  1785, 14750, 26782
 ----------------
-Failure summary:
-S03-operators/context-forcers.pugs 32 - - context forcer works (13)
+No failures!
