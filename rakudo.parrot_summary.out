@@ -1685,8 +1685,8 @@ S14-roles/namespaced.rakudo.parrot.................   2    0    1    0    3
      1 todo   : nom regression
 S14-roles/parameter-subtyping.t....................  22    0    0    0   22
 S14-roles/parameterized-basic.t....................  32    0    0    0   32
-S14-roles/parameterized-mixin.rakudo.parrot........  24    0    0    4   28
-     4 skipped: .does with parametric roles
+S14-roles/parameterized-mixin.rakudo.parrot........  24    0    4    0   28
+     4 todo   : .does with parametric roles
 S14-roles/parameterized-type.t.....................  29    0    0    0   29
 S14-roles/stubs.t..................................   9    0    0    0    9
 S14-roles/submethods.t.............................   4    0    0    0    4
@@ -1719,8 +1719,7 @@ S16-io/say-and-ref.t...............................   3    0    0    0    3
 S16-io/say.t.......................................   8    0    0    0    8
 S16-io/tmpdir.t....................................   3    0    0    0    3
 S16-unfiled/rebindstdhandles.rakudo.parrot.........   0    0    0    2    2
-     1 skipped: contextual rebinding regression
-     1 skipped: warn does not yet use $*ERR
+     2 skipped: contextual rebinding regression
                                                    pass fail todo skip plan
 S19-command-line/dash-e.t..........................   3    0    0    0    3
 S19-command-line/help.t............................   1    0    0    0    1
@@ -1756,10 +1755,8 @@ S29-context/exit-in-if.t...........................   1    0    0    0    1
 S29-context/exit.t.................................   3    0    0    0    3
 S29-context/sleep.t................................  12    0    0    0   12
 S29-conversions/hash.t.............................   8    0    0    0    8
-S29-conversions/ord_and_chr.rakudo.parrot.......... 250    0    0    4  254
-     2 skipped: RT 65172
-     1 skipped: ord of empty string
-     1 skipped: multi-arg variants of chr not in place yet
+S29-conversions/ord_and_chr.rakudo.parrot.......... 252    0    2    0  254
+     2 todo   : huh?
 S29-os/system.t....................................   3    0    0    0    3
                                                    pass fail todo skip plan
 S32-array/bool.t...................................  15    0    0    0   15
@@ -1768,10 +1765,8 @@ S32-array/delete.rakudo.parrot.....................use of uninitialized value of
 
   26    0    3    0   29
      3 todo   : Not sure if this test is correct or not
-S32-array/elems.rakudo.parrot......................   9    0    0    2   11
-     2 skipped: unspecced
-S32-array/end.rakudo.parrot........................   9    0    0    3   12
-     3 skipped: unspecced
+S32-array/elems.t..................................  11    0    0    0   11
+S32-array/end.t....................................  12    0    0    0   12
 S32-array/exists.t.................................   8    0    0    0    8
 S32-array/keys_values.t............................   8    0    0    0    8
 S32-array/kv.t.....................................  18    0    0    0   18
@@ -1795,10 +1790,9 @@ S32-container/roundrobin.rakudo.parrot.............   4    0    1    0    5
      1 todo   : over-flattening
 S32-container/zip.rakudo.parrot....................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.parrot.................. 645    0    0    6  651
+S32-exceptions/misc.rakudo.parrot.................. 645    0    0    5  650
      1 skipped: RT 114134
      3 skipped: still handled by <special_var>
-     1 skipped: parsing of $& and other p5 variables
      1 skipped: parsing regression
 S32-hash/delete-adverb.rakudo.parrot...............use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
 
@@ -1815,8 +1809,10 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
  160    0    8    0  168
      8 todo   : not being destructively read yet
 S32-hash/delete.t..................................  11    0    0    0   11
-S32-hash/exists-adverb.rakudo.parrot...............  48    0    2   18   68
-    18 skipped: oh noes, it dies
+S32-hash/exists-adverb.rakudo.parrot...............  48    0   20    0   68
+     6 todo   : []:exists:p NYI
+     6 todo   : []:exists:kv NYI
+     6 todo   : []:exists NYI
      2 todo   : :exists is ignored
 S32-hash/exists.rakudo.parrot......................  20    0    0    1   21
      1 skipped: unspecced
@@ -1828,8 +1824,8 @@ S32-hash/pairs.rakudo.parrot.......................  20    0    1    0   21
      1 todo   : Rakudo seems to make a copy rather than a reference
 S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
-S32-hash/slice.rakudo.parrot.......................  16    0    0   13   29
-    13 skipped: binding on hash elements unimplemented
+S32-hash/slice.rakudo.parrot.......................  18    0   11    0   29
+    11 todo   : binding on hash elements unimplemented
 S32-io/IO-Socket-INET.t............................  41    0    0    0   41
 S32-io/chdir.rakudo.parrot.........................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
@@ -1896,8 +1892,8 @@ S32-list/pick.rakudo.parrot........................  46    0    1    0   47
      1 todo   : error on pick :replace
 S32-list/reduce.rakudo.parrot......................use of uninitialized value of type Any in numeric context  in block  at t/spec/S32-list/reduce.rakudo.parrot:29
 
-  13    0    0    1   14
-     1 skipped: n-ary reduce
+  13    0    1    0   14
+     1 todo   : n-ary reduce
 S32-list/reverse.rakudo.parrot.....................  20    0    1    0   21
      1 todo   : RT 77914
 S32-list/roll.t....................................  40    0    0    0   40
@@ -1905,13 +1901,12 @@ S32-list/sort.rakudo.parrot........................use of uninitialized value of
 
 use of uninitialized value of type Code in string context  in block  at t/spec/S32-list/sort.rakudo.parrot:224
 
-  28    0    0    4   32
-     1 skipped: method fallback to sub unimpl
+  28    0    1    3   32
      1 skipped: closure as non-final argument
      2 skipped: determine behavior of 0-arity methods passed to sort
+     1 todo   : method fallback to sub unimpl
 S32-list/squish.t..................................  26    0    0    0   26
-S32-list/uniq.rakudo.parrot........................  27    0    0    3   30
-     3 skipped: Not spec'd, and this seems unlikely to be how it will be spec'd
+S32-list/uniq.t....................................  30    0    0    0   30
 S32-num/abs.t......................................  49    0    0    0   49
 S32-num/base.t.....................................  12    0    0    0   12
 S32-num/complex.t.................................. 488    0    0    0  488
@@ -1985,11 +1980,11 @@ use of uninitialized value of type Any in numeric context  in block  at t/spec/S
 
 use of uninitialized value of type Any in numeric context  in block  at t/spec/S32-scalar/undef.rakudo.parrot:320
 
-  66    0    2   18   86
-     2 skipped: todo: lists, defined, truthness
-    10 skipped: null PMC access in type()
+  66    0    4   16   86
+    10 skipped: Cannot use bind operator with this left-hand side
      6 skipped: access to &your_sub
      1 todo   : definedness of hash
+     2 todo   : todo: lists, defined, truthness
      1 todo   : definedness of array
 S32-str/append.t...................................   7    0    0    0    7
 S32-str/bool.t.....................................  12    0    0    0   12
@@ -1997,16 +1992,15 @@ S32-str/capitalize.rakudo.parrot...................  13    0    2    2   17
      2 skipped: related to RT #117889
      2 todo   : graphemes results wrong
 S32-str/chomp.t....................................  39    0    0    0   39
-S32-str/chop.rakudo.parrot.........................   6    0    0    6   12
-     6 skipped: unspecced
-S32-str/comb.rakudo.parrot.........................  32    0    2    7   41
-     6 skipped: .comb with limit
-     1 skipped: bad all around in Rakudo-ng
+S32-str/chop.t.....................................   6    0    0    0    6
+S32-str/comb.rakudo.parrot.........................  38    0    2    1   41
+     1 skipped: cannot call match, no signature matches
      2 todo   : graphemes not implemented
-S32-str/encode.rakudo.parrot.......................  16    0    0    1   17
+S32-str/encode.rakudo.parrot.......................  20    0    0    2   22
+     1 skipped: VMArray: index out of bounds
      1 skipped: We do not handle NDF yet
-S32-str/flip.rakudo.parrot.........................  11    0    0    2   13
-     2 skipped: graphemes not implemented
+S32-str/flip.rakudo.parrot.........................  11    0    2    0   13
+     2 todo   : graphemes not implemented
 S32-str/indent.rakudo.parrot.......................Asked to remove 4 spaces, but the shortest indent is 3 spaces  in block  at t/spec/S32-str/indent.rakudo.parrot:61
 
   61    0    0    1   62
@@ -2015,21 +2009,20 @@ S32-str/index.rakudo.parrot........................  36    0    0    2   38
      2 skipped: StrPos not implemented
 S32-str/lc.t.......................................  13    0    0    0   13
 S32-str/lines.t....................................   4    0    0    0    4
-S32-str/numeric.rakudo.parrot...................... 143    0    5   20  168
+S32-str/numeric.rakudo.parrot...................... 161    0    6    1  168
      1 skipped: NYI
-    19 skipped: complex Str.Numeric
      5 todo   : Failure
+     1 todo   : complex Str.Numeric
 S32-str/ords.t.....................................   6    0    0    0    6
 S32-str/pack.t.....................................   6    0    0    0    6
 S32-str/pos.t......................................   2    0    0    0    2
-S32-str/rindex.rakudo.parrot.......................  30    0    0    3   33
-     3 skipped: unicode
+S32-str/rindex.t...................................  33    0    0    0   33
 S32-str/samecase.t.................................   8    0    0    0    8
 S32-str/split-simple.rakudo.parrot.................  48    0    1    0   49
      1 todo   : RT 112868
-S32-str/split.rakudo.parrot........................  34    0    0    3   37
-     2 skipped: RT #63066 loops forever
-     1 skipped: loops on zero-width match
+S32-str/split.rakudo.parrot........................  34    0    2    1   37
+     1 skipped: No such method null for invocant of type Cursor
+     2 todo   : still incorrect
 S32-str/sprintf.rakudo.parrot...................... 131    0    1    3  135
      1 skipped: %p doesn't yet throw exception - but should it, or just Failure?
      2 skipped: sprintf hangs when printing Inf/-Inf
@@ -2045,8 +2038,7 @@ S32-str/substr.rakudo.parrot.......................use of uninitialized value of
 S32-str/tclc.rakudo.parrot.........................   5    0    1    0    6
      1 todo   : unknown tclc problem
 S32-str/trim.t.....................................  36    0    0    0   36
-S32-str/uc.rakudo.parrot...........................  13    0    0    5   18
-     1 skipped: tc
+S32-str/uc.rakudo.parrot...........................  14    0    0    4   18
      4 skipped: but RoleName
 S32-str/unpack.t...................................  12    0    0    0   12
 S32-str/words.rakudo.parrot........................  10    0    0    2   12
@@ -2543,18 +2535,18 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S11",          73,     0,     2,     9,    84,   139
 "S12",        1329,     0,    48,   123,  1500,  1401
 "S13",          70,     0,     0,     0,    70,    80
-"S14",         291,     0,     4,    13,   308,   327
+"S14",         291,     0,     8,     9,   308,   327
 "S16",         236,     0,     5,    18,   259,   303
 "S17",           0,     0,     0,     0,     0,    28
 "S19",           4,     0,     0,     0,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
-"S29",         323,     0,     1,     7,   331,   341
-"S32",        8671,     0,   143,   246,  9060,  6307
+"S29",         325,     0,     3,     3,   331,   341
+"S32",        8713,     0,   181,   164,  9058,  6420
 "int",         538,     0,    10,    23,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     27167,     0,   758,  1492, 29417, 26925
+"total",     27211,     0,   802,  1402, 29415, 27038
 ----------------
 Failure summary:
 note: test_summary.pl @syn does not have ros

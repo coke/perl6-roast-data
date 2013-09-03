@@ -664,7 +664,7 @@ S05-metachars/closure.rakudo.jvm...................   4    0    0    8   12
      3 skipped: make() inside closure
      5 skipped: assignment to match variables (dubious)
 S05-metachars/line-anchors.t.......................  19    0    0    0   19
-S05-metachars/newline.rakudo.jvm...................  11    2    2    0   15
+S05-metachars/newline.rakudo.jvm...................  13    0    2    0   15
      2 todo PASSED: Unicode
 S05-metachars/tilde.rakudo.jvm.....................  14    0    0   12   26
      2 skipped: backtracking to find ~ goal
@@ -1092,8 +1092,8 @@ S14-roles/namespaced.rakudo.jvm....................   2    0    1    0    3
      1 todo   : nom regression
 S14-roles/parameter-subtyping.t....................  22    0    0    0   22
 S14-roles/parameterized-basic.t....................  32    0    0    0   32
-S14-roles/parameterized-mixin.rakudo.jvm...........  24    0    0    4   28
-     4 skipped: .does with parametric roles
+S14-roles/parameterized-mixin.rakudo.jvm...........  24    0    4    0   28
+     4 todo   : .does with parametric roles
 S14-roles/parameterized-type.t.....................  29    0    0    0   29
 S14-roles/stubs.t..................................   9    0    0    0    9
 S14-roles/submethods.t.............................   4    0    0    0    4
@@ -1127,8 +1127,7 @@ S16-io/say-and-ref.t...............................   3    0    0    0    3
 S16-io/say.t.......................................   8    0    0    0    8
 S16-io/tmpdir.t....................................   3    0    0    0    3
 S16-unfiled/rebindstdhandles.rakudo.jvm............   0    0    0    2    2
-     1 skipped: contextual rebinding regression
-     1 skipped: warn does not yet use $*ERR
+     2 skipped: contextual rebinding regression
                                                    pass fail todo skip plan
 S19-command-line/dash-e.t..........................   0    3    0    0    3
 S19-command-line/help.t............................   1    0    0    0    1
@@ -1162,20 +1161,16 @@ S29-context/exit-in-if.t...........................   1    0    0    0    1
 S29-context/exit.t.................................   1    2    0    0    3
 S29-context/sleep.t................................  12    0    0    0   12
 S29-conversions/hash.t.............................   8    0    0    0    8
-S29-conversions/ord_and_chr.rakudo.jvm............. 250    0    0    4  254
-     2 skipped: RT 65172
-     1 skipped: ord of empty string
-     1 skipped: multi-arg variants of chr not in place yet
+S29-conversions/ord_and_chr.rakudo.jvm............. 252    0    2    0  254
+     2 todo   : huh?
 S29-os/system.t....................................   2    1    0    0    3
                                                    pass fail todo skip plan
 S32-array/bool.t...................................  15    0    0    0   15
 S32-array/create.t.................................   3    0    0    0    3
 S32-array/delete.rakudo.jvm........................  26    0    3    0   29
      3 todo   : Not sure if this test is correct or not
-S32-array/elems.rakudo.jvm.........................   9    0    0    2   11
-     2 skipped: unspecced
-S32-array/end.rakudo.jvm...........................   9    0    0    3   12
-     3 skipped: unspecced
+S32-array/elems.t..................................  11    0    0    0   11
+S32-array/end.t....................................  12    0    0    0   12
 S32-array/exists.t.................................   8    0    0    0    8
 S32-array/keys_values.t............................   8    0    0    0    8
 S32-array/kv.t.....................................  18    0    0    0   18
@@ -1197,17 +1192,18 @@ S32-container/roundrobin.rakudo.jvm................   4    0    1    0    5
      1 todo   : over-flattening
 S32-container/zip.rakudo.jvm.......................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.jvm..................... 631   10    0   14  655
+S32-exceptions/misc.rakudo.jvm..................... 631   10    0   13  654
      1 skipped: RT 114134
      8 skipped: wrong exception type
      3 skipped: still handled by <special_var>
-     1 skipped: parsing of $& and other p5 variables
      1 skipped: parsing regression
 S32-hash/delete-adverb.rakudo.jvm.................. 160    0    8    0  168
      8 todo   : not being destructively read yet
 S32-hash/delete.t..................................  11    0    0    0   11
-S32-hash/exists-adverb.rakudo.jvm..................  48    0    2   18   68
-    18 skipped: oh noes, it dies
+S32-hash/exists-adverb.rakudo.jvm..................  48    0   20    0   68
+     6 todo   : []:exists:p NYI
+     6 todo   : []:exists:kv NYI
+     6 todo   : []:exists NYI
      2 todo   : :exists is ignored
 S32-hash/exists.rakudo.jvm.........................  20    0    0    1   21
      1 skipped: unspecced
@@ -1219,8 +1215,8 @@ S32-hash/pairs.rakudo.jvm..........................  20    0    1    0   21
      1 todo   : Rakudo seems to make a copy rather than a reference
 S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
-S32-hash/slice.rakudo.jvm..........................  16    0    0   13   29
-    13 skipped: binding on hash elements unimplemented
+S32-hash/slice.rakudo.jvm..........................  18    0   11    0   29
+    11 todo   : binding on hash elements unimplemented
 S32-io/IO-Socket-INET.t............................   0    0    0   41   41
     41 skipped: Operating system not yet supported
 S32-io/chdir.rakudo.jvm............................   8    0    0    2   10
@@ -1269,20 +1265,19 @@ S32-list/map_function_return_values.t..............   2    0    0    0    2
 S32-list/minmax.t..................................  55    0    0    0   55
 S32-list/pick.rakudo.jvm...........................  46    0    1    0   47
      1 todo   : error on pick :replace
-S32-list/reduce.rakudo.jvm.........................  13    0    0    1   14
-     1 skipped: n-ary reduce
+S32-list/reduce.rakudo.jvm.........................  13    0    1    0   14
+     1 todo   : n-ary reduce
 S32-list/reverse.rakudo.jvm........................  20    0    1    0   21
      1 todo   : RT 77914
 S32-list/roll.rakudo.jvm...........................  39    0    0    1   40
      1 skipped: Unhandled file open mode 'rp'
-S32-list/sort.rakudo.jvm...........................  28    0    0    4   32
-     1 skipped: method fallback to sub unimpl
+S32-list/sort.rakudo.jvm...........................  28    0    1    3   32
      1 skipped: closure as non-final argument
      2 skipped: determine behavior of 0-arity methods passed to sort
+     1 todo   : method fallback to sub unimpl
 S32-list/squish.rakudo.jvm.........................  22    0    0    4   26
      4 skipped: This representation can not unbox to a native str
-S32-list/uniq.rakudo.jvm...........................  27    0    0    3   30
-     3 skipped: Not spec'd, and this seems unlikely to be how it will be spec'd
+S32-list/uniq.t....................................  30    0    0    0   30
 S32-num/abs.t......................................  49    0    0    0   49
 S32-num/base.t.....................................  12    0    0    0   12
 S32-num/complex.t.................................. 488    0    0    0  488
@@ -1327,48 +1322,45 @@ S32-num/unpolar.t.................................. 199    0    0    0  199
 S32-scalar/defined.t...............................  56    0    0    0   56
 S32-scalar/perl.rakudo.jvm.........................   2    4    0    0    6
      4 tests aborted (missing ok/not ok)
-S32-scalar/undef.rakudo.jvm........................  66    0    2   18   86
-     2 skipped: todo: lists, defined, truthness
-    10 skipped: null PMC access in type()
+S32-scalar/undef.rakudo.jvm........................  66    0    4   16   86
+    10 skipped: Cannot use bind operator with this left-hand side
      6 skipped: access to &your_sub
      1 todo   : definedness of hash
+     2 todo   : todo: lists, defined, truthness
      1 todo   : definedness of array
 S32-str/append.t...................................   7    0    0    0    7
 S32-str/bool.t.....................................  12    0    0    0   12
 S32-str/capitalize.rakudo.jvm......................  15    0    2    0   17
      2 todo   : graphemes results wrong
 S32-str/chomp.t....................................  39    0    0    0   39
-S32-str/chop.rakudo.jvm............................   6    0    0    6   12
-     6 skipped: unspecced
-S32-str/comb.rakudo.jvm............................  32    0    2    7   41
-     6 skipped: .comb with limit
-     1 skipped: bad all around in Rakudo-ng
+S32-str/chop.t.....................................   6    0    0    0    6
+S32-str/comb.rakudo.jvm............................  38    0    2    1   41
+     1 skipped: cannot call match, no signature matches
      2 todo   : graphemes not implemented
-S32-str/encode.rakudo.jvm..........................  14    2    0    1   17
+S32-str/encode.rakudo.jvm..........................  17    4    0    1   22
      1 skipped: We do not handle NDF yet
-S32-str/flip.rakudo.jvm............................  11    0    0    2   13
-     2 skipped: graphemes not implemented
+S32-str/flip.rakudo.jvm............................  11    0    2    0   13
+     2 todo   : graphemes not implemented
 S32-str/indent.rakudo.jvm..........................  61    0    0    1   62
      1 skipped: coercion to Int
 S32-str/index.rakudo.jvm...........................  36    0    0    2   38
      2 skipped: StrPos not implemented
 S32-str/lc.t.......................................  13    0    0    0   13
 S32-str/lines.t....................................   4    0    0    0    4
-S32-str/numeric.rakudo.jvm......................... 143    0    5   20  168
+S32-str/numeric.rakudo.jvm......................... 161    0    6    1  168
      1 skipped: NYI
-    19 skipped: complex Str.Numeric
      5 todo   : Failure
+     1 todo   : complex Str.Numeric
 S32-str/ords.t.....................................   6    0    0    0    6
 S32-str/pack.t.....................................   6    0    0    0    6
 S32-str/pos.t......................................   2    0    0    0    2
-S32-str/rindex.rakudo.jvm..........................  30    0    0    3   33
-     3 skipped: unicode
+S32-str/rindex.t...................................  33    0    0    0   33
 S32-str/samecase.t.................................   8    0    0    0    8
 S32-str/split-simple.rakudo.jvm....................  48    0    1    0   49
      1 todo   : RT 112868
-S32-str/split.rakudo.jvm...........................  34    0    0    3   37
-     2 skipped: RT #63066 loops forever
-     1 skipped: loops on zero-width match
+S32-str/split.rakudo.jvm...........................  34    0    2    1   37
+     1 skipped: No such method null for invocant of type Cursor
+     2 todo   : still incorrect
 S32-str/sprintf.rakudo.jvm......................... 131    0    0    4  135
      1 skipped: %p doesn't yet throw exception - but should it, or just Failure?
      3 skipped: java.lang.NumberFormatException
@@ -1381,8 +1373,7 @@ S32-str/substr.rakudo.jvm..........................  53    0    0   39   92
 S32-str/tclc.rakudo.jvm............................   5    0    1    0    6
      1 todo   : nigh
 S32-str/trim.t.....................................  36    0    0    0   36
-S32-str/uc.rakudo.jvm..............................  13    0    0    5   18
-     1 skipped: tc
+S32-str/uc.rakudo.jvm..............................  14    0    0    4   18
      4 skipped: but RoleName
 S32-str/unpack.t...................................  12    0    0    0   12
 S32-str/words.rakudo.jvm...........................  10    0    0    2   12
@@ -1500,7 +1491,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        3335,   171,   134,   303,  3943,  3886
 "S03",        4643,     0,   156,   188,  4987,  4654
 "S04",         930,    20,    37,    32,  1019,  1038
-"S05",        4625,   235,   157,   353,  5370,  5814
+"S05",        4627,   233,   157,   353,  5370,  5814
 "S06",        1153,    12,    37,   105,  1307,  1291
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         174,     0,     9,    12,   195,   195
@@ -1508,18 +1499,18 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S11",          73,     0,     2,     9,    84,   139
 "S12",        1329,     0,    48,   123,  1500,  1401
 "S13",          70,     0,     0,     0,    70,    80
-"S14",         289,     2,     4,    13,   308,   327
+"S14",         289,     2,     8,     9,   308,   327
 "S16",         235,     1,     5,    18,   259,   303
 "S17",           0,     0,     0,     0,     0,    28
 "S19",           1,     3,     0,     0,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
-"S29",         318,     5,     1,     7,   331,   341
-"S32",        8579,    76,    64,   305,  9000,  6307
+"S29",         320,     5,     3,     3,   331,   341
+"S32",        8620,    78,   102,   222,  8998,  6420
 "int",         523,     9,    12,    27,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26662,   534,   667,  1518, 29357, 26925
+"total",     26707,   534,   711,  1427, 29355, 27038
 ----------------
 Failure summary:
 S02-magicals/env.rakudo.jvm 14 - ENV members persist to child processes
@@ -1546,8 +1537,6 @@ S05-mass/properties-general.rakudo.jvm 553 - Match <:Other>
 S05-mass/properties-general.rakudo.jvm 554 - Don't match negated <Other>
 S05-mass/properties-general.rakudo.jvm 555 - Don't match inverted <Other>
 S05-mass/properties-general.rakudo.jvm 559 - Match unanchored <Other>
-S05-metachars/newline.rakudo.jvm 6 - NEL
-S05-metachars/newline.rakudo.jvm 13 - not NEL
 S05-modifier/perl5_5.rakudo.jvm 5 - re_tests 617/1 (801)
 S06-advanced/callframe.rakudo.jvm 2 - callframe().line
 S06-advanced/wrap.rakudo.jvm aborted 2 test(s)
@@ -1569,16 +1558,16 @@ S29-context/exit.t 3 - try-block does not catch exit exceptions
 S29-os/system.t 1 - run() to an existing program does not die (and returns something true)
 S32-basics/warn.rakudo.jvm 4 - warn() without arguments
 S32-basics/warn.rakudo.jvm 6 - try does not surpress warnings
-S32-exceptions/misc.rakudo.jvm 485 - right exception type (X::Method::NotFound)
-S32-exceptions/misc.rakudo.jvm 498 - right exception type (X::Method::NotFound)
-S32-exceptions/misc.rakudo.jvm 535 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.jvm 537 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.jvm 539 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.jvm 541 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.jvm 543 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.jvm 545 - right exception type (X::Method::NotFound)
-S32-exceptions/misc.rakudo.jvm 648 - right exception type (X::Method::NotFound)
-S32-exceptions/misc.rakudo.jvm 654 - right exception type (X::Caller::NotDynamic)
+S32-exceptions/misc.rakudo.jvm 484 - right exception type (X::Method::NotFound)
+S32-exceptions/misc.rakudo.jvm 497 - right exception type (X::Method::NotFound)
+S32-exceptions/misc.rakudo.jvm 534 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.jvm 536 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.jvm 538 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.jvm 540 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.jvm 542 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.jvm 544 - right exception type (X::Method::NotFound)
+S32-exceptions/misc.rakudo.jvm 647 - right exception type (X::Method::NotFound)
+S32-exceptions/misc.rakudo.jvm 653 - right exception type (X::Caller::NotDynamic)
 S32-io/io-path-win.rakudo.jvm aborted 19 test(s)
 S32-io/io-spec-win.t aborted 33 test(s)
 S32-io/note.rakudo.jvm 1 - basic form of note
@@ -1591,6 +1580,8 @@ S32-io/spurt.t passed 24 unplanned test(s)
 S32-scalar/perl.rakudo.jvm aborted 4 test(s)
 S32-str/encode.rakudo.jvm 6 - indexing a utf8 gives correct value (1)
 S32-str/encode.rakudo.jvm 7 - indexing a utf8 gives correct value (1)
+S32-str/encode.rakudo.jvm 20 - indexing a utf16 gives correct value
+S32-str/encode.rakudo.jvm 21 - indexing a utf16 gives correct value
 integration/error-reporting.rakudo.jvm 1 - Parse error contains line number
 integration/error-reporting.rakudo.jvm 2 - Runtime error contains line number
 integration/error-reporting.rakudo.jvm 3 - Method not found error mentions method name and line number
