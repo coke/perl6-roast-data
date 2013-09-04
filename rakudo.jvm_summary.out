@@ -96,7 +96,7 @@ S02-names-vars/names.rakudo.jvm.................... 127    0    2   13  142
      7 skipped: package variable autovivification
      1 todo   : nom regression
      1 todo   : dubious test - otherwise why is ::<$foo> allowed?
-S02-names-vars/perl.rakudo.jvm.....................  98    0    0    6  104
+S02-names-vars/perl.rakudo.jvm.....................  97    1    0    6  104
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -146,12 +146,13 @@ S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.rakudo.jvm................  15    0    3    0   18
      3 todo   : non-flattening hash refs
 S02-types/autovivification.t.......................  25    0    0    0   25
-S02-types/bag.rakudo.jvm........................... 112    0    6   24  142
+S02-types/bag.rakudo.jvm........................... 111    0    7   24  142
     10 skipped: .Bag NYI
      3 skipped: Non-Str keys NYI
     11 skipped: .Set NYI
      2 todo   : Not properly interpolating
      1 todo   : Bag stringification
+     1 todo   : huh?
      3 todo   : New bag constructor NYI
 S02-types/bool.t...................................  51    0    0    0   51
 S02-types/capture.rakudo.jvm.......................  18    0    2    1   21
@@ -195,14 +196,16 @@ S02-types/infinity.rakudo.jvm......................   6    0    3    4   13
      4 skipped: integer Inf
      3 todo   : Int conversion of NaN and Inf
 S02-types/instants-and-durations.t.................  12    0    0    0   12
-S02-types/keybag.rakudo.jvm........................ 140    1   10   21  172
+S02-types/keybag.rakudo.jvm........................ 139    1   11   21  172
     21 skipped: 'is ObjectType' NYI
      5 todo   : Needs to catch up with spec
      2 todo   : Non-Str keys NYI
+     1 todo   : huh?
      2 todo   : in flux
      1 todo   : not up to spec
-S02-types/keyset.rakudo.jvm........................ 129    0    5   10  144
+S02-types/keyset.rakudo.jvm........................ 122    0   12   10  144
     10 skipped: 'is ObjectType' NYI
+     7 todo   : huh?
      2 todo   : Not up to current spec
      3 todo   : New set constructor NYI
 S02-types/lazy-lists.t.............................  19    0    0    0   19
@@ -233,15 +236,14 @@ S02-types/pair.rakudo.jvm..........................  94    0    1    2   97
 S02-types/parcel.t.................................  15    0    0    0   15
 S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.t.................................. 127    0    0    0  127
-S02-types/set.rakudo.jvm........................... 112    0   27    0  139
+S02-types/set.rakudo.jvm........................... 117    0   22    0  139
      2 todo   : Not properly interpolating
-     3 todo   : 
      1 todo   : got bp
-     5 todo   : Set does not conform to new standard yet
+     1 todo   : got ao
+     3 todo   : Set does not conform to new standard yet
+     3 todo   : New set constructor NYI
     10 todo   : Hypers not yet Set compatible
      2 todo   : not up to spec
-     1 todo   : got ao
-     3 todo   : New set constructor NYI
 S02-types/sigils-and-types.rakudo.jvm..............  26    0    2    0   28
      1 todo   : Capture does Associative
      1 todo   : Capture does Positional
@@ -254,8 +256,8 @@ S02-types/undefined-types.rakudo.jvm...............  45    0    4    0   49
 S02-types/version.t................................  35    0    0    0   35
 S02-types/whatever.rakudo.jvm......................  72    0    3    5   80
      5 skipped: currying plus meta ops
-     1 todo   : * as dummy
      2 todo   : RT 102466
+     1 todo   : * as dummy
                                                    pass fail todo skip plan
 S03-binding/arrays.rakudo.jvm......................  45    0    2    0   47
      2 todo   : array binding, delete
@@ -306,9 +308,9 @@ S03-metaops/reduce.rakudo.jvm...................... 354    0    8    4  366
      2 skipped: [!===]
      1 todo   : item context
      2 todo   : triangle [\^^] and [\xor]
-     1 todo   : reduced hyper op
      2 todo   : huh?
      2 todo   : orelse
+     1 todo   : reduced hyper op
 S03-metaops/reverse.t..............................  34    0    0    0   34
 S03-metaops/zip.rakudo.jvm.........................  18    0    4    2   24
      2 skipped: nom regression
@@ -338,16 +340,21 @@ S03-operators/assign.rakudo.jvm.................... 252    0   22   12  286
 S03-operators/autoincrement-range.t................  96    0    0    0   96
 S03-operators/autoincrement.t......................  78    0    0    0   78
 S03-operators/autovivification.t...................  23    0    0    0   23
-S03-operators/bag.rakudo.jvm.......................  42    0    2   64  108
+S03-operators/bag.rakudo.jvm.......................  38    0    6   64  108
     16 skipped: Reduction and bag operators
     48 skipped: expected Any but go Mu
      1 todo   : Test may be wrong?
      1 todo   : Right now this works as $kb ∩ glag ∩ green ∩ blood.  Test may be wrong
+     4 todo   : huh?
 S03-operators/basic-types.t........................  19    0    0    0   19
 S03-operators/bit.t................................  33    0    0    0   33
 S03-operators/boolean-bitwise.t....................  45    0    0    0   45
 S03-operators/brainos.t............................   9    0    0    0    9
-S03-operators/buf.t................................  26    0    0    0   26
+S03-operators/buf.rakudo.jvm.......................  26    0    0    8   34
+     1 skipped: wrong exception
+     2 skipped: 
+     2 skipped: out of bounds
+     3 skipped: No such method 'Int' for invocant of type 'WhateverCode'
 S03-operators/chained-declarators.t................   5    0    0    0    5
 S03-operators/cmp.t................................  22    0    0    0   22
 S03-operators/comparison-simple.t..................  24    0    0    0   24
@@ -403,11 +410,12 @@ S03-operators/reduce-le1arg.rakudo.jvm.............  50    0    0    4   54
 S03-operators/relational.t......................... 118    0    0    0  118
 S03-operators/repeat.t.............................  32    0    0    0   32
 S03-operators/scalar-assign.t......................   4    0    0    0    4
-S03-operators/set.rakudo.jvm....................... 244    0   28   24  296
+S03-operators/set.rakudo.jvm....................... 244    0   26   26  296
      6 skipped: expected Any, got Mu
+     2 skipped: huh?
      2 skipped: ∅ NYI
     16 skipped: Reduction and set operators
-    28 todo   : huh?
+    26 todo   : huh?
 S03-operators/short-circuit.rakudo.jvm.............  77    0    6    0   83
      6 todo   : wrong return type
 S03-operators/so.rakudo.jvm........................  14    0    1    0   15
@@ -615,8 +623,15 @@ S05-mass/named-chars.rakudo.jvm.................... 284    0   53   94  431
      2 skipped: LF as char name
     53 todo   : \C escape
 S05-mass/properties-block.t........................ 670    0    0    0  670
-S05-mass/properties-derived.rakudo.jvm.............  28  228    0    0  256
-   228 tests aborted (missing ok/not ok)
+S05-mass/properties-derived.rakudo.jvm............. 170    0    0   86  256
+     7 skipped: isUnassigned not implemented
+     6 skipped: icu
+    10 skipped: isCommon not implemented
+     3 skipped: icu problems
+     7 skipped: isGraphemeLink
+     7 skipped: isAssigned not implemented
+     4 skipped: isAny not implemented
+    42 skipped: isOther* not implemented
 S05-mass/properties-general.rakudo.jvm............. 555    4    0   37  596
     10 skipped: No [Lr] property defined
      4 skipped: Uninvestigated nqp-rx regression
@@ -1159,7 +1174,7 @@ S29-context/eval.rakudo.jvm........................  15    0    0    3   18
      2 skipped: eval coerce to string
 S29-context/exit-in-if.t...........................   1    0    0    0    1
 S29-context/exit.t.................................   1    2    0    0    3
-S29-context/sleep.t................................  12    0    0    0   12
+S29-context/sleep.t................................  11    1    0    0   12
 S29-conversions/hash.t.............................   8    0    0    0    8
 S29-conversions/ord_and_chr.rakudo.jvm............. 252    0    2    0  254
      2 todo   : huh?
@@ -1488,10 +1503,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3335,   171,   134,   303,  3943,  3886
-"S03",        4643,     0,   156,   188,  4987,  4654
+"S02",        3330,   172,   138,   303,  3943,  3886
+"S03",        4639,     0,   158,   198,  4995,  4662
 "S04",         930,    20,    37,    32,  1019,  1038
-"S05",        4627,   233,   157,   353,  5370,  5814
+"S05",        4769,     5,   157,   439,  5370,  5814
 "S06",        1153,    12,    37,   105,  1307,  1291
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         174,     0,     9,    12,   195,   195
@@ -1506,15 +1521,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
-"S29",         320,     5,     3,     3,   331,   341
+"S29",         319,     6,     3,     3,   331,   341
 "S32",        8620,    78,   102,   222,  8998,  6420
 "int",         523,     9,    12,    27,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26707,   534,   711,  1427, 29355, 27038
+"total",     26839,   308,   717,  1523, 29363, 27046
 ----------------
 Failure summary:
 S02-magicals/env.rakudo.jvm 14 - ENV members persist to child processes
 S02-magicals/pid.t 1 - my $*PID is different from a child $*PID
+S02-names-vars/perl.rakudo.jvm 90 - .perl on user-defined type roundtrips okay
 S02-names/caller.t aborted 15 test(s)
 S02-names/is_default.rakudo.jvm aborted 114 test(s)
 S02-names/pseudo.rakudo.jvm aborted 33 test(s)
@@ -1532,7 +1548,6 @@ S04-phasers/rvalue.t 12 - CHECK {} runs only once
 S04-statements/gather.rakudo.jvm aborted 6 test(s)
 S04-statements/loop.t aborted 1 test(s)
 S04-statements/try.rakudo.jvm aborted 7 test(s)
-S05-mass/properties-derived.rakudo.jvm aborted 228 test(s)
 S05-mass/properties-general.rakudo.jvm 553 - Match <:Other>
 S05-mass/properties-general.rakudo.jvm 554 - Don't match negated <Other>
 S05-mass/properties-general.rakudo.jvm 555 - Don't match inverted <Other>
@@ -1555,6 +1570,7 @@ S29-context/die.rakudo.jvm 14 - die with no output
 S29-context/die.rakudo.jvm 15 - say something and die
 S29-context/exit.t 2 - exit 5; works
 S29-context/exit.t 3 - try-block does not catch exit exceptions
+S29-context/sleep.t 11 - some overall time
 S29-os/system.t 1 - run() to an existing program does not die (and returns something true)
 S32-basics/warn.rakudo.jvm 4 - warn() without arguments
 S32-basics/warn.rakudo.jvm 6 - try does not surpress warnings
