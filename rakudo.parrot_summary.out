@@ -201,13 +201,13 @@ S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.rakudo.parrot.............  15    0    3    0   18
      3 todo   : non-flattening hash refs
 S02-types/autovivification.t.......................  25    0    0    0   25
-S02-types/bag.rakudo.parrot........................ 111    0    7   24  142
+S02-types/bag.rakudo.parrot........................ 103    0    7   32  142
     10 skipped: .Bag NYI
      3 skipped: Non-Str keys NYI
+     8 skipped: takes too long
     11 skipped: .Set NYI
      2 todo   : Not properly interpolating
-     1 todo   : Bag stringification
-     1 todo   : huh?
+     2 todo   : huh?
      3 todo   : New bag constructor NYI
 S02-types/bool.t...................................  51    0    0    0   51
 S02-types/capture.rakudo.parrot....................  18    0    2    1   21
@@ -253,18 +253,16 @@ S02-types/infinity.rakudo.parrot...................   6    0    3    4   13
      4 skipped: integer Inf
      3 todo   : Int conversion of NaN and Inf
 S02-types/instants-and-durations.t.................  12    0    0    0   12
-S02-types/keybag.rakudo.parrot..................... 140    0   11   21  172
+S02-types/keybag.rakudo.parrot..................... 135    0    8   29  172
     21 skipped: 'is ObjectType' NYI
+     8 skipped: takes too long
      5 todo   : Needs to catch up with spec
-     2 todo   : Non-Str keys NYI
      1 todo   : huh?
      2 todo   : in flux
-     1 todo   : not up to spec
-S02-types/keyset.rakudo.parrot..................... 122    0   12   10  144
+S02-types/keyset.rakudo.parrot..................... 128    0    6   10  144
     10 skipped: 'is ObjectType' NYI
-     7 todo   : huh?
      2 todo   : Not up to current spec
-     3 todo   : New set constructor NYI
+     4 todo   : New set constructor NYI
 S02-types/lazy-lists.t.............................  19    0    0    0   19
 S02-types/lists.rakudo.parrot......................use of uninitialized value of type Parcel in string context  in sub is at lib/Test.pm:81
 
@@ -332,12 +330,12 @@ S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.t..................................use of uninitialized value of type Range in numeric context  in block  at t/spec/S02-types/range.t:104
 
  127    0    0    0  127
-S02-types/set.rakudo.parrot........................ 117    0   22    0  139
+S02-types/set.rakudo.parrot........................ 116    0   23    0  139
      2 todo   : Not properly interpolating
      1 todo   : got bp
      1 todo   : got ao
      3 todo   : Set does not conform to new standard yet
-     3 todo   : New set constructor NYI
+     4 todo   : New set constructor NYI
     10 todo   : Hypers not yet Set compatible
      2 todo   : not up to spec
 S02-types/sigils-and-types.rakudo.parrot...........  26    0    2    0   28
@@ -2031,10 +2029,16 @@ S32-str/split-simple.rakudo.parrot.................  48    0    1    0   49
 S32-str/split.rakudo.parrot........................  34    0    2    1   37
      1 skipped: No such method null for invocant of type Cursor
      2 todo   : still incorrect
-S32-str/sprintf.rakudo.parrot...................... 131    0    1    3  135
-     1 skipped: %p doesn't yet throw exception - but should it, or just Failure?
-     2 skipped: sprintf hangs when printing Inf/-Inf
-     1 todo   : sprintf prints numbers before NaN
+S32-str/sprintf.rakudo.parrot......................[31m===[0mSORRY![31m===[0m Error while compiling t/spec/S32-str/sprintf.rakudo.parrot
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/S32-str/sprintf.rakudo.parrot:197
+------> [32mskip(10 [33m⏏[31m"Issues with Inf", 1); # { is sprintf('%[0m
+    expecting any of:
+        postfix
+        infix stopper
+        infix or meta-infix
+   0  145    0    0  145
+   145 tests aborted (missing ok/not ok)
 S32-str/substr-rw.rakudo.parrot....................  19    0   12    0   31
     12 todo   : NYI
 S32-str/substr.rakudo.parrot.......................use of uninitialized value of type Failure in string context  in sub is at lib/Test.pm:81
@@ -2532,7 +2536,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3535,     0,   144,   264,  3943,  3886
+"S02",        3527,     0,   136,   280,  3943,  3886
 "S03",        4636,     0,   162,   197,  4995,  4662
 "S04",         951,     0,    38,    30,  1019,  1038
 "S05",        4779,     0,   159,   432,  5370,  5814
@@ -2551,10 +2555,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         325,     0,     3,     3,   331,   341
-"S32",        8713,     0,   181,   164,  9058,  6420
+"S32",        8582,   145,   180,   161,  9068,  6430
 "int",         538,     0,    10,    23,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     27203,     0,   808,  1412, 29423, 27046
+"total",     27064,   145,   799,  1425, 29433, 27056
 ----------------
 Failure summary:
+S32-str/sprintf.rakudo.parrot aborted 145 test(s)
 note: test_summary.pl @syn does not have ros

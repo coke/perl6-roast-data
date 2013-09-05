@@ -96,7 +96,7 @@ S02-names-vars/names.rakudo.jvm.................... 127    0    2   13  142
      7 skipped: package variable autovivification
      1 todo   : nom regression
      1 todo   : dubious test - otherwise why is ::<$foo> allowed?
-S02-names-vars/perl.rakudo.jvm.....................  97    1    0    6  104
+S02-names-vars/perl.rakudo.jvm.....................  98    0    0    6  104
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -146,13 +146,13 @@ S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.rakudo.jvm................  15    0    3    0   18
      3 todo   : non-flattening hash refs
 S02-types/autovivification.t.......................  25    0    0    0   25
-S02-types/bag.rakudo.jvm........................... 111    0    7   24  142
+S02-types/bag.rakudo.jvm........................... 103    0    7   32  142
     10 skipped: .Bag NYI
      3 skipped: Non-Str keys NYI
+     8 skipped: takes too long
     11 skipped: .Set NYI
      2 todo   : Not properly interpolating
-     1 todo   : Bag stringification
-     1 todo   : huh?
+     2 todo   : huh?
      3 todo   : New bag constructor NYI
 S02-types/bool.t...................................  51    0    0    0   51
 S02-types/capture.rakudo.jvm.......................  18    0    2    1   21
@@ -196,18 +196,16 @@ S02-types/infinity.rakudo.jvm......................   6    0    3    4   13
      4 skipped: integer Inf
      3 todo   : Int conversion of NaN and Inf
 S02-types/instants-and-durations.t.................  12    0    0    0   12
-S02-types/keybag.rakudo.jvm........................ 139    1   11   21  172
+S02-types/keybag.rakudo.jvm........................ 135    0    8   29  172
     21 skipped: 'is ObjectType' NYI
+     8 skipped: takes too long
      5 todo   : Needs to catch up with spec
-     2 todo   : Non-Str keys NYI
      1 todo   : huh?
      2 todo   : in flux
-     1 todo   : not up to spec
-S02-types/keyset.rakudo.jvm........................ 122    0   12   10  144
+S02-types/keyset.rakudo.jvm........................ 128    0    6   10  144
     10 skipped: 'is ObjectType' NYI
-     7 todo   : huh?
      2 todo   : Not up to current spec
-     3 todo   : New set constructor NYI
+     4 todo   : New set constructor NYI
 S02-types/lazy-lists.t.............................  19    0    0    0   19
 S02-types/lists.rakudo.jvm.........................  24    1    0    3   28
      3 skipped: list binding
@@ -236,12 +234,12 @@ S02-types/pair.rakudo.jvm..........................  94    0    1    2   97
 S02-types/parcel.t.................................  15    0    0    0   15
 S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.t.................................. 127    0    0    0  127
-S02-types/set.rakudo.jvm........................... 117    0   22    0  139
+S02-types/set.rakudo.jvm........................... 116    0   23    0  139
      2 todo   : Not properly interpolating
      1 todo   : got bp
      1 todo   : got ao
      3 todo   : Set does not conform to new standard yet
-     3 todo   : New set constructor NYI
+     4 todo   : New set constructor NYI
     10 todo   : Hypers not yet Set compatible
      2 todo   : not up to spec
 S02-types/sigils-and-types.rakudo.jvm..............  26    0    2    0   28
@@ -1174,7 +1172,7 @@ S29-context/eval.rakudo.jvm........................  15    0    0    3   18
      2 skipped: eval coerce to string
 S29-context/exit-in-if.t...........................   1    0    0    0    1
 S29-context/exit.t.................................   1    2    0    0    3
-S29-context/sleep.t................................  11    1    0    0   12
+S29-context/sleep.t................................  12    0    0    0   12
 S29-conversions/hash.t.............................   8    0    0    0    8
 S29-conversions/ord_and_chr.rakudo.jvm............. 252    0    2    0  254
      2 todo   : huh?
@@ -1376,9 +1374,8 @@ S32-str/split-simple.rakudo.jvm....................  48    0    1    0   49
 S32-str/split.rakudo.jvm...........................  34    0    2    1   37
      1 skipped: No such method null for invocant of type Cursor
      2 todo   : still incorrect
-S32-str/sprintf.rakudo.jvm......................... 131    0    0    4  135
-     1 skipped: %p doesn't yet throw exception - but should it, or just Failure?
-     3 skipped: java.lang.NumberFormatException
+S32-str/sprintf.rakudo.jvm.........................   0  145    0    0  145
+   145 tests aborted (missing ok/not ok)
 S32-str/substr-rw.rakudo.jvm.......................   0    0    0    0    0
 S32-str/substr.rakudo.jvm..........................  53    0    0   39   92
      3 skipped: java.nio.charset.MalformedInputException
@@ -1503,7 +1500,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3330,   172,   138,   303,  3943,  3886
+"S02",        3324,   170,   130,   319,  3943,  3886
 "S03",        4639,     0,   158,   198,  4995,  4662
 "S04",         930,    20,    37,    32,  1019,  1038
 "S05",        4769,     5,   157,   439,  5370,  5814
@@ -1521,21 +1518,19 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
-"S29",         319,     6,     3,     3,   331,   341
-"S32",        8620,    78,   102,   222,  8998,  6420
+"S29",         320,     5,     3,     3,   331,   341
+"S32",        8489,   223,   102,   218,  9008,  6430
 "int",         523,     9,    12,    27,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26839,   308,   717,  1523, 29363, 27046
+"total",     26703,   450,   709,  1535, 29373, 27056
 ----------------
 Failure summary:
 S02-magicals/env.rakudo.jvm 14 - ENV members persist to child processes
 S02-magicals/pid.t 1 - my $*PID is different from a child $*PID
-S02-names-vars/perl.rakudo.jvm 90 - .perl on user-defined type roundtrips okay
 S02-names/caller.t aborted 15 test(s)
 S02-names/is_default.rakudo.jvm aborted 114 test(s)
 S02-names/pseudo.rakudo.jvm aborted 33 test(s)
 S02-names/symbolic-deref.rakudo.jvm 22 - symbolic dereferentation works with ::CALLER, too
-S02-types/keybag.rakudo.jvm 69 - And Str keys are permitted in the same set
 S02-types/lists.rakudo.jvm 20 - error message contains name of class
 S02-types/nil.rakudo.jvm aborted 3 test(s)
 S02-types/type.t 17 - native num type can be undefined
@@ -1570,7 +1565,6 @@ S29-context/die.rakudo.jvm 14 - die with no output
 S29-context/die.rakudo.jvm 15 - say something and die
 S29-context/exit.t 2 - exit 5; works
 S29-context/exit.t 3 - try-block does not catch exit exceptions
-S29-context/sleep.t 11 - some overall time
 S29-os/system.t 1 - run() to an existing program does not die (and returns something true)
 S32-basics/warn.rakudo.jvm 4 - warn() without arguments
 S32-basics/warn.rakudo.jvm 6 - try does not surpress warnings
@@ -1598,6 +1592,7 @@ S32-str/encode.rakudo.jvm 6 - indexing a utf8 gives correct value (1)
 S32-str/encode.rakudo.jvm 7 - indexing a utf8 gives correct value (1)
 S32-str/encode.rakudo.jvm 20 - indexing a utf16 gives correct value
 S32-str/encode.rakudo.jvm 21 - indexing a utf16 gives correct value
+S32-str/sprintf.rakudo.jvm aborted 145 test(s)
 integration/error-reporting.rakudo.jvm 1 - Parse error contains line number
 integration/error-reporting.rakudo.jvm 2 - Runtime error contains line number
 integration/error-reporting.rakudo.jvm 3 - Method not found error mentions method name and line number
