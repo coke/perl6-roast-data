@@ -146,14 +146,14 @@ S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.rakudo.jvm................  15    0    3    0   18
      3 todo   : non-flattening hash refs
 S02-types/autovivification.t.......................  25    0    0    0   25
-S02-types/bag.rakudo.jvm........................... 103    0    7   32  142
+S02-types/bag.rakudo.jvm........................... 115    0    4   23  142
     10 skipped: .Bag NYI
-     3 skipped: Non-Str keys NYI
      8 skipped: takes too long
-    11 skipped: .Set NYI
+     3 skipped: No longer Iterable
+     2 skipped: Odd number of elements
      2 todo   : Not properly interpolating
-     2 todo   : huh?
-     3 todo   : New bag constructor NYI
+     1 todo   : .Bag is not supposed to flatten
+     1 todo   : huh?
 S02-types/bool.t...................................  51    0    0    0   51
 S02-types/capture.rakudo.jvm.......................  18    0    2    1   21
      1 skipped: nom regression
@@ -196,16 +196,19 @@ S02-types/infinity.rakudo.jvm......................   6    0    3    4   13
      4 skipped: integer Inf
      3 todo   : Int conversion of NaN and Inf
 S02-types/instants-and-durations.t.................  12    0    0    0   12
-S02-types/keybag.rakudo.jvm........................ 135    0    8   29  172
+S02-types/keybag.rakudo.jvm........................ 133    0    5   34  172
     21 skipped: 'is ObjectType' NYI
      8 skipped: takes too long
-     5 todo   : Needs to catch up with spec
+     3 skipped: No longer Iterable
+     2 skipped: Odd number of elements
+     2 todo   : Needs to catch up with spec
      1 todo   : huh?
      2 todo   : in flux
-S02-types/keyset.rakudo.jvm........................ 128    0    6   10  144
+S02-types/keyset.rakudo.jvm........................ 128    2    3   11  144
     10 skipped: 'is ObjectType' NYI
+     1 skipped: no longer Iterable
+     1 todo   : huh?
      2 todo   : Not up to current spec
-     4 todo   : New set constructor NYI
 S02-types/lazy-lists.t.............................  19    0    0    0   19
 S02-types/lists.rakudo.jvm.........................  24    1    0    3   28
      3 skipped: list binding
@@ -234,14 +237,15 @@ S02-types/pair.rakudo.jvm..........................  94    0    1    2   97
 S02-types/parcel.t.................................  15    0    0    0   15
 S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.t.................................. 127    0    0    0  127
-S02-types/set.rakudo.jvm........................... 116    0   23    0  139
+S02-types/set.rakudo.jvm........................... 118    0   17    4  139
+     1 skipped: Set is no longer Iterable
+     3 skipped: Odd number of elements
      2 todo   : Not properly interpolating
-     1 todo   : got bp
-     1 todo   : got ao
-     3 todo   : Set does not conform to new standard yet
-     4 todo   : New set constructor NYI
+     1 todo   : this test is bogus?
+     1 todo   : huh?
+     2 todo   : Set does not conform to new standard yet
+     1 todo   : not up to spec
     10 todo   : Hypers not yet Set compatible
-     2 todo   : not up to spec
 S02-types/sigils-and-types.rakudo.jvm..............  26    0    2    0   28
      1 todo   : Capture does Associative
      1 todo   : Capture does Positional
@@ -338,12 +342,12 @@ S03-operators/assign.rakudo.jvm.................... 252    0   22   12  286
 S03-operators/autoincrement-range.t................  96    0    0    0   96
 S03-operators/autoincrement.t......................  78    0    0    0   78
 S03-operators/autovivification.t...................  23    0    0    0   23
-S03-operators/bag.rakudo.jvm.......................  38    0    6   64  108
+S03-operators/bag.rakudo.jvm.......................  30    0   14   64  108
     16 skipped: Reduction and bag operators
     48 skipped: expected Any but go Mu
      1 todo   : Test may be wrong?
      1 todo   : Right now this works as $kb ∩ glag ∩ green ∩ blood.  Test may be wrong
-     4 todo   : huh?
+    12 todo   : huh?
 S03-operators/basic-types.t........................  19    0    0    0   19
 S03-operators/bit.t................................  33    0    0    0   33
 S03-operators/boolean-bitwise.t....................  45    0    0    0   45
@@ -408,12 +412,10 @@ S03-operators/reduce-le1arg.rakudo.jvm.............  50    0    0    4   54
 S03-operators/relational.t......................... 118    0    0    0  118
 S03-operators/repeat.t.............................  32    0    0    0   32
 S03-operators/scalar-assign.t......................   4    0    0    0    4
-S03-operators/set.rakudo.jvm....................... 244    0   26   26  296
-     6 skipped: expected Any, got Mu
-     2 skipped: huh?
+S03-operators/set.rakudo.jvm....................... 228   41    9   18  296
      2 skipped: ∅ NYI
     16 skipped: Reduction and set operators
-    26 todo   : huh?
+     9 todo   : huh?
 S03-operators/short-circuit.rakudo.jvm.............  77    0    6    0   83
      6 todo   : wrong return type
 S03-operators/so.rakudo.jvm........................  14    0    1    0   15
@@ -1156,7 +1158,7 @@ S26-documentation/06-lists.t.......................  39    0    0    0   39
 S26-documentation/07-tables.t......................  38    0    0    0   38
 S26-documentation/08-formattingcodes.t.............  43    0    0    0   43
 S26-documentation/09-configuration.t...............  14    0    0    0   14
-S26-documentation/10-doc-cli.t.....................   1    0    0    0    1
+S26-documentation/10-doc-cli.t.....................   0    1    0    0    1
 S26-documentation/why.t............................  18    0    0    1   19
      1 skipped: segfault
                                                    pass fail todo skip plan
@@ -1174,8 +1176,9 @@ S29-context/exit-in-if.t...........................   1    0    0    0    1
 S29-context/exit.t.................................   1    2    0    0    3
 S29-context/sleep.t................................  12    0    0    0   12
 S29-conversions/hash.t.............................   8    0    0    0    8
-S29-conversions/ord_and_chr.rakudo.jvm............. 252    0    2    0  254
-     2 todo   : huh?
+S29-conversions/ord_and_chr.rakudo.jvm............. 254    0    1    1  256
+     1 skipped: high character name lookup
+     1 todo   : RT #65172 - combining graphemes
 S29-os/system.t....................................   2    1    0    0    3
                                                    pass fail todo skip plan
 S32-array/bool.t...................................  15    0    0    0   15
@@ -1374,8 +1377,10 @@ S32-str/split-simple.rakudo.jvm....................  48    0    1    0   49
 S32-str/split.rakudo.jvm...........................  34    0    2    1   37
      1 skipped: No such method null for invocant of type Cursor
      2 todo   : still incorrect
-S32-str/sprintf.rakudo.jvm.........................   0  145    0    0  145
-   145 tests aborted (missing ok/not ok)
+S32-str/sprintf.rakudo.jvm......................... 131    0    0   14  145
+    10 skipped: Issues with Inf
+     1 skipped: %p doesn't yet throw exception - but should it, or just Failure?
+     3 skipped: java.lang.NumberFormatException
 S32-str/substr-rw.rakudo.jvm.......................   0    0    0    0    0
 S32-str/substr.rakudo.jvm..........................  53    0    0   39   92
      3 skipped: java.nio.charset.MalformedInputException
@@ -1500,8 +1505,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3324,   170,   130,   319,  3943,  3886
-"S03",        4639,     0,   158,   198,  4995,  4662
+"S02",        3336,   172,   115,   320,  3943,  3886
+"S03",        4615,    41,   149,   190,  4995,  4662
 "S04",         930,    20,    37,    32,  1019,  1038
 "S05",        4769,     5,   157,   439,  5370,  5814
 "S06",        1153,    12,    37,   105,  1307,  1291
@@ -1516,13 +1521,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S17",           0,     0,     0,     0,     0,    28
 "S19",           1,     3,     0,     0,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
-"S26",         308,     0,     0,     1,   309,   266
+"S26",         307,     1,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
-"S29",         320,     5,     3,     3,   331,   341
-"S32",        8489,   223,   102,   218,  9008,  6430
+"S29",         322,     5,     2,     4,   333,   343
+"S32",        8620,    78,   102,   232,  9008,  6430
 "int",         523,     9,    12,    27,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26703,   450,   709,  1535, 29373, 27056
+"total",     26823,   349,   684,  1543, 29375, 27058
 ----------------
 Failure summary:
 S02-magicals/env.rakudo.jvm 14 - ENV members persist to child processes
@@ -1531,9 +1536,52 @@ S02-names/caller.t aborted 15 test(s)
 S02-names/is_default.rakudo.jvm aborted 114 test(s)
 S02-names/pseudo.rakudo.jvm aborted 33 test(s)
 S02-names/symbolic-deref.rakudo.jvm 22 - symbolic dereferentation works with ::CALLER, too
+S02-types/keyset.rakudo.jvm 47 - Bag smartmatches with equivalent KeySet:
+S02-types/keyset.rakudo.jvm 48 - ... even if the Bag has greater quantities
 S02-types/lists.rakudo.jvm 20 - error message contains name of class
 S02-types/nil.rakudo.jvm aborted 3 test(s)
 S02-types/type.t 17 - native num type can be undefined
+S03-operators/set.rakudo.jvm 43 - KeySet union with itself yields self (as Set)
+S03-operators/set.rakudo.jvm 45 - Set union with KeySet works
+S03-operators/set.rakudo.jvm 47 - KeySet union with array of strings works
+S03-operators/set.rakudo.jvm 49 - Set union with KeySet works (texas)
+S03-operators/set.rakudo.jvm 51 - KeySet union with array of strings works (texas)
+S03-operators/set.rakudo.jvm 63 - KeySet subtracted from Set is correct
+S03-operators/set.rakudo.jvm 65 - Set subtracted from KeySet is correct
+S03-operators/set.rakudo.jvm 77 - KeySet symmetric difference with Set is correct
+S03-operators/set.rakudo.jvm 79 - Set symmetric difference with KeySet is correct
+S03-operators/set.rakudo.jvm 92 - Set is subset of KeySet
+S03-operators/set.rakudo.jvm 94 - KeySet is subset of string
+S03-operators/set.rakudo.jvm 104 - Set is subset of KeySet (texas)
+S03-operators/set.rakudo.jvm 106 - KeySet is subset of string (texas)
+S03-operators/set.rakudo.jvm 116 - Set is subset of KeySet
+S03-operators/set.rakudo.jvm 118 - KeySet is subset of string
+S03-operators/set.rakudo.jvm 128 - Set is subset of KeySet (texas)
+S03-operators/set.rakudo.jvm 130 - KeySet is subset of string (texas)
+S03-operators/set.rakudo.jvm 140 - Set is proper subset of KeySet
+S03-operators/set.rakudo.jvm 142 - KeySet is proper subset of string
+S03-operators/set.rakudo.jvm 152 - Set is proper subset of KeySet (texas)
+S03-operators/set.rakudo.jvm 154 - KeySet is proper subset of string (texas)
+S03-operators/set.rakudo.jvm 164 - Set is proper subset of KeySet
+S03-operators/set.rakudo.jvm 166 - KeySet is proper subset of string
+S03-operators/set.rakudo.jvm 176 - Set is proper subset of KeySet (texas)
+S03-operators/set.rakudo.jvm 178 - KeySet is proper subset of string (texas)
+S03-operators/set.rakudo.jvm 188 - Set is reversed superset of KeySet
+S03-operators/set.rakudo.jvm 190 - KeySet is reversed superset of string
+S03-operators/set.rakudo.jvm 200 - Set is reversed superset of KeySet (texas)
+S03-operators/set.rakudo.jvm 202 - KeySet is reversed superset of string (texas)
+S03-operators/set.rakudo.jvm 212 - Set is reversed superset of KeySet
+S03-operators/set.rakudo.jvm 214 - KeySet is reversed superset of string
+S03-operators/set.rakudo.jvm 224 - Set is reversed superset of KeySet (texas)
+S03-operators/set.rakudo.jvm 226 - KeySet is reversed superset of string (texas)
+S03-operators/set.rakudo.jvm 236 - Set is reversed proper superset of KeySet
+S03-operators/set.rakudo.jvm 238 - KeySet is reversed proper superset of string
+S03-operators/set.rakudo.jvm 248 - Set is reversed proper superset of KeySet (texas)
+S03-operators/set.rakudo.jvm 250 - KeySet is reversed proper superset of string (texas)
+S03-operators/set.rakudo.jvm 260 - Set is reversed proper superset of KeySet
+S03-operators/set.rakudo.jvm 262 - KeySet is reversed proper superset of string
+S03-operators/set.rakudo.jvm 272 - Set is reversed proper superset of KeySet (texas)
+S03-operators/set.rakudo.jvm 274 - KeySet is reversed proper superset of string (texas)
 S04-declarations/constant.rakudo.jvm 23 - a constant declared using 'constant' is actually constant (1)
 S04-phasers/enter-leave.rakudo.jvm 16 - die in LEAVE caught by try
 S04-phasers/enter-leave.rakudo.jvm aborted 1 test(s)
@@ -1561,6 +1609,7 @@ S16-io/getc.t aborted 1 test(s)
 S19-command-line/dash-e.t 1 - -e print $something works
 S19-command-line/dash-e.t 2 - -e print $something works with non-ASCII string literals
 S19-command-line/dash-e.t 3 - -e works with non-ASCII program texts
+S26-documentation/10-doc-cli.t 1 - basic --doc sanity
 S29-context/die.rakudo.jvm 14 - die with no output
 S29-context/die.rakudo.jvm 15 - say something and die
 S29-context/exit.t 2 - exit 5; works
@@ -1592,7 +1641,6 @@ S32-str/encode.rakudo.jvm 6 - indexing a utf8 gives correct value (1)
 S32-str/encode.rakudo.jvm 7 - indexing a utf8 gives correct value (1)
 S32-str/encode.rakudo.jvm 20 - indexing a utf16 gives correct value
 S32-str/encode.rakudo.jvm 21 - indexing a utf16 gives correct value
-S32-str/sprintf.rakudo.jvm aborted 145 test(s)
 integration/error-reporting.rakudo.jvm 1 - Parse error contains line number
 integration/error-reporting.rakudo.jvm 2 - Runtime error contains line number
 integration/error-reporting.rakudo.jvm 3 - Method not found error mentions method name and line number

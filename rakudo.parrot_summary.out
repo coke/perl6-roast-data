@@ -201,14 +201,14 @@ S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.rakudo.parrot.............  15    0    3    0   18
      3 todo   : non-flattening hash refs
 S02-types/autovivification.t.......................  25    0    0    0   25
-S02-types/bag.rakudo.parrot........................ 103    0    7   32  142
+S02-types/bag.rakudo.parrot........................ 115    0    4   23  142
     10 skipped: .Bag NYI
-     3 skipped: Non-Str keys NYI
      8 skipped: takes too long
-    11 skipped: .Set NYI
+     3 skipped: No longer Iterable
+     2 skipped: Odd number of elements
      2 todo   : Not properly interpolating
-     2 todo   : huh?
-     3 todo   : New bag constructor NYI
+     1 todo   : .Bag is not supposed to flatten
+     1 todo   : huh?
 S02-types/bool.t...................................  51    0    0    0   51
 S02-types/capture.rakudo.parrot....................  18    0    2    1   21
      1 skipped: nom regression
@@ -253,16 +253,19 @@ S02-types/infinity.rakudo.parrot...................   6    0    3    4   13
      4 skipped: integer Inf
      3 todo   : Int conversion of NaN and Inf
 S02-types/instants-and-durations.t.................  12    0    0    0   12
-S02-types/keybag.rakudo.parrot..................... 135    0    8   29  172
+S02-types/keybag.rakudo.parrot..................... 133    0    5   34  172
     21 skipped: 'is ObjectType' NYI
      8 skipped: takes too long
-     5 todo   : Needs to catch up with spec
+     3 skipped: No longer Iterable
+     2 skipped: Odd number of elements
+     2 todo   : Needs to catch up with spec
      1 todo   : huh?
      2 todo   : in flux
-S02-types/keyset.rakudo.parrot..................... 128    0    6   10  144
+S02-types/keyset.rakudo.parrot..................... 128    2    3   11  144
     10 skipped: 'is ObjectType' NYI
+     1 skipped: no longer Iterable
+     1 todo   : huh?
      2 todo   : Not up to current spec
-     4 todo   : New set constructor NYI
 S02-types/lazy-lists.t.............................  19    0    0    0   19
 S02-types/lists.rakudo.parrot......................use of uninitialized value of type Parcel in string context  in sub is at lib/Test.pm:81
 
@@ -330,14 +333,15 @@ S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.t..................................use of uninitialized value of type Range in numeric context  in block  at t/spec/S02-types/range.t:104
 
  127    0    0    0  127
-S02-types/set.rakudo.parrot........................ 116    0   23    0  139
+S02-types/set.rakudo.parrot........................ 118    0   17    4  139
+     1 skipped: Set is no longer Iterable
+     3 skipped: Odd number of elements
      2 todo   : Not properly interpolating
-     1 todo   : got bp
-     1 todo   : got ao
-     3 todo   : Set does not conform to new standard yet
-     4 todo   : New set constructor NYI
+     1 todo   : this test is bogus?
+     1 todo   : huh?
+     2 todo   : Set does not conform to new standard yet
+     1 todo   : not up to spec
     10 todo   : Hypers not yet Set compatible
-     2 todo   : not up to spec
 S02-types/sigils-and-types.rakudo.parrot...........  26    0    2    0   28
      1 todo   : Capture does Associative
      1 todo   : Capture does Positional
@@ -539,12 +543,12 @@ use of uninitialized value of type Any in numeric context  in block  at t/spec/S
 use of uninitialized value of type Any in string context  in any !cursor_init at src/stage2/QRegex.nqp:528
 
   23    0    0    0   23
-S03-operators/bag.rakudo.parrot....................  38    0    6   64  108
+S03-operators/bag.rakudo.parrot....................  30    0   14   64  108
     16 skipped: Reduction and bag operators
     48 skipped: expected Any but go Mu
      1 todo   : Test may be wrong?
      1 todo   : Right now this works as $kb ∩ glag ∩ green ∩ blood.  Test may be wrong
-     4 todo   : huh?
+    12 todo   : huh?
 S03-operators/basic-types.t........................  19    0    0    0   19
 S03-operators/bit.t................................  33    0    0    0   33
 S03-operators/boolean-bitwise.t....................  45    0    0    0   45
@@ -745,12 +749,10 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 S03-operators/relational.t......................... 118    0    0    0  118
 S03-operators/repeat.t.............................  32    0    0    0   32
 S03-operators/scalar-assign.t......................   4    0    0    0    4
-S03-operators/set.rakudo.parrot.................... 244    0   26   26  296
-     6 skipped: expected Any, got Mu
-     2 skipped: huh?
+S03-operators/set.rakudo.parrot.................... 228   41    9   18  296
      2 skipped: ∅ NYI
     16 skipped: Reduction and set operators
-    26 todo   : huh?
+     9 todo   : huh?
 S03-operators/short-circuit.rakudo.parrot..........use of uninitialized value of type Nil in numeric context  in block  at t/spec/S03-operators/short-circuit.rakudo.parrot:217
 
   77    0    6    0   83
@@ -1741,7 +1743,7 @@ S26-documentation/06-lists.t.......................  39    0    0    0   39
 S26-documentation/07-tables.t......................  38    0    0    0   38
 S26-documentation/08-formattingcodes.t.............  43    0    0    0   43
 S26-documentation/09-configuration.t...............  14    0    0    0   14
-S26-documentation/10-doc-cli.t.....................   1    0    0    0    1
+S26-documentation/10-doc-cli.t.....................   0    1    0    0    1
 S26-documentation/why.t............................  18    0    0    1   19
      1 skipped: segfault
                                                    pass fail todo skip plan
@@ -1761,8 +1763,8 @@ S29-context/exit-in-if.t...........................   1    0    0    0    1
 S29-context/exit.t.................................   3    0    0    0    3
 S29-context/sleep.t................................  12    0    0    0   12
 S29-conversions/hash.t.............................   8    0    0    0    8
-S29-conversions/ord_and_chr.rakudo.parrot.......... 252    0    2    0  254
-     2 todo   : huh?
+S29-conversions/ord_and_chr.rakudo.parrot.......... 255    0    1    0  256
+     1 todo   : RT #65172 - combining graphemes
 S29-os/system.t....................................   3    0    0    0    3
                                                    pass fail todo skip plan
 S32-array/bool.t...................................  15    0    0    0   15
@@ -2029,16 +2031,11 @@ S32-str/split-simple.rakudo.parrot.................  48    0    1    0   49
 S32-str/split.rakudo.parrot........................  34    0    2    1   37
      1 skipped: No such method null for invocant of type Cursor
      2 todo   : still incorrect
-S32-str/sprintf.rakudo.parrot......................[31m===[0mSORRY![31m===[0m Error while compiling t/spec/S32-str/sprintf.rakudo.parrot
-Unable to parse expression in argument list; couldn't find final ')'
-at t/spec/S32-str/sprintf.rakudo.parrot:197
-------> [32mskip(10 [33m⏏[31m"Issues with Inf", 1); # { is sprintf('%[0m
-    expecting any of:
-        postfix
-        infix stopper
-        infix or meta-infix
-   0  145    0    0  145
-   145 tests aborted (missing ok/not ok)
+S32-str/sprintf.rakudo.parrot...................... 131    0    1   13  145
+    10 skipped: Issues with Inf
+     1 skipped: %p doesn't yet throw exception - but should it, or just Failure?
+     2 skipped: sprintf hangs when printing Inf/-Inf
+     1 todo   : sprintf prints numbers before NaN
 S32-str/substr-rw.rakudo.parrot....................  19    0   12    0   31
     12 todo   : NYI
 S32-str/substr.rakudo.parrot.......................use of uninitialized value of type Failure in string context  in sub is at lib/Test.pm:81
@@ -2536,8 +2533,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3527,     0,   136,   280,  3943,  3886
-"S03",        4636,     0,   162,   197,  4995,  4662
+"S02",        3539,     2,   121,   281,  3943,  3886
+"S03",        4612,    41,   153,   189,  4995,  4662
 "S04",         951,     0,    38,    30,  1019,  1038
 "S05",        4779,     0,   159,   432,  5370,  5814
 "S06",        1164,     0,    38,   105,  1307,  1291
@@ -2552,14 +2549,57 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S17",           0,     0,     0,     0,     0,    28
 "S19",           4,     0,     0,     0,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
-"S26",         308,     0,     0,     1,   309,   266
+"S26",         307,     1,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
-"S29",         325,     0,     3,     3,   331,   341
-"S32",        8582,   145,   180,   161,  9068,  6430
+"S29",         328,     0,     2,     3,   333,   343
+"S32",        8713,     0,   181,   174,  9068,  6430
 "int",         538,     0,    10,    23,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     27064,   145,   799,  1425, 29433, 27056
+"total",     27185,    44,   775,  1431, 29435, 27058
 ----------------
 Failure summary:
-S32-str/sprintf.rakudo.parrot aborted 145 test(s)
+S02-types/keyset.rakudo.parrot 47 - Bag smartmatches with equivalent KeySet:
+S02-types/keyset.rakudo.parrot 48 - ... even if the Bag has greater quantities
+S03-operators/set.rakudo.parrot 43 - KeySet union with itself yields self (as Set)
+S03-operators/set.rakudo.parrot 45 - Set union with KeySet works
+S03-operators/set.rakudo.parrot 47 - KeySet union with array of strings works
+S03-operators/set.rakudo.parrot 49 - Set union with KeySet works (texas)
+S03-operators/set.rakudo.parrot 51 - KeySet union with array of strings works (texas)
+S03-operators/set.rakudo.parrot 63 - KeySet subtracted from Set is correct
+S03-operators/set.rakudo.parrot 65 - Set subtracted from KeySet is correct
+S03-operators/set.rakudo.parrot 77 - KeySet symmetric difference with Set is correct
+S03-operators/set.rakudo.parrot 79 - Set symmetric difference with KeySet is correct
+S03-operators/set.rakudo.parrot 92 - Set is subset of KeySet
+S03-operators/set.rakudo.parrot 94 - KeySet is subset of string
+S03-operators/set.rakudo.parrot 104 - Set is subset of KeySet (texas)
+S03-operators/set.rakudo.parrot 106 - KeySet is subset of string (texas)
+S03-operators/set.rakudo.parrot 116 - Set is subset of KeySet
+S03-operators/set.rakudo.parrot 118 - KeySet is subset of string
+S03-operators/set.rakudo.parrot 128 - Set is subset of KeySet (texas)
+S03-operators/set.rakudo.parrot 130 - KeySet is subset of string (texas)
+S03-operators/set.rakudo.parrot 140 - Set is proper subset of KeySet
+S03-operators/set.rakudo.parrot 142 - KeySet is proper subset of string
+S03-operators/set.rakudo.parrot 152 - Set is proper subset of KeySet (texas)
+S03-operators/set.rakudo.parrot 154 - KeySet is proper subset of string (texas)
+S03-operators/set.rakudo.parrot 164 - Set is proper subset of KeySet
+S03-operators/set.rakudo.parrot 166 - KeySet is proper subset of string
+S03-operators/set.rakudo.parrot 176 - Set is proper subset of KeySet (texas)
+S03-operators/set.rakudo.parrot 178 - KeySet is proper subset of string (texas)
+S03-operators/set.rakudo.parrot 188 - Set is reversed superset of KeySet
+S03-operators/set.rakudo.parrot 190 - KeySet is reversed superset of string
+S03-operators/set.rakudo.parrot 200 - Set is reversed superset of KeySet (texas)
+S03-operators/set.rakudo.parrot 202 - KeySet is reversed superset of string (texas)
+S03-operators/set.rakudo.parrot 212 - Set is reversed superset of KeySet
+S03-operators/set.rakudo.parrot 214 - KeySet is reversed superset of string
+S03-operators/set.rakudo.parrot 224 - Set is reversed superset of KeySet (texas)
+S03-operators/set.rakudo.parrot 226 - KeySet is reversed superset of string (texas)
+S03-operators/set.rakudo.parrot 236 - Set is reversed proper superset of KeySet
+S03-operators/set.rakudo.parrot 238 - KeySet is reversed proper superset of string
+S03-operators/set.rakudo.parrot 248 - Set is reversed proper superset of KeySet (texas)
+S03-operators/set.rakudo.parrot 250 - KeySet is reversed proper superset of string (texas)
+S03-operators/set.rakudo.parrot 260 - Set is reversed proper superset of KeySet
+S03-operators/set.rakudo.parrot 262 - KeySet is reversed proper superset of string
+S03-operators/set.rakudo.parrot 272 - Set is reversed proper superset of KeySet (texas)
+S03-operators/set.rakudo.parrot 274 - KeySet is reversed proper superset of string (texas)
+S26-documentation/10-doc-cli.t 1 - basic --doc sanity
 note: test_summary.pl @syn does not have ros
