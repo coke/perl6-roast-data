@@ -434,12 +434,39 @@ S02-types/autovivification.niecza..................Potential difficulties:
      5 skipped: Unable to resolve method push in type Any
      2 todo   : https://github.com/sorear/niecza/issues/176
 S02-types/bag.niecza...............................Potential difficulties:
-  @ks is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/bag.niecza line 93:
+  @ks is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/bag.niecza line 91:
 ------> [32m    my [33m⏏[31m@ks = $b.keys;[0m
 
- 136    0    1    5  142
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 1389 (warn @ 5) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 269 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/bag.niecza line 7 (ANON @ 2) 
+  at <unknown> line 0 (KERNEL map @ 2) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 370 (Any.map @ 4) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/bag.niecza line 7 (showkv @ 6) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/bag.niecza line 317 (mainline @ 331) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4583 (ANON @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4584 (module-CORE @ 576) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4584 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+Use of uninitialized value in string context
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 1389 (warn @ 5) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 269 (Mu.Str @ 15) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/bag.niecza line 7 (ANON @ 2) 
+  at <unknown> line 0 (KERNEL map @ 2) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 370 (Any.map @ 4) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/bag.niecza line 7 (showkv @ 6) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/bag.niecza line 327 (mainline @ 353) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4583 (ANON @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4584 (module-CORE @ 576) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4584 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+ 144    0    5    5  154
      3 skipped: Non-Str keys NYI
      2 skipped: Unmatched key in Hash.LISTSTORE
+     4 todo   : Bag in Bag does not work correctly yet
      1 todo   : Non-string bag elements NYI
 S02-types/bool.t...................................  51    0    0    0   51
 S02-types/catch_type_cast_mismatch.niecza..........   8    0    1    1   10
@@ -517,7 +544,7 @@ S02-types/hash_ref.niecza..........................  27    0    4    0   31
      4 todo   : 
 S02-types/infinity.t...............................  13    0    0    0   13
 S02-types/keybag.niecza............................Potential difficulties:
-  @ks is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/keybag.niecza line 114:
+  @ks is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/keybag.niecza line 113:
 ------> [32m    my [33m⏏[31m@ks = $b.keys;[0m
 
  141    0    2   29  172
@@ -559,7 +586,7 @@ S02-types/range.niecza.............................Potential difficulties:
      2 skipped: Unable to resolve method reverse in class Range
      1 skipped: Attempted to access slot $!min of type object for Range
      1 skipped: Undeclared name: "Failure"
-S02-types/set.niecza............................... 118    0    8   13  139
+S02-types/set.niecza............................... 123    2    8   13  146
     10 skipped: Hypers not yet Set compatible
      3 skipped: Unmatched key in Hash.LISTSTORE
      3 todo   : 
@@ -1424,7 +1451,7 @@ S03-sequence/misc.niecza...........................Potential difficulties:
      1 skipped: Nominal type check failed in binding Int $n in f; got Str, needed Int
      3 skipped: Slicel lists are NYI
      1 skipped: Need something on the LHS
-S03-sequence/nonnumeric.niecza.....................  15    0    0   20   35
+S03-sequence/nonnumeric.niecza.....................  17    0    0   20   37
     17 skipped: Two definitions found for symbol ::GLOBAL::&infix:<cmp> (etc)
      3 skipped: munch not implemented
 S03-smartmatch/any-any.t...........................   8    0    0    0    8
@@ -2725,7 +2752,7 @@ S06-advanced/caller.niecza.........................Potential difficulties:
    2    0    1   16   19
     16 skipped: NYI
      1 todo   : try interferes with caller counting
-S06-advanced/callframe.niecza......................   3    1    1    3    8
+S06-advanced/callframe.niecza......................   4    0    1    3    8
      1 skipped: Unable to resolve method inline in type CallFrame
      2 skipped: Unable to resolve method my in type CallFrame
      1 todo   : needs .my
@@ -5885,11 +5912,11 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        3097,     0,   112,   273,  3482,  3886
-"S03",        4043,     0,   204,   398,  4645,  4663
+"S02",        3110,     2,   116,   273,  3501,  3905
+"S03",        4045,     0,   204,   398,  4647,  4665
 "S04",         799,     0,    35,    60,   894,  1038
 "S05",        4101,     0,   118,   221,  4440,  5814
-"S06",         777,     1,    58,   162,   998,  1291
+"S06",         778,     0,    58,   162,   998,  1291
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          65,     0,     0,     8,    73,   195
 "S10",          35,     0,     5,    19,    59,   127
@@ -5906,8 +5933,9 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 "S29",         306,     0,     2,    10,   318,   343
 "S32",        6514,     0,   138,   242,  6894,  6430
 "int",         463,     0,    22,    27,   512,   560
-"total",     21356,     2,   768,  1630, 23756, 27058
+"total",     21372,     3,   772,  1630, 23777, 27079
 ----------------
 Failure summary:
-S06-advanced/callframe.niecza 2 - callframe().line
+S02-types/set.niecza 80 - ... the keys of which are Strs
+S02-types/set.niecza 81 - ... and the values of which are Bool
 S14-roles/attributes.t aborted 1 test(s)
