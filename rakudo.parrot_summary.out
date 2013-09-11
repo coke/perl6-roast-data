@@ -201,8 +201,7 @@ S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.rakudo.parrot.............  15    0    3    0   18
      3 todo   : non-flattening hash refs
 S02-types/autovivification.t.......................  25    0    0    0   25
-S02-types/bag.rakudo.parrot........................ 139    0    2   13  154
-     8 skipped: takes too long
+S02-types/bag.rakudo.parrot........................ 147    0    2    5  154
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
      2 todo   : Not properly interpolating
@@ -250,9 +249,8 @@ S02-types/infinity.rakudo.parrot...................   6    0    3    4   13
      4 skipped: integer Inf
      3 todo   : Int conversion of NaN and Inf
 S02-types/instants-and-durations.t.................  12    0    0    0   12
-S02-types/keybag.rakudo.parrot..................... 134    0    4   34  172
+S02-types/keybag.rakudo.parrot..................... 142    0    4   26  172
     21 skipped: 'is ObjectType' NYI
-     8 skipped: takes too long
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
      2 todo   : Needs to catch up with spec
@@ -1415,8 +1413,7 @@ S06-traits/is-copy.t...............................Potential difficulties:
     at eval_0:1
     ------> [32msub f ($x is copy) { my $x [33m⏏[31m}[0m
   24    0    0    0   24
-S06-traits/is-readonly.rakudo.parrot...............   1    0    1    1    3
-     1 skipped: we do not have VAR() yet)
+S06-traits/is-readonly.rakudo.parrot...............   2    0    1    0    3
      1 todo   : readonly attributes
 S06-traits/is-rw.rakudo.parrot.....................   5    0    2    0    7
      1 todo   : Depends on preceding test working
@@ -1754,7 +1751,12 @@ S29-context/eval.rakudo.parrot.....................  15    0    0    3   18
      2 skipped: eval coerce to string
 S29-context/exit-in-if.t...........................   1    0    0    0    1
 S29-context/exit.t.................................   3    0    0    0    3
-S29-context/sleep.t................................  12    0    0    0   12
+S29-context/sleep.t................................===SORRY!===
+CHECK FAILED:
+Calling 'sleep-till' will never work with argument types (num) (lines 1, 1)
+    Expected: :(Instant $till)
+  19    2    0    0   21
+     2 tests aborted (missing ok/not ok)
 S29-conversions/hash.t.............................   8    0    0    0    8
 S29-conversions/ord_and_chr.rakudo.parrot.......... 255    0    1    0  256
      1 todo   : RT #65172 - combining graphemes
@@ -2526,11 +2528,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3579,     0,   112,   271,  3962,  3905
+"S02",        3595,     0,   112,   255,  3962,  3905
 "S03",        4725,     0,   132,   141,  4998,  4665
 "S04",         951,     0,    38,    30,  1019,  1038
 "S05",        4787,     0,   162,   432,  5381,  5825
-"S06",        1164,     0,    38,   105,  1307,  1291
+"S06",        1165,     0,    38,   104,  1307,  1291
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         174,     0,     9,    12,   195,   195
 "S10",          67,     0,     1,     2,    70,   127
@@ -2544,11 +2546,12 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
-"S29",         328,     0,     2,     3,   333,   343
+"S29",         335,     2,     2,     3,   342,   352
 "S32",        8732,     0,   121,   215,  9068,  6430
 "int",         538,     0,    10,    23,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     27371,     0,   688,  1416, 29475, 27092
+"total",     27395,     2,   688,  1399, 29484, 27101
 ----------------
 Failure summary:
+S29-context/sleep.t aborted 2 test(s)
 note: test_summary.pl @syn does not have ros

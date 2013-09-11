@@ -21,9 +21,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x96ef9f8)'
+#     Actual: 'CODE(0x90719f8)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x96efd18)'
+#     Actual: 'CODE(0x9071d18)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -4434,7 +4434,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c68921>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6882b65>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c68921>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6882b65>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d5d45d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6964e9d>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d5d45d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6964e9d>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
 #   Expected: 'undef'
@@ -4596,13 +4596,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.8505.397
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.8505.397
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.8505.397
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.8505.397
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.8505.397
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.8505.397
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.8505.397
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.26616.971
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.26616.971
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.26616.971
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.26616.971
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.26616.971
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.26616.971
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.26616.971
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -4667,13 +4667,12 @@ S29-context/eval.pugs..............................#     Actual: No exception th
      4 todo   : fix by Christmas
 S29-context/evalfile.t.............................   1    0    0    0    1
 S29-context/exit-in-if.t...........................   1    0    0    0    1
-S29-context/sleep.pugs.............................# Sleeping for 3s
-#     Actual: undef
-#     Actual: No exception thrown
-   3    0    2    7   12
-     7 skipped: not yet implemented
-     1 todo   : not yet implemented by Christmas
-     1 todo   : fix by Christmas
+S29-context/sleep.pugs.............................# sleep() for 3 seconds
+# Looks like you planned 21 tests, but ran 0
+*** No such subroutine: "&now"
+    at t/spec/S29-context/sleep.pugs line 14, column 12-20
+   0   21    0    0   21
+    21 tests aborted (missing ok/not ok)
 S29-conversions/hash.pugs..........................#     Actual: An exception was thrown : Unimplemented unaryOp: hash
    3    0    1    4    8
      4 skipped: Unimplemented unaryOp: hash
@@ -5467,9 +5466,10 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S24",          47,     0,    25,     4,    76,    88
 "S26",           0,     0,     0,     0,     0,   266
 "S28",           4,     0,     0,     1,     5,    13
-"S29",          33,     0,     7,    13,    53,    87
+"S29",          30,    21,     5,     6,    62,    96
 "S32",        2272,     0,   262,   556,  3090,  6441
 "int",         129,     0,    35,    28,   192,   550
-"total",      9534,     0,  3451,  1789, 14774, 26975
+"total",      9531,    21,  3449,  1782, 14783, 26984
 ----------------
-No failures!
+Failure summary:
+S29-context/sleep.pugs aborted 21 test(s)

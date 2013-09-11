@@ -99,7 +99,7 @@ S02-names-vars/names.rakudo.jvm.................... 127    0    2   13  142
      7 skipped: package variable autovivification
      1 todo   : nom regression
      1 todo   : dubious test - otherwise why is ::<$foo> allowed?
-S02-names-vars/perl.rakudo.jvm.....................  98    0    0    6  104
+S02-names-vars/perl.rakudo.jvm.....................  97    1    0    6  104
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -155,8 +155,7 @@ S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.rakudo.jvm................  15    0    3    0   18
      3 todo   : non-flattening hash refs
 S02-types/autovivification.t.......................  25    0    0    0   25
-S02-types/bag.rakudo.jvm........................... 139    0    2   13  154
-     8 skipped: takes too long
+S02-types/bag.rakudo.jvm........................... 147    0    2    5  154
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
      2 todo   : Not properly interpolating
@@ -202,9 +201,8 @@ S02-types/infinity.rakudo.jvm......................   6    0    3    4   13
      4 skipped: integer Inf
      3 todo   : Int conversion of NaN and Inf
 S02-types/instants-and-durations.t.................  12    0    0    0   12
-S02-types/keybag.rakudo.jvm........................ 134    0    4   34  172
+S02-types/keybag.rakudo.jvm........................ 142    0    4   26  172
     21 skipped: 'is ObjectType' NYI
-     8 skipped: takes too long
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
      2 todo   : Needs to catch up with spec
@@ -901,8 +899,7 @@ S06-signature/unspecified.rakudo.jvm...............  12    0    5    0   17
 S06-traits/is-assoc.rakudo.jvm.....................   4    0    0    2    6
      2 skipped: RT 116244
 S06-traits/is-copy.t...............................  24    0    0    0   24
-S06-traits/is-readonly.rakudo.jvm..................   1    0    1    1    3
-     1 skipped: we do not have VAR() yet)
+S06-traits/is-readonly.rakudo.jvm..................   2    0    1    0    3
      1 todo   : readonly attributes
 S06-traits/is-rw.rakudo.jvm........................   5    0    2    0    7
      1 todo   : Depends on preceding test working
@@ -1187,7 +1184,8 @@ S29-context/eval.rakudo.jvm........................  15    0    0    3   18
 S29-context/exit-in-if.t...........................   1    0    0    0    1
 S29-context/exit.rakudo.jvm........................   1    0    2    0    3
      2 todo   : nigh
-S29-context/sleep.t................................  12    0    0    0   12
+S29-context/sleep.t................................  11   10    0    0   21
+    10 tests aborted (missing ok/not ok)
 S29-conversions/hash.t.............................   8    0    0    0    8
 S29-conversions/ord_and_chr.rakudo.jvm............. 254    0    1    1  256
      1 skipped: high character name lookup
@@ -1524,11 +1522,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3481,     0,   116,   365,  3962,  3905
+"S02",        3496,     1,   116,   349,  3962,  3905
 "S03",        4728,     0,   128,   142,  4998,  4665
 "S04",         940,     0,    43,    36,  1019,  1038
 "S05",        4782,     0,   160,   439,  5381,  5825
-"S06",        1156,     0,    43,   108,  1307,  1291
+"S06",        1157,     0,    43,   107,  1307,  1291
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         174,     0,     9,    12,   195,   195
 "S10",          67,     0,     1,     2,    70,   127
@@ -1542,11 +1540,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
-"S29",         322,     0,     7,     4,   333,   343
+"S29",         321,    10,     7,     4,   342,   352
 "S32",        8645,     0,   114,   264,  9023,  6430
 "int",         523,     0,    21,    27,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     27138,     0,   707,  1585, 29430, 27092
+"total",     27153,    11,   707,  1568, 29439, 27101
 ----------------
 Failure summary:
+S02-names-vars/perl.rakudo.jvm 90 - .perl on user-defined type roundtrips okay
+S29-context/sleep.t aborted 10 test(s)
 note: test_summary.pl @syn does not have ros
