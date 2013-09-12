@@ -211,7 +211,7 @@ S02-types/capture.rakudo.parrot....................  18    0    2    1   21
      2 todo   : nom regression
 S02-types/catch_type_cast_mismatch.rakudo.parrot...   9    0    1    0   10
      1 todo   : die or fail?
-S02-types/declare.rakudo.parrot....................  52    0    2   24   78
+S02-types/declare.rakudo.parrot....................  51    0    2   25   78
      1 skipped: Comparator not implemented
      1 skipped: Integral not implemented
      1 skipped: Ordering not implemented
@@ -221,6 +221,7 @@ S02-types/declare.rakudo.parrot....................  52    0    2   24   78
      1 skipped: Complex not type converted properly during assignment from Num
      1 skipped: StrPos not implemented
      1 skipped: KeyExtractor not implemented
+     1 skipped: KeyHash not implemented
      1 skipped: rat not implemented
      1 skipped: No Module type yet
      1 skipped: bit not implemented
@@ -331,7 +332,8 @@ S02-types/set.rakudo.parrot........................ 130    0   12    4  146
      3 skipped: Odd number of elements
      2 todo   : Not properly interpolating
     10 todo   : Hypers not yet Set compatible
-S02-types/sigils-and-types.rakudo.parrot...........  26    0    2    0   28
+S02-types/sigils-and-types.rakudo.parrot...........  25    0    2    1   28
+     1 skipped: Undeclared name KeyHash
      1 todo   : Capture does Associative
      1 todo   : Capture does Positional
 S02-types/subscripts_and_context.t.................   8    0    0    0    8
@@ -538,11 +540,7 @@ S03-operators/basic-types.t........................  19    0    0    0   19
 S03-operators/bit.t................................  33    0    0    0   33
 S03-operators/boolean-bitwise.t....................  45    0    0    0   45
 S03-operators/brainos.t............................   9    0    0    0    9
-S03-operators/buf.rakudo.parrot....................  26    0    0    8   34
-     1 skipped: wrong exception
-     2 skipped: 
-     2 skipped: out of bounds
-     3 skipped: No such method 'Int' for invocant of type 'WhateverCode'
+S03-operators/buf.t................................  34    0    0    0   34
 S03-operators/chained-declarators.t................   5    0    0    0    5
 S03-operators/cmp.t................................  22    0    0    0   22
 S03-operators/comparison-simple.t..................  24    0    0    0   24
@@ -1751,12 +1749,7 @@ S29-context/eval.rakudo.parrot.....................  15    0    0    3   18
      2 skipped: eval coerce to string
 S29-context/exit-in-if.t...........................   1    0    0    0    1
 S29-context/exit.t.................................   3    0    0    0    3
-S29-context/sleep.t................................===SORRY!===
-CHECK FAILED:
-Calling 'sleep-till' will never work with argument types (num) (lines 1, 1)
-    Expected: :(Instant $till)
-  19    2    0    0   21
-     2 tests aborted (missing ok/not ok)
+S29-context/sleep.t................................  17    0    0    0   17
 S29-conversions/hash.t.............................   8    0    0    0    8
 S29-conversions/ord_and_chr.rakudo.parrot.......... 255    0    1    0  256
      1 todo   : RT #65172 - combining graphemes
@@ -2528,8 +2521,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3595,     0,   112,   255,  3962,  3905
-"S03",        4725,     0,   132,   141,  4998,  4665
+"S02",        3593,     0,   112,   257,  3962,  3905
+"S03",        4733,     0,   132,   133,  4998,  4665
 "S04",         951,     0,    38,    30,  1019,  1038
 "S05",        4787,     0,   162,   432,  5381,  5825
 "S06",        1165,     0,    38,   104,  1307,  1291
@@ -2546,12 +2539,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
-"S29",         335,     2,     2,     3,   342,   352
-"S32",        8732,     0,   121,   215,  9068,  6430
+"S29",         333,     0,     2,     3,   338,   348
+"S32",        8732,     0,   121,   215,  9068,  6437
 "int",         538,     0,    10,    23,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     27395,     2,   688,  1399, 29484, 27101
+"total",     27399,     0,   688,  1393, 29480, 27104
 ----------------
 Failure summary:
-S29-context/sleep.t aborted 2 test(s)
 note: test_summary.pl @syn does not have ros
