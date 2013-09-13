@@ -21,9 +21,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xa9d59f8)'
+#     Actual: 'CODE(0xac789f8)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xa9d5d18)'
+#     Actual: 'CODE(0xac78d18)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -259,7 +259,11 @@ S02-names-vars/variables-and-packages.pugs.........#     Actual: No exception th
 #     Actual: undef
 #     Actual: undef
 #     Actual: undef
-  33    0    4    0   37
+#   Failed test (t/spec/S02-names-vars/variables-and-packages.pugs line 171, column 5-46)
+#   Expected: 'a'
+#     Actual: 'undef'
+# Looks like you failed 1 tests of 38
+  33    1    4    0   38
      4 todo   : fix by Christmas
 S02-names-vars/varnames.pugs.......................   6    0    0    2    8
      2 skipped: Can't modify constant item: VObject
@@ -4434,7 +4438,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c6c45d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf686ae9d>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c6c45d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf686ae9d>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c5d45d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6862e9d>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c5d45d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6862e9d>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
 #   Expected: 'undef'
@@ -4596,13 +4600,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.29229.379
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.29229.379
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.29229.379
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.29229.379
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.29229.379
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.29229.379
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.29229.379
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.20766.131
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.20766.131
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.20766.131
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.20766.131
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.20766.131
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.20766.131
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.20766.131
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -5442,7 +5446,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",          27,     0,     8,    12,    47,    79
-"S02",        1456,     0,   321,   468,  2245,  4033
+"S02",        1456,     1,   321,   468,  2246,  4034
 "S03",        1875,     0,   289,   305,  2469,  4665
 "S04",         479,     0,    98,    88,   665,  1038
 "S05",        2215,     0,  2207,    56,  4478,  5825
@@ -5451,7 +5455,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S09",          70,     0,    26,     8,   104,   195
 "S10",          30,     0,     9,     0,    39,   127
 "S11",          14,     0,     5,    10,    29,   139
-"S12",         375,     0,    68,    96,   539,  1401
+"S12",         375,     0,    68,    96,   539,  1402
 "S13",           7,     0,     1,     1,     9,    80
 "S14",          64,     0,    11,     1,    76,   328
 "S16",          20,     0,     0,     1,    21,   290
@@ -5463,6 +5467,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S29",          30,     0,     5,     6,    41,    92
 "S32",        2272,     0,   262,   556,  3090,  6448
 "int",         129,     0,    35,    28,   192,   550
-"total",      9531,     0,  3449,  1782, 14762, 26987
+"total",      9531,     1,  3449,  1782, 14763, 26989
 ----------------
-No failures!
+Failure summary:
+S02-names-vars/variables-and-packages.pugs 38 - $OUTER::_ can access a $_

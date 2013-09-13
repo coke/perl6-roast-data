@@ -216,7 +216,7 @@ S02-names-vars/variables-and-packages.niecza.......Potential difficulties:
   $a is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-names-vars/variables-and-packages.niecza line 25:
 ------> [32m   my [33m⏏[31m$a=2; {[0m
 
-  23    0   11    3   37
+  24    0   11    3   38
      3 skipped: Undeclared routine grtz
      3 todo   : 
      8 todo   : System.NullReferenceException: Object reference not set to an instance of an object
@@ -3841,10 +3841,22 @@ S12-introspection/can.niecza.......................Potential difficulties:
   $pup is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S12-introspection/can.niecza line 76:
 ------> [32mmy [33m⏏[31m$pup = Puppy.new();[0m
 
-  12    0    2   10   24
+Unhandled exception: No match
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 1536 (die @ 5) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 2202 (EnumMap._lookup @ 4) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 1341 (CommonEnum.postcircumfix:<( )> @ 5) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S12-introspection/can.niecza line 111 (callit @ 4) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S12-introspection/can.niecza line 112 (ANON @ 10) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S12-introspection/can.niecza line 120 (mainline @ 79) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4583 (ANON @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4584 (module-CORE @ 576) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4584 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  12    1    2   10   25
     10 skipped: No match
      1 todo   : 
      1 todo   : .can returns something Positional
+     1 tests aborted (missing ok/not ok)
 S12-methods/accessors.niecza.......................Potential difficulties:
   'for $.a' will never flatten a $ variable;
 	to force list interpolation, please use either 'for @$.a' or 'for $.a[]';
@@ -5955,7 +5967,7 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        3133,     0,   118,   276,  3527,  3905
+"S02",        3134,     0,   118,   276,  3528,  3906
 "S03",        4070,     0,   204,   410,  4684,  4665
 "S04",         799,     0,    35,    60,   894,  1038
 "S05",        4111,     0,   118,   223,  4452,  5825
@@ -5964,7 +5976,7 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 "S09",          65,     0,     0,     8,    73,   195
 "S10",          35,     0,     5,    19,    59,   127
 "S11",           0,     0,     0,     0,     0,   139
-"S12",         783,     0,    65,   175,  1023,  1401
+"S12",         783,     1,    65,   175,  1024,  1402
 "S13",          31,     0,     1,    10,    42,    80
 "S14",         168,     0,     1,    11,   180,   328
 "S16",         185,     0,     7,    39,   231,   303
@@ -5976,6 +5988,7 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 "S29",         306,     0,     2,    10,   318,   348
 "S32",        6777,     0,   138,   273,  7188,  6437
 "int",         463,     0,    22,    27,   512,   560
-"total",     21718,     0,   775,  1703, 24196, 27102
+"total",     21719,     1,   775,  1703, 24198, 27104
 ----------------
-No failures!
+Failure summary:
+S12-introspection/can.niecza aborted 1 test(s)
