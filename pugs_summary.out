@@ -21,9 +21,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xacd09f8)'
+#     Actual: 'CODE(0x90dc9f8)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xacd0d18)'
+#     Actual: 'CODE(0x90dcd18)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -4436,7 +4436,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d5f45d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6964e9d>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d5f45d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6964e9d>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c6a921>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6881b65>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c6a921>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6881b65>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
 #   Expected: 'undef'
@@ -4598,13 +4598,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.17285.308
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.17285.308
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.17285.308
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.17285.308
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.17285.308
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.17285.308
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.17285.308
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.23207.110
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.23207.110
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.23207.110
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.23207.110
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.23207.110
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.23207.110
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.23207.110
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -4677,39 +4677,14 @@ S29-os/system.t..................................../bin/sh: program_that_does_no
    3    0    0    0    3
                                                    pass fail todo skip plan
 S32-array/bool.t...................................  15    0    0    0   15
-S32-array/delete.pugs..............................#   Expected: 'Any() b'
-#     Actual: 'Any() b Any()'
+S32-array/delete.pugs..............................#   Expected: 'a b'
+#     Actual: 'a b Any()'
 #   Expected: '2'
 #     Actual: '3'
-#   Expected: 'c'
-#     Actual: 'a'
-#   Expected: 'a b Any() d'
-#     Actual: 'Any() b c d'
-#   Expected: 'd'
-#     Actual: ''
-#   Expected: 'a b'
-#     Actual: ' b c d'
-#   Expected: '2'
-#     Actual: '4'
-#   Expected: 'c d f'
-#     Actual: 'c a '
-#   Expected: 'a b Any() Any() e'
-#     Actual: 'Any() b Any() d e f'
-#   Expected: '5'
-#     Actual: '6'
-#   Expected: 'c b'
-#     Actual: 'c a'
-#   Expected: 'a'
-#     Actual: ' b'
-#   Expected: '1'
-#     Actual: '2'
-#   Expected: '0'
-#     Actual: '8'
-#   Expected: '0 1'
-#     Actual: 'CaptSub {c_feeds = fromList [MkFeed {f_positionals = fromList [IFinite 0,IFinite 1], f_nameds = []}]}'
-  14    0   15    0   29
-     3 todo   : Not sure if this test is correct or not by Christmas
-    12 todo   : fix by Christmas
+pugs: Named argument found where no matched parameter expected: (delete,Val (VBool True))
+   4   23    2    0   29
+     2 todo   : fix by Christmas
+    23 tests aborted (missing ok/not ok)
 S32-array/elems.pugs...............................  10    0    1    0   11
      1 todo PASSED: fix by Christmas
 S32-array/end.pugs.................................#   Expected: '-1'
@@ -5463,8 +5438,9 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S26",           0,     0,     0,     0,     0,   266
 "S28",           4,     0,     0,     1,     5,    13
 "S29",          30,     0,     5,     6,    41,    92
-"S32",        2272,     0,   262,   556,  3090,  6448
+"S32",        2262,    23,   249,   556,  3090,  6448
 "int",         129,     0,    35,    28,   192,   550
-"total",      9531,     0,  3450,  1782, 14763, 26989
+"total",      9521,    23,  3437,  1782, 14763, 26989
 ----------------
-No failures!
+Failure summary:
+S32-array/delete.pugs aborted 23 test(s)
