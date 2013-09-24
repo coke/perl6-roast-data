@@ -136,7 +136,8 @@ S02-names-vars/signature.rakudo.parrot.............  11    0    2    0   13
 S02-names-vars/variables-and-packages.rakudo.parr..  32    0    3    3   38
      3 skipped: nom regression
      3 todo   : nom regression
-S02-names-vars/varnames.t..........................   8    0    0    0    8
+S02-names-vars/varnames.rakudo.parrot..............   6    0    0    2    8
+     2 skipped: cannot easily override [] at the moment
 S02-names/bare-sigil.t.............................  10    0    0    0   10
 S02-names/caller.t.................................  15    0    0    0   15
 S02-names/identifier.t.............................  22    0    0    0   22
@@ -383,8 +384,9 @@ use of uninitialized value of type Int in string context  in block  at t/spec/S0
   45    0    4    0   49
      4 todo   : .clone doesn't copy typedness
 S02-types/version.t................................  35    0    0    0   35
-S02-types/whatever.rakudo.parrot...................  72    0    3    5   80
+S02-types/whatever.rakudo.parrot...................  70    0    3    7   80
      5 skipped: currying plus meta ops
+     2 skipped: Method postcircumfix:<( )> not found for invocant of class Whatever
      2 todo   : RT 102466
      1 todo   : * as dummy
                                                    pass fail todo skip plan
@@ -1271,11 +1273,7 @@ S06-multi/type-based.rakudo.parrot.................  50    0    0    3   53
 S06-multi/unpackability.t..........................  10    0    0    0   10
 S06-multi/value-based.t............................  12    0    0    0   12
 S06-operator-overloading/imported-subs.t...........  19    0    0    0   19
-S06-operator-overloading/methods.rakudo.parrot.....use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
-
-   2    0    1    0    3
+S06-operator-overloading/methods.rakudo.parrot.....   2    0    1    0    3
      1 todo   : nom regression
 S06-operator-overloading/semicolon.t...............WARNINGS:
 Useless use of constant integer 2 in sink context (line 15)
@@ -1625,7 +1623,8 @@ S12-methods/multi.rakudo.parrot....................  26    0    1    5   32
      2 skipped: proto does not promote to multi
      3 skipped: unknown bug
      1 todo   : RT 66006
-S12-methods/parallel-dispatch.rakudo.parrot........  30    0    5    0   35
+S12-methods/parallel-dispatch.rakudo.parrot........  29    0    5    1   35
+     1 skipped: No such method postcircumfix:<( )> for invocant of type Pair
      5 todo   : is_deeply does not think map results are the same as list on LHS
 S12-methods/private.t..............................  13    0    0    0   13
 S12-methods/qualified.t............................   2    0    0    0    2
@@ -1648,10 +1647,21 @@ S12-subset/subtypes.rakudo.parrot..................  75    0    2    0   77
      2 todo   : RT 79160
                                                    pass fail todo skip plan
 S13-overloading/metaoperators.t....................   9    0    0    0    9
-S13-overloading/operators.t........................   4    0    0    0    4
-S13-overloading/typecasting-long.t.................  16    0    0    0   16
-S13-overloading/typecasting-mixed.t................  14    0    0    0   14
-S13-overloading/typecasting-short.t................  14    0    0    0   14
+S13-overloading/operators.rakudo.parrot............   3    0    0    1    4
+     1 skipped: cannot easily override {} at the moment
+S13-overloading/typecasting-long.rakudo.parrot.....   4    0    0   12   16
+     8 skipped: cannot easily override {} at the moment
+     4 skipped: cannot easily override [] at the moment
+S13-overloading/typecasting-mixed.rakudo.parrot....   2    0    5    7   14
+     4 skipped: cannot easily override {} at the moment
+     3 skipped: cannot easily override [] at the moment
+     4 todo   : cannot easily override {} at the moment
+     1 todo   : cannot easily override [] at the moment
+S13-overloading/typecasting-short.rakudo.parrot....   2    0    5    7   14
+     4 skipped: cannot easily override {} at the moment
+     3 skipped: cannot easily override [] at the moment
+     4 todo   : cannot easily override {} at the moment
+     1 todo   : cannot easily override [] at the moment
 S13-type-casting/methods.t.........................  13    0    0    0   13
                                                    pass fail todo skip plan
 S14-roles/anonymous.rakudo.parrot..................  12    0    0    1   13
@@ -1678,7 +1688,8 @@ S14-roles/parameter-subtyping.t....................  22    0    0    0   22
 S14-roles/parameterized-basic.t....................  32    0    0    0   32
 S14-roles/parameterized-mixin.rakudo.parrot........  24    0    4    0   28
      4 todo   : .does with parametric roles
-S14-roles/parameterized-type.t.....................  29    0    0    0   29
+S14-roles/parameterized-type.rakudo.parrot.........  28    0    0    1   29
+     1 skipped: cannot easily override [] at the moment
 S14-roles/stubs.t..................................   9    0    0    0    9
 S14-roles/submethods.t.............................   4    0    0    0    4
 S14-traits/attributes.t............................   8    0    0    0    8
@@ -1784,26 +1795,21 @@ S32-exceptions/misc.rakudo.parrot.................. 645    0    0    5  650
      1 skipped: RT 114134
      3 skipped: still handled by <special_var>
      1 skipped: parsing regression
-S32-hash/delete-adverb.rakudo.parrot...............use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
+S32-hash/delete-adverb.t...........................use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
 
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:85
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
 
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:85
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
 
- 160    0    8    0  168
-     8 todo   : not being destructively read yet
-S32-hash/delete.t..................................  11    0    0    0   11
-S32-hash/exists-adverb.rakudo.parrot...............  48    0   20    0   68
-     6 todo   : []:exists:p NYI
-     6 todo   : []:exists:kv NYI
-     6 todo   : []:exists NYI
-     2 todo   : :exists is ignored
+ 168    0    0    0  168
+S32-hash/delete.t..................................   8    0    0    0    8
+S32-hash/exists-adverb.t...........................  68    0    0    0   68
 S32-hash/exists.rakudo.parrot......................  20    0    0    1   21
      1 skipped: unspecced
 S32-hash/invert.rakudo.parrot......................   4    0    1    0    5
@@ -2515,7 +2521,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3594,     0,   112,   257,  3963,  3906
+"S02",        3590,     0,   112,   261,  3963,  3906
 "S03",        4735,     0,   130,   133,  4998,  4665
 "S04",         951,     0,    38,    30,  1019,  1038
 "S05",        4792,     0,   162,   432,  5386,  5830
@@ -2524,9 +2530,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S09",         174,     0,     9,    12,   195,   195
 "S10",          67,     0,     1,     2,    70,   127
 "S11",          73,     0,     2,     9,    84,   139
-"S12",        1330,     0,    48,   123,  1501,  1402
-"S13",          70,     0,     0,     0,    70,    80
-"S14",         296,     0,     8,    11,   315,   328
+"S12",        1329,     0,    48,   124,  1501,  1402
+"S13",          33,     0,    10,    27,    70,    80
+"S14",         295,     0,     8,    12,   315,   328
 "S16",         236,     0,     5,    18,   259,   303
 "S17",           0,     0,     0,     0,     0,    28
 "S19",           4,     0,     0,     0,     4,     4
@@ -2534,10 +2540,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         335,     0,     2,     3,   340,   350
-"S32",        8717,     0,   118,   233,  9068,  6437
+"S32",        8742,     0,    90,   233,  9065,  6434
 "int",         538,     0,    10,    23,   571,   560
 "ros",           2,     0,     0,     0,     2,     2
-"total",     27395,     0,   683,  1411, 29489, 27113
+"total",     27377,     0,   665,  1444, 29486, 27110
 ----------------
 Failure summary:
 note: test_summary.pl @syn does not have ros
