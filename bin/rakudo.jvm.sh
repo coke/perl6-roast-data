@@ -25,7 +25,8 @@ export LANG=en_US.UTF-8
 # swap out the default runner with one that is ulimited
 # temporarily ignore memory ulimit. ## ulimit -v 2048576
 
-exec 3> >( ./perl6-eval-server -bind-stdin -cookie TESTCOOKIE -app perl6.jar )
+exec 3> >( ./perl6-eval-server -bind-stdin -cookie TESTCOOKIE -app perl6.jar 2>&1 | 
+               tee eval-server.log )
 
 mv perl6 p6
 echo "#!/usr/bin/env perl" > perl6
