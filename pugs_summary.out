@@ -21,9 +21,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x92049f8)'
+#     Actual: 'CODE(0xa8549f8)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0x9204d18)'
+#     Actual: 'CODE(0xa854d18)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -332,11 +332,12 @@ S02-types/array.pugs...............................#   Expected: '1'
      2 skipped: .hash
      2 todo   : multi-dim arrays not implemented by Christmas
     15 todo   : fix by Christmas
-S02-types/array_extending.pugs.....................#     Actual: undef
-#   Expected: 'b'
-#     Actual: 'undef'
-  19    0    2    0   21
-     2 todo   : fix by Christmas
+S02-types/array_extending.pugs.....................*** 
+    Unexpected ":exists"
+    expecting term postfix, operator or "}"
+    at t/spec/S02-types/array_extending.pugs line 65, column 29
+   0   21    0    0   21
+    21 tests aborted (missing ok/not ok)
 S02-types/array_ref.pugs...........................  44    0    0    1   45
      1 skipped: Parcel
 S02-types/assigning-refs.pugs......................#   Expected: '0'
@@ -4436,7 +4437,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c5945d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6865e9d>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c5945d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6865e9d>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c608c9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6846efd>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c608c9>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6846efd>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
 #   Expected: 'undef'
@@ -4598,13 +4599,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.19592.656
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.19592.656
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.19592.656
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.19592.656
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.19592.656
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.19592.656
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.19592.656
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.12597.586
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.12597.586
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.12597.586
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.12597.586
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.12597.586
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.12597.586
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.12597.586
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -5413,7 +5414,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",          27,     0,     8,    12,    47,    79
-"S02",        1456,     0,   322,   468,  2246,  4034
+"S02",        1437,    21,   320,   468,  2246,  4034
 "S03",        1875,     0,   289,   305,  2469,  4665
 "S04",         479,     0,    98,    88,   665,  1038
 "S05",        2215,     0,  2207,    56,  4478,  5830
@@ -5434,6 +5435,7 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S29",          31,     0,     5,     7,    43,    94
 "S32",        2255,     0,   247,   556,  3058,  6448
 "int",         129,     0,    35,    28,   192,   550
-"total",      9515,     0,  3435,  1783, 14733, 26996
+"total",      9496,    21,  3433,  1783, 14733, 26996
 ----------------
-No failures!
+Failure summary:
+S02-types/array_extending.pugs aborted 21 test(s)
