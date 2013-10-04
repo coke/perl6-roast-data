@@ -1059,8 +1059,8 @@ S12-methods/trusts.t...............................   4    0    0    0    4
 S12-methods/typed-attributes.t.....................   7    0    0    0    7
 S12-methods/what.t.................................  33    0    0    0   33
 S12-subset/multi-dispatch.t........................   6    0    0    0    6
-S12-subset/subtypes.rakudo.jvm.....................  30    0    0    0    0
-    30 tests more than planned were run
+S12-subset/subtypes.rakudo.jvm.....................  16    0    0    0    0
+    16 tests more than planned were run
                                                    pass fail todo skip plan
 S13-overloading/metaoperators.t....................   9    0    0    0    9
 S13-overloading/operators.rakudo.jvm...............   3    0    0    1    4
@@ -1105,9 +1105,9 @@ S14-roles/parameterized-basic.t....................   0   32    0    0   32
     32 tests aborted (missing ok/not ok)
 S14-roles/parameterized-mixin.rakudo.jvm...........  24    0    4    0   28
      4 todo   : .does with parametric roles
-S14-roles/parameterized-type.rakudo.jvm............  28    0    0    1   29
-     1 skipped: cannot easily override [] at the moment
-S14-roles/stubs.t..................................   8    1    0    0    9
+S14-roles/parameterized-type.rakudo.jvm............   0   29    0    0   29
+    29 tests aborted (missing ok/not ok)
+S14-roles/stubs.t..................................   7    2    0    0    9
 S14-roles/submethods.t.............................   4    0    0    0    4
 S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.jvm.....................   0   13    0    0   13
@@ -1116,15 +1116,16 @@ S14-traits/routines.rakudo.jvm.....................   0   13    0    0   13
 S16-filehandles/chmod.t............................  16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  13    0    0    0   13
-S16-filehandles/filetest.rakudo.jvm................  29   10    0    2   41
-     2 skipped: :M, :C, :A
-    10 tests aborted (missing ok/not ok)
+S16-filehandles/filetest.rakudo.jvm................  29   11    0    1   41
+     1 skipped: :M, :C, :A
+    11 tests aborted (missing ok/not ok)
 S16-filehandles/io.rakudo.jvm......................   0   84    0    0   84
     84 tests aborted (missing ok/not ok)
-S16-filehandles/io_in_for_loops.t..................  29    0    0    0   29
+S16-filehandles/io_in_for_loops.t..................  27    2    0    0   29
+     2 tests aborted (missing ok/not ok)
 S16-filehandles/io_in_while_loops.t................  13    0    0    0   13
-S16-filehandles/mkdir_rmdir.rakudo.jvm.............  13    0    0    1   14
-     1 skipped: deviation from spec because we do not have sink yet
+S16-filehandles/mkdir_rmdir.rakudo.jvm.............   1   13    0    0   14
+    13 tests aborted (missing ok/not ok)
 S16-filehandles/open.t.............................   2    0    0    1    3
      1 skipped: open('nonexisting') => undefined is waiting on 'use fatal'
 S16-filehandles/unlink.rakudo.jvm..................   0    6    0    0    6
@@ -1301,8 +1302,10 @@ S32-list/categorize.t..............................   0   12    0    0   12
     12 tests aborted (missing ok/not ok)
 S32-list/classify.rakudo.jvm.......................   0   15    0    0   15
     15 tests aborted (missing ok/not ok)
-S32-list/create.t..................................   6    0    0    0    6
-S32-list/end.t.....................................  14    0    0    0   14
+S32-list/create.t..................................   0    6    0    0    6
+     6 tests aborted (missing ok/not ok)
+S32-list/end.t.....................................   0   14    0    0   14
+    14 tests aborted (missing ok/not ok)
 S32-list/first.rakudo.jvm..........................   0   23    0    0   23
     23 tests aborted (missing ok/not ok)
 S32-list/grep.rakudo.jvm...........................   0   38    0    0   38
@@ -1574,20 +1577,20 @@ rosettacode/sierpinski_triangle.t..................   0    1    0    0    1
 "S09",         174,     0,     9,    12,   195,   195
 "S10",          67,     0,     1,     2,    70,   127
 "S11",          73,     0,     2,     9,    84,   139
-"S12",        1284,     0,    46,   124,  1424,  1402
+"S12",        1270,     0,    46,   124,  1424,  1402
 "S13",          33,     0,    10,    27,    70,    80
-"S14",         219,    78,     9,     9,   315,   328
-"S16",         123,   129,     0,     7,   259,   303
+"S14",         190,   108,     9,     8,   315,   328
+"S16",         109,   145,     0,     5,   259,   303
 "S17",           0,     0,     0,     0,     0,    28
 "S19",           0,     4,     0,     0,     4,     4
 "S24",           0,     1,     0,     0,     1,    88
 "S26",           0,   266,     0,     0,   266,   266
 "S28",           0,     7,     0,     0,     7,    13
 "S29",           0,   136,     0,     0,   136,   146
-"S32",          20,  6524,     0,     0,  6544,  6851
+"S32",           0,  6544,     0,     0,  6544,  6851
 "int",           0,   547,     0,     0,   547,   550
 "ros",           0,     2,     0,     0,     2,     2
-"total",     17209,  7699,   554,  1183, 26615, 27311
+"total",     17132,  7765,   554,  1180, 26615, 27311
 ----------------
 Failure summary:
 S02-magicals/env.rakudo.jvm 14 - ENV members persist to child processes
@@ -1595,13 +1598,17 @@ S06-other/main-usage.rakudo.jvm 3 - if the MAIN dispatch results in an error, th
 S06-other/main-usage.rakudo.jvm 4 - auto-generated USAGE message goes to $*ERR and contains parameter name
 S06-other/main-usage.rakudo.jvm 11 - Non Bool option last with no value
 S06-other/main-usage.rakudo.jvm 20 - superfluous options trigger usage message
-S12-subset/subtypes.rakudo.jvm passed 30 unplanned test(s)
+S12-subset/subtypes.rakudo.jvm passed 16 unplanned test(s)
 S14-roles/mixin.rakudo.jvm aborted 32 test(s)
 S14-roles/parameterized-basic.t aborted 32 test(s)
+S14-roles/parameterized-type.rakudo.jvm aborted 29 test(s)
+S14-roles/stubs.t 8 - stubbed method can come from accessor
 S14-roles/stubs.t 9 - stubbed method can come from accessor in parent class
 S14-traits/routines.rakudo.jvm aborted 13 test(s)
-S16-filehandles/filetest.rakudo.jvm aborted 10 test(s)
+S16-filehandles/filetest.rakudo.jvm aborted 11 test(s)
 S16-filehandles/io.rakudo.jvm aborted 84 test(s)
+S16-filehandles/io_in_for_loops.t aborted 2 test(s)
+S16-filehandles/mkdir_rmdir.rakudo.jvm aborted 13 test(s)
 S16-filehandles/unlink.rakudo.jvm aborted 6 test(s)
 S16-io/bare-say.rakudo.jvm aborted 8 test(s)
 S16-io/basic-open.t aborted 9 test(s)
@@ -1684,6 +1691,8 @@ S32-io/other.t aborted 60 test(s)
 S32-io/slurp.t aborted 16 test(s)
 S32-list/categorize.t aborted 12 test(s)
 S32-list/classify.rakudo.jvm aborted 15 test(s)
+S32-list/create.t aborted 6 test(s)
+S32-list/end.t aborted 14 test(s)
 S32-list/first.rakudo.jvm aborted 23 test(s)
 S32-list/grep.rakudo.jvm aborted 38 test(s)
 S32-list/join.t aborted 34 test(s)
