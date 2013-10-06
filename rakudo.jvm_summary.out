@@ -20,14 +20,13 @@ S02-lexical-conventions/unicode.rakudo.jvm.........  35    0    1    2   38
      2 skipped: VOWEL SIGNs in identifiers
      1 todo   : PS does not work to separate lines
 S02-lexical-conventions/unspace.rakudo.jvm.........  60    0    0   18   78
-     4 skipped: =for pod not implemented (in STD.pm)
-     1 skipped: parse fail
-     1 skipped: unspace + dotty postfix
-     3 skipped: pod and unspace
-     1 skipped: .++ does not work
      3 skipped: indirect method calls
-     4 skipped: parse error
+     1 skipped: .++ does not work
+     4 skipped: =for pod not implemented (in STD.pm)
+     5 skipped: parse error
+     1 skipped: parse fail
      1 skipped: unimplemented
+     3 skipped: pod and unspace
 S02-lists/tree.rakudo.jvm..........................   8    0    0    1    9
      1 skipped: Any.tree(*@list) NYI
 S02-literals/array-interpolation.t.................  12    0    0    0   12
@@ -92,12 +91,12 @@ S02-names-vars/list_array_perl.rakudo.jvm..........  18    0    1    2   21
      2 skipped: recursive data structure
      1 todo   : List.perl bug
 S02-names-vars/names.rakudo.jvm.................... 127    0    2   13  142
-     2 skipped: this kind of lookup NYI
      4 skipped: ::{ } package lookup NYI
+     2 skipped: this kind of lookup NYI
      7 skipped: package variable autovivification
      1 todo   : nom regression
      1 todo   : dubious test - otherwise why is ::<$foo> allowed?
-S02-names-vars/perl.rakudo.jvm.....................  98    0    0    6  104
+S02-names-vars/perl.rakudo.jvm.....................  97    1    0    6  104
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -172,8 +171,8 @@ S02-types/declare.rakudo.jvm.......................  52    0    2   24   78
      1 skipped: Complex not type converted properly during assignment from Num
      1 skipped: StrPos not implemented
      1 skipped: KeyExtractor not implemented
-     1 skipped: rat not implemented
      1 skipped: No Module type yet
+     1 skipped: rat not implemented
      1 skipped: bit not implemented
      1 skipped: Matcher isa not implemented
      1 skipped: complex not implemented
@@ -1082,11 +1081,8 @@ S13-overloading/typecasting-mixed.rakudo.jvm.......   2    0    5    7   14
      3 skipped: cannot easily override [] at the moment
      4 todo   : cannot easily override {} at the moment
      1 todo   : cannot easily override [] at the moment
-S13-overloading/typecasting-short.rakudo.jvm.......   2    0    5    7   14
-     4 skipped: cannot easily override {} at the moment
-     3 skipped: cannot easily override [] at the moment
-     4 todo   : cannot easily override {} at the moment
-     1 todo   : cannot easily override [] at the moment
+S13-overloading/typecasting-short.rakudo.jvm.......   2   12    0    0   14
+    12 tests aborted (missing ok/not ok)
 S13-type-casting/methods.t.........................   0   13    0    0   13
     13 tests aborted (missing ok/not ok)
                                                    pass fail todo skip plan
@@ -1220,8 +1216,8 @@ S29-os/system.rakudo.jvm...........................   0    5    0    0    5
                                                    pass fail todo skip plan
 S32-array/bool.t...................................   0   15    0    0   15
     15 tests aborted (missing ok/not ok)
-S32-array/create.t.................................   0    3    0    0    3
-     3 tests aborted (missing ok/not ok)
+S32-array/create.t.................................   0    8    0    0    8
+     8 tests aborted (missing ok/not ok)
 S32-array/delete-adverb.t..........................   0  216    0    0  216
    216 tests aborted (missing ok/not ok)
 S32-array/delete.t.................................   0   29    0    0   29
@@ -1584,7 +1580,7 @@ rosettacode/sierpinski_triangle.t..................   0    1    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3907,     5,   120,   290,  4322,  4265
+"S02",        3906,     6,   120,   290,  4322,  4265
 "S03",        4740,     0,   125,   133,  4998,  4665
 "S04",         943,     0,    40,    36,  1019,  1038
 "S05",        4787,     0,   159,   438,  5384,  5828
@@ -1594,7 +1590,7 @@ rosettacode/sierpinski_triangle.t..................   0    1    0    0    1
 "S10",          67,     0,     1,     2,    70,   127
 "S11",          73,     0,     2,     9,    84,   139
 "S12",        1254,     0,    46,   124,  1424,  1402
-"S13",          20,    13,    10,    27,    70,    80
+"S13",          20,    25,     5,    20,    70,    80
 "S14",           3,   312,     0,     0,   315,   328
 "S16",           8,   251,     0,     0,   259,   303
 "S17",           0,     0,     0,     0,     0,    28
@@ -1603,13 +1599,14 @@ rosettacode/sierpinski_triangle.t..................   0    1    0    0    1
 "S26",           0,   266,     0,     0,   266,   266
 "S28",           0,     7,     0,     0,     7,    13
 "S29",           0,   136,     0,     0,   136,   146
-"S32",           0,  6544,     0,     0,  6544,  6851
+"S32",           0,  6549,     0,     0,  6549,  6856
 "int",           0,   547,     0,     0,   547,   550
 "ros",           0,     2,     0,     0,     2,     2
-"total",     17133,  8092,   551,  1198, 26974, 27670
+"total",     17132,  8110,   546,  1191, 26979, 27675
 ----------------
 Failure summary:
 S02-magicals/env.rakudo.jvm 14 - ENV members persist to child processes
+S02-names-vars/perl.rakudo.jvm 90 - .perl on user-defined type roundtrips okay
 S02-types/mix.rakudo.jvm 126 - .roll(100) (1)
 S02-types/mix.rakudo.jvm 127 - .roll(100) (2)
 S02-types/mixhash.rakudo.jvm 130 - .roll(100) (1)
@@ -1618,6 +1615,7 @@ S06-other/main-usage.rakudo.jvm 3 - if the MAIN dispatch results in an error, th
 S06-other/main-usage.rakudo.jvm 4 - auto-generated USAGE message goes to $*ERR and contains parameter name
 S06-other/main-usage.rakudo.jvm 11 - Non Bool option last with no value
 S06-other/main-usage.rakudo.jvm 20 - superfluous options trigger usage message
+S13-overloading/typecasting-short.rakudo.jvm aborted 12 test(s)
 S13-type-casting/methods.t aborted 13 test(s)
 S14-roles/anonymous.rakudo.jvm aborted 13 test(s)
 S14-roles/attributes.rakudo.jvm aborted 7 test(s)
@@ -1679,7 +1677,7 @@ S29-conversions/hash.t aborted 8 test(s)
 S29-conversions/ord_and_chr.rakudo.jvm aborted 52 test(s)
 S29-os/system.rakudo.jvm aborted 5 test(s)
 S32-array/bool.t aborted 15 test(s)
-S32-array/create.t aborted 3 test(s)
+S32-array/create.t aborted 8 test(s)
 S32-array/delete-adverb.t aborted 216 test(s)
 S32-array/delete.t aborted 29 test(s)
 S32-array/elems.t aborted 11 test(s)
