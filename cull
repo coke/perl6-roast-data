@@ -12,7 +12,7 @@ my $csv = Text::CSV->new() ;
 my $best = "";
 my $max = 0;
 foreach my $type (@types) {
-    my $output = `grep total ${type}_summary.out`;
+    my $output = `grep '"total"' ${type}_summary.out`;
     $output =~ s/total/$type/;
     chomp $output;
     $csv->parse($output);
