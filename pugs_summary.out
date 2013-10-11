@@ -20,9 +20,9 @@ S01-perl-5-integration/method.pugs.................#   Expected: 'CODE'
      3 skipped: Invalid ctx: 2
      3 todo   : fix by Christmas
 S01-perl-5-integration/roundtrip.pugs..............#   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xada89f8)'
+#     Actual: 'CODE(0x92ea9f8)'
 #   Expected: 'Just another Pugs hacker'
-#     Actual: 'CODE(0xada8d18)'
+#     Actual: 'CODE(0x92ead18)'
 #   Expected: '\()'
 #     Actual: '\("foo", "hate")'
    2    0    3    0    5
@@ -778,18 +778,29 @@ S02-types/unicode.pugs.............................#   Expected: '1'
      9 todo   : by Christmas
      2 todo   : fix by Christmas
                                                    pass fail todo skip plan
-S03-binding/arrays.pugs............................*** 
-    Unexpected ":delete"
-    expecting term postfix, operator or "}"
-    at t/spec/S03-binding/arrays.pugs line 40, column 12
-   0   47    0    0   47
-    47 tests aborted (missing ok/not ok)
-S03-binding/hashes.pugs............................*** 
-    Unexpected ":delete"
-    expecting term postfix, operator or "}"
-    at t/spec/S03-binding/hashes.pugs line 38, column 11
-   0   39    0    0   39
-    39 tests aborted (missing ok/not ok)
+S03-binding/arrays.pugs............................#     Actual: No exception thrown
+  39    0    1    7   47
+     2 skipped: Can't modify constant item: VUndef
+     5 skipped: :delete
+     1 todo   : fix by Christmas
+S03-binding/hashes.pugs............................#   Expected: 'q s u'
+#     Actual: 'p	q r	s t	u'
+#   Expected: 'new_value x z'
+#     Actual: 'a	x b	y c	z'
+#   Expected: 'new_value x z'
+#     Actual: 'a	x b	y c	z'
+#   Expected: 'f x z'
+#     Actual: 'a	x b	y c	z'
+#   Expected: 'e x z'
+#     Actual: 'a	x b	y c	z'
+#   Expected: 'f x z'
+#     Actual: 'a	x b	y c	z'
+#   Expected: 'f x z'
+#     Actual: 'a	x b	y c	z'
+#     Actual: No exception thrown
+  26    0    8    5   39
+     5 skipped: :delete
+     8 todo   : fix by Christmas
 S03-binding/nested.t...............................  43    0    0    0   43
 S03-binding/ro.pugs................................#     Actual: No exception thrown
 #   Expected: '3'
@@ -4269,9 +4280,16 @@ S06-traits/is-rw.pugs..............................#     Actual: No exception th
                                                    pass fail todo skip plan
 S09-autovivification/autoincrement.pugs............   6    0    0    1    7
      1 skipped: Can't modify constant item: VInt 0
-S09-autovivification/autovivification.pugs.........pugs: Named argument found where no matched parameter expected: (exists,Val (VBool False))
-   0   42    0    0   42
-    42 tests aborted (missing ok/not ok)
+S09-autovivification/autovivification.pugs.........#     Actual: undef
+#     Actual: undef
+#     Actual: undef
+#     Actual: undef
+#     Actual: undef
+#     Actual: undef
+  34    0    6    2   42
+     1 skipped: !exists
+     1 skipped: isa multi variant
+     6 todo   : fix by Christmas
 S09-hashes/objecthash.pugs.........................#     Actual: undef
 #     Actual: No exception thrown
 #     Actual: undef
@@ -4419,7 +4437,7 @@ S12-attributes/instance.pugs.......................#     Actual: No exception th
      1 skipped: can
      2 todo   : feature by Christmas
     26 todo   : fix by Christmas
-S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c7345d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6865e9d>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6c7345d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6865e9d>})])}])
+S12-attributes/recursive.pugs......................#     Actual: An exception was thrown : Undeclared variable: ("$attr",MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d5d45d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6962e9d>})]),[PRuntime {pr_pad = MkPad (padToList [("$__SELF__",PELexical {pe_type = (mkType "Scalar"), pe_proto = <Scalar:0xf6d5d45d>, pe_flags = MkEntryFlags {ef_isContext = False}, pe_store = <ref:0xf6962e9d>})])}])
 #   Expected: 'undef'
 #     Actual: '(Scalar)'
 #   Expected: 'undef'
@@ -4581,13 +4599,13 @@ S17-async/contend.pugs.............................#     Actual: undef
      2 todo   : unimpl by Christmas
                                                    pass fail todo skip plan
 S19-command-line-options/01-multiple-e.t...........# Running under darwin
-# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.15804.417
-# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.15804.417
-# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.15804.417
-# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.15804.417
-# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.15804.417
-# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.15804.417
-# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.15804.417
+# ./Pugs/pugs -e print -e qq.Hello -e Pugs. > temp-ex-output.27606.16
+# ./Pugs/pugs -e print -we qq.Hello -e Pugs. > temp-ex-output.27606.16
+# ./Pugs/pugs -e print -wle qq.Hello -e Pugs. > temp-ex-output.27606.16
+# ./Pugs/pugs -e print -weqq.Hello -e Pugs. > temp-ex-output.27606.16
+# ./Pugs/pugs -e print -e qq.Hel. -e ";print" -e qq.lo. -e ";print" -e "qq.\nPugs." > temp-ex-output.27606.16
+# ./Pugs/pugs -e print -e qq.Hel. -w -e ";print" -e qq.lo. -w -e ";print" -e "qq.\nPugs." > temp-ex-output.27606.16
+# ./Pugs/pugs -e @ARGS.perl.say -e "" Hello Pugs > temp-ex-output.27606.16
    7    0    0    0    7
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
@@ -5060,12 +5078,35 @@ S32-scalar/defined.pugs............................  30    0    0   26   56
      3 skipped: Mu
     20 skipped: isa_ok
      3 skipped: Nil
-S32-scalar/undef.pugs..............................*** 
-    Unexpected ":delete"
-    expecting term postfix, operator or "}"
-    at t/spec/S32-scalar/undef.pugs line 84, column 15
-   0   86    0    0   86
-    86 tests aborted (missing ok/not ok)
+S32-scalar/undef.pugs..............................#     Actual: undef
+#     Actual: undef
+#     Actual: undef
+#     Actual: undef
+#     Actual: undef
+#     Actual: undef
+#   Expected: '0'
+#     Actual: '5'
+#   Expected: 'Hash'
+#     Actual: '(Array)'
+#   Expected: '0'
+#     Actual: '2'
+#     Actual: undef
+#     Actual: undef
+#     Actual: undef
+#     Actual: undef
+#     Actual: undef
+#     Actual: undef
+#   Expected: ''
+#     Actual: '1'
+  59    0   16   11   86
+     5 skipped: Can't modify constant item: VNum Infinity
+     1 skipped: is_run
+     5 skipped: :delete
+     6 todo   : unimpl by Christmas
+     1 todo   : parsefail by Christmas
+     3 todo   : feature by Christmas
+     2 todo   : bug by Christmas
+     4 todo   : fix by Christmas
 S32-str/append.t...................................   7    0    0    0    7
 S32-str/bool.t.....................................  12    0    0    0   12
 S32-str/capitalize.pugs............................#   Expected: 'Äöü Abcä'
@@ -5374,12 +5415,12 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",          27,     0,     8,    12,    47,    79
 "S02",        1451,     0,   322,   473,  2246,  4462
-"S03",        1801,    86,   279,   303,  2469,  4665
+"S03",        1866,     0,   288,   315,  2469,  4665
 "S04",         479,     0,    98,    88,   665,  1038
 "S05",        2215,     0,  2207,    56,  4478,  5828
 "S06",         400,     0,    77,   129,   606,  1291
 "S07",           0,     0,     0,     0,     0,     0
-"S09",          35,    42,    20,     7,   104,   195
+"S09",          69,     0,    26,     9,   104,   195
 "S10",          30,     0,     9,     0,    39,   127
 "S11",          14,     0,     5,    10,    29,   139
 "S12",         375,     0,    68,    96,   539,  1402
@@ -5392,12 +5433,8 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 "S26",           0,     0,     0,     0,     0,   266
 "S28",           4,     0,     0,     1,     5,    13
 "S29",          31,     0,     5,     7,    43,    94
-"S32",        2183,    86,   231,   550,  3050,  7005
+"S32",        2242,     0,   247,   561,  3050,  7005
 "int",         129,     0,    35,    28,   192,   550
-"total",      9329,   214,  3403,  1779, 14725, 27979
+"total",      9487,     0,  3434,  1804, 14725, 27979
 ----------------
-Failure summary:
-S03-binding/arrays.pugs aborted 47 test(s)
-S03-binding/hashes.pugs aborted 39 test(s)
-S09-autovivification/autovivification.pugs aborted 42 test(s)
-S32-scalar/undef.pugs aborted 86 test(s)
+No failures!
