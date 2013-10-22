@@ -121,7 +121,7 @@ S02-names-vars/names.rakudo.jvm.................... 127    0    2   13  142
 S02-names-vars/perl.rakudo.jvm.....................use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
-  98    0    0    6  104
+  97    1    0    6  104
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -299,7 +299,7 @@ S02-types/num.t....................................  65    0    0    0   65
 S02-types/pair.rakudo.jvm..........................  94    0    1    2   97
      2 skipped: method($invocant:) syntax missing
      1 todo   : should it really have \n on the end?
-S02-types/parcel.t.................................  15    0    0    0   15
+S02-types/parcel.t.................................  42    0    0    0   42
 S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.t..................................use of uninitialized value of type Range in numeric context
  127    0    0    0  127
@@ -1565,8 +1565,7 @@ S32-array/pairs.rakudo.jvm.........................  13    0    1    0   14
 S32-array/perl.t...................................   6    0    0    0    6
 S32-array/pop.t....................................  36    0    0    0   36
 S32-array/push.t...................................  51    0    0    0   51
-S32-array/rotate.rakudo.jvm........................  27    0    0    1   28
-     1 skipped: Parcel.rotate
+S32-array/rotate.t.................................  27    0    0    0   27
 S32-array/shift.t..................................  31    0    0    0   31
 S32-array/splice.rakudo.jvm........................  37    0    1    0   38
      1 todo   : slice bug
@@ -1993,11 +1992,12 @@ integration/99problems-21-to-30.rakudo.jvm.........use of uninitialized value of
      3 todo   : unknown
 integration/99problems-31-to-40.t..................  66    0    0    1   67
      1 skipped: No Benchmark module yet
-integration/99problems-41-to-50.rakudo.jvm.........   5    0    0    6   11
+integration/99problems-41-to-50.rakudo.jvm.........   5    0    1    7   13
      1 skipped: Test(s) not yet written: (*) Truth tables for logical expressions (2).
      1 skipped: s:P5///
-     3 skipped: Shaped variable declarations
+     4 skipped: Shaped variable declarations
      1 skipped: Test(s) not yet written: (**) Truth tables for logical expressions (3).
+     1 todo   : making Parcel.reverse return a Parcel seems to break this
 integration/99problems-51-to-60.t..................use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
@@ -2161,7 +2161,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3975,     6,   120,   290,  4391,  4334
+"S02",        4001,     7,   120,   290,  4418,  4361
 "S03",        4740,     0,   125,   133,  4998,  4665
 "S04",         943,     0,    40,    36,  1019,  1038
 "S05",        4787,     0,   159,   438,  5384,  5828
@@ -2180,12 +2180,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     0,     3,     5,   340,   350
-"S32",        9086,     1,    86,   220,  9393,  6994
-"int",         537,     0,    11,    23,   571,   560
+"S32",        9086,     1,    86,   219,  9392,  6993
+"int",         537,     0,    12,    24,   573,   562
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28085,     7,   668,  1481, 30241, 28096
+"total",     28111,     8,   669,  1481, 30269, 28124
 ----------------
 Failure summary:
+S02-names-vars/perl.rakudo.jvm 90 - .perl on user-defined type roundtrips okay
 S02-types/baghash.rakudo.jvm 153 - .grab *should* change BagHash
 S02-types/baghash.rakudo.jvm 158 - .grab *should* change BagHash
 S02-types/mix.rakudo.jvm 126 - .roll(100) (1)

@@ -327,7 +327,7 @@ S02-types/num.t....................................  65    0    0    0   65
 S02-types/pair.rakudo.parrot.......................  94    0    1    2   97
      2 skipped: method($invocant:) syntax missing
      1 todo   : should it really have \n on the end?
-S02-types/parcel.t.................................  15    0    0    0   15
+S02-types/parcel.t.................................  42    0    0    0   42
 S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.t..................................use of uninitialized value of type Range in numeric context  in block  at t/spec/S02-types/range.t:104
 
@@ -1808,8 +1808,7 @@ S32-array/pairs.rakudo.parrot......................  13    0    1    0   14
 S32-array/perl.t...................................   6    0    0    0    6
 S32-array/pop.t....................................  36    0    0    0   36
 S32-array/push.t...................................  51    0    0    0   51
-S32-array/rotate.rakudo.parrot.....................  27    0    0    1   28
-     1 skipped: Parcel.rotate
+S32-array/rotate.t.................................  27    0    0    0   27
 S32-array/shift.t..................................  31    0    0    0   31
 S32-array/splice.rakudo.parrot.....................  37    0    1    0   38
      1 todo   : slice bug
@@ -2280,11 +2279,12 @@ integration/99problems-21-to-30.rakudo.parrot......use of uninitialized value of
      1 todo   : autovivification
 integration/99problems-31-to-40.t..................  66    0    0    1   67
      1 skipped: No Benchmark module yet
-integration/99problems-41-to-50.rakudo.parrot......   5    0    0    6   11
+integration/99problems-41-to-50.rakudo.parrot......   5    0    1    7   13
      1 skipped: Test(s) not yet written: (*) Truth tables for logical expressions (2).
      1 skipped: s:P5///
-     3 skipped: Shaped variable declarations
+     4 skipped: Shaped variable declarations
      1 skipped: Test(s) not yet written: (**) Truth tables for logical expressions (3).
+     1 todo   : making Parcel.reverse return a Parcel seems to break this
 integration/99problems-51-to-60.t..................use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
@@ -2545,7 +2545,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3983,     0,   118,   290,  4391,  4334
+"S02",        4010,     0,   118,   290,  4418,  4361
 "S03",        4736,     0,   129,   133,  4998,  4665
 "S04",         951,     0,    38,    30,  1019,  1038
 "S05",        4792,     0,   161,   431,  5384,  5828
@@ -2564,10 +2564,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         334,     0,     2,     4,   340,   350
-"S32",        9081,     0,    90,   218,  9389,  6994
-"int",         541,     0,     7,    23,   571,   560
+"S32",        9081,     0,    90,   217,  9388,  6993
+"int",         541,     0,     8,    24,   573,   562
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28113,     0,   666,  1458, 30237, 28096
+"total",     28140,     0,   667,  1458, 30265, 28124
 ----------------
 Failure summary:
 note: test_summary.pl @syn does not have ros
