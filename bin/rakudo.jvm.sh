@@ -7,12 +7,7 @@ rm -rf rakudo.jvm
 git clone git://github.com/rakudo/rakudo.git rakudo.jvm
 cd rakudo.jvm
 ln -s ../../roast t/spec
-git clone git://github.com/perl6/nqp.git
-cd nqp
-perl ConfigureJVM.pl --prefix=../install-jvm
-make install
-cd ..
-perl ConfigureJVM.pl 
+perl Configure.pl --backends=jvm --gen-nqp
 make all
 
 # uninstalled rakudo doesn't know how to find Test.pm
