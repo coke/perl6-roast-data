@@ -122,7 +122,7 @@ S02-names-vars/perl.rakudo.jvm.....................useless use of 'is rw' on $!p
 use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
-  98    0    0    6  104
+  97    1    0    6  104
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -189,11 +189,12 @@ S02-types/bag.rakudo.jvm........................... 153    0    2    5  160
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
      2 todo   : Not properly interpolating
-S02-types/baghash.rakudo.jvm....................... 180    2    4   26  212
+S02-types/baghash.rakudo.jvm....................... 180    0    6   26  212
     21 skipped: 'is ObjectType' NYI
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
      2 todo   : Needs to catch up with spec
+     2 todo   : RT #120407
      2 todo   : in flux
 S02-types/bool.t...................................  51    0    0    0   51
 S02-types/capture.rakudo.jvm.......................  18    0    2    1   21
@@ -229,11 +230,11 @@ S02-types/declare.rakudo.jvm.......................  52    0    2   24   78
      1 todo   : int not implemented
      1 todo   : num not implemented
 S02-types/deprecations.t...........................No such method 'package' for invocant of type 'Scalar'
-  in sub DEPRECATED at gen/jvm/CORE.setting:16684
+  in sub DEPRECATED at gen/jvm/CORE.setting:16681
   in block  at t/spec/S02-types/deprecations.t:15
-  in any eval at gen/jvm/stage2/NQPHLL.nqp:1084
-  in any evalfiles at gen/jvm/stage2/NQPHLL.nqp:1290
-  in any command_eval at gen/jvm/stage2/NQPHLL.nqp:1194
+  in any eval at gen/jvm/stage2/NQPHLL.nqp:1086
+  in any evalfiles at gen/jvm/stage2/NQPHLL.nqp:1292
+  in any command_eval at gen/jvm/stage2/NQPHLL.nqp:1196
   in any command_eval at src/Perl6/Compiler.nqp:17
 
    0   25    0    0   25
@@ -249,12 +250,12 @@ S02-types/infinity.rakudo.jvm......................   6    0    3    4   13
      3 todo   : Int conversion of NaN and Inf
 S02-types/instants-and-durations.t.................  12    0    0    0   12
 S02-types/isDEPRECATED.rakudo.jvm..................No such method 'package' for invocant of type 'Scalar'
-  in sub DEPRECATED at gen/jvm/CORE.setting:16684
+  in sub DEPRECATED at gen/jvm/CORE.setting:16681
   in block  at gen/jvm/CORE.setting:128
   in block  at t/spec/S02-types/isDEPRECATED.rakudo.jvm:20
-  in any eval at gen/jvm/stage2/NQPHLL.nqp:1084
-  in any evalfiles at gen/jvm/stage2/NQPHLL.nqp:1290
-  in any command_eval at gen/jvm/stage2/NQPHLL.nqp:1194
+  in any eval at gen/jvm/stage2/NQPHLL.nqp:1086
+  in any evalfiles at gen/jvm/stage2/NQPHLL.nqp:1292
+  in any command_eval at gen/jvm/stage2/NQPHLL.nqp:1196
   in any command_eval at src/Perl6/Compiler.nqp:17
 
    0   20    0    0   20
@@ -2182,7 +2183,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4005,    51,   120,   292,  4468,  4411
+"S02",        4004,    50,   122,   292,  4468,  4411
 "S03",        4740,     0,   125,   133,  4998,  4665
 "S04",         943,     0,    40,    36,  1019,  1038
 "S05",        4791,     2,   153,   438,  5384,  5828
@@ -2195,7 +2196,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S13",          33,     0,    10,    27,    70,    80
 "S14",         293,     0,    10,    12,   315,   328
 "S16",         235,     0,     5,    19,   259,   303
-"S17",           0,     0,     0,     0,     0,    28
+"S17",           0,     0,     0,     0,     0,    54
 "S19",           1,     0,     0,     3,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         308,     0,     0,     1,   309,   266
@@ -2204,11 +2205,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9108,     1,    86,   219,  9414,  7015
 "int",         537,     0,    12,    24,   573,   562
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28144,    54,   663,  1485, 30346, 28201
+"total",     28143,    53,   665,  1485, 30346, 28227
 ----------------
 Failure summary:
-S02-types/baghash.rakudo.jvm 153 - .grab *should* change BagHash
-S02-types/baghash.rakudo.jvm 158 - .grab *should* change BagHash
+S02-names-vars/perl.rakudo.jvm 90 - .perl on user-defined type roundtrips okay
 S02-types/deprecations.t aborted 25 test(s)
 S02-types/isDEPRECATED.rakudo.jvm aborted 20 test(s)
 S02-types/mix.rakudo.jvm 126 - .roll(100) (1)
