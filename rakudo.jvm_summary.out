@@ -122,7 +122,7 @@ S02-names-vars/perl.rakudo.jvm.....................useless use of 'is rw' on $!p
 use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
-  98    0    0    6  104
+  97    1    0    6  104
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -230,15 +230,15 @@ S02-types/declare.rakudo.jvm.......................  52    0    2   24   78
      1 todo   : int not implemented
      1 todo   : num not implemented
 S02-types/deprecations.t...........................No such method 'package' for invocant of type 'Scalar'
-  in sub DEPRECATED at gen/jvm/CORE.setting:16681
+  in sub DEPRECATED at gen/jvm/CORE.setting:16668
   in block  at t/spec/S02-types/deprecations.t:15
   in any eval at gen/jvm/stage2/NQPHLL.nqp:1086
   in any evalfiles at gen/jvm/stage2/NQPHLL.nqp:1292
   in any command_eval at gen/jvm/stage2/NQPHLL.nqp:1196
   in any command_eval at src/Perl6/Compiler.nqp:17
 
-   0   25    0    0   25
-    25 tests aborted (missing ok/not ok)
+   0   23    0    0   23
+    23 tests aborted (missing ok/not ok)
 S02-types/fatrat.t.................................   1    0    0    0    1
 S02-types/flattening.t.............................  37    0    0    0   37
 S02-types/hash.rakudo.jvm..........................use of uninitialized value of type Failure in string context
@@ -250,7 +250,7 @@ S02-types/infinity.rakudo.jvm......................   6    0    3    4   13
      3 todo   : Int conversion of NaN and Inf
 S02-types/instants-and-durations.t.................  12    0    0    0   12
 S02-types/isDEPRECATED.rakudo.jvm..................No such method 'package' for invocant of type 'Scalar'
-  in sub DEPRECATED at gen/jvm/CORE.setting:16681
+  in sub DEPRECATED at gen/jvm/CORE.setting:16668
   in block  at gen/jvm/CORE.setting:128
   in block  at t/spec/S02-types/isDEPRECATED.rakudo.jvm:20
   in any eval at gen/jvm/stage2/NQPHLL.nqp:1086
@@ -265,7 +265,7 @@ S02-types/lists.rakudo.jvm.........................use of uninitialized value of
 use of uninitialized value of type Parcel in string context
   25    0    0    3   28
      3 skipped: list binding
-S02-types/mix.rakudo.jvm........................... 142    2    2    5  151
+S02-types/mix.rakudo.jvm........................... 144    0    2    5  151
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
      2 todo   : Not properly interpolating
@@ -274,7 +274,7 @@ use of uninitialized value of type Any in string context
   77    0    3    0   80
      2 todo   : unknown
      1 todo   : isa hash
-S02-types/mixhash.rakudo.jvm....................... 156    2    4   26  188
+S02-types/mixhash.rakudo.jvm....................... 158    0    4   26  188
     21 skipped: 'is ObjectType' NYI
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
@@ -858,7 +858,8 @@ S05-grammar/namespace.t............................   5    0    0    0    5
 S05-grammar/parse_and_parsefile.t..................  12    0    0    0   12
 S05-grammar/polymorphism.t.........................use of uninitialized value of type Any in string context
   28    0    0    0   28
-S05-grammar/protoregex.t...........................  26    0    0    0   26
+S05-grammar/protoregex.rakudo.jvm..................  29    0    1    0   30
+     1 todo   : RT120146
 S05-grammar/protos.t...............................   4    0    0    0    4
 S05-grammar/signatures.t...........................   2    0    0    0    2
 S05-grammar/ws.rakudo.jvm..........................  10    0    0    2   12
@@ -2183,10 +2184,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4005,    49,   122,   292,  4468,  4411
+"S02",        4008,    44,   122,   292,  4466,  4409
 "S03",        4740,     0,   125,   133,  4998,  4665
 "S04",         943,     0,    40,    36,  1019,  1038
-"S05",        4791,     2,   153,   438,  5384,  5828
+"S05",        4794,     2,   154,   438,  5388,  5832
 "S06",        1161,     0,    39,   107,  1307,  1291
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         174,     0,     9,    14,   197,   197
@@ -2196,7 +2197,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S13",          33,     0,    10,    27,    70,    80
 "S14",         293,     0,    10,    12,   315,   328
 "S16",         235,     0,     5,    19,   259,   303
-"S17",           0,     0,     0,     0,     0,   112
+"S17",           0,     0,     0,     0,     0,   146
 "S19",           1,     0,     0,     3,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         308,     0,     0,     1,   309,   266
@@ -2205,15 +2206,12 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9108,     1,    86,   219,  9414,  7015
 "int",         537,     0,    12,    24,   573,   562
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28144,    52,   665,  1485, 30346, 28285
+"total",     28150,    47,   666,  1485, 30348, 28321
 ----------------
 Failure summary:
-S02-types/deprecations.t aborted 25 test(s)
+S02-names-vars/perl.rakudo.jvm 90 - .perl on user-defined type roundtrips okay
+S02-types/deprecations.t aborted 23 test(s)
 S02-types/isDEPRECATED.rakudo.jvm aborted 20 test(s)
-S02-types/mix.rakudo.jvm 126 - .roll(100) (1)
-S02-types/mix.rakudo.jvm 127 - .roll(100) (2)
-S02-types/mixhash.rakudo.jvm 135 - .roll(100) (1)
-S02-types/mixhash.rakudo.jvm 136 - .roll(100) (2)
 S05-mass/charsets.t 9 - punct chars
 S05-mass/charsets.t 10 - :Punctuation chars
 S32-list/roll.t 40 - different results due to random random-number seed
