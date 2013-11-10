@@ -768,9 +768,14 @@ S03-sequence/arity0.t..............................  13    0    0    0   13
 S03-sequence/basic.rakudo.parrot................... 127    0    2    0  129
      1 todo   : sequence + last
      1 todo   : mysterious
-S03-sequence/misc.rakudo.parrot....................   5    0    4   10   19
-     8 skipped: chained sequence NYI
-     2 skipped: chained sequences NYI
+S03-sequence/misc.rakudo.parrot....................use of uninitialized value of type Nil in numeric context  in sub warn at gen/parrot/CORE.setting:674
+
+use of uninitialized value of type Nil in numeric context  in sub warn at gen/parrot/CORE.setting:674
+
+  12    0    5    2   19
+     1 skipped: Slicel lists are NYI
+     1 skipped: Not enough positional parameters passed; got 0 but expected 1
+     1 todo   : gives True instead
      2 todo   : NYI
      1 todo   : bogus test?
      1 todo   : RT 80574
@@ -1744,8 +1749,9 @@ S17-concurrency/lock.rakudo.parrot.................   0    0    0    6    6
      6 skipped: NYI
 S17-concurrency/promise.rakudo.parrot..............   0    0    0   58   58
     58 skipped: NYI
-S17-concurrency/scheduler.rakudo.parrot............   0    0    0   10   10
-    10 skipped: NYI
+S17-concurrency/scheduler.rakudo.parrot............   0    9    0   19   28
+    19 skipped: NYI
+     9 tests aborted (missing ok/not ok)
 S17-concurrency/supply.rakudo.parrot...............   0    0    0   17   17
     17 skipped: NYI
 S17-concurrency/thread.rakudo.parrot...............   0    0    0   22   22
@@ -1845,7 +1851,7 @@ S32-container/roundrobin.rakudo.parrot.............   4    0    1    0    5
      1 todo   : over-flattening
 S32-container/zip.rakudo.parrot....................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.parrot.................. 645    0    0    5  650
+S32-exceptions/misc.rakudo.parrot.................. 648    0    0    5  653
      1 skipped: RT 114134
      3 skipped: still handled by <special_var>
      1 skipped: parsing regression
@@ -2568,7 +2574,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        4053,     0,   126,   295,  4474,  4417
-"S03",        4736,     0,   129,   133,  4998,  4665
+"S03",        4743,     0,   130,   125,  4998,  4665
 "S04",         952,     0,    38,    30,  1020,  1038
 "S05",        4802,     2,   156,   431,  5391,  5835
 "S06",        1165,     0,    38,   104,  1307,  1291
@@ -2580,19 +2586,20 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S13",          33,     0,    10,    27,    70,    80
 "S14",         295,     0,     8,    12,   315,   328
 "S16",         236,     0,     5,    18,   259,   303
-"S17",           0,     0,     0,   125,   125,   153
+"S17",           0,     9,     0,   134,   143,   171
 "S19",           4,     0,     0,     0,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         334,     0,     2,     4,   340,   350
-"S32",        9122,     0,    88,   217,  9427,  7032
+"S32",        9125,     0,    88,   217,  9430,  7032
 "int",         540,     1,     8,    24,   573,   562
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28240,     3,   668,  1590, 30501, 28359
+"total",     28250,    12,   669,  1591, 30522, 28377
 ----------------
 Failure summary:
 S05-mass/charsets.rakudo.parrot 10 - :Punctuation chars
 S05-substitution/subst.rakudo.parrot 83 - ss/.../.../ preserves whitespace
+S17-concurrency/scheduler.rakudo.parrot aborted 9 test(s)
 integration/error-reporting.t 11 - warning reports correct line number and subroutine
 note: test_summary.pl @syn does not have ros
