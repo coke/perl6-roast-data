@@ -1407,19 +1407,13 @@ S06-signature/type-capture.rakudo.parrot...........   7    0    0    1    8
 S06-signature/types.t..............................   6    0    0    0    6
 S06-signature/unpack-array.t.......................  13    0    0    0   13
 S06-signature/unpack-object.t......................   4    0    0    0    4
-S06-signature/unspecified.rakudo.parrot............[31m===[0mSORRY![31m===[0m
-Slurpy positionals with type constraints are not supported.
-at t/spec/S06-signature/unspecified.rakudo.parrot:20
-------> [32mst'); is &positional.signature, :(Mu *@_[33m⏏[31m),[0m
-Slurpy positionals with type constraints are not supported.
-at t/spec/S06-signature/unspecified.rakudo.parrot:37
-------> [32m'siglist'); is &both.signature, :(Mu *@_[33m⏏[31m, Mu *%_),[0m
-    expecting any of:
-        formal parameter
-        constraint
+S06-signature/unspecified.rakudo.parrot............use of uninitialized value of type Any in string context  in sub both at t/spec/S06-signature/unspecified.rakudo.parrot:38
 
-   0   17    0    0   17
-    17 tests aborted (missing ok/not ok)
+use of uninitialized value of type Any in string context  in sub both at t/spec/S06-signature/unspecified.rakudo.parrot:38
+
+  12    0    5    0   17
+     1 todo   : RT 71112: Cannot assign to readonly variable.
+     4 todo   : siglist
 S06-traits/is-assoc.rakudo.parrot..................   4    0    0    2    6
      2 skipped: RT 116244
 S06-traits/is-copy.t...............................Potential difficulties:
@@ -2618,7 +2612,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S03",        4743,     0,   130,   125,  4998,  4665
 "S04",         952,     0,    38,    30,  1020,  1038
 "S05",        4802,     0,   158,   431,  5391,  5835
-"S06",        1153,    17,    33,   104,  1307,  1291
+"S06",        1165,     0,    38,   104,  1307,  1291
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         174,     0,     9,    14,   197,   197
 "S10",          68,     0,     1,     2,    71,   128
@@ -2636,10 +2630,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9137,     0,    88,   216,  9441,  7039
 "int",         541,     0,     8,    24,   573,   562
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28254,   181,   666,  1456, 30557, 28408
+"total",     28266,   164,   671,  1456, 30557, 28408
 ----------------
 Failure summary:
-S06-signature/unspecified.rakudo.parrot aborted 17 test(s)
 S17-concurrency/channel.t aborted 14 test(s)
 S17-concurrency/lock.t aborted 6 test(s)
 S17-concurrency/promise.t aborted 58 test(s)

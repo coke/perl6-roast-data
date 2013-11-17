@@ -230,7 +230,7 @@ S02-types/declare.rakudo.jvm.......................  52    0    2   24   78
      1 skipped: CharLingua not implemented
      1 todo   : int not implemented
      1 todo   : num not implemented
-S02-types/deprecations.rakudo.jvm..................No such method 'package' for invocant of type 'Scalar'
+S02-types/deprecations.rakudo.jvm..................No such method 'package' for invocant of type 'Any'
   in sub DEPRECATED at gen/jvm/CORE.setting:16743
   in block  at t/spec/S02-types/deprecations.rakudo.jvm:15
   in any eval at gen/jvm/stage2/NQPHLL.nqp:1086
@@ -250,7 +250,7 @@ S02-types/infinity.rakudo.jvm......................   6    0    3    4   13
      4 skipped: integer Inf
      3 todo   : Int conversion of NaN and Inf
 S02-types/instants-and-durations.t.................  12    0    0    0   12
-S02-types/isDEPRECATED.rakudo.jvm..................No such method 'package' for invocant of type 'Scalar'
+S02-types/isDEPRECATED.rakudo.jvm..................No such method 'package' for invocant of type 'Any'
   in sub DEPRECATED at gen/jvm/CORE.setting:16743
   in block  at gen/jvm/CORE.setting:128
   in block  at t/spec/S02-types/isDEPRECATED.rakudo.jvm:20
@@ -908,7 +908,7 @@ S05-mass/properties-script.rakudo.jvm.............. 326    0    0   35  361
     35 skipped: Unicode properties with arguments
 S05-mass/recursive.t...............................  20    0    0    0   20
 S05-mass/rx.rakudo.jvm.............................use of uninitialized value of type Any in string context
- 689    0    5   45  739
+ 688    1    5   45  739
      1 skipped: <commit> not implemented
     21 skipped: **{}
      1 skipped: :s()
@@ -1214,19 +1214,11 @@ S06-signature/type-capture.rakudo.jvm..............   7    0    0    1    8
 S06-signature/types.t..............................   6    0    0    0    6
 S06-signature/unpack-array.t.......................  13    0    0    0   13
 S06-signature/unpack-object.t......................   4    0    0    0    4
-S06-signature/unspecified.rakudo.jvm...............[31m===[0mSORRY![31m===[0m
-Slurpy positionals with type constraints are not supported.
-at t/spec/S06-signature/unspecified.rakudo.jvm:20
-------> [32mst'); is &positional.signature, :(Mu *@_[33m⏏[31m),[0m
-Slurpy positionals with type constraints are not supported.
-at t/spec/S06-signature/unspecified.rakudo.jvm:37
-------> [32m'siglist'); is &both.signature, :(Mu *@_[33m⏏[31m, Mu *%_),[0m
-    expecting any of:
-        formal parameter
-        constraint
-
-   0   17    0    0   17
-    17 tests aborted (missing ok/not ok)
+S06-signature/unspecified.rakudo.jvm...............use of uninitialized value of type Any in string context
+use of uninitialized value of type Any in string context
+  12    0    5    0   17
+     1 todo   : RT 71112: Cannot assign to readonly variable.
+     4 todo   : siglist
 S06-traits/is-assoc.rakudo.jvm.....................   4    0    0    2    6
      2 skipped: RT 116244
 S06-traits/is-copy.t...............................Potential difficulties:
@@ -2209,8 +2201,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        4015,    47,   122,   293,  4477,  4420
 "S03",        4747,     0,   126,   125,  4998,  4665
 "S04",         944,     0,    40,    36,  1020,  1038
-"S05",        4796,     0,   157,   438,  5391,  5835
-"S06",        1149,    17,    34,   107,  1307,  1291
+"S05",        4795,     1,   157,   438,  5391,  5835
+"S06",        1161,     0,    39,   107,  1307,  1291
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         174,     0,     9,    14,   197,   197
 "S10",          68,     0,     1,     2,    71,   128
@@ -2228,11 +2220,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9141,     1,    84,   219,  9445,  7039
 "int",         537,     0,    12,    24,   573,   562
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28352,    65,   663,  1481, 30561, 28408
+"total",     28363,    49,   668,  1481, 30561, 28408
 ----------------
 Failure summary:
 S02-types/deprecations.rakudo.jvm aborted 27 test(s)
 S02-types/isDEPRECATED.rakudo.jvm aborted 20 test(s)
-S06-signature/unspecified.rakudo.jvm aborted 17 test(s)
+S05-mass/rx.rakudo.jvm 89 - negated character range
 S32-list/roll.t 40 - different results due to random random-number seed
 note: test_summary.pl @syn does not have ros
