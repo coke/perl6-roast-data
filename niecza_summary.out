@@ -446,43 +446,22 @@ S02-types/bag.niecza...............................Potential difficulties:
   @ks is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/bag.niecza line 94:
 ------> [32m    my [33m⏏[31m@ks = $b.keys;[0m
 
-Use of uninitialized value in string context
-  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 1389 (warn @ 5) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 269 (Mu.Str @ 15) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/bag.niecza line 7 (ANON @ 2) 
-  at <unknown> line 0 (KERNEL map @ 2) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 370 (Any.map @ 4) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/bag.niecza line 7 (showkv @ 6) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/bag.niecza line 360 (mainline @ 315) 
+Unhandled exception: Unable to resolve method pickpairs in type Bag
+  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/bag.niecza line 339 (ANON @ 6) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/bag.niecza line 419 (mainline @ 290) 
   at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4583 (ANON @ 3) 
   at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4584 (module-CORE @ 576) 
   at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4584 (mainline @ 3) 
   at <unknown> line 0 (ExitRunloop @ 0) 
-Use of uninitialized value in string context
-  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 1389 (warn @ 5) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 269 (Mu.Str @ 15) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/bag.niecza line 7 (ANON @ 2) 
-  at <unknown> line 0 (KERNEL map @ 2) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 370 (Any.map @ 4) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/bag.niecza line 7 (showkv @ 6) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/bag.niecza line 370 (mainline @ 337) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4583 (ANON @ 3) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4584 (module-CORE @ 576) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4584 (mainline @ 3) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
- 140    0    6   16  162
+ 124   33    2   14  173
      2 skipped: BagHash
      3 skipped: Non-Str keys NYI
-     1 skipped: .grabpairs NYI
      2 skipped: SetHash
-     1 skipped: .grab NYI
      5 skipped: .total NYI
      2 skipped: Unmatched key in Hash.LISTSTORE
      1 todo   : 
-     4 todo   : Bag in Bag does not work correctly yet
      1 todo   : Non-string bag elements NYI
+    33 tests aborted (missing ok/not ok)
 S02-types/bool.t...................................  51    0    0    0   51
 S02-types/catch_type_cast_mismatch.niecza..........   8    0    1    1   10
      1 skipped: Failure NYI
@@ -6059,7 +6038,7 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        2849,    34,   119,   260,  3262,  4424
+"S02",        2833,    67,   115,   258,  3273,  4450
 "S03",        3550,   138,   191,   401,  4280,  4665
 "S04",         800,     0,    35,    60,   895,  1038
 "S05",        4082,    36,   116,   223,  4457,  5835
@@ -6072,7 +6051,7 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 "S13",          31,     0,     1,    10,    42,    80
 "S14",         168,     0,     1,    11,   180,   328
 "S16",         185,     0,     5,    41,   231,   303
-"S17",           0,     0,     0,     0,     0,   192
+"S17",           0,     0,     0,     0,     0,   195
 "S19",           4,     0,     0,     0,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
 "S26",           0,     0,     0,     0,     0,   266
@@ -6080,9 +6059,10 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 "S29",         299,     7,     2,    10,   318,   350
 "S32",        6549,   202,   136,   286,  7173,  7039
 "int",         463,     0,    22,    27,   512,   562
-"total",     20641,   435,   758,  1692, 23526, 28410
+"total",     20625,   468,   754,  1690, 23537, 28439
 ----------------
 Failure summary:
+S02-types/bag.niecza aborted 33 test(s)
 S02-types/parcel.niecza aborted 34 test(s)
 S03-metaops/cross.niecza aborted 17 test(s)
 S03-metaops/zip.niecza aborted 18 test(s)
