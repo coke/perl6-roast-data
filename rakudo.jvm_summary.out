@@ -123,7 +123,7 @@ S02-names-vars/perl.rakudo.jvm.....................useless use of 'is rw' on $!p
 use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
-  97    1    0    6  104
+  98    0    0    6  104
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -230,16 +230,23 @@ S02-types/declare.rakudo.jvm.......................  52    0    2   24   78
      1 skipped: CharLingua not implemented
      1 todo   : int not implemented
      1 todo   : num not implemented
-S02-types/deprecations.rakudo.jvm..................No such method 'package' for invocant of type 'Any'
-  in sub DEPRECATED at gen/jvm/CORE.setting:16746
-  in block  at t/spec/S02-types/deprecations.rakudo.jvm:15
+S02-types/deprecations.rakudo.jvm..................java.lang.RuntimeException: This type does not support associative operations
+  in block  at t/spec/S02-types/deprecations.rakudo.jvm:134
   in any eval at gen/jvm/stage2/NQPHLL.nqp:1086
   in any evalfiles at gen/jvm/stage2/NQPHLL.nqp:1292
   in any command_eval at gen/jvm/stage2/NQPHLL.nqp:1196
   in any command_eval at src/Perl6/Compiler.nqp:17
 
+Saw 1 call to deprecated code during execution.
+================================================================================
+Any eval (from unknown) called at:
+  gen/jvm/stage2/NQPHLL.nqp, line 1292
+Please use the :exists adverb instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
    0   27    0    0   27
-    27 tests aborted (missing ok/not ok)
+    18 tests aborted (missing ok/not ok)
 S02-types/fatrat.t.................................   1    0    0    0    1
 S02-types/flattening.t.............................  37    0    0    0   37
 S02-types/hash.rakudo.jvm..........................use of uninitialized value of type Failure in string context
@@ -250,17 +257,8 @@ S02-types/infinity.rakudo.jvm......................   6    0    3    4   13
      4 skipped: integer Inf
      3 todo   : Int conversion of NaN and Inf
 S02-types/instants-and-durations.t.................  12    0    0    0   12
-S02-types/isDEPRECATED.rakudo.jvm..................No such method 'package' for invocant of type 'Any'
-  in sub DEPRECATED at gen/jvm/CORE.setting:16746
-  in block  at gen/jvm/CORE.setting:128
-  in block  at t/spec/S02-types/isDEPRECATED.rakudo.jvm:20
-  in any eval at gen/jvm/stage2/NQPHLL.nqp:1086
-  in any evalfiles at gen/jvm/stage2/NQPHLL.nqp:1292
-  in any command_eval at gen/jvm/stage2/NQPHLL.nqp:1196
-  in any command_eval at src/Perl6/Compiler.nqp:17
-
-   0   20    0    0   20
-    20 tests aborted (missing ok/not ok)
+S02-types/isDEPRECATED.rakudo.jvm..................   8    4    8    0   20
+     8 todo   : NYI
 S02-types/lazy-lists.t.............................  19    0    0    0   19
 S02-types/lists.rakudo.jvm.........................use of uninitialized value of type Parcel in string context
 use of uninitialized value of type Parcel in string context
@@ -2201,7 +2199,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4044,    48,   122,   293,  4507,  4450
+"S02",        4053,    31,   130,   293,  4507,  4450
 "S03",        4747,     0,   126,   125,  4998,  4665
 "S04",         944,     0,    40,    36,  1020,  1038
 "S05",        4796,     0,   157,   438,  5391,  5835
@@ -2223,11 +2221,22 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9141,     1,    84,   219,  9445,  7039
 "int",         537,     0,    12,    24,   573,   562
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28389,    49,   668,  1486, 30592, 28439
+"total",     28398,    32,   676,  1486, 30592, 28439
 ----------------
 Failure summary:
-S02-names-vars/perl.rakudo.jvm 90 - .perl on user-defined type roundtrips okay
-S02-types/deprecations.rakudo.jvm aborted 27 test(s)
-S02-types/isDEPRECATED.rakudo.jvm aborted 20 test(s)
+S02-types/deprecations.rakudo.jvm 1 - deprecation Any.exists("a")
+S02-types/deprecations.rakudo.jvm 2 - deprecation for Any.delete("a")
+S02-types/deprecations.rakudo.jvm 3 - deprecation Any.KeySet
+S02-types/deprecations.rakudo.jvm 4 - deprecation for Any.KeyBag
+S02-types/deprecations.rakudo.jvm 5 - deprecation Array.delete(1)
+S02-types/deprecations.rakudo.jvm 6 - deprecation Bag.new.delete("a")
+S02-types/deprecations.rakudo.jvm 7 - depr. BagHash.new.delete("a")
+S02-types/deprecations.rakudo.jvm 8 - deprecation Bag.new.exists("a")
+S02-types/deprecations.rakudo.jvm 9 - depr. BagHash.new.exists("a")
+S02-types/deprecations.rakudo.jvm aborted 18 test(s)
+S02-types/isDEPRECATED.rakudo.jvm 2 - right deprecation for a()
+S02-types/isDEPRECATED.rakudo.jvm 4 - right deprecation for awith()
+S02-types/isDEPRECATED.rakudo.jvm 12 - right deprecation for C.new.foo
+S02-types/isDEPRECATED.rakudo.jvm 14 - right deprecation Cwith.new.foo
 S32-list/roll.t 40 - different results due to random random-number seed
 note: test_summary.pl @syn does not have ros
