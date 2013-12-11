@@ -8,7 +8,7 @@ git clone git://github.com/rakudo/rakudo.git rakudo.moar
 cd rakudo.moar
 git checkout moar-support
 ln -s ../../roast t/spec
-perl Configure.pl --backends=moar --gen-moar --gen-nqp
+perl Configure.pl --backends=moar --gen-moar=master --gen-nqp=master
 make all
 
 # uninstalled rakudo doesn't know how to find Test.pm
