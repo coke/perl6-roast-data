@@ -11,6 +11,9 @@ ln -s ../../roast t/spec
 perl Configure.pl --backends=moar --gen-moar=master --gen-nqp=master
 make all
 
+# default build generates a "perl6-m" - need "./perl6" for test_summary
+ln -s perl6-m perl6
+
 # uninstalled rakudo doesn't know how to find Test.pm
 # ... or any other modules
 export PERL6LIB=`pwd`/lib:.
