@@ -12,7 +12,9 @@ perl Configure.pl --backends=moar --gen-moar=master --gen-nqp=master
 make all
 
 # default build generates a "perl6-m" - need "./perl6" for test_summary
-ln -s perl6-m perl6
+echo "#!/usr/bin/env perl" > perl6
+echo 'exec "ulimit -t 90; ulimit -v 1260720; nice -20 ./perl6-m @ARGV"' >> perl6
+chmod a+x ./perl6
 
 # uninstalled rakudo doesn't know how to find Test.pm
 # ... or any other modules
