@@ -1009,23 +1009,46 @@ S05-modifier/overlapping.rakudo.jvm................  11    0    6    5   22
 S05-modifier/perl5_0.rakudo.jvm....................use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
   17    0    7    0   24
-     7 todo   : NYI
+     4 todo   : NYI
+     3 todo PASSED: NYI
 S05-modifier/perl5_1.t............................. 100    0    0    0  100
 S05-modifier/perl5_2.rakudo.jvm....................use of uninitialized value of type Any in string context
-use of uninitialized value of type Any in string context
-  99    0    1    0  100
-     1 todo   : variable interpolation in p5 regex
+[31m===[0mSORRY![31m===[0m Error while compiling eval_2
+Unrecognized regex metacharacter  (must be quoted to match literally)
+at eval_2:1
+------> [32mmy $x = anon regex { ^[33m⏏[31m }[0m
+    expecting any of:
+        scoped declarator
+        new name to be defined
+        infix stopper
+  19   81    0    0  100
+    81 tests aborted (missing ok/not ok)
 S05-modifier/perl5_3.rakudo.jvm....................use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
-use of uninitialized value of type Any in string context
-  99    0    1    0  100
-     1 todo   : variable interpolation
+[31m===[0mSORRY![31m===[0m Error while compiling eval_0
+Unrecognized regex metacharacter ! (must be quoted to match literally)
+at eval_0:1
+------> [32mmy $x = anon regex { ^[33m⏏[31m! }[0m
+    expecting any of:
+        scoped declarator
+        new name to be defined
+        infix stopper
+  14   86    0    0  100
+    86 tests aborted (missing ok/not ok)
 S05-modifier/perl5_4.rakudo.jvm....................use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
-  99    0    1    0  100
-     1 todo   : variable interpolation
+[31m===[0mSORRY![31m===[0m Error while compiling eval_0
+Unrecognized regex metacharacter ! (must be quoted to match literally)
+at eval_0:1
+------> [32mmy $x = anon regex {:i ^[33m⏏[31m! }[0m
+    expecting any of:
+        scoped declarator
+        new name to be defined
+        infix stopper
+  78   22    0    0  100
+    22 tests aborted (missing ok/not ok)
 S05-modifier/perl5_5.rakudo.jvm....................  96    0    5    1  102
      1 skipped: hangs
      2 todo   : unknown issue
@@ -2194,7 +2217,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        4057,     0,   132,   318,  4507,  4450
 "S03",        4747,     0,   126,   125,  4998,  4665
 "S04",         944,     0,    40,    36,  1020,  1038
-"S05",        4797,     0,   161,   438,  5396,  5840
+"S05",        4611,   189,   158,   438,  5396,  5840
 "S06",        1161,     0,    39,   107,  1307,  1291
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         174,     0,     9,    14,   197,   197
@@ -2213,8 +2236,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9141,     1,    88,   219,  9449,  7043
 "int",         542,     0,    12,    28,   582,   571
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28424,     1,   686,  1515, 30626, 28473
+"total",     28238,   190,   683,  1515, 30626, 28473
 ----------------
 Failure summary:
+S05-modifier/perl5_2.rakudo.jvm aborted 81 test(s)
+S05-modifier/perl5_3.rakudo.jvm aborted 86 test(s)
+S05-modifier/perl5_4.rakudo.jvm aborted 22 test(s)
 S32-list/roll.t 40 - different results due to random random-number seed
 note: test_summary.pl @syn does not have ros

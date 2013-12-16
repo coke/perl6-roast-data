@@ -1183,22 +1183,35 @@ S05-modifier/perl5_0.rakudo.parrot.................use of uninitialized value of
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
 
   17    0    7    0   24
-     7 todo   : NYI
+     4 todo   : NYI
+     3 todo PASSED: NYI
 S05-modifier/perl5_1.t............................. 100    0    0    0  100
 S05-modifier/perl5_2.rakudo.parrot.................use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
 
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
-
-  99    0    1    0  100
-     1 todo   : variable interpolation in p5 regex
+[31m===[0mSORRY![31m===[0m Error while compiling eval_2
+Unrecognized regex metacharacter  (must be quoted to match literally)
+at eval_2:1
+------> [32mmy $x = anon regex { ^[33m⏏[31m }[0m
+    expecting any of:
+        scoped declarator
+        new name to be defined
+        infix stopper
+  19   81    0    0  100
+    81 tests aborted (missing ok/not ok)
 S05-modifier/perl5_3.rakudo.parrot.................use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
 
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
-
-  99    0    1    0  100
-     1 todo   : variable interpolation
+[31m===[0mSORRY![31m===[0m Error while compiling eval_0
+Unrecognized regex metacharacter ! (must be quoted to match literally)
+at eval_0:1
+------> [32mmy $x = anon regex { ^[33m⏏[31m! }[0m
+    expecting any of:
+        scoped declarator
+        new name to be defined
+        infix stopper
+  14   86    0    0  100
+    86 tests aborted (missing ok/not ok)
 S05-modifier/perl5_4.rakudo.parrot.................use of uninitialized value of type Any in string context  in block  at t/spec/S05-modifier/perl5_4.rakudo.parrot:42
 
 use of uninitialized value of type Any in string context  in block  at t/spec/S05-modifier/perl5_4.rakudo.parrot:82
@@ -1207,8 +1220,16 @@ use of uninitialized value of type Any in string context  in block  at t/spec/S0
 
 use of uninitialized value of type Any in string context  in block  at t/spec/S05-modifier/perl5_4.rakudo.parrot:93
 
-  99    0    1    0  100
-     1 todo   : variable interpolation
+[31m===[0mSORRY![31m===[0m Error while compiling eval_0
+Unrecognized regex metacharacter ! (must be quoted to match literally)
+at eval_0:1
+------> [32mmy $x = anon regex {:i ^[33m⏏[31m! }[0m
+    expecting any of:
+        scoped declarator
+        new name to be defined
+        infix stopper
+  78   22    0    0  100
+    22 tests aborted (missing ok/not ok)
 S05-modifier/perl5_5.rakudo.parrot.................  97    0    4    1  102
      1 skipped: hangs
      2 todo   : unknown issue
@@ -2565,7 +2586,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        4090,     0,   124,   293,  4507,  4450
 "S03",        4743,     0,   130,   125,  4998,  4665
 "S04",         952,     0,    38,    30,  1020,  1038
-"S05",        4807,     0,   158,   431,  5396,  5840
+"S05",        4621,   189,   155,   431,  5396,  5840
 "S06",        1165,     0,    38,   104,  1307,  1291
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         174,     0,     9,    14,   197,   197
@@ -2584,7 +2605,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9139,     0,    90,   216,  9445,  7043
 "int",         546,     0,     8,    28,   582,   571
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28312,     0,   671,  1458, 30441, 28473
+"total",     28126,   189,   668,  1458, 30441, 28473
 ----------------
 Failure summary:
+S05-modifier/perl5_2.rakudo.parrot aborted 81 test(s)
+S05-modifier/perl5_3.rakudo.parrot aborted 86 test(s)
+S05-modifier/perl5_4.rakudo.parrot aborted 22 test(s)
 note: test_summary.pl @syn does not have ros
