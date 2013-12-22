@@ -224,6 +224,10 @@ S02-names-vars/variables-and-packages.niecza.......Potential difficulties:
      3 todo   : 
      8 todo   : System.NullReferenceException: Object reference not set to an instance of an object
 S02-names-vars/varnames.niecza.....................Potential difficulties:
+  &is_run is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-names-vars/varnames.niecza line 22:
+------> [32m    [33m⏏[31muse Test::Util;[0m
+
+Potential difficulties:
   Useless redeclaration of variable $! (see  line 0) at (eval) line 1 (EOF):
 ------> [32mmy $![33m⏏[31m<EOL>[0m
 
@@ -231,8 +235,16 @@ Potential difficulties:
   Useless redeclaration of variable $/ (see  line 0) at (eval) line 1 (EOF):
 ------> [32mmy $/[33m⏏[31m<EOL>[0m
 
-   6    0    2    0    8
+Unhandled exception: Unable to resolve method postcircumfix:<( )> in type Any
+  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-names-vars/varnames.niecza line 23 (ANON @ 6) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-names-vars/varnames.niecza line 47 (mainline @ 23) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4595 (ANON @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4596 (module-CORE @ 576) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4596 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+   4   10    2    0   16
      2 todo   : 
+    10 tests aborted (missing ok/not ok)
 S02-names/bare-sigil.niecza........................   7    0    0    3   10
      1 skipped: bare sigil % generates postcircumfix:<()> exception
      2 skipped: ++(state $) yields (3, 3, 3) instead of (1, 2, 3)
@@ -5951,7 +5963,7 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        3174,     0,   121,   385,  3680,  4450
+"S02",        3172,    10,   121,   385,  3688,  4458
 "S03",        3675,     0,   198,   407,  4280,  4665
 "S04",         800,     0,    35,    60,   895,  1038
 "S05",        4111,     7,   117,   227,  4462,  5840
@@ -5972,9 +5984,10 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 "S29",         304,     2,     2,    10,   318,   350
 "S32",        6754,     0,   137,   286,  7177,  7043
 "int",         462,    10,    22,    27,   521,   571
-"total",     21342,    19,   769,  1832, 23962, 28471
+"total",     21340,    29,   769,  1832, 23970, 28479
 ----------------
 Failure summary:
+S02-names-vars/varnames.niecza aborted 10 test(s)
 S05-grammar/action-stubs.niecza 19 - $/ availiable
 S05-mass/rx.niecza 423 - sigspace (:s)
 S05-mass/rx.niecza 424 - sigspace (:s)
