@@ -90,7 +90,9 @@ S02-literals/string-interpolation.t................Potential difficulties:
     at t/spec/S02-literals/string-interpolation.t:12
     ------> [32m    is "{;;;;;;\01[33m⏏[31m;42}", "42", '{\\01 parses correctly (3)[0m
   14    0    0    0   14
-S02-literals/sub-calls.t...........................  20    0    0    0   20
+S02-literals/sub-calls.t...........................use of uninitialized value of type Nil in numeric context  in block  at eval_17:1
+
+  19    1    0    0   20
 S02-literals/subscript.t...........................   2    0    0    0    2
 S02-literals/types.t...............................   7    0    0    0    7
 S02-literals/underscores.t.........................  19    0    0    0   19
@@ -329,7 +331,7 @@ S02-types/nil.rakudo.parrot........................use of uninitialized value of
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
 
-  30    0    6    1   37
+  41    0    6    1   48
      1 skipped: triage
      6 todo   : triage
 S02-types/num.t....................................  65    0    0    0   65
@@ -976,15 +978,7 @@ S04-statements/while.t.............................   9    0    0    0    9
 S05-capture/caps.rakudo.parrot.....................  40    0    2    0   42
      1 todo   : return type of .chunks
      1 todo   : RT117995 - quantified conjunctive capture
-S05-capture/dot.rakudo.parrot......................use of uninitialized value of type Any in string context  in block  at t/spec/S05-capture/dot.rakudo.parrot:69
-
-use of uninitialized value of type Any in string context  in block  at t/spec/S05-capture/dot.rakudo.parrot:70
-
-use of uninitialized value of type Any in string context  in block  at t/spec/S05-capture/dot.rakudo.parrot:74
-
-use of uninitialized value of type Any in string context  in block  at t/spec/S05-capture/dot.rakudo.parrot:75
-
-use of uninitialized value of type Any in string context  in block  at t/spec/S05-capture/dot.rakudo.parrot:100
+S05-capture/dot.rakudo.parrot......................use of uninitialized value of type Any in string context  in block  at t/spec/S05-capture/dot.rakudo.parrot:100
 
 use of uninitialized value of type Any in string context  in block  at t/spec/S05-capture/dot.rakudo.parrot:105
 
@@ -1238,13 +1232,7 @@ S05-transliteration/trans.rakudo.parrot............  42    0   11    7   60
      5 skipped: tr///, feed operator not implemented
     10 todo   : flags
      1 todo   : disambiguate ranges
-S05-transliteration/with-closure.rakudo.parrot.....use of uninitialized value of type Any in string context  in block  at t/spec/S05-transliteration/with-closure.rakudo.parrot:52
-
-use of uninitialized value of type Any in string context  in block  at t/spec/S05-transliteration/with-closure.rakudo.parrot:52
-
-use of uninitialized value of type Any in string context  in block  at t/spec/S05-transliteration/with-closure.rakudo.parrot:52
-
-  10    0    5    1   16
+S05-transliteration/with-closure.rakudo.parrot.....  10    0    5    1   16
      1 skipped: Unable to resolve method ord in class Any
      5 todo   : nom regression
                                                    pass fail todo skip plan
@@ -1650,7 +1638,7 @@ S12-methods/submethods.rakudo.parrot...............  21    0    0    6   27
 S12-methods/syntax.rakudo.parrot...................   8    0    0    4   12
      3 skipped: switch-from-paren-to-listop form
      1 skipped: adverbial closures
-S12-methods/topic.t................................   2    0    0    0    2
+S12-methods/topic.t................................   1    1    0    0    2
 S12-methods/trusts.t...............................   4    0    0    0    4
 S12-methods/typed-attributes.t.....................   7    0    0    0    7
 S12-methods/what.t.................................use of uninitialized value of type Match in numeric context  in block  at t/spec/S12-methods/what.t:55
@@ -1833,9 +1821,10 @@ S32-container/roundrobin.rakudo.parrot.............   4    0    1    0    5
      1 todo   : over-flattening
 S32-container/zip.rakudo.parrot....................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.parrot.................. 653    0    0    5  658
+S32-exceptions/misc.rakudo.parrot.................. 651    1    0    6  658
      1 skipped: RT 114134
      3 skipped: still handled by <special_var>
+     1 skipped: Code did not die, can not check exception
      1 skipped: parsing regression
 S32-hash/delete-adverb.t...........................use of uninitialized value of type Int in string context  in sub is at lib/Test.pm:81
 
@@ -2559,7 +2548,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4102,     0,   124,   293,  4519,  4462
+"S02",        4112,     1,   124,   293,  4530,  4473
 "S03",        4751,     0,   130,   125,  5006,  4665
 "S04",         952,     0,    38,    30,  1020,  1038
 "S05",        4800,     0,   154,   431,  5385,  5829
@@ -2568,7 +2557,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S09",         174,     0,     9,    14,   197,   197
 "S10",          68,     0,     1,     2,    71,   128
 "S11",          73,     0,     2,     9,    84,   139
-"S12",        1335,     0,    48,   124,  1507,  1407
+"S12",        1334,     1,    48,   124,  1507,  1407
 "S13",          33,     0,    10,    27,    70,    80
 "S14",         295,     0,     8,    12,   315,   328
 "S16",         235,     0,     5,    18,   258,   302
@@ -2578,10 +2567,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         334,     0,     2,     4,   340,   350
-"S32",        9148,     0,    90,   216,  9454,  7051
+"S32",        9146,     1,    90,   217,  9454,  7051
 "int",         546,     0,     8,    28,   582,   571
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28333,     0,   667,  1458, 30458, 28481
+"total",     28340,     3,   667,  1459, 30469, 28492
 ----------------
 Failure summary:
+S02-literals/sub-calls.t 18 - parsed as method call on $_
+S12-methods/topic.t 1 - $_ is not set in methods...
+S32-exceptions/misc.rakudo.parrot 537 - 'sub f() { }; f() = 3' died
 note: test_summary.pl @syn does not have ros
