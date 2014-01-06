@@ -15,7 +15,9 @@ S02-lexical-conventions/pod-in-multi-line-exprs.t..   3    0    0    0    3
 S02-lexical-conventions/sub-block-parsing.rakudo...   7    0    0    2    9
      1 skipped: confused near "(sub{ 42 }"
      1 skipped: confused near "(sub { 42 "
-S02-lexical-conventions/unicode-whitespace.t.......  52    0    0    0   52
+S02-lexical-conventions/unicode-whitespace.t.......use of uninitialized value of type Any in string context
+use of uninitialized value of type Any in string context
+  50    2    0    0   52
 S02-lexical-conventions/unicode.rakudo.moar........  35    0    1    2   38
      2 skipped: VOWEL SIGNs in identifiers
      1 todo   : PS does not work to separate lines
@@ -33,12 +35,9 @@ S02-literals/array-interpolation.t.................  12    0    0    0   12
 S02-literals/autoref.t.............................use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
   57    0    0    0   57
-S02-literals/char-by-name.rakudo.moar..............[31m===[0mSORRY![31m===[0m Error while compiling t/spec/S02-literals/char-by-name.rakudo.moar
-Unrecognized character name LINE FEED (LF)
-at t/spec/S02-literals/char-by-name.rakudo.moar:18
-------> [32mis("\c[LINE FEED (LF)[33m⏏[31m]", "\c10", '\c[LINE FEED (LF)] works');[0m
-   0   10    0    0   10
-    10 tests aborted (missing ok/not ok)
+S02-literals/char-by-name.rakudo.moar..............   7    1    0    2   10
+     1 skipped: \c[LF] not valid
+     1 skipped: \c[LINE FEED] not valid
 S02-literals/char-by-number.rakudo.moar............  38    0    4    0   42
      4 todo   : Detecting malformed escape sequences NYI
 S02-literals/fmt-interpolation.t...................  11    0    0    0   11
@@ -124,16 +123,7 @@ S02-literals/types.t...............................   7    0    0    0    7
 S02-literals/underscores.t.........................  19    0    0    0   19
 S02-literals/version.rakudo.moar...................  12   13    3    0   28
      3 todo PASSED: trailing zeroes fail
-S02-magicals/args.t................................Unhandled exception: Cannot call method 'dispatch:<.^>' on a null object
-   at <unknown>:1  (././CORE.setting.moarvm:print_exception:4294967295)
- from src/gen/m-CORE.setting:10894  (././CORE.setting.moarvm:<anon>:31)
- from gen/moar/stage2/NQPHLL.nqp:1222  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:323)
- from src/Perl6/Compiler.nqp:18  (./blib/Perl6/Compiler.moarvm:command_eval:146)
- from gen/moar/stage2/NQPHLL.nqp:1163  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/NQPHLL.moarvm:command_line:133)
- from src/gen/m-main.nqp:47  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/perl6.moarvm:MAIN:21)
- from src/gen/m-main.nqp:42  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/perl6.moarvm:frame_name_0:233)
- from <unknown>:1  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/perl6.moarvm:frame_name_21:7)
- from <unknown>:1  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/perl6.moarvm:frame_name_20:8)
+S02-magicals/args.t................................Segmentation fault
    3    3    0    0    6
      3 tests aborted (missing ok/not ok)
 S02-magicals/config.rakudo.moar....................Unhandled exception: Cannot call method 'dispatch:<.^>' on a null object
@@ -161,16 +151,7 @@ S02-magicals/file_line.t...........................   2    0    0    0    2
 S02-magicals/pid.t.................................Segmentation fault
    0    1    0    0    1
      1 tests aborted (missing ok/not ok)
-S02-magicals/progname.t............................Unhandled exception: Cannot call method 'dispatch:<.^>' on a null object
-   at <unknown>:1  (././CORE.setting.moarvm:print_exception:4294967295)
- from src/gen/m-CORE.setting:10894  (././CORE.setting.moarvm:<anon>:31)
- from gen/moar/stage2/NQPHLL.nqp:1222  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:323)
- from src/Perl6/Compiler.nqp:18  (./blib/Perl6/Compiler.moarvm:command_eval:146)
- from gen/moar/stage2/NQPHLL.nqp:1163  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/NQPHLL.moarvm:command_line:133)
- from src/gen/m-main.nqp:47  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/perl6.moarvm:MAIN:21)
- from src/gen/m-main.nqp:42  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/perl6.moarvm:frame_name_0:233)
- from <unknown>:1  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/perl6.moarvm:frame_name_21:7)
- from <unknown>:1  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/perl6.moarvm:frame_name_20:8)
+S02-magicals/progname.t............................Segmentation fault
    3    1    0    0    4
      1 tests aborted (missing ok/not ok)
 S02-magicals/sub.t.................................   6    0    0    0    6
@@ -922,8 +903,8 @@ S03-sequence/arity-2-or-more.t.....................Unhandled exception: Cannot c
      2 tests aborted (missing ok/not ok)
 S03-sequence/arity0.t..............................   9    4    0    0   13
 S03-sequence/basic.rakudo.moar.....................Killed
-  31   98    0    0  129
-    98 tests aborted (missing ok/not ok)
+  30   99    0    0  129
+    99 tests aborted (missing ok/not ok)
 S03-sequence/limit-arity-2-or-more.t...............Segmentation fault
    0    8    0    0    8
      8 tests aborted (missing ok/not ok)
@@ -1282,30 +1263,35 @@ S05-interpolation/regex-in-variable.rakudo.moar....Killed
     10 tests aborted (missing ok/not ok)
 S05-mass/charsets.rakudo.moar......................  10    5    1    0   16
      1 todo   : unicode 6.0 punct characters
-S05-mass/named-chars.rakudo.moar...................[31m===[0mSORRY![31m===[0m Error while compiling t/spec/S05-mass/named-chars.rakudo.moar
-Unrecognized character name LINE FEED (LF)
-at t/spec/S05-mass/named-chars.rakudo.moar:18
-------> [32mok("abc\x[a]def" ~~ m/\c[LINE FEED (LF)[33m⏏[31m]/, 'Unanchored named LINE FEED (LF)');[0m
-   0  431    0    0  431
-   431 tests aborted (missing ok/not ok)
-S05-mass/properties-block.t........................[31m===[0mSORRY![31m===[0m Error while compiling t/spec/S05-mass/properties-block.t
-Unrecognized character name NULL
-at t/spec/S05-mass/properties-block.t:92
-------> [32mok("\c[NULL[33m⏏[31m]" ~~ m/^<:InBasicLatin>$/, q{Match <:In[0m
-   0  670    0    0  670
-   670 tests aborted (missing ok/not ok)
-S05-mass/properties-derived.rakudo.moar............[31m===[0mSORRY![31m===[0m Error while compiling t/spec/S05-mass/properties-derived.rakudo.moar
-Unrecognized character name CHARACTER TABULATION
-at t/spec/S05-mass/properties-derived.rakudo.moar:456
-------> [32mok("\c[CHARACTER TABULATION[33m⏏[31m]" ~~ m/^<:WhiteSpace>$/, q{Match <:Whit[0m
-   0  256    0    0  256
-   256 tests aborted (missing ok/not ok)
-S05-mass/properties-general.rakudo.moar............[31m===[0mSORRY![31m===[0m Error while compiling t/spec/S05-mass/properties-general.rakudo.moar
-Unrecognized character name NULL
-at t/spec/S05-mass/properties-general.rakudo.moar:1128
-------> [32mok("\c[NULL[33m⏏[31m]" ~~ m/^<:Cc>$/, q{Match <:Cc> (Control[0m
-   0  596    0    0  596
-   596 tests aborted (missing ok/not ok)
+S05-mass/named-chars.rakudo.moar................... 278    6   53   94  431
+     2 skipped: CR as char name
+    62 skipped: negative char class in enumerated list
+     2 skipped: NEL as char name
+     2 skipped: FF as char name
+     4 skipped: \c[LF] not valid charname
+     4 skipped: \c[CR] not valid charname
+     5 skipped: escapes in char classes
+     7 skipped: \c[NEL] not valid charname
+     4 skipped: \c[FF] not valid charname
+     2 skipped: LF as char name
+    20 todo   : \C escape
+    33 todo PASSED: \C escape
+S05-mass/properties-block.t........................ 560  110    0    0  670
+S05-mass/properties-derived.rakudo.moar............ 128   49    0   79  256
+     7 skipped: isUnassigned not implemented
+     6 skipped: icu
+    10 skipped: isCommon not implemented
+     3 skipped: icu problems
+     7 skipped: isAssigned not implemented
+     4 skipped: isAny not implemented
+    42 skipped: isOther* not implemented
+S05-mass/properties-general.rakudo.moar............ 458  101    0   37  596
+    10 skipped: No [Lr] property defined
+     4 skipped: Uninvestigated nqp-rx regression
+     8 skipped: ICU version dependent :(
+     3 skipped: \x[FFFE]
+     4 skipped: \x[FFFF]
+     8 skipped: Malformed UTF-8 string
 S05-mass/properties-script.rakudo.moar............. 272   54    0   35  361
     35 skipped: Unicode properties with arguments
 S05-mass/recursive.t...............................  20    0    0    0   20
@@ -2177,28 +2163,10 @@ S16-io/tmpdir.t....................................   1    2    0    0    3
 S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
      2 skipped: contextual rebinding regression
                                                    pass fail todo skip plan
-S19-command-line/dash-e.t..........................Unhandled exception: Cannot call method 'dispatch:<.^>' on a null object
-   at <unknown>:1  (././CORE.setting.moarvm:print_exception:4294967295)
- from src/gen/m-CORE.setting:10894  (././CORE.setting.moarvm:<anon>:31)
- from gen/moar/stage2/NQPHLL.nqp:1222  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:323)
- from src/Perl6/Compiler.nqp:18  (./blib/Perl6/Compiler.moarvm:command_eval:146)
- from gen/moar/stage2/NQPHLL.nqp:1163  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/NQPHLL.moarvm:command_line:133)
- from src/gen/m-main.nqp:47  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/perl6.moarvm:MAIN:21)
- from src/gen/m-main.nqp:42  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/perl6.moarvm:frame_name_0:233)
- from <unknown>:1  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/perl6.moarvm:frame_name_21:7)
- from <unknown>:1  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/perl6.moarvm:frame_name_20:8)
+S19-command-line/dash-e.t..........................Segmentation fault
    0    3    0    0    3
      3 tests aborted (missing ok/not ok)
-S19-command-line/help.t............................Unhandled exception: Cannot call method 'dispatch:<.^>' on a null object
-   at <unknown>:1  (././CORE.setting.moarvm:print_exception:4294967295)
- from src/gen/m-CORE.setting:10894  (././CORE.setting.moarvm:<anon>:31)
- from gen/moar/stage2/NQPHLL.nqp:1222  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:323)
- from src/Perl6/Compiler.nqp:18  (./blib/Perl6/Compiler.moarvm:command_eval:146)
- from gen/moar/stage2/NQPHLL.nqp:1163  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/NQPHLL.moarvm:command_line:133)
- from src/gen/m-main.nqp:47  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/perl6.moarvm:MAIN:21)
- from src/gen/m-main.nqp:42  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/perl6.moarvm:frame_name_0:233)
- from <unknown>:1  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/perl6.moarvm:frame_name_21:7)
- from <unknown>:1  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/perl6.moarvm:frame_name_20:8)
+S19-command-line/help.t............................Segmentation fault
    0    1    0    0    1
      1 tests aborted (missing ok/not ok)
                                                    pass fail todo skip plan
@@ -3186,10 +3154,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3123,  1073,    81,   254,  4428,  4475
-"S03",        3664,  1147,    80,    88,  4621,  4665
+"S02",        3128,  1066,    81,   256,  4428,  4475
+"S03",        3663,  1148,    80,    88,  4621,  4665
 "S04",         651,   332,    18,    19,  1020,  1038
-"S05",        2812,  2337,    57,   179,  5385,  5829
+"S05",        4236,   650,   110,   389,  5385,  5829
 "S06",         759,   356,    18,    90,  1223,  1291
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         151,    23,     9,    14,   197,   197
@@ -3208,10 +3176,12 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        7160,  1435,    66,   105,  8763,  7051
 "int",         382,   170,     4,    21,   571,   571
 "ros",           2,     0,     0,     0,     2,     2
-"total",     20883,  7414,   392,   972, 29162, 28494
+"total",     22311,  5721,   445,  1184, 29162, 28494
 ----------------
 Failure summary:
-S02-literals/char-by-name.rakudo.moar aborted 10 test(s)
+S02-lexical-conventions/unicode-whitespace.t 10 - MONGOLIAN VOWEL SEPARATOR
+S02-lexical-conventions/unicode-whitespace.t 36 - long dot with MONGOLIAN VOWEL SEPARATOR
+S02-literals/char-by-name.rakudo.moar 3 - \c[FULLWIDTH RIGHT PARENTHESIS]
 S02-literals/listquote.rakudo.moar aborted 18 test(s)
 S02-literals/numeric.t 15 - 1+1i is not Real
 S02-literals/quoting.rakudo.moar aborted 44 test(s)
@@ -3471,7 +3441,7 @@ S03-sequence/arity0.t 9 - the sequence is infinite...
 S03-sequence/arity0.t 11 - Got the number of rolls we asked for
 S03-sequence/arity0.t 12 - all the rolls are Ints
 S03-sequence/arity0.t 13 - all the rolls are in the Range 1..6
-S03-sequence/basic.rakudo.moar aborted 98 test(s)
+S03-sequence/basic.rakudo.moar aborted 99 test(s)
 S03-sequence/limit-arity-2-or-more.t aborted 8 test(s)
 S03-smartmatch/any-bool.t 3 - ~~ non-syntactic True
 S03-smartmatch/any-bool.t 4 - ~~ non-syntactic True
@@ -3579,10 +3549,272 @@ S05-mass/charsets.rakudo.moar 8 - lower chars
 S05-mass/charsets.rakudo.moar 13 - unicode Letter chars
 S05-mass/charsets.rakudo.moar 15 - combined unicode classes
 S05-mass/charsets.rakudo.moar 16 - combined unicode and builtins
-S05-mass/named-chars.rakudo.moar aborted 431 test(s)
-S05-mass/properties-block.t aborted 670 test(s)
-S05-mass/properties-derived.rakudo.moar aborted 256 test(s)
-S05-mass/properties-general.rakudo.moar aborted 596 test(s)
+S05-mass/named-chars.rakudo.moar 201 - Negative charclass ARABIC SHADDA MEDIAL FORM,LOWER HALF INVERSE WHITE CIRCLE
+S05-mass/named-chars.rakudo.moar 216 - Negative charclass YI SYLLABLE NDO, ARABIC SHADDA MEDIAL FORM
+S05-mass/named-chars.rakudo.moar 246 - Negative charclass HALFWIDTH KATAKANA LETTER SMALL YU, RIGHTWARDS HARPOON WITH BARB UP ABOVE RIGHTWARDS HARPOON WITH BARB DOWN
+S05-mass/named-chars.rakudo.moar 306 - Negative charclass ARABIC LETTER YEH WITH HAMZA ABOVE INITIAL FORM,OGHAM LETTER UILLEANN
+S05-mass/named-chars.rakudo.moar 396 - Negative charclass YI SYLLABLE JJYT,LAO LETTER THO TAM
+S05-mass/named-chars.rakudo.moar 411 - Negative charclass HALFWIDTH KATAKANA LETTER SMALL YO,YI SYLLABLE JJYT
+S05-mass/properties-block.t 1 - Don't match unrelated <InAlphabeticPresentationForms>
+S05-mass/properties-block.t 7 - Don't match unrelated <InArabic>
+S05-mass/properties-block.t 11 - Don't match unrelated <InArabicPresentationFormsA>
+S05-mass/properties-block.t 14 - Don't match unrelated <InArabicPresentationFormsB>
+S05-mass/properties-block.t 20 - Don't match unrelated <InArmenian>
+S05-mass/properties-block.t 27 - Don't match unrelated <InArrows>
+S05-mass/properties-block.t 34 - Don't match unrelated <InBasicLatin>
+S05-mass/properties-block.t 41 - Don't match unrelated <InBengali>
+S05-mass/properties-block.t 48 - Don't match unrelated <InBlockElements>
+S05-mass/properties-block.t 55 - Don't match unrelated <InBopomofo>
+S05-mass/properties-block.t 62 - Don't match unrelated <InBopomofoExtended>
+S05-mass/properties-block.t 69 - Don't match unrelated <InBoxDrawing>
+S05-mass/properties-block.t 76 - Don't match unrelated <InBraillePatterns>
+S05-mass/properties-block.t 83 - Don't match unrelated <InBuhid>
+S05-mass/properties-block.t 87 - Don't match unrelated <InByzantineMusicalSymbols>
+S05-mass/properties-block.t 93 - Don't match unrelated <InCJKCompatibility>
+S05-mass/properties-block.t 97 - Don't match unrelated <InCJKCompatibilityForms>
+S05-mass/properties-block.t 100 - Don't match unrelated <InCJKCompatibilityIdeographs>
+S05-mass/properties-block.t 103 - Don't match unrelated <InCJKCompatibilityIdeographsSupplement>
+S05-mass/properties-block.t 109 - Don't match unrelated <InCJKRadicalsSupplement>
+S05-mass/properties-block.t 116 - Don't match unrelated <InCJKSymbolsAndPunctuation>
+S05-mass/properties-block.t 123 - Don't match unrelated <InCJKUnifiedIdeographs>
+S05-mass/properties-block.t 130 - Don't match unrelated <InCJKUnifiedIdeographsExtensionA>
+S05-mass/properties-block.t 134 - Don't match unrelated <InCJKUnifiedIdeographsExtensionB>
+S05-mass/properties-block.t 140 - Don't match unrelated <InCherokee>
+S05-mass/properties-block.t 147 - Don't match unrelated <InCombiningDiacriticalMarks>
+S05-mass/properties-block.t 154 - Don't match unrelated <InCombiningDiacriticalMarksforSymbols>
+S05-mass/properties-block.t 158 - Don't match unrelated <InCombiningHalfMarks>
+S05-mass/properties-block.t 164 - Don't match unrelated <InControlPictures>
+S05-mass/properties-block.t 171 - Don't match unrelated <InCurrencySymbols>
+S05-mass/properties-block.t 178 - Don't match unrelated <InCyrillic>
+S05-mass/properties-block.t 185 - Don't match unrelated <InCyrillicSupplementary>
+S05-mass/properties-block.t 189 - Don't match unrelated <InDeseret>
+S05-mass/properties-block.t 195 - Don't match unrelated <InDevanagari>
+S05-mass/properties-block.t 202 - Don't match unrelated <InDingbats>
+S05-mass/properties-block.t 209 - Don't match unrelated <InEnclosedAlphanumerics>
+S05-mass/properties-block.t 216 - Don't match unrelated <InEnclosedCJKLettersAndMonths>
+S05-mass/properties-block.t 223 - Don't match unrelated <InEthiopic>
+S05-mass/properties-block.t 230 - Don't match unrelated <InGeneralPunctuation>
+S05-mass/properties-block.t 237 - Don't match unrelated <InGeometricShapes>
+S05-mass/properties-block.t 244 - Don't match unrelated <InGeorgian>
+S05-mass/properties-block.t 248 - Don't match unrelated <InGothic>
+S05-mass/properties-block.t 254 - Don't match unrelated <InGreekExtended>
+S05-mass/properties-block.t 261 - Don't match unrelated <InGreekAndCoptic>
+S05-mass/properties-block.t 268 - Don't match unrelated <InGujarati>
+S05-mass/properties-block.t 275 - Don't match unrelated <InGurmukhi>
+S05-mass/properties-block.t 279 - Don't match unrelated <InHalfwidthAndFullwidthForms>
+S05-mass/properties-block.t 285 - Don't match unrelated <InHangulCompatibilityJamo>
+S05-mass/properties-block.t 292 - Don't match unrelated <InHangulJamo>
+S05-mass/properties-block.t 299 - Don't match unrelated <InHangulSyllables>
+S05-mass/properties-block.t 306 - Don't match unrelated <InHanunoo>
+S05-mass/properties-block.t 313 - Don't match unrelated <InHebrew>
+S05-mass/properties-block.t 317 - Don't match unrelated <InHighPrivateUseSurrogates>
+S05-mass/properties-block.t 320 - Don't match unrelated <InHighSurrogates>
+S05-mass/properties-block.t 326 - Don't match unrelated <InHiragana>
+S05-mass/properties-block.t 333 - Don't match unrelated <InIPAExtensions>
+S05-mass/properties-block.t 340 - Don't match unrelated <InIdeographicDescriptionCharacters>
+S05-mass/properties-block.t 347 - Don't match unrelated <InKanbun>
+S05-mass/properties-block.t 354 - Don't match unrelated <InKangxiRadicals>
+S05-mass/properties-block.t 361 - Don't match unrelated <InKannada>
+S05-mass/properties-block.t 368 - Don't match unrelated <InKatakana>
+S05-mass/properties-block.t 375 - Don't match unrelated <InKatakanaPhoneticExtensions>
+S05-mass/properties-block.t 382 - Don't match unrelated <InKhmer>
+S05-mass/properties-block.t 389 - Don't match unrelated <InLao>
+S05-mass/properties-block.t 396 - Don't match unrelated <InLatin1Supplement>
+S05-mass/properties-block.t 403 - Don't match unrelated <InLatinExtendedA>
+S05-mass/properties-block.t 410 - Don't match unrelated <InLatinExtendedAdditional>
+S05-mass/properties-block.t 417 - Don't match unrelated <InLatinExtendedB>
+S05-mass/properties-block.t 424 - Don't match unrelated <InLetterlikeSymbols>
+S05-mass/properties-block.t 428 - Don't match unrelated <InLowSurrogates>
+S05-mass/properties-block.t 434 - Don't match unrelated <InMalayalam>
+S05-mass/properties-block.t 438 - Don't match unrelated <InMathematicalAlphanumericSymbols>
+S05-mass/properties-block.t 444 - Don't match unrelated <InMathematicalOperators>
+S05-mass/properties-block.t 451 - Don't match unrelated <InMiscellaneousMathematicalSymbolsA>
+S05-mass/properties-block.t 458 - Don't match unrelated <InMiscellaneousMathematicalSymbolsB>
+S05-mass/properties-block.t 465 - Don't match unrelated <InMiscellaneousSymbols>
+S05-mass/properties-block.t 472 - Don't match unrelated <InMiscellaneousTechnical>
+S05-mass/properties-block.t 479 - Don't match unrelated <InMongolian>
+S05-mass/properties-block.t 483 - Don't match unrelated <InMusicalSymbols>
+S05-mass/properties-block.t 489 - Don't match unrelated <InMyanmar>
+S05-mass/properties-block.t 496 - Don't match unrelated <InNumberForms>
+S05-mass/properties-block.t 503 - Don't match unrelated <InOgham>
+S05-mass/properties-block.t 507 - Don't match unrelated <InOldItalic>
+S05-mass/properties-block.t 513 - Don't match unrelated <InOpticalCharacterRecognition>
+S05-mass/properties-block.t 520 - Don't match unrelated <InOriya>
+S05-mass/properties-block.t 524 - Don't match unrelated <InPrivateUseArea>
+S05-mass/properties-block.t 530 - Don't match unrelated <InRunic>
+S05-mass/properties-block.t 537 - Don't match unrelated <InSinhala>
+S05-mass/properties-block.t 541 - Don't match unrelated <InSmallFormVariants>
+S05-mass/properties-block.t 547 - Don't match unrelated <InSpacingModifierLetters>
+S05-mass/properties-block.t 551 - Don't match unrelated <InSpecials>
+S05-mass/properties-block.t 557 - Don't match unrelated <InSuperscriptsAndSubscripts>
+S05-mass/properties-block.t 564 - Don't match unrelated <InSupplementalArrowsA>
+S05-mass/properties-block.t 571 - Don't match unrelated <InSupplementalArrowsB>
+S05-mass/properties-block.t 578 - Don't match unrelated <InSupplementalMathematicalOperators>
+S05-mass/properties-block.t 582 - Don't match unrelated <InSupplementaryPrivateUseAreaA>
+S05-mass/properties-block.t 585 - Don't match unrelated <InSupplementaryPrivateUseAreaB>
+S05-mass/properties-block.t 591 - Don't match unrelated <InSyriac>
+S05-mass/properties-block.t 598 - Don't match unrelated <InTagalog>
+S05-mass/properties-block.t 605 - Don't match unrelated <InTagbanwa>
+S05-mass/properties-block.t 609 - Don't match unrelated <InTags>
+S05-mass/properties-block.t 615 - Don't match unrelated <InTamil>
+S05-mass/properties-block.t 622 - Don't match unrelated <InTelugu>
+S05-mass/properties-block.t 629 - Don't match unrelated <InThaana>
+S05-mass/properties-block.t 636 - Don't match unrelated <InThai>
+S05-mass/properties-block.t 643 - Don't match unrelated <InTibetan>
+S05-mass/properties-block.t 650 - Don't match unrelated <InUnifiedCanadianAboriginalSyllabics>
+S05-mass/properties-block.t 654 - Don't match unrelated <InVariationSelectors>
+S05-mass/properties-block.t 660 - Don't match unrelated <InYiRadicals>
+S05-mass/properties-block.t 667 - Don't match unrelated <InYiSyllables>
+S05-mass/properties-derived.rakudo.moar 4 - Don't match unrelated <ASCIIHexDigit>
+S05-mass/properties-derived.rakudo.moar 9 - Don't match negated <Dash>
+S05-mass/properties-derived.rakudo.moar 10 - Don't match inverted <Dash>
+S05-mass/properties-derived.rakudo.moar 11 - Don't match unrelated <Dash>
+S05-mass/properties-derived.rakudo.moar 16 - Don't match negated <Diacritic>
+S05-mass/properties-derived.rakudo.moar 17 - Don't match inverted <Diacritic>
+S05-mass/properties-derived.rakudo.moar 18 - Don't match unrelated <Diacritic>
+S05-mass/properties-derived.rakudo.moar 23 - Don't match negated <Extender>
+S05-mass/properties-derived.rakudo.moar 24 - Don't match inverted <Extender>
+S05-mass/properties-derived.rakudo.moar 25 - Don't match unrelated <Extender>
+S05-mass/properties-derived.rakudo.moar 32 - Don't match unrelated <GraphemeLink>
+S05-mass/properties-derived.rakudo.moar 39 - Don't match unrelated <HexDigit>
+S05-mass/properties-derived.rakudo.moar 44 - Don't match negated <Hyphen>
+S05-mass/properties-derived.rakudo.moar 45 - Don't match inverted <Hyphen>
+S05-mass/properties-derived.rakudo.moar 46 - Don't match unrelated <Hyphen>
+S05-mass/properties-derived.rakudo.moar 60 - Don't match unrelated <IDSBinaryOperator>
+S05-mass/properties-derived.rakudo.moar 67 - Don't match unrelated <IDSTrinaryOperator>
+S05-mass/properties-derived.rakudo.moar 74 - Don't match unrelated <JoinControl>
+S05-mass/properties-derived.rakudo.moar 81 - Don't match unrelated <LogicalOrderException>
+S05-mass/properties-derived.rakudo.moar 84 - Don't match related <LogicalOrderException>
+S05-mass/properties-derived.rakudo.moar 88 - Don't match unrelated <NoncharacterCodePoint>
+S05-mass/properties-derived.rakudo.moar 91 - Don't match related <NoncharacterCodePoint>
+S05-mass/properties-derived.rakudo.moar 139 - Don't match unrelated <QuotationMark>
+S05-mass/properties-derived.rakudo.moar 144 - Don't match negated <Radical>
+S05-mass/properties-derived.rakudo.moar 145 - Don't match inverted <Radical>
+S05-mass/properties-derived.rakudo.moar 146 - Don't match unrelated <Radical>
+S05-mass/properties-derived.rakudo.moar 153 - Don't match unrelated <SoftDotted>
+S05-mass/properties-derived.rakudo.moar 156 - Don't match related <SoftDotted>
+S05-mass/properties-derived.rakudo.moar 163 - Don't match unrelated <TerminalPunctuation>
+S05-mass/properties-derived.rakudo.moar 177 - Don't match unrelated <WhiteSpace>
+S05-mass/properties-derived.rakudo.moar 182 - Don't match negated (Lu + Ll + Lt + Lm + Lo + OtherAlphabetic)
+S05-mass/properties-derived.rakudo.moar 183 - Don't match inverted (Lu + Ll + Lt + Lm + Lo + OtherAlphabetic)
+S05-mass/properties-derived.rakudo.moar 184 - Don't match unrelated (Lu + Ll + Lt + Lm + Lo + OtherAlphabetic)
+S05-mass/properties-derived.rakudo.moar 189 - Don't match negated (Ll + OtherLowercase)
+S05-mass/properties-derived.rakudo.moar 190 - Don't match inverted (Ll + OtherLowercase)
+S05-mass/properties-derived.rakudo.moar 191 - Don't match unrelated (Ll + OtherLowercase)
+S05-mass/properties-derived.rakudo.moar 194 - Don't match related (Ll + OtherLowercase)
+S05-mass/properties-derived.rakudo.moar 199 - Don't match negated (Lu + OtherUppercase)
+S05-mass/properties-derived.rakudo.moar 200 - Don't match inverted (Lu + OtherUppercase)
+S05-mass/properties-derived.rakudo.moar 201 - Don't match unrelated (Lu + OtherUppercase)
+S05-mass/properties-derived.rakudo.moar 206 - Don't match negated (Sm + OtherMath)
+S05-mass/properties-derived.rakudo.moar 207 - Don't match inverted (Sm + OtherMath)
+S05-mass/properties-derived.rakudo.moar 208 - Don't match unrelated (Sm + OtherMath)
+S05-mass/properties-derived.rakudo.moar 211 - Don't match related (Sm + OtherMath)
+S05-mass/properties-derived.rakudo.moar 216 - Don't match negated (Lu + Ll + Lt + Lm + Lo + Nl)
+S05-mass/properties-derived.rakudo.moar 217 - Don't match inverted (Lu + Ll + Lt + Lm + Lo + Nl)
+S05-mass/properties-derived.rakudo.moar 218 - Don't match unrelated (Lu + Ll + Lt + Lm + Lo + Nl)
+S05-mass/properties-derived.rakudo.moar 223 - Don't match negated (ID_Start + Mn + Mc + Nd + Pc)
+S05-mass/properties-derived.rakudo.moar 224 - Don't match inverted (ID_Start + Mn + Mc + Nd + Pc)
+S05-mass/properties-general.rakudo.moar 2 - empty string has no letter
+S05-mass/properties-general.rakudo.moar 20 - Don't match unrelated <Lu> (UppercaseLetter)
+S05-mass/properties-general.rakudo.moar 23 - Don't match related <Lu> (UppercaseLetter)
+S05-mass/properties-general.rakudo.moar 30 - Don't match unrelated <UppercaseLetter>
+S05-mass/properties-general.rakudo.moar 37 - Don't match unrelated <Ll> (LowercaseLetter)
+S05-mass/properties-general.rakudo.moar 40 - Don't match related <Ll> (LowercaseLetter)
+S05-mass/properties-general.rakudo.moar 47 - Don't match unrelated <LowercaseLetter>
+S05-mass/properties-general.rakudo.moar 50 - Don't match related <LowercaseLetter>
+S05-mass/properties-general.rakudo.moar 57 - Don't match unrelated <Lt> (TitlecaseLetter)
+S05-mass/properties-general.rakudo.moar 60 - Don't match related <Lt> (TitlecaseLetter)
+S05-mass/properties-general.rakudo.moar 67 - Don't match unrelated <TitlecaseLetter>
+S05-mass/properties-general.rakudo.moar 74 - Don't match unrelated <Lm> (ModifierLetter)
+S05-mass/properties-general.rakudo.moar 77 - Don't match related <Lm> (ModifierLetter)
+S05-mass/properties-general.rakudo.moar 84 - Don't match unrelated <ModifierLetter>
+S05-mass/properties-general.rakudo.moar 91 - Don't match unrelated <Lo> (OtherLetter)
+S05-mass/properties-general.rakudo.moar 94 - Don't match related <Lo> (OtherLetter)
+S05-mass/properties-general.rakudo.moar 118 - Don't match unrelated <M> (Mark)
+S05-mass/properties-general.rakudo.moar 125 - Don't match unrelated <Mark>
+S05-mass/properties-general.rakudo.moar 132 - Don't match unrelated <Mn> (NonspacingMark)
+S05-mass/properties-general.rakudo.moar 135 - Don't match related <Mn> (NonspacingMark)
+S05-mass/properties-general.rakudo.moar 142 - Don't match unrelated <NonspacingMark>
+S05-mass/properties-general.rakudo.moar 149 - Don't match unrelated <Mc> (SpacingMark)
+S05-mass/properties-general.rakudo.moar 152 - Don't match related <Mc> (SpacingMark)
+S05-mass/properties-general.rakudo.moar 159 - Don't match unrelated <SpacingMark>
+S05-mass/properties-general.rakudo.moar 166 - Don't match unrelated <Me> (EnclosingMark)
+S05-mass/properties-general.rakudo.moar 169 - Don't match related <Me> (EnclosingMark)
+S05-mass/properties-general.rakudo.moar 176 - Don't match unrelated <EnclosingMark>
+S05-mass/properties-general.rakudo.moar 183 - Don't match unrelated <N> (Number)
+S05-mass/properties-general.rakudo.moar 190 - Don't match unrelated <Number>
+S05-mass/properties-general.rakudo.moar 197 - Don't match unrelated <Nd> (DecimalNumber)
+S05-mass/properties-general.rakudo.moar 200 - Don't match related <Nd> (DecimalNumber)
+S05-mass/properties-general.rakudo.moar 207 - Don't match unrelated <DecimalNumber>
+S05-mass/properties-general.rakudo.moar 214 - Don't match unrelated <Nl> (LetterNumber)
+S05-mass/properties-general.rakudo.moar 217 - Don't match related <Nl> (LetterNumber)
+S05-mass/properties-general.rakudo.moar 224 - Don't match unrelated <LetterNumber>
+S05-mass/properties-general.rakudo.moar 227 - Don't match related <LetterNumber>
+S05-mass/properties-general.rakudo.moar 234 - Don't match unrelated <No> (OtherNumber)
+S05-mass/properties-general.rakudo.moar 237 - Don't match related <No> (OtherNumber)
+S05-mass/properties-general.rakudo.moar 244 - Don't match unrelated <OtherNumber>
+S05-mass/properties-general.rakudo.moar 251 - Don't match unrelated <P> (Punctuation)
+S05-mass/properties-general.rakudo.moar 258 - Don't match unrelated <Punctuation>
+S05-mass/properties-general.rakudo.moar 265 - Don't match unrelated <Pc> (ConnectorPunctuation)
+S05-mass/properties-general.rakudo.moar 268 - Don't match related <Pc> (ConnectorPunctuation)
+S05-mass/properties-general.rakudo.moar 275 - Don't match unrelated <ConnectorPunctuation>
+S05-mass/properties-general.rakudo.moar 282 - Don't match unrelated <Pd> (DashPunctuation)
+S05-mass/properties-general.rakudo.moar 285 - Don't match related <Pd> (DashPunctuation)
+S05-mass/properties-general.rakudo.moar 292 - Don't match unrelated <DashPunctuation>
+S05-mass/properties-general.rakudo.moar 299 - Don't match unrelated <Ps> (OpenPunctuation)
+S05-mass/properties-general.rakudo.moar 302 - Don't match related <Ps> (OpenPunctuation)
+S05-mass/properties-general.rakudo.moar 309 - Don't match unrelated <OpenPunctuation>
+S05-mass/properties-general.rakudo.moar 316 - Don't match unrelated <Pe> (ClosePunctuation)
+S05-mass/properties-general.rakudo.moar 319 - Don't match related <Pe> (ClosePunctuation)
+S05-mass/properties-general.rakudo.moar 326 - Don't match unrelated <ClosePunctuation>
+S05-mass/properties-general.rakudo.moar 333 - Don't match unrelated <Pi> (InitialPunctuation)
+S05-mass/properties-general.rakudo.moar 336 - Don't match related <Pi> (InitialPunctuation)
+S05-mass/properties-general.rakudo.moar 343 - Don't match unrelated <InitialPunctuation>
+S05-mass/properties-general.rakudo.moar 350 - Don't match unrelated <Pf> (FinalPunctuation)
+S05-mass/properties-general.rakudo.moar 353 - Don't match related <Pf> (FinalPunctuation)
+S05-mass/properties-general.rakudo.moar 360 - Don't match unrelated <FinalPunctuation>
+S05-mass/properties-general.rakudo.moar 367 - Don't match unrelated <Po> (OtherPunctuation)
+S05-mass/properties-general.rakudo.moar 370 - Don't match related <Po> (OtherPunctuation)
+S05-mass/properties-general.rakudo.moar 377 - Don't match unrelated <OtherPunctuation>
+S05-mass/properties-general.rakudo.moar 384 - Don't match unrelated <S> (Symbol)
+S05-mass/properties-general.rakudo.moar 391 - Don't match unrelated <Symbol>
+S05-mass/properties-general.rakudo.moar 398 - Don't match unrelated <Sm> (MathSymbol)
+S05-mass/properties-general.rakudo.moar 401 - Don't match related <Sm> (MathSymbol)
+S05-mass/properties-general.rakudo.moar 408 - Don't match unrelated <MathSymbol>
+S05-mass/properties-general.rakudo.moar 411 - Don't match related <MathSymbol>
+S05-mass/properties-general.rakudo.moar 418 - Don't match unrelated <Sc> (CurrencySymbol)
+S05-mass/properties-general.rakudo.moar 421 - Don't match related <Sc> (CurrencySymbol)
+S05-mass/properties-general.rakudo.moar 428 - Don't match unrelated <CurrencySymbol>
+S05-mass/properties-general.rakudo.moar 435 - Don't match unrelated <Sk> (ModifierSymbol)
+S05-mass/properties-general.rakudo.moar 438 - Don't match related <Sk> (ModifierSymbol)
+S05-mass/properties-general.rakudo.moar 445 - Don't match unrelated <ModifierSymbol>
+S05-mass/properties-general.rakudo.moar 448 - Don't match related <ModifierSymbol>
+S05-mass/properties-general.rakudo.moar 455 - Don't match unrelated <So> (OtherSymbol)
+S05-mass/properties-general.rakudo.moar 458 - Don't match related <So> (OtherSymbol)
+S05-mass/properties-general.rakudo.moar 465 - Don't match unrelated <OtherSymbol>
+S05-mass/properties-general.rakudo.moar 472 - Don't match unrelated <Z> (Separator)
+S05-mass/properties-general.rakudo.moar 479 - Don't match unrelated <Separator>
+S05-mass/properties-general.rakudo.moar 482 - Don't match related <Separator>
+S05-mass/properties-general.rakudo.moar 489 - Don't match unrelated <Zs> (SpaceSeparator)
+S05-mass/properties-general.rakudo.moar 492 - Don't match related <Zs> (SpaceSeparator)
+S05-mass/properties-general.rakudo.moar 499 - Don't match unrelated <SpaceSeparator>
+S05-mass/properties-general.rakudo.moar 502 - Don't match related <SpaceSeparator>
+S05-mass/properties-general.rakudo.moar 509 - Don't match unrelated <Zl> (LineSeparator)
+S05-mass/properties-general.rakudo.moar 512 - Don't match related <Zl> (LineSeparator)
+S05-mass/properties-general.rakudo.moar 519 - Don't match unrelated <LineSeparator>
+S05-mass/properties-general.rakudo.moar 522 - Don't match related <LineSeparator>
+S05-mass/properties-general.rakudo.moar 529 - Don't match unrelated <Zp> (ParagraphSeparator)
+S05-mass/properties-general.rakudo.moar 532 - Don't match related <Zp> (ParagraphSeparator)
+S05-mass/properties-general.rakudo.moar 539 - Don't match unrelated <ParagraphSeparator>
+S05-mass/properties-general.rakudo.moar 542 - Don't match related <ParagraphSeparator>
+S05-mass/properties-general.rakudo.moar 549 - Don't match unrelated <C> (Other)
+S05-mass/properties-general.rakudo.moar 556 - Don't match unrelated <Other>
+S05-mass/properties-general.rakudo.moar 563 - Don't match unrelated <Cc> (Control)
+S05-mass/properties-general.rakudo.moar 566 - Don't match related <Cc> (Control)
+S05-mass/properties-general.rakudo.moar 573 - Don't match unrelated <Control>
+S05-mass/properties-general.rakudo.moar 576 - Don't match related <Control>
+S05-mass/properties-general.rakudo.moar 583 - Don't match unrelated <Cf> (Format)
+S05-mass/properties-general.rakudo.moar 593 - Don't match unrelated <Format>
 S05-mass/properties-script.rakudo.moar 39 - Don't match unrelated <Arabic>
 S05-mass/properties-script.rakudo.moar 46 - Don't match unrelated <Armenian>
 S05-mass/properties-script.rakudo.moar 53 - Don't match unrelated <Bengali>
