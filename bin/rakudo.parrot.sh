@@ -19,4 +19,4 @@ export PERL6LIB=`pwd`/lib:.
 # some tests require a LANG.
 export LANG=en_US.UTF-8
 
-perl t/spec/test_summary rakudo.parrot 2>&1 | tee ../rakudo.parrot_summary.out
+perl t/spec/test_summary rakudo.parrot 2>&1 | tee ../log/rakudo.parrot_summary.out

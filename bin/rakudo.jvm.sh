@@ -21,4 +21,4 @@ export LANG=en_US.UTF-8
 # swap out the default runner with one that is ulimited
 # temporarily ignore memory ulimit. ## ulimit -v 2048576
 
-perl t/spec/test_summary rakudo.jvm 2>&1 | tee ../rakudo.jvm_summary.out
+perl t/spec/test_summary rakudo.jvm 2>&1 | tee ../log/rakudo.jvm_summary.out

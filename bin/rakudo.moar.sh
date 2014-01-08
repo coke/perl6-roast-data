@@ -24,4 +24,4 @@ export PERL6LIB=`pwd`/lib:.
 # some tests require a LANG.
 export LANG=en_US.UTF-8
 
-perl t/spec/test_summary rakudo.moar 2>&1 | tee ../rakudo.moar_summary.out
+perl t/spec/test_summary rakudo.moar 2>&1 | tee ../log/rakudo.moar_summary.out

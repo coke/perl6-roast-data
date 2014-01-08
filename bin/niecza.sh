@@ -20,4 +20,4 @@ make all
 export LANG=en_US.UTF-8
 
 mono ./run/Niecza.exe -e "say 'BUILD SETTING'"
-perl t/spec/test_summary niecza 2>&1 | tee ../niecza_summary.out
+perl t/spec/test_summary niecza 2>&1 | tee ../log/niecza_summary.out
