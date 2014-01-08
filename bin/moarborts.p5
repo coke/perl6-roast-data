@@ -8,7 +8,7 @@ use warnings;
 # rakudo.moar build during the initial porting process.
 #
 
-my @LINES=`ack '^\\w.*abort' rakudo.moar_summary.out`;
+my @LINES=`ack '^\\w.*abort' log/rakudo.moar_summary.out`;
 
 my @FILES;
 my %ABORTS;
@@ -28,8 +28,13 @@ for my $file (@FILES) {
     warn "$file...\n";
     my @result = `./perl6 -Ilib t/spec/$file 2>&1 >/dev/null`; #only grab stderr
     warn Dumper(\@result); use Data::Dumper;
+
     my $result = $result[0]; 
     chomp $result;
+
+    if ($result[-1] =~ /^Killed/) {
+        $result = "Killed";
+    }
 
     if ($result =~ /SORRY!/) {
         $result = $result[1]; 
