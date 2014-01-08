@@ -8,7 +8,7 @@ rm -r ~/.local/share/NieczaModuleCache
 # default to sysperl
 PATH=/usr/local/bin:$PATH
 
-git clone git://github.com/sorear/niecza.git
+git clone repos/niecza.git
 cd niecza
 ln -s ../../roast t/spec
 echo "#!/usr/bin/env perl" > perl6
