@@ -13,8 +13,8 @@ PATH=/usr/local/bin:$PATH
 
 rm -rf Pugs.hs
 git clone repos/Pugs.hs.git
+git clone repos/roast.git Pugs.hs/t/spec
 cd Pugs.hs
-ln -s ../../roast t/spec
 (cd Pugs && make)
 echo "#!/usr/bin/env perl" > perl6
 echo '$ENV{PUGS_USE_EXTERNAL_TEST}=1;' >> perl6

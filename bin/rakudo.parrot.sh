@@ -7,8 +7,8 @@ rm -rf rakudo.parrot
 git clone repos/rakudo.git rakudo.parrot
 git clone repos/nqp.git rakudo.parrot/nqp
 git clone repos/parrot.git rakudo.parrot/parrot
+git clone repos/roast.git rakudo.parrot/t/spec
 cd rakudo.parrot
-ln -s ../../roast t/spec
 perl Configure.pl --backends=parrot --gen-parrot
 make all
 

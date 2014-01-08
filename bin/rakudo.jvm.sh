@@ -6,8 +6,8 @@ PATH=/usr/local/bin:$PATH
 rm -rf rakudo.jvm
 git clone repos/rakudo.git rakudo.jvm
 git clone repos/nqp.git rakudo.jvm/nqp
+git clone repos/roast.git rakudo.jvm/t/spec
 cd rakudo.jvm
-ln -s ../../roast t/spec
 perl Configure.pl --backends=jvm --gen-nqp
 make all
 

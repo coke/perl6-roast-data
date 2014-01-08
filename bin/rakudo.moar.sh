@@ -7,8 +7,8 @@ rm -rf rakudo.moar
 git clone -b moar-support repos/rakudo.git rakudo.moar
 git clone repos/nqp.git rakudo.moar/nqp
 git clone repos/MoarVM.git rakudo.moar/nqp/MoarVM
+git clone repos/roast.git rakudo.moar/t/spec
 cd rakudo.moar
-ln -s ../roast t/spec
 perl Configure.pl --backends=moar --gen-moar=master --gen-nqp=master
 make all
 

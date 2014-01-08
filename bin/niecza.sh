@@ -9,8 +9,8 @@ rm -r ~/.local/share/NieczaModuleCache
 PATH=/usr/local/bin:$PATH
 
 git clone repos/niecza.git
+git clone repos/roast.git niecza/t/spec
 cd niecza
-ln -s ../../roast t/spec
 echo "#!/usr/bin/env perl" > perl6
 echo 'exec "ulimit -t 90; ulimit -v 1260720; ulimit -c 0; nice -20 mono ./run/Niecza.exe @ARGV"' >> perl6
 chmod a+x ./perl6
