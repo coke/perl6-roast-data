@@ -1,0 +1,59 @@
+#! /usr/bin/env perl
+
+use strict;
+use warnings;
+
+#
+# Only needed for checking aborts caused during the
+# rakudo.moar build during the initial porting process.
+#
+
+my @LINES=`ack '^\\w.*abort' rakudo.moar_summary.out`;
+
+my @FILES;
+my %ABORTS;
+for my $line (@LINES) {
+    $line =~ /^(\S*)/;
+    my $file = $1;
+    push @FILES, $file;
+    $line =~ /aborted (\d+)/;
+    $ABORTS{$file} = $1;
+}
+
+my %FAILS;
+chdir 'rakudo.moar';
+my $count;
+for my $file (@FILES) {
+    ##last if $count++ == 3;
+    warn "$file...\n";
+    my @result = `./perl6 -Ilib t/spec/$file 2>&1 >/dev/null`; #only grab stderr
+    warn Dumper(\@result); use Data::Dumper;
+    my $result = $result[0]; 
+    chomp $result;
+
+    if ($result =~ /SORRY!/) {
+        $result = $result[1]; 
+        chomp $result;
+    }
+
+    if ($result =~ /^When invoking frame_name/) {
+        $result = "Provided outer frame does not match expected static frame type";
+    }
+
+    push @{$FAILS{$result}}, $file;
+    warn $result;
+}
+
+for my $err (keys %FAILS) {
+    my $failed = 0;
+    for my $file (@{$FAILS{$err}}) {
+         $failed += $ABORTS{$file};
+    }
+    print "[$failed] $err\n";
+    print "=====\n";
+    for my $file (@{$FAILS{$err}}) {
+         print "* $file\n";
+    }
+    print "\n\n";
+}
+
