@@ -12,7 +12,7 @@ PATH=/usr/local/bin:$PATH
 #
 
 rm -rf Pugs.hs
-git clone git://github.com/perl6/Pugs.hs.git
+git clone repos/Pugs.hs.git
 cd Pugs.hs
 ln -s ../../roast t/spec
 (cd Pugs && make)

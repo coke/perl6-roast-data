@@ -4,7 +4,8 @@
 PATH=/usr/local/bin:$PATH
 
 rm -rf rakudo.jvm
-git clone git://github.com/rakudo/rakudo.git rakudo.jvm
+git clone repos/rakudo.git rakudo.jvm
+git clone repos/nqp.git rakudo.jvm/nqp
 cd rakudo.jvm
 ln -s ../../roast t/spec
 perl Configure.pl --backends=jvm --gen-nqp

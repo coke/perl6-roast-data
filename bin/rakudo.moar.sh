@@ -4,9 +4,11 @@
 PATH=/usr/local/bin:$PATH
 
 rm -rf rakudo.moar
-git clone -b moar-support git://github.com/rakudo/rakudo.git rakudo.moar
+git clone -b moar-support repos/rakudo.git rakudo.moar
+git clone repos/nqp.git rakudo.moar/nqp
+git clone repos/MoarVM.git rakudo.moar/nqp/MoarVM
 cd rakudo.moar
-ln -s ../../roast t/spec
+ln -s ../roast t/spec
 perl Configure.pl --backends=moar --gen-moar=master --gen-nqp=master
 make all
 

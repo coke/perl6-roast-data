@@ -4,7 +4,9 @@
 PATH=/usr/local/bin:$PATH
 
 rm -rf rakudo.parrot
-git clone git://github.com/rakudo/rakudo.git rakudo.parrot
+git clone repos/rakudo.git rakudo.parrot
+git clone repos/nqp.git rakudo.parrot/nqp
+git clone repos/parrot.git rakudo.parrot/parrot
 cd rakudo.parrot
 ln -s ../../roast t/spec
 perl Configure.pl --backends=parrot --gen-parrot
