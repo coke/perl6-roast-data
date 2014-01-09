@@ -108,9 +108,7 @@ S02-magicals/file_line.t...........................   2    0    0    0    2
 S02-magicals/pid.t.................................   1    0    0    0    1
 S02-magicals/progname.t............................   4    0    0    0    4
 S02-magicals/sub.t.................................   6    0    0    0    6
-S02-magicals/vm.t..................................Killed
-   2    1    0    0    3
-     1 tests aborted (missing ok/not ok)
+S02-magicals/vm.t..................................   3    0    0    0    3
 S02-names-vars/contextual.t........................  23    0    0    0   23
 S02-names-vars/fmt.t...............................  21    0    0    0   21
 S02-names-vars/list_array_perl.rakudo.moar.........  18    0    1    2   21
@@ -401,11 +399,11 @@ S03-metaops/hyper.rakudo.moar......................use of uninitialized value of
 use of uninitialized value of type Any in numeric context
 use of uninitialized value of type Any in numeric context
 use of uninitialized value of type Any in numeric context
-Killed
- 191   85    0    5  281
+ 269    0    6    6  281
+     1 skipped: EVAL(Buf)
      3 skipped: huh?
      2 skipped: nom regression: possible spec change/improvement
-    85 tests aborted (missing ok/not ok)
+     6 todo   : nom regression - whatever extension
 S03-metaops/not.t..................................  33    0    0    0   33
 S03-metaops/reduce.rakudo.moar.....................use of uninitialized value of type Nil in numeric context
 use of uninitialized value of type Nil in numeric context
@@ -433,9 +431,9 @@ use of uninitialized value of type Any in string context
      2 todo   : orelse
      1 todo   : reduced hyper op
 S03-metaops/reverse.t..............................  34    0    0    0   34
-S03-metaops/zip.rakudo.moar........................Killed
-   8   16    0    0   24
-    16 tests aborted (missing ok/not ok)
+S03-metaops/zip.rakudo.moar........................  18    0    4    2   24
+     2 skipped: nom regression
+     4 todo   : nom regression
 S03-operators/adverbial-modifiers.rakudo.moar......use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
@@ -619,10 +617,10 @@ S03-operators/relational.t......................... 118    0    0    0  118
 S03-operators/repeat.t.............................  32    0    0    0   32
 S03-operators/scalar-assign.t......................   4    0    0    0    4
 S03-operators/set.rakudo.moar......................Killed
-  83  209    2    2  296
+ 222   70    2    2  296
      2 skipped: ∅ NYI
      2 todo   : huh?
-   209 tests aborted (missing ok/not ok)
+    70 tests aborted (missing ok/not ok)
 S03-operators/short-circuit.rakudo.moar............use of uninitialized value of type Nil in numeric context
   77    0    6    0   83
      6 todo   : wrong return type
@@ -633,30 +631,25 @@ S03-operators/spaceship.t..........................   5    0    0    0    5
 S03-operators/subscript-adverbs.t.................. 108    0    0    0  108
 S03-operators/subscript-vs-lt.t....................   4    0    0    0    4
 S03-operators/ternary.t............................  17    0    0    0   17
-S03-operators/value_equivalence.rakudo.moar........  70    1    4    0   75
+S03-operators/value_equivalence.rakudo.moar........  71    0    4    0   75
      1 todo   : .WHICH based on type names
      1 todo   : === fail
      2 todo   : === doesn't work on array references yet
 S03-sequence/arity-2-or-more.t.....................  19    0    0    0   19
-S03-sequence/arity0.t..............................   9    4    0    0   13
-S03-sequence/basic.rakudo.moar.....................Killed
-  29  100    0    0  129
-   100 tests aborted (missing ok/not ok)
+S03-sequence/arity0.t..............................  13    0    0    0   13
+S03-sequence/basic.rakudo.moar..................... 127    0    2    0  129
+     1 todo   : sequence + last
+     1 todo   : mysterious
 S03-sequence/limit-arity-2-or-more.t...............   8    0    0    0    8
-S03-sequence/misc.rakudo.moar......................Nominal type check failed for parameter '$n'; expected Int but got Str
-  in sub f at t/spec/S03-sequence/misc.rakudo.moar:10
-  in block frame_name_4968 at src/gen/m-CORE.setting:16179
-  in block frame_name_4953 at src/gen/m-CORE.setting:16114
-  in block frame_name_8063 at src/gen/m-CORE.setting:7475
-  in method reify at src/gen/m-CORE.setting:7512
-  in method reify at src/gen/m-CORE.setting:7241
-  in method reify at src/gen/m-CORE.setting:7241
-  in method reify at src/gen/m-CORE.setting:7241
-  in method gimme at src/gen/m-CORE.setting:7663
-  in method join at src/gen/m-CORE.setting:1609
-  in block frame_name_1 at t/spec/S03-sequence/misc.rakudo.moar:11
-
-   0    0    0    0    0
+S03-sequence/misc.rakudo.moar......................use of uninitialized value of type Nil in numeric context
+use of uninitialized value of type Nil in numeric context
+  12    0    5    2   19
+     1 skipped: Slicel lists are NYI
+     1 skipped: Not enough positional parameters passed; got 0 but expected 1
+     1 todo   : gives True instead
+     2 todo   : NYI
+     1 todo   : bogus test?
+     1 todo   : RT 80574
 S03-sequence/nonnumeric.rakudo.moar................  18    0    0   19   37
      6 skipped: lifting comparison ops
     11 skipped: hangs
@@ -787,7 +780,7 @@ Error while compiling op p6setpre: No registered operation handler for 'p6setpre
    0   22    0    0   22
     22 tests aborted (missing ok/not ok)
 S04-phasers/rvalue.t...............................Cannot invoke null object
-  in block frame_name_5121 at src/gen/m-CORE.setting:16339
+  in block frame_name_5121 at src/gen/m-CORE.setting:16331
   in block frame_name_25 at t/spec/S04-phasers/rvalue.t:45
 
    0   16    0    0   16
@@ -812,7 +805,7 @@ S04-statements/for.rakudo.moar.....................  73    0    2    2   77
      1 skipped: maybe bogus, for loops are not supposed to be lazy?
      2 todo   : RT 113026 array iterator does not track a growing array
 S04-statements/for_with_only_one_item.t............   9    0    0    0    9
-S04-statements/gather.rakudo.moar..................  26    1    0    1   28
+S04-statements/gather.rakudo.moar..................  27    0    0    1   28
      1 skipped: RT #117635 (infinite loop)
 S04-statements/given.t.............................  51    0    0    0   51
 S04-statements/if.t................................  29    0    0    0   29
@@ -833,13 +826,13 @@ S04-statements/sink.rakudo.moar....................   1    0    1    0    2
      1 todo PASSED: RT #117235
 S04-statements/terminator.t........................  15    0    0    0   15
 S04-statements/try.rakudo.moar.....................Cannot find method 'substr'
-  in method Str at src/gen/m-CORE.setting:12151
+  in method Str at src/gen/m-CORE.setting:12143
   in method Str at src/gen/m-CORE.setting:1020
   in method Stringy at src/gen/m-CORE.setting:1030
   in method Stringy at src/gen/m-CORE.setting:1029
   in sub infix:<~> at src/gen/m-CORE.setting:1424
   in sub infix:<~> at src/gen/m-CORE.setting:1422
-  in block frame_name_5121 at src/gen/m-CORE.setting:16339
+  in block frame_name_5121 at src/gen/m-CORE.setting:16331
   in block frame_name_121 at t/spec/S04-statements/try.rakudo.moar:124
   in block frame_name_116 at t/spec/S04-statements/try.rakudo.moar:122
   in block frame_name_1 at t/spec/S04-statements/try.rakudo.moar:2
@@ -1085,11 +1078,11 @@ use of uninitialized value of type Any in string context
      3 skipped: s[...] op= RHS
      1 todo   : RT #120526
      1 todo   : be smarter about constant detection
-S05-transliteration/trans.rakudo.moar..............Killed
-  27   31    2    0   60
-     1 todo   : flags
+S05-transliteration/trans.rakudo.moar..............  42    0   11    7   60
+     2 skipped: closures and regexes
+     5 skipped: tr///, feed operator not implemented
+    10 todo   : flags
      1 todo   : disambiguate ranges
-    31 tests aborted (missing ok/not ok)
 S05-transliteration/with-closure.rakudo.moar.......  10    0    5    1   16
      1 skipped: Unable to resolve method ord in class Any
      5 todo   : nom regression
@@ -1640,9 +1633,9 @@ S16-io/bare-say.rakudo.moar........................   3    0    5    0    8
 S16-io/basic-open.t................................   9    0    0    0    9
 S16-io/cwd.t.......................................   3    0    0    0    3
 S16-io/getc.t......................................Malformed termination of UTF-8 string
-  in method getc at src/gen/m-CORE.setting:13133
-  in sub getc at src/gen/m-CORE.setting:13519
-  in sub getc at src/gen/m-CORE.setting:13518
+  in method getc at src/gen/m-CORE.setting:13125
+  in sub getc at src/gen/m-CORE.setting:13511
+  in sub getc at src/gen/m-CORE.setting:13510
   in block frame_name_1 at t/spec/S16-io/getc.t:20
 
    0    1    0    0    1
@@ -1735,12 +1728,12 @@ S32-container/roundrobin.rakudo.moar...............   4    0    1    0    5
      1 todo   : over-flattening
 S32-container/zip.rakudo.moar......................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.moar.................... 615   16    0   27  658
-     1 skipped: RT 114134
-    15 skipped: wrong exception type
+S32-exceptions/misc.rakudo.moar....................Trying to unwind from wrong handler
+ 461    1    0    6    0
+     2 skipped: wrong exception type
      3 skipped: still handled by <special_var>
-     7 skipped: Code did not die, can not check exception
      1 skipped: parsing regression
+   468 tests more than planned were run
 S32-hash/delete-adverb.t...........................use of uninitialized value of type Int in string context
 use of uninitialized value of type Int in string context
  130    0    0    0  130
@@ -1768,14 +1761,15 @@ IO::Handle.copy is deprecated.  Please use IO::Path.copy instead.
   26    3    0    0   29
 S32-io/dir.t.......................................Type check failed in bind; expected Str but got Failure
   in any bind_error at src/vm/moar/Perl6/Ops.nqp:218
-  in block frame_name_11178 at src/gen/m-CORE.setting:13454
-  in block frame_name_8063 at src/gen/m-CORE.setting:7475
-  in method reify at src/gen/m-CORE.setting:7512
+  in block frame_name_11184 at src/gen/m-CORE.setting:13446
+  in sub frame_name_8070 at src/gen/m-CORE.setting:7476
+  in sub frame_name_8077 at src/gen/m-CORE.setting:7481
+  in method reify at src/gen/m-CORE.setting:7508
   in method reify at src/gen/m-CORE.setting:7241
   in method reify at src/gen/m-CORE.setting:7241
-  in method gimme at src/gen/m-CORE.setting:7663
-  in method eager at src/gen/m-CORE.setting:7630
-  in method STORE at src/gen/m-CORE.setting:8386
+  in method gimme at src/gen/m-CORE.setting:7655
+  in method eager at src/gen/m-CORE.setting:7622
+  in method STORE at src/gen/m-CORE.setting:8378
   in block frame_name_1 at t/spec/S32-io/dir.t:16
 
    0   12    0    0   12
@@ -1798,11 +1792,11 @@ S32-io/io-spec-win.t...............................use of uninitialized value of
 This type cannot unbox to a native string
   in method Str at src/gen/m-CORE.setting:1020
   in any !cursor_init at gen/moar/stage2/QRegex.nqp:580
-  in method ACCEPTS at src/gen/m-CORE.setting:12468
+  in method ACCEPTS at src/gen/m-CORE.setting:12460
   in method ACCEPTS at src/gen/m-CORE.setting:783
-  in method is-absolute at src/gen/m-CORE.setting:12714
-  in method rel2abs at src/gen/m-CORE.setting:12805
-  in method abs2rel at src/gen/m-CORE.setting:12615
+  in method is-absolute at src/gen/m-CORE.setting:12706
+  in method rel2abs at src/gen/m-CORE.setting:12797
+  in method abs2rel at src/gen/m-CORE.setting:12607
   in block frame_name_17 at t/spec/S32-io/io-spec-win.t:266
   in block frame_name_1 at t/spec/S32-io/io-spec-win.t:257
 
@@ -1810,9 +1804,7 @@ This type cannot unbox to a native string
     20 tests aborted (missing ok/not ok)
 S32-io/note.rakudo.moar............................   5    0    1    0    6
      1 todo   : nom regression
-S32-io/other.t.....................................Killed
-  35   25    0    0   60
-    25 tests aborted (missing ok/not ok)
+S32-io/other.t.....................................  60    0    0    0   60
 S32-io/slurp.t.....................................  15    1    0    0   16
 S32-io/spurt.t.....................................  28    5    0    0   33
 S32-list/categorize.t..............................  12    0    0    0   12
@@ -2359,10 +2351,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3925,   184,   122,   301,  4532,  4475
-"S03",        4208,   566,   109,   104,  4987,  4665
-"S04",         891,    73,    29,    27,  1020,  1038
-"S05",        4398,   442,   129,   416,  5385,  5829
+"S02",        3926,   183,   122,   301,  4532,  4475
+"S03",        4550,   221,   126,   109,  5006,  4665
+"S04",         892,    72,    29,    27,  1020,  1038
+"S05",        4413,   411,   138,   423,  5385,  5829
 "S06",         990,    99,    38,    97,  1223,  1291
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         151,    23,     9,    14,   197,   197
@@ -2378,10 +2370,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         307,     1,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         321,    14,     2,     3,   340,   350
-"S32",        8926,   213,    85,   230,  9454,  7051
+"S32",        8797,   173,    85,   209,  8796,  7051
 "int",         518,    33,     7,    24,   582,   571
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26576,  1750,   603,  1440, 30368, 28495
+"total",     26806,  1332,   629,  1431, 29729, 28495
 ----------------
 Failure summary:
 S02-lexical-conventions/unicode-whitespace.t 10 - MONGOLIAN VOWEL SEPARATOR
@@ -2403,7 +2395,6 @@ S02-literals/version.rakudo.moar 21 - ... but it can still fail
 S02-literals/version.rakudo.moar 23 - cmp: Less
 S02-literals/version.rakudo.moar 24 - cmp: More
 S02-literals/version.rakudo.moar 25 - cmp isn't Stringy-based
-S02-magicals/vm.t aborted 1 test(s)
 S02-names-vars/signature.rakudo.moar 3 - cannot increment an Int
 S02-types/array.rakudo.moar 56 - stuffing IO in an Int array does not work
 S02-types/array.rakudo.moar 74 - indirectly accessing [-1] through a variable is run-time error
@@ -2557,7 +2548,6 @@ S02-types/version.t 32 - 1.2.1a1 cmp 1.2.1_003 is More
 S02-types/version.t 33 - 1.2.1_003 cmp 1.2.1_2 is More
 S02-types/version.t 34 - 1.2.1_2 cmp 1.2.1_01 is More
 S02-types/version.t 35 - 1.2.1_01 cmp 1.2.0.999 is More
-S03-metaops/hyper.rakudo.moar aborted 85 test(s)
 S03-metaops/reduce.rakudo.moar 84 - [^^] works (one of two true)
 S03-metaops/reduce.rakudo.moar 85 - [^^] works (one of two true)
 S03-metaops/reduce.rakudo.moar 104 - |0| reduce [^^] false variable test #8
@@ -2612,7 +2602,6 @@ S03-metaops/reduce.rakudo.moar 324 - |"10"| reduce [^^] true string variable tes
 S03-metaops/reduce.rakudo.moar 325 - |"10"| reduce [^^] true string variable test #9
 S03-metaops/reduce.rakudo.moar 343 - |"False"| reduce [^^] true string variable test #8
 S03-metaops/reduce.rakudo.moar 344 - |"False"| reduce [^^] true string variable test #9
-S03-metaops/zip.rakudo.moar aborted 16 test(s)
 S03-operators/adverbial-modifiers.rakudo.moar 13 - :foo{ dostuff() }
 S03-operators/arith.t 6 - -1 == 3
 S03-operators/arith.t 7 - 1 == -3
@@ -2679,13 +2668,7 @@ S03-operators/range-basic.t 137 - not 'h' ~~ 'b'..'g'
 S03-operators/range-basic.t 138 - not 0 ~~ 'a'..'g'
 S03-operators/range-basic.t 140 - not 'b' ~~ 'c'..*
 S03-operators/range-basic.t 142 - not 'd' ~~ *..'c'
-S03-operators/set.rakudo.moar aborted 209 test(s)
-S03-operators/value_equivalence.rakudo.moar 36 - === on sub references (1-2)
-S03-sequence/arity0.t 9 - the sequence is infinite...
-S03-sequence/arity0.t 11 - Got the number of rolls we asked for
-S03-sequence/arity0.t 12 - all the rolls are Ints
-S03-sequence/arity0.t 13 - all the rolls are in the Range 1..6
-S03-sequence/basic.rakudo.moar aborted 100 test(s)
+S03-operators/set.rakudo.moar aborted 70 test(s)
 S03-smartmatch/any-bool.t 3 - ~~ non-syntactic True
 S03-smartmatch/any-bool.t 4 - ~~ non-syntactic True
 S03-smartmatch/any-bool.t 5 - boolean truth
@@ -2726,7 +2709,6 @@ S04-phasers/enter-leave.rakudo.moar 19 - die doesn't abort LEAVE queue
 S04-phasers/first.t aborted 4 test(s)
 S04-phasers/pre-post.rakudo.moar aborted 22 test(s)
 S04-phasers/rvalue.t aborted 16 test(s)
-S04-statements/gather.rakudo.moar 12 - gather is lazy
 S04-statements/repeat.t aborted 1 test(s)
 S04-statements/try.rakudo.moar aborted 7 test(s)
 S05-capture/caps.rakudo.moar aborted 15 test(s)
@@ -3094,7 +3076,6 @@ S05-substitution/match.t 9 - .. works as ~~ matching 'hello' with /f/
 S05-substitution/subst.rakudo.moar 10 - .. and do nifty things in closures
 S05-substitution/subst.rakudo.moar 87 - s[...] = ... returns false on failure
 S05-substitution/subst.rakudo.moar 110 - s:nth(6) return value
-S05-transliteration/trans.rakudo.moar aborted 31 test(s)
 S06-advanced/callframe.rakudo.moar 2 - callframe().line
 S06-macros/opaque-ast.rakudo.moar aborted 7 test(s)
 S06-macros/quasi-blocks.t aborted 12 test(s)
@@ -3213,21 +3194,7 @@ S32-array/exists-adverb.t 51 - Test !exists:!v, invalid combo
 S32-array/splice.rakudo.moar 36 - negative offset dies
 S32-array/splice.rakudo.moar 37 - negative size dies
 S32-exceptions/misc.rakudo.moar 466 - right exception type (X::Phaser::PrePost)
-S32-exceptions/misc.rakudo.moar 488 - right exception type (X::Method::NotFound)
-S32-exceptions/misc.rakudo.moar 501 - right exception type (X::Method::NotFound)
-S32-exceptions/misc.rakudo.moar 525 - right exception type (X::TypeCheck::Binding)
-S32-exceptions/misc.rakudo.moar 528 - 'sub f() returns Str { 5 }; f' died
-S32-exceptions/misc.rakudo.moar 532 - 'my Int $x = "foo"' died
-S32-exceptions/misc.rakudo.moar 538 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.moar 540 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.moar 542 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.moar 544 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.moar 546 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.moar 548 - right exception type (X::Method::NotFound)
-S32-exceptions/misc.rakudo.moar 564 - right exception type (X::ControlFlow)
-S32-exceptions/misc.rakudo.moar 568 - right exception type (X::ControlFlow)
-S32-exceptions/misc.rakudo.moar 582 - right exception type (X::ControlFlow::Return)
-S32-exceptions/misc.rakudo.moar 651 - right exception type (X::Method::NotFound)
+S32-exceptions/misc.rakudo.moar passed 468 unplanned test(s)
 S32-hash/exists-adverb.t 38 - Test exists:k,   invalid combo
 S32-hash/exists-adverb.t 39 - Test exists:!k,  invalid combo
 S32-hash/exists-adverb.t 40 - Test !exists:k,  invalid combo
@@ -3242,7 +3209,6 @@ S32-io/copy.t 21 - It doesn't
 S32-io/dir.t aborted 12 test(s)
 S32-io/file-tests.t 7 - It doesn't
 S32-io/io-spec-win.t aborted 20 test(s)
-S32-io/other.t aborted 25 test(s)
 S32-io/slurp.t 15 - iso-8859-1 makes mojibake correctly
 S32-io/spurt.t 8 - createonly with Buf fails if file exists
 S32-io/spurt.t 11 - createonly with text fails if file exists
