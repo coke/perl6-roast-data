@@ -433,7 +433,7 @@ use of uninitialized value of type Any in string context
 S03-operators/also.rakudo.moar.....................   4    0    4    0    8
      4 todo   : nom regression
 S03-operators/andthen.t............................   8    0    0    0    8
-S03-operators/arith.t.............................. 136    8    0    0  144
+S03-operators/arith.t.............................. 140    4    0    0  144
 S03-operators/assign-is-not-binding.t..............   8    0    0    0    8
 S03-operators/assign.rakudo.moar...................use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
@@ -722,10 +722,16 @@ use of uninitialized value of type Any in string context
      5 skipped: parse error
      1 todo   : embedded closures in regexen
      1 todo   : initialization happens only on first call(?)
-S04-declarations/will.rakudo.moar..................===SORRY!===
-Error while compiling op p6setpre: No registered operation handler for 'p6setpre'
-   0   17    0    0   17
-    17 tests aborted (missing ok/not ok)
+S04-declarations/will.rakudo.moar..................use of uninitialized value of type Any in string context
+use of uninitialized value of type Any in string context
+use of uninitialized value of type Any in string context
+use of uninitialized value of type Any in string context
+  10    0    4    3   17
+     2 skipped: declared variable not visible in block yet
+     1 skipped: declared variable not visible in block yet# TODO will init NYI
+     1 todo   : will init NYI
+     1 todo   : will post NYI
+     2 todo   : declared variable not visible in block yet
 S04-exception-handlers/catch.t.....................  27    0    0    0   27
 S04-exceptions/fail.rakudo.moar....................  11    0    0    2   13
      2 skipped: RT 64990
@@ -739,10 +745,7 @@ S04-phasers/enter-leave.rakudo.moar................  18    1    1    1   21
      1 skipped: leave NYI
      1 todo   : is this spec? why would LEAVE not see outer $!? fossil?
 S04-phasers/eval-in-begin.t........................   3    0    0    0    3
-S04-phasers/first.t................................===SORRY!===
-Error while compiling op p6takefirstflag: No registered operation handler for 'p6takefirstflag'
-   0    4    0    0    4
-     4 tests aborted (missing ok/not ok)
+S04-phasers/first.t................................   4    0    0    0    4
 S04-phasers/in-eval.rakudo.moar....................  34    0    1    0   35
      1 todo   : not sure
 S04-phasers/keep-undo.t............................  12    0    0    0   12
@@ -750,10 +753,8 @@ S04-phasers/multiple.t.............................   2    0    0    0    2
 S04-phasers/next.rakudo.moar.......................  10    0    2    1   13
      1 skipped: leave NYI
      2 todo   : NEXT/LEAVE ordering
-S04-phasers/pre-post.rakudo.moar...................===SORRY!===
-Error while compiling op p6setpre: No registered operation handler for 'p6setpre'
-   0   22    0    0   22
-    22 tests aborted (missing ok/not ok)
+S04-phasers/pre-post.rakudo.moar...................  19    2    1    0   22
+     1 todo   : POST and exceptions
 S04-phasers/rvalue.t...............................Cannot invoke null object
   in block frame_name_6085 at src/gen/m-CORE.setting:16335
   in block frame_name_27 at t/spec/S04-phasers/rvalue.t:45
@@ -817,13 +818,9 @@ S04-statements/unless.t............................  10    0    0    0   10
 S04-statements/until.t.............................   4    0    0    0    4
 S04-statements/while.t.............................   9    0    0    0    9
                                                    pass fail todo skip plan
-S05-capture/caps.rakudo.moar.......................Cannot invoke null object
-  in method match at src/gen/m-CORE.setting:6033
-  in block frame_name_1 at t/spec/S05-capture/caps.rakudo.moar:23
-
-  26   15    1    0   42
+S05-capture/caps.rakudo.moar.......................  40    0    2    0   42
      1 todo   : return type of .chunks
-    15 tests aborted (missing ok/not ok)
+     1 todo   : RT117995 - quantified conjunctive capture
 S05-capture/dot.rakudo.moar........................use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
@@ -1426,7 +1423,7 @@ S12-methods/attribute-params.t.....................  13    0    0    0   13
 S12-methods/calling_sets.rakudo.moar...............  21    0    0   11   32
     11 skipped: ambiguous dispatch
 S12-methods/calling_syntax.t.......................  11    0    0    0   11
-S12-methods/chaining.t.............................  16    1    0    0   17
+S12-methods/chaining.t.............................  17    0    0    0   17
 S12-methods/class-and-instance.t...................   8    0    0    0    8
 S12-methods/default-trait.t........................   6    0    0    0    6
 S12-methods/defer-call.t...........................  14    0    0    0   14
@@ -1469,9 +1466,8 @@ S12-methods/what.t.................................use of uninitialized value of
 use of uninitialized value of type Match in numeric context
   33    0    0    0   33
 S12-subset/multi-dispatch.t........................   6    0    0    0    6
-S12-subset/subtypes.rakudo.moar....................Segmentation fault
-  31    0    0    0    0
-    31 tests more than planned were run
+S12-subset/subtypes.rakudo.moar....................  73    2    2    0   77
+     2 todo   : RT 79160
                                                    pass fail todo skip plan
 S13-overloading/metaoperators.t....................   9    0    0    0    9
 S13-overloading/operators.rakudo.moar..............   3    0    0    1    4
@@ -1647,11 +1643,11 @@ S32-container/roundrobin.rakudo.moar...............   4    0    1    0    5
 S32-container/zip.rakudo.moar......................   8    0    0    2   10
      2 skipped: lvalue zip
 S32-exceptions/misc.rakudo.moar....................Trying to unwind from wrong handler
- 461    1    0    6    0
+ 483    1    0    6    0
      2 skipped: wrong exception type
      3 skipped: still handled by <special_var>
      1 skipped: parsing regression
-   468 tests more than planned were run
+   490 tests more than planned were run
 S32-hash/delete-adverb.t...........................use of uninitialized value of type Int in string context
 use of uninitialized value of type Int in string context
  130    0    0    0  130
@@ -1678,7 +1674,7 @@ IO::Handle.copy is deprecated.  Please use IO::Path.copy instead.
 IO::Handle.copy is deprecated.  Please use IO::Path.copy instead.
   27    2    0    0   29
 S32-io/dir.t.......................................Type check failed in bind; expected Str but got Failure
-  in any bind_error at src/vm/moar/Perl6/Ops.nqp:218
+  in any bind_error at src/vm/moar/Perl6/Ops.nqp:227
   in block frame_name_13776 at src/gen/m-CORE.setting:13446
   in sub frame_name_9928 at src/gen/m-CORE.setting:7476
   in sub frame_name_9937 at src/gen/m-CORE.setting:7481
@@ -1779,7 +1775,7 @@ S32-num/expmod.t................................... 117    0    0    0  117
 S32-num/fatrat.rakudo.moar......................... 271    0    1    2  274
      2 skipped: FatRat arith + type objects
      1 todo   : unknown
-S32-num/int.rakudo.moar............................  89   13    3    2  107
+S32-num/int.rakudo.moar............................ 102    0    3    2  107
      2 skipped: trailing characters produce failures
      3 todo   : Inf and NaN NYI for Int
 S32-num/is-prime.t.................................  35    0    0    0   35
@@ -1800,7 +1796,7 @@ S32-num/rat.rakudo.moar............................ 818    1    4    1  824
      4 todo   : <1/3> literal should be Rat
 S32-num/real-bridge.t.............................. 200    0    0    0  200
 S32-num/roots.t....................................  55    0    0    0   55
-S32-num/rounders.t................................. 108   20    0    0  128
+S32-num/rounders.t................................. 128    0    0    0  128
 S32-num/sign.rakudo.moar...........................  33    0    1    1   35
      1 skipped: Test is kind of doubtful IMO -- colomon
      1 todo   : Nom does not yet have a NaN framework in place
@@ -1866,7 +1862,7 @@ S32-str/split-simple.rakudo.moar...................  48    0    1    0   49
      1 todo   : RT 112868
 S32-str/split.rakudo.moar..........................  52    0    0    1   53
      1 skipped: No such method null for invocant of type Cursor
-S32-str/sprintf.rakudo.moar........................ 126   10    2   11  149
+S32-str/sprintf.rakudo.moar........................ 132    4    2   11  149
     10 skipped: Issues with Inf
      1 skipped: %p doesn't yet throw exception - but should it, or just Failure?
      2 todo   : buggy
@@ -1910,11 +1906,11 @@ S32-temporal/Date.t................................Potential difficulties:
     at t/spec/S32-temporal/Date.t:28
     ------> [32m    isa_ok Date.new(2010, 01, 01[33m⏏[31m), Date, 'Date.new() returns a Date';  #[0m
   72    0    0    0   72
-S32-temporal/DateTime-Instant-Duration.rakudo.moa..  24    4    4    1   33
+S32-temporal/DateTime-Instant-Duration.rakudo.moa..  27    1    4    1   33
      1 skipped: nom regression
      1 todo   : high-precision Instants NYI (need FatRats)
      3 todo PASSED: high-precision Instants NYI (need FatRats)
-S32-temporal/DateTime.rakudo.moar.................. 185   15    1    0  201
+S32-temporal/DateTime.rakudo.moar.................. 200    0    1    0  201
      1 todo   : nom regression
 S32-temporal/calendar.t............................Potential difficulties:
     Leading 0 does not indicate octal in Perl 6; please use 0o1 if you mean that
@@ -2264,15 +2260,15 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        4061,    48,   122,   301,  4532,  4475
-"S03",        4744,    11,   126,   125,  5006,  4665
-"S04",         897,    67,    29,    27,  1020,  1038
-"S05",        4169,   720,   144,   352,  5385,  5829
+"S03",        4748,     7,   126,   125,  5006,  4665
+"S04",         930,    26,    34,    30,  1020,  1038
+"S05",        4183,   705,   145,   352,  5385,  5829
 "S06",         990,    99,    38,    97,  1223,  1291
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         172,     2,     9,    14,   197,   197
 "S10",          68,     0,     1,     2,    71,   128
 "S11",          73,     0,     2,     9,    84,   139
-"S12",        1290,     1,    46,   124,  1430,  1407
+"S12",        1333,     2,    48,   124,  1507,  1407
 "S13",          33,     0,    10,    27,    70,    80
 "S14",         232,    65,     7,    11,   315,   328
 "S16",         221,     2,     5,    30,   258,   302
@@ -2282,10 +2278,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         321,    14,     2,     3,   340,   350
-"S32",        8843,   126,    85,   210,  8796,  7051
+"S32",        8922,    69,    85,   210,  8796,  7051
 "int",         526,    21,     7,    28,   582,   571
 "ros",           2,     0,     0,     0,     2,     2
-"total",     26962,  1176,   633,  1381, 29652, 28495
+"total",     27135,  1060,   641,  1384, 29729, 28495
 ----------------
 Failure summary:
 S02-lexical-conventions/unicode-whitespace.t 10 - MONGOLIAN VOWEL SEPARATOR
@@ -2341,19 +2337,13 @@ S03-operators/arith.t 6 - -1 == 3
 S03-operators/arith.t 7 - 1 == -3
 S03-operators/arith.t 14 - 
 S03-operators/arith.t 15 - 
-S03-operators/arith.t 66 - -9 div 4 == -3
-S03-operators/arith.t 67 - 9 div -4 == -3
-S03-operators/arith.t 70 - -13 mod 4
-S03-operators/arith.t 71 - 13 mod -4
 S03-operators/bit.t 17 - long string bitwise ~^, no truncation
 S03-operators/overflow.t 46 - 7**(-1) works
-S04-declarations/will.rakudo.moar aborted 17 test(s)
 S04-phasers/enter-leave.rakudo.moar 19 - die doesn't abort LEAVE queue
-S04-phasers/first.t aborted 4 test(s)
-S04-phasers/pre-post.rakudo.moar aborted 22 test(s)
+S04-phasers/pre-post.rakudo.moar 15 - failing PRE runs nothing else
+S04-phasers/pre-post.rakudo.moar 19 - failing POST on exception doesn't replace $!
 S04-phasers/rvalue.t aborted 16 test(s)
 S04-statements/try.rakudo.moar aborted 7 test(s)
-S05-capture/caps.rakudo.moar aborted 15 test(s)
 S05-grammar/action-stubs.t 19 - $/ availiable
 S05-grammar/action-stubs.t 20 - token name
 S05-grammar/action-stubs.t 21 - token name (assertion)
@@ -3083,8 +3073,8 @@ S06-signature/types.t 4 - type check forbids bad return
 S06-signature/types.t 6 - type check forbids bad  implicitreturn
 S09-typed-arrays/arrays.rakudo.moar 54 - type check Positional of Int prevents untyped array to be returned explicitly
 S09-typed-arrays/arrays.rakudo.moar 55 - type check Positional of Int prevents untyped array to be returned implicitly
-S12-methods/chaining.t 4 - ... $_foo1 and $foo are the same instances
-S12-subset/subtypes.rakudo.moar passed 31 unplanned test(s)
+S12-subset/subtypes.rakudo.moar 68 - subsets of roles (2)
+S12-subset/subtypes.rakudo.moar 73 - error message mentions subset name
 S14-roles/anonymous.rakudo.moar 7 - anonymous role variable mixin
 S14-roles/anonymous.rakudo.moar 9 - anonymous role variable gave us an attribute
 S14-roles/parameter-subtyping.t 2 - basic sanity
@@ -3111,8 +3101,8 @@ S29-conversions/ord_and_chr.rakudo.moar 250 - chr of noncharacter
 S29-conversions/ord_and_chr.rakudo.moar 251 - chr out of range
 S29-conversions/ord_and_chr.rakudo.moar 253 - ord of named high character
 S29-os/system.rakudo.moar aborted 5 test(s)
-S32-exceptions/misc.rakudo.moar 466 - right exception type (X::Phaser::PrePost)
-S32-exceptions/misc.rakudo.moar passed 468 unplanned test(s)
+S32-exceptions/misc.rakudo.moar 488 - right exception type (X::Method::NotFound)
+S32-exceptions/misc.rakudo.moar passed 490 unplanned test(s)
 S32-io/copy.t 9 - It doesn't
 S32-io/copy.t 21 - It doesn't
 S32-io/dir.t aborted 12 test(s)
@@ -3120,45 +3110,12 @@ S32-io/io-spec-win.t aborted 20 test(s)
 S32-io/slurp.t 15 - iso-8859-1 makes mojibake correctly
 S32-list/roll.t aborted 1 test(s)
 S32-num/exp.t 26 - 1/2 is correct
-S32-num/int.rakudo.moar 14 - (-3.14159265).Int is -3
-S32-num/int.rakudo.moar 21 - (-0.999).Int is 0
-S32-num/int.rakudo.moar 22 - (-0.51).Int is 0
-S32-num/int.rakudo.moar 23 - (-0.5).Int is 0
-S32-num/int.rakudo.moar 24 - (-0.49).Int is 0
-S32-num/int.rakudo.moar 25 - (-0.1).Int is 0
-S32-num/int.rakudo.moar 32 - int(-1.999) is -1
-S32-num/int.rakudo.moar 33 - int(-1.51) is -1
-S32-num/int.rakudo.moar 34 - int(-1.5) is -1
-S32-num/int.rakudo.moar 35 - int(-1.49) is -1
-S32-num/int.rakudo.moar 36 - int(-1.1) is -1
-S32-num/int.rakudo.moar 53 - int('-1.999') is -1
-S32-num/int.rakudo.moar 80 - integral value for -99.99 is -99
 S32-num/power.rakudo.moar 11 - -1 ** 4553535345364535345634543534 == 1
 S32-num/power.rakudo.moar 12 - -1 ** 4553535345364535345634543534 == -1
 S32-num/power.rakudo.moar 13 - 2 ** 4553535345364535345634543534 == Inf
 S32-num/power.rakudo.moar 14 - -2 ** 4553535345364535345634543534 == Inf
 S32-num/power.rakudo.moar 15 - -2 ** 4553535345364535345634543534 == -Inf
 S32-num/rat.rakudo.moar 823 - Rat.Rat yields correct Rat
-S32-num/rounders.t 28 - ceiling(-0.1) == 0
-S32-num/rounders.t 30 - ceiling(-5.9) == -5
-S32-num/rounders.t 31 - ceiling(-0.5) == 0
-S32-num/rounders.t 38 - floor(-0.1) == -1
-S32-num/rounders.t 40 - floor(-5.9) == -6
-S32-num/rounders.t 41 - floor(-0.5) == -1
-S32-num/rounders.t 50 - round(-5.9) == -6
-S32-num/rounders.t 58 - truncate(-0.1) == 0
-S32-num/rounders.t 60 - truncate(-5.9) == -5
-S32-num/rounders.t 61 - truncate(-0.5) == 0
-S32-num/rounders.t 68 - (-0.1).ceiling == 0
-S32-num/rounders.t 70 - (-5.9).ceiling == -5
-S32-num/rounders.t 71 - (-0.5).ceiling == 0
-S32-num/rounders.t 78 - (-0.1).floor == -1
-S32-num/rounders.t 80 - (-5.9).floor == -6
-S32-num/rounders.t 81 - (-0.5).floor == -1
-S32-num/rounders.t 90 - (-5.9).round == -6
-S32-num/rounders.t 98 - (-0.1).truncate == 0
-S32-num/rounders.t 100 - (-5.9).truncate == -5
-S32-num/rounders.t 101 - (-0.5).truncate == 0
 S32-str/capitalize.rakudo.moar 2 - wordcase('...') works
 S32-str/capitalize.rakudo.moar 3 - '...'.wordcase works
 S32-str/capitalize.rakudo.moar 4 - wordcase works properly with apostrophes
@@ -3174,12 +3131,6 @@ S32-str/encode.rakudo.moar 20 - indexing a utf16 gives correct value
 S32-str/encode.rakudo.moar 21 - indexing a utf16 gives correct value
 S32-str/encode.rakudo.moar 22 - decoding utf16 Buf to original value
 S32-str/lc.t 13 - lower-casing of greek Sigma respects word-final special case
-S32-str/sprintf.rakudo.moar 54 - %d works for negative big Rats
-S32-str/sprintf.rakudo.moar 56 - %d works for negative big FatRats
-S32-str/sprintf.rakudo.moar 58 - %b works for negative big Rats
-S32-str/sprintf.rakudo.moar 60 - %o works for negative big Rats
-S32-str/sprintf.rakudo.moar 62 - %x works for negative big Rats
-S32-str/sprintf.rakudo.moar 64 - %X works for negative big Rats
 S32-str/sprintf.rakudo.moar 138 - RT #118601
 S32-str/sprintf.rakudo.moar 142 - RT 116280
 S32-str/sprintf.rakudo.moar 143 - RT 116280
@@ -3189,25 +3140,7 @@ S32-str/substr.rakudo.moar 49 - .substr.wordcase on literal string (substr(Int, 
 S32-str/substr.rakudo.moar 86 - .substr.wordcase on literal string (substr(Int, StrPos)).
 S32-str/tclc.t 3 - tclc and German sharp s
 S32-str/uc.rakudo.moar 10 - uc() of non-ascii chars may result in two chars
-S32-temporal/DateTime-Instant-Duration.rakudo.moa 17 - Instant subtraction (time zones)
-S32-temporal/DateTime-Instant-Duration.rakudo.moa 19 - Instant subtraction (leap second and time zones)
-S32-temporal/DateTime-Instant-Duration.rakudo.moa 20 - Instant subtraction (thirty-year span)
 S32-temporal/DateTime-Instant-Duration.rakudo.moa 32 - DateTime.new(Instant) with time zone and formatter
-S32-temporal/DateTime.rakudo.moar 63 - Leap-second validation: Okay because of TZ; January 1
-S32-temporal/DateTime.rakudo.moar 67 - Leap-second validation: Okay because of TZ; January 1 (second 60.9)
-S32-temporal/DateTime.rakudo.moar 83 - DateTime.new(Int) with time zone and formatter
-S32-temporal/DateTime.rakudo.moar 125 - DateTime.in-timezone (subtracting hours)
-S32-temporal/DateTime.rakudo.moar 128 - DateTime.in-timezone (+ hours to - hours)
-S32-temporal/DateTime.rakudo.moar 129 - DateTime.in-timezone (decreasing negative hours)
-S32-temporal/DateTime.rakudo.moar 131 - DateTime.in-timezone (negative seconds)
-S32-temporal/DateTime.rakudo.moar 132 - DateTime.in-timezone (hour rollover 1)
-S32-temporal/DateTime.rakudo.moar 134 - DateTime.in-timezone (hours and minutes)
-S32-temporal/DateTime.rakudo.moar 135 - DateTime.in-timezone (hours, minutes, and seconds)
-S32-temporal/DateTime.rakudo.moar 136 - DateTime.in-timezone (one-day rollover)
-S32-temporal/DateTime.rakudo.moar 138 - DateTime.in-timezone (year rollover)
-S32-temporal/DateTime.rakudo.moar 140 - DateTime.in-timezone (big rollover)
-S32-temporal/DateTime.rakudo.moar 191 - subtracting 14 minutes, overflowing to hours
-S32-temporal/DateTime.rakudo.moar 194 - subtracting 14 horus, overflowing to days
 integration/99problems-21-to-30.rakudo.moar 15 - ..or according to frequency of length of sublists
 integration/advent2009-day08.t aborted 8 test(s)
 integration/advent2009-day14.t 13 - 
