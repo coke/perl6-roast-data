@@ -325,8 +325,10 @@ S02-types/sigils-and-types.rakudo.moar.............  26    0    2    0   28
      1 todo   : Capture does Associative
      1 todo   : Capture does Positional
 S02-types/subscripts_and_context.t.................   8    0    0    0    8
-S02-types/subset.rakudo.moar.......................  41    1    0    1   43
+S02-types/subset.rakudo.moar.......................Segmentation fault
+  20   22    0    1   43
      1 skipped: (noauto) succeeds for the wrong reason (need to test the error)
+    22 tests aborted (missing ok/not ok)
 S02-types/type.t...................................  41    9    0    0   50
 S02-types/undefined-types.rakudo.moar..............use of uninitialized value of type Int in string context
 use of uninitialized value of type Int in string context
@@ -857,7 +859,7 @@ S05-interpolation/lexicals.t.......................  10    0    0    0   10
 S05-interpolation/regex-in-variable.rakudo.moar....  30    0    1    3   34
      3 skipped: instance member interpolation
      1 todo   : warn on undef
-S05-mass/charsets.rakudo.moar......................  10    5    1    0   16
+S05-mass/charsets.rakudo.moar......................  11    4    1    0   16
      1 todo   : unicode 6.0 punct characters
 S05-mass/named-chars.rakudo.moar................... 238   46   53   94  431
      2 skipped: CR as char name
@@ -872,8 +874,8 @@ S05-mass/named-chars.rakudo.moar................... 238   46   53   94  431
      2 skipped: LF as char name
     46 todo   : \C escape
      7 todo PASSED: \C escape
-S05-mass/properties-block.t........................ 340  330    0    0  670
-S05-mass/properties-derived.t......................  69  187    0    0  256
+S05-mass/properties-block.t........................ 667    3    0    0  670
+S05-mass/properties-derived.t...................... 185   71    0    0  256
 S05-mass/properties-general.rakudo.moar............ 490   69    0   37  596
     10 skipped: No [Lr] property defined
      4 skipped: Uninvestigated nqp-rx regression
@@ -1291,7 +1293,17 @@ use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Int in string context
 use of uninitialized value of type Int in string context
-  30    0    0    0   30
+Nominal type check failed for parameter 'key'; expected Int but got Str
+  in method at_key at src/gen/m-CORE.setting:9098
+  in method delete_key at src/gen/m-CORE.setting:8950
+  in method delete_key at src/gen/m-CORE.setting:8942
+  in block frame_name_2840 at src/gen/m-CORE.setting:1987
+  in sub postcircumfix:<{ }> at src/gen/m-CORE.setting:2525
+  in sub postcircumfix:<{ }> at src/gen/m-CORE.setting:2513
+  in block frame_name_1 at t/spec/S09-typed-arrays/hashes.t:62
+
+  31    2    0    0   33
+     2 tests aborted (missing ok/not ok)
                                                    pass fail todo skip plan
 S10-packages/basic.rakudo.moar.....................  56    0    1    2   59
      1 skipped: ticket based only on class... RT #60446
@@ -1466,8 +1478,9 @@ S12-methods/what.t.................................use of uninitialized value of
 use of uninitialized value of type Match in numeric context
   33    0    0    0   33
 S12-subset/multi-dispatch.t........................   6    0    0    0    6
-S12-subset/subtypes.rakudo.moar....................  73    2    2    0   77
-     2 todo   : RT 79160
+S12-subset/subtypes.rakudo.moar....................Segmentation fault
+  21    0    0    0    0
+    21 tests more than planned were run
                                                    pass fail todo skip plan
 S13-overloading/metaoperators.t....................   9    0    0    0    9
 S13-overloading/operators.rakudo.moar..............   3    0    0    1    4
@@ -1675,9 +1688,9 @@ IO::Handle.copy is deprecated.  Please use IO::Path.copy instead.
   27    2    0    0   29
 S32-io/dir.t.......................................Type check failed in bind; expected Str but got Failure
   in any bind_error at src/vm/moar/Perl6/Ops.nqp:227
-  in block frame_name_13776 at src/gen/m-CORE.setting:13446
-  in sub frame_name_9928 at src/gen/m-CORE.setting:7476
-  in sub frame_name_9937 at src/gen/m-CORE.setting:7481
+  in block frame_name_13777 at src/gen/m-CORE.setting:13446
+  in sub frame_name_9929 at src/gen/m-CORE.setting:7476
+  in sub frame_name_9938 at src/gen/m-CORE.setting:7481
   in method reify at src/gen/m-CORE.setting:7508
   in method reify at src/gen/m-CORE.setting:7241
   in method reify at src/gen/m-CORE.setting:7241
@@ -2259,16 +2272,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4061,    48,   122,   301,  4532,  4475
+"S02",        4040,    69,   122,   301,  4532,  4475
 "S03",        4748,     7,   126,   125,  5006,  4665
 "S04",         930,    26,    34,    30,  1020,  1038
-"S05",        4183,   705,   145,   352,  5385,  5829
+"S05",        4627,   261,   145,   352,  5385,  5829
 "S06",         990,    99,    38,    97,  1223,  1291
 "S07",           0,     0,     0,     0,     0,     0
-"S09",         172,     2,     9,    14,   197,   197
+"S09",         173,     4,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
 "S11",          73,     0,     2,     9,    84,   139
-"S12",        1333,     2,    48,   124,  1507,  1407
+"S12",        1281,     0,    46,   124,  1430,  1407
 "S13",          33,     0,    10,    27,    70,    80
 "S14",         232,    65,     7,    11,   315,   328
 "S16",         221,     2,     5,    30,   258,   302
@@ -2281,7 +2294,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        8922,    69,    85,   210,  8796,  7051
 "int",         526,    21,     7,    28,   582,   571
 "ros",           2,     0,     0,     0,     2,     2
-"total",     27135,  1060,   641,  1384, 29729, 28495
+"total",     27507,   637,   639,  1384, 29655, 28498
 ----------------
 Failure summary:
 S02-lexical-conventions/unicode-whitespace.t 10 - MONGOLIAN VOWEL SEPARATOR
@@ -2322,7 +2335,7 @@ S02-types/isDEPRECATED.rakudo.moar 12 - right deprecation for C.new.foo
 S02-types/isDEPRECATED.rakudo.moar 14 - right deprecation Cwith.new.foo
 S02-types/lists.rakudo.moar 20 - error message contains name of class
 S02-types/num.t 12 - EVAL 1e100.Num.perl is 1
-S02-types/subset.rakudo.moar 26 - error for bad assignment mentions subset
+S02-types/subset.rakudo.moar aborted 22 test(s)
 S02-types/type.t 14 - native int type cannot be undefined
 S02-types/type.t 24 - bad return value dies (returns)
 S02-types/type.t 26 - bad return value dies (of)
@@ -2352,7 +2365,6 @@ S05-mass/charsets.rakudo.moar 7 - cntrl chars
 S05-mass/charsets.rakudo.moar 8 - lower chars
 S05-mass/charsets.rakudo.moar 13 - unicode Letter chars
 S05-mass/charsets.rakudo.moar 15 - combined unicode classes
-S05-mass/charsets.rakudo.moar 16 - combined unicode and builtins
 S05-mass/named-chars.rakudo.moar 122 - Unanchored named ARABIC LIGATURE TEH WITH MEEM WITH JEEM INITIAL FORM
 S05-mass/named-chars.rakudo.moar 123 - Unanchored \x[fd55]
 S05-mass/named-chars.rakudo.moar 124 - Unanchored \o[176525]
@@ -2399,472 +2411,29 @@ S05-mass/named-chars.rakudo.moar 408 - Anchored HALFWIDTH KATAKANA LETTER SMALL 
 S05-mass/named-chars.rakudo.moar 409 - Multiple HALFWIDTH KATAKANA LETTER SMALL YO,YI SYLLABLE JJYT
 S05-mass/named-chars.rakudo.moar 410 - Charclass multiple HALFWIDTH KATAKANA LETTER SMALL YO,YI SYLLABLE JJYT
 S05-mass/named-chars.rakudo.moar 411 - Negative charclass HALFWIDTH KATAKANA LETTER SMALL YO,YI SYLLABLE JJYT
-S05-mass/properties-block.t 1 - Don't match unrelated <InAlphabeticPresentationForms>
-S05-mass/properties-block.t 2 - Match unrelated negated <InAlphabeticPresentationForms>
-S05-mass/properties-block.t 3 - Match unrelated inverted <InAlphabeticPresentationForms>
-S05-mass/properties-block.t 7 - Don't match unrelated <InArabic>
-S05-mass/properties-block.t 8 - Match unrelated negated <InArabic>
-S05-mass/properties-block.t 9 - Match unrelated inverted <InArabic>
-S05-mass/properties-block.t 11 - Don't match unrelated <InArabicPresentationFormsA>
-S05-mass/properties-block.t 12 - Match unrelated negated <InArabicPresentationFormsA>
-S05-mass/properties-block.t 13 - Match unrelated inverted <InArabicPresentationFormsA>
-S05-mass/properties-block.t 14 - Don't match unrelated <InArabicPresentationFormsB>
-S05-mass/properties-block.t 15 - Match unrelated negated <InArabicPresentationFormsB>
-S05-mass/properties-block.t 16 - Match unrelated inverted <InArabicPresentationFormsB>
-S05-mass/properties-block.t 20 - Don't match unrelated <InArmenian>
-S05-mass/properties-block.t 21 - Match unrelated negated <InArmenian>
-S05-mass/properties-block.t 22 - Match unrelated inverted <InArmenian>
-S05-mass/properties-block.t 27 - Don't match unrelated <InArrows>
-S05-mass/properties-block.t 28 - Match unrelated negated <InArrows>
-S05-mass/properties-block.t 29 - Match unrelated inverted <InArrows>
-S05-mass/properties-block.t 34 - Don't match unrelated <InBasicLatin>
-S05-mass/properties-block.t 35 - Match unrelated negated <InBasicLatin>
-S05-mass/properties-block.t 36 - Match unrelated inverted <InBasicLatin>
-S05-mass/properties-block.t 41 - Don't match unrelated <InBengali>
-S05-mass/properties-block.t 42 - Match unrelated negated <InBengali>
-S05-mass/properties-block.t 43 - Match unrelated inverted <InBengali>
-S05-mass/properties-block.t 48 - Don't match unrelated <InBlockElements>
-S05-mass/properties-block.t 49 - Match unrelated negated <InBlockElements>
-S05-mass/properties-block.t 50 - Match unrelated inverted <InBlockElements>
-S05-mass/properties-block.t 55 - Don't match unrelated <InBopomofo>
-S05-mass/properties-block.t 56 - Match unrelated negated <InBopomofo>
-S05-mass/properties-block.t 57 - Match unrelated inverted <InBopomofo>
-S05-mass/properties-block.t 62 - Don't match unrelated <InBopomofoExtended>
-S05-mass/properties-block.t 63 - Match unrelated negated <InBopomofoExtended>
-S05-mass/properties-block.t 64 - Match unrelated inverted <InBopomofoExtended>
-S05-mass/properties-block.t 69 - Don't match unrelated <InBoxDrawing>
-S05-mass/properties-block.t 70 - Match unrelated negated <InBoxDrawing>
-S05-mass/properties-block.t 71 - Match unrelated inverted <InBoxDrawing>
-S05-mass/properties-block.t 76 - Don't match unrelated <InBraillePatterns>
-S05-mass/properties-block.t 77 - Match unrelated negated <InBraillePatterns>
-S05-mass/properties-block.t 78 - Match unrelated inverted <InBraillePatterns>
-S05-mass/properties-block.t 83 - Don't match unrelated <InBuhid>
-S05-mass/properties-block.t 84 - Match unrelated negated <InBuhid>
-S05-mass/properties-block.t 85 - Match unrelated inverted <InBuhid>
-S05-mass/properties-block.t 87 - Don't match unrelated <InByzantineMusicalSymbols>
-S05-mass/properties-block.t 88 - Match unrelated negated <InByzantineMusicalSymbols>
-S05-mass/properties-block.t 89 - Match unrelated inverted <InByzantineMusicalSymbols>
-S05-mass/properties-block.t 93 - Don't match unrelated <InCJKCompatibility>
-S05-mass/properties-block.t 94 - Match unrelated negated <InCJKCompatibility>
-S05-mass/properties-block.t 95 - Match unrelated inverted <InCJKCompatibility>
-S05-mass/properties-block.t 97 - Don't match unrelated <InCJKCompatibilityForms>
-S05-mass/properties-block.t 98 - Match unrelated negated <InCJKCompatibilityForms>
-S05-mass/properties-block.t 99 - Match unrelated inverted <InCJKCompatibilityForms>
-S05-mass/properties-block.t 100 - Don't match unrelated <InCJKCompatibilityIdeographs>
-S05-mass/properties-block.t 101 - Match unrelated negated <InCJKCompatibilityIdeographs>
-S05-mass/properties-block.t 102 - Match unrelated inverted <InCJKCompatibilityIdeographs>
-S05-mass/properties-block.t 103 - Don't match unrelated <InCJKCompatibilityIdeographsSupplement>
-S05-mass/properties-block.t 104 - Match unrelated negated <InCJKCompatibilityIdeographsSupplement>
-S05-mass/properties-block.t 105 - Match unrelated inverted <InCJKCompatibilityIdeographsSupplement>
-S05-mass/properties-block.t 109 - Don't match unrelated <InCJKRadicalsSupplement>
-S05-mass/properties-block.t 110 - Match unrelated negated <InCJKRadicalsSupplement>
-S05-mass/properties-block.t 111 - Match unrelated inverted <InCJKRadicalsSupplement>
-S05-mass/properties-block.t 116 - Don't match unrelated <InCJKSymbolsAndPunctuation>
-S05-mass/properties-block.t 117 - Match unrelated negated <InCJKSymbolsAndPunctuation>
-S05-mass/properties-block.t 118 - Match unrelated inverted <InCJKSymbolsAndPunctuation>
-S05-mass/properties-block.t 123 - Don't match unrelated <InCJKUnifiedIdeographs>
-S05-mass/properties-block.t 124 - Match unrelated negated <InCJKUnifiedIdeographs>
-S05-mass/properties-block.t 125 - Match unrelated inverted <InCJKUnifiedIdeographs>
-S05-mass/properties-block.t 130 - Don't match unrelated <InCJKUnifiedIdeographsExtensionA>
-S05-mass/properties-block.t 131 - Match unrelated negated <InCJKUnifiedIdeographsExtensionA>
-S05-mass/properties-block.t 132 - Match unrelated inverted <InCJKUnifiedIdeographsExtensionA>
-S05-mass/properties-block.t 134 - Don't match unrelated <InCJKUnifiedIdeographsExtensionB>
-S05-mass/properties-block.t 135 - Match unrelated negated <InCJKUnifiedIdeographsExtensionB>
-S05-mass/properties-block.t 136 - Match unrelated inverted <InCJKUnifiedIdeographsExtensionB>
-S05-mass/properties-block.t 140 - Don't match unrelated <InCherokee>
-S05-mass/properties-block.t 141 - Match unrelated negated <InCherokee>
-S05-mass/properties-block.t 142 - Match unrelated inverted <InCherokee>
-S05-mass/properties-block.t 147 - Don't match unrelated <InCombiningDiacriticalMarks>
-S05-mass/properties-block.t 148 - Match unrelated negated <InCombiningDiacriticalMarks>
-S05-mass/properties-block.t 149 - Match unrelated inverted <InCombiningDiacriticalMarks>
 S05-mass/properties-block.t 154 - Don't match unrelated <InCombiningDiacriticalMarksforSymbols>
 S05-mass/properties-block.t 155 - Match unrelated negated <InCombiningDiacriticalMarksforSymbols>
 S05-mass/properties-block.t 156 - Match unrelated inverted <InCombiningDiacriticalMarksforSymbols>
-S05-mass/properties-block.t 158 - Don't match unrelated <InCombiningHalfMarks>
-S05-mass/properties-block.t 159 - Match unrelated negated <InCombiningHalfMarks>
-S05-mass/properties-block.t 160 - Match unrelated inverted <InCombiningHalfMarks>
-S05-mass/properties-block.t 164 - Don't match unrelated <InControlPictures>
-S05-mass/properties-block.t 165 - Match unrelated negated <InControlPictures>
-S05-mass/properties-block.t 166 - Match unrelated inverted <InControlPictures>
-S05-mass/properties-block.t 171 - Don't match unrelated <InCurrencySymbols>
-S05-mass/properties-block.t 172 - Match unrelated negated <InCurrencySymbols>
-S05-mass/properties-block.t 173 - Match unrelated inverted <InCurrencySymbols>
-S05-mass/properties-block.t 178 - Don't match unrelated <InCyrillic>
-S05-mass/properties-block.t 179 - Match unrelated negated <InCyrillic>
-S05-mass/properties-block.t 180 - Match unrelated inverted <InCyrillic>
-S05-mass/properties-block.t 185 - Don't match unrelated <InCyrillicSupplementary>
-S05-mass/properties-block.t 186 - Match unrelated negated <InCyrillicSupplementary>
-S05-mass/properties-block.t 187 - Match unrelated inverted <InCyrillicSupplementary>
-S05-mass/properties-block.t 189 - Don't match unrelated <InDeseret>
-S05-mass/properties-block.t 190 - Match unrelated negated <InDeseret>
-S05-mass/properties-block.t 191 - Match unrelated inverted <InDeseret>
-S05-mass/properties-block.t 195 - Don't match unrelated <InDevanagari>
-S05-mass/properties-block.t 196 - Match unrelated negated <InDevanagari>
-S05-mass/properties-block.t 197 - Match unrelated inverted <InDevanagari>
-S05-mass/properties-block.t 202 - Don't match unrelated <InDingbats>
-S05-mass/properties-block.t 203 - Match unrelated negated <InDingbats>
-S05-mass/properties-block.t 204 - Match unrelated inverted <InDingbats>
-S05-mass/properties-block.t 209 - Don't match unrelated <InEnclosedAlphanumerics>
-S05-mass/properties-block.t 210 - Match unrelated negated <InEnclosedAlphanumerics>
-S05-mass/properties-block.t 211 - Match unrelated inverted <InEnclosedAlphanumerics>
-S05-mass/properties-block.t 216 - Don't match unrelated <InEnclosedCJKLettersAndMonths>
-S05-mass/properties-block.t 217 - Match unrelated negated <InEnclosedCJKLettersAndMonths>
-S05-mass/properties-block.t 218 - Match unrelated inverted <InEnclosedCJKLettersAndMonths>
-S05-mass/properties-block.t 223 - Don't match unrelated <InEthiopic>
-S05-mass/properties-block.t 224 - Match unrelated negated <InEthiopic>
-S05-mass/properties-block.t 225 - Match unrelated inverted <InEthiopic>
-S05-mass/properties-block.t 230 - Don't match unrelated <InGeneralPunctuation>
-S05-mass/properties-block.t 231 - Match unrelated negated <InGeneralPunctuation>
-S05-mass/properties-block.t 232 - Match unrelated inverted <InGeneralPunctuation>
-S05-mass/properties-block.t 237 - Don't match unrelated <InGeometricShapes>
-S05-mass/properties-block.t 238 - Match unrelated negated <InGeometricShapes>
-S05-mass/properties-block.t 239 - Match unrelated inverted <InGeometricShapes>
-S05-mass/properties-block.t 244 - Don't match unrelated <InGeorgian>
-S05-mass/properties-block.t 245 - Match unrelated negated <InGeorgian>
-S05-mass/properties-block.t 246 - Match unrelated inverted <InGeorgian>
-S05-mass/properties-block.t 248 - Don't match unrelated <InGothic>
-S05-mass/properties-block.t 249 - Match unrelated negated <InGothic>
-S05-mass/properties-block.t 250 - Match unrelated inverted <InGothic>
-S05-mass/properties-block.t 254 - Don't match unrelated <InGreekExtended>
-S05-mass/properties-block.t 255 - Match unrelated negated <InGreekExtended>
-S05-mass/properties-block.t 256 - Match unrelated inverted <InGreekExtended>
-S05-mass/properties-block.t 261 - Don't match unrelated <InGreekAndCoptic>
-S05-mass/properties-block.t 262 - Match unrelated negated <InGreekAndCoptic>
-S05-mass/properties-block.t 263 - Match unrelated inverted <InGreekAndCoptic>
-S05-mass/properties-block.t 268 - Don't match unrelated <InGujarati>
-S05-mass/properties-block.t 269 - Match unrelated negated <InGujarati>
-S05-mass/properties-block.t 270 - Match unrelated inverted <InGujarati>
-S05-mass/properties-block.t 275 - Don't match unrelated <InGurmukhi>
-S05-mass/properties-block.t 276 - Match unrelated negated <InGurmukhi>
-S05-mass/properties-block.t 277 - Match unrelated inverted <InGurmukhi>
-S05-mass/properties-block.t 279 - Don't match unrelated <InHalfwidthAndFullwidthForms>
-S05-mass/properties-block.t 280 - Match unrelated negated <InHalfwidthAndFullwidthForms>
-S05-mass/properties-block.t 281 - Match unrelated inverted <InHalfwidthAndFullwidthForms>
-S05-mass/properties-block.t 285 - Don't match unrelated <InHangulCompatibilityJamo>
-S05-mass/properties-block.t 286 - Match unrelated negated <InHangulCompatibilityJamo>
-S05-mass/properties-block.t 287 - Match unrelated inverted <InHangulCompatibilityJamo>
-S05-mass/properties-block.t 292 - Don't match unrelated <InHangulJamo>
-S05-mass/properties-block.t 293 - Match unrelated negated <InHangulJamo>
-S05-mass/properties-block.t 294 - Match unrelated inverted <InHangulJamo>
-S05-mass/properties-block.t 299 - Don't match unrelated <InHangulSyllables>
-S05-mass/properties-block.t 300 - Match unrelated negated <InHangulSyllables>
-S05-mass/properties-block.t 301 - Match unrelated inverted <InHangulSyllables>
-S05-mass/properties-block.t 306 - Don't match unrelated <InHanunoo>
-S05-mass/properties-block.t 307 - Match unrelated negated <InHanunoo>
-S05-mass/properties-block.t 308 - Match unrelated inverted <InHanunoo>
-S05-mass/properties-block.t 313 - Don't match unrelated <InHebrew>
-S05-mass/properties-block.t 314 - Match unrelated negated <InHebrew>
-S05-mass/properties-block.t 315 - Match unrelated inverted <InHebrew>
-S05-mass/properties-block.t 317 - Don't match unrelated <InHighPrivateUseSurrogates>
-S05-mass/properties-block.t 318 - Match unrelated negated <InHighPrivateUseSurrogates>
-S05-mass/properties-block.t 319 - Match unrelated inverted <InHighPrivateUseSurrogates>
-S05-mass/properties-block.t 320 - Don't match unrelated <InHighSurrogates>
-S05-mass/properties-block.t 321 - Match unrelated negated <InHighSurrogates>
-S05-mass/properties-block.t 322 - Match unrelated inverted <InHighSurrogates>
-S05-mass/properties-block.t 326 - Don't match unrelated <InHiragana>
-S05-mass/properties-block.t 327 - Match unrelated negated <InHiragana>
-S05-mass/properties-block.t 328 - Match unrelated inverted <InHiragana>
-S05-mass/properties-block.t 333 - Don't match unrelated <InIPAExtensions>
-S05-mass/properties-block.t 334 - Match unrelated negated <InIPAExtensions>
-S05-mass/properties-block.t 335 - Match unrelated inverted <InIPAExtensions>
-S05-mass/properties-block.t 340 - Don't match unrelated <InIdeographicDescriptionCharacters>
-S05-mass/properties-block.t 341 - Match unrelated negated <InIdeographicDescriptionCharacters>
-S05-mass/properties-block.t 342 - Match unrelated inverted <InIdeographicDescriptionCharacters>
-S05-mass/properties-block.t 347 - Don't match unrelated <InKanbun>
-S05-mass/properties-block.t 348 - Match unrelated negated <InKanbun>
-S05-mass/properties-block.t 349 - Match unrelated inverted <InKanbun>
-S05-mass/properties-block.t 354 - Don't match unrelated <InKangxiRadicals>
-S05-mass/properties-block.t 355 - Match unrelated negated <InKangxiRadicals>
-S05-mass/properties-block.t 356 - Match unrelated inverted <InKangxiRadicals>
-S05-mass/properties-block.t 361 - Don't match unrelated <InKannada>
-S05-mass/properties-block.t 362 - Match unrelated negated <InKannada>
-S05-mass/properties-block.t 363 - Match unrelated inverted <InKannada>
-S05-mass/properties-block.t 368 - Don't match unrelated <InKatakana>
-S05-mass/properties-block.t 369 - Match unrelated negated <InKatakana>
-S05-mass/properties-block.t 370 - Match unrelated inverted <InKatakana>
-S05-mass/properties-block.t 375 - Don't match unrelated <InKatakanaPhoneticExtensions>
-S05-mass/properties-block.t 376 - Match unrelated negated <InKatakanaPhoneticExtensions>
-S05-mass/properties-block.t 377 - Match unrelated inverted <InKatakanaPhoneticExtensions>
-S05-mass/properties-block.t 382 - Don't match unrelated <InKhmer>
-S05-mass/properties-block.t 383 - Match unrelated negated <InKhmer>
-S05-mass/properties-block.t 384 - Match unrelated inverted <InKhmer>
-S05-mass/properties-block.t 389 - Don't match unrelated <InLao>
-S05-mass/properties-block.t 390 - Match unrelated negated <InLao>
-S05-mass/properties-block.t 391 - Match unrelated inverted <InLao>
-S05-mass/properties-block.t 396 - Don't match unrelated <InLatin1Supplement>
-S05-mass/properties-block.t 397 - Match unrelated negated <InLatin1Supplement>
-S05-mass/properties-block.t 398 - Match unrelated inverted <InLatin1Supplement>
-S05-mass/properties-block.t 403 - Don't match unrelated <InLatinExtendedA>
-S05-mass/properties-block.t 404 - Match unrelated negated <InLatinExtendedA>
-S05-mass/properties-block.t 405 - Match unrelated inverted <InLatinExtendedA>
-S05-mass/properties-block.t 410 - Don't match unrelated <InLatinExtendedAdditional>
-S05-mass/properties-block.t 411 - Match unrelated negated <InLatinExtendedAdditional>
-S05-mass/properties-block.t 412 - Match unrelated inverted <InLatinExtendedAdditional>
-S05-mass/properties-block.t 417 - Don't match unrelated <InLatinExtendedB>
-S05-mass/properties-block.t 418 - Match unrelated negated <InLatinExtendedB>
-S05-mass/properties-block.t 419 - Match unrelated inverted <InLatinExtendedB>
-S05-mass/properties-block.t 424 - Don't match unrelated <InLetterlikeSymbols>
-S05-mass/properties-block.t 425 - Match unrelated negated <InLetterlikeSymbols>
-S05-mass/properties-block.t 426 - Match unrelated inverted <InLetterlikeSymbols>
-S05-mass/properties-block.t 428 - Don't match unrelated <InLowSurrogates>
-S05-mass/properties-block.t 429 - Match unrelated negated <InLowSurrogates>
-S05-mass/properties-block.t 430 - Match unrelated inverted <InLowSurrogates>
-S05-mass/properties-block.t 434 - Don't match unrelated <InMalayalam>
-S05-mass/properties-block.t 435 - Match unrelated negated <InMalayalam>
-S05-mass/properties-block.t 436 - Match unrelated inverted <InMalayalam>
-S05-mass/properties-block.t 438 - Don't match unrelated <InMathematicalAlphanumericSymbols>
-S05-mass/properties-block.t 439 - Match unrelated negated <InMathematicalAlphanumericSymbols>
-S05-mass/properties-block.t 440 - Match unrelated inverted <InMathematicalAlphanumericSymbols>
-S05-mass/properties-block.t 444 - Don't match unrelated <InMathematicalOperators>
-S05-mass/properties-block.t 445 - Match unrelated negated <InMathematicalOperators>
-S05-mass/properties-block.t 446 - Match unrelated inverted <InMathematicalOperators>
-S05-mass/properties-block.t 451 - Don't match unrelated <InMiscellaneousMathematicalSymbolsA>
-S05-mass/properties-block.t 452 - Match unrelated negated <InMiscellaneousMathematicalSymbolsA>
-S05-mass/properties-block.t 453 - Match unrelated inverted <InMiscellaneousMathematicalSymbolsA>
-S05-mass/properties-block.t 458 - Don't match unrelated <InMiscellaneousMathematicalSymbolsB>
-S05-mass/properties-block.t 459 - Match unrelated negated <InMiscellaneousMathematicalSymbolsB>
-S05-mass/properties-block.t 460 - Match unrelated inverted <InMiscellaneousMathematicalSymbolsB>
-S05-mass/properties-block.t 465 - Don't match unrelated <InMiscellaneousSymbols>
-S05-mass/properties-block.t 466 - Match unrelated negated <InMiscellaneousSymbols>
-S05-mass/properties-block.t 467 - Match unrelated inverted <InMiscellaneousSymbols>
-S05-mass/properties-block.t 472 - Don't match unrelated <InMiscellaneousTechnical>
-S05-mass/properties-block.t 473 - Match unrelated negated <InMiscellaneousTechnical>
-S05-mass/properties-block.t 474 - Match unrelated inverted <InMiscellaneousTechnical>
-S05-mass/properties-block.t 479 - Don't match unrelated <InMongolian>
-S05-mass/properties-block.t 480 - Match unrelated negated <InMongolian>
-S05-mass/properties-block.t 481 - Match unrelated inverted <InMongolian>
-S05-mass/properties-block.t 483 - Don't match unrelated <InMusicalSymbols>
-S05-mass/properties-block.t 484 - Match unrelated negated <InMusicalSymbols>
-S05-mass/properties-block.t 485 - Match unrelated inverted <InMusicalSymbols>
-S05-mass/properties-block.t 489 - Don't match unrelated <InMyanmar>
-S05-mass/properties-block.t 490 - Match unrelated negated <InMyanmar>
-S05-mass/properties-block.t 491 - Match unrelated inverted <InMyanmar>
-S05-mass/properties-block.t 496 - Don't match unrelated <InNumberForms>
-S05-mass/properties-block.t 497 - Match unrelated negated <InNumberForms>
-S05-mass/properties-block.t 498 - Match unrelated inverted <InNumberForms>
-S05-mass/properties-block.t 503 - Don't match unrelated <InOgham>
-S05-mass/properties-block.t 504 - Match unrelated negated <InOgham>
-S05-mass/properties-block.t 505 - Match unrelated inverted <InOgham>
-S05-mass/properties-block.t 507 - Don't match unrelated <InOldItalic>
-S05-mass/properties-block.t 508 - Match unrelated negated <InOldItalic>
-S05-mass/properties-block.t 509 - Match unrelated inverted <InOldItalic>
-S05-mass/properties-block.t 513 - Don't match unrelated <InOpticalCharacterRecognition>
-S05-mass/properties-block.t 514 - Match unrelated negated <InOpticalCharacterRecognition>
-S05-mass/properties-block.t 515 - Match unrelated inverted <InOpticalCharacterRecognition>
-S05-mass/properties-block.t 520 - Don't match unrelated <InOriya>
-S05-mass/properties-block.t 521 - Match unrelated negated <InOriya>
-S05-mass/properties-block.t 522 - Match unrelated inverted <InOriya>
-S05-mass/properties-block.t 524 - Don't match unrelated <InPrivateUseArea>
-S05-mass/properties-block.t 525 - Match unrelated negated <InPrivateUseArea>
-S05-mass/properties-block.t 526 - Match unrelated inverted <InPrivateUseArea>
-S05-mass/properties-block.t 530 - Don't match unrelated <InRunic>
-S05-mass/properties-block.t 531 - Match unrelated negated <InRunic>
-S05-mass/properties-block.t 532 - Match unrelated inverted <InRunic>
-S05-mass/properties-block.t 537 - Don't match unrelated <InSinhala>
-S05-mass/properties-block.t 538 - Match unrelated negated <InSinhala>
-S05-mass/properties-block.t 539 - Match unrelated inverted <InSinhala>
-S05-mass/properties-block.t 541 - Don't match unrelated <InSmallFormVariants>
-S05-mass/properties-block.t 542 - Match unrelated negated <InSmallFormVariants>
-S05-mass/properties-block.t 543 - Match unrelated inverted <InSmallFormVariants>
-S05-mass/properties-block.t 547 - Don't match unrelated <InSpacingModifierLetters>
-S05-mass/properties-block.t 548 - Match unrelated negated <InSpacingModifierLetters>
-S05-mass/properties-block.t 549 - Match unrelated inverted <InSpacingModifierLetters>
-S05-mass/properties-block.t 551 - Don't match unrelated <InSpecials>
-S05-mass/properties-block.t 552 - Match unrelated negated <InSpecials>
-S05-mass/properties-block.t 553 - Match unrelated inverted <InSpecials>
-S05-mass/properties-block.t 557 - Don't match unrelated <InSuperscriptsAndSubscripts>
-S05-mass/properties-block.t 558 - Match unrelated negated <InSuperscriptsAndSubscripts>
-S05-mass/properties-block.t 559 - Match unrelated inverted <InSuperscriptsAndSubscripts>
-S05-mass/properties-block.t 564 - Don't match unrelated <InSupplementalArrowsA>
-S05-mass/properties-block.t 565 - Match unrelated negated <InSupplementalArrowsA>
-S05-mass/properties-block.t 566 - Match unrelated inverted <InSupplementalArrowsA>
-S05-mass/properties-block.t 571 - Don't match unrelated <InSupplementalArrowsB>
-S05-mass/properties-block.t 572 - Match unrelated negated <InSupplementalArrowsB>
-S05-mass/properties-block.t 573 - Match unrelated inverted <InSupplementalArrowsB>
-S05-mass/properties-block.t 578 - Don't match unrelated <InSupplementalMathematicalOperators>
-S05-mass/properties-block.t 579 - Match unrelated negated <InSupplementalMathematicalOperators>
-S05-mass/properties-block.t 580 - Match unrelated inverted <InSupplementalMathematicalOperators>
-S05-mass/properties-block.t 582 - Don't match unrelated <InSupplementaryPrivateUseAreaA>
-S05-mass/properties-block.t 583 - Match unrelated negated <InSupplementaryPrivateUseAreaA>
-S05-mass/properties-block.t 584 - Match unrelated inverted <InSupplementaryPrivateUseAreaA>
-S05-mass/properties-block.t 585 - Don't match unrelated <InSupplementaryPrivateUseAreaB>
-S05-mass/properties-block.t 586 - Match unrelated negated <InSupplementaryPrivateUseAreaB>
-S05-mass/properties-block.t 587 - Match unrelated inverted <InSupplementaryPrivateUseAreaB>
-S05-mass/properties-block.t 591 - Don't match unrelated <InSyriac>
-S05-mass/properties-block.t 592 - Match unrelated negated <InSyriac>
-S05-mass/properties-block.t 593 - Match unrelated inverted <InSyriac>
-S05-mass/properties-block.t 598 - Don't match unrelated <InTagalog>
-S05-mass/properties-block.t 599 - Match unrelated negated <InTagalog>
-S05-mass/properties-block.t 600 - Match unrelated inverted <InTagalog>
-S05-mass/properties-block.t 605 - Don't match unrelated <InTagbanwa>
-S05-mass/properties-block.t 606 - Match unrelated negated <InTagbanwa>
-S05-mass/properties-block.t 607 - Match unrelated inverted <InTagbanwa>
-S05-mass/properties-block.t 609 - Don't match unrelated <InTags>
-S05-mass/properties-block.t 610 - Match unrelated negated <InTags>
-S05-mass/properties-block.t 611 - Match unrelated inverted <InTags>
-S05-mass/properties-block.t 615 - Don't match unrelated <InTamil>
-S05-mass/properties-block.t 616 - Match unrelated negated <InTamil>
-S05-mass/properties-block.t 617 - Match unrelated inverted <InTamil>
-S05-mass/properties-block.t 622 - Don't match unrelated <InTelugu>
-S05-mass/properties-block.t 623 - Match unrelated negated <InTelugu>
-S05-mass/properties-block.t 624 - Match unrelated inverted <InTelugu>
-S05-mass/properties-block.t 629 - Don't match unrelated <InThaana>
-S05-mass/properties-block.t 630 - Match unrelated negated <InThaana>
-S05-mass/properties-block.t 631 - Match unrelated inverted <InThaana>
-S05-mass/properties-block.t 636 - Don't match unrelated <InThai>
-S05-mass/properties-block.t 637 - Match unrelated negated <InThai>
-S05-mass/properties-block.t 638 - Match unrelated inverted <InThai>
-S05-mass/properties-block.t 643 - Don't match unrelated <InTibetan>
-S05-mass/properties-block.t 644 - Match unrelated negated <InTibetan>
-S05-mass/properties-block.t 645 - Match unrelated inverted <InTibetan>
-S05-mass/properties-block.t 650 - Don't match unrelated <InUnifiedCanadianAboriginalSyllabics>
-S05-mass/properties-block.t 651 - Match unrelated negated <InUnifiedCanadianAboriginalSyllabics>
-S05-mass/properties-block.t 652 - Match unrelated inverted <InUnifiedCanadianAboriginalSyllabics>
-S05-mass/properties-block.t 654 - Don't match unrelated <InVariationSelectors>
-S05-mass/properties-block.t 655 - Match unrelated negated <InVariationSelectors>
-S05-mass/properties-block.t 656 - Match unrelated inverted <InVariationSelectors>
-S05-mass/properties-block.t 660 - Don't match unrelated <InYiRadicals>
-S05-mass/properties-block.t 661 - Match unrelated negated <InYiRadicals>
-S05-mass/properties-block.t 662 - Match unrelated inverted <InYiRadicals>
-S05-mass/properties-block.t 667 - Don't match unrelated <InYiSyllables>
-S05-mass/properties-block.t 668 - Match unrelated negated <InYiSyllables>
-S05-mass/properties-block.t 669 - Match unrelated inverted <InYiSyllables>
-S05-mass/properties-derived.t 1 - Match <:ASCIIHexDigit>
-S05-mass/properties-derived.t 2 - Don't match negated <ASCIIHexDigit>
-S05-mass/properties-derived.t 3 - Don't match inverted <ASCIIHexDigit>
-S05-mass/properties-derived.t 4 - Don't match unrelated <ASCIIHexDigit>
-S05-mass/properties-derived.t 5 - Match unrelated negated <ASCIIHexDigit>
-S05-mass/properties-derived.t 6 - Match unrelated inverted <ASCIIHexDigit>
-S05-mass/properties-derived.t 8 - Match <:Dash>
-S05-mass/properties-derived.t 9 - Don't match negated <Dash>
-S05-mass/properties-derived.t 10 - Don't match inverted <Dash>
-S05-mass/properties-derived.t 11 - Don't match unrelated <Dash>
-S05-mass/properties-derived.t 12 - Match unrelated negated <Dash>
-S05-mass/properties-derived.t 13 - Match unrelated inverted <Dash>
-S05-mass/properties-derived.t 15 - Match <:Diacritic>
-S05-mass/properties-derived.t 16 - Don't match negated <Diacritic>
-S05-mass/properties-derived.t 17 - Don't match inverted <Diacritic>
-S05-mass/properties-derived.t 18 - Don't match unrelated <Diacritic>
-S05-mass/properties-derived.t 19 - Match unrelated negated <Diacritic>
-S05-mass/properties-derived.t 20 - Match unrelated inverted <Diacritic>
-S05-mass/properties-derived.t 22 - Match <:Extender>
-S05-mass/properties-derived.t 23 - Don't match negated <Extender>
-S05-mass/properties-derived.t 24 - Don't match inverted <Extender>
-S05-mass/properties-derived.t 25 - Don't match unrelated <Extender>
-S05-mass/properties-derived.t 26 - Match unrelated negated <Extender>
-S05-mass/properties-derived.t 27 - Match unrelated inverted <Extender>
-S05-mass/properties-derived.t 32 - Don't match unrelated <GraphemeLink>
-S05-mass/properties-derived.t 33 - Match unrelated negated <GraphemeLink>
-S05-mass/properties-derived.t 34 - Match unrelated inverted <GraphemeLink>
-S05-mass/properties-derived.t 36 - Match <:HexDigit>
-S05-mass/properties-derived.t 37 - Don't match negated <HexDigit>
-S05-mass/properties-derived.t 38 - Don't match inverted <HexDigit>
-S05-mass/properties-derived.t 39 - Don't match unrelated <HexDigit>
-S05-mass/properties-derived.t 40 - Match unrelated negated <HexDigit>
-S05-mass/properties-derived.t 41 - Match unrelated inverted <HexDigit>
-S05-mass/properties-derived.t 46 - Don't match unrelated <Hyphen>
-S05-mass/properties-derived.t 47 - Match unrelated negated <Hyphen>
-S05-mass/properties-derived.t 48 - Match unrelated inverted <Hyphen>
-S05-mass/properties-derived.t 53 - Don't match unrelated <Ideographic>
-S05-mass/properties-derived.t 54 - Match unrelated negated <Ideographic>
-S05-mass/properties-derived.t 55 - Match unrelated inverted <Ideographic>
-S05-mass/properties-derived.t 57 - Match <:IDSBinaryOperator>
-S05-mass/properties-derived.t 58 - Don't match negated <IDSBinaryOperator>
-S05-mass/properties-derived.t 59 - Don't match inverted <IDSBinaryOperator>
-S05-mass/properties-derived.t 60 - Don't match unrelated <IDSBinaryOperator>
-S05-mass/properties-derived.t 61 - Match unrelated negated <IDSBinaryOperator>
-S05-mass/properties-derived.t 62 - Match unrelated inverted <IDSBinaryOperator>
-S05-mass/properties-derived.t 64 - Match <:IDSTrinaryOperator>
-S05-mass/properties-derived.t 65 - Don't match negated <IDSTrinaryOperator>
-S05-mass/properties-derived.t 66 - Don't match inverted <IDSTrinaryOperator>
-S05-mass/properties-derived.t 67 - Don't match unrelated <IDSTrinaryOperator>
-S05-mass/properties-derived.t 68 - Match unrelated negated <IDSTrinaryOperator>
-S05-mass/properties-derived.t 69 - Match unrelated inverted <IDSTrinaryOperator>
-S05-mass/properties-derived.t 71 - Match <:JoinControl>
-S05-mass/properties-derived.t 72 - Don't match negated <JoinControl>
-S05-mass/properties-derived.t 73 - Don't match inverted <JoinControl>
-S05-mass/properties-derived.t 74 - Don't match unrelated <JoinControl>
-S05-mass/properties-derived.t 75 - Match unrelated negated <JoinControl>
-S05-mass/properties-derived.t 76 - Match unrelated inverted <JoinControl>
-S05-mass/properties-derived.t 78 - Match <:LogicalOrderException>
-S05-mass/properties-derived.t 79 - Don't match negated <LogicalOrderException>
-S05-mass/properties-derived.t 80 - Don't match inverted <LogicalOrderException>
-S05-mass/properties-derived.t 81 - Don't match unrelated <LogicalOrderException>
-S05-mass/properties-derived.t 82 - Match unrelated negated <LogicalOrderException>
-S05-mass/properties-derived.t 83 - Match unrelated inverted <LogicalOrderException>
-S05-mass/properties-derived.t 84 - Don't match related <LogicalOrderException>
-S05-mass/properties-derived.t 85 - Match related negated <LogicalOrderException>
-S05-mass/properties-derived.t 86 - Match related inverted <LogicalOrderException>
-S05-mass/properties-derived.t 88 - Don't match unrelated <NoncharacterCodePoint>
-S05-mass/properties-derived.t 89 - Match unrelated negated <NoncharacterCodePoint>
-S05-mass/properties-derived.t 90 - Match unrelated inverted <NoncharacterCodePoint>
-S05-mass/properties-derived.t 91 - Don't match related <NoncharacterCodePoint>
-S05-mass/properties-derived.t 92 - Match related negated <NoncharacterCodePoint>
-S05-mass/properties-derived.t 93 - Match related inverted <NoncharacterCodePoint>
-S05-mass/properties-derived.t 94 - Match <:OtherAlphabetic>
-S05-mass/properties-derived.t 95 - Don't match negated <OtherAlphabetic>
-S05-mass/properties-derived.t 96 - Don't match inverted <OtherAlphabetic>
-S05-mass/properties-derived.t 97 - Don't match unrelated <OtherAlphabetic>
-S05-mass/properties-derived.t 98 - Match unrelated negated <OtherAlphabetic>
-S05-mass/properties-derived.t 99 - Match unrelated inverted <OtherAlphabetic>
-S05-mass/properties-derived.t 101 - Match <:OtherDefaultIgnorableCodePoint>
-S05-mass/properties-derived.t 102 - Don't match negated <OtherDefaultIgnorableCodePoint>
-S05-mass/properties-derived.t 103 - Don't match inverted <OtherDefaultIgnorableCodePoint>
-S05-mass/properties-derived.t 104 - Don't match unrelated <OtherDefaultIgnorableCodePoint>
-S05-mass/properties-derived.t 105 - Match unrelated negated <OtherDefaultIgnorableCodePoint>
-S05-mass/properties-derived.t 106 - Match unrelated inverted <OtherDefaultIgnorableCodePoint>
-S05-mass/properties-derived.t 108 - Match <:OtherGraphemeExtend>
-S05-mass/properties-derived.t 109 - Don't match negated <OtherGraphemeExtend>
-S05-mass/properties-derived.t 110 - Don't match inverted <OtherGraphemeExtend>
-S05-mass/properties-derived.t 111 - Don't match unrelated <OtherGraphemeExtend>
-S05-mass/properties-derived.t 112 - Match unrelated negated <OtherGraphemeExtend>
-S05-mass/properties-derived.t 113 - Match unrelated inverted <OtherGraphemeExtend>
-S05-mass/properties-derived.t 115 - Match <:OtherLowercase>
-S05-mass/properties-derived.t 116 - Don't match negated <OtherLowercase>
-S05-mass/properties-derived.t 117 - Don't match inverted <OtherLowercase>
-S05-mass/properties-derived.t 118 - Don't match unrelated <OtherLowercase>
-S05-mass/properties-derived.t 119 - Match unrelated negated <OtherLowercase>
-S05-mass/properties-derived.t 120 - Match unrelated inverted <OtherLowercase>
-S05-mass/properties-derived.t 125 - Don't match unrelated <OtherMath>
-S05-mass/properties-derived.t 126 - Match unrelated negated <OtherMath>
-S05-mass/properties-derived.t 127 - Match unrelated inverted <OtherMath>
-S05-mass/properties-derived.t 129 - Match <:OtherUppercase>
-S05-mass/properties-derived.t 130 - Don't match negated <OtherUppercase>
-S05-mass/properties-derived.t 131 - Don't match inverted <OtherUppercase>
-S05-mass/properties-derived.t 132 - Don't match unrelated <OtherUppercase>
-S05-mass/properties-derived.t 133 - Match unrelated negated <OtherUppercase>
-S05-mass/properties-derived.t 134 - Match unrelated inverted <OtherUppercase>
-S05-mass/properties-derived.t 136 - Match <:QuotationMark>
-S05-mass/properties-derived.t 137 - Don't match negated <QuotationMark>
-S05-mass/properties-derived.t 138 - Don't match inverted <QuotationMark>
-S05-mass/properties-derived.t 139 - Don't match unrelated <QuotationMark>
-S05-mass/properties-derived.t 140 - Match unrelated negated <QuotationMark>
-S05-mass/properties-derived.t 141 - Match unrelated inverted <QuotationMark>
-S05-mass/properties-derived.t 143 - Match <:Radical>
-S05-mass/properties-derived.t 144 - Don't match negated <Radical>
-S05-mass/properties-derived.t 145 - Don't match inverted <Radical>
-S05-mass/properties-derived.t 146 - Don't match unrelated <Radical>
-S05-mass/properties-derived.t 147 - Match unrelated negated <Radical>
-S05-mass/properties-derived.t 148 - Match unrelated inverted <Radical>
-S05-mass/properties-derived.t 150 - Match <:SoftDotted>
-S05-mass/properties-derived.t 151 - Don't match negated <SoftDotted>
-S05-mass/properties-derived.t 152 - Don't match inverted <SoftDotted>
-S05-mass/properties-derived.t 153 - Don't match unrelated <SoftDotted>
-S05-mass/properties-derived.t 154 - Match unrelated negated <SoftDotted>
-S05-mass/properties-derived.t 155 - Match unrelated inverted <SoftDotted>
-S05-mass/properties-derived.t 156 - Don't match related <SoftDotted>
-S05-mass/properties-derived.t 157 - Match related negated <SoftDotted>
-S05-mass/properties-derived.t 158 - Match related inverted <SoftDotted>
-S05-mass/properties-derived.t 160 - Match <:TerminalPunctuation>
-S05-mass/properties-derived.t 161 - Don't match negated <TerminalPunctuation>
-S05-mass/properties-derived.t 162 - Don't match inverted <TerminalPunctuation>
-S05-mass/properties-derived.t 163 - Don't match unrelated <TerminalPunctuation>
-S05-mass/properties-derived.t 164 - Match unrelated negated <TerminalPunctuation>
-S05-mass/properties-derived.t 165 - Match unrelated inverted <TerminalPunctuation>
+S05-mass/properties-derived.t 29 - Match <:GraphemeLink>
+S05-mass/properties-derived.t 30 - Don't match negated <GraphemeLink>
+S05-mass/properties-derived.t 31 - Don't match inverted <GraphemeLink>
+S05-mass/properties-derived.t 35 - Match unanchored <GraphemeLink>
+S05-mass/properties-derived.t 122 - Match <:OtherMath>
+S05-mass/properties-derived.t 123 - Don't match negated <OtherMath>
+S05-mass/properties-derived.t 124 - Don't match inverted <OtherMath>
+S05-mass/properties-derived.t 128 - Match unanchored <OtherMath>
+S05-mass/properties-derived.t 167 - Match <:UnifiedIdeograph>
+S05-mass/properties-derived.t 168 - Don't match negated <UnifiedIdeograph>
+S05-mass/properties-derived.t 169 - Don't match inverted <UnifiedIdeograph>
+S05-mass/properties-derived.t 170 - Don't match unrelated <UnifiedIdeograph>
+S05-mass/properties-derived.t 171 - Match unrelated negated <UnifiedIdeograph>
+S05-mass/properties-derived.t 172 - Match unrelated inverted <UnifiedIdeograph>
 S05-mass/properties-derived.t 174 - Match <:WhiteSpace>
 S05-mass/properties-derived.t 175 - Don't match negated <WhiteSpace>
 S05-mass/properties-derived.t 176 - Don't match inverted <WhiteSpace>
-S05-mass/properties-derived.t 180 - Match unanchored <WhiteSpace>
+S05-mass/properties-derived.t 177 - Don't match unrelated <WhiteSpace>
+S05-mass/properties-derived.t 178 - Match unrelated negated <WhiteSpace>
+S05-mass/properties-derived.t 179 - Match unrelated inverted <WhiteSpace>
 S05-mass/properties-derived.t 181 - Match (Lu + Ll + Lt + Lm + Lo + OtherAlphabetic)
 S05-mass/properties-derived.t 182 - Don't match negated (Lu + Ll + Lt + Lm + Lo + OtherAlphabetic)
 S05-mass/properties-derived.t 183 - Don't match inverted (Lu + Ll + Lt + Lm + Lo + OtherAlphabetic)
@@ -3073,8 +2642,8 @@ S06-signature/types.t 4 - type check forbids bad return
 S06-signature/types.t 6 - type check forbids bad  implicitreturn
 S09-typed-arrays/arrays.rakudo.moar 54 - type check Positional of Int prevents untyped array to be returned explicitly
 S09-typed-arrays/arrays.rakudo.moar 55 - type check Positional of Int prevents untyped array to be returned implicitly
-S12-subset/subtypes.rakudo.moar 68 - subsets of roles (2)
-S12-subset/subtypes.rakudo.moar 73 - error message mentions subset name
+S09-typed-arrays/hashes.t aborted 2 test(s)
+S12-subset/subtypes.rakudo.moar passed 21 unplanned test(s)
 S14-roles/anonymous.rakudo.moar 7 - anonymous role variable mixin
 S14-roles/anonymous.rakudo.moar 9 - anonymous role variable gave us an attribute
 S14-roles/parameter-subtyping.t 2 - basic sanity
