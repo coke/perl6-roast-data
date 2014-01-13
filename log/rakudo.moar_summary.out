@@ -325,10 +325,8 @@ S02-types/sigils-and-types.rakudo.moar.............  26    0    2    0   28
      1 todo   : Capture does Associative
      1 todo   : Capture does Positional
 S02-types/subscripts_and_context.t.................   8    0    0    0    8
-S02-types/subset.rakudo.moar.......................Segmentation fault
-  20   22    0    1   43
+S02-types/subset.rakudo.moar.......................  41    1    0    1   43
      1 skipped: (noauto) succeeds for the wrong reason (need to test the error)
-    22 tests aborted (missing ok/not ok)
 S02-types/type.t...................................  41    9    0    0   50
 S02-types/undefined-types.rakudo.moar..............use of uninitialized value of type Int in string context
 use of uninitialized value of type Int in string context
@@ -430,8 +428,8 @@ use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
-  36    1    5    0   42
-     5 todo   : Multi colonpair syntax not yet understood
+  36    5    1    0   42
+     1 todo   : Multi colonpair syntax not yet understood
 S03-operators/also.rakudo.moar.....................   4    0    4    0    8
      4 todo   : nom regression
 S03-operators/andthen.t............................   8    0    0    0    8
@@ -1066,16 +1064,18 @@ S06-advanced/wrap.rakudo.moar......................  64    0    5    0   69
 S06-currying/assuming-and-mmd.t....................   6    0    0    0    6
 S06-currying/named.t...............................   3    0    0    0    3
 S06-macros/errors.t................................   2    0    0    0    2
-S06-macros/opaque-ast.rakudo.moar..................===SORRY!===
-Error while compiling op p6getouterctx: No registered operation handler for 'p6getouterctx'
-   0    7    0    0    7
-     7 tests aborted (missing ok/not ok)
-S06-macros/quasi-blocks.t..........................===SORRY!===
-Error while compiling op p6getouterctx: No registered operation handler for 'p6getouterctx'
-   0   12    0    0   12
-    12 tests aborted (missing ok/not ok)
-S06-macros/unquoting.t.............................===SORRY!===
-Error while compiling op p6getouterctx: No registered operation handler for 'p6getouterctx'
+S06-macros/opaque-ast.rakudo.moar..................   3    0    0    4    7
+     3 skipped: :COMPILING flag
+     1 skipped: return from macro
+S06-macros/quasi-blocks.t..........................Cannot find method 'succ'
+  in sub prefix:<++> at src/gen/m-CORE.setting:1756
+  in sub prefix:<++> at src/gen/m-CORE.setting:1755
+  in any frame_name_164 at t/spec/S06-macros/quasi-blocks.t:95
+  in block frame_name_80 at t/spec/S06-macros/quasi-blocks.t:92
+
+   7    5    0    0   12
+     5 tests aborted (missing ok/not ok)
+S06-macros/unquoting.t.............................Segmentation fault
    0   10    0    0   10
     10 tests aborted (missing ok/not ok)
 S06-multi/lexical-multis.rakudo.moar...............  14    0    1    0   15
@@ -1087,58 +1087,9 @@ S06-multi/proto.rakudo.moar........................  22    0    1    5   28
      1 todo   : operator protos
 S06-multi/redispatch.t.............................   9    1    0    0   10
 S06-multi/syntax.t.................................  41    0    0    0   41
-S06-multi/type-based.rakudo.moar...................===SORRY!===
-CHECK FAILED:
-Calling 'f4' will never work with argument types (Associative[Int]) (line 163)
-    Expected any of:
-    :(@a)
-    :(@a)
-    :(@a)
-    :(%a)
-    :(%a)
-    :(%a)
-Calling 'f4' will never work with argument types (Associative[Str]) (line 164)
-    Expected any of:
-    :(@a)
-    :(@a)
-    :(@a)
-    :(%a)
-    :(%a)
-    :(%a)
-Calling 'f4' will never work with argument types (Associative[Array]) (line 165)
-    Expected any of:
-    :(@a)
-    :(@a)
-    :(@a)
-    :(%a)
-    :(%a)
-    :(%a)
-Calling 'f4' will never work with argument types (Positional[Int]) (line 167)
-    Expected any of:
-    :(@a)
-    :(@a)
-    :(@a)
-    :(%a)
-    :(%a)
-    :(%a)
-Calling 'f4' will never work with argument types (Positional[Str]) (line 168)
-    Expected any of:
-    :(@a)
-    :(@a)
-    :(@a)
-    :(%a)
-    :(%a)
-    :(%a)
-Calling 'f4' will never work with argument types (Positional[Array]) (line 169)
-    Expected any of:
-    :(@a)
-    :(@a)
-    :(@a)
-    :(%a)
-    :(%a)
-    :(%a)
-   0   53    0    0   53
-    53 tests aborted (missing ok/not ok)
+S06-multi/type-based.rakudo.moar...................Segmentation fault
+  26   27    0    0   53
+    27 tests aborted (missing ok/not ok)
 S06-multi/unpackability.t..........................  10    0    0    0   10
 S06-multi/value-based.t............................  12    0    0    0   12
 S06-operator-overloading/imported-subs.t...........  19    0    0    0   19
@@ -1188,7 +1139,7 @@ S06-signature/closure-parameters.rakudo.moar.......   4    0    0   11   15
 S06-signature/code.rakudo.moar.....................   7    0    1    0    8
      1 todo   : RT 67932
 S06-signature/defaults.t...........................   5    0    0    0    5
-S06-signature/errors.t.............................   9    1    0    0   10
+S06-signature/errors.t.............................   9    2    0    0   11
 S06-signature/introspection.rakudo.moar............  51    0    0    1   52
      1 skipped: expected Any but got Mu instead
 S06-signature/mixed-placeholders.t.................  12    0    0    0   12
@@ -1419,7 +1370,7 @@ S12-introspection/meta-class.rakudo.moar...........   9    0    0    4   13
      1 skipped: .version, version number parsing
      1 skipped: precedence of prefix:<^>
      1 skipped: precedence of HOW
-S12-introspection/methods.rakudo.moar..............  44    0    2   11   57
+S12-introspection/methods.rakudo.moar..............  45    0    2   11   58
     11 skipped: nom regression
      2 todo   : nom regression
 S12-introspection/parents.t........................  59    0    0    0   59
@@ -1478,9 +1429,8 @@ S12-methods/what.t.................................use of uninitialized value of
 use of uninitialized value of type Match in numeric context
   33    0    0    0   33
 S12-subset/multi-dispatch.t........................   6    0    0    0    6
-S12-subset/subtypes.rakudo.moar....................Segmentation fault
-  21    0    0    0    0
-    21 tests more than planned were run
+S12-subset/subtypes.rakudo.moar....................  74    1    2    0   77
+     2 todo   : RT 79160
                                                    pass fail todo skip plan
 S13-overloading/metaoperators.t....................   9    0    0    0    9
 S13-overloading/operators.rakudo.moar..............   3    0    0    1    4
@@ -1522,7 +1472,7 @@ S14-roles/mixin.rakudo.moar........................  29    0    0    3   32
      1 skipped: Twigil ! is only valid on attribute definitions
 S14-roles/namespaced.rakudo.moar...................   2    0    1    0    3
      1 todo   : nom regression
-S14-roles/parameter-subtyping.t....................  15    7    0    0   22
+S14-roles/parameter-subtyping.t....................  22    0    0    0   22
 S14-roles/parameterized-basic.t....................===SORRY!===
 None of the parametric role variants for 'MD_block' matched the arguments supplied.
 Nominal type check failed for parameter '$a'; expected Any but got Mu
@@ -1530,12 +1480,8 @@ Nominal type check failed for parameter '$a'; expected Any but got Mu
     32 tests aborted (missing ok/not ok)
 S14-roles/parameterized-mixin.rakudo.moar..........  24    0    4    0   28
      4 todo   : .does with parametric roles
-S14-roles/parameterized-type.rakudo.moar...........Nominal type check failed for parameter '$x'; expected R2[R2[Int]] but got C3
-  in sub param_test_r at t/spec/S14-roles/parameterized-type.rakudo.moar:46
-  in block frame_name_48 at t/spec/S14-roles/parameterized-type.rakudo.moar:39
-
-  10   19    0    0   29
-    17 tests aborted (missing ok/not ok)
+S14-roles/parameterized-type.rakudo.moar...........  28    0    0    1   29
+     1 skipped: cannot easily override [] at the moment
 S14-roles/stubs.t..................................   9    0    0    0    9
 S14-roles/submethods.t.............................   4    0    0    0    4
 S14-traits/attributes.t............................   8    0    0    0    8
@@ -1655,12 +1601,12 @@ S32-container/roundrobin.rakudo.moar...............   4    0    1    0    5
      1 todo   : over-flattening
 S32-container/zip.rakudo.moar......................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.moar....................Trying to unwind from wrong handler
- 483    1    0    6    0
-     2 skipped: wrong exception type
+S32-exceptions/misc.rakudo.moar.................... 618   16    0   24  658
+     1 skipped: RT 114134
+    16 skipped: wrong exception type
      3 skipped: still handled by <special_var>
+     3 skipped: Code did not die, can not check exception
      1 skipped: parsing regression
-   490 tests more than planned were run
 S32-hash/delete-adverb.t...........................use of uninitialized value of type Int in string context
 use of uninitialized value of type Int in string context
  130    0    0    0  130
@@ -1687,7 +1633,7 @@ IO::Handle.copy is deprecated.  Please use IO::Path.copy instead.
 IO::Handle.copy is deprecated.  Please use IO::Path.copy instead.
   27    2    0    0   29
 S32-io/dir.t.......................................Type check failed in bind; expected Str but got Failure
-  in any bind_error at src/vm/moar/Perl6/Ops.nqp:227
+  in any bind_error at src/vm/moar/Perl6/Ops.nqp:230
   in block frame_name_13777 at src/gen/m-CORE.setting:13446
   in sub frame_name_9929 at src/gen/m-CORE.setting:7476
   in sub frame_name_9938 at src/gen/m-CORE.setting:7481
@@ -2272,18 +2218,18 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4040,    69,   122,   301,  4532,  4475
-"S03",        4748,     7,   126,   125,  5006,  4665
+"S02",        4061,    48,   122,   301,  4532,  4475
+"S03",        4748,    11,   122,   125,  5006,  4665
 "S04",         930,    26,    34,    30,  1020,  1038
 "S05",        4627,   261,   145,   352,  5385,  5829
-"S06",         990,    99,    38,    97,  1223,  1291
+"S06",        1026,    60,    38,   101,  1224,  1292
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         173,     4,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
 "S11",          73,     0,     2,     9,    84,   139
-"S12",        1281,     0,    46,   124,  1430,  1407
+"S12",        1335,     1,    48,   124,  1508,  1408
 "S13",          33,     0,    10,    27,    70,    80
-"S14",         232,    65,     7,    11,   315,   328
+"S14",         257,    39,     7,    12,   315,   328
 "S16",         221,     2,     5,    30,   258,   302
 "S17",           0,     0,     0,     0,     0,   210
 "S19",           4,     0,     0,     0,     4,     4
@@ -2291,10 +2237,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         321,    14,     2,     3,   340,   350
-"S32",        8922,    69,    85,   210,  8796,  7051
+"S32",        9057,    84,    85,   228,  9454,  7051
 "int",         526,    21,     7,    28,   582,   571
 "ros",           2,     0,     0,     0,     2,     2
-"total",     27507,   637,   639,  1384, 29655, 28498
+"total",     27778,   571,   637,  1407, 30392, 28500
 ----------------
 Failure summary:
 S02-lexical-conventions/unicode-whitespace.t 10 - MONGOLIAN VOWEL SEPARATOR
@@ -2335,7 +2281,7 @@ S02-types/isDEPRECATED.rakudo.moar 12 - right deprecation for C.new.foo
 S02-types/isDEPRECATED.rakudo.moar 14 - right deprecation Cwith.new.foo
 S02-types/lists.rakudo.moar 20 - error message contains name of class
 S02-types/num.t 12 - EVAL 1e100.Num.perl is 1
-S02-types/subset.rakudo.moar aborted 22 test(s)
+S02-types/subset.rakudo.moar 26 - error for bad assignment mentions subset
 S02-types/type.t 14 - native int type cannot be undefined
 S02-types/type.t 24 - bad return value dies (returns)
 S02-types/type.t 26 - bad return value dies (of)
@@ -2346,6 +2292,10 @@ S02-types/type.t 34 - bad implicit return value dies (of)
 S02-types/type.t 36 - bad implicit return value dies (my Type sub)
 S02-types/type.t 38 - bad implicit return value dies (-->)
 S03-operators/adverbial-modifiers.rakudo.moar 13 - :foo{ dostuff() }
+S03-operators/adverbial-modifiers.rakudo.moar 16 - fiddle(:x("a"):y("b"))
+S03-operators/adverbial-modifiers.rakudo.moar 17 - fiddle(:y("b"):x("a"))
+S03-operators/adverbial-modifiers.rakudo.moar 18 - fiddle(:x:y("b"))
+S03-operators/adverbial-modifiers.rakudo.moar 19 - fiddle(:x("a"):y)
 S03-operators/arith.t 6 - -1 == 3
 S03-operators/arith.t 7 - 1 == -3
 S03-operators/arith.t 14 - 
@@ -2619,11 +2569,10 @@ S05-modifier/perl5_5.rakudo.moar 5 - re_tests 617/1 (801)
 S05-modifier/perl5_5.rakudo.moar 7 - re_tests 621/1 (805)
 S05-modifier/perl5_5.rakudo.moar 9 - re_tests 625/1 (809)
 S06-advanced/callframe.rakudo.moar 2 - callframe().line
-S06-macros/opaque-ast.rakudo.moar aborted 7 test(s)
-S06-macros/quasi-blocks.t aborted 12 test(s)
+S06-macros/quasi-blocks.t aborted 5 test(s)
 S06-macros/unquoting.t aborted 10 test(s)
 S06-multi/redispatch.t 10 - nextsame in main block dies due to lack of dispatcher
-S06-multi/type-based.rakudo.moar aborted 53 test(s)
+S06-multi/type-based.rakudo.moar aborted 27 test(s)
 S06-operator-overloading/sub.rakudo.moar 45 - 
 S06-operator-overloading/sub.rakudo.moar 46 - 
 S06-operator-overloading/sub.rakudo.moar 47 - 
@@ -2638,25 +2587,16 @@ S06-other/main-usage.rakudo.moar 10 - named alias (outer name)
 S06-other/main-usage.rakudo.moar 12 - Bool option followed by positional value
 S06-other/main-usage.rakudo.moar 20 - superfluous options trigger usage message
 S06-signature/errors.t 10 - 
+S06-signature/errors.t 11 - 
 S06-signature/types.t 4 - type check forbids bad return
 S06-signature/types.t 6 - type check forbids bad  implicitreturn
 S09-typed-arrays/arrays.rakudo.moar 54 - type check Positional of Int prevents untyped array to be returned explicitly
 S09-typed-arrays/arrays.rakudo.moar 55 - type check Positional of Int prevents untyped array to be returned implicitly
 S09-typed-arrays/hashes.t aborted 2 test(s)
-S12-subset/subtypes.rakudo.moar passed 21 unplanned test(s)
+S12-subset/subtypes.rakudo.moar 73 - error message mentions subset name
 S14-roles/anonymous.rakudo.moar 7 - anonymous role variable mixin
 S14-roles/anonymous.rakudo.moar 9 - anonymous role variable gave us an attribute
-S14-roles/parameter-subtyping.t 2 - basic sanity
-S14-roles/parameter-subtyping.t 3 - subtyping by role parameters (one param)
-S14-roles/parameter-subtyping.t 7 - basic sanity
-S14-roles/parameter-subtyping.t 8 - subtyping by role parameters (nested)
-S14-roles/parameter-subtyping.t 12 - basic sanity
-S14-roles/parameter-subtyping.t 13 - subtyping by role parameters (two params)
-S14-roles/parameter-subtyping.t 14 - subtyping by role parameters (two params)
 S14-roles/parameterized-basic.t aborted 32 test(s)
-S14-roles/parameterized-type.rakudo.moar 9 - roles parameterized with themselves as type constraints
-S14-roles/parameterized-type.rakudo.moar 11 - roles parameterized with themselves as type constraints
-S14-roles/parameterized-type.rakudo.moar aborted 17 test(s)
 S14-traits/routines.rakudo.moar aborted 5 test(s)
 S16-io/tmpdir.t 1 - The object is-a 'IO::Path'
 S16-io/tmpdir.t 3 - $*TMPDIR.gist works
@@ -2671,7 +2611,21 @@ S29-conversions/ord_and_chr.rakudo.moar 251 - chr out of range
 S29-conversions/ord_and_chr.rakudo.moar 253 - ord of named high character
 S29-os/system.rakudo.moar aborted 5 test(s)
 S32-exceptions/misc.rakudo.moar 488 - right exception type (X::Method::NotFound)
-S32-exceptions/misc.rakudo.moar passed 490 unplanned test(s)
+S32-exceptions/misc.rakudo.moar 501 - right exception type (X::Method::NotFound)
+S32-exceptions/misc.rakudo.moar 525 - right exception type (X::TypeCheck::Binding)
+S32-exceptions/misc.rakudo.moar 528 - 'sub f() returns Str { 5 }; f' died
+S32-exceptions/misc.rakudo.moar 533 - right exception type (X::TypeCheck::Assignment)
+S32-exceptions/misc.rakudo.moar 538 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.moar 540 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.moar 542 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.moar 544 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.moar 546 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.moar 548 - right exception type (X::Method::NotFound)
+S32-exceptions/misc.rakudo.moar 564 - right exception type (X::ControlFlow)
+S32-exceptions/misc.rakudo.moar 568 - right exception type (X::ControlFlow)
+S32-exceptions/misc.rakudo.moar 582 - right exception type (X::ControlFlow::Return)
+S32-exceptions/misc.rakudo.moar 604 - nextsame in proto
+S32-exceptions/misc.rakudo.moar 651 - right exception type (X::Method::NotFound)
 S32-io/copy.t 9 - It doesn't
 S32-io/copy.t 21 - It doesn't
 S32-io/dir.t aborted 12 test(s)
