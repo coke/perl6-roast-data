@@ -60,7 +60,7 @@ S02-literals/pairs.rakudo.moar.....................use of uninitialized value of
      1 todo   : prefix:<|>
 S02-literals/quoting-unicode.rakudo.moar...........  72    0    0    1   73
      1 skipped: Parse failure
-S02-literals/quoting.rakudo.moar................... 138    0    6   11  155
+S02-literals/quoting.rakudo.moar................... 139    0    6   11  156
      8 skipped: openpipe
      3 skipped: \c@ etc
      1 todo   : retriage
@@ -428,7 +428,7 @@ use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
-  36    5    1    0   42
+  37    4    1    0   42
      1 todo   : Multi colonpair syntax not yet understood
 S03-operators/also.rakudo.moar.....................   4    0    4    0    8
      4 todo   : nom regression
@@ -467,7 +467,7 @@ use of uninitialized value of type Any in string context
 S03-operators/bag.rakudo.moar......................  92    0    0   16  108
     16 skipped: Reduction and bag operators
 S03-operators/basic-types.t........................  19    0    0    0   19
-S03-operators/bit.t................................  32    1    0    0   33
+S03-operators/bit.t................................  33    0    0    0   33
 S03-operators/boolean-bitwise.t....................  45    0    0    0   45
 S03-operators/brainos.t............................   9    0    0    0    9
 S03-operators/buf.t................................  34    0    0    0   34
@@ -756,8 +756,8 @@ S04-phasers/next.rakudo.moar.......................  10    0    2    1   13
 S04-phasers/pre-post.rakudo.moar...................  19    2    1    0   22
      1 todo   : POST and exceptions
 S04-phasers/rvalue.t...............................Cannot invoke null object
-  in block frame_name_6085 at src/gen/m-CORE.setting:16335
-  in block frame_name_27 at t/spec/S04-phasers/rvalue.t:45
+  in block  at src/gen/m-CORE.setting:16335
+  in block  at t/spec/S04-phasers/rvalue.t:45
 
    0   16    0    0   16
     16 tests aborted (missing ok/not ok)
@@ -807,10 +807,10 @@ S04-statements/try.rakudo.moar.....................Cannot find method 'substr'
   in method Stringy at src/gen/m-CORE.setting:1029
   in sub infix:<~> at src/gen/m-CORE.setting:1424
   in sub infix:<~> at src/gen/m-CORE.setting:1422
-  in block frame_name_6085 at src/gen/m-CORE.setting:16335
-  in block frame_name_161 at t/spec/S04-statements/try.rakudo.moar:124
-  in block frame_name_156 at t/spec/S04-statements/try.rakudo.moar:122
-  in block frame_name_1 at t/spec/S04-statements/try.rakudo.moar:2
+  in block  at src/gen/m-CORE.setting:16335
+  in block  at t/spec/S04-statements/try.rakudo.moar:124
+  in block  at t/spec/S04-statements/try.rakudo.moar:122
+  in block  at t/spec/S04-statements/try.rakudo.moar:2
 
   19    7    0    0   26
      7 tests aborted (missing ok/not ok)
@@ -1070,12 +1070,13 @@ S06-macros/opaque-ast.rakudo.moar..................   3    0    0    4    7
 S06-macros/quasi-blocks.t..........................Cannot find method 'succ'
   in sub prefix:<++> at src/gen/m-CORE.setting:1756
   in sub prefix:<++> at src/gen/m-CORE.setting:1755
-  in any frame_name_164 at t/spec/S06-macros/quasi-blocks.t:95
-  in block frame_name_80 at t/spec/S06-macros/quasi-blocks.t:92
+  in any  at t/spec/S06-macros/quasi-blocks.t:95
+  in block  at t/spec/S06-macros/quasi-blocks.t:92
 
    7    5    0    0   12
      5 tests aborted (missing ok/not ok)
-S06-macros/unquoting.t.............................Segmentation fault
+S06-macros/unquoting.t.............................===SORRY!===
+Specified code ref has no outer
    0   10    0    0   10
     10 tests aborted (missing ok/not ok)
 S06-multi/lexical-multis.rakudo.moar...............  14    0    1    0   15
@@ -1087,9 +1088,15 @@ S06-multi/proto.rakudo.moar........................  22    0    1    5   28
      1 todo   : operator protos
 S06-multi/redispatch.t.............................   9    1    0    0   10
 S06-multi/syntax.t.................................  41    0    0    0   41
-S06-multi/type-based.rakudo.moar...................Segmentation fault
-  26   27    0    0   53
-    27 tests aborted (missing ok/not ok)
+S06-multi/type-based.rakudo.moar...................Cannot call 'rt107638'; none of these signatures match:
+:(int $a)
+:(Str $a)
+  in sub rt107638 at t/spec/S06-multi/type-based.rakudo.moar:207
+  in block  at t/spec/S06-multi/type-based.rakudo.moar:205
+
+  49    1    0    3   53
+     3 skipped: our sub in class
+     1 tests aborted (missing ok/not ok)
 S06-multi/unpackability.t..........................  10    0    0    0   10
 S06-multi/value-based.t............................  12    0    0    0   12
 S06-operator-overloading/imported-subs.t...........  19    0    0    0   19
@@ -1113,13 +1120,9 @@ S06-operator-overloading/sub.rakudo.moar...........  39    4    7   20   70
      1 todo   : infix:<;>
      5 todo   : huh?
      1 todo   : RT 65638
-S06-operator-overloading/workout.t.................Cannot call method 'elems' on a null object
-  in block frame_name_1 at t/spec/S06-operator-overloading/workout.t:16
-
-   1    0    0    0    0
-     1 tests more than planned were run
+S06-operator-overloading/workout.t.................  84    0    0    0   84
 S06-other/anon-hashes-vs-blocks.t..................  22    0    0    0   22
-S06-other/introspection.t..........................  11    1    0    0   12
+S06-other/introspection.t..........................  12    0    0    0   12
 S06-other/main-eval.rakudo.moar....................   2    0    1    0    3
      1 todo   : MAIN in EVAL
 S06-other/main-usage.rakudo.moar...................   8    7    7    0   22
@@ -1186,7 +1189,7 @@ use of uninitialized value of type Any in string context
   28    0    2    4   34
      4 skipped: macros, compile time binding
      2 todo   : RT 63974
-S06-signature/tree-node-parameters.rakudo.moar.....  16    0    0    4   20
+S06-signature/tree-node-parameters.rakudo.moar.....  15    1    0    4   20
      4 skipped: signature binding of return values NYI
 S06-signature/type-capture.rakudo.moar.............   7    0    0    1    8
      1 skipped: nom regression
@@ -1248,10 +1251,10 @@ Nominal type check failed for parameter 'key'; expected Int but got Str
   in method at_key at src/gen/m-CORE.setting:9098
   in method delete_key at src/gen/m-CORE.setting:8950
   in method delete_key at src/gen/m-CORE.setting:8942
-  in block frame_name_2840 at src/gen/m-CORE.setting:1987
+  in block  at src/gen/m-CORE.setting:1987
   in sub postcircumfix:<{ }> at src/gen/m-CORE.setting:2525
   in sub postcircumfix:<{ }> at src/gen/m-CORE.setting:2513
-  in block frame_name_1 at t/spec/S09-typed-arrays/hashes.t:62
+  in block  at t/spec/S09-typed-arrays/hashes.t:62
 
   31    2    0    0   33
      2 tests aborted (missing ok/not ok)
@@ -1302,7 +1305,7 @@ use of uninitialized value of type Int in string context
      2 todo   : ro on list attributes
 S12-attributes/mutators.rakudo.moar................   5    0    0    7   12
      7 skipped: Can not get attribute $!varies declared in class MagicVal with this object
-S12-attributes/recursive.t.........................  23    0    0    0   23
+S12-attributes/recursive.t.........................  22    1    0    0   23
 S12-attributes/undeclared.t........................  10    0    0    0   10
 S12-class/anonymous.rakudo.moar....................  16    0    1    0   17
      1 todo   : Anonymous class stringification (?)
@@ -1473,11 +1476,7 @@ S14-roles/mixin.rakudo.moar........................  29    0    0    3   32
 S14-roles/namespaced.rakudo.moar...................   2    0    1    0    3
      1 todo   : nom regression
 S14-roles/parameter-subtyping.t....................  22    0    0    0   22
-S14-roles/parameterized-basic.t....................===SORRY!===
-None of the parametric role variants for 'MD_block' matched the arguments supplied.
-Nominal type check failed for parameter '$a'; expected Any but got Mu
-   0   32    0    0   32
-    32 tests aborted (missing ok/not ok)
+S14-roles/parameterized-basic.t....................  32    0    0    0   32
 S14-roles/parameterized-mixin.rakudo.moar..........  24    0    4    0   28
      4 todo   : .does with parametric roles
 S14-roles/parameterized-type.rakudo.moar...........  28    0    0    1   29
@@ -1486,7 +1485,7 @@ S14-roles/stubs.t..................................   9    0    0    0    9
 S14-roles/submethods.t.............................   4    0    0    0    4
 S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.moar....................Cannot invoke object with invocation handler in this context
-  in block frame_name_41 at t/spec/S14-traits/routines.rakudo.moar:43
+  in block  at t/spec/S14-traits/routines.rakudo.moar:43
 
    8    5    0    0   13
      5 tests aborted (missing ok/not ok)
@@ -1515,7 +1514,7 @@ S16-io/cwd.t.......................................   3    0    0    0    3
 S16-io/getc.t......................................   1    0    0    0    1
 S16-io/say-and-ref.t...............................   3    0    0    0    3
 S16-io/say.t.......................................   8    0    0    0    8
-S16-io/tmpdir.t....................................   1    2    0    0    3
+S16-io/tmpdir.t....................................   3    0    0    0    3
 S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
      2 skipped: contextual rebinding regression
                                                    pass fail todo skip plan
@@ -1544,13 +1543,13 @@ S29-any/cmp.t......................................   6    0    0    0    6
 S29-any/isa.t......................................  10    0    0    0   10
 S29-context/die.rakudo.moar........................WARNINGS:
 Useless use of variable $foo in sink context (line 23)
-  13    2    1    0   16
+  15    0    1    0   16
      1 todo   : RT #67374
 S29-context/eval.rakudo.moar.......................  15    0    0    3   18
      1 skipped: EVAL(Buf)
      2 skipped: EVAL coerce to string
 S29-context/exit-in-if.t...........................   1    0    0    0    1
-S29-context/exit.t.................................   1    2    0    0    3
+S29-context/exit.t.................................   3    0    0    0    3
 S29-context/sleep.t................................  17    0    0    0   17
 S29-conversions/hash.t.............................   8    0    0    0    8
 S29-conversions/ord_and_chr.rakudo.moar............ 250    5    1    0  256
@@ -1633,17 +1632,17 @@ IO::Handle.copy is deprecated.  Please use IO::Path.copy instead.
 IO::Handle.copy is deprecated.  Please use IO::Path.copy instead.
   27    2    0    0   29
 S32-io/dir.t.......................................Type check failed in bind; expected Str but got Failure
-  in any bind_error at src/vm/moar/Perl6/Ops.nqp:230
-  in block frame_name_13777 at src/gen/m-CORE.setting:13446
-  in sub frame_name_9929 at src/gen/m-CORE.setting:7476
-  in sub frame_name_9938 at src/gen/m-CORE.setting:7481
+  in any bind_error at src/vm/moar/Perl6/Ops.nqp:234
+  in block  at src/gen/m-CORE.setting:13446
+  in sub  at src/gen/m-CORE.setting:7476
+  in sub  at src/gen/m-CORE.setting:7481
   in method reify at src/gen/m-CORE.setting:7508
   in method reify at src/gen/m-CORE.setting:7241
   in method reify at src/gen/m-CORE.setting:7241
   in method gimme at src/gen/m-CORE.setting:7655
   in method eager at src/gen/m-CORE.setting:7622
   in method STORE at src/gen/m-CORE.setting:8378
-  in block frame_name_1 at t/spec/S32-io/dir.t:16
+  in block  at t/spec/S32-io/dir.t:16
 
    0   12    0    0   12
     12 tests aborted (missing ok/not ok)
@@ -1670,8 +1669,8 @@ This type cannot unbox to a native string
   in method is-absolute at src/gen/m-CORE.setting:12706
   in method rel2abs at src/gen/m-CORE.setting:12797
   in method abs2rel at src/gen/m-CORE.setting:12607
-  in block frame_name_17 at t/spec/S32-io/io-spec-win.t:266
-  in block frame_name_1 at t/spec/S32-io/io-spec-win.t:257
+  in block  at t/spec/S32-io/io-spec-win.t:266
+  in block  at t/spec/S32-io/io-spec-win.t:257
 
  189   20    0    0  209
     20 tests aborted (missing ok/not ok)
@@ -1713,7 +1712,7 @@ S32-list/reverse.rakudo.moar.......................  20    0    1    0   21
      1 todo   : RT 77914
 S32-list/roll.t....................................openpipe NYI
   in sub QX at src/gen/m-CORE.setting:768
-  in block frame_name_1 at t/spec/S32-list/roll.t:129
+  in block  at t/spec/S32-list/roll.t:129
 
   39    1    0    0   40
      1 tests aborted (missing ok/not ok)
@@ -2156,12 +2155,7 @@ integration/advent2009-day06.rakudo.moar...........  14    0    1    0   15
      1 todo   : Cannot assign to readonly value
 integration/advent2009-day07.rakudo.moar...........  12    0    0    1   13
      1 skipped: No candidates found to invoke
-integration/advent2009-day08.t.....................Nominal type check failed for parameter '$a'; expected Any but got Mu
-  in sub infix:<%> at src/gen/m-CORE.setting:4008
-  in block frame_name_1 at t/spec/integration/advent2009-day08.t:9
-
-   0    8    0    0    8
-     8 tests aborted (missing ok/not ok)
+integration/advent2009-day08.t.....................   8    0    0    0    8
 integration/advent2009-day09.t.....................  17    0    0    0   17
 integration/advent2009-day10.t.....................   5    0    0    0    5
 integration/advent2009-day11.t.....................   6    0    0    0    6
@@ -2192,7 +2186,7 @@ integration/advent2009-day23.rakudo.moar...........   3    0    0    1    4
      1 skipped: lists aren't properly lazy in Rakudo yet
 integration/advent2010-day04.t.....................  11    0    0    0   11
 integration/code-blocks-as-sub-args.t..............   4    0    0    0    4
-integration/error-reporting.t......................   7    9    0    0   16
+integration/error-reporting.t......................  13    3    0    0   16
 integration/lazy-bentley-generator.t...............   1    0    0    0    1
 integration/lexical-array-in-inner-block.t.........   2    0    0    0    2
 integration/lexicals-and-attributes.t..............   8    0    0    0    8
@@ -2218,29 +2212,29 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4061,    48,   122,   301,  4532,  4475
-"S03",        4748,    11,   122,   125,  5006,  4665
+"S02",        4062,    48,   122,   301,  4533,  4476
+"S03",        4750,     9,   122,   125,  5006,  4666
 "S04",         930,    26,    34,    30,  1020,  1038
 "S05",        4627,   261,   145,   352,  5385,  5829
-"S06",        1026,    60,    38,   101,  1224,  1292
+"S06",        1132,    34,    38,   104,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         173,     4,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
 "S11",          73,     0,     2,     9,    84,   139
-"S12",        1335,     1,    48,   124,  1508,  1408
+"S12",        1334,     2,    48,   124,  1508,  1408
 "S13",          33,     0,    10,    27,    70,    80
-"S14",         257,    39,     7,    12,   315,   328
-"S16",         221,     2,     5,    30,   258,   302
+"S14",         289,     7,     7,    12,   315,   328
+"S16",         223,     0,     5,    30,   258,   302
 "S17",           0,     0,     0,     0,     0,   210
 "S19",           4,     0,     0,     0,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
-"S29",         321,    14,     2,     3,   340,   350
+"S29",         325,    10,     2,     3,   340,   350
 "S32",        9057,    84,    85,   228,  9454,  7051
-"int",         526,    21,     7,    28,   582,   571
+"int",         540,     7,     7,    28,   582,   571
 "ros",           2,     0,     0,     0,     2,     2
-"total",     27778,   571,   637,  1407, 30392, 28500
+"total",     27938,   492,   637,  1410, 30477, 28502
 ----------------
 Failure summary:
 S02-lexical-conventions/unicode-whitespace.t 10 - MONGOLIAN VOWEL SEPARATOR
@@ -2291,7 +2285,6 @@ S02-types/type.t 32 - bad implicit return value dies (returns)
 S02-types/type.t 34 - bad implicit return value dies (of)
 S02-types/type.t 36 - bad implicit return value dies (my Type sub)
 S02-types/type.t 38 - bad implicit return value dies (-->)
-S03-operators/adverbial-modifiers.rakudo.moar 13 - :foo{ dostuff() }
 S03-operators/adverbial-modifiers.rakudo.moar 16 - fiddle(:x("a"):y("b"))
 S03-operators/adverbial-modifiers.rakudo.moar 17 - fiddle(:y("b"):x("a"))
 S03-operators/adverbial-modifiers.rakudo.moar 18 - fiddle(:x:y("b"))
@@ -2300,7 +2293,6 @@ S03-operators/arith.t 6 - -1 == 3
 S03-operators/arith.t 7 - 1 == -3
 S03-operators/arith.t 14 - 
 S03-operators/arith.t 15 - 
-S03-operators/bit.t 17 - long string bitwise ~^, no truncation
 S03-operators/overflow.t 46 - 7**(-1) works
 S04-phasers/enter-leave.rakudo.moar 19 - die doesn't abort LEAVE queue
 S04-phasers/pre-post.rakudo.moar 15 - failing PRE runs nothing else
@@ -2572,13 +2564,11 @@ S06-advanced/callframe.rakudo.moar 2 - callframe().line
 S06-macros/quasi-blocks.t aborted 5 test(s)
 S06-macros/unquoting.t aborted 10 test(s)
 S06-multi/redispatch.t 10 - nextsame in main block dies due to lack of dispatcher
-S06-multi/type-based.rakudo.moar aborted 27 test(s)
+S06-multi/type-based.rakudo.moar aborted 1 test(s)
 S06-operator-overloading/sub.rakudo.moar 45 - 
 S06-operator-overloading/sub.rakudo.moar 46 - 
 S06-operator-overloading/sub.rakudo.moar 47 - 
 S06-operator-overloading/sub.rakudo.moar 48 - 
-S06-operator-overloading/workout.t passed 1 unplanned test(s)
-S06-other/introspection.t 7 - you can invoke through introspection
 S06-other/main-usage.rakudo.moar 5 - --help option sends auto-generated USAGE message to $*OUT
 S06-other/main-usage.rakudo.moar 6 - boolean option +
 S06-other/main-usage.rakudo.moar 8 - option with value
@@ -2588,22 +2578,17 @@ S06-other/main-usage.rakudo.moar 12 - Bool option followed by positional value
 S06-other/main-usage.rakudo.moar 20 - superfluous options trigger usage message
 S06-signature/errors.t 10 - 
 S06-signature/errors.t 11 - 
+S06-signature/tree-node-parameters.rakudo.moar 16 - right object value is correct: nested object tree
 S06-signature/types.t 4 - type check forbids bad return
 S06-signature/types.t 6 - type check forbids bad  implicitreturn
 S09-typed-arrays/arrays.rakudo.moar 54 - type check Positional of Int prevents untyped array to be returned explicitly
 S09-typed-arrays/arrays.rakudo.moar 55 - type check Positional of Int prevents untyped array to be returned implicitly
 S09-typed-arrays/hashes.t aborted 2 test(s)
+S12-attributes/recursive.t 3 - Recursively-typed attribute stores correctly
 S12-subset/subtypes.rakudo.moar 73 - error message mentions subset name
 S14-roles/anonymous.rakudo.moar 7 - anonymous role variable mixin
 S14-roles/anonymous.rakudo.moar 9 - anonymous role variable gave us an attribute
-S14-roles/parameterized-basic.t aborted 32 test(s)
 S14-traits/routines.rakudo.moar aborted 5 test(s)
-S16-io/tmpdir.t 1 - The object is-a 'IO::Path'
-S16-io/tmpdir.t 3 - $*TMPDIR.gist works
-S29-context/die.rakudo.moar 14 - die with no output
-S29-context/die.rakudo.moar 15 - say something and die
-S29-context/exit.t 2 - exit 5; works
-S29-context/exit.t 3 - try-block does not catch exit exceptions
 S29-conversions/ord_and_chr.rakudo.moar 248 - chr of surrogate
 S29-conversions/ord_and_chr.rakudo.moar 249 - chr of noncharacter
 S29-conversions/ord_and_chr.rakudo.moar 250 - chr of noncharacter
@@ -2665,17 +2650,10 @@ S32-str/tclc.t 3 - tclc and German sharp s
 S32-str/uc.rakudo.moar 10 - uc() of non-ascii chars may result in two chars
 S32-temporal/DateTime-Instant-Duration.rakudo.moa 32 - DateTime.new(Instant) with time zone and formatter
 integration/99problems-21-to-30.rakudo.moar 15 - ..or according to frequency of length of sublists
-integration/advent2009-day08.t aborted 8 test(s)
 integration/advent2009-day14.t 13 - 
 integration/advent2009-day14.t 18 - 
-integration/error-reporting.t 1 - Parse error contains line number
-integration/error-reporting.t 2 - Runtime error contains line number
 integration/error-reporting.t 3 - Method not found error mentions method name and line number
-integration/error-reporting.t 4 - got the right line number for nonexisting sub inside another sub
-integration/error-reporting.t 5 - non-existing subroutine is caught before run time
-integration/error-reporting.t 8 - got the right line number for accessors
 integration/error-reporting.t 11 - warning reports correct line number and subroutine
-integration/error-reporting.t 12 - END phasers are run after die()
 integration/error-reporting.t 13 - correct line number reported for assignment to non-variable
 integration/weird-errors.t 7 - Typed, non-internal exception
 note: test_summary.pl @syn does not have ros

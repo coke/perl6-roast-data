@@ -106,7 +106,11 @@ S02-literals/quoting.niecza........................Potential difficulties:
   $x is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-literals/quoting.niecza line 555:
 ------> [32mis "foo $( my [33m⏏[31m$x = 3 + 4; "bar" ) baz", 'foo bar baz',[0m
 
- 122    0   22   11  155
+Potential difficulties:
+  $ya is declared but not used at (eval) line 1:
+------> [32mmy [33m⏏[31m$ya="\cIa"[0m
+
+ 122    1   22   11  156
      9 skipped: & escape, zen slices
      2 skipped: & escape
     19 todo   : 
@@ -5961,8 +5965,8 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        3172,    14,   121,   385,  3692,  4475
-"S03",        3675,     0,   198,   407,  4280,  4665
+"S02",        3172,    15,   121,   385,  3693,  4476
+"S03",        3675,     0,   198,   407,  4280,  4666
 "S04",         800,     0,    35,    60,   895,  1038
 "S05",        4111,     7,   117,   227,  4462,  5829
 "S06",         781,     1,    58,   162,  1002,  1292
@@ -5982,9 +5986,10 @@ integration/weird-errors.niecza....................   4    0    1    3    8
 "S29",         304,     2,     2,    10,   318,   350
 "S32",        6754,     0,   137,   285,  7176,  7051
 "int",         462,    10,    22,    27,   521,   571
-"total",     21339,    35,   769,  1831, 23974, 28498
+"total",     21339,    36,   769,  1831, 23975, 28500
 ----------------
 Failure summary:
+S02-literals/quoting.niecza 156 - \c followed by non-number
 S02-names-vars/varnames.niecza aborted 14 test(s)
 S05-grammar/action-stubs.niecza 19 - $/ availiable
 S05-mass/rx.niecza 423 - sigspace (:s)
