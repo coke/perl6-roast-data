@@ -88,7 +88,7 @@ S02-literals/string-interpolation.t................Potential difficulties:
     Leading 0 does not indicate octal in Perl 6; please use 0o1 if you mean that
     at t/spec/S02-literals/string-interpolation.t:12
     ------> [32m    is "{;;;;;;\01[33m⏏[31m;42}", "42", '{\\01 parses correctly (3)[0m
-  14    0    0    0   14
+  15    0    0    0   15
 S02-literals/sub-calls.t...........................  20    0    0    0   20
 S02-literals/subscript.t...........................   2    0    0    0    2
 S02-literals/types.t...............................   7    0    0    0    7
@@ -732,7 +732,7 @@ use of uninitialized value of type Any in string context
      1 todo   : will init NYI
      1 todo   : will post NYI
      2 todo   : declared variable not visible in block yet
-S04-exception-handlers/catch.t.....................  27    0    0    0   27
+S04-exception-handlers/catch.t.....................  28    0    0    0   28
 S04-exceptions/fail.rakudo.moar....................  11    0    0    2   13
      2 skipped: RT 64990
 S04-phasers/ascending-order.t......................   7    0    0    0    7
@@ -842,7 +842,7 @@ use of uninitialized value of type Any in string context
   18    4    0    0   22
 S05-grammar/inheritance.rakudo.moar................  30    0    1    0   31
      1 todo   : automatic Grammar superclass
-S05-grammar/methods.t..............................   5    0    0    0    5
+S05-grammar/methods.t..............................   6    0    0    0    6
 S05-grammar/namespace.t............................   5    0    0    0    5
 S05-grammar/parse_and_parsefile.t..................  12    0    0    0   12
 S05-grammar/polymorphism.t.........................use of uninitialized value of type Any in string context
@@ -885,7 +885,7 @@ S05-mass/properties-script.rakudo.moar............. 269   57    0   35  361
     35 skipped: Unicode properties with arguments
 S05-mass/recursive.t...............................  20    0    0    0   20
 S05-mass/rx.rakudo.moar............................use of uninitialized value of type Any in string context
- 688    1    5   45  739
+ 689    1    5   45  740
      1 skipped: <commit> not implemented
     21 skipped: **{}
      1 skipped: :s()
@@ -1305,13 +1305,13 @@ use of uninitialized value of type Int in string context
      2 todo   : ro on list attributes
 S12-attributes/mutators.rakudo.moar................   5    0    0    7   12
      7 skipped: Can not get attribute $!varies declared in class MagicVal with this object
-S12-attributes/recursive.t.........................  22    1    0    0   23
+S12-attributes/recursive.t.........................  23    0    0    0   23
 S12-attributes/undeclared.t........................  10    0    0    0   10
 S12-class/anonymous.rakudo.moar....................  16    0    1    0   17
      1 todo   : Anonymous class stringification (?)
 S12-class/attributes.rakudo.moar...................  30    0    0    1   31
      1 skipped: Cannot use .= to initialize an attribute
-S12-class/augment-supersede.rakudo.moar............   9    0    0    2   11
+S12-class/augment-supersede.rakudo.moar............  10    0    0    2   12
      2 skipped: redeclaration of symbol Bar
 S12-class/basic.rakudo.moar........................  33    0    0    4   37
      3 skipped: Calling is will never work with argument types (Foo)
@@ -1497,8 +1497,7 @@ S16-filehandles/filetest.rakudo.moar...............  32    0    0    9   41
      9 skipped: :M, :C, :A
 S16-filehandles/io.rakudo.moar.....................  83    0    0    1   84
      1 skipped: :rw on open() unimplemented
-S16-filehandles/io_in_for_loops.rakudo.moar........  17    0    0   12   29
-    12 skipped: infinite loop
+S16-filehandles/io_in_for_loops.t..................  29    0    0    0   29
 S16-filehandles/io_in_while_loops.t................  13    0    0    0   13
 S16-filehandles/mkdir_rmdir.rakudo.moar............  13    0    0    1   14
      1 skipped: deviation from spec because we do not have sink yet
@@ -1600,11 +1599,12 @@ S32-container/roundrobin.rakudo.moar...............   4    0    1    0    5
      1 todo   : over-flattening
 S32-container/zip.rakudo.moar......................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.moar.................... 618   16    0   24  658
+S32-exceptions/misc.rakudo.moar.................... 623   16    0   27  666
      1 skipped: RT 114134
     16 skipped: wrong exception type
      3 skipped: still handled by <special_var>
      3 skipped: Code did not die, can not check exception
+     3 skipped: LTA error
      1 skipped: parsing regression
 S32-hash/delete-adverb.t...........................use of uninitialized value of type Int in string context
 use of uninitialized value of type Int in string context
@@ -1627,10 +1627,7 @@ S32-io/IO-Socket-INET.t............................   0    0    0   41   41
     41 skipped: rakudo.jvm systemic failures/OOM error
 S32-io/chdir.rakudo.moar...........................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
-S32-io/copy.t......................................IO::Handle.copy is deprecated.  Please use IO::Path.copy instead.
-IO::Handle.copy is deprecated.  Please use IO::Path.copy instead.
-IO::Handle.copy is deprecated.  Please use IO::Path.copy instead.
-  27    2    0    0   29
+S32-io/copy.t......................................  27    2    0    0   29
 S32-io/dir.t.......................................Type check failed in bind; expected Str but got Failure
   in any bind_error at src/vm/moar/Perl6/Ops.nqp:234
   in block  at src/gen/m-CORE.setting:13446
@@ -1661,19 +1658,8 @@ S32-io/io-spec-cygwin.t............................ 100    0    0    2  102
 S32-io/io-spec-unix.t..............................use of uninitialized value of type Any in string context
  129    0    0    0  129
 S32-io/io-spec-win.t...............................use of uninitialized value of type Any in string context
-This type cannot unbox to a native string
-  in method Str at src/gen/m-CORE.setting:1020
-  in any !cursor_init at gen/moar/stage2/QRegex.nqp:580
-  in method ACCEPTS at src/gen/m-CORE.setting:12460
-  in method ACCEPTS at src/gen/m-CORE.setting:783
-  in method is-absolute at src/gen/m-CORE.setting:12706
-  in method rel2abs at src/gen/m-CORE.setting:12797
-  in method abs2rel at src/gen/m-CORE.setting:12607
-  in block  at t/spec/S32-io/io-spec-win.t:266
-  in block  at t/spec/S32-io/io-spec-win.t:257
-
- 189   20    0    0  209
-    20 tests aborted (missing ok/not ok)
+ 206    0    0    3  209
+     3 skipped: Win32ish on-platform tests
 S32-io/note.rakudo.moar............................   5    0    1    0    6
      1 todo   : nom regression
 S32-io/other.t.....................................  60    0    0    0   60
@@ -2205,36 +2191,36 @@ integration/say-crash.t............................   4    0    0    0    4
 integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 integration/topic_in_double_loop.t.................   5    0    0    0    5
 integration/variables-in-do.t......................   3    0    0    0    3
-integration/weird-errors.t.........................   7    1    0    0    8
+integration/weird-errors.t.........................   9    1    0    0   10
                                                    pass fail todo skip plan
 rosettacode/greatest_element_of_a_list.t...........   1    0    0    0    1
 rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4062,    48,   122,   301,  4533,  4476
+"S02",        4063,    48,   122,   301,  4534,  4477
 "S03",        4750,     9,   122,   125,  5006,  4666
-"S04",         930,    26,    34,    30,  1020,  1038
-"S05",        4627,   261,   145,   352,  5385,  5829
+"S04",         931,    26,    34,    30,  1021,  1039
+"S05",        4629,   261,   145,   352,  5387,  5831
 "S06",        1132,    34,    38,   104,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         173,     4,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
 "S11",          73,     0,     2,     9,    84,   139
-"S12",        1334,     2,    48,   124,  1508,  1408
+"S12",        1336,     1,    48,   124,  1509,  1409
 "S13",          33,     0,    10,    27,    70,    80
 "S14",         289,     7,     7,    12,   315,   328
-"S16",         223,     0,     5,    30,   258,   302
+"S16",         235,     0,     5,    18,   258,   302
 "S17",           0,     0,     0,     0,     0,   210
 "S19",           4,     0,     0,     0,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         325,    10,     2,     3,   340,   350
-"S32",        9057,    84,    85,   228,  9454,  7051
-"int",         540,     7,     7,    28,   582,   571
+"S32",        9079,    64,    85,   234,  9462,  7051
+"int",         542,     7,     7,    28,   584,   573
 "ros",           2,     0,     0,     0,     2,     2
-"total",     27938,   492,   637,  1410, 30477, 28502
+"total",     27980,   471,   637,  1404, 30492, 28509
 ----------------
 Failure summary:
 S02-lexical-conventions/unicode-whitespace.t 10 - MONGOLIAN VOWEL SEPARATOR
@@ -2553,7 +2539,7 @@ S05-mass/properties-script.rakudo.moar 338 - Match unrelated negated <Thaana>
 S05-mass/properties-script.rakudo.moar 345 - Match unrelated negated <Thai>
 S05-mass/properties-script.rakudo.moar 352 - Match unrelated negated <Tibetan>
 S05-mass/properties-script.rakudo.moar 359 - Match unrelated negated <Yi>
-S05-mass/rx.rakudo.moar 277 - unicode whitespace (\s)
+S05-mass/rx.rakudo.moar 278 - unicode whitespace (\s)
 S05-metachars/newline.t 6 - NEL
 S05-metachars/newline.t 13 - not NEL
 S05-modifier/perl5_5.rakudo.moar 3 - re_tests 613/1 (797)
@@ -2584,7 +2570,6 @@ S06-signature/types.t 6 - type check forbids bad  implicitreturn
 S09-typed-arrays/arrays.rakudo.moar 54 - type check Positional of Int prevents untyped array to be returned explicitly
 S09-typed-arrays/arrays.rakudo.moar 55 - type check Positional of Int prevents untyped array to be returned implicitly
 S09-typed-arrays/hashes.t aborted 2 test(s)
-S12-attributes/recursive.t 3 - Recursively-typed attribute stores correctly
 S12-subset/subtypes.rakudo.moar 73 - error message mentions subset name
 S14-roles/anonymous.rakudo.moar 7 - anonymous role variable mixin
 S14-roles/anonymous.rakudo.moar 9 - anonymous role variable gave us an attribute
@@ -2595,26 +2580,25 @@ S29-conversions/ord_and_chr.rakudo.moar 250 - chr of noncharacter
 S29-conversions/ord_and_chr.rakudo.moar 251 - chr out of range
 S29-conversions/ord_and_chr.rakudo.moar 253 - ord of named high character
 S29-os/system.rakudo.moar aborted 5 test(s)
-S32-exceptions/misc.rakudo.moar 488 - right exception type (X::Method::NotFound)
-S32-exceptions/misc.rakudo.moar 501 - right exception type (X::Method::NotFound)
-S32-exceptions/misc.rakudo.moar 525 - right exception type (X::TypeCheck::Binding)
-S32-exceptions/misc.rakudo.moar 528 - 'sub f() returns Str { 5 }; f' died
-S32-exceptions/misc.rakudo.moar 533 - right exception type (X::TypeCheck::Assignment)
-S32-exceptions/misc.rakudo.moar 538 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.moar 540 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.moar 542 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.moar 544 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.moar 546 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.moar 548 - right exception type (X::Method::NotFound)
-S32-exceptions/misc.rakudo.moar 564 - right exception type (X::ControlFlow)
-S32-exceptions/misc.rakudo.moar 568 - right exception type (X::ControlFlow)
-S32-exceptions/misc.rakudo.moar 582 - right exception type (X::ControlFlow::Return)
-S32-exceptions/misc.rakudo.moar 604 - nextsame in proto
-S32-exceptions/misc.rakudo.moar 651 - right exception type (X::Method::NotFound)
+S32-exceptions/misc.rakudo.moar 495 - right exception type (X::Method::NotFound)
+S32-exceptions/misc.rakudo.moar 508 - right exception type (X::Method::NotFound)
+S32-exceptions/misc.rakudo.moar 532 - right exception type (X::TypeCheck::Binding)
+S32-exceptions/misc.rakudo.moar 535 - 'sub f() returns Str { 5 }; f' died
+S32-exceptions/misc.rakudo.moar 540 - right exception type (X::TypeCheck::Assignment)
+S32-exceptions/misc.rakudo.moar 545 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.moar 547 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.moar 549 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.moar 551 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.moar 553 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.moar 555 - right exception type (X::Method::NotFound)
+S32-exceptions/misc.rakudo.moar 571 - right exception type (X::ControlFlow)
+S32-exceptions/misc.rakudo.moar 575 - right exception type (X::ControlFlow)
+S32-exceptions/misc.rakudo.moar 589 - right exception type (X::ControlFlow::Return)
+S32-exceptions/misc.rakudo.moar 611 - nextsame in proto
+S32-exceptions/misc.rakudo.moar 658 - right exception type (X::Method::NotFound)
 S32-io/copy.t 9 - It doesn't
 S32-io/copy.t 21 - It doesn't
 S32-io/dir.t aborted 12 test(s)
-S32-io/io-spec-win.t aborted 20 test(s)
 S32-io/slurp.t 15 - iso-8859-1 makes mojibake correctly
 S32-list/roll.t aborted 1 test(s)
 S32-num/exp.t 26 - 1/2 is correct
