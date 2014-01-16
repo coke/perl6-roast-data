@@ -124,7 +124,7 @@ S02-names-vars/perl.rakudo.jvm.....................useless use of 'is rw' on $!p
 use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
-  97    1    0    6  104
+  98    0    0    6  104
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -243,13 +243,28 @@ S02-types/infinity.rakudo.jvm......................   6    0    3    4   13
      4 skipped: integer Inf
      3 todo   : Int conversion of NaN and Inf
 S02-types/instants-and-durations.t.................  12    0    0    0   12
-S02-types/isDEPRECATED.rakudo.jvm..................Cannot look up attributes in a type object
-  in sub infix:<<> at gen/jvm/CORE.setting:4180
-  in sub postcircumfix:<[ ]> at gen/jvm/CORE.setting:2337
-  in sub DEPRECATED at gen/jvm/CORE.setting:16873
-  in block  at gen/jvm/CORE.setting:128
-  in block  at t/spec/S02-types/isDEPRECATED.rakudo.jvm:20
+S02-types/isDEPRECATED.rakudo.jvm..................Cannot unbox a type object
 
+Error while creating backtrace: Cannot unbox a type object
+  in block  at gen/jvm/CORE.setting:10595
+  in block  at gen/jvm/CORE.setting:7365
+  in method reify at gen/jvm/CORE.setting:7315
+  in block  at gen/jvm/CORE.setting:7229
+  in method reify at gen/jvm/CORE.setting:7201
+  in method gimme at gen/jvm/CORE.setting:7647
+  in method sink at gen/jvm/CORE.setting:8057
+  in method new at gen/jvm/CORE.setting:10585
+  in method new at gen/jvm/CORE.setting:10572
+  in method new at gen/jvm/CORE.setting:10574
+  in method new at gen/jvm/CORE.setting:10572
+  in method backtrace at gen/jvm/CORE.setting:10724
+  in code  at gen/jvm/CORE.setting:10734
+  in method gist at gen/jvm/CORE.setting:10731
+  in method gist at gen/jvm/CORE.setting:1037
+  in block  at gen/jvm/CORE.setting:10870
+  in sub print_exception at gen/jvm/CORE.setting:10881
+  in method <anon> at gen/jvm/CORE.setting:10922
+;
    0   20    0    0   20
     20 tests aborted (missing ok/not ok)
 S02-types/lazy-lists.t.............................  19    0    0    0   19
@@ -2156,7 +2171,8 @@ integration/advent2009-day23.rakudo.jvm............   3    0    0    1    4
 integration/advent2010-day04.t.....................  11    0    0    0   11
 integration/code-blocks-as-sub-args.t..............   4    0    0    0    4
 integration/error-reporting.rakudo.jvm.............  11    0    5    0   16
-     5 todo   : nigh
+     4 todo   : nigh
+     1 todo PASSED: nigh
 integration/lazy-bentley-generator.t...............   1    0    0    0    1
 integration/lexical-array-in-inner-block.t.........   2    0    0    0    2
 integration/lexicals-and-attributes.t..............   8    0    0    0    8
@@ -2182,7 +2198,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4075,    21,   119,   320,  4535,  4477
+"S02",        4076,    20,   119,   320,  4535,  4477
 "S03",        4751,     0,   122,   125,  4998,  4666
 "S04",         945,     0,    40,    36,  1021,  1039
 "S05",        4793,     0,   157,   438,  5388,  5831
@@ -2204,10 +2220,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9155,     1,    88,   222,  9466,  7051
 "int",         544,     0,    12,    28,   584,   573
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28469,    22,   665,  1516, 30672, 28509
+"total",     28470,    21,   665,  1516, 30672, 28509
 ----------------
 Failure summary:
-S02-names-vars/perl.rakudo.jvm 90 - .perl on user-defined type roundtrips okay
 S02-types/isDEPRECATED.rakudo.jvm aborted 20 test(s)
 S32-list/roll.t 40 - different results due to random random-number seed
 note: test_summary.pl @syn does not have ros
