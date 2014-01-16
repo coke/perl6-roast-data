@@ -4,7 +4,7 @@
 PATH=/usr/local/bin:$PATH
 
 rm -rf rakudo.moar
-git clone -b moar-support repos/rakudo.git rakudo.moar
+git clone repos/rakudo.git rakudo.moar
 git clone repos/nqp.git rakudo.moar/nqp
 git clone repos/MoarVM.git rakudo.moar/nqp/MoarVM
 git clone repos/roast.git rakudo.moar/t/spec
