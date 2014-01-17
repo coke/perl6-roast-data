@@ -383,7 +383,7 @@ S03-junctions/associative.t........................  10    0    0    0   10
 S03-junctions/autothreading.t......................  89    0    0    0   89
 S03-junctions/boolean-context.rakudo.moar..........  76    0    1    0   77
      1 todo   : named unary as function call
-S03-junctions/misc.rakudo.moar.....................  95    0    4    4  103
+S03-junctions/misc.rakudo.moar.....................  97    0    4    4  105
      4 skipped: lower case junction
      2 todo   : lower case junction type
      2 todo   : nom regression
@@ -798,20 +798,10 @@ S04-statements/return.t............................  17    0    0    0   17
 S04-statements/sink.rakudo.moar....................   1    0    1    0    2
      1 todo   : RT #117235
 S04-statements/terminator.t........................  15    0    0    0   15
-S04-statements/try.rakudo.moar.....................Cannot find method 'substr'
-  in method Str at src/gen/m-CORE.setting:12157
-  in method Str at src/gen/m-CORE.setting:1020
-  in method Stringy at src/gen/m-CORE.setting:1030
-  in method Stringy at src/gen/m-CORE.setting:1029
-  in sub infix:<~> at src/gen/m-CORE.setting:1424
-  in sub infix:<~> at src/gen/m-CORE.setting:1422
-  in block  at src/gen/m-CORE.setting:16349
-  in block  at t/spec/S04-statements/try.rakudo.moar:124
-  in block  at t/spec/S04-statements/try.rakudo.moar:122
-  in block  at t/spec/S04-statements/try.rakudo.moar:2
-
-  19    7    0    0   26
-     7 tests aborted (missing ok/not ok)
+S04-statements/try.rakudo.moar.....................use of uninitialized value of type Any in string context
+use of uninitialized value of type Any in string context
+  25    0    1    0   26
+     1 todo   : RT 111704
 S04-statements/unless.t............................  10    0    0    0   10
 S04-statements/until.t.............................   4    0    0    0    4
 S04-statements/while.t.............................   9    0    0    0    9
@@ -834,10 +824,7 @@ S05-capture/named.rakudo.moar......................   9    0    0    2   11
      2 skipped: assigning to match object
 S05-capture/subrule.t..............................use of uninitialized value of type Any in string context
   46    0    0    0   46
-S05-grammar/action-stubs.t.........................use of uninitialized value of type Any in string context
-use of uninitialized value of type Any in string context
-use of uninitialized value of type Any in string context
-  18    4    0    0   22
+S05-grammar/action-stubs.t.........................  22    0    0    0   22
 S05-grammar/inheritance.rakudo.moar................  30    0    1    0   31
      1 todo   : automatic Grammar superclass
 S05-grammar/methods.t..............................   6    0    0    0    6
@@ -1057,17 +1044,17 @@ S06-advanced/return.rakudo.moar....................  75    0    1    3   79
      1 todo   : RT 61732
 S06-advanced/wrap.rakudo.moar......................  64    0    5    0   69
      1 todo   : RT 70267: call to nextsame with nowhere to go
+     1 todo   : RT 77472
      1 todo   : callwith
      2 todo   : temp and wrap
-     1 todo PASSED: RT 77472
 S06-currying/assuming-and-mmd.t....................   6    0    0    0    6
 S06-currying/named.t...............................   3    0    0    0    3
 S06-macros/errors.t................................   2    0    0    0    2
 S06-macros/opaque-ast.rakudo.moar..................   3    0    0    4    7
      3 skipped: :COMPILING flag
      1 skipped: return from macro
-S06-macros/quasi-blocks.t..........................Cannot find method 'succ'
-  in sub prefix:<++> at src/gen/m-CORE.setting:1756
+S06-macros/quasi-blocks.t..........................Cannot find method 'STORE'
+  in sub prefix:<++> at src/gen/m-CORE.setting:1757
   in sub prefix:<++> at src/gen/m-CORE.setting:1755
   in any  at t/spec/S06-macros/quasi-blocks.t:95
   in block  at t/spec/S06-macros/quasi-blocks.t:92
@@ -1087,15 +1074,8 @@ S06-multi/proto.rakudo.moar........................  22    0    1    5   28
      1 todo   : operator protos
 S06-multi/redispatch.t.............................   9    1    0    0   10
 S06-multi/syntax.t.................................  41    0    0    0   41
-S06-multi/type-based.rakudo.moar...................Cannot call 'rt107638'; none of these signatures match:
-:(int $a)
-:(Str $a)
-  in sub rt107638 at t/spec/S06-multi/type-based.rakudo.moar:207
-  in block  at t/spec/S06-multi/type-based.rakudo.moar:205
-
-  49    1    0    3   53
+S06-multi/type-based.rakudo.moar...................  50    0    0    3   53
      3 skipped: our sub in class
-     1 tests aborted (missing ok/not ok)
 S06-multi/unpackability.t..........................  10    0    0    0   10
 S06-multi/value-based.t............................  12    0    0    0   12
 S06-operator-overloading/imported-subs.t...........  19    0    0    0   19
@@ -1314,7 +1294,7 @@ S12-class/instantiate.rakudo.moar..................   6    0    1    0    7
 S12-class/interface-consistency.t..................   8    0    0    0    8
 S12-class/lexical.t................................  14    0    0    0   14
 S12-class/literal.t................................   2    0    0    0    2
-S12-class/magical-vars.t...........................  17    0    0    0   17
+S12-class/magical-vars.t...........................  16    1    0    0   17
 S12-class/mro.t....................................   4    0    0    0    4
 S12-class/namespaced.t.............................  13    0    0    0   13
 S12-class/open.t...................................   8    0    0    0    8
@@ -2188,15 +2168,15 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        4064,    48,   122,   301,  4535,  4477
-"S03",        4746,     5,   122,   125,  4998,  4666
-"S04",         931,    26,    34,    30,  1021,  1039
-"S05",        4630,   261,   145,   352,  5388,  5831
-"S06",        1140,    26,    38,   104,  1308,  1292
+"S03",        4748,     5,   122,   125,  5000,  4668
+"S04",         937,    19,    35,    30,  1021,  1039
+"S05",        4634,   257,   145,   352,  5388,  5831
+"S06",        1141,    25,    38,   104,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         175,     2,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
 "S11",          73,     0,     2,     9,    84,   139
-"S12",        1336,     1,    48,   124,  1509,  1409
+"S12",        1335,     2,    48,   124,  1509,  1409
 "S13",          33,     0,    10,    27,    70,    80
 "S14",         289,     7,     7,    12,   315,   328
 "S16",         235,     0,     5,    18,   258,   302
@@ -2209,7 +2189,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9079,    64,    85,   234,  9462,  7051
 "int",         542,     7,     7,    28,   584,   573
 "ros",           2,     0,     0,     0,     2,     2
-"total",     27988,   457,   637,  1404, 30486, 28509
+"total",     28000,   446,   638,  1404, 30488, 28511
 ----------------
 Failure summary:
 S02-lexical-conventions/unicode-whitespace.t 10 - MONGOLIAN VOWEL SEPARATOR
@@ -2269,11 +2249,6 @@ S04-phasers/enter-leave.rakudo.moar 19 - die doesn't abort LEAVE queue
 S04-phasers/pre-post.rakudo.moar 15 - failing PRE runs nothing else
 S04-phasers/pre-post.rakudo.moar 19 - failing POST on exception doesn't replace $!
 S04-phasers/rvalue.t aborted 16 test(s)
-S04-statements/try.rakudo.moar aborted 7 test(s)
-S05-grammar/action-stubs.t 19 - $/ availiable
-S05-grammar/action-stubs.t 20 - token name
-S05-grammar/action-stubs.t 21 - token name (assertion)
-S05-grammar/action-stubs.t 22 - $0 availiable
 S05-mass/charsets.rakudo.moar 7 - cntrl chars
 S05-mass/charsets.rakudo.moar 8 - lower chars
 S05-mass/charsets.rakudo.moar 13 - unicode Letter chars
@@ -2535,7 +2510,6 @@ S06-advanced/callframe.rakudo.moar 2 - callframe().line
 S06-macros/quasi-blocks.t aborted 5 test(s)
 S06-macros/unquoting.t aborted 10 test(s)
 S06-multi/redispatch.t 10 - nextsame in main block dies due to lack of dispatcher
-S06-multi/type-based.rakudo.moar aborted 1 test(s)
 S06-operator-overloading/sub.rakudo.moar 45 - 
 S06-operator-overloading/sub.rakudo.moar 46 - 
 S06-operator-overloading/sub.rakudo.moar 47 - 
@@ -2546,6 +2520,7 @@ S06-signature/types.t 4 - type check forbids bad return
 S06-signature/types.t 6 - type check forbids bad  implicitreturn
 S09-typed-arrays/arrays.rakudo.moar 54 - type check Positional of Int prevents untyped array to be returned explicitly
 S09-typed-arrays/arrays.rakudo.moar 55 - type check Positional of Int prevents untyped array to be returned implicitly
+S12-class/magical-vars.t 15 - self is an alias for $self (1)
 S12-subset/subtypes.rakudo.moar 73 - error message mentions subset name
 S14-roles/anonymous.rakudo.moar 7 - anonymous role variable mixin
 S14-roles/anonymous.rakudo.moar 9 - anonymous role variable gave us an attribute
