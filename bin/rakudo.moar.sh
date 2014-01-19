@@ -9,7 +9,7 @@ git clone repos/nqp.git rakudo.moar/nqp
 git clone repos/MoarVM.git rakudo.moar/nqp/MoarVM
 git clone repos/roast.git rakudo.moar/t/spec
 cd rakudo.moar
-perl Configure.pl --backends=moar --gen-moar=master --gen-nqp=master
+perl Configure.pl --backends=moar --gen-moar --gen-nqp
 make all
 
 # default build generates a "perl6-m" - need "./perl6" for test_summary
