@@ -105,8 +105,8 @@ S02-magicals/dollar-underscore.rakudo.parrot.......   8    0    0    1    9
      1 skipped: for() with nullary block
 S02-magicals/dollar_bang.rakudo.parrot.............  15    0    1    0   16
      1 todo   : stringification of $!
-S02-magicals/env.rakudo.parrot.....................   0   17    0    0   17
-    17 tests aborted (missing ok/not ok)
+S02-magicals/env.rakudo.parrot.....................  16    0    0    1   17
+     1 skipped: import keyword
 S02-magicals/file_line.t...........................   2    0    0    0    2
 S02-magicals/pid.t.................................   1    0    0    0    1
 S02-magicals/progname.t............................   4    0    0    0    4
@@ -1033,13 +1033,14 @@ S05-mass/properties-derived.rakudo.parrot.......... 173    0    4   79  256
      4 skipped: isAny not implemented
     42 skipped: isOther* not implemented
      4 todo   : isGraphemeLink
-S05-mass/properties-general.rakudo.parrot.......... 559    0    0   37  596
+S05-mass/properties-general.rakudo.parrot.......... 559    0    6   37  602
     10 skipped: No [Lr] property defined
      4 skipped: Uninvestigated nqp-rx regression
      8 skipped: ICU version dependent :(
      3 skipped: \x[FFFE]
      4 skipped: \x[FFFF]
      8 skipped: Malformed UTF-8 string
+     6 todo   : Unicode spec change in v6.1
 S05-mass/properties-script.rakudo.parrot........... 326    0    0   35  361
     35 skipped: Unicode properties with arguments
 S05-mass/recursive.t...............................  20    0    0    0   20
@@ -1550,7 +1551,11 @@ S12-enums/misc.rakudo.parrot.......................  12    0    0    1   13
      1 skipped: RT 63826
 S12-enums/non-int.rakudo.parrot....................   5    0    1    0    6
      1 todo   : NYI
-S12-enums/pseudo-functional.t......................  11    0    0    0   11
+S12-enums/pseudo-functional.t......................use of uninitialized value of type day in string context  in sub is at lib/Test.pm:81
+
+use of uninitialized value of type day in string context  in sub is at lib/Test.pm:84
+
+  10    1    0    0   11
 S12-enums/thorough.rakudo.parrot...................  14    0    0   20   34
      2 skipped: NYI
     16 skipped: does &day::("Tue")
@@ -1574,13 +1579,13 @@ S12-introspection/methods.rakudo.parrot............  45    0    2   11   58
     11 skipped: nom regression
      2 todo   : nom regression
 S12-introspection/parents.t........................  59    0    0    0   59
-S12-introspection/roles.rakudo.parrot..............use of uninitialized value of type R3 in string context  in any  at gen/parrot/Metamodel.nqp:1478
+S12-introspection/roles.rakudo.parrot..............use of uninitialized value of type R3 in string context  in any  at gen/parrot/Metamodel.nqp:1480
 
-use of uninitialized value of type R3 in string context  in any  at gen/parrot/Metamodel.nqp:1478
+use of uninitialized value of type R3 in string context  in any  at gen/parrot/Metamodel.nqp:1480
 
-use of uninitialized value of type R3 in string context  in any  at gen/parrot/Metamodel.nqp:1478
+use of uninitialized value of type R3 in string context  in any  at gen/parrot/Metamodel.nqp:1480
 
-use of uninitialized value of type R3 in string context  in any  at gen/parrot/Metamodel.nqp:1478
+use of uninitialized value of type R3 in string context  in any  at gen/parrot/Metamodel.nqp:1480
 
    8    0    0    4   12
      4 skipped: .^roles(:tree)
@@ -2533,16 +2538,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4102,    17,   124,   292,  4535,  4477
+"S02",        4118,     0,   124,   293,  4535,  4477
 "S03",        4753,     0,   122,   125,  5000,  4668
 "S04",         953,     0,    38,    30,  1021,  1039
-"S05",        4803,     0,   154,   431,  5388,  5831
+"S05",        4803,     0,   160,   431,  5394,  5837
 "S06",        1166,     0,    38,   104,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
 "S11",          73,     0,     2,     9,    84,   139
-"S12",        1337,     0,    48,   124,  1509,  1409
+"S12",        1336,     1,    48,   124,  1509,  1409
 "S13",          33,     0,    10,    27,    70,    80
 "S14",         295,     0,     8,    12,   315,   328
 "S16",         235,     0,     5,    18,   258,   302
@@ -2555,9 +2560,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9153,     0,    90,   219,  9462,  7051
 "int",         548,     1,     8,    28,   585,   574
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28352,    18,   659,  1460, 30489, 28512
+"total",     28367,     2,   665,  1461, 30495, 28518
 ----------------
 Failure summary:
-S02-magicals/env.rakudo.parrot aborted 17 test(s)
+S12-enums/pseudo-functional.t 1 - day(Tue) same as day(3)
 integration/error-reporting.t 13 - correct line number reported for assignment to non-variable
 note: test_summary.pl @syn does not have ros

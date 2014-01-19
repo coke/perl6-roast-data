@@ -246,24 +246,24 @@ S02-types/instants-and-durations.t.................  12    0    0    0   12
 S02-types/isDEPRECATED.rakudo.jvm..................Cannot unbox a type object
 
 Error while creating backtrace: Cannot unbox a type object
-  in block  at gen/jvm/CORE.setting:10595
-  in block  at gen/jvm/CORE.setting:7365
-  in method reify at gen/jvm/CORE.setting:7316
-  in block  at gen/jvm/CORE.setting:7230
-  in method reify at gen/jvm/CORE.setting:7202
-  in method gimme at gen/jvm/CORE.setting:7648
-  in method sink at gen/jvm/CORE.setting:8058
-  in method new at gen/jvm/CORE.setting:10586
-  in method new at gen/jvm/CORE.setting:10572
+  in block  at gen/jvm/CORE.setting:10598
+  in block  at gen/jvm/CORE.setting:7368
+  in method reify at gen/jvm/CORE.setting:7319
+  in block  at gen/jvm/CORE.setting:7233
+  in method reify at gen/jvm/CORE.setting:7205
+  in method gimme at gen/jvm/CORE.setting:7651
+  in method sink at gen/jvm/CORE.setting:8061
+  in method new at gen/jvm/CORE.setting:10589
   in method new at gen/jvm/CORE.setting:10575
-  in method new at gen/jvm/CORE.setting:10572
-  in method backtrace at gen/jvm/CORE.setting:10724
-  in code  at gen/jvm/CORE.setting:10734
-  in method gist at gen/jvm/CORE.setting:10734
+  in method new at gen/jvm/CORE.setting:10578
+  in method new at gen/jvm/CORE.setting:10575
+  in method backtrace at gen/jvm/CORE.setting:10727
+  in code  at gen/jvm/CORE.setting:10737
+  in method gist at gen/jvm/CORE.setting:10737
   in method gist at gen/jvm/CORE.setting:1037
-  in block  at gen/jvm/CORE.setting:10871
-  in sub print_exception at gen/jvm/CORE.setting:10866
-  in method <anon> at gen/jvm/CORE.setting:10924
+  in block  at gen/jvm/CORE.setting:10874
+  in sub print_exception at gen/jvm/CORE.setting:10869
+  in method <anon> at gen/jvm/CORE.setting:10927
 ;
    0   20    0    0   20
     20 tests aborted (missing ok/not ok)
@@ -894,14 +894,14 @@ S05-mass/properties-derived.rakudo.jvm............. 170    0    0   86  256
      7 skipped: isAssigned not implemented
      4 skipped: isAny not implemented
     42 skipped: isOther* not implemented
-S05-mass/properties-general.rakudo.jvm............. 555    0    4   37  596
+S05-mass/properties-general.rakudo.jvm............. 562    0    3   37  602
     10 skipped: No [Lr] property defined
      4 skipped: Uninvestigated nqp-rx regression
      8 skipped: ICU version dependent :(
      3 skipped: \x[FFFE]
      4 skipped: \x[FFFF]
      8 skipped: Malformed UTF-8 string
-     4 todo   : nigh
+     3 todo   : Unicode spec change in v6.1
 S05-mass/properties-script.rakudo.jvm.............. 326    0    0   35  361
     35 skipped: Unicode properties with arguments
 S05-mass/recursive.t...............................  20    0    0    0   20
@@ -1352,7 +1352,9 @@ S12-enums/misc.rakudo.jvm..........................  12    0    0    1   13
      1 skipped: RT 63826
 S12-enums/non-int.rakudo.jvm.......................   5    0    1    0    6
      1 todo   : NYI
-S12-enums/pseudo-functional.t......................  11    0    0    0   11
+S12-enums/pseudo-functional.t......................use of uninitialized value of type day in string context
+use of uninitialized value of type day in string context
+  10    1    0    0   11
 S12-enums/thorough.rakudo.jvm......................  14    0    0   20   34
      2 skipped: NYI
     16 skipped: does &day::("Tue")
@@ -2198,13 +2200,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        4076,    20,   119,   320,  4535,  4477
 "S03",        4753,     0,   122,   125,  5000,  4668
 "S04",         945,     0,    40,    36,  1021,  1039
-"S05",        4793,     0,   157,   438,  5388,  5831
+"S05",        4800,     0,   156,   438,  5394,  5837
 "S06",        1162,     0,    39,   107,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
 "S11",          73,     0,     2,     9,    84,   139
-"S12",        1337,     0,    48,   124,  1509,  1409
+"S12",        1336,     1,    48,   124,  1509,  1409
 "S13",          33,     0,    10,    27,    70,    80
 "S14",         293,     0,    10,    12,   315,   328
 "S16",         234,     0,     5,    19,   258,   302
@@ -2217,9 +2219,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9155,     1,    88,   222,  9466,  7051
 "int",         545,     0,    12,    28,   585,   574
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28473,    21,   665,  1516, 30675, 28512
+"total",     28479,    22,   664,  1516, 30681, 28518
 ----------------
 Failure summary:
 S02-types/isDEPRECATED.rakudo.jvm aborted 20 test(s)
+S12-enums/pseudo-functional.t 1 - day(Tue) same as day(3)
 S32-list/roll.t 40 - different results due to random random-number seed
 note: test_summary.pl @syn does not have ros
