@@ -910,7 +910,7 @@ S05-metachars/tilde.rakudo.moar....................  14    0    0   12   26
      3 skipped: exceptions from regexes
      2 skipped: backtracking into ~
      5 skipped: should not throw exceptions
-S05-metasyntax/angle-brackets.rakudo.moar..........  56    0    3   21   80
+S05-metasyntax/angle-brackets.rakudo.moar..........  66    0    3   21   90
      1 skipped: indirect subrule call not implemented
      1 skipped: <~~ ... >
      2 skipped: <test()> not implemented
@@ -1029,7 +1029,7 @@ S05-transliteration/with-closure.rakudo.moar.......  10    0    5    1   16
      1 skipped: Unable to resolve method ord in class Any
      5 todo   : nom regression
                                                    pass fail todo skip plan
-S06-advanced/callframe.rakudo.moar.................   7    1    0    1    9
+S06-advanced/callframe.rakudo.moar.................   8    0    0    1    9
      1 skipped: Unable to resolve method inline in type CallFrame
 S06-advanced/callsame.t............................   3    0    0    0    3
 S06-advanced/lexical-subs.rakudo.moar..............   9    0    0    2   11
@@ -1609,7 +1609,7 @@ S32-io/IO-Socket-INET.t............................openpipe NYI
     41 tests aborted (missing ok/not ok)
 S32-io/chdir.rakudo.moar...........................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
-S32-io/copy.t......................................  27    2    0    0   29
+S32-io/copy.t......................................  29    0    0    0   29
 S32-io/dir.t.......................................  10    2    0    0   12
 S32-io/file-tests.t................................  30    0    0    0   30
 S32-io/io-path-cygwin.rakudo.moar..................  49    0    1    2   52
@@ -1786,13 +1786,8 @@ S32-str/substr.rakudo.moar.........................use of uninitialized value of
     28 skipped: No support for StrPos
      1 skipped: lvalue substr
      7 skipped: too many args
-S32-str/tc.rakudo.moar.............................Substring start (1) cannot be greater than string size (0)
-  in method tc at src/gen/m-CORE.setting:3410
-  in sub tc at src/gen/m-CORE.setting:3555
-  in block  at t/spec/S32-str/tc.rakudo.moar:10
-
-   1    8    0    0    9
-     8 tests aborted (missing ok/not ok)
+S32-str/tc.rakudo.moar.............................   7    0    2    0    9
+     2 todo   : NYI
 S32-str/tclc.t.....................................   5    1    0    0    6
 S32-str/trim.t.....................................  36    0    0    0   36
 S32-str/uc.rakudo.moar.............................  13    1    0    4   18
@@ -2177,8 +2172,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        4122,     9,   122,   301,  4554,  4480
 "S03",        4794,     5,   122,   125,  5046,  4668
 "S04",         955,     6,    36,    46,  1043,  1040
-"S05",        4903,    70,    96,   325,  5394,  5837
-"S06",        1143,    23,    38,   104,  1308,  1292
+"S05",        4913,    70,    96,   325,  5404,  5847
+"S06",        1144,    22,    38,   104,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
@@ -2193,10 +2188,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         325,    10,     2,     3,   340,   350
-"S32",        9316,    93,    85,   185,  9679,  7051
+"S32",        9324,    83,    87,   185,  9679,  7051
 "int",         546,     5,     7,    28,   586,   575
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28637,   229,   590,  1344, 30800, 28523
+"total",     28656,   218,   592,  1344, 30810, 28533
 ----------------
 Failure summary:
 S02-lexical-conventions/unicode-whitespace.t 10 - MONGOLIAN VOWEL SEPARATOR
@@ -2207,7 +2202,7 @@ S02-types/baghash.rakudo.moar 172 - .grab *should* change BagHash
 S02-types/lists.rakudo.moar 20 - error message contains name of class
 S02-types/num.t 12 - EVAL 1e100.Num.perl is 1
 S02-types/subset.rakudo.moar 26 - error for bad assignment mentions subset
-S02-types/type.t 14 - native int type cannot be undefined
+S02-types/type.t 17 - native num type can be undefined
 S03-operators/arith.t 6 - -1 == 3
 S03-operators/arith.t 7 - 1 == -3
 S03-operators/arith.t 14 - 
@@ -2289,7 +2284,6 @@ S05-mass/properties-derived.t 248 - Don't match negated (Codepoint not explicitl
 S05-mass/properties-derived.t 249 - Don't match inverted (Codepoint not explicitly assigned to a script)
 S05-mass/properties-derived.t 256 - Match unanchored (Codepoint not explicitly assigned to a script)
 S05-mass/rx.rakudo.moar 278 - unicode whitespace (\s)
-S06-advanced/callframe.rakudo.moar 2 - callframe().line
 S06-macros/quasi-blocks.t aborted 5 test(s)
 S06-macros/unquoting.t aborted 10 test(s)
 S06-multi/redispatch.t 10 - nextsame in main block dies due to lack of dispatcher
@@ -2328,8 +2322,6 @@ S32-exceptions/misc.rakudo.moar 592 - right exception type (X::ControlFlow::Retu
 S32-exceptions/misc.rakudo.moar 614 - nextsame in proto
 S32-exceptions/misc.rakudo.moar 661 - right exception type (X::Method::NotFound)
 S32-io/IO-Socket-INET.t aborted 41 test(s)
-S32-io/copy.t 9 - It doesn't
-S32-io/copy.t 21 - It doesn't
 S32-io/dir.t 7 - ... unless you override :test
 S32-io/dir.t 10 - ... unless you override :test
 S32-io/slurp.t 15 - iso-8859-1 makes mojibake correctly
@@ -2351,7 +2343,6 @@ S32-str/sprintf.rakudo.moar 138 - RT #118601
 S32-str/sprintf.rakudo.moar 142 - RT 116280
 S32-str/sprintf.rakudo.moar 143 - RT 116280
 S32-str/sprintf.rakudo.moar 144 - RT 116280
-S32-str/tc.rakudo.moar aborted 8 test(s)
 S32-str/tclc.t 3 - tclc and German sharp s
 S32-str/uc.rakudo.moar 10 - uc() of non-ascii chars may result in two chars
 S32-temporal/DateTime-Instant-Duration.rakudo.moa 32 - DateTime.new(Instant) with time zone and formatter

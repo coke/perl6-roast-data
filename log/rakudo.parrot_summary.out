@@ -1036,11 +1036,11 @@ S05-mass/properties-derived.rakudo.parrot.......... 190    0    0   66  256
      7 skipped: isAssigned not implemented
      4 skipped: isAny not implemented
     42 skipped: isOther* not implemented
-S05-mass/properties-general.rakudo.parrot..........===SORRY!===
-Invalid character for UTF-8 encoding
-
-   0  602    0    0  602
-   602 tests aborted (missing ok/not ok)
+S05-mass/properties-general.rakudo.parrot.......... 566    0    6   30  602
+    10 skipped: No [Lr] property defined
+    16 skipped: Invalid codepoint \x[FFFE]
+     4 skipped: Invalid codepoint \x[FFFF]
+     6 todo   : Unicode spec change in v6.1
 S05-mass/properties-script.rakudo.parrot........... 326    0    0   35  361
     35 skipped: Unicode properties with arguments
 S05-mass/recursive.t...............................  20    0    0    0   20
@@ -1095,7 +1095,7 @@ S05-metachars/tilde.rakudo.parrot..................  14    0    0   12   26
      3 skipped: exceptions from regexes
      2 skipped: backtracking into ~
      5 skipped: should not throw exceptions
-S05-metasyntax/angle-brackets.rakudo.parrot........  56    0    3   21   80
+S05-metasyntax/angle-brackets.rakudo.parrot........  66    0    3   21   90
      1 skipped: indirect subrule call not implemented
      1 skipped: <~~ ... >
      2 skipped: <test()> not implemented
@@ -1228,7 +1228,7 @@ S05-transliteration/with-closure.rakudo.parrot.....  10    0    5    1   16
      1 skipped: Unable to resolve method ord in class Any
      5 todo   : nom regression
                                                    pass fail todo skip plan
-S06-advanced/callframe.rakudo.parrot...............   7    1    0    1    9
+S06-advanced/callframe.rakudo.parrot...............   8    0    0    1    9
      1 skipped: Unable to resolve method inline in type CallFrame
 S06-advanced/callsame.t............................   3    0    0    0    3
 S06-advanced/lexical-subs.rakudo.parrot............   9    0    0    2   11
@@ -1853,7 +1853,7 @@ S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.parrot.......................  18    0   11    0   29
     11 todo   : binding on hash elements unimplemented
-S32-io/IO-Socket-INET.t............................  40    1    0    0   41
+S32-io/IO-Socket-INET.t............................  41    0    0    0   41
 S32-io/chdir.rakudo.parrot.........................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
@@ -2526,7 +2526,7 @@ integration/advent2009-day23.rakudo.parrot.........   3    0    0    1    4
      1 skipped: lists aren't properly lazy in Rakudo yet
 integration/advent2010-day04.t.....................  11    0    0    0   11
 integration/code-blocks-as-sub-args.t..............   4    0    0    0    4
-integration/error-reporting.t......................  15    1    0    0   16
+integration/error-reporting.t......................  16    0    0    0   16
 integration/lazy-bentley-generator.t...............   1    0    0    0    1
 integration/lexical-array-in-inner-block.t.........   2    0    0    0    2
 integration/lexicals-and-attributes.t..............   8    0    0    0    8
@@ -2555,8 +2555,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        4137,     0,   124,   293,  4554,  4480
 "S03",        4799,     0,   122,   125,  5046,  4668
 "S04",         958,     0,    39,    46,  1043,  1040
-"S05",        4314,   602,    97,   381,  5394,  5837
-"S06",        1165,     1,    38,   104,  1308,  1292
+"S05",        4890,     0,   103,   411,  5404,  5847
+"S06",        1166,     0,    38,   104,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
@@ -2571,14 +2571,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         334,     0,     2,     4,   340,   350
-"S32",        9411,     1,    92,   175,  9679,  7051
-"int",         549,     1,     8,    28,   586,   575
+"S32",        9412,     0,    92,   175,  9679,  7051
+"int",         550,     0,     8,    28,   586,   575
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28207,   605,   605,  1383, 30800, 28523
+"total",     28786,     0,   611,  1413, 30810, 28533
 ----------------
 Failure summary:
-S05-mass/properties-general.rakudo.parrot aborted 602 test(s)
-S06-advanced/callframe.rakudo.parrot 2 - callframe().line
-S32-io/IO-Socket-INET.t 40 - [4s] successful received binary data
-integration/error-reporting.t 13 - correct line number reported for assignment to non-variable
 note: test_summary.pl @syn does not have ros
