@@ -1306,7 +1306,7 @@ S06-signature/closure-parameters.rakudo.parrot.....   4    0    0   11   15
 S06-signature/code.rakudo.parrot...................   7    0    1    0    8
      1 todo   : RT 67932
 S06-signature/defaults.t...........................   5    0    0    0    5
-S06-signature/errors.t.............................  11    0    0    0   11
+S06-signature/errors.t.............................  10    1    0    0   11
 S06-signature/introspection.rakudo.parrot..........  51    0    0    1   52
      1 skipped: expected Any but got Mu instead
 S06-signature/mixed-placeholders.t.................  12    0    0    0   12
@@ -1622,7 +1622,8 @@ S12-methods/multi.rakudo.parrot....................  26    0    1    5   32
 S12-methods/parallel-dispatch.rakudo.parrot........  31    0    5    1   37
      1 skipped: No such method postcircumfix:<( )> for invocant of type Pair
      5 todo   : is_deeply does not think map results are the same as list on LHS
-S12-methods/private.t..............................  13    0    0    0   13
+S12-methods/private.t..............................  13    1    0    2   16
+     2 skipped: wrong exception type
 S12-methods/qualified.t............................   2    0    0    0    2
 S12-methods/submethods.rakudo.parrot...............  21    0    0    6   27
      2 skipped: outer lexicals in roles
@@ -1830,8 +1831,9 @@ use of uninitialized value of type BagHash in string context  in block  at t/spe
   16    0    0    0   16
 S32-container/zip.rakudo.parrot....................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.parrot.................. 664    0    0    5  669
+S32-exceptions/misc.rakudo.parrot.................. 677    1    0    8  686
      1 skipped: RT 114134
+     3 skipped: wrong exception type
      3 skipped: still handled by <special_var>
      1 skipped: parsing regression
 S32-hash/delete-adverb.t...........................use of uninitialized value of type Int in string context  in sub is at lib/Test.pm:81
@@ -2520,7 +2522,7 @@ integration/advent2009-day17.t.....................  62    0    0    0   62
 integration/advent2009-day18.rakudo.parrot.........   5    0    0    1    6
      1 skipped: parse error
 integration/advent2009-day19.t.....................   6    0    0    0    6
-integration/advent2009-day20.t.....................  21    0    0    0   21
+integration/advent2009-day20.t.....................  20    1    0    0   21
 integration/advent2009-day22.t.....................   4    0    0    0    4
 integration/advent2009-day23.rakudo.parrot.........   3    0    0    1    4
      1 skipped: lists aren't properly lazy in Rakudo yet
@@ -2556,12 +2558,12 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S03",        4799,     0,   122,   125,  5046,  4668
 "S04",         958,     0,    39,    46,  1043,  1040
 "S05",        4890,     0,   103,   411,  5404,  5847
-"S06",        1166,     0,    38,   104,  1308,  1292
+"S06",        1165,     1,    38,   104,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
 "S11",          73,     0,     2,     9,    84,   139
-"S12",        1337,     0,    48,   124,  1509,  1409
+"S12",        1337,     1,    48,   126,  1512,  1412
 "S13",          33,     0,    10,    27,    70,    80
 "S14",         295,     0,     8,    12,   315,   328
 "S16",         235,     0,     5,    18,   258,   302
@@ -2571,10 +2573,14 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         334,     0,     2,     4,   340,   350
-"S32",        9412,     0,    92,   175,  9679,  7051
-"int",         550,     0,     8,    28,   586,   575
+"S32",        9425,     1,    92,   178,  9696,  7051
+"int",         549,     1,     8,    28,   586,   575
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28786,     0,   611,  1413, 30810, 28533
+"total",     28797,     4,   611,  1418, 30830, 28536
 ----------------
 Failure summary:
+S06-signature/errors.t 10 - 
+S12-methods/private.t 11 - right exception type (X::Method::NotFound)
+S32-exceptions/misc.rakudo.parrot 506 - right exception type (X::Method::NotFound)
+integration/advent2009-day20.t 3 - Introspecting and stringification of subroutine signature
 note: test_summary.pl @syn does not have ros
