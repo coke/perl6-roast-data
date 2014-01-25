@@ -12,9 +12,7 @@ S02-lexical-conventions/end-pod.t..................   1    0    0    0    1
 S02-lexical-conventions/minimal-whitespace.t.......   9    0    0    0    9
 S02-lexical-conventions/one-pass-parsing.t.........   1    0    0    0    1
 S02-lexical-conventions/pod-in-multi-line-exprs.t..   3    0    0    0    3
-S02-lexical-conventions/sub-block-parsing.rakudo...   7    0    0    2    9
-     1 skipped: confused near "(sub{ 42 }"
-     1 skipped: confused near "(sub { 42 "
+S02-lexical-conventions/sub-block-parsing.t........   9    0    0    0    9
 S02-lexical-conventions/unicode-whitespace.t.......  52    0    0    0   52
 S02-lexical-conventions/unicode.rakudo.jvm.........  35    0    1    2   38
      2 skipped: VOWEL SIGNs in identifiers
@@ -243,30 +241,10 @@ S02-types/infinity.rakudo.jvm......................   6    0    3    4   13
      4 skipped: integer Inf
      3 todo   : Int conversion of NaN and Inf
 S02-types/instants-and-durations.t.................  12    0    0    0   12
-S02-types/isDEPRECATED.rakudo.jvm..................No such method 'Int' for invocant of type 'Any'
-
-Error while creating backtrace: No such method 'Int' for invocant of type 'Any'
-  in block  at gen/jvm/CORE.setting:10676
-  in block  at gen/jvm/CORE.setting:7368
-  in method reify at gen/jvm/CORE.setting:7319
-  in block  at gen/jvm/CORE.setting:7233
-  in method reify at gen/jvm/CORE.setting:7205
-  in method gimme at gen/jvm/CORE.setting:7649
-  in method sink at gen/jvm/CORE.setting:8059
-  in method new at gen/jvm/CORE.setting:10667
-  in method new at gen/jvm/CORE.setting:10653
-  in method new at gen/jvm/CORE.setting:10656
-  in method new at gen/jvm/CORE.setting:10653
-  in method backtrace at gen/jvm/CORE.setting:10805
-  in code  at gen/jvm/CORE.setting:10815
-  in method gist at gen/jvm/CORE.setting:10815
-  in method gist at gen/jvm/CORE.setting:1037
-  in block  at gen/jvm/CORE.setting:10952
-  in sub print_exception at gen/jvm/CORE.setting:10947
-  in method <anon> at gen/jvm/CORE.setting:11005
-;
-   0   20    0    0   20
-    20 tests aborted (missing ok/not ok)
+S02-types/isDEPRECATED.rakudo.jvm..................   8    0   12    0   20
+     1 todo   : tracebacks in deprecations
+     8 todo   : NYI
+     3 todo PASSED: tracebacks in deprecations
 S02-types/lazy-lists.t.............................  19    0    0    0   19
 S02-types/lists.rakudo.jvm.........................use of uninitialized value of type Parcel in string context
 use of uninitialized value of type Parcel in string context
@@ -680,17 +658,9 @@ S03-smartmatch/signature-signature.t...............   5    0    0    0    5
                                                    pass fail todo skip plan
 S04-blocks-and-statements/let.t....................  12    0    0    0   12
 S04-blocks-and-statements/pointy-rw.t..............  10    0    0    0   10
-S04-blocks-and-statements/pointy.rakudo.jvm........java.lang.NullPointerException
-  in sub infix:<=:=> at gen/jvm/CORE.setting:1322
-  in block  at gen/jvm/CORE.setting:16457
-  in method perl at gen/jvm/CORE.setting:9814
-  in method perl at gen/jvm/CORE.setting:1041
-  in block  at t/spec/S04-blocks-and-statements/pointy.rakudo.jvm:108
-
-  14    1    2    0   17
+S04-blocks-and-statements/pointy.rakudo.jvm........  15    0    2    0   17
      1 todo   : pointy blocks and last/redo
      1 todo   : &?ROUTINE
-     1 tests aborted (missing ok/not ok)
 S04-blocks-and-statements/temp.rakudo.jvm..........  30    0    6    0   36
      6 todo   : TEMP phasers NYI
 S04-declarations/constant.rakudo.jvm...............use of uninitialized value of type Any in numeric context
@@ -1160,34 +1130,15 @@ S06-signature/closure-parameters.rakudo.jvm........   4    0    0   11   15
 S06-signature/code.rakudo.jvm......................   7    0    1    0    8
      1 todo   : RT 67932
 S06-signature/defaults.t...........................   5    0    0    0    5
-S06-signature/errors.t.............................   7    4    0    0   11
-S06-signature/introspection.rakudo.jvm.............java.lang.NullPointerException
-  in sub infix:<=:=> at gen/jvm/CORE.setting:1322
-  in block  at gen/jvm/CORE.setting:16457
-  in method perl at gen/jvm/CORE.setting:9814
-  in method perl at gen/jvm/CORE.setting:1041
-  in method perl at gen/jvm/CORE.setting:9669
-  in method perl at gen/jvm/CORE.setting:1041
-  in method perl at gen/jvm/CORE.setting:9808
-  in method perl at gen/jvm/CORE.setting:1041
-  in block  at t/spec/S06-signature/introspection.rakudo.jvm:108
-
-  40   11    0    1   52
+S06-signature/errors.t.............................  11    0    0    0   11
+S06-signature/introspection.rakudo.jvm.............  51    0    0    1   52
      1 skipped: expected Any but got Mu instead
-    11 tests aborted (missing ok/not ok)
 S06-signature/mixed-placeholders.t.................  12    0    0    0   12
 S06-signature/multidimensional.t...................  10    0    0    0   10
-S06-signature/named-parameters.rakudo.jvm..........java.lang.NullPointerException
-  in sub infix:<=:=> at gen/jvm/CORE.setting:1322
-  in block  at gen/jvm/CORE.setting:16457
-  in method perl at gen/jvm/CORE.setting:9814
-  in method perl at gen/jvm/CORE.setting:1041
-  in block  at t/spec/S06-signature/named-parameters.rakudo.jvm:265
-
-  61   15    0   17   93
+S06-signature/named-parameters.rakudo.jvm..........  72    0    0   21   93
+     4 skipped: where constraints
      1 skipped: Not enough positional parameters passed; got 0 but expected 1
     16 skipped: multiple same-named arguments NYI
-    15 tests aborted (missing ok/not ok)
 S06-signature/named-placeholders.t.................   3    0    0    0    3
 S06-signature/named-renaming.t.....................  10    0    0    0   10
 S06-signature/optional.t...........................  25    0    0    0   25
@@ -1349,15 +1300,7 @@ S12-class/inheritance-class-methods.t..............   5    0    0    0    5
 S12-class/inheritance.t............................  39    0    0    0   39
 S12-class/instantiate.rakudo.jvm...................   6    0    1    0    7
      1 todo   : error reporting
-S12-class/interface-consistency.t..................java.lang.NullPointerException
-  in sub infix:<=:=> at gen/jvm/CORE.setting:1322
-  in block  at gen/jvm/CORE.setting:16457
-  in method perl at gen/jvm/CORE.setting:9814
-  in method perl at gen/jvm/CORE.setting:1041
-  in block  at t/spec/S12-class/interface-consistency.t:19
-
-   1    7    0    0    8
-     7 tests aborted (missing ok/not ok)
+S12-class/interface-consistency.t..................   8    0    0    0    8
 S12-class/lexical.t................................  14    0    0    0   14
 S12-class/literal.t................................   2    0    0    0    2
 S12-class/magical-vars.t...........................  17    0    0    0   17
@@ -1408,20 +1351,9 @@ S12-introspection/meta-class.rakudo.jvm............   9    0    0    4   13
      1 skipped: .version, version number parsing
      1 skipped: precedence of prefix:<^>
      1 skipped: precedence of HOW
-S12-introspection/methods.rakudo.jvm...............java.lang.NullPointerException
-  in sub infix:<=:=> at gen/jvm/CORE.setting:1322
-  in block  at gen/jvm/CORE.setting:16457
-  in method perl at gen/jvm/CORE.setting:9814
-  in method perl at gen/jvm/CORE.setting:1041
-  in method perl at gen/jvm/CORE.setting:3071
-  in method perl at gen/jvm/CORE.setting:1041
-  in method perl at gen/jvm/CORE.setting:6853
-  in method perl at gen/jvm/CORE.setting:1041
-  in block  at t/spec/S12-introspection/methods.rakudo.jvm:110
-
-  31   19    0    8   58
-     8 skipped: nom regression
-    19 tests aborted (missing ok/not ok)
+S12-introspection/methods.rakudo.jvm...............  45    0    2   11   58
+    11 skipped: nom regression
+     2 todo   : nom regression
 S12-introspection/parents.t........................  59    0    0    0   59
 S12-introspection/roles.rakudo.jvm.................use of uninitialized value of type R3 in string context
 use of uninitialized value of type R3 in string context
@@ -1456,15 +1388,14 @@ S12-methods/lastcall.t.............................   6    0    0    0    6
 S12-methods/lvalue.t...............................  16    0    0    0   16
 S12-methods/method-vs-sub.rakudo.jvm...............   4    0    0    1    5
      1 skipped: confused near "($obj:),  "
-S12-methods/multi.rakudo.jvm.......................  24    2    1    5   32
+S12-methods/multi.rakudo.jvm.......................  26    0    1    5   32
      2 skipped: proto does not promote to multi
      3 skipped: unknown bug
      1 todo   : RT 66006
 S12-methods/parallel-dispatch.rakudo.jvm...........  31    0    5    1   37
      1 skipped: No such method postcircumfix:<( )> for invocant of type Pair
      5 todo   : is_deeply does not think map results are the same as list on LHS
-S12-methods/private.t..............................  13    1    0    2   16
-     2 skipped: wrong exception type
+S12-methods/private.t..............................  16    0    0    0   16
 S12-methods/qualified.t............................   2    0    0    0    2
 S12-methods/submethods.rakudo.jvm..................  21    0    0    6   27
      2 skipped: outer lexicals in roles
@@ -1665,12 +1596,10 @@ use of uninitialized value of type BagHash in string context
   16    0    0    0   16
 S32-container/zip.rakudo.jvm.......................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.jvm.....................===SORRY!===
-java.lang.NullPointerException
- 360    0    0    4    0
+S32-exceptions/misc.rakudo.jvm..................... 684    1    0    5  690
+     1 skipped: RT 114134
      3 skipped: still handled by <special_var>
      1 skipped: parsing regression
-   364 tests more than planned were run
 S32-hash/delete-adverb.t...........................use of uninitialized value of type Int in string context
 use of uninitialized value of type Int in string context
  130    0    0    0  130
@@ -1830,7 +1759,7 @@ S32-str/capitalize.rakudo.jvm......................  15    0    2    0   17
      2 todo   : graphemes results wrong
 S32-str/chomp.t....................................  39    0    0    0   39
 S32-str/chop.t.....................................   6    0    0    0    6
-S32-str/comb.rakudo.jvm............................  36    2    2    1   41
+S32-str/comb.rakudo.jvm............................  38    0    2    1   41
      1 skipped: cannot call match, no signature matches
      2 todo   : graphemes not implemented
 S32-str/encode.rakudo.jvm..........................  21    0    0    1   22
@@ -2222,15 +2151,7 @@ integration/advent2009-day17.t.....................  62    0    0    0   62
 integration/advent2009-day18.rakudo.jvm............   5    0    0    1    6
      1 skipped: parse error
 integration/advent2009-day19.t.....................   6    0    0    0    6
-integration/advent2009-day20.t.....................java.lang.NullPointerException
-  in sub infix:<=:=> at gen/jvm/CORE.setting:1322
-  in block  at gen/jvm/CORE.setting:16457
-  in method perl at gen/jvm/CORE.setting:9814
-  in method perl at gen/jvm/CORE.setting:1041
-  in block  at t/spec/integration/advent2009-day20.t:14
-
-   2   19    0    0   21
-    19 tests aborted (missing ok/not ok)
+integration/advent2009-day20.t.....................  21    0    0    0   21
 integration/advent2009-day22.t.....................   4    0    0    0    4
 integration/advent2009-day23.rakudo.jvm............   3    0    0    1    4
      1 skipped: lists aren't properly lazy in Rakudo yet
@@ -2263,16 +2184,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4095,    20,   119,   320,  4554,  4480
+"S02",        4105,     0,   131,   318,  4554,  4480
 "S03",        4799,     0,   122,   125,  5046,  4668
-"S04",         949,     1,    41,    52,  1043,  1040
+"S04",         950,     0,    41,    52,  1043,  1040
 "S05",        4887,     0,   106,   411,  5404,  5847
-"S06",        1137,    30,    38,   103,  1308,  1292
+"S06",        1163,     0,    38,   107,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
 "S11",          73,     0,     2,     9,    84,   139
-"S12",        1314,    29,    46,   123,  1512,  1412
+"S12",        1340,     0,    48,   124,  1512,  1412
 "S13",          33,     0,    10,    27,    70,    80
 "S14",         293,     0,    10,    12,   315,   328
 "S16",         234,     0,     5,    19,   258,   302
@@ -2282,29 +2203,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     0,     3,     5,   340,   350
-"S32",        9062,     4,    90,   218,  9010,  7051
-"int",         531,    19,     8,    28,   586,   575
+"S32",        9388,     3,    90,   219,  9700,  7051
+"int",         550,     0,     8,    28,   586,   575
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28481,   103,   610,  1496, 30326, 28536
+"total",     28889,     3,   624,  1500, 31016, 28536
 ----------------
 Failure summary:
-S02-types/isDEPRECATED.rakudo.jvm aborted 20 test(s)
-S04-blocks-and-statements/pointy.rakudo.jvm aborted 1 test(s)
-S06-signature/errors.t 6 - ... error message mentions parameter
-S06-signature/errors.t 8 - ... error message mentions "Associative" or the % sigil
-S06-signature/errors.t 10 - 
-S06-signature/errors.t 11 - 
-S06-signature/introspection.rakudo.jvm aborted 11 test(s)
-S06-signature/named-parameters.rakudo.jvm aborted 15 test(s)
-S12-class/interface-consistency.t aborted 7 test(s)
-S12-introspection/methods.rakudo.jvm aborted 19 test(s)
-S12-methods/multi.rakudo.jvm 27 - error message for failed dispatch contains method name
-S12-methods/multi.rakudo.jvm 28 - error message for failed dispatch contains invocant type
-S12-methods/private.t 11 - right exception type (X::Method::NotFound)
-S32-exceptions/misc.rakudo.jvm passed 364 unplanned test(s)
+S32-exceptions/misc.rakudo.jvm 512 - .method matches !foo
 S32-list/roll.t 40 - different results due to random random-number seed
-S32-str/comb.rakudo.jvm 34 - .comb(1) dies for the expected reason
-S32-str/comb.rakudo.jvm 37 - .comb({...}) dies for the expected reason
 S32-str/tc.rakudo.jvm 9 - tc works on codepoints greater than 0xffff
-integration/advent2009-day20.t aborted 19 test(s)
 note: test_summary.pl @syn does not have ros
