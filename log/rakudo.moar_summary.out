@@ -431,7 +431,10 @@ S03-operators/also.rakudo.moar.....................   4    0    4    0    8
 S03-operators/andthen.t............................   8    0    0    0    8
 S03-operators/arith.t.............................. 140    4    0    0  144
 S03-operators/assign-is-not-binding.t..............   8    0    0    0    8
-S03-operators/assign.rakudo.moar...................use of uninitialized value of type Any in string context
+S03-operators/assign.rakudo.moar...................Potential difficulties:
+    Redeclaration of symbol $a
+    at t/spec/S03-operators/assign.rakudo.moar:981
+    ------> [32m    is (foo (my $a [33m⏏[31m= 1,2,3)), (1,2,3), "Routine call taking[0m
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
@@ -439,7 +442,8 @@ use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
- 252    0   22   12  286
+use of uninitialized value of type Any in string context
+ 255    1   22   12  286
      3 skipped: expects a term, found infix >= instead
      3 skipped: Two terms in a row
      3 skipped: cannot modifiy an immutable value
@@ -454,6 +458,7 @@ use of uninitialized value of type Any in string context
      2 todo   : unknown
      1 todo   : huh?
      1 todo   : item/list assignment
+     4 tests more than planned were run
 S03-operators/autoincrement-range.t................  96    0    0    0   96
 S03-operators/autoincrement.t......................  78    0    0    0   78
 S03-operators/autovivification.t...................use of uninitialized value of type Any in numeric context
@@ -653,7 +658,9 @@ S03-smartmatch/hash-hash.rakudo.moar...............   2    0    2    0    4
 S03-smartmatch/range-range.t.......................  14    0    0    0   14
 S03-smartmatch/regex-hash.t........................   4    0    0    0    4
 S03-smartmatch/scalar-hash.t.......................   3    0    0    0    3
-S03-smartmatch/signature-signature.t...............   5    0    0    0    5
+S03-smartmatch/signature-signature.rakudo.moar.....  18    0    0    2   20
+     1 skipped: Parametric types
+     1 skipped: Code params with signatures
                                                    pass fail todo skip plan
 S04-blocks-and-statements/let.t....................  12    0    0    0   12
 S04-blocks-and-statements/pointy-rw.t..............  10    0    0    0   10
@@ -759,7 +766,7 @@ S04-phasers/next.rakudo.moar.......................  10    0    2    1   13
 S04-phasers/pre-post.rakudo.moar...................  19    2    1    0   22
      1 todo   : POST and exceptions
 S04-phasers/rvalue.t...............................  13    3    0    0   16
-S04-statement-modifiers/for.t......................  20    0    0    0   20
+S04-statement-modifiers/for.t......................  21    0    0    0   21
 S04-statement-modifiers/given.t....................   6    0    0    0    6
 S04-statement-modifiers/if.t.......................  11    0    0    0   11
 S04-statement-modifiers/unless.t...................   6    0    0    0    6
@@ -774,7 +781,7 @@ S04-statements/do.rakudo.moar......................  21    0    0    6   27
      3 skipped: Undeclared name A
      1 skipped: next without loop construct
 S04-statements/for-scope.t.........................  16    0    0    0   16
-S04-statements/for.rakudo.moar.....................  73    0    2    2   77
+S04-statements/for.rakudo.moar.....................  74    0    2    2   78
      1 skipped: optional variable in for loop (RT #63994)
      1 skipped: maybe bogus, for loops are not supposed to be lazy?
      2 todo   : RT 113026 array iterator does not track a growing array
@@ -1115,7 +1122,7 @@ S06-signature/closure-parameters.rakudo.moar.......   4    0    0   11   15
 S06-signature/code.rakudo.moar.....................   7    0    1    0    8
      1 todo   : RT 67932
 S06-signature/defaults.t...........................   5    0    0    0    5
-S06-signature/errors.t.............................  11    0    0    0   11
+S06-signature/errors.t.............................  10    1    0    0   11
 S06-signature/introspection.rakudo.moar............  51    0    0    1   52
      1 skipped: expected Any but got Mu instead
 S06-signature/mixed-placeholders.t.................  12    0    0    0   12
@@ -1577,9 +1584,9 @@ use of uninitialized value of type Str in string context
 use of uninitialized value of type Str in string context
 use of uninitialized value of type Int in string context
 use of uninitialized value of type Str in string context
- 664   13    0    9  686
+ 672   15    0   11  698
      1 skipped: RT 114134
-     4 skipped: wrong exception type
+     6 skipped: wrong exception type
      3 skipped: still handled by <special_var>
      1 skipped: parsing regression
 S32-hash/delete-adverb.t...........................use of uninitialized value of type Int in string context
@@ -2134,7 +2141,7 @@ integration/advent2009-day17.t.....................  62    0    0    0   62
 integration/advent2009-day18.rakudo.moar...........   5    0    0    1    6
      1 skipped: parse error
 integration/advent2009-day19.t.....................   6    0    0    0    6
-integration/advent2009-day20.t.....................  21    0    0    0   21
+integration/advent2009-day20.t.....................  20    1    0    0   21
 integration/advent2009-day22.t.....................   4    0    0    0    4
 integration/advent2009-day23.rakudo.moar...........   3    0    0    1    4
      1 skipped: lists aren't properly lazy in Rakudo yet
@@ -2164,13 +2171,15 @@ integration/weird-errors.t.........................  12    0    0    0   12
 rosettacode/greatest_element_of_a_list.t...........   1    0    0    0    1
 rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
+    'plan *;' could become 'plan 20;' in S03-smartmatch/signature-signature.rakudo.moar
+----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        4127,     6,   122,   299,  4554,  4480
-"S03",        4794,     5,   122,   125,  5046,  4668
-"S04",         955,     6,    36,    46,  1043,  1040
+"S03",        4810,     6,   122,   127,  5061,  4683
+"S04",         957,     6,    36,    46,  1045,  1042
 "S05",        4913,    70,    96,   325,  5404,  5847
-"S06",        1151,    15,    38,   104,  1308,  1292
+"S06",        1150,    16,    38,   104,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
@@ -2185,10 +2194,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         325,    10,     2,     3,   340,   350
-"S32",        9358,    76,    87,   175,  9696,  7051
-"int",         549,     2,     7,    28,   586,   575
+"S32",        9366,    78,    87,   177,  9708,  7051
+"int",         548,     3,     7,    28,   586,   575
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28709,   197,   592,  1332, 30830, 28536
+"total",     28733,   202,   592,  1336, 30859, 28553
 ----------------
 Failure summary:
 S02-lexical-conventions/unicode-whitespace.t 10 - MONGOLIAN VOWEL SEPARATOR
@@ -2201,6 +2210,8 @@ S03-operators/arith.t 6 - -1 == 3
 S03-operators/arith.t 7 - 1 == -3
 S03-operators/arith.t 14 - 
 S03-operators/arith.t 15 - 
+S03-operators/assign.rakudo.moar 290 - Routine call taking a parenthesised my as argument works. #3
+S03-operators/assign.rakudo.moar passed 4 unplanned test(s)
 S03-operators/overflow.t 46 - 7**(-1) works
 S04-phasers/enter-leave.rakudo.moar 19 - die doesn't abort LEAVE queue
 S04-phasers/pre-post.rakudo.moar 15 - failing PRE runs nothing else
@@ -2280,6 +2291,7 @@ S05-mass/properties-derived.t 256 - Match unanchored (Codepoint not explicitly a
 S05-mass/rx.rakudo.moar 278 - unicode whitespace (\s)
 S06-macros/quasi-blocks.t aborted 5 test(s)
 S06-macros/unquoting.t aborted 10 test(s)
+S06-signature/errors.t 10 - 
 S14-roles/anonymous.rakudo.moar 7 - anonymous role variable mixin
 S14-roles/anonymous.rakudo.moar 9 - anonymous role variable gave us an attribute
 S14-traits/routines.rakudo.moar aborted 5 test(s)
@@ -2302,6 +2314,8 @@ S32-exceptions/misc.rakudo.moar 556 - right exception type (X::Assignment::RO)
 S32-exceptions/misc.rakudo.moar 574 - right exception type (X::ControlFlow)
 S32-exceptions/misc.rakudo.moar 578 - right exception type (X::ControlFlow)
 S32-exceptions/misc.rakudo.moar 592 - right exception type (X::ControlFlow::Return)
+S32-exceptions/misc.rakudo.moar 619 - right exception type (X::Syntax::Confused)
+S32-exceptions/misc.rakudo.moar 696 - right exception type (X::Method::NotFound)
 S32-io/IO-Socket-INET.t aborted 41 test(s)
 S32-io/slurp.t 15 - iso-8859-1 makes mojibake correctly
 S32-list/roll.t aborted 1 test(s)
@@ -2326,5 +2340,6 @@ S32-str/tclc.t 3 - tclc and German sharp s
 S32-str/uc.rakudo.moar 10 - uc() of non-ascii chars may result in two chars
 S32-temporal/DateTime-Instant-Duration.rakudo.moa 32 - DateTime.new(Instant) with time zone and formatter
 integration/99problems-21-to-30.rakudo.moar 15 - ..or according to frequency of length of sublists
+integration/advent2009-day20.t 3 - Introspecting and stringification of subroutine signature
 integration/error-reporting.t 11 - warning reports correct line number and subroutine
 note: test_summary.pl @syn does not have ros

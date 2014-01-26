@@ -954,8 +954,10 @@ S03-operators/assign-is-not-binding.t..............   8    0    0    0    8
 S03-operators/assign.niecza........................Potential difficulties:
   @z is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S03-operators/assign.niecza line 715:
 ------> [32m    my [33m⏏[31m@z = (%a<x y z> = l, l);[0m
+  Useless redeclaration of variable $a (see line 978) at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S03-operators/assign.niecza line 981:
+------> [32m    is (foo (my $a [33m⏏[31m= 1,2,3)), (1,2,3), "Routine call taking[0m
 
- 218    0   38   30  286
+ 221    1   38   30  286
      5 skipped: No ^^ yet
     15 skipped: Buffer bitops NYI
      2 skipped: Unable to resolve method LISTSTORE in class List
@@ -965,6 +967,7 @@ S03-operators/assign.niecza........................Potential difficulties:
     34 todo   : 
      3 todo   : feature
      1 todo   : assigning to ($a, *)
+     4 tests more than planned were run
 S03-operators/autoincrement-range.niecza...........  36    0   41   19   96
      5 skipped: Failure NYI
     14 skipped: Magical string decrement underflowed
@@ -1943,8 +1946,10 @@ S04-statement-modifiers/for.niecza.................Potential difficulties:
 	to force list interpolation, please use either 'for @$v' or 'for $v[]';
 	if you just want item topicalization, use 'given $v' instead at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S04-statement-modifiers/for.niecza line 60:
 ------> [32m    $a ~= "<$_>" for [33m⏏[31m$v;[0m
+  &r is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S04-statement-modifiers/for.niecza line 118:
+------> [32mis ((sub r [33m⏏[31m{ "OH HAI" })() for 5), "OH HAI", 'Anon [0m
 
-  18    0    2    0   20
+  19    0    2    0   21
      2 todo   : closure for
 S04-statement-modifiers/given.t....................   6    0    0    0    6
 S04-statement-modifiers/if.niecza..................Potential difficulties:
@@ -2004,12 +2009,12 @@ Use of Nil as a string
   at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 473 (Nil.Str @ 4) 
   at <unknown> line 0 (ExitRunloop @ 0) 
   at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S04-statements/for.niecza line 527 (ANON @ 5) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S04-statements/for.niecza line 589 (mainline @ 732) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S04-statements/for.niecza line 592 (mainline @ 732) 
   at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4595 (ANON @ 3) 
   at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4596 (module-CORE @ 576) 
   at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4596 (mainline @ 3) 
   at <unknown> line 0 (ExitRunloop @ 0) 
-  71    0    5    1   77
+  72    0    5    1   78
      1 skipped: slice context
      2 todo   : array iterator does not track a growing array
      2 todo   : NYI
@@ -5989,8 +5994,8 @@ Use of uninitialized value in string context
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
 "S02",        3173,    17,   121,   385,  3696,  4480
-"S03",        3677,     0,   198,   407,  4282,  4668
-"S04",         802,     0,    34,    60,   896,  1040
+"S03",        3680,     1,   198,   407,  4282,  4663
+"S04",         804,     0,    34,    60,   898,  1042
 "S05",        4148,     8,    97,   227,  4480,  5847
 "S06",         781,     1,    58,   162,  1002,  1292
 "S07",           0,     0,     0,     0,     0,     0
@@ -6009,13 +6014,15 @@ Use of uninitialized value in string context
 "S29",         304,     2,     2,    10,   318,   350
 "S32",        6754,     0,   137,   285,  7176,  7051
 "int",         464,    12,    22,    27,   525,   575
-"total",     21382,    48,   747,  1829, 24006, 28534
+"total",     21387,    49,   747,  1829, 24008, 28531
 ----------------
 Failure summary:
 S02-literals/quoting.niecza 156 - \c followed by non-number
 S02-names-vars/varnames.niecza aborted 14 test(s)
 S02-types/baghash.niecza 72 - BagHash.kv returns list of keys and values
 S02-types/sethash.niecza 41 - SetHash.kv returns list of keys and values
+S03-operators/assign.niecza 290 - Routine call taking a parenthesised my as argument works. \#3
+S03-operators/assign.niecza passed 4 unplanned test(s)
 S05-grammar/action-stubs.niecza 19 - $/ availiable
 S05-grammar/methods.t 6 - duplicate methods err sanely
 S05-mass/rx.niecza 424 - sigspace (:s)
