@@ -122,7 +122,7 @@ S02-names-vars/perl.rakudo.jvm.....................useless use of 'is rw' on $!p
 use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
-  98    0    0    6  104
+  97    1    0    6  104
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -576,11 +576,12 @@ S03-operators/not.rakudo.jvm.......................  21    0    1    0   22
      1 todo   : RT 65556
 S03-operators/numeric-shift.t......................  36    0    0    0   36
 S03-operators/overflow.t...........................  98    0    0    0   98
-S03-operators/precedence.rakudo.jvm................  47    0    4    2   53
+S03-operators/precedence.rakudo.jvm................  48    0    4    2   53
      2 skipped: nom regression
      1 todo   : list associativity bug
      1 todo   : RT #77848
      2 todo   : non-associativeness of infix:<^> and |
+     1 tests more than planned were run
 S03-operators/range-basic.t........................ 144    0    0    0  144
 S03-operators/range-int.t.......................... 480    0    0    0  480
 S03-operators/range.rakudo.jvm.....................use of uninitialized value of type Any in numeric context
@@ -1503,7 +1504,7 @@ S16-unfiled/rebindstdhandles.rakudo.jvm............   0    0    0    2    2
 S17-concurrency/channel.t..........................  12    0    0    0   12
 S17-concurrency/lock.t.............................   6    0    0    0    6
 S17-concurrency/promise.t..........................  64    0    0    0   64
-S17-concurrency/scheduler.t........................  55    0    0    0   55
+S17-concurrency/scheduler.t........................  54    1    0    0   55
 S17-concurrency/supply.rakudo.jvm..................  15    0    0    1   16
      1 skipped: hangs
 S17-concurrency/thread.rakudo.jvm..................  22    0    0    3   25
@@ -2193,8 +2194,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4105,     0,   131,   318,  4554,  4480
-"S03",        4815,     1,   122,   127,  5065,  4687
+"S02",        4104,     1,   131,   318,  4554,  4480
+"S03",        4816,     1,   122,   127,  5065,  4687
 "S04",         952,     0,    41,    52,  1045,  1042
 "S05",        4887,     0,   106,   411,  5404,  5847
 "S06",        1163,     0,    38,   107,  1308,  1292
@@ -2206,7 +2207,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S13",          33,     0,    10,    27,    70,    80
 "S14",         293,     0,    10,    12,   315,   328
 "S16",         234,     0,     5,    19,   258,   302
-"S17",         178,     0,     0,     4,   182,   210
+"S17",         177,     1,     0,     4,   182,   210
 "S19",           1,     0,     0,     3,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         308,     0,     0,     1,   309,   266
@@ -2215,10 +2216,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9396,     5,    90,   221,  9712,  7051
 "int",         550,     0,     8,    28,   586,   575
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28915,     6,   624,  1504, 31049, 28557
+"total",     28914,     8,   624,  1504, 31049, 28557
 ----------------
 Failure summary:
+S02-names-vars/perl.rakudo.jvm 90 - .perl on user-defined type roundtrips okay
 S03-operators/assign.rakudo.jvm 290 - Routine call taking a parenthesised my as argument works. #3
+S03-operators/precedence.rakudo.jvm passed 1 unplanned test(s)
+S17-concurrency/scheduler.t 25 - Cue with :every/:at/:catch schedules repeatedly (1)
 S32-exceptions/misc.rakudo.jvm 512 - .method matches !foo
 S32-exceptions/misc.rakudo.jvm 623 - right exception type (X::Syntax::Confused)
 S32-exceptions/misc.rakudo.jvm 700 - right exception type (X::Method::NotFound)
