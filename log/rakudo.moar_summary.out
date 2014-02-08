@@ -426,8 +426,7 @@ S03-operators/adverbial-modifiers.rakudo.moar......use of uninitialized value of
 S03-operators/also.rakudo.moar.....................   4    0    4    0    8
      4 todo   : nom regression
 S03-operators/andthen.t............................   8    0    0    0    8
-S03-operators/arith.t.............................. 141    4    0    0  144
-     1 tests more than planned were run
+S03-operators/arith.t.............................. 141    4    0    0  145
 S03-operators/assign-is-not-binding.t..............   8    0    0    0    8
 S03-operators/assign.rakudo.moar...................Potential difficulties:
     Redeclaration of symbol $a
@@ -573,12 +572,11 @@ S03-operators/not.rakudo.moar......................  21    0    1    0   22
      1 todo   : RT 65556
 S03-operators/numeric-shift.t......................  36    0    0    0   36
 S03-operators/overflow.t...........................  97    1    0    0   98
-S03-operators/precedence.rakudo.moar...............  48    0    4    2   53
+S03-operators/precedence.rakudo.moar...............  48    0    4    2   54
      2 skipped: nom regression
      1 todo   : list associativity bug
      1 todo   : RT #77848
      2 todo   : non-associativeness of infix:<^> and |
-     1 tests more than planned were run
 S03-operators/range-basic.t........................ 144    0    0    0  144
 S03-operators/range-int.t.......................... 480    0    0    0  480
 S03-operators/range.rakudo.moar....................use of uninitialized value of type Any in numeric context
@@ -1463,8 +1461,13 @@ S16-filehandles/chmod.t............................  16    0    0    3   19
 S16-filehandles/filestat.t.........................  12    0    0    0   12
 S16-filehandles/filetest.rakudo.moar...............  32    0    0    9   41
      9 skipped: :M, :C, :A
-S16-filehandles/io.rakudo.moar.....................  83    0    0    1   84
+S16-filehandles/io.rakudo.moar.....................write_fhb requires a native array of int8
+  in method write at src/gen/m-CORE.setting:13249
+  in block  at t/spec/S16-filehandles/io.rakudo.moar:224
+
+  76    7    0    1   84
      1 skipped: :rw on open() unimplemented
+     7 tests aborted (missing ok/not ok)
 S16-filehandles/io_in_for_loops.t..................  29    0    0    0   29
 S16-filehandles/io_in_while_loops.t................  13    0    0    0   13
 S16-filehandles/mkdir_rmdir.rakudo.moar............  13    0    0    1   14
@@ -1628,8 +1631,26 @@ S32-io/io-spec-win.t...............................use of uninitialized value of
 S32-io/note.rakudo.moar............................   5    0    1    0    6
      1 todo   : nom regression
 S32-io/other.t.....................................  60    0    0    0   60
-S32-io/slurp.t.....................................  15    1    0    0   16
-S32-io/spurt.t.....................................  33    0    0    0   33
+S32-io/slurp.t.....................................read_fhb requires a native array of int8
+  in method read at src/gen/m-CORE.setting:13230
+  in block  at src/gen/m-CORE.setting:13286
+  in method slurp at src/gen/m-CORE.setting:13283
+  in sub slurp at src/gen/m-CORE.setting:13615
+  in sub slurp at src/gen/m-CORE.setting:13613
+  in block  at t/spec/S32-io/slurp.t:59
+
+   9    7    0    0   16
+     7 tests aborted (missing ok/not ok)
+S32-io/spurt.t.....................................write_fhb requires a native array of int8
+  in method write at src/gen/m-CORE.setting:13249
+  in method spurt at src/gen/m-CORE.setting:13328
+  in method spurt at src/gen/m-CORE.setting:13300
+  in sub spurt at src/gen/m-CORE.setting:13649
+  in sub spurt at src/gen/m-CORE.setting:13622
+  in sub all-basic at t/spec/S32-io/spurt.t:22
+  in block  at t/spec/S32-io/spurt.t:11
+
+   0    0    0    0    0
 S32-list/categorize.t..............................  12    0    0    0   12
 S32-list/classify.rakudo.moar......................  12    0    0    3   15
      3 skipped: Cannot use bind operator with this LHS
@@ -1748,7 +1769,7 @@ S32-str/chop.t.....................................   6    0    0    0    6
 S32-str/comb.rakudo.moar...........................  38    0    2    1   41
      1 skipped: cannot call match, no signature matches
      2 todo   : graphemes not implemented
-S32-str/encode.rakudo.moar.........................  16    5    0    1   22
+S32-str/encode.rakudo.moar.........................  21    0    0    1   22
      1 skipped: We do not handle NDF yet
 S32-str/flip.rakudo.moar...........................  11    0    2    0   13
      2 todo   : graphemes not implemented
@@ -2172,7 +2193,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        4143,     6,   122,   292,  4563,  4488
-"S03",        4812,     6,   122,   127,  5065,  4687
+"S03",        4812,     6,   122,   127,  5067,  4689
 "S04",         957,     6,    36,    46,  1045,  1042
 "S05",        4913,    70,    96,   325,  5404,  5847
 "S06",        1151,    15,    38,   104,  1308,  1292
@@ -2183,17 +2204,17 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S12",        1342,     0,    48,   124,  1514,  1414
 "S13",          33,     0,    10,    27,    70,    80
 "S14",         290,     7,     7,    12,   316,   329
-"S16",         235,     0,     5,    18,   258,   302
+"S16",         228,     7,     5,    18,   258,   302
 "S17",           0,     0,     0,     0,     0,   210
 "S19",           4,     0,     0,     0,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         308,     0,     0,     1,   309,   266
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         325,    10,     2,     3,   340,   350
-"S32",        9375,    74,    87,   177,  9713,  7051
+"S32",        9341,    75,    87,   177,  9680,  7051
 "int",         568,     2,     8,    28,   606,   595
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28784,   196,   593,  1329, 30900, 28588
+"total",     28743,   204,   593,  1329, 30869, 28590
 ----------------
 Failure summary:
 S02-lexical-conventions/unicode-whitespace.t 10 - MONGOLIAN VOWEL SEPARATOR
@@ -2206,10 +2227,8 @@ S03-operators/arith.t 6 - -1 == 3
 S03-operators/arith.t 7 - 1 == -3
 S03-operators/arith.t 14 - 
 S03-operators/arith.t 15 - 
-S03-operators/arith.t passed 1 unplanned test(s)
 S03-operators/assign.rakudo.moar 290 - Routine call taking a parenthesised my as argument works. #3
 S03-operators/overflow.t 46 - 7**(-1) works
-S03-operators/precedence.rakudo.moar passed 1 unplanned test(s)
 S04-phasers/enter-leave.rakudo.moar 19 - die doesn't abort LEAVE queue
 S04-phasers/pre-post.rakudo.moar 15 - failing PRE runs nothing else
 S04-phasers/pre-post.rakudo.moar 19 - failing POST on exception doesn't replace $!
@@ -2291,6 +2310,7 @@ S06-macros/unquoting.t aborted 10 test(s)
 S14-roles/anonymous.rakudo.moar 7 - anonymous role variable mixin
 S14-roles/anonymous.rakudo.moar 9 - anonymous role variable gave us an attribute
 S14-traits/routines.rakudo.moar aborted 5 test(s)
+S16-filehandles/io.rakudo.moar aborted 7 test(s)
 S29-conversions/ord_and_chr.rakudo.moar 248 - chr of surrogate
 S29-conversions/ord_and_chr.rakudo.moar 249 - chr of noncharacter
 S29-conversions/ord_and_chr.rakudo.moar 250 - chr of noncharacter
@@ -2309,7 +2329,7 @@ S32-exceptions/misc.rakudo.moar 592 - right exception type (X::ControlFlow::Retu
 S32-exceptions/misc.rakudo.moar 619 - right exception type (X::Syntax::Confused)
 S32-exceptions/misc.rakudo.moar 696 - right exception type (X::Method::NotFound)
 S32-io/IO-Socket-INET.t aborted 41 test(s)
-S32-io/slurp.t 15 - iso-8859-1 makes mojibake correctly
+S32-io/slurp.t aborted 7 test(s)
 S32-list/roll.t aborted 1 test(s)
 S32-num/exp.t 26 - 1/2 is correct
 S32-num/power.rakudo.moar 11 - -1 ** 4553535345364535345634543534 == 1
@@ -2318,11 +2338,6 @@ S32-num/power.rakudo.moar 13 - 2 ** 4553535345364535345634543534 == Inf
 S32-num/power.rakudo.moar 14 - -2 ** 4553535345364535345634543534 == Inf
 S32-num/power.rakudo.moar 15 - -2 ** 4553535345364535345634543534 == -Inf
 S32-num/rat.rakudo.moar 823 - Rat.Rat yields correct Rat
-S32-str/encode.rakudo.moar 6 - indexing a utf8 gives correct value (1)
-S32-str/encode.rakudo.moar 7 - indexing a utf8 gives correct value (1)
-S32-str/encode.rakudo.moar 20 - indexing a utf16 gives correct value
-S32-str/encode.rakudo.moar 21 - indexing a utf16 gives correct value
-S32-str/encode.rakudo.moar 22 - decoding utf16 Buf to original value
 S32-str/lc.t 13 - lower-casing of greek Sigma respects word-final special case
 S32-str/sprintf.rakudo.moar 138 - RT #118601
 S32-str/sprintf.rakudo.moar 142 - RT 116280
