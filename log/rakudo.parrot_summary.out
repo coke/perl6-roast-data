@@ -895,7 +895,16 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
      1 todo   : will init NYI
      1 todo   : will post NYI
      2 todo   : declared variable not visible in block yet
-S04-exception-handlers/catch.t.....................  28    0    0    0   28
+S04-exception-handlers/catch.t.....................[31m===[0mSORRY![31m===[0m Error while compiling t/spec/S04-exception-handlers/catch.t
+Unexpected block in infix position (two terms in a row, or previous statement missing semicolon?)
+at t/spec/S04-exception-handlers/catch.t:238
+------> [32m<BOL>[33m⏏[31m{[0m
+    expecting any of:
+        postfix
+        infix stopper
+        infix or meta-infix
+   0   28    0    0   28
+    28 tests aborted (missing ok/not ok)
 S04-exceptions/fail.rakudo.parrot..................  11    0    0    2   13
      2 skipped: RT 64990
 S04-exceptions/pending.rakudo.parrot...............   4    0    1   16   21
@@ -1290,9 +1299,8 @@ S06-other/anon-hashes-vs-blocks.t..................  22    0    0    0   22
 S06-other/introspection.t..........................  12    0    0    0   12
 S06-other/main-eval.rakudo.parrot..................   2    0    1    0    3
      1 todo   : MAIN in EVAL
-S06-other/main-usage.rakudo.parrot.................  15    0    7    0   22
-     5 todo   : nom regression
-     2 todo   : RT 115744
+S06-other/main-usage.rakudo.parrot.................   0   22    0    0   22
+    22 tests aborted (missing ok/not ok)
 S06-other/main.t...................................   6    0    0    0    6
 S06-other/misc.t...................................   3    0    0    0    3
 S06-routine-modifiers/lvalue-subroutines.rakudo.p..  11    0    0    3   14
@@ -2561,9 +2569,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        4155,     0,   124,   284,  4563,  4488
 "S03",        4818,     0,   122,   127,  5067,  4689
-"S04",         960,     0,    39,    46,  1045,  1042
+"S04",         932,    28,    39,    46,  1045,  1042
 "S05",        4890,     0,   103,   411,  5404,  5847
-"S06",        1166,     0,    38,   104,  1308,  1292
+"S06",        1151,    22,    31,   104,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
@@ -2581,8 +2589,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9445,     1,    92,   175,  9713,  7051
 "int",         569,     0,     9,    28,   606,   595
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28883,     1,   612,  1406, 30902, 28590
+"total",     28840,    51,   605,  1406, 30902, 28590
 ----------------
 Failure summary:
+S04-exception-handlers/catch.t aborted 28 test(s)
+S06-other/main-usage.rakudo.parrot aborted 22 test(s)
 S32-exceptions/misc.rakudo.parrot 507 - .method matches !foo
 note: test_summary.pl @syn does not have ros

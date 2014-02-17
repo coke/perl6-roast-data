@@ -119,7 +119,7 @@ S02-names-vars/perl.rakudo.jvm.....................useless use of 'is rw' on $!p
 use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
-  97    1    0    6  104
+  98    0    0    6  104
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -736,7 +736,16 @@ use of uninitialized value of type Any in string context
      1 todo   : will init NYI
      1 todo   : will post NYI
      2 todo   : declared variable not visible in block yet
-S04-exception-handlers/catch.t.....................  28    0    0    0   28
+S04-exception-handlers/catch.t.....................[31m===[0mSORRY![31m===[0m Error while compiling t/spec/S04-exception-handlers/catch.t
+Unexpected block in infix position (two terms in a row, or previous statement missing semicolon?)
+at t/spec/S04-exception-handlers/catch.t:238
+------> [32m<BOL>[33m⏏[31m{[0m
+    expecting any of:
+        postfix
+        infix stopper
+        infix or meta-infix
+   0   28    0    0   28
+    28 tests aborted (missing ok/not ok)
 S04-exceptions/fail.rakudo.jvm.....................  11    0    0    2   13
      2 skipped: RT 64990
 S04-exceptions/pending.rakudo.jvm..................   4    0    1   16   21
@@ -2193,9 +2202,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4120,     1,   131,   311,  4563,  4488
+"S02",        4121,     0,   131,   311,  4563,  4488
 "S03",        4818,     0,   122,   127,  5067,  4689
-"S04",         952,     0,    41,    52,  1045,  1042
+"S04",         924,    28,    41,    52,  1045,  1042
 "S05",        4887,     0,   106,   411,  5404,  5847
 "S06",        1163,     0,    38,   107,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
@@ -2215,10 +2224,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9405,     3,    90,   219,  9717,  7051
 "int",         569,     0,     9,    28,   606,   595
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28964,     4,   625,  1495, 31088, 28590
+"total",     28937,    31,   625,  1495, 31088, 28590
 ----------------
 Failure summary:
-S02-names-vars/perl.rakudo.jvm 90 - .perl on user-defined type roundtrips okay
+S04-exception-handlers/catch.t aborted 28 test(s)
 S32-exceptions/misc.rakudo.jvm 512 - .method matches !foo
 S32-list/roll.t 40 - different results due to random random-number seed
 S32-str/tc.rakudo.jvm 9 - tc works on codepoints greater than 0xffff
