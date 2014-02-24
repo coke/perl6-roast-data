@@ -812,7 +812,7 @@ S04-statements/unless.t............................  10    0    0    0   10
 S04-statements/until.t.............................   4    0    0    0    4
 S04-statements/while.t.............................   9    0    0    0    9
                                                    pass fail todo skip plan
-S05-capture/caps.rakudo.moar.......................  40    0    2    0   42
+S05-capture/caps.rakudo.moar.......................  29   11    2    0   42
      1 todo   : return type of .chunks
      1 todo   : RT117995 - quantified conjunctive capture
 S05-capture/dot.rakudo.moar........................use of uninitialized value of type Any in string context
@@ -1240,7 +1240,7 @@ S11-modules/import-multi.rakudo.moar...............  14    0    1    4   19
      1 skipped: it just dies, can't check using throws_like
      1 todo   : huh?
 S11-modules/import-tag.t...........................  12    0    0    0   12
-S11-modules/import.rakudo.moar.....................  10    0    0    4   14
+S11-modules/import.rakudo.moar.....................  18    0    0    4   22
      4 skipped: import plus inline module
 S11-modules/importing.t............................  16    0    0    0   16
 S11-modules/lexical.t..............................   2    0    0    0    2
@@ -1577,7 +1577,7 @@ use of uninitialized value of type BagHash in string context
   16    0    0    0   16
 S32-container/zip.rakudo.moar......................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.moar.................... 692    6    0    5  703
+S32-exceptions/misc.rakudo.moar.................... 696    6    0    5  707
      1 skipped: RT 114134
      3 skipped: still handled by <special_var>
      1 skipped: parsing regression
@@ -2167,12 +2167,12 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        4146,     6,   125,   302,  4579,  4488
 "S03",        4818,     0,   122,   127,  5067,  4689
 "S04",         958,     6,    36,    46,  1046,  1043
-"S05",        4915,    70,    95,   325,  5405,  5848
+"S05",        4904,    81,    95,   325,  5405,  5848
 "S06",        1151,    15,    38,   104,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
-"S11",          73,     0,     2,     9,    84,   139
+"S11",          81,     0,     2,     9,    92,   147
 "S12",        1343,     0,    48,   124,  1515,  1415
 "S13",          33,     0,    10,    27,    70,    80
 "S14",         290,     7,     7,    12,   316,   329
@@ -2183,10 +2183,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         310,     0,     0,     1,   311,   268
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         328,     6,     2,     4,   340,   350
-"S32",        9434,    21,    87,   171,  9713,  7051
+"S32",        9438,    21,    87,   171,  9717,  7051
 "int",         568,     2,     8,    28,   606,   595
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28861,   133,   595,  1334, 30923, 28595
+"total",     28862,   144,   595,  1334, 30935, 28603
 ----------------
 Failure summary:
 S02-lexical-conventions/unicode-whitespace.t 10 - MONGOLIAN VOWEL SEPARATOR
@@ -2201,6 +2201,17 @@ S04-phasers/pre-post.rakudo.moar 19 - failing POST on exception doesn't replace 
 S04-phasers/rvalue.t 10 - CHECK {} runs only once
 S04-phasers/rvalue.t 11 - CHECK {} as rval is its ret val
 S04-phasers/rvalue.t 12 - CHECK {} runs only once
+S05-capture/caps.rakudo.moar 14 - [(\w)* \s*]+ flattens (...)* for .caps
+S05-capture/caps.rakudo.moar 15 - [(\w)* \s*]+ flattens (...)* for .chunks
+S05-capture/caps.rakudo.moar 17 - .caps distinguishes quantified () and multiple ()
+S05-capture/caps.rakudo.moar 18 - .chunks distinguishes quantified () and multiple ()
+S05-capture/caps.rakudo.moar 20 - mixed named/positional flattening with quantifiers
+S05-capture/caps.rakudo.moar 21 - mixed named/positional flattening with quantifiers
+S05-capture/caps.rakudo.moar 26 - .caps on % separator
+S05-capture/caps.rakudo.moar 27 - .chunks on % separator
+S05-capture/caps.rakudo.moar 29 - .caps on %% separator
+S05-capture/caps.rakudo.moar 30 - .chunks on %% separator
+S05-capture/caps.rakudo.moar 40 - .caps on quantified &&
 S05-mass/charsets.t 7 - cntrl chars
 S05-mass/charsets.t 8 - lower chars
 S05-mass/named-chars.rakudo.moar 122 - Unanchored named ARABIC LIGATURE TEH WITH MEEM WITH JEEM INITIAL FORM
@@ -2282,12 +2293,12 @@ S29-conversions/ord_and_chr.rakudo.moar 250 - chr of noncharacter
 S29-conversions/ord_and_chr.rakudo.moar 251 - chr out of range
 S29-conversions/ord_and_chr.rakudo.moar 253 - ord of named high character
 S29-os/system.rakudo.moar 1 - run() to an existing program does not die (and returns something true)
-S32-exceptions/misc.rakudo.moar 548 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.moar 550 - right exception type (X::Assignment::RO)
 S32-exceptions/misc.rakudo.moar 552 - right exception type (X::Assignment::RO)
 S32-exceptions/misc.rakudo.moar 554 - right exception type (X::Assignment::RO)
 S32-exceptions/misc.rakudo.moar 556 - right exception type (X::Assignment::RO)
-S32-exceptions/misc.rakudo.moar 592 - right exception type (X::ControlFlow::Return)
+S32-exceptions/misc.rakudo.moar 558 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.moar 560 - right exception type (X::Assignment::RO)
+S32-exceptions/misc.rakudo.moar 596 - right exception type (X::ControlFlow::Return)
 S32-io/slurp.t 15 - iso-8859-1 makes mojibake correctly
 S32-list/roll.t 40 - different results due to random random-number seed
 S32-num/power.rakudo.moar 11 - -1 ** 4553535345364535345634543534 == 1

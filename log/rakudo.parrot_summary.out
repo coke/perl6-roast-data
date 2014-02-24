@@ -205,14 +205,14 @@ S02-types/bag.rakudo.parrot........................ 166    0    2    5  173
      2 skipped: Odd number of elements
      2 todo   : Not properly interpolating
 S02-types/baghash.rakudo.parrot....................No such method 'value' for invocant of type 'Any'
-  in method grab at gen/parrot/CORE.setting:15688
-  in block  at t/spec/S02-types/baghash.rakudo.parrot:375
+  in method grab at gen/parrot/CORE.setting:15681
+  in block  at t/spec/S02-types/baghash.rakudo.parrot:388
 
- 155   64    2    5  226
+ 160   59    2    5  226
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
      2 todo   : Needs to catch up with spec
-    64 tests aborted (missing ok/not ok)
+    59 tests aborted (missing ok/not ok)
 S02-types/bool.t...................................  51    0    0    0   51
 S02-types/capture.rakudo.parrot....................  18    0    2    1   21
      1 skipped: nom regression
@@ -979,7 +979,7 @@ S04-statements/unless.t............................  10    0    0    0   10
 S04-statements/until.t.............................   4    0    0    0    4
 S04-statements/while.t.............................   9    0    0    0    9
                                                    pass fail todo skip plan
-S05-capture/caps.rakudo.parrot.....................  40    0    2    0   42
+S05-capture/caps.rakudo.parrot.....................  29   11    2    0   42
      1 todo   : return type of .chunks
      1 todo   : RT117995 - quantified conjunctive capture
 S05-capture/dot.rakudo.parrot......................use of uninitialized value of type Any in string context  in block  at t/spec/S05-capture/dot.rakudo.parrot:100
@@ -1467,7 +1467,7 @@ S11-modules/import-multi.rakudo.parrot.............  14    0    1    4   19
      1 skipped: it just dies, can't check using throws_like
      1 todo   : huh?
 S11-modules/import-tag.t...........................  12    0    0    0   12
-S11-modules/import.rakudo.parrot...................  10    0    0    4   14
+S11-modules/import.rakudo.parrot...................  18    0    0    4   22
      4 skipped: import plus inline module
 S11-modules/importing.t............................  16    0    0    0   16
 S11-modules/lexical.t..............................   2    0    0    0    2
@@ -1837,7 +1837,7 @@ use of uninitialized value of type BagHash in string context  in block  at t/spe
   16    0    0    0   16
 S32-container/zip.rakudo.parrot....................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.parrot.................. 698    0    0    5  703
+S32-exceptions/misc.rakudo.parrot.................. 702    0    0    5  707
      1 skipped: RT 114134
      3 skipped: still handled by <special_var>
      1 skipped: parsing regression
@@ -2565,15 +2565,15 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4117,    64,   125,   273,  4579,  4488
+"S02",        4122,    59,   125,   273,  4579,  4488
 "S03",        4818,     0,   122,   127,  5067,  4689
 "S04",         961,     0,    39,    46,  1046,  1043
-"S05",        4891,     0,   103,   411,  5405,  5848
+"S05",        4880,    11,   103,   411,  5405,  5848
 "S06",        1166,     0,    38,   104,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
-"S11",          73,     0,     2,     9,    84,   139
+"S11",          81,     0,     2,     9,    92,   147
 "S12",        1343,     0,    48,   124,  1515,  1415
 "S13",          33,     0,    10,    27,    70,    80
 "S14",         296,     0,     8,    12,   316,   329
@@ -2584,11 +2584,22 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         310,     0,     0,     1,   311,   268
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         334,     0,     2,     4,   340,   350
-"S32",        9446,     0,    92,   175,  9713,  7051
+"S32",        9450,     0,    92,   175,  9717,  7051
 "int",         569,     0,     9,    28,   606,   595
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28851,    64,   613,  1395, 30923, 28595
+"total",     28857,    70,   613,  1395, 30935, 28603
 ----------------
 Failure summary:
-S02-types/baghash.rakudo.parrot aborted 64 test(s)
+S02-types/baghash.rakudo.parrot aborted 59 test(s)
+S05-capture/caps.rakudo.parrot 14 - [(\w)* \s*]+ flattens (...)* for .caps
+S05-capture/caps.rakudo.parrot 15 - [(\w)* \s*]+ flattens (...)* for .chunks
+S05-capture/caps.rakudo.parrot 17 - .caps distinguishes quantified () and multiple ()
+S05-capture/caps.rakudo.parrot 18 - .chunks distinguishes quantified () and multiple ()
+S05-capture/caps.rakudo.parrot 20 - mixed named/positional flattening with quantifiers
+S05-capture/caps.rakudo.parrot 21 - mixed named/positional flattening with quantifiers
+S05-capture/caps.rakudo.parrot 26 - .caps on % separator
+S05-capture/caps.rakudo.parrot 27 - .chunks on % separator
+S05-capture/caps.rakudo.parrot 29 - .caps on %% separator
+S05-capture/caps.rakudo.parrot 30 - .chunks on %% separator
+S05-capture/caps.rakudo.parrot 40 - .caps on quantified &&
 note: test_summary.pl @syn does not have ros
