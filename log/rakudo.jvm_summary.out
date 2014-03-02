@@ -13,7 +13,7 @@ S02-lexical-conventions/minimal-whitespace.t.......   9    0    0    0    9
 S02-lexical-conventions/one-pass-parsing.t.........   1    0    0    0    1
 S02-lexical-conventions/pod-in-multi-line-exprs.t..   3    0    0    0    3
 S02-lexical-conventions/sub-block-parsing.t........   9    0    0    0    9
-S02-lexical-conventions/unicode-whitespace.t.......  52    0    0    0   52
+S02-lexical-conventions/unicode-whitespace.t.......  50    0    0    0   50
 S02-lexical-conventions/unicode.rakudo.jvm.........  35    0    1    2   38
      2 skipped: VOWEL SIGNs in identifiers
      1 todo   : PS does not work to separate lines
@@ -108,11 +108,10 @@ S02-names-vars/fmt.t...............................  21    0    0    0   21
 S02-names-vars/list_array_perl.rakudo.jvm..........  18    0    1    2   21
      2 skipped: recursive data structure
      1 todo   : List.perl bug
-S02-names-vars/names.rakudo.jvm.................... 127    0    2   13  142
+S02-names-vars/names.rakudo.jvm.................... 128    0    1   13  142
      4 skipped: ::{ } package lookup NYI
      2 skipped: this kind of lookup NYI
      7 skipped: package variable autovivification
-     1 todo   : nom regression
      1 todo   : dubious test - otherwise why is ::<$foo> allowed?
 S02-names-vars/perl.rakudo.jvm.....................useless use of 'is rw' on $!priv
 use of uninitialized value of type Mu in string context
@@ -241,7 +240,7 @@ S02-types/isDEPRECATED.rakudo.jvm..................   8    0   12    0   20
      1 todo   : tracebacks in deprecations
      8 todo   : NYI
      3 todo PASSED: tracebacks in deprecations
-S02-types/lazy-lists.t.............................  19    0    0    0   19
+S02-types/lazy-lists.t.............................  20    0    0    0   20
 S02-types/lists.rakudo.jvm.........................use of uninitialized value of type Parcel in string context
 use of uninitialized value of type Parcel in string context
   25    0    0    3   28
@@ -283,9 +282,8 @@ WARNINGS:
 Useless use of constant integer 1 in sink context (line 1)
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
-  21    0   10   10   41
+  22    0    9   10   41
     10 skipped: Parse Error: Statement not terminated properly
-     1 todo   : nom regression
      9 todo   : Null PMC access in find_method()
 S02-types/nan.rakudo.jvm...........................  18    0    1    2   21
      1 skipped: unspecced and inconsistent
@@ -386,10 +384,8 @@ S03-junctions/misc.rakudo.jvm......................  97    0    4    4  105
      4 skipped: lower case junction
      2 todo   : lower case junction type
      2 todo   : nom regression
-S03-metaops/cross.rakudo.jvm.......................  24    0    3    1   28
+S03-metaops/cross.rakudo.jvm.......................  27    0    0    1   28
      1 skipped: .slice for iterators NYI
-     1 todo   : RT 74072
-     2 todo   : huh?
 S03-metaops/eager-hyper.rakudo.jvm.................   5    0    1    2    8
      2 skipped: hyper prefix NYI
      1 todo   : Array assignment is not lazy -- is this test wrong?
@@ -397,7 +393,7 @@ S03-metaops/hyper.rakudo.jvm.......................use of uninitialized value of
 use of uninitialized value of type Any in numeric context
 use of uninitialized value of type Any in numeric context
 use of uninitialized value of type Any in numeric context
- 269    0    6    6  281
+ 245    0    6    6  257
      1 skipped: EVAL(Buf)
      3 skipped: huh?
      2 skipped: nom regression: possible spec change/improvement
@@ -475,8 +471,7 @@ S03-operators/buf.t................................  34    0    0    0   34
 S03-operators/chained-declarators.t................   5    0    0    0    5
 S03-operators/cmp.t................................  22    0    0    0   22
 S03-operators/comparison-simple.t..................  24    0    0    0   24
-S03-operators/comparison.rakudo.jvm................  37    0    4    0   41
-     4 todo   : nom regression
+S03-operators/comparison.t.........................  41    0    0    0   41
 S03-operators/context-forcers.rakudo.jvm...........  95    0    0    2   97
      2 skipped: failure modes of Str.Numeric
 S03-operators/context.t............................  32    0    0    0   32
@@ -557,8 +552,7 @@ S03-operators/gcd.t................................  16    0    0    0   16
 S03-operators/identity.rakudo.jvm..................  37    0    8    0   45
      4 todo   : unspecced
      4 todo   : misuse of =:=
-S03-operators/increment.rakudo.jvm.................  30    0    1    0   31
-     1 todo   : nom regression
+S03-operators/increment.t..........................  32    0    0    0   32
 S03-operators/inplace.rakudo.jvm...................  23    0    0    4   27
      4 skipped: Method '' not found for invocant of class 'Str'
 S03-operators/is-divisible-by.rakudo.jvm...........  14    0    1    0   15
@@ -771,7 +765,7 @@ S04-phasers/pre-post.rakudo.jvm....................  19    0    2    1   22
      1 todo   : POST and exceptions
      1 todo   : nigh
 S04-phasers/rvalue.rakudo.jvm......................  13    0    3    0   16
-     3 todo   : nigh
+     3 todo PASSED: nigh
 S04-statement-modifiers/for.t......................  21    0    0    0   21
 S04-statement-modifiers/given.t....................   6    0    0    0    6
 S04-statement-modifiers/if.t.......................  11    0    0    0   11
@@ -822,8 +816,7 @@ S04-statements/unless.t............................  10    0    0    0   10
 S04-statements/until.t.............................   4    0    0    0    4
 S04-statements/while.t.............................   9    0    0    0    9
                                                    pass fail todo skip plan
-S05-capture/caps.rakudo.jvm........................  27   11    4    0   42
-     1 todo   : return type of .chunks
+S05-capture/caps.rakudo.jvm........................  39    0    3    0   42
      1 todo   : & caps on jvm
      1 todo   : RT117995 - quantified conjunctive capture
      1 todo   : && caps on jvm
@@ -860,7 +853,7 @@ S05-interpolation/lexicals.t.......................  10    0    0    0   10
 S05-interpolation/regex-in-variable.rakudo.jvm.....  30    0    1    3   34
      3 skipped: instance member interpolation
      1 todo   : warn on undef
-S05-mass/charsets.rakudo.jvm.......................  14    0    2    0   16
+S05-mass/charsets.rakudo.jvm.......................  13    1    2    0   16
      2 todo   : unicode 6.0 punct characters
 S05-mass/named-chars.rakudo.jvm.................... 337    0    0   94  431
      2 skipped: CR as char name
@@ -892,7 +885,7 @@ S05-mass/properties-script.rakudo.jvm.............. 326    0    0   35  361
     35 skipped: Unicode properties with arguments
 S05-mass/recursive.t...............................  20    0    0    0   20
 S05-mass/rx.rakudo.jvm.............................use of uninitialized value of type Any in string context
- 690    0    5   45  740
+ 693    0    2   45  740
      1 skipped: <commit> not implemented
     21 skipped: **{}
      1 skipped: :s()
@@ -905,7 +898,6 @@ S05-mass/rx.rakudo.jvm.............................use of uninitialized value of
      1 skipped: RT #121306
      1 skipped: parse error
      9 skipped: :: NYI
-     3 todo   : <cntrl>
      1 todo   : anchors and after
      1 todo   : RT #121307
 S05-mass/stdrules.rakudo.jvm....................... 158    0    0   28  186
@@ -915,14 +907,9 @@ S05-match/arrayhash.t..............................   8    0    0    0    8
 S05-match/blocks.rakudo.jvm........................  17    0    5    0   22
      4 todo   : nom regression
      1 todo   : Assignment to matched string affects earlier match objects
-S05-match/capturing-contexts.rakudo.jvm............use of uninitialized value of type Any in string context
-use of uninitialized value of type Any in string context
-use of uninitialized value of type Any in string context
-use of uninitialized value of type Any in string context
-  33    0    5    5   43
+S05-match/capturing-contexts.rakudo.jvm............  37    0    1    5   43
      5 skipped: binding to $/
      1 todo   : RT 70007
-     4 todo   : nom regression
 S05-match/make.t...................................   3    0    0    0    3
 S05-match/non-capturing.t..........................   9    0    0    0    9
 S05-match/positions.t..............................  10    0    0    0   10
@@ -1602,7 +1589,7 @@ use of uninitialized value of type BagHash in string context
   16    0    0    0   16
 S32-container/zip.rakudo.jvm.......................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.jvm..................... 706    0    0    5  711
+S32-exceptions/misc.rakudo.jvm..................... 708    0    0    5  713
      1 skipped: RT 114134
      3 skipped: still handled by <special_var>
      1 skipped: parsing regression
@@ -2196,10 +2183,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4122,     2,   134,   321,  4579,  4488
-"S03",        4818,     0,   122,   127,  5067,  4689
+"S02",        4123,     2,   132,   321,  4578,  4487
+"S03",        4803,     0,   114,   127,  5044,  4666
 "S04",         953,     0,    41,    52,  1046,  1043
-"S05",        4877,    11,   106,   411,  5405,  5848
+"S05",        4895,     1,    98,   411,  5405,  5848
 "S06",        1163,     0,    38,   107,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
@@ -2215,25 +2202,15 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         310,     0,     0,     1,   311,   268
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     0,     3,     5,   340,   350
-"S32",        9410,     2,    90,   219,  9721,  7051
+"S32",        9412,     2,    90,   219,  9723,  7051
 "int",         569,     0,     9,    28,   606,   595
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28973,    15,   628,  1505, 31121, 28603
+"total",     28979,     5,   610,  1505, 31099, 28579
 ----------------
 Failure summary:
 S02-types/baghash.rakudo.jvm 72 - BagHash.kv returns list of keys and values
 S02-types/mixhash.rakudo.jvm 72 - MixHash.kv returns list of keys and values
-S05-capture/caps.rakudo.jvm 14 - [(\w)* \s*]+ flattens (...)* for .caps
-S05-capture/caps.rakudo.jvm 15 - [(\w)* \s*]+ flattens (...)* for .chunks
-S05-capture/caps.rakudo.jvm 17 - .caps distinguishes quantified () and multiple ()
-S05-capture/caps.rakudo.jvm 18 - .chunks distinguishes quantified () and multiple ()
-S05-capture/caps.rakudo.jvm 20 - mixed named/positional flattening with quantifiers
-S05-capture/caps.rakudo.jvm 21 - mixed named/positional flattening with quantifiers
-S05-capture/caps.rakudo.jvm 26 - .caps on % separator
-S05-capture/caps.rakudo.jvm 27 - .chunks on % separator
-S05-capture/caps.rakudo.jvm 29 - .caps on %% separator
-S05-capture/caps.rakudo.jvm 30 - .chunks on %% separator
-S05-capture/caps.rakudo.jvm 40 - .caps on quantified &&
+S05-mass/charsets.rakudo.jvm 8 - lower chars
 S32-list/roll.t 40 - different results due to random random-number seed
 S32-str/tc.rakudo.jvm 9 - tc works on codepoints greater than 0xffff
 note: test_summary.pl @syn does not have ros
