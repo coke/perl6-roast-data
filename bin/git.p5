@@ -23,10 +23,12 @@ for my $repo (keys %repos) {
     my $dir = $repo_dir . "/" . $repo . ".git" ;
     if (-d $dir) {
         chdir $dir;
+        print "Fetching $repo\n";
         qx(git fetch);
 	chdir "../../";
     } else {
         chdir $repo_dir;
+        print "Cloning $repo\n";
         qx(git clone --mirror $repos{$repo});
 	chdir "../";
     }
