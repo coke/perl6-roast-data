@@ -826,7 +826,8 @@ S05-grammar/inheritance.rakudo.moar................  30    0    1    0   31
      1 todo   : automatic Grammar superclass
 S05-grammar/methods.t..............................   6    0    0    0    6
 S05-grammar/namespace.t............................   5    0    0    0    5
-S05-grammar/parse_and_parsefile.t..................  12    0    0    0   12
+S05-grammar/parse_and_parsefile.t..................use of uninitialized value of type Any in string context
+  14    0    0    0   14
 S05-grammar/polymorphism.t.........................use of uninitialized value of type Any in string context
   28    0    0    0   28
 S05-grammar/protoregex.rakudo.moar.................  29    0    1    0   30
@@ -839,7 +840,7 @@ S05-interpolation/lexicals.t.......................  10    0    0    0   10
 S05-interpolation/regex-in-variable.rakudo.moar....  30    0    1    3   34
      3 skipped: instance member interpolation
      1 todo   : warn on undef
-S05-mass/charsets.t................................  15    1    0    0   16
+S05-mass/charsets.t................................  16    0    0    0   16
 S05-mass/named-chars.rakudo.moar................... 337    0    0   94  431
      2 skipped: CR as char name
     62 skipped: negative char class in enumerated list
@@ -852,7 +853,7 @@ S05-mass/named-chars.rakudo.moar................... 337    0    0   94  431
      4 skipped: \c[FF] not valid charname
      2 skipped: LF as char name
 S05-mass/properties-block.t........................ 670    0    0    0  670
-S05-mass/properties-derived.t...................... 242   14    0    0  256
+S05-mass/properties-derived.t...................... 256    0    0    0  256
 S05-mass/properties-general.rakudo.moar............ 588    0    4   10  602
     10 skipped: No [Lr] property defined
      4 todo   : Unions of properties of non-existent codepoints
@@ -1482,7 +1483,7 @@ S26-documentation/04-code.t........................  50    0    0    0   50
 S26-documentation/05-comment.t.....................   9    0    0    0    9
 S26-documentation/06-lists.t.......................  39    0    0    0   39
 S26-documentation/07-tables.t......................  38    0    0    0   38
-S26-documentation/08-formattingcodes.t.............  43    0    0    0   43
+S26-documentation/08-formattingcodes.t.............  41    2    0    0   43
 S26-documentation/09-configuration.t...............  15    0    0    0   15
 S26-documentation/10-doc-cli.t.....................   1    0    0    0    1
 S26-documentation/why.t............................  18    0    0    1   19
@@ -1608,7 +1609,7 @@ S32-io/io-spec-win.t...............................use of uninitialized value of
 S32-io/note.rakudo.moar............................   5    0    1    0    6
      1 todo   : nom regression
 S32-io/other.t.....................................  60    0    0    0   60
-S32-io/slurp.t.....................................  15    1    0    0   16
+S32-io/slurp.t.....................................  16    0    0    0   16
 S32-io/spurt.t.....................................  33    0    0    0   33
 S32-list/categorize.t..............................  12    0    0    0   12
 S32-list/classify.rakudo.moar......................  12    0    0    3   15
@@ -2152,7 +2153,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        4150,     3,   123,   302,  4578,  4487
 "S03",        4803,     0,   114,   127,  5044,  4666
 "S04",         961,     3,    36,    46,  1046,  1043
-"S05",        4978,    15,    87,   325,  5405,  5848
+"S05",        4995,     0,    87,   325,  5407,  5850
 "S06",        1151,    15,    38,   104,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
@@ -2165,13 +2166,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S17",           0,     0,     0,     0,     0,   210
 "S19",           4,     0,     0,     0,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
-"S26",         310,     0,     0,     1,   311,   268
+"S26",         308,     2,     0,     1,   311,   268
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         329,     5,     2,     4,   340,   350
-"S32",        9440,    21,    87,   171,  9719,  7051
+"S32",        9441,    20,    87,   171,  9719,  7051
 "int",         568,     2,     8,    28,   606,   595
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28931,    71,   577,  1334, 30913, 28579
+"total",     28947,    57,   577,  1334, 30915, 28581
 ----------------
 Failure summary:
 S02-types/baghash.rakudo.moar 167 - .grab *should* change BagHash
@@ -2180,26 +2181,13 @@ S02-types/type.t 17 - native num type can be undefined
 S04-phasers/enter-leave.rakudo.moar 19 - die doesn't abort LEAVE queue
 S04-phasers/pre-post.rakudo.moar 15 - failing PRE runs nothing else
 S04-phasers/pre-post.rakudo.moar 19 - failing POST on exception doesn't replace $!
-S05-mass/charsets.t 7 - cntrl chars
-S05-mass/properties-derived.t 50 - Match <:Ideographic>
-S05-mass/properties-derived.t 51 - Don't match negated <Ideographic>
-S05-mass/properties-derived.t 52 - Don't match inverted <Ideographic>
-S05-mass/properties-derived.t 56 - Match unanchored <Ideographic>
-S05-mass/properties-derived.t 167 - Match <:UnifiedIdeograph>
-S05-mass/properties-derived.t 168 - Don't match negated <UnifiedIdeograph>
-S05-mass/properties-derived.t 169 - Don't match inverted <UnifiedIdeograph>
-S05-mass/properties-derived.t 170 - Don't match unrelated <UnifiedIdeograph>
-S05-mass/properties-derived.t 171 - Match unrelated negated <UnifiedIdeograph>
-S05-mass/properties-derived.t 172 - Match unrelated inverted <UnifiedIdeograph>
-S05-mass/properties-derived.t 247 - Match (Codepoint not explicitly assigned to a script)
-S05-mass/properties-derived.t 248 - Don't match negated (Codepoint not explicitly assigned to a script)
-S05-mass/properties-derived.t 249 - Don't match inverted (Codepoint not explicitly assigned to a script)
-S05-mass/properties-derived.t 256 - Match unanchored (Codepoint not explicitly assigned to a script)
 S06-macros/quasi-blocks.t aborted 5 test(s)
 S06-macros/unquoting.t aborted 10 test(s)
 S14-roles/anonymous.rakudo.moar 7 - anonymous role variable mixin
 S14-roles/anonymous.rakudo.moar 9 - anonymous role variable gave us an attribute
 S14-traits/routines.rakudo.moar aborted 5 test(s)
+S26-documentation/08-formattingcodes.t 27 - 
+S26-documentation/08-formattingcodes.t 32 - 
 S29-conversions/ord_and_chr.rakudo.moar 248 - chr of surrogate
 S29-conversions/ord_and_chr.rakudo.moar 249 - chr of noncharacter
 S29-conversions/ord_and_chr.rakudo.moar 250 - chr of noncharacter
@@ -2211,7 +2199,6 @@ S32-exceptions/misc.rakudo.moar 558 - right exception type (X::Assignment::RO)
 S32-exceptions/misc.rakudo.moar 560 - right exception type (X::Assignment::RO)
 S32-exceptions/misc.rakudo.moar 562 - right exception type (X::Assignment::RO)
 S32-exceptions/misc.rakudo.moar 598 - right exception type (X::ControlFlow::Return)
-S32-io/slurp.t 15 - iso-8859-1 makes mojibake correctly
 S32-list/roll.t 40 - different results due to random random-number seed
 S32-num/power.rakudo.moar 11 - -1 ** 4553535345364535345634543534 == 1
 S32-num/power.rakudo.moar 12 - -1 ** 4553535345364535345634543534 == -1

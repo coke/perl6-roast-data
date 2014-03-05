@@ -840,7 +840,8 @@ S05-grammar/inheritance.rakudo.jvm.................  30    0    1    0   31
      1 todo   : automatic Grammar superclass
 S05-grammar/methods.t..............................   6    0    0    0    6
 S05-grammar/namespace.t............................   5    0    0    0    5
-S05-grammar/parse_and_parsefile.t..................  12    0    0    0   12
+S05-grammar/parse_and_parsefile.t..................use of uninitialized value of type Any in string context
+  14    0    0    0   14
 S05-grammar/polymorphism.t.........................use of uninitialized value of type Any in string context
   28    0    0    0   28
 S05-grammar/protoregex.rakudo.jvm..................  29    0    1    0   30
@@ -853,8 +854,7 @@ S05-interpolation/lexicals.t.......................  10    0    0    0   10
 S05-interpolation/regex-in-variable.rakudo.jvm.....  30    0    1    3   34
      3 skipped: instance member interpolation
      1 todo   : warn on undef
-S05-mass/charsets.rakudo.jvm.......................  13    1    2    0   16
-     2 todo   : unicode 6.0 punct characters
+S05-mass/charsets.t................................  13    3    0    0   16
 S05-mass/named-chars.rakudo.jvm.................... 337    0    0   94  431
      2 skipped: CR as char name
     62 skipped: negative char class in enumerated list
@@ -1510,7 +1510,7 @@ S26-documentation/04-code.t........................  50    0    0    0   50
 S26-documentation/05-comment.t.....................   9    0    0    0    9
 S26-documentation/06-lists.t.......................  39    0    0    0   39
 S26-documentation/07-tables.t......................  38    0    0    0   38
-S26-documentation/08-formattingcodes.t.............  43    0    0    0   43
+S26-documentation/08-formattingcodes.t.............  41    2    0    0   43
 S26-documentation/09-configuration.t...............  15    0    0    0   15
 S26-documentation/10-doc-cli.t.....................   1    0    0    0    1
 S26-documentation/why.t............................  18    0    0    1   19
@@ -2186,7 +2186,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        4123,     2,   132,   321,  4578,  4487
 "S03",        4803,     0,   114,   127,  5044,  4666
 "S04",         953,     0,    41,    52,  1046,  1043
-"S05",        4895,     1,    98,   411,  5405,  5848
+"S05",        4897,     3,    96,   411,  5407,  5850
 "S06",        1163,     0,    38,   107,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
@@ -2199,18 +2199,22 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S17",         178,     0,     0,     4,   182,   210
 "S19",           1,     0,     0,     3,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
-"S26",         310,     0,     0,     1,   311,   268
+"S26",         308,     2,     0,     1,   311,   268
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     0,     3,     5,   340,   350
 "S32",        9412,     2,    90,   219,  9723,  7051
 "int",         569,     0,     9,    28,   606,   595
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28979,     5,   610,  1505, 31099, 28579
+"total",     28979,     9,   608,  1505, 31101, 28581
 ----------------
 Failure summary:
 S02-types/baghash.rakudo.jvm 72 - BagHash.kv returns list of keys and values
 S02-types/mixhash.rakudo.jvm 72 - MixHash.kv returns list of keys and values
-S05-mass/charsets.rakudo.jvm 8 - lower chars
+S05-mass/charsets.t 8 - lower chars
+S05-mass/charsets.t 9 - punct chars
+S05-mass/charsets.t 10 - :Punctuation chars
+S26-documentation/08-formattingcodes.t 27 - 
+S26-documentation/08-formattingcodes.t 32 - 
 S32-list/roll.t 40 - different results due to random random-number seed
 S32-str/tc.rakudo.jvm 9 - tc works on codepoints greater than 0xffff
 note: test_summary.pl @syn does not have ros
