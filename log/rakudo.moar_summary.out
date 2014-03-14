@@ -1438,11 +1438,8 @@ S14-roles/parameterized-type.rakudo.moar...........  29    0    0    1   30
 S14-roles/stubs.t..................................   9    0    0    0    9
 S14-roles/submethods.t.............................   4    0    0    0    4
 S14-traits/attributes.t............................   8    0    0    0    8
-S14-traits/routines.rakudo.moar....................Cannot invoke object with invocation handler in this context
-  in block  at t/spec/S14-traits/routines.rakudo.moar:49
-
-   8    5    0    0   13
-     5 tests aborted (missing ok/not ok)
+S14-traits/routines.rakudo.moar....................  12    0    1    0   13
+     1 todo   : trait mod / .wrap interaction
                                                    pass fail todo skip plan
 S15-unicode-information/unimatch-general.t......... 209    0    0    0  209
 S15-unicode-information/unival.t...................  25    0    0    0   25
@@ -1654,8 +1651,8 @@ S32-list/sort.rakudo.moar..........................use of uninitialized value of
      1 skipped: closure as non-final argument
      2 skipped: determine behavior of 0-arity methods passed to sort
      1 todo   : method fallback to sub unimpl
-S32-list/squish.t..................................  26    0    0    0   26
-S32-list/uniq.t....................................  30    0    0    0   30
+S32-list/squish.t..................................  22    4    0    0   26
+S32-list/uniq.t....................................  25    5    0    0   30
 S32-num/abs.t......................................  49    0    0    0   49
 S32-num/base.t.....................................  12    0    0    0   12
 S32-num/complex.t.................................. 488    0    0    0  488
@@ -2164,7 +2161,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S11",          81,     0,     2,     9,    92,   147
 "S12",        1343,     0,    48,   124,  1515,  1415
 "S13",          33,     0,    10,    27,    70,    80
-"S14",         290,     7,     7,    12,   316,   329
+"S14",         294,     2,     8,    12,   316,   329
 "S15",         234,     0,     0,     0,   234,   283
 "S16",         235,     0,     5,    18,   258,   302
 "S17",           0,     0,     0,     0,     0,   211
@@ -2173,10 +2170,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         310,     0,     0,     1,   311,   268
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         330,     5,     2,     4,   341,   351
-"S32",        9440,    21,    87,   171,  9719,  7051
+"S32",        9431,    30,    87,   171,  9719,  7051
 "int",         568,     2,     8,    28,   606,   614
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29185,    56,   577,  1334, 31152, 28887
+"total",     29180,    60,   578,  1334, 31152, 28887
 ----------------
 Failure summary:
 S02-types/baghash.rakudo.moar 167 - .grab *should* change BagHash
@@ -2189,7 +2186,6 @@ S06-macros/quasi-blocks.t aborted 5 test(s)
 S06-macros/unquoting.t aborted 10 test(s)
 S14-roles/anonymous.rakudo.moar 7 - anonymous role variable mixin
 S14-roles/anonymous.rakudo.moar 9 - anonymous role variable gave us an attribute
-S14-traits/routines.rakudo.moar aborted 5 test(s)
 S29-conversions/ord_and_chr.rakudo.moar 248 - chr of surrogate
 S29-conversions/ord_and_chr.rakudo.moar 249 - chr of noncharacter
 S29-conversions/ord_and_chr.rakudo.moar 250 - chr of noncharacter
@@ -2203,6 +2199,15 @@ S32-exceptions/misc.rakudo.moar 562 - right exception type (X::Assignment::RO)
 S32-exceptions/misc.rakudo.moar 598 - right exception type (X::ControlFlow::Return)
 S32-exceptions/misc.rakudo.moar 647 - &uc is a suggestion
 S32-list/roll.t 40 - different results due to random random-number seed
+S32-list/squish.t 23 - method form of squish with [eqv] and objects works
+S32-list/squish.t 24 - subroutine form of squish with [eqv] and objects works
+S32-list/squish.t 25 - inplace form of squish with [eqv] and objects works
+S32-list/squish.t 26 - final result with [eqv] and objects in place
+S32-list/uniq.t 12 - .uniq does not use naive WHICH (2)
+S32-list/uniq.t 27 - method form of uniq with [eqv] and objects works
+S32-list/uniq.t 28 - subroutine form of uniq with [eqv] and objects works
+S32-list/uniq.t 29 - inplace form of uniq with [eqv] and objects works
+S32-list/uniq.t 30 - final result with [eqv] and objects in place
 S32-num/power.rakudo.moar 11 - -1 ** 4553535345364535345634543534 == 1
 S32-num/power.rakudo.moar 12 - -1 ** 4553535345364535345634543534 == -1
 S32-num/power.rakudo.moar 13 - 2 ** 4553535345364535345634543534 == Inf
