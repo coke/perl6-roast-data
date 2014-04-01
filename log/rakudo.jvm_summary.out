@@ -183,12 +183,12 @@ S02-types/bag.rakudo.jvm........................... 166    0    2    5  173
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
      2 todo   : Not properly interpolating
-S02-types/baghash.rakudo.jvm....................... 193    1    6   26  226
+S02-types/baghash.rakudo.jvm....................... 194    0    6   26  226
     21 skipped: 'is ObjectType' NYI
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
      2 todo   : Needs to catch up with spec
-     2 todo   : RT #120407
+     2 todo   : RT 120407
      2 todo   : in flux
 S02-types/bool.t...................................  51    0    0    0   51
 S02-types/capture.rakudo.jvm.......................  18    0    2    1   21
@@ -655,7 +655,7 @@ S03-smartmatch/signature-signature.rakudo.jvm......  18    0    0    2   20
      1 skipped: Parametric types
      1 skipped: Code params with signatures
                                                    pass fail todo skip plan
-S04-blocks-and-statements/let.t....................  12    0    0    0   12
+S04-blocks-and-statements/let.t....................  11    1    0    0   12
 S04-blocks-and-statements/pointy-rw.t..............  10    0    0    0   10
 S04-blocks-and-statements/pointy.rakudo.jvm........  15    0    2    0   17
      1 todo   : pointy blocks and last/redo
@@ -746,7 +746,7 @@ S04-phasers/descending-order.t.....................   7    0    0    0    7
 S04-phasers/end.rakudo.jvm.........................   3    0    2    0    5
      2 todo   : lexicals and EVAL()
 S04-phasers/enter-leave.rakudo.jvm.................  17    0    2    2   21
-     1 skipped: unwind
+     1 skipped: unwind, RT 121530
      1 skipped: leave NYI
      1 todo   : nigh
      1 todo   : is this spec? why would LEAVE not see outer $!? fossil?
@@ -1490,11 +1490,7 @@ S16-unfiled/rebindstdhandles.rakudo.jvm............   0    0    0    2    2
      2 skipped: contextual rebinding regression
                                                    pass fail todo skip plan
 S17-concurrency/channel.t..........................  12    0    0    0   12
-S17-concurrency/lock.t.............................No such method 'condition' for invocant of type 'Lock'
-  in block  at t/spec/S17-concurrency/lock.t:54
-
-   6    1    0    0    7
-     1 tests aborted (missing ok/not ok)
+S17-concurrency/lock.t.............................   7    0    0    0    7
 S17-concurrency/promise.t..........................  64    0    0    0   64
 S17-concurrency/scheduler.t........................  55    0    0    0   55
 S17-concurrency/supply.rakudo.jvm..................  15    0    0    1   16
@@ -1538,9 +1534,10 @@ S29-context/exit-in-if.t...........................   1    0    0    0    1
 S29-context/exit.t.................................   3    0    0    0    3
 S29-context/sleep.t................................  17    0    0    0   17
 S29-conversions/hash.t.............................   8    0    0    0    8
-S29-conversions/ord_and_chr.rakudo.jvm............. 255    0    1    1  257
+S29-conversions/ord_and_chr.rakudo.jvm............. 254    0    2    1  257
      1 skipped: high character name lookup
      1 todo   : RT #65172 - combining graphemes
+     1 todo   : chr surrogate
 S29-os/system.rakudo.jvm...........................   3    0    1    1    5
      1 skipped: run() broken (and test questionable
      1 todo   : nigh
@@ -1616,8 +1613,8 @@ S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.jvm..........................  18    0   11    0   29
     11 todo   : binding on hash elements unimplemented
-S32-io/IO-Socket-INET.rakudo.jvm...................   0    0    0   41   41
-    41 skipped: rakudo.jvm systemic failures/OOM error
+S32-io/IO-Socket-INET.rakudo.jvm...................   0    0    0   47   47
+    47 skipped: rakudo.jvm systemic failures/OOM error
 S32-io/chdir.rakudo.jvm............................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
@@ -1675,7 +1672,8 @@ S32-list/reduce.rakudo.jvm.........................use of uninitialized value of
      1 todo   : n-ary reduce
 S32-list/reverse.rakudo.jvm........................  20    0    1    0   21
      1 todo   : RT 77914
-S32-list/roll.t....................................  47    1    0    0   48
+S32-list/roll.rakudo.jvm...........................  47    0    0    1   48
+     1 skipped: Cannot spawn rakudo like this (JVM, RT 121528)
 S32-list/sort.rakudo.jvm...........................use of uninitialized value of type Code in string context
 use of uninitialized value of type Code in string context
 use of uninitialized value of type Code in string context
@@ -1803,7 +1801,7 @@ S32-str/tc.rakudo.jvm..............................   6    0    3    0    9
      2 todo   : NYI
      1 todo   : tc works on codepoints greater than 0xffff
 S32-str/tclc.rakudo.jvm............................   5    0    1    0    6
-     1 todo   : nigh
+     1 todo   : RT 121377
 S32-str/trim.t.....................................  36    0    0    0   36
 S32-str/uc.rakudo.jvm..............................  14    0    0    4   18
      4 skipped: but RoleName
@@ -2190,9 +2188,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4124,     2,   131,   321,  4578,  4487
+"S02",        4125,     1,   131,   321,  4578,  4487
 "S03",        4805,     0,   114,   127,  5046,  4668
-"S04",         953,     0,    41,    52,  1046,  1043
+"S04",         952,     1,    41,    52,  1046,  1043
 "S05",        4897,     0,    99,   411,  5407,  5850
 "S06",        1163,     0,    38,   107,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
@@ -2204,19 +2202,17 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         294,     0,    10,    12,   316,   329
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         234,     0,     5,    19,   258,   302
-"S17",         178,     1,     0,     4,   183,   183
+"S17",         179,     0,     0,     4,   183,   183
 "S19",           1,     0,     0,     3,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         310,     0,     0,     1,   311,   268
 "S28",           7,     0,     0,     0,     7,    13
-"S29",         333,     0,     3,     5,   341,   351
-"S32",        9436,     1,    91,   219,  9747,  7073
+"S29",         332,     0,     4,     5,   341,   351
+"S32",        9436,     0,    91,   226,  9753,  7079
 "int",         569,     0,     9,    28,   606,   711
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29009,     4,   611,  1505, 31129, 28978
+"total",     29009,     2,   612,  1512, 31135, 28984
 ----------------
 Failure summary:
-S02-types/baghash.rakudo.jvm 72 - BagHash.kv returns list of keys and values
 S02-types/mixhash.rakudo.jvm 72 - MixHash.kv returns list of keys and values
-S17-concurrency/lock.t aborted 1 test(s)
-S32-list/roll.t 40 - different results due to random random-number seed
+S04-blocks-and-statements/let.t 9 - let() restored the variable, the block was exited using an exception
