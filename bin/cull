@@ -3,7 +3,24 @@
 use Modern::Perl;
 use Text::CSV;
 
-my @types = qw/niecza rakudo.parrot rakudo.jvm rakudo.moar pugs/;
+my %impls = (
+    "niecza" => {
+        dir => "niecza"
+    }, 
+    "rakudo.jvm" => {
+        dir => "rakudo.jvm"
+    },
+    "rakudo.moar" => {
+        dir => "rakudo.moar"
+    },
+    "rakudo.parrot" => {
+        dir => "rakudo.parrot"
+    },
+    "pugs" => {
+        dir => "Pug.hs"
+    }
+);
+
 my %line;
 my %pass;
 
@@ -11,7 +28,8 @@ my $csv = Text::CSV->new() ;
 
 my $best = "";
 my $max = 0;
-foreach my $type (@types) {
+foreach my $type (keys %impls) {
+
     my $output = `grep '"total"' log/${type}_summary.out`;
     $output =~ s/total/$type/;
     chomp $output;
@@ -26,10 +44,14 @@ foreach my $type (@types) {
 
 my $date=`date +'%Y-%m-%d'`;
 chomp $date;
-my $roast_version=`(cd roast && git rev-parse --short HEAD)`;
-chomp $roast_version;
 
-foreach my $type (sort @types) {
+foreach my $type (sort keys %impls) {
+    my $impl_version=`(cd $impls{$type}{dir} && git rev-parse --short HEAD)`;
+    chomp $impl_version;
+
+    my $roast_version=`(cd $impls{$type}{dir}/t/spec && git rev-parse --short HEAD)`;
+    chomp $roast_version;
+
     my $impl = shift @{$line{$type}};
     my @vals = map { s/^\s+//; $_ } @{$line{$type}};
 
@@ -39,5 +61,5 @@ foreach my $type (sort @types) {
     }
 
     splice @vals, 0, 0, $date, $per, $roast_version;
-    print join(",", $impl, @vals), ",\n";
+    print join(",", $impl, @vals, $impl_version), ",\n";
 }
