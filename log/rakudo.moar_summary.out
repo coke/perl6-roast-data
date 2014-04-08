@@ -567,8 +567,8 @@ S03-operators/nesting.t............................  26    0    0    0   26
 S03-operators/not.rakudo.moar......................  21    0    1    0   22
      1 todo   : RT 65556
 S03-operators/numeric-shift.t......................  36    0    0    0   36
-S03-operators/orelse.rakudo.moar...................   8    0    4    0   12
-     4 todo   : orelse exception semantics
+S03-operators/orelse.rakudo.moar...................   8    0    1    0    9
+     1 todo PASSED: orelse $! semantics
 S03-operators/overflow.t...........................  98    0    0    0   98
 S03-operators/precedence.rakudo.moar...............  48    0    4    2   54
      2 skipped: nom regression
@@ -1472,7 +1472,8 @@ S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-concurrency/channel.t..........................Aborted
   12    0    0    0   12
-S17-concurrency/lock.t.............................   7    0    0    0    7
+S17-concurrency/lock.t.............................Aborted
+   7    1    0    0    8
 S17-concurrency/promise.rakudo.moar................Segmentation fault
   60    2    0    2   64
      2 skipped: :in NYI
@@ -1491,9 +1492,8 @@ S17-concurrency/supply.rakudo.moar.................Aborted
      1 todo   : merging apparently does *not* work
 S17-concurrency/thread.rakudo.moar.................  22    0    0    3   25
      3 skipped: Segfaults
-S17-concurrency/winner.rakudo.moar.................Aborted
-   6    0    0    3    9
-     3 skipped: :in NYI
+S17-concurrency/winner.t...........................Aborted
+   3    0    0    0    3
                                                    pass fail todo skip plan
 S19-command-line/dash-e.t..........................   3    0    0    0    3
 S19-command-line/help.t............................   1    0    0    0    1
@@ -2200,7 +2200,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        4157,     0,   127,   294,  4578,  4487
-"S03",        4813,     0,   118,   127,  5058,  4668
+"S03",        4813,     0,   115,   127,  5055,  4668
 "S04",         961,     0,    37,    48,  1046,  1043
 "S05",        4995,     0,    87,   325,  5407,  5850
 "S06",        1163,     0,    38,   107,  1308,  1292
@@ -2213,19 +2213,20 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         294,     2,     8,    12,   316,   329
 "S15",         234,     0,     0,     0,   234,   283
 "S16",         235,     0,     5,    18,   258,   302
-"S17",         151,     2,     1,    34,   188,   188
+"S17",         148,     3,     1,    31,   183,   183
 "S19",           4,     0,     0,     0,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         310,     0,     0,     1,   311,   268
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     1,     4,     4,   341,   351
 "S32",        9467,     0,   100,   177,  9744,  7079
-"int",         760,     0,    13,    39,   812,   801
+"int",         760,     0,    13,    39,   812,   825
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29588,     5,   608,  1382, 31583, 29079
+"total",     29585,     6,   605,  1379, 31575, 29098
 ----------------
 Failure summary:
 S14-roles/anonymous.rakudo.moar 7 - anonymous role variable mixin
 S14-roles/anonymous.rakudo.moar 9 - anonymous role variable gave us an attribute
+S17-concurrency/lock.t 8 - Thread 1 never ran after it was tried 1 times
 S17-concurrency/promise.rakudo.moar aborted 2 test(s)
 S29-os/system.rakudo.moar 1 - run() to an existing program does not die (and returns something true)

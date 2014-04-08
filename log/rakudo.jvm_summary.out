@@ -568,8 +568,8 @@ S03-operators/nesting.t............................  26    0    0    0   26
 S03-operators/not.rakudo.jvm.......................  21    0    1    0   22
      1 todo   : RT 65556
 S03-operators/numeric-shift.t......................  36    0    0    0   36
-S03-operators/orelse.rakudo.jvm....................   8    0    4    0   12
-     4 todo   : orelse exception semantics
+S03-operators/orelse.rakudo.jvm....................   8    0    1    0    9
+     1 todo PASSED: orelse $! semantics
 S03-operators/overflow.t...........................  98    0    0    0   98
 S03-operators/precedence.rakudo.jvm................  48    0    4    2   54
      2 skipped: nom regression
@@ -1492,14 +1492,14 @@ S16-unfiled/rebindstdhandles.rakudo.jvm............   0    0    0    2    2
      2 skipped: contextual rebinding regression
                                                    pass fail todo skip plan
 S17-concurrency/channel.t..........................  12    0    0    0   12
-S17-concurrency/lock.t.............................   6    1    0    0    7
+S17-concurrency/lock.t.............................   7    1    0    0    8
 S17-concurrency/promise.t..........................  64    0    0    0   64
 S17-concurrency/scheduler.t........................  55    0    0    0   55
 S17-concurrency/supply.rakudo.jvm..................  15    0    0    1   16
      1 skipped: hangs
 S17-concurrency/thread.rakudo.jvm..................  22    0    0    3   25
      3 skipped: Hangs about 20% of the time
-S17-concurrency/winner.t...........................   9    0    0    0    9
+S17-concurrency/winner.t...........................   3    0    0    0    3
                                                    pass fail todo skip plan
 S19-command-line/dash-e.rakudo.jvm.................   0    0    0    3    3
      3 skipped: nigh
@@ -2166,18 +2166,18 @@ integration/advent2013-day09.t.....................  21    0    0    0   21
 integration/advent2013-day10.rakudo.jvm............  43    0    1    0   44
      1 todo   : adverb stacking
 integration/advent2013-day12.t.....................java.lang.NullPointerException
-  in method reify at gen/jvm/CORE.setting:7398
-  in method reify at gen/jvm/CORE.setting:7375
-  in method reify at gen/jvm/CORE.setting:7501
-  in method reify at gen/jvm/CORE.setting:7375
-  in method reify at gen/jvm/CORE.setting:7375
-  in method reify at gen/jvm/CORE.setting:7477
-  in method reify at gen/jvm/CORE.setting:7375
-  in method gimme at gen/jvm/CORE.setting:7827
-  in method eager at gen/jvm/CORE.setting:7799
-  in block  at gen/jvm/CORE.setting:2298
-  in sub postcircumfix:<[ ]> at gen/jvm/CORE.setting:2530
-  in sub postcircumfix:<[ ]> at gen/jvm/CORE.setting:2350
+  in method reify at gen/jvm/CORE.setting:7418
+  in method reify at gen/jvm/CORE.setting:7395
+  in method reify at gen/jvm/CORE.setting:7521
+  in method reify at gen/jvm/CORE.setting:7395
+  in method reify at gen/jvm/CORE.setting:7395
+  in method reify at gen/jvm/CORE.setting:7497
+  in method reify at gen/jvm/CORE.setting:7395
+  in method gimme at gen/jvm/CORE.setting:7847
+  in method eager at gen/jvm/CORE.setting:7819
+  in block  at gen/jvm/CORE.setting:2300
+  in sub postcircumfix:<[ ]> at gen/jvm/CORE.setting:2550
+  in sub postcircumfix:<[ ]> at gen/jvm/CORE.setting:2352
   in block  at t/spec/integration/advent2013-day12.t:80
 
   26    6    0    0   32
@@ -2220,7 +2220,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        4125,     1,   131,   321,  4578,  4487
-"S03",        4813,     0,   118,   127,  5058,  4668
+"S03",        4813,     0,   115,   127,  5055,  4668
 "S04",         952,     1,    41,    52,  1046,  1043
 "S05",        4897,     0,    99,   411,  5407,  5850
 "S06",        1163,     0,    38,   107,  1308,  1292
@@ -2233,19 +2233,19 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         294,     0,    10,    12,   316,   329
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         234,     0,     5,    19,   258,   302
-"S17",         183,     1,     0,     4,   188,   188
+"S17",         178,     1,     0,     4,   183,   183
 "S19",           1,     0,     0,     3,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         310,     0,     0,     1,   311,   268
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     0,     4,     5,   341,   351
 "S32",        9436,     0,    91,   226,  9753,  7079
-"int",         764,     6,    14,    28,   812,   801
+"int",         764,     6,    14,    28,   812,   825
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29216,     9,   621,  1512, 31358, 29079
+"total",     29211,     9,   618,  1512, 31350, 29098
 ----------------
 Failure summary:
 S02-types/mixhash.rakudo.jvm 72 - MixHash.kv returns list of keys and values
 S04-blocks-and-statements/let.t 9 - let() restored the variable, the block was exited using an exception
-S17-concurrency/lock.t 7 - Condition variable worked
+S17-concurrency/lock.t 8 - Thread 1 never ran after it was tried 1 times
 integration/advent2013-day12.t aborted 6 test(s)
