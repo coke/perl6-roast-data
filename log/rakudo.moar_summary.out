@@ -1470,15 +1470,14 @@ S16-io/tmpdir.t....................................   3    0    0    0    3
 S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
      2 skipped: contextual rebinding regression
                                                    pass fail todo skip plan
-S17-concurrency/channel.t..........................Aborted
+S17-concurrency/channel.t..........................Aborted (core dumped)
   12    0    0    0   12
-S17-concurrency/lock.t.............................Aborted
-   7    1    0    0    8
-S17-concurrency/promise.rakudo.moar................Segmentation fault
+S17-concurrency/lock.t.............................   7    1    0    0    8
+S17-concurrency/promise.rakudo.moar................Segmentation fault (core dumped)
   60    2    0    2   64
      2 skipped: :in NYI
      2 tests aborted (missing ok/not ok)
-S17-concurrency/scheduler.rakudo.moar..............Aborted
+S17-concurrency/scheduler.rakudo.moar..............Aborted (core dumped)
   29    0    0   26   55
      8 skipped: dies for the wrong reason
      4 skipped: :at NYI
@@ -1487,12 +1486,12 @@ S17-concurrency/scheduler.rakudo.moar..............Aborted
      4 skipped: :in NYI
      3 skipped: :every NYI
      3 skipped: :at, :every NYI
-S17-concurrency/supply.rakudo.moar.................Aborted
+S17-concurrency/supply.rakudo.moar.................Aborted (core dumped)
   15    0    1    0   16
      1 todo   : merging apparently does *not* work
 S17-concurrency/thread.rakudo.moar.................  22    0    0    3   25
      3 skipped: Segfaults
-S17-concurrency/winner.t...........................Aborted
+S17-concurrency/winner.t...........................Aborted (core dumped)
    3    0    0    0    3
                                                    pass fail todo skip plan
 S19-command-line/dash-e.t..........................   3    0    0    0    3
@@ -2002,7 +2001,7 @@ use of uninitialized value of type Any in string context
   23    0    2    0   25
      2 todo   : unknown
 integration/99problems-21-to-30.rakudo.moar........use of uninitialized value of type Any in string context
-  12    0    3    0   15
+  10    2    3    0   15
      3 todo   : unknown
 integration/99problems-31-to-40.t..................  66    0    0    1   67
      1 skipped: No Benchmark module yet
@@ -2159,7 +2158,7 @@ integration/advent2013-day09.t.....................  21    0    0    0   21
 integration/advent2013-day10.rakudo.moar...........  43    0    1    0   44
      1 todo   : adverb stacking
 integration/advent2013-day12.t.....................  32    0    0    0   32
-integration/advent2013-day14.rakudo.moar...........Aborted
+integration/advent2013-day14.rakudo.moar...........Aborted (core dumped)
    5    0    0    5   10
      4 skipped: combined config example
      1 skipped: Promise.in
@@ -2220,9 +2219,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     1,     4,     4,   341,   351
 "S32",        9467,     0,   100,   177,  9744,  7079
-"int",         760,     0,    13,    39,   812,   825
+"int",         758,     2,    13,    39,   812,   843
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29585,     6,   605,  1379, 31575, 29098
+"total",     29583,     8,   605,  1379, 31575, 29116
 ----------------
 Failure summary:
 S14-roles/anonymous.rakudo.moar 7 - anonymous role variable mixin
@@ -2230,3 +2229,5 @@ S14-roles/anonymous.rakudo.moar 9 - anonymous role variable gave us an attribute
 S17-concurrency/lock.t 8 - Thread 1 never ran after it was tried 1 times
 S17-concurrency/promise.rakudo.moar aborted 2 test(s)
 S29-os/system.rakudo.moar 1 - run() to an existing program does not die (and returns something true)
+integration/99problems-21-to-30.rakudo.moar 12 - combinations work.
+integration/99problems-21-to-30.rakudo.moar 13 - group works
