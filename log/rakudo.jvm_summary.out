@@ -116,7 +116,7 @@ S02-names-vars/perl.rakudo.jvm.....................useless use of 'is rw' on $!p
 use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
-  97    1    0    6  104
+  98    0    0    6  104
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -1431,7 +1431,7 @@ S14-roles/anonymous.rakudo.jvm.....................use of uninitialized value of
 use of uninitialized value of type Any in string context
   10    0    2    1   13
      1 skipped: anonymous roles only created once
-     2 todo   : nigh
+     2 todo   : RT 121626
 S14-roles/attributes.rakudo.jvm....................   5    0    0    2    7
      2 skipped: review test and rakudo
 S14-roles/basic.rakudo.jvm.........................  38    0    2    3   43
@@ -2009,7 +2009,7 @@ use of uninitialized value of type Any in string context
   23    0    2    0   25
      2 todo   : unknown
 integration/99problems-21-to-30.rakudo.jvm.........use of uninitialized value of type Any in string context
-  10    2    3    0   15
+  12    0    3    0   15
      3 todo   : unknown
 integration/99problems-31-to-40.t..................  66    0    0    1   67
      1 skipped: No Benchmark module yet
@@ -2165,23 +2165,8 @@ integration/advent2013-day08.t.....................  11    0    0    0   11
 integration/advent2013-day09.t.....................  21    0    0    0   21
 integration/advent2013-day10.rakudo.jvm............  43    0    1    0   44
      1 todo   : adverb stacking
-integration/advent2013-day12.t.....................java.lang.NullPointerException
-  in method reify at gen/jvm/CORE.setting:7430
-  in method reify at gen/jvm/CORE.setting:7407
-  in method reify at gen/jvm/CORE.setting:7533
-  in method reify at gen/jvm/CORE.setting:7407
-  in method reify at gen/jvm/CORE.setting:7407
-  in method reify at gen/jvm/CORE.setting:7509
-  in method reify at gen/jvm/CORE.setting:7407
-  in method gimme at gen/jvm/CORE.setting:7859
-  in method eager at gen/jvm/CORE.setting:7831
-  in block  at gen/jvm/CORE.setting:2305
-  in sub postcircumfix:<[ ]> at gen/jvm/CORE.setting:2555
-  in sub postcircumfix:<[ ]> at gen/jvm/CORE.setting:2357
-  in block  at t/spec/integration/advent2013-day12.t:80
-
-  26    6    0    0   32
-     6 tests aborted (missing ok/not ok)
+integration/advent2013-day12.rakudo.jvm............  30    0    0    2   32
+     2 skipped: RT121622 aborting on jvm
 integration/advent2013-day14.t.....................  10    0    0    0   10
 integration/advent2013-day15.rakudo.jvm............  26    0    4    0   30
      1 todo   : jvm rounding quirks
@@ -2219,7 +2204,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4124,     2,   131,   321,  4578,  4487
+"S02",        4125,     1,   131,   321,  4578,  4487
 "S03",        4813,     0,   115,   127,  5055,  4668
 "S04",         952,     1,    41,    52,  1046,  1043
 "S05",        4897,     0,    99,   411,  5407,  5850
@@ -2240,15 +2225,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     0,     4,     5,   341,   351
 "S32",        9436,     0,    91,   226,  9753,  7079
-"int",         762,     8,    14,    28,   812,   843
+"int",         768,     0,    14,    30,   812,   843
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29208,    12,   618,  1512, 31350, 29116
+"total",     29215,     3,   618,  1514, 31350, 29116
 ----------------
 Failure summary:
-S02-names-vars/perl.rakudo.jvm 90 - .perl on user-defined type roundtrips okay
 S02-types/mixhash.rakudo.jvm 72 - MixHash.kv returns list of keys and values
 S04-blocks-and-statements/let.t 9 - let() restored the variable, the block was exited using an exception
 S17-concurrency/lock.t 8 - Thread 1 never ran after it was tried 1 times
-integration/99problems-21-to-30.rakudo.jvm 12 - combinations work.
-integration/99problems-21-to-30.rakudo.jvm 13 - group works
-integration/advent2013-day12.t aborted 6 test(s)
