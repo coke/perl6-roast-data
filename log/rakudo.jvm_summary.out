@@ -568,8 +568,10 @@ S03-operators/nesting.t............................  26    0    0    0   26
 S03-operators/not.rakudo.jvm.......................  21    0    1    0   22
      1 todo   : RT 65556
 S03-operators/numeric-shift.t......................  36    0    0    0   36
-S03-operators/orelse.rakudo.jvm....................   8    0    1    0    9
-     1 todo PASSED: orelse $! semantics
+S03-operators/orelse.rakudo.jvm....................   8    0    0    3   11
+     1 skipped: orelse sets $!
+     1 skipped: orelse passes $! as argument
+     1 skipped: orelse passes $! as multiple arguments
 S03-operators/overflow.t...........................  98    0    0    0   98
 S03-operators/precedence.rakudo.jvm................  48    0    4    2   54
      2 skipped: nom regression
@@ -2175,7 +2177,7 @@ integration/advent2013-day15.rakudo.jvm............  26    0    4    0   30
      1 todo   : jvm rounding quirks
      3 todo   : list of numbers
 integration/advent2013-day18.t.....................  10    0    0    0   10
-integration/advent2013-day19.t.....................  20    0    0    0   20
+integration/advent2013-day19.t.....................  10    0    0    0   10
 integration/advent2013-day20.t.....................  22    0    0    0   22
 integration/code-blocks-as-sub-args.t..............   4    0    0    0    4
 integration/error-reporting.rakudo.jvm.............  15    0    1    0   16
@@ -2208,7 +2210,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        4125,     1,   131,   321,  4578,  4487
-"S03",        4813,     0,   115,   127,  5055,  4668
+"S03",        4813,     0,   114,   130,  5057,  4679
 "S04",         952,     1,    41,    52,  1046,  1043
 "S05",        4897,     0,    99,   411,  5407,  5850
 "S06",        1163,     0,    38,   107,  1308,  1292
@@ -2228,9 +2230,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     0,     4,     5,   341,   351
 "S32",        9436,     0,    91,   226,  9753,  7079
-"int",         768,     0,    14,    30,   812,   858
+"int",         758,     0,    14,    30,   802,   848
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29215,     3,   618,  1514, 31350, 29131
+"total",     29205,     3,   617,  1517, 31342, 29132
 ----------------
 Failure summary:
 S02-types/mixhash.rakudo.jvm 72 - MixHash.kv returns list of keys and values

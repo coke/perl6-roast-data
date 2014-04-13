@@ -567,8 +567,10 @@ S03-operators/nesting.t............................  26    0    0    0   26
 S03-operators/not.rakudo.moar......................  21    0    1    0   22
      1 todo   : RT 65556
 S03-operators/numeric-shift.t......................  36    0    0    0   36
-S03-operators/orelse.rakudo.moar...................   8    0    1    0    9
-     1 todo PASSED: orelse $! semantics
+S03-operators/orelse.rakudo.moar...................   8    0    0    3   11
+     1 skipped: orelse sets $!
+     1 skipped: orelse passes $! as argument
+     1 skipped: orelse passes $! as multiple arguments
 S03-operators/overflow.t...........................  98    0    0    0   98
 S03-operators/precedence.rakudo.moar...............  48    0    4    2   54
      2 skipped: nom regression
@@ -1087,7 +1089,7 @@ S06-other/anon-hashes-vs-blocks.t..................  22    0    0    0   22
 S06-other/introspection.t..........................  12    0    0    0   12
 S06-other/main-eval.rakudo.moar....................   2    0    1    0    3
      1 todo   : MAIN in EVAL
-S06-other/main-usage.rakudo.moar...................  15    0    7    0   22
+S06-other/main-usage.rakudo.moar...................  13    2    7    0   22
      5 todo   : nom regression
      2 todo   : RT 115744
 S06-other/main.t...................................   6    0    0    0    6
@@ -2169,7 +2171,7 @@ integration/advent2013-day14.rakudo.moar...........Aborted (core dumped)
 integration/advent2013-day15.rakudo.moar...........  27    0    3    0   30
      3 todo   : list of numbers
 integration/advent2013-day18.t.....................  10    0    0    0   10
-integration/advent2013-day19.rakudo.moar...........  14    0    0    6   20
+integration/advent2013-day19.rakudo.moar...........   4    0    0    6   10
      6 skipped: Supply.interval on moar
 integration/advent2013-day20.t.....................  22    0    0    0   22
 integration/code-blocks-as-sub-args.t..............   4    0    0    0    4
@@ -2203,10 +2205,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        4157,     0,   127,   294,  4578,  4487
-"S03",        4813,     0,   115,   127,  5055,  4668
+"S03",        4813,     0,   114,   130,  5057,  4679
 "S04",         961,     0,    37,    48,  1046,  1043
 "S05",        4995,     0,    87,   325,  5407,  5850
-"S06",        1163,     0,    38,   107,  1308,  1292
+"S06",        1161,     2,    38,   107,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
@@ -2223,11 +2225,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     1,     4,     4,   341,   351
 "S32",        9467,     0,   100,   177,  9744,  7079
-"int",         760,     0,    13,    39,   812,   858
+"int",         750,     0,    13,    39,   802,   848
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29585,     4,   607,  1379, 31575, 29131
+"total",     29573,     6,   606,  1382, 31567, 29132
 ----------------
 Failure summary:
+S06-other/main-usage.rakudo.moar 19 - best multi matches (not just first one)
+S06-other/main-usage.rakudo.moar 20 - superfluous options trigger usage message
 S17-concurrency/lock.t 8 - Thread 1 never ran after it was tried 1 times
 S17-concurrency/promise.rakudo.moar aborted 2 test(s)
 S29-os/system.rakudo.moar 1 - run() to an existing program does not die (and returns something true)
