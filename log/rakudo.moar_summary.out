@@ -112,11 +112,10 @@ S02-names-vars/names.rakudo.moar................... 128    0    1   13  142
      2 skipped: this kind of lookup NYI
      7 skipped: package variable autovivification
      1 todo   : dubious test - otherwise why is ::<$foo> allowed?
-S02-names-vars/perl.rakudo.moar....................useless use of 'is rw' on $!priv
+S02-names-vars/perl.rakudo.moar....................use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
-use of uninitialized value of type Mu in string context
-  98    0    0    6  104
+  92    0    0    6   98
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -131,7 +130,7 @@ S02-names/bare-sigil.t.............................  10    0    0    0   10
 S02-names/caller.t.................................  15    0    0    0   15
 S02-names/identifier.t.............................  22    0    0    0   22
 S02-names/indirect.t...............................   6    0    0    0    6
-S02-names/is_cached.t..............................   6    0    0    0    6
+S02-names/is_cached.t..............................  30    0    0    0   30
 S02-names/is_default.t............................. 114    0    0    0  114
 S02-names/is_dynamic.t.............................  22    0    0    0   22
 S02-names/name.t...................................  15    0    0    0   15
@@ -180,11 +179,15 @@ S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.rakudo.moar...............  15    0    3    0   18
      3 todo   : non-flattening hash refs
 S02-types/autovivification.t.......................  25    0    0    0   25
-S02-types/bag.rakudo.moar.......................... 172    0    2    5  179
+S02-types/bag.rakudo.moar..........................Potential difficulties:
+    Redeclaration of symbol $b2
+    at t/spec/S02-types/bag.rakudo.moar:414
+    ------> [32m    my $b2 [33m⏏[31m= <a b c d>.Bag;[0m
+ 180    0    2    5  187
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
      2 todo   : Not properly interpolating
-S02-types/baghash.rakudo.moar...................... 202    0    6   26  234
+S02-types/baghash.rakudo.moar...................... 210    0    6   26  242
     21 skipped: 'is ObjectType' NYI
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
@@ -244,7 +247,7 @@ S02-types/lists.rakudo.moar........................use of uninitialized value of
 use of uninitialized value of type Parcel in string context
   25    0    0    3   28
      3 skipped: list binding
-S02-types/mix.rakudo.moar.......................... 154    0    2    5  161
+S02-types/mix.rakudo.moar.......................... 162    0    2    5  169
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
      2 todo   : Not properly interpolating
@@ -253,7 +256,7 @@ use of uninitialized value of type Any in string context
   77    0    3    0   80
      2 todo   : unknown
      1 todo   : isa hash
-S02-types/mixhash.rakudo.moar...................... 169    0    4   26  199
+S02-types/mixhash.rakudo.moar...................... 177    0    4   26  207
     21 skipped: 'is ObjectType' NYI
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
@@ -1007,7 +1010,7 @@ S05-modifier/pos.rakudo.moar.......................  37    0    3    0   40
 S05-modifier/repetition.rakudo.moar................  10    0    2    0   12
      1 todo   : :2x
      1 todo   : :x(2)
-S05-modifier/sigspace.t............................  13    0    0    0   13
+S05-modifier/sigspace.t............................  16    0    0    0   16
 S05-substitution/match.t...........................  13    0    0    0   13
 S05-substitution/subst.rakudo.moar.................use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
@@ -1494,8 +1497,7 @@ S17-concurrency/scheduler.rakudo.moar..............Aborted (core dumped)
 S17-concurrency/supply.rakudo.moar.................Aborted (core dumped)
   15    0    1    0   16
      1 todo   : merging apparently does *not* work
-S17-concurrency/thread.rakudo.moar.................  22    0    0    3   25
-     3 skipped: Segfaults
+S17-concurrency/thread.t...........................  25    0    0    0   25
 S17-concurrency/winner.t...........................   3    0    0    0    3
                                                    pass fail todo skip plan
 S19-command-line/dash-e.t..........................   3    0    0    0    3
@@ -2208,10 +2210,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4211,     0,   127,   294,  4632,  4554
+"S02",        4261,     0,   127,   294,  4682,  4610
 "S03",        4815,     0,   112,   130,  5057,  4679
 "S04",         961,     0,    37,    48,  1046,  1043
-"S05",        4997,     0,    86,   325,  5408,  5851
+"S05",        5000,     0,    86,   325,  5411,  5854
 "S06",        1163,     0,    38,   107,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
@@ -2222,16 +2224,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         294,     0,    10,    12,   316,   329
 "S15",         234,     0,     0,     0,   234,   283
 "S16",         235,     0,     5,    18,   258,   302
-"S17",         148,     2,     1,    32,   183,   183
+"S17",         151,     2,     1,    29,   183,   183
 "S19",           4,     0,     0,     0,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         310,     0,     0,     1,   311,   268
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     0,     5,     4,   341,   351
 "S32",        9468,     0,   100,   177,  9745,  7080
-"int",         766,     0,    14,    39,   819,   850
+"int",         766,     0,    14,    39,   819,   852
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29650,     2,   605,  1383, 31640, 29203
+"total",     29706,     2,   605,  1380, 31693, 29264
 ----------------
 Failure summary:
 S17-concurrency/promise.rakudo.moar aborted 2 test(s)
