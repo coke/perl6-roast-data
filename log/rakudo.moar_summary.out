@@ -755,7 +755,9 @@ S04-phasers/enter-leave.rakudo.moar................  18    0    1    2   21
      1 skipped: leave NYI
      1 todo   : is this spec? why would LEAVE not see outer $!? fossil?
 S04-phasers/eval-in-begin.t........................   3    0    0    0    3
-S04-phasers/first.t................................   4    0    0    0    4
+S04-phasers/first.t................................Segmentation fault (core dumped)
+   3    1    0    0    4
+     1 tests aborted (missing ok/not ok)
 S04-phasers/in-eval.rakudo.moar....................  34    0    1    0   35
      1 todo   : not sure
 S04-phasers/keep-undo.t............................  12    0    0    0   12
@@ -1091,7 +1093,7 @@ S06-other/anon-hashes-vs-blocks.t..................  22    0    0    0   22
 S06-other/introspection.t..........................  12    0    0    0   12
 S06-other/main-eval.rakudo.moar....................   2    0    1    0    3
      1 todo   : MAIN in EVAL
-S06-other/main-usage.rakudo.moar...................  15    0    7    0   22
+S06-other/main-usage.rakudo.moar...................  14    1    7    0   22
      5 todo   : nom regression
      2 todo   : RT 115744
 S06-other/main.t...................................   6    0    0    0    6
@@ -2212,9 +2214,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        4261,     0,   127,   294,  4682,  4610
 "S03",        4815,     0,   112,   130,  5057,  4679
-"S04",         961,     0,    37,    48,  1046,  1043
+"S04",         960,     1,    37,    48,  1046,  1043
 "S05",        5000,     0,    86,   325,  5411,  5854
-"S06",        1163,     0,    38,   107,  1308,  1292
+"S06",        1162,     1,    38,   107,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
@@ -2231,9 +2233,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     0,     5,     4,   341,   351
 "S32",        9468,     0,   100,   177,  9745,  7080
-"int",         766,     0,    14,    39,   819,   852
+"int",         766,     0,    14,    39,   819,   860
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29706,     2,   605,  1380, 31693, 29264
+"total",     29704,     4,   605,  1380, 31693, 29272
 ----------------
 Failure summary:
+S04-phasers/first.t aborted 1 test(s)
+S06-other/main-usage.rakudo.moar 20 - superfluous options trigger usage message
 S17-concurrency/promise.rakudo.moar aborted 2 test(s)
