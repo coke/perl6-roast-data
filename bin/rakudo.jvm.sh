@@ -19,6 +19,8 @@ export PERL6LIB=`pwd`/lib:.
 export LANG=en_US.UTF-8
 
 # swap out the default runner with one that is ulimited
-# temporarily ignore memory ulimit. ## ulimit -v 2048576
+echo "#!/usr/bin/env perl" > perl6
+echo 'exec "ulimit -t 90; ulimit -v 1260720; ulimit -c 0; nice -20 ./perl6-j @ARGV"' >> perl6
+chmod a+x ./perl6
 
 perl t/spec/test_summary rakudo.jvm 2>&1 | tee ../log/rakudo.jvm_summary.out
