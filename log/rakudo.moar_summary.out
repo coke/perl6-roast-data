@@ -755,7 +755,9 @@ S04-phasers/enter-leave.rakudo.moar................  18    0    1    2   21
      1 skipped: leave NYI
      1 todo   : is this spec? why would LEAVE not see outer $!? fossil?
 S04-phasers/eval-in-begin.t........................   3    0    0    0    3
-S04-phasers/first.t................................   4    0    0    0    4
+S04-phasers/first.t................................Segmentation fault (core dumped)
+   3    1    0    0    4
+     1 tests aborted (missing ok/not ok)
 S04-phasers/in-eval.rakudo.moar....................  34    0    1    0   35
      1 todo   : not sure
 S04-phasers/keep-undo.t............................  12    0    0    0   12
@@ -1495,9 +1497,9 @@ S17-concurrency/scheduler.rakudo.moar..............Aborted (core dumped)
      3 skipped: :every NYI
      3 skipped: :at, :every NYI
 S17-concurrency/supply.rakudo.moar.................Aborted (core dumped)
-  34    0    0    2   36
-     2 skipped: Not enough positional parameters passed; got 0 but expected 1 in sub-signature
-S17-concurrency/thread.rakudo.moar.................  22    0    0    3   25
+  84    0    0    6   90
+     6 skipped: Cannot call method 'more' on a null object
+S17-concurrency/thread.rakudo.moar.................  21    1    0    3   25
      3 skipped: segfaults randomly
 S17-concurrency/winner.t...........................   3    0    0    0    3
                                                    pass fail todo skip plan
@@ -2216,7 +2218,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        4261,     0,   127,   294,  4682,  4610
 "S03",        4815,     0,   112,   130,  5057,  4679
-"S04",         961,     0,    37,    48,  1046,  1043
+"S04",         960,     1,    37,    48,  1046,  1043
 "S05",        5000,     0,    86,   325,  5411,  5854
 "S06",        1163,     0,    38,   107,  1308,  1292
 "S07",           0,     0,     0,     0,     0,     0
@@ -2228,7 +2230,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         294,     0,    10,    12,   316,   329
 "S15",         234,     0,     0,     0,   234,   283
 "S16",         235,     0,     5,    18,   258,   302
-"S17",         167,     2,     0,    34,   203,   203
+"S17",         216,     3,     0,    38,   257,   257
 "S19",           4,     0,     0,     0,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         310,     0,     0,     1,   311,   268
@@ -2237,7 +2239,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9468,     0,   100,   177,  9745,  7080
 "int",         802,     0,    14,    39,   855,   886
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29758,     2,   604,  1385, 31749, 29318
+"total",     29806,     4,   604,  1389, 31803, 29372
 ----------------
 Failure summary:
+S04-phasers/first.t aborted 1 test(s)
 S17-concurrency/promise.rakudo.moar aborted 2 test(s)
+S17-concurrency/thread.rakudo.moar 7 - Thread 2 got non-zero ID
