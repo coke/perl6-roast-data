@@ -55,7 +55,7 @@ S02-literals/pairs.rakudo.parrot...................use of uninitialized value of
      1 todo   : reduce meta op
      1 todo   : prefix:<|>
 S02-literals/quoting-unicode.t.....................  73    0    0    0   73
-S02-literals/quoting.rakudo.parrot................. 145    0    8    3  156
+S02-literals/quoting.rakudo.parrot................. 148    0    8    3  159
      3 skipped: \c@ etc
      1 todo   : retriage
      1 todo   : «...»
@@ -211,165 +211,167 @@ S02-types/baghash.rakudo.parrot.................... 212    0    4   26  242
      2 skipped: Odd number of elements
      2 todo   : Needs to catch up with spec
      2 todo   : in flux
-S02-types/bool.t...................................*** Error in `./perl6-p': free(): invalid pointer: 0x0000000002145d88 ***
+S02-types/bool.t...................................*** Error in `./perl6-p': free(): invalid size: 0x0000000004c17f20 ***
 ======= Backtrace: =========
-/lib/x86_64-linux-gnu/libc.so.6(+0x80996)[0x7fda8c57a996]
-/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_bigint_ops.so(+0xcc6d)[0x7fda881d1c6d]
-/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_ops.so(+0x31ad2)[0x7fda88414ad2]
-/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(+0x8810e)[0x7fda8c94a10e]
-/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(+0x88467)[0x7fda8c94a467]
-/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(Parrot_gc_new_pmc_header+0x13)[0x7fda8c945863]
-/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(+0xa7117)[0x7fda8c969117]
-/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(Parrot_pmc_new+0x3c)[0x7fda8c96939c]
-/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(Parrot_pcc_reuse_continuation+0x59)[0x7fda8c954599]
-/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(+0x61db0)[0x7fda8c923db0]
-/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(+0xa8465)[0x7fda8c96a465]
-/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(+0xa80ad)[0x7fda8c96a0ad]
-/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(+0x91e18)[0x7fda8c953e18]
-/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(Parrot_pcc_invoke_from_sig_object+0xbe)[0x7fda8c94fa8e]
-/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(Parrot_ext_call+0xd1)[0x7fda8c944191]
-/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(+0x1566c6)[0x7fda8ca186c6]
-/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(Parrot_pcc_invoke_from_sig_object+0x7c)[0x7fda8c94fa4c]
-/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(Parrot_ext_call+0xd1)[0x7fda8c944191]
-/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(+0xac2cf)[0x7fda8c96e2cf]
-/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(Parrot_cx_begin_execution+0x57)[0x7fda8c96e3c7]
-/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(Parrot_pf_execute_bytecode_program+0xbb)[0x7fda8c9768db]
-/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(Parrot_api_run_bytecode+0xd3)[0x7fda8c940303]
+/lib/x86_64-linux-gnu/libc.so.6(+0x80996)[0x7f0521b1d996]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_bigint_ops.so(+0xcc6d)[0x7f051d774c6d]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_ops.so(+0x31ad2)[0x7f051d9b7ad2]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(+0x8810e)[0x7f0521eed10e]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(+0x88467)[0x7f0521eed467]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(Parrot_gc_new_pmc_header+0x13)[0x7f0521ee8863]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(+0xa7117)[0x7f0521f0c117]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(Parrot_pmc_new+0x3c)[0x7f0521f0c39c]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(+0x102f6b)[0x7f0521f67f6b]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(+0x8e18b)[0x7f0521ef318b]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(Parrot_pcc_build_sig_object_from_op+0x1e5)[0x7f0521ef4a05]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(+0x62263)[0x7f0521ec7263]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(+0xa8465)[0x7f0521f0d465]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(+0xa80ad)[0x7f0521f0d0ad]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(+0x91e18)[0x7f0521ef6e18]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(Parrot_pcc_invoke_from_sig_object+0xbe)[0x7f0521ef2a8e]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(Parrot_ext_call+0xd1)[0x7f0521ee7191]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(+0x1566c6)[0x7f0521fbb6c6]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(Parrot_pcc_invoke_from_sig_object+0x7c)[0x7f0521ef2a4c]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(Parrot_ext_call+0xd1)[0x7f0521ee7191]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(+0xac2cf)[0x7f0521f112cf]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(Parrot_cx_begin_execution+0x57)[0x7f0521f113c7]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(Parrot_pf_execute_bytecode_program+0xbb)[0x7f0521f198db]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0(Parrot_api_run_bytecode+0xd3)[0x7f0521ee3303]
 ./perl6-p(main+0x170)[0x401180]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5)[0x7fda8c51bde5]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5)[0x7f0521abede5]
 ./perl6-p[0x40122f]
 ======= Memory map: ========
-00400000-0040e000 r-xp 00000000 fd:00 3547633                            /home/coke/sandbox/perl6-roast-data/rakudo.parrot/perl6-p
-0060e000-0060f000 r--p 0000e000 fd:00 3547633                            /home/coke/sandbox/perl6-roast-data/rakudo.parrot/perl6-p
-0060f000-00610000 rw-p 0000f000 fd:00 3547633                            /home/coke/sandbox/perl6-roast-data/rakudo.parrot/perl6-p
-01386000-0e1ba000 rw-p 00000000 00:00 0                                  [heap]
-7fda82ea9000-7fda8356f000 rw-p 00000000 00:00 0 
-7fda8356f000-7fda8357e000 r-xp 00000000 fd:00 3675748                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_dyncall_ops.so
-7fda8357e000-7fda8377e000 ---p 0000f000 fd:00 3675748                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_dyncall_ops.so
-7fda8377e000-7fda8377f000 r--p 0000f000 fd:00 3675748                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_dyncall_ops.so
-7fda8377f000-7fda83780000 rw-p 00010000 fd:00 3675748                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_dyncall_ops.so
-7fda83780000-7fda83783000 r-xp 00000000 fd:00 3675238                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/sys_ops.so
-7fda83783000-7fda83982000 ---p 00003000 fd:00 3675238                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/sys_ops.so
-7fda83982000-7fda83983000 r--p 00002000 fd:00 3675238                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/sys_ops.so
-7fda83983000-7fda83984000 rw-p 00003000 fd:00 3675238                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/sys_ops.so
-7fda83984000-7fda83988000 r-xp 00000000 fd:00 3675232                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/math_ops.so
-7fda83988000-7fda83b87000 ---p 00004000 fd:00 3675232                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/math_ops.so
-7fda83b87000-7fda83b88000 r--p 00003000 fd:00 3675232                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/math_ops.so
-7fda83b88000-7fda83b8a000 rw-p 00004000 fd:00 3675232                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/math_ops.so
-7fda83b8a000-7fda83b93000 r-xp 00000000 fd:00 3675234                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/bit_ops.so
-7fda83b93000-7fda83d92000 ---p 00009000 fd:00 3675234                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/bit_ops.so
-7fda83d92000-7fda83d93000 r--p 00008000 fd:00 3675234                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/bit_ops.so
-7fda83d93000-7fda83d97000 rw-p 00009000 fd:00 3675234                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/bit_ops.so
-7fda83d97000-7fda83d9a000 r-xp 00000000 fd:00 3675231                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/obscure_ops.so
-7fda83d9a000-7fda83f99000 ---p 00003000 fd:00 3675231                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/obscure_ops.so
-7fda83f99000-7fda83f9a000 r--p 00002000 fd:00 3675231                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/obscure_ops.so
-7fda83f9a000-7fda83f9c000 rw-p 00003000 fd:00 3675231                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/obscure_ops.so
-7fda83f9c000-7fda83f9e000 r-xp 00000000 fd:00 3675169                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/file.so
-7fda83f9e000-7fda8419e000 ---p 00002000 fd:00 3675169                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/file.so
-7fda8419e000-7fda8419f000 r--p 00002000 fd:00 3675169                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/file.so
-7fda8419f000-7fda841a0000 rw-p 00003000 fd:00 3675169                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/file.so
-7fda841a0000-7fda841a2000 r-xp 00000000 fd:00 3675170                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/os.so
-7fda841a2000-7fda843a1000 ---p 00002000 fd:00 3675170                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/os.so
-7fda843a1000-7fda843a2000 r--p 00001000 fd:00 3675170                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/os.so
-7fda843a2000-7fda843a3000 rw-p 00002000 fd:00 3675170                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/os.so
-7fda843a3000-7fda879c2000 rw-p 00000000 00:00 0 
-7fda879c2000-7fda879c8000 r-xp 00000000 fd:00 3675233                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/trans_ops.so
-7fda879c8000-7fda87bc7000 ---p 00006000 fd:00 3675233                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/trans_ops.so
-7fda87bc7000-7fda87bc8000 r--p 00005000 fd:00 3675233                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/trans_ops.so
-7fda87bc8000-7fda87bcb000 rw-p 00006000 fd:00 3675233                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/trans_ops.so
-7fda87bcb000-7fda87fbc000 rw-p 00000000 00:00 0 
-7fda87fbc000-7fda87fc2000 r-xp 00000000 fd:00 3675239                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/io_ops.so
-7fda87fc2000-7fda881c1000 ---p 00006000 fd:00 3675239                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/io_ops.so
-7fda881c1000-7fda881c2000 r--p 00005000 fd:00 3675239                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/io_ops.so
-7fda881c2000-7fda881c5000 rw-p 00006000 fd:00 3675239                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/io_ops.so
-7fda881c5000-7fda881e0000 r-xp 00000000 fd:00 3675747                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_bigint_ops.so
-7fda881e0000-7fda883df000 ---p 0001b000 fd:00 3675747                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_bigint_ops.so
-7fda883df000-7fda883e0000 r--p 0001a000 fd:00 3675747                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_bigint_ops.so
-7fda883e0000-7fda883e3000 rw-p 0001b000 fd:00 3675747                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_bigint_ops.so
-7fda883e3000-7fda88433000 r-xp 00000000 fd:00 3675746                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_ops.so
-7fda88433000-7fda88632000 ---p 00050000 fd:00 3675746                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_ops.so
-7fda88632000-7fda88633000 r--p 0004f000 fd:00 3675746                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_ops.so
-7fda88633000-7fda88643000 rw-p 00050000 fd:00 3675746                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_ops.so
-7fda88643000-7fda8865d000 r-xp 00000000 fd:00 3547609                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/dynext/perl6_ops.so
-7fda8865d000-7fda8885c000 ---p 0001a000 fd:00 3547609                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/dynext/perl6_ops.so
-7fda8885c000-7fda8885d000 r--p 00019000 fd:00 3547609                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/dynext/perl6_ops.so
-7fda8885d000-7fda88863000 rw-p 0001a000 fd:00 3547609                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/dynext/perl6_ops.so
-7fda88863000-7fda8887a000 r-xp 00000000 fd:00 3675745                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_group.so
-7fda8887a000-7fda88a79000 ---p 00017000 fd:00 3675745                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_group.so
-7fda88a79000-7fda88a7a000 r--p 00016000 fd:00 3675745                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_group.so
-7fda88a7a000-7fda88a7b000 rw-p 00017000 fd:00 3675745                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_group.so
-7fda88a7b000-7fda88a7c000 ---p 00000000 00:00 0 
-7fda88a7c000-7fda8927c000 rwxp 00000000 00:00 0                          [stack:21681]
-7fda8927c000-7fda896f0000 r--p 00000000 fd:00 789671                     /usr/lib/locale/locale-archive
-7fda896f0000-7fda89705000 r-xp 00000000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
-7fda89705000-7fda89904000 ---p 00015000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
-7fda89904000-7fda89905000 r--p 00014000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
-7fda89905000-7fda89906000 rw-p 00015000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
-7fda89906000-7fda899ec000 r-xp 00000000 fd:00 1049748                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.18
-7fda899ec000-7fda89beb000 ---p 000e6000 fd:00 1049748                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.18
-7fda89beb000-7fda89bf3000 r--p 000e5000 fd:00 1049748                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.18
-7fda89bf3000-7fda89bf5000 rw-p 000ed000 fd:00 1049748                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.18
-7fda89bf5000-7fda89c0a000 rw-p 00000000 00:00 0 
-7fda89c0a000-7fda8ad79000 r-xp 00000000 fd:00 1052141                    /usr/lib/x86_64-linux-gnu/libicudata.so.48.1.1
-7fda8ad79000-7fda8af78000 ---p 0116f000 fd:00 1052141                    /usr/lib/x86_64-linux-gnu/libicudata.so.48.1.1
-7fda8af78000-7fda8af79000 r--p 0116e000 fd:00 1052141                    /usr/lib/x86_64-linux-gnu/libicudata.so.48.1.1
-7fda8af79000-7fda8af7a000 rw-p 0116f000 fd:00 1052141                    /usr/lib/x86_64-linux-gnu/libicudata.so.48.1.1
-7fda8af7a000-7fda8af9f000 r-xp 00000000 fd:00 1310929                    /lib/x86_64-linux-gnu/libtinfo.so.5.9
-7fda8af9f000-7fda8b19e000 ---p 00025000 fd:00 1310929                    /lib/x86_64-linux-gnu/libtinfo.so.5.9
-7fda8b19e000-7fda8b1a2000 r--p 00024000 fd:00 1310929                    /lib/x86_64-linux-gnu/libtinfo.so.5.9
-7fda8b1a2000-7fda8b1a3000 rw-p 00028000 fd:00 1310929                    /lib/x86_64-linux-gnu/libtinfo.so.5.9
-7fda8b1a3000-7fda8b2fa000 r-xp 00000000 fd:00 1052145                    /usr/lib/x86_64-linux-gnu/libicuuc.so.48.1.1
-7fda8b2fa000-7fda8b4fa000 ---p 00157000 fd:00 1052145                    /usr/lib/x86_64-linux-gnu/libicuuc.so.48.1.1
-7fda8b4fa000-7fda8b50a000 r--p 00157000 fd:00 1052145                    /usr/lib/x86_64-linux-gnu/libicuuc.so.48.1.1
-7fda8b50a000-7fda8b50b000 rw-p 00167000 fd:00 1052145                    /usr/lib/x86_64-linux-gnu/libicuuc.so.48.1.1
-7fda8b50b000-7fda8b50f000 rw-p 00000000 00:00 0 
-7fda8b50f000-7fda8b516000 r-xp 00000000 fd:00 1052087                    /usr/lib/x86_64-linux-gnu/libffi.so.6.0.1
-7fda8b516000-7fda8b715000 ---p 00007000 fd:00 1052087                    /usr/lib/x86_64-linux-gnu/libffi.so.6.0.1
-7fda8b715000-7fda8b716000 r--p 00006000 fd:00 1052087                    /usr/lib/x86_64-linux-gnu/libffi.so.6.0.1
-7fda8b716000-7fda8b717000 rw-p 00007000 fd:00 1052087                    /usr/lib/x86_64-linux-gnu/libffi.so.6.0.1
-7fda8b717000-7fda8b750000 r-xp 00000000 fd:00 1311138                    /lib/x86_64-linux-gnu/libreadline.so.6.2
-7fda8b750000-7fda8b950000 ---p 00039000 fd:00 1311138                    /lib/x86_64-linux-gnu/libreadline.so.6.2
-7fda8b950000-7fda8b952000 r--p 00039000 fd:00 1311138                    /lib/x86_64-linux-gnu/libreadline.so.6.2
-7fda8b952000-7fda8b958000 rw-p 0003b000 fd:00 1311138                    /lib/x86_64-linux-gnu/libreadline.so.6.2
-7fda8b958000-7fda8b959000 rw-p 00000000 00:00 0 
-7fda8b959000-7fda8b9c5000 r-xp 00000000 fd:00 1049027                    /usr/lib/x86_64-linux-gnu/libgmp.so.10.1.2
-7fda8b9c5000-7fda8bbc4000 ---p 0006c000 fd:00 1049027                    /usr/lib/x86_64-linux-gnu/libgmp.so.10.1.2
-7fda8bbc4000-7fda8bbc5000 r--p 0006b000 fd:00 1049027                    /usr/lib/x86_64-linux-gnu/libgmp.so.10.1.2
-7fda8bbc5000-7fda8bbcd000 rw-p 0006c000 fd:00 1049027                    /usr/lib/x86_64-linux-gnu/libgmp.so.10.1.2
-7fda8bbcd000-7fda8bbd4000 r-xp 00000000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
-7fda8bbd4000-7fda8bdd3000 ---p 00007000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
-7fda8bdd3000-7fda8bdd4000 r--p 00006000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
-7fda8bdd4000-7fda8bdd5000 rw-p 00007000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
-7fda8bdd5000-7fda8bdec000 r-xp 00000000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
-7fda8bdec000-7fda8bfec000 ---p 00017000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
-7fda8bfec000-7fda8bfed000 r--p 00017000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
-7fda8bfed000-7fda8bfee000 rw-p 00018000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
-7fda8bfee000-7fda8bff2000 rw-p 00000000 00:00 0 
-7fda8bff2000-7fda8c0f5000 r-xp 00000000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
-7fda8c0f5000-7fda8c2f4000 ---p 00103000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
-7fda8c2f4000-7fda8c2f5000 r--p 00102000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
-7fda8c2f5000-7fda8c2f6000 rw-p 00103000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
-7fda8c2f6000-7fda8c2f9000 r-xp 00000000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
-7fda8c2f9000-7fda8c4f8000 ---p 00003000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
-7fda8c4f8000-7fda8c4f9000 r--p 00002000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
-7fda8c4f9000-7fda8c4fa000 rw-p 00003000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
-7fda8c4fa000-7fda8c6b7000 r-xp 00000000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
-7fda8c6b7000-7fda8c8b7000 ---p 001bd000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
-7fda8c8b7000-7fda8c8bb000 r--p 001bd000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
-7fda8c8bb000-7fda8c8bd000 rw-p 001c1000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
-7fda8c8bd000-7fda8c8c2000 rw-p 00000000 00:00 0 
-7fda8c8c2000-7fda8cab5000 r-xp 00000000 fd:00 3674652                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0
-7fda8cab5000-7fda8ccb5000 ---p 001f3000 fd:00 3674652                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0
-7fda8ccb5000-7fda8ccbb000 r--p 001f3000 fd:00 3674652                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0
-7fda8ccbb000-7fda8ccf4000 rw-p 001f9000 fd:00 3674652                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0
-7fda8ccf4000-7fda8cd17000 r-xp 00000000 fd:00 1310908                    /lib/x86_64-linux-gnu/ld-2.17.so
-7fda8cd34000-7fda8cf0a000 rw-p 00000000 00:00 0 
-7fda8cf13000-7fda8cf16000 rw-p 00000000 00:00 0 
-7fda8cf16000-7fda8cf17000 r--p 00022000 fd:00 1310908                    /lib/x86_64-linux-gnu/ld-2.17.so
-7fda8cf17000-7fda8cf19000 rw-p 00023000 fd:00 1310908                    /lib/x86_64-linux-gnu/ld-2.17.so
-7fff61225000-7fff61245000 rwxp 00000000 00:00 0                          [stack]
-7fff61245000-7fff61246000 rw-p 00000000 00:00 0 
-7fff61362000-7fff61364000 r-xp 00000000 00:00 0                          [vdso]
+00400000-0040e000 r-xp 00000000 fd:00 3548806                            /home/coke/sandbox/perl6-roast-data/rakudo.parrot/perl6-p
+0060e000-0060f000 r--p 0000e000 fd:00 3548806                            /home/coke/sandbox/perl6-roast-data/rakudo.parrot/perl6-p
+0060f000-00610000 rw-p 0000f000 fd:00 3548806                            /home/coke/sandbox/perl6-roast-data/rakudo.parrot/perl6-p
+00a36000-0d885000 rw-p 00000000 00:00 0                                  [heap]
+7f0518442000-7f0518b08000 rw-p 00000000 00:00 0 
+7f0518b08000-7f0518b17000 r-xp 00000000 fd:00 3674008                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_dyncall_ops.so
+7f0518b17000-7f0518d17000 ---p 0000f000 fd:00 3674008                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_dyncall_ops.so
+7f0518d17000-7f0518d18000 r--p 0000f000 fd:00 3674008                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_dyncall_ops.so
+7f0518d18000-7f0518d19000 rw-p 00010000 fd:00 3674008                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_dyncall_ops.so
+7f0518d19000-7f0518d1c000 r-xp 00000000 fd:00 3673269                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/sys_ops.so
+7f0518d1c000-7f0518f1b000 ---p 00003000 fd:00 3673269                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/sys_ops.so
+7f0518f1b000-7f0518f1c000 r--p 00002000 fd:00 3673269                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/sys_ops.so
+7f0518f1c000-7f0518f1d000 rw-p 00003000 fd:00 3673269                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/sys_ops.so
+7f0518f1d000-7f0518f21000 r-xp 00000000 fd:00 3673265                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/math_ops.so
+7f0518f21000-7f0519120000 ---p 00004000 fd:00 3673265                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/math_ops.so
+7f0519120000-7f0519121000 r--p 00003000 fd:00 3673265                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/math_ops.so
+7f0519121000-7f0519123000 rw-p 00004000 fd:00 3673265                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/math_ops.so
+7f0519123000-7f051912c000 r-xp 00000000 fd:00 3673267                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/bit_ops.so
+7f051912c000-7f051932b000 ---p 00009000 fd:00 3673267                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/bit_ops.so
+7f051932b000-7f051932c000 r--p 00008000 fd:00 3673267                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/bit_ops.so
+7f051932c000-7f0519330000 rw-p 00009000 fd:00 3673267                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/bit_ops.so
+7f0519330000-7f0519333000 r-xp 00000000 fd:00 3673264                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/obscure_ops.so
+7f0519333000-7f0519532000 ---p 00003000 fd:00 3673264                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/obscure_ops.so
+7f0519532000-7f0519533000 r--p 00002000 fd:00 3673264                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/obscure_ops.so
+7f0519533000-7f0519535000 rw-p 00003000 fd:00 3673264                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/obscure_ops.so
+7f0519535000-7f0519537000 r-xp 00000000 fd:00 3673238                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/file.so
+7f0519537000-7f0519737000 ---p 00002000 fd:00 3673238                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/file.so
+7f0519737000-7f0519738000 r--p 00002000 fd:00 3673238                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/file.so
+7f0519738000-7f0519739000 rw-p 00003000 fd:00 3673238                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/file.so
+7f0519739000-7f051973b000 r-xp 00000000 fd:00 3673239                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/os.so
+7f051973b000-7f051993a000 ---p 00002000 fd:00 3673239                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/os.so
+7f051993a000-7f051993b000 r--p 00001000 fd:00 3673239                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/os.so
+7f051993b000-7f051993c000 rw-p 00002000 fd:00 3673239                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/os.so
+7f051993c000-7f051cf66000 rw-p 00000000 00:00 0 
+7f051cf66000-7f051cf6c000 r-xp 00000000 fd:00 3673266                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/trans_ops.so
+7f051cf6c000-7f051d16b000 ---p 00006000 fd:00 3673266                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/trans_ops.so
+7f051d16b000-7f051d16c000 r--p 00005000 fd:00 3673266                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/trans_ops.so
+7f051d16c000-7f051d16f000 rw-p 00006000 fd:00 3673266                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/trans_ops.so
+7f051d16f000-7f051d55f000 rw-p 00000000 00:00 0 
+7f051d55f000-7f051d565000 r-xp 00000000 fd:00 3673270                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/io_ops.so
+7f051d565000-7f051d764000 ---p 00006000 fd:00 3673270                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/io_ops.so
+7f051d764000-7f051d765000 r--p 00005000 fd:00 3673270                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/io_ops.so
+7f051d765000-7f051d768000 rw-p 00006000 fd:00 3673270                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/io_ops.so
+7f051d768000-7f051d783000 r-xp 00000000 fd:00 3674007                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_bigint_ops.so
+7f051d783000-7f051d982000 ---p 0001b000 fd:00 3674007                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_bigint_ops.so
+7f051d982000-7f051d983000 r--p 0001a000 fd:00 3674007                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_bigint_ops.so
+7f051d983000-7f051d986000 rw-p 0001b000 fd:00 3674007                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_bigint_ops.so
+7f051d986000-7f051d9d6000 r-xp 00000000 fd:00 3674006                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_ops.so
+7f051d9d6000-7f051dbd5000 ---p 00050000 fd:00 3674006                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_ops.so
+7f051dbd5000-7f051dbd6000 r--p 0004f000 fd:00 3674006                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_ops.so
+7f051dbd6000-7f051dbe6000 rw-p 00050000 fd:00 3674006                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_ops.so
+7f051dbe6000-7f051dc00000 r-xp 00000000 fd:00 3548754                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/dynext/perl6_ops.so
+7f051dc00000-7f051ddff000 ---p 0001a000 fd:00 3548754                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/dynext/perl6_ops.so
+7f051ddff000-7f051de00000 r--p 00019000 fd:00 3548754                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/dynext/perl6_ops.so
+7f051de00000-7f051de06000 rw-p 0001a000 fd:00 3548754                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/dynext/perl6_ops.so
+7f051de06000-7f051de1d000 r-xp 00000000 fd:00 3674005                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_group.so
+7f051de1d000-7f051e01c000 ---p 00017000 fd:00 3674005                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_group.so
+7f051e01c000-7f051e01d000 r--p 00016000 fd:00 3674005                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_group.so
+7f051e01d000-7f051e01e000 rw-p 00017000 fd:00 3674005                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.1.0-devel/dynext/nqp_group.so
+7f051e01e000-7f051e01f000 ---p 00000000 00:00 0 
+7f051e01f000-7f051e81f000 rwxp 00000000 00:00 0                          [stack:14487]
+7f051e81f000-7f051ec93000 r--p 00000000 fd:00 789671                     /usr/lib/locale/locale-archive
+7f051ec93000-7f051eca8000 r-xp 00000000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f051eca8000-7f051eea7000 ---p 00015000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f051eea7000-7f051eea8000 r--p 00014000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f051eea8000-7f051eea9000 rw-p 00015000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f051eea9000-7f051ef8f000 r-xp 00000000 fd:00 1049748                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.18
+7f051ef8f000-7f051f18e000 ---p 000e6000 fd:00 1049748                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.18
+7f051f18e000-7f051f196000 r--p 000e5000 fd:00 1049748                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.18
+7f051f196000-7f051f198000 rw-p 000ed000 fd:00 1049748                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.18
+7f051f198000-7f051f1ad000 rw-p 00000000 00:00 0 
+7f051f1ad000-7f052031c000 r-xp 00000000 fd:00 1052141                    /usr/lib/x86_64-linux-gnu/libicudata.so.48.1.1
+7f052031c000-7f052051b000 ---p 0116f000 fd:00 1052141                    /usr/lib/x86_64-linux-gnu/libicudata.so.48.1.1
+7f052051b000-7f052051c000 r--p 0116e000 fd:00 1052141                    /usr/lib/x86_64-linux-gnu/libicudata.so.48.1.1
+7f052051c000-7f052051d000 rw-p 0116f000 fd:00 1052141                    /usr/lib/x86_64-linux-gnu/libicudata.so.48.1.1
+7f052051d000-7f0520542000 r-xp 00000000 fd:00 1310929                    /lib/x86_64-linux-gnu/libtinfo.so.5.9
+7f0520542000-7f0520741000 ---p 00025000 fd:00 1310929                    /lib/x86_64-linux-gnu/libtinfo.so.5.9
+7f0520741000-7f0520745000 r--p 00024000 fd:00 1310929                    /lib/x86_64-linux-gnu/libtinfo.so.5.9
+7f0520745000-7f0520746000 rw-p 00028000 fd:00 1310929                    /lib/x86_64-linux-gnu/libtinfo.so.5.9
+7f0520746000-7f052089d000 r-xp 00000000 fd:00 1052145                    /usr/lib/x86_64-linux-gnu/libicuuc.so.48.1.1
+7f052089d000-7f0520a9d000 ---p 00157000 fd:00 1052145                    /usr/lib/x86_64-linux-gnu/libicuuc.so.48.1.1
+7f0520a9d000-7f0520aad000 r--p 00157000 fd:00 1052145                    /usr/lib/x86_64-linux-gnu/libicuuc.so.48.1.1
+7f0520aad000-7f0520aae000 rw-p 00167000 fd:00 1052145                    /usr/lib/x86_64-linux-gnu/libicuuc.so.48.1.1
+7f0520aae000-7f0520ab2000 rw-p 00000000 00:00 0 
+7f0520ab2000-7f0520ab9000 r-xp 00000000 fd:00 1052087                    /usr/lib/x86_64-linux-gnu/libffi.so.6.0.1
+7f0520ab9000-7f0520cb8000 ---p 00007000 fd:00 1052087                    /usr/lib/x86_64-linux-gnu/libffi.so.6.0.1
+7f0520cb8000-7f0520cb9000 r--p 00006000 fd:00 1052087                    /usr/lib/x86_64-linux-gnu/libffi.so.6.0.1
+7f0520cb9000-7f0520cba000 rw-p 00007000 fd:00 1052087                    /usr/lib/x86_64-linux-gnu/libffi.so.6.0.1
+7f0520cba000-7f0520cf3000 r-xp 00000000 fd:00 1311138                    /lib/x86_64-linux-gnu/libreadline.so.6.2
+7f0520cf3000-7f0520ef3000 ---p 00039000 fd:00 1311138                    /lib/x86_64-linux-gnu/libreadline.so.6.2
+7f0520ef3000-7f0520ef5000 r--p 00039000 fd:00 1311138                    /lib/x86_64-linux-gnu/libreadline.so.6.2
+7f0520ef5000-7f0520efb000 rw-p 0003b000 fd:00 1311138                    /lib/x86_64-linux-gnu/libreadline.so.6.2
+7f0520efb000-7f0520efc000 rw-p 00000000 00:00 0 
+7f0520efc000-7f0520f68000 r-xp 00000000 fd:00 1049027                    /usr/lib/x86_64-linux-gnu/libgmp.so.10.1.2
+7f0520f68000-7f0521167000 ---p 0006c000 fd:00 1049027                    /usr/lib/x86_64-linux-gnu/libgmp.so.10.1.2
+7f0521167000-7f0521168000 r--p 0006b000 fd:00 1049027                    /usr/lib/x86_64-linux-gnu/libgmp.so.10.1.2
+7f0521168000-7f0521170000 rw-p 0006c000 fd:00 1049027                    /usr/lib/x86_64-linux-gnu/libgmp.so.10.1.2
+7f0521170000-7f0521177000 r-xp 00000000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
+7f0521177000-7f0521376000 ---p 00007000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
+7f0521376000-7f0521377000 r--p 00006000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
+7f0521377000-7f0521378000 rw-p 00007000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
+7f0521378000-7f052138f000 r-xp 00000000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
+7f052138f000-7f052158f000 ---p 00017000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
+7f052158f000-7f0521590000 r--p 00017000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
+7f0521590000-7f0521591000 rw-p 00018000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
+7f0521591000-7f0521595000 rw-p 00000000 00:00 0 
+7f0521595000-7f0521698000 r-xp 00000000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
+7f0521698000-7f0521897000 ---p 00103000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
+7f0521897000-7f0521898000 r--p 00102000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
+7f0521898000-7f0521899000 rw-p 00103000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
+7f0521899000-7f052189c000 r-xp 00000000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
+7f052189c000-7f0521a9b000 ---p 00003000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
+7f0521a9b000-7f0521a9c000 r--p 00002000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
+7f0521a9c000-7f0521a9d000 rw-p 00003000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
+7f0521a9d000-7f0521c5a000 r-xp 00000000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
+7f0521c5a000-7f0521e5a000 ---p 001bd000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
+7f0521e5a000-7f0521e5e000 r--p 001bd000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
+7f0521e5e000-7f0521e60000 rw-p 001c1000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
+7f0521e60000-7f0521e65000 rw-p 00000000 00:00 0 
+7f0521e65000-7f0522058000 r-xp 00000000 fd:00 3673205                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0
+7f0522058000-7f0522258000 ---p 001f3000 fd:00 3673205                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0
+7f0522258000-7f052225e000 r--p 001f3000 fd:00 3673205                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0
+7f052225e000-7f0522297000 rw-p 001f9000 fd:00 3673205                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.1.0
+7f0522297000-7f05222ba000 r-xp 00000000 fd:00 1310908                    /lib/x86_64-linux-gnu/ld-2.17.so
+7f05222d7000-7f05224ad000 rw-p 00000000 00:00 0 
+7f05224b6000-7f05224b9000 rw-p 00000000 00:00 0 
+7f05224b9000-7f05224ba000 r--p 00022000 fd:00 1310908                    /lib/x86_64-linux-gnu/ld-2.17.so
+7f05224ba000-7f05224bc000 rw-p 00023000 fd:00 1310908                    /lib/x86_64-linux-gnu/ld-2.17.so
+7fff955ab000-7fff955cb000 rwxp 00000000 00:00 0                          [stack]
+7fff955cb000-7fff955cc000 rw-p 00000000 00:00 0 
+7fff955f1000-7fff955f3000 r-xp 00000000 00:00 0                          [vdso]
 ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
 Aborted (core dumped)
   50    1    0    0   51
@@ -2734,7 +2736,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4263,     1,   124,   294,  4682,  4610
+"S02",        4266,     1,   124,   294,  4685,  4613
 "S03",        4815,     0,   112,   130,  5057,  4679
 "S04",         962,     0,    37,    47,  1046,  1043
 "S05",        4907,     0,    93,   411,  5411,  5854
@@ -2748,7 +2750,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         296,     0,     8,    12,   316,   329
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         235,     0,     5,    18,   258,   302
-"S17",           0,     0,     0,     0,     0,   257
+"S17",           0,     0,     0,     0,     0,   307
 "S19",           4,     0,     0,     0,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         310,     0,     0,     1,   311,   268
@@ -2757,7 +2759,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9483,     0,    92,   175,  9750,  7080
 "int",         795,     0,    12,    38,   845,   886
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29281,     1,   595,  1430, 31307, 29372
+"total",     29284,     1,   595,  1430, 31310, 29425
 ----------------
 Failure summary:
 S02-types/bool.t aborted 1 test(s)
