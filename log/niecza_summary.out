@@ -3961,7 +3961,57 @@ Use of uninitialized value in string context
      4 skipped: Pathed definitions require our scope
      3 todo   : 
                                                    pass fail todo skip plan
-S13-overloading/metaoperators.t....................   9    0    0    0    9
+S13-overloading/metaoperators.t....................[31m===[0mSORRY![31m===[0m
+
+$a has already been used as a non-placeholder in the surrounding sub block,
+  so you will confuse the reader if you suddenly declare $^a here at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S13-overloading/metaoperators.t line 36:
+------> [32m    sub foo { [33m⏏[31m$^a ~ $^b };[0m
+
+Unhandled exception: System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+  at System.Collections.Generic.Dictionary`2[System.String,Niecza.LexInfo].get_Item (System.String key) [0x00000] in <filename unknown>:0 
+  at Niecza.CLRBackend.DowncallReceiver.param_new (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at Niecza.CLRBackend.DowncallReceiver.Call (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at Niecza.CLRBackend.DowncallReceiver.get_Item (System.Object i) [0x00000] in <filename unknown>:0 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaBackendDotnet.pm6 line 75 (downcall @ 4) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaBackendDotnet.pm6 line 135 (ANON @ 12) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaBackendDotnet.pm6 line 140 (StaticSub.signature @ 8) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaBackendDotnet.pm6 line 147 (StaticSub.set_signature @ 12) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 5244 (ANON @ 12) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 5247 (STD.getsig @ 6) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1849 (P6.routine_def @ 68) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1796 (P6.routine_declarator:sub @ 5) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 0 (STD.routine_declarator @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 2017 (P6.term:routine_declarator @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 0 (STD.term @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 2011 (P6.termish @ 15) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 4555 (ANON @ 10) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 4663 (STD.EXPR @ 25) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1351 (P6.statement @ 13) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1287 (P6.statementlist @ 16) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1233 (P6.blockoid @ 7) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1196 (P6.pblock @ 64) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 3455 (P6.circumfix:sym<{ }> @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 0 (STD.circumfix @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 2020 (P6.term:circumfix @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 0 (STD.term @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 2011 (P6.termish @ 15) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 4555 (ANON @ 10) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 4663 (STD.EXPR @ 25) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1351 (P6.statement @ 13) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1287 (P6.statementlist @ 16) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1158 (P6.comp_unit @ 9) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 101 (STD.TOP @ 11) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/boot/lib/CORE.setting line 3018 (Grammar.parse @ 5) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaFrontendSTD.pm6 line 281 (NieczaFrontendSTD.parse @ 70) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaCompiler.pm6 line 34 (NieczaCompiler.compile @ 18) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaCompiler.pm6 line 60 (NieczaCompiler.compile_file @ 8) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/niecza line 165 (mainline @ 144) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/boot/lib/CORE.setting line 4327 (ANON @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/boot/lib/CORE.setting line 4328 (module-CORE @ 582) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/boot/lib/CORE.setting line 4328 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+   0   10    0    0   10
+    10 tests aborted (missing ok/not ok)
 S13-overloading/operators.t........................   4    0    0    0    4
 S13-overloading/typecasting-long.niecza............Potential difficulties:
   @slice is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S13-overloading/typecasting-long.niecza line 34:
@@ -4322,7 +4372,7 @@ Use of uninitialized value in numeric context
 S32-list/reverse.niecza............................  16    0    0    5   21
      1 skipped: Unable to resolve method reverse in class Parcel
      4 skipped: Iterable NYI
-S32-list/roll.niecza...............................  41    5    0    2   48
+S32-list/roll.niecza...............................  42    4    0    2   48
      1 skipped: That's not the right way to spawn another Niecza
      1 skipped: .roll on empty list
 S32-list/sort.niecza...............................  24    0    4    4   32
@@ -5954,20 +6004,20 @@ Use of uninitialized value in string context
 "S10",          35,     0,     5,    19,    59,   128
 "S11",           0,     0,     0,     0,     0,   147
 "S12",         783,     8,    64,   177,  1032,  1415
-"S13",          31,     0,     1,    10,    42,    80
+"S13",          22,    10,     1,    10,    43,    81
 "S14",         168,     0,     1,    11,   180,   329
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         185,     0,     5,    41,   231,   302
-"S17",           0,     0,     0,     0,     0,   307
+"S17",           0,     0,     0,     0,     0,   383
 "S19",           4,     0,     0,     0,     4,     4
 "S24",           1,     0,     0,     0,     1,    88
 "S26",           0,     0,     0,     0,     0,   268
 "S28",           6,     0,     1,     0,     7,    13
 "S29",         304,     2,     2,    11,   319,   351
-"S32",        6759,    13,   137,   285,  7194,  7080
+"S32",        6760,    12,   137,   285,  7194,  7080
 "int",         464,    12,    22,    27,   525,   886
 "ros",           0,     0,     0,     0,     0,     2
-"total",     20986,   565,   745,  1780, 24076, 29405
+"total",     20978,   574,   745,  1780, 24077, 29482
 ----------------
 Failure summary:
 S02-lexical-conventions/unspace.niecza aborted 86 test(s)
@@ -5993,6 +6043,7 @@ S05-modifier/sigspace.t 13 - Semantics of sigspace after ^
 S06-signature/errors.niecza 11
 S12-methods/private.niecza aborted 7 test(s)
 S12-methods/topic.t 1 - $_ is not set in methods...
+S13-overloading/metaoperators.t aborted 10 test(s)
 S29-context/exit.t 2 - exit 5; works
 S29-context/exit.t 3 - try-block does not catch exit exceptions
 S32-list/pick.niecza 48 - simple pick on Enum type works
@@ -6005,7 +6056,6 @@ S32-list/pick.niecza 55 - all pick on Enum is sane
 S32-list/pick.niecza 56 - too many pick on Enum is sane
 S32-list/roll.niecza 41 - simple roll on Enum type works
 S32-list/roll.niecza 42 - one roll on Enum type works
-S32-list/roll.niecza 45 - simple roll on Enum is sane
 S32-list/roll.niecza 46 - one roll on Enum is sane
 S32-list/roll.niecza 47 - too many roll on Enum is sane
 integration/role-composition-vs-attribute.t aborted 10 test(s)
