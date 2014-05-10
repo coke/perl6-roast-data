@@ -1340,7 +1340,8 @@ S12-methods/attribute-params.t.....................  13    0    0    0   13
 S12-methods/calling_sets.rakudo.moar...............  21    0    0   11   32
     11 skipped: ambiguous dispatch
 S12-methods/calling_syntax.t.......................  11    0    0    0   11
-S12-methods/chaining.t.............................  17    0    0    0   17
+S12-methods/chaining.rakudo.moar...................  15    0    2    0   17
+     2 todo   : Test probably bogus now that Pair.key is no longer a left value
 S12-methods/class-and-instance.t...................   8    0    0    0    8
 S12-methods/default-trait.t........................   6    0    0    0    6
 S12-methods/defer-call.t...........................  14    0    0    0   14
@@ -1480,7 +1481,11 @@ S17-lowlevel/thread.rakudo.moar....................  22    0    0    3   25
 S17-promise/basic.t................................Segmentation fault (core dumped)
   62    2    0    0   64
      2 tests aborted (missing ok/not ok)
-S17-scheduler/basic.rakudo.moar....................Segmentation fault (core dumped)
+S17-scheduler/basic.rakudo.moar....................Unhandled exception: Missing hll slurpy hash type
+   at src/gen/m-Metamodel.nqp:934  (./blib/Perl6/Metamodel.moarvm:find_method:10)
+ from src/gen/m-CORE.setting:17995  (././CORE.setting.moarvm::4294967295)
+ from src/gen/m-CORE.setting:17992  (././CORE.setting.moarvm::19)
+ from src/gen/m-CORE.setting:17820  (././CORE.setting.moarvm::32)
   49    0    0    6   55
      6 skipped: waiting for new '.loads' semantics
 S17-supply/Channel.t...............................  13    0    0    0   13
@@ -1508,7 +1513,7 @@ S17-supply/merge.t.................................  34    0    0    0   34
 S17-supply/migrate.t...............................  25    0    0    0   25
 S17-supply/min.t...................................  44    0    0    0   44
 S17-supply/minmax.t................................  44    0    0    0   44
-S17-supply/on.t....................................  52    0    0    0   52
+S17-supply/on.t....................................  51    1    0    0   52
 S17-supply/reduce.t................................  44    0    0    0   44
 S17-supply/reverse.t...............................  13    0    0    0   13
 S17-supply/rotor.t.................................  35    0    0    0   35
@@ -2177,35 +2182,36 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4270,     0,   129,   294,  4693,  4621
-"S03",        4815,     0,   112,   130,  5057,  4679
-"S04",         961,     0,    37,    48,  1046,  1043
-"S05",        5000,     0,    86,   325,  5411,  5854
-"S06",        1163,     0,    38,   107,  1308,  1292
+"S02",        4270,     0,   129,   294,  4693,  4813
+"S03",        4815,     0,   112,   130,  5057,  5080
+"S04",         961,     0,    37,    48,  1046,  1112
+"S05",        5000,     0,    86,   325,  5411,  5895
+"S06",        1163,     0,    38,   107,  1308,  1388
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
 "S11",          81,     0,     2,     9,    92,   147
-"S12",        1343,     0,    48,   124,  1515,  1415
+"S12",        1341,     0,    50,   124,  1515,  1573
 "S13",          33,     0,    10,    28,    71,    81
 "S14",         294,     0,    10,    12,   316,   329
 "S15",         234,     0,     0,     0,   234,   283
 "S16",         235,     0,     5,    18,   258,   302
-"S17",        1400,    15,     1,    10,  1426,  1426
+"S17",        1399,    16,     1,    10,  1426,  1426
 "S19",           4,     0,     0,     0,     4,     6
 "S24",           1,     0,     0,     0,     1,    88
-"S26",         310,     0,     0,     1,   311,   268
+"S26",         310,     0,     0,     1,   311,   311
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     0,     5,     4,   341,   351
-"S32",        9527,     0,   100,   201,  9828,  7163
-"int",         917,     0,    15,    40,   972,   992
+"S32",        9527,     0,   100,   201,  9828,  7517
+"int",         917,     0,    15,    40,   972,  1003
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31174,    15,   608,  1387, 33184, 30744
+"total",     31171,    16,   610,  1387, 33184, 32109
 ----------------
 Failure summary:
 S17-promise/basic.t aborted 2 test(s)
 S17-supply/delay.t 7 - .delay with on-demand Supply worked
 S17-supply/delay.t 8 - on-demand sufficiently delayed
+S17-supply/on.t 11 - basic 2 supply 'on' works
 S17-supply/stable.t 7 - .stable worked
 S17-supply/stable.t 19 - .stable worked
 S17-supply/watch_path.t 7 - did we NOT get an event for writing to the file

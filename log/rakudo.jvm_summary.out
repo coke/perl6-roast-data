@@ -106,7 +106,7 @@ S02-names-vars/names.rakudo.jvm.................... 128    0    1   13  142
 S02-names-vars/perl.rakudo.jvm.....................use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
-  92    0    0    6   98
+  91    1    0    6   98
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -1360,7 +1360,8 @@ S12-methods/attribute-params.t.....................  13    0    0    0   13
 S12-methods/calling_sets.rakudo.jvm................  21    0    0   11   32
     11 skipped: ambiguous dispatch
 S12-methods/calling_syntax.t.......................  11    0    0    0   11
-S12-methods/chaining.t.............................  17    0    0    0   17
+S12-methods/chaining.rakudo.jvm....................  15    0    2    0   17
+     2 todo   : Test probably bogus now that Pair.key is no longer a left value
 S12-methods/class-and-instance.t...................   8    0    0    0    8
 S12-methods/default-trait.t........................   6    0    0    0    6
 S12-methods/defer-call.t...........................  14    0    0    0   14
@@ -1536,29 +1537,29 @@ S17-supply/grab.t..................................  23    0    0    0   23
 S17-supply/grep.rakudo.jvm.........................  12    0    1    0   13
      1 todo   : D: doesn't work in signatures
 S17-supply/interval.t..............................  10    1    0    0   11
-S17-supply/last.rakudo.jvm.........................  33    0    2    0   35
+S17-supply/last.rakudo.jvm.........................  32    1    2    0   35
      1 todo   : we don't have Natural numbers yet
      1 todo   : D: doesn't work in signatures
 S17-supply/list.rakudo.jvm.........................   3    0    0    4    7
      4 skipped: hangs
-S17-supply/map.rakudo.jvm..........................  41    1    1    0   43
+S17-supply/map.rakudo.jvm..........................  42    0    1    0   43
      1 todo   : D: doesn't work in signatures
 S17-supply/max.t...................................  43    1    0    0   44
 S17-supply/merge.t.................................  34    0    0    0   34
 S17-supply/migrate.rakudo.jvm......................  24    0    1    0   25
      1 todo   : D: doesn't work in signatures
 S17-supply/min.t...................................  43    1    0    0   44
-S17-supply/minmax.t................................  42    2    0    0   44
-S17-supply/on.t....................................  51    1    0    0   52
+S17-supply/minmax.t................................  41    3    0    0   44
+S17-supply/on.t....................................  49    3    0    0   52
 S17-supply/reduce.rakudo.jvm.......................  43    0    1    0   44
      1 todo   : D: doesn't work in signatures
 S17-supply/reverse.rakudo.jvm......................  12    0    1    0   13
      1 todo   : D: doesn't work in signatures
-S17-supply/rotor.rakudo.jvm........................  34    0    1    0   35
+S17-supply/rotor.rakudo.jvm........................  33    1    1    0   35
      1 todo   : D: doesn't work in signatures
 S17-supply/schedule_on.rakudo.jvm..................  16    0    1    0   17
      1 todo   : D: doesn't work in signatures
-S17-supply/sort.rakudo.jvm.........................  31    1    1    0   33
+S17-supply/sort.rakudo.jvm.........................  30    2    1    0   33
      1 todo   : D: doesn't work in signatures
 S17-supply/squish.rakudo.jvm.......................  52    0    1    0   53
      1 todo   : D: doesn't work in signatures
@@ -1571,7 +1572,7 @@ S17-supply/uniq.rakudo.jvm.........................  82    0    1    0   83
 S17-supply/wait.t..................................   4    0    0    0    4
 S17-supply/watch_path.rakudo.jvm...................   1    0    0   22   23
     22 skipped: file system events NYI?
-S17-supply/zip.t...................................  34    0    0    0   34
+S17-supply/zip.t...................................  33    1    0    0   34
                                                    pass fail todo skip plan
 S19-command-line/dash-e.rakudo.jvm.................   0    0    0    3    3
      3 skipped: nigh
@@ -3622,7 +3623,7 @@ Unhandled exception: java.lang.StackOverflowError
 java.lang.StackOverflowError
 
 Unhandled exception: java.lang.NoClassDefFoundError: Could not initialize class java.lang.Shutdown
-  in <anon> (gen/jvm/CORE.setting:11413)
+  in <anon> (gen/jvm/CORE.setting:11414)
   in command_eval (gen/jvm/stage2/NQPHLL.nqp:1265)
   in command_eval (src/Perl6/Compiler.nqp:17)
   in command_line (gen/jvm/stage2/NQPHLL.nqp:1206)
@@ -3791,44 +3792,51 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4241,     0,   131,   321,  4693,  4621
-"S03",        4815,     0,   112,   130,  5057,  4679
-"S04",         955,     0,    39,    52,  1046,  1043
-"S05",        4908,     0,    92,   411,  5411,  5854
-"S06",        1163,     0,    38,   107,  1308,  1292
+"S02",        4240,     1,   131,   321,  4693,  4813
+"S03",        4815,     0,   112,   130,  5057,  5080
+"S04",         955,     0,    39,    52,  1046,  1112
+"S05",        4908,     0,    92,   411,  5411,  5895
+"S06",        1163,     0,    38,   107,  1308,  1388
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
 "S11",          81,     0,     2,     9,    92,   147
-"S12",        1343,     0,    48,   124,  1515,  1415
+"S12",        1341,     0,    50,   124,  1515,  1573
 "S13",          33,     0,    10,    28,    71,    81
 "S14",         294,     0,    10,    12,   316,   329
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         234,     0,     5,    19,   258,   302
-"S17",        1100,   274,    19,    33,  1426,  1426
+"S17",        1094,   280,    19,    33,  1426,  1426
 "S19",           1,     0,     0,     3,     4,     6
 "S24",           1,     0,     0,     0,     1,    88
-"S26",         310,     0,     0,     1,   311,   268
+"S26",         310,     0,     0,     1,   311,   311
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     0,     4,     5,   341,   351
-"S32",        9498,     0,    89,   250,  9837,  7163
-"int",         916,     6,    16,    34,   972,   992
+"S32",        9498,     0,    89,   250,  9837,  7517
+"int",         916,     6,    16,    34,   972,  1003
 "ros",           2,     0,     0,     0,     2,     2
-"total",     30479,   280,   625,  1575, 32959, 30744
+"total",     30470,   287,   627,  1575, 32959, 32109
 ----------------
 Failure summary:
+S02-names-vars/perl.rakudo.jvm 84 - .perl on user-defined type roundtrips okay
 S17-supply/categorize.rakudo.jvm aborted 173 test(s)
 S17-supply/classify.rakudo.jvm aborted 89 test(s)
 S17-supply/delay.rakudo.jvm 7 - .delay with on-demand Supply worked
 S17-supply/delay.rakudo.jvm 8 - on-demand sufficiently delayed
 S17-supply/interval.t 1 - can not be called as an instance method
-S17-supply/map.rakudo.jvm 22 - mapping tap with multiple values works
+S17-supply/last.rakudo.jvm 19 - the last 15 works
 S17-supply/max.t 1 - can not be called as a class method
 S17-supply/min.t 1 - can not be called as a class method
 S17-supply/minmax.t 1 - can not be called as a class method
 S17-supply/minmax.t 18 - ascending alpha works
+S17-supply/minmax.t 23 - decending alpha works
 S17-supply/on.t 11 - basic 2 supply 'on' works
+S17-supply/on.t 16 - basic 2 supply with (a,b) 'on' works
+S17-supply/on.t 21 - basic 3 supply with array 'on' works
+S17-supply/rotor.rakudo.jvm 7 - we can rotor
+S17-supply/sort.rakudo.jvm 7 - we can sort numbers
 S17-supply/sort.rakudo.jvm 12 - we can sort strings
 S17-supply/stable.rakudo.jvm 7 - .stable worked
 S17-supply/stable.rakudo.jvm 19 - .stable worked
+S17-supply/zip.t 11 - zipping with 3 supplies works
 integration/advent2013-day19.t aborted 6 test(s)
