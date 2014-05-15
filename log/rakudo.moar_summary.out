@@ -116,7 +116,7 @@ S02-names-vars/signature.rakudo.moar...............  11    0    2    0   13
 S02-names-vars/variables-and-packages.rakudo.moar..  32    0    3    3   38
      3 skipped: nom regression
      3 todo   : nom regression
-S02-names-vars/varnames.rakudo.moar................  18    0    0    2   20
+S02-names-vars/varnames.rakudo.moar................  10    0    0    2   12
      2 skipped: cannot easily override [] at the moment
 S02-names/bare-sigil.t.............................  10    0    0    0   10
 S02-names/caller.t.................................  15    0    0    0   15
@@ -161,7 +161,7 @@ Useless use of "," in expression "{$foo4 = \"blah\"}," in sink context (line 86)
   39    0    1    2   42
      2 skipped: tests don't work if previous test fails
      1 todo   : Parrot support for zero-arg subs?
-S02-types/array.rakudo.moar........................  97    0    0    2   99
+S02-types/array.rakudo.moar........................  91    0    0    2   93
      2 skipped: multi-dim arrays
 S02-types/array_extending.t........................use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
@@ -180,7 +180,7 @@ S02-types/bag.rakudo.moar..........................Potential difficulties:
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
      2 todo   : Not properly interpolating
-S02-types/baghash.rakudo.moar...................... 209    1    6   26  242
+S02-types/baghash.rakudo.moar...................... 210    0    6   26  242
     21 skipped: 'is ObjectType' NYI
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
@@ -301,12 +301,12 @@ S02-types/parcel.t.................................  44    0    0    0   44
 S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.t..................................use of uninitialized value of type Range in numeric context
  129    0    0    0  129
-S02-types/set.rakudo.moar.......................... 143    0   12    4  159
+S02-types/set.rakudo.moar.......................... 143    0   11    5  159
      1 skipped: Set is no longer Iterable
+     1 skipped: seems to be fall out of S02 BagHash change
      3 skipped: Odd number of elements
      2 todo   : Not properly interpolating
      9 todo   : Hypers not yet Set compatible
-     1 todo PASSED: Hypers not yet Set compatible
 S02-types/sethash.rakudo.moar...................... 178    0    2   11  191
     10 skipped: 'is ObjectType' NYI
      1 skipped: no longer Iterable
@@ -575,7 +575,7 @@ S03-operators/precedence.rakudo.moar...............  48    0    4    2   54
      1 todo   : list associativity bug
      1 todo   : RT #77848
      2 todo   : non-associativeness of infix:<^> and |
-S03-operators/range-basic.t........................ 144    0    0    0  144
+S03-operators/range-basic.t........................ 140    0    0    0  140
 S03-operators/range-int.t.......................... 480    0    0    0  480
 S03-operators/range.rakudo.moar....................use of uninitialized value of type Any in numeric context
 use of uninitialized value of type Any in numeric context
@@ -796,7 +796,7 @@ S04-statements/next.rakudo.moar....................  10    0    0    2   12
 S04-statements/no-implicit-block.t.................  12    0    0    0   12
 S04-statements/once.t..............................  21    0    0    0   21
 S04-statements/redo.t..............................  11    0    0    0   11
-S04-statements/repeat.t............................  21    0    0    0   21
+S04-statements/repeat.t............................  19    0    0    0   19
 S04-statements/return.t............................  17    0    0    0   17
 S04-statements/sink.rakudo.moar....................   1    0    1    0    2
      1 todo   : RT #117235
@@ -955,7 +955,7 @@ S05-metasyntax/repeat.rakudo.moar..................  18    0    0    6   24
      6 skipped: closure repetition
 S05-metasyntax/sequential-alternation.t............  10    0    0    0   10
 S05-metasyntax/single-quotes.t.....................   5    0    0    0    5
-S05-metasyntax/unknown.rakudo.moar.................  12    0    1    0   13
+S05-metasyntax/unknown.rakudo.moar.................  10    0    1    0   11
      1 todo   : RT 74832
 S05-modifier/continue.t............................  13    0    0    0   13
 S05-modifier/counted-match.rakudo.moar.............  16    0    0    6   22
@@ -1008,7 +1008,7 @@ S05-modifier/sigspace.t............................  16    0    0    0   16
 S05-substitution/match.t...........................  13    0    0    0   13
 S05-substitution/subst.rakudo.moar.................use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
- 135    0    1    5  141
+ 134    0    1    5  140
      2 skipped: s:g[...] =
      3 skipped: s[...] op= RHS
      1 todo   : be smarter about constant detection
@@ -1044,7 +1044,7 @@ S06-macros/opaque-ast.rakudo.moar..................   3    0    0    4    7
      1 skipped: return from macro
 S06-macros/quasi-blocks.rakudo.moar................  10    0    0    2   12
      2 skipped: No such method 'STORE' for invocant of type 'Mu'
-S06-macros/unquoting.rakudo.moar...................   9    0    0    1   10
+S06-macros/unquoting.rakudo.moar...................   4    0    0    1    5
      1 skipped: Specified code ref has no outer, RT 121533
 S06-multi/lexical-multis.rakudo.moar...............  14    0    1    0   15
      1 todo   : lexical scope as tie breaker
@@ -1216,13 +1216,12 @@ S10-packages/basic.rakudo.moar.....................  56    0    1    2   59
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
 S10-packages/use-with-class.t......................   9    0    0    0    9
                                                    pass fail todo skip plan
-S11-modules/import-multi.rakudo.moar...............  14    0    1    4   19
-     2 skipped: Code did not die, can not check exception
+S11-modules/import-multi.rakudo.moar...............  14    0    1    2   17
      1 skipped: A symbol "&Gfoo" has already been exported
      1 skipped: it just dies, can't check using throws_like
      1 todo   : huh?
 S11-modules/import-tag.t...........................  12    0    0    0   12
-S11-modules/import.rakudo.moar.....................  18    0    0    4   22
+S11-modules/import.rakudo.moar.....................  12    0    0    4   16
      4 skipped: import plus inline module
 S11-modules/importing.t............................  16    0    0    0   16
 S11-modules/lexical.t..............................   2    0    0    0    2
@@ -1321,7 +1320,7 @@ S12-introspection/attributes.rakudo.moar...........  25    0    0    5   30
      5 skipped: :tree not implemented for .^attributes
 S12-introspection/can.t............................  25    0    0    0   25
 S12-introspection/definite.t.......................   6    0    0    0    6
-S12-introspection/meta-class.rakudo.moar...........   9    0    0    4   13
+S12-introspection/meta-class.rakudo.moar...........   8    0    0    4   12
      1 skipped: .layout
      1 skipped: .version, version number parsing
      1 skipped: precedence of prefix:<^>
@@ -1342,8 +1341,7 @@ S12-methods/attribute-params.t.....................  13    0    0    0   13
 S12-methods/calling_sets.rakudo.moar...............  21    0    0   11   32
     11 skipped: ambiguous dispatch
 S12-methods/calling_syntax.t.......................  11    0    0    0   11
-S12-methods/chaining.rakudo.moar...................  15    0    2    0   17
-     2 todo PASSED: Test probably bogus now that Pair.key is no longer a left value
+S12-methods/chaining.t.............................  17    0    0    0   17
 S12-methods/class-and-instance.t...................   8    0    0    0    8
 S12-methods/default-trait.t........................   6    0    0    0    6
 S12-methods/defer-call.t...........................  14    0    0    0   14
@@ -1371,7 +1369,7 @@ S12-methods/multi.rakudo.moar......................  26    0    1    5   32
 S12-methods/parallel-dispatch.rakudo.moar..........  31    0    5    1   37
      1 skipped: No such method postcircumfix:<( )> for invocant of type Pair
      5 todo   : is_deeply does not think map results are the same as list on LHS
-S12-methods/private.t..............................  16    0    0    0   16
+S12-methods/private.t..............................  12    0    0    0   12
 S12-methods/qualified.t............................   2    0    0    0    2
 S12-methods/submethods.rakudo.moar.................  21    0    0    6   27
      2 skipped: outer lexicals in roles
@@ -1496,42 +1494,46 @@ S17-supply/Channel.t...............................  13    0    0    0   13
 S17-supply/Promise.t...............................  15    0    0    0   15
 S17-supply/act.t...................................   7    0    0    0    7
 S17-supply/basic.t.................................  24    0    0    0   24
-S17-supply/batch.t.................................  45    0    0    0   45
-S17-supply/categorize.t............................ 173    0    0    0  173
-S17-supply/classify.t..............................  89    0    0    0   89
-S17-supply/delay.t.................................  37    2    0    0   39
-S17-supply/do.t....................................  15    0    0    0   15
-S17-supply/elems.t.................................  23    0    0    0   23
-S17-supply/flat.t..................................  13    0    0    0   13
-S17-supply/for.t...................................  55    0    0    0   55
-S17-supply/grab.t..................................  23    0    0    0   23
-S17-supply/grep.t..................................  23    0    0    0   23
-S17-supply/interval.t..............................  11    0    0    0   11
+S17-supply/batch.t.................................  13    0    0    0   13
+S17-supply/categorize.t............................  77    0    0    0   77
+S17-supply/classify.t..............................  41    0    0    0   41
+S17-supply/delay.rakudo.moar.......................Aborted (core dumped)
+  11    0    0    4   15
+     4 skipped: doesn't work or can't test
+S17-supply/do.t....................................   7    0    0    0    7
+S17-supply/elems.t.................................   7    0    0    0    7
+S17-supply/flat.t..................................   5    0    0    0    5
+S17-supply/for.t...................................  15    0    0    0   15
+S17-supply/grab.t..................................   7    0    0    0    7
+S17-supply/grep.t..................................   7    0    0    0    7
+S17-supply/interval.t..............................   3    0    0    0    3
 S17-supply/last.rakudo.moar........................Aborted (core dumped)
-  34    0    1    0   35
+  10    0    1    0   11
      1 todo   : we don't have Natural numbers yet
 S17-supply/list.t..................................   7    0    0    0    7
-S17-supply/map.t...................................  43    0    0    0   43
-S17-supply/max.t...................................  44    0    0    0   44
-S17-supply/merge.t.................................  34    0    0    0   34
-S17-supply/migrate.t...............................  25    0    0    0   25
-S17-supply/min.t...................................  44    0    0    0   44
-S17-supply/minmax.t................................  44    0    0    0   44
-S17-supply/on.t....................................  51    1    0    0   52
-S17-supply/reduce.t................................  44    0    0    0   44
-S17-supply/reverse.t...............................  13    0    0    0   13
-S17-supply/rotor.t.................................  35    0    0    0   35
-S17-supply/schedule_on.t...........................  17    0    0    0   17
-S17-supply/sort.t..................................  33    0    0    0   33
-S17-supply/squish.t................................  53    0    0    0   53
-S17-supply/stable.t................................  23    2    0    0   25
+S17-supply/map.t...................................  11    0    0    0   11
+S17-supply/max.t...................................  12    0    0    0   12
+S17-supply/merge.t.................................  10    0    0    0   10
+S17-supply/migrate.t...............................  23    0    0    0   23
+S17-supply/min.t...................................  12    0    0    0   12
+S17-supply/minmax.t................................  12    0    0    0   12
+S17-supply/on.t....................................  11    1    0    0   12
+S17-supply/reduce.t................................  12    0    0    0   12
+S17-supply/reverse.t...............................   5    0    0    0    5
+S17-supply/rotor.t.................................  11    0    0    0   11
+S17-supply/schedule_on.t...........................   9    0    0    0    9
+S17-supply/sort.t..................................   9    0    0    0    9
+S17-supply/squish.t................................  13    0    0    0   13
+S17-supply/stable.rakudo.moar......................Aborted (core dumped)
+   7    0    0    2    9
+     2 skipped: doesn't work or can't test
 S17-supply/start.t.................................   9    0    0    0    9
 S17-supply/uniq.t..................................Segmentation fault (core dumped)
-  66   17    0    0   83
-    17 tests aborted (missing ok/not ok)
+  15    4    0    0   19
+     4 tests aborted (missing ok/not ok)
 S17-supply/wait.t..................................   4    0    0    0    4
 S17-supply/watch_path.t............................  14    9    0    0   23
-S17-supply/zip.t...................................  34    0    0    0   34
+S17-supply/zip.t...................................  10    0    0    0   10
                                                    pass fail todo skip plan
 S19-command-line/dash-e.t..........................   3    0    0    0    3
 S19-command-line/help.t............................   1    0    0    0    1
@@ -1574,12 +1576,12 @@ S29-conversions/ord_and_chr.rakudo.moar............ 254    0    3    0  257
 S29-os/system.rakudo.moar..........................execvp(): No such file or directory
 execvp(): No such file or directory
 execvp(): No such file or directory
-   3    0    1    1    5
-     1 skipped: run() broken (and test questionable
-     1 todo   : depends on rakudo being installed
+   3    0    0    2    5
+     1 skipped: run() broken (and test questionable)
+     1 skipped: not reliable: depends on rakudo being installed
                                                    pass fail todo skip plan
 S32-array/bool.t...................................  15    0    0    0   15
-S32-array/create.t.................................   8    0    0    0    8
+S32-array/create.t.................................   6    0    0    0    6
 S32-array/delete-adverb-native.t...................use of uninitialized value of type Int in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Int in string context
@@ -1628,7 +1630,7 @@ use of uninitialized value of type BagHash in string context
   16    0    0    0   16
 S32-container/zip.rakudo.moar......................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.moar.................... 696    0    0   10  706
+S32-exceptions/misc.rakudo.moar.................... 259    0    0   10  269
      1 skipped: RT 114134
      3 skipped: still handled by <special_var>
      5 skipped: X::Assignment::RO, RT 121534
@@ -1750,7 +1752,7 @@ S32-num/power.rakudo.moar..........................  43    0    5    4   52
      1 skipped: NaN**0 should be NaN
      1 skipped: 1i**NaN should be NaN
      5 todo   : big exponents
-S32-num/rand.rakudo.moar........................... 114    0    0    1  115
+S32-num/rand.rakudo.moar........................... 112    0    0    1  113
      1 skipped: Test is too slow
 S32-num/rat.rakudo.moar............................ 818    0    5    1  824
      1 skipped: RT 74648
@@ -2193,39 +2195,34 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4271,     1,   129,   294,  4695,  4815
-"S03",        4815,     0,   112,   130,  5057,  5080
-"S04",         961,     0,    37,    48,  1046,  1112
-"S05",        5000,     0,    86,   325,  5411,  5895
-"S06",        1163,     0,    38,   107,  1308,  1388
+"S02",        4258,     0,   128,   295,  4681,  4801
+"S03",        4811,     0,   112,   130,  5053,  5076
+"S04",         959,     0,    37,    48,  1044,  1110
+"S05",        4997,     0,    86,   325,  5408,  5892
+"S06",        1158,     0,    38,   107,  1303,  1383
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
-"S11",          81,     0,     2,     9,    92,   147
-"S12",        1341,     0,    50,   124,  1515,  1573
+"S11",          75,     0,     2,     7,    84,   139
+"S12",        1338,     0,    48,   124,  1510,  1568
 "S13",          33,     0,    10,    28,    71,    81
 "S14",         294,     0,    10,    12,   316,   329
 "S15",         234,     0,     0,     0,   234,   283
 "S16",         235,     0,     5,    18,   258,   302
-"S17",        1397,    31,     1,    10,  1439,  1439
+"S17",         638,    14,     1,    16,   669,   669
 "S19",           4,     0,     0,     0,     4,     6
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         310,     0,     0,     1,   311,   311
 "S28",           7,     0,     0,     0,     7,    13
-"S29",         332,     0,     5,     4,   341,   351
-"S32",        9527,     0,   100,   201,  9828,  7517
-"int",         946,     0,    17,    40,  1003,  1036
+"S29",         332,     0,     4,     5,   341,   351
+"S32",        9086,     0,   100,   201,  9387,  7513
+"int",         946,     0,    17,    40,  1003,  1049
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31199,    32,   612,  1387, 33230, 32157
+"total",     29963,    14,   608,  1393, 31978, 31355
 ----------------
 Failure summary:
-S02-types/baghash.rakudo.moar 40 - Cannot -- an element that doesn't exist
-S17-supply/delay.t 7 - .delay with on-demand Supply worked
-S17-supply/delay.t 8 - on-demand sufficiently delayed
-S17-supply/on.t 11 - basic 2 supply 'on' works
-S17-supply/stable.t 7 - .stable worked
-S17-supply/stable.t 19 - .stable worked
-S17-supply/uniq.t aborted 17 test(s)
+S17-supply/on.t 3 - basic 2 supply 'on' works
+S17-supply/uniq.t aborted 4 test(s)
 S17-supply/watch_path.t 7 - did we NOT get an event for writing to the file
 S17-supply/watch_path.t 9 - did we NOT get an event for closing the file
 S17-supply/watch_path.t 11 - did we NOT get an event for opening the file again

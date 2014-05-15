@@ -116,7 +116,7 @@ S02-names-vars/signature.rakudo.jvm................  11    0    2    0   13
 S02-names-vars/variables-and-packages.rakudo.jvm...  32    0    3    3   38
      3 skipped: nom regression
      3 todo   : nom regression
-S02-names-vars/varnames.rakudo.jvm.................  18    0    0    2   20
+S02-names-vars/varnames.rakudo.jvm.................  10    0    0    2   12
      2 skipped: cannot easily override [] at the moment
 S02-names/bare-sigil.t.............................  10    0    0    0   10
 S02-names/caller.t.................................  15    0    0    0   15
@@ -161,7 +161,7 @@ Useless use of "," in expression "{$foo4 = \"blah\"}," in sink context (line 86)
   39    0    1    2   42
      2 skipped: tests don't work if previous test fails
      1 todo   : Parrot support for zero-arg subs?
-S02-types/array.rakudo.jvm.........................  97    0    0    2   99
+S02-types/array.rakudo.jvm.........................  91    0    0    2   93
      2 skipped: multi-dim arrays
 S02-types/array_extending.t........................use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
@@ -180,7 +180,7 @@ S02-types/bag.rakudo.jvm...........................Potential difficulties:
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
      2 todo   : Not properly interpolating
-S02-types/baghash.rakudo.jvm....................... 209    1    6   26  242
+S02-types/baghash.rakudo.jvm....................... 210    0    6   26  242
     21 skipped: 'is ObjectType' NYI
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
@@ -301,12 +301,12 @@ S02-types/parcel.t.................................  44    0    0    0   44
 S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.t..................................use of uninitialized value of type Range in numeric context
  129    0    0    0  129
-S02-types/set.rakudo.jvm........................... 143    0   12    4  159
+S02-types/set.rakudo.jvm........................... 143    0   11    5  159
      1 skipped: Set is no longer Iterable
+     1 skipped: seems to be fall out of S02 BagHash change
      3 skipped: Odd number of elements
      2 todo   : Not properly interpolating
      9 todo   : Hypers not yet Set compatible
-     1 todo PASSED: Hypers not yet Set compatible
 S02-types/sethash.rakudo.jvm....................... 178    0    2   11  191
     10 skipped: 'is ObjectType' NYI
      1 skipped: no longer Iterable
@@ -575,7 +575,7 @@ S03-operators/precedence.rakudo.jvm................  48    0    4    2   54
      1 todo   : list associativity bug
      1 todo   : RT #77848
      2 todo   : non-associativeness of infix:<^> and |
-S03-operators/range-basic.t........................ 144    0    0    0  144
+S03-operators/range-basic.t........................ 140    0    0    0  140
 S03-operators/range-int.t.......................... 480    0    0    0  480
 S03-operators/range.rakudo.jvm.....................use of uninitialized value of type Any in numeric context
 use of uninitialized value of type Any in numeric context
@@ -801,7 +801,7 @@ S04-statements/next.rakudo.jvm.....................  10    0    0    2   12
 S04-statements/no-implicit-block.t.................  12    0    0    0   12
 S04-statements/once.t..............................  21    0    0    0   21
 S04-statements/redo.t..............................  11    0    0    0   11
-S04-statements/repeat.t............................  21    0    0    0   21
+S04-statements/repeat.t............................  19    0    0    0   19
 S04-statements/return.t............................  17    0    0    0   17
 S04-statements/sink.rakudo.jvm.....................   1    0    1    0    2
      1 todo   : RT #117235
@@ -974,7 +974,7 @@ S05-metasyntax/repeat.rakudo.jvm...................  18    0    0    6   24
      6 skipped: closure repetition
 S05-metasyntax/sequential-alternation.t............  10    0    0    0   10
 S05-metasyntax/single-quotes.t.....................   5    0    0    0    5
-S05-metasyntax/unknown.rakudo.jvm..................  12    0    1    0   13
+S05-metasyntax/unknown.rakudo.jvm..................  10    0    1    0   11
      1 todo   : RT 74832
 S05-modifier/continue.t............................  13    0    0    0   13
 S05-modifier/counted-match.rakudo.jvm..............  16    0    0    6   22
@@ -1028,7 +1028,7 @@ S05-modifier/sigspace.t............................  16    0    0    0   16
 S05-substitution/match.t...........................  13    0    0    0   13
 S05-substitution/subst.rakudo.jvm..................use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
- 135    0    1    5  141
+ 134    0    1    5  140
      2 skipped: s:g[...] =
      3 skipped: s[...] op= RHS
      1 todo   : be smarter about constant detection
@@ -1065,7 +1065,7 @@ S06-macros/opaque-ast.rakudo.jvm...................   3    0    0    4    7
      1 skipped: return from macro
 S06-macros/quasi-blocks.rakudo.jvm.................  10    0    0    2   12
      2 skipped: Method 'succ' not found
-S06-macros/unquoting.t.............................  10    0    0    0   10
+S06-macros/unquoting.t.............................   5    0    0    0    5
 S06-multi/lexical-multis.rakudo.jvm................  14    0    1    0   15
      1 todo   : lexical scope as tie breaker
 S06-multi/positional-vs-named.rakudo.jvm...........  25    0    0    2   27
@@ -1236,13 +1236,12 @@ S10-packages/basic.rakudo.jvm......................  56    0    1    2   59
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
 S10-packages/use-with-class.t......................   9    0    0    0    9
                                                    pass fail todo skip plan
-S11-modules/import-multi.rakudo.jvm................  14    0    1    4   19
-     2 skipped: Code did not die, can not check exception
+S11-modules/import-multi.rakudo.jvm................  14    0    1    2   17
      1 skipped: A symbol "&Gfoo" has already been exported
      1 skipped: it just dies, can't check using throws_like
      1 todo   : huh?
 S11-modules/import-tag.t...........................  12    0    0    0   12
-S11-modules/import.rakudo.jvm......................  18    0    0    4   22
+S11-modules/import.rakudo.jvm......................  12    0    0    4   16
      4 skipped: import plus inline module
 S11-modules/importing.t............................  16    0    0    0   16
 S11-modules/lexical.t..............................   2    0    0    0    2
@@ -1341,7 +1340,7 @@ S12-introspection/attributes.rakudo.jvm............  25    0    0    5   30
      5 skipped: :tree not implemented for .^attributes
 S12-introspection/can.t............................  25    0    0    0   25
 S12-introspection/definite.t.......................   6    0    0    0    6
-S12-introspection/meta-class.rakudo.jvm............   9    0    0    4   13
+S12-introspection/meta-class.rakudo.jvm............   8    0    0    4   12
      1 skipped: .layout
      1 skipped: .version, version number parsing
      1 skipped: precedence of prefix:<^>
@@ -1362,8 +1361,7 @@ S12-methods/attribute-params.t.....................  13    0    0    0   13
 S12-methods/calling_sets.rakudo.jvm................  21    0    0   11   32
     11 skipped: ambiguous dispatch
 S12-methods/calling_syntax.t.......................  11    0    0    0   11
-S12-methods/chaining.rakudo.jvm....................  15    0    2    0   17
-     2 todo   : Test probably bogus now that Pair.key is no longer a left value
+S12-methods/chaining.t.............................  15    2    0    0   17
 S12-methods/class-and-instance.t...................   8    0    0    0    8
 S12-methods/default-trait.t........................   6    0    0    0    6
 S12-methods/defer-call.t...........................  14    0    0    0   14
@@ -1391,7 +1389,7 @@ S12-methods/multi.rakudo.jvm.......................  26    0    1    5   32
 S12-methods/parallel-dispatch.rakudo.jvm...........  31    0    5    1   37
      1 skipped: No such method postcircumfix:<( )> for invocant of type Pair
      5 todo   : is_deeply does not think map results are the same as list on LHS
-S12-methods/private.t..............................  16    0    0    0   16
+S12-methods/private.t..............................  12    0    0    0   12
 S12-methods/qualified.t............................   2    0    0    0    2
 S12-methods/submethods.rakudo.jvm..................  21    0    0    6   27
      2 skipped: outer lexicals in roles
@@ -1513,59 +1511,61 @@ S17-supply/Channel.t...............................  13    0    0    0   13
 S17-supply/Promise.t...............................  15    0    0    0   15
 S17-supply/act.t...................................   7    0    0    0    7
 S17-supply/basic.t.................................  24    0    0    0   24
-S17-supply/batch.t.................................  45    0    0    0   45
-S17-supply/categorize.t............................ 173    0    0    0  173
-S17-supply/classify.t..............................  89    0    0    0   89
-S17-supply/delay.rakudo.jvm........................  36    2    1    0   39
+S17-supply/batch.t.................................  13    0    0    0   13
+S17-supply/categorize.t............................  77    0    0    0   77
+S17-supply/classify.t..............................  41    0    0    0   41
+S17-supply/delay.rakudo.jvm........................  10    0    1    4   15
+     4 skipped: doesn't work or can't test
      1 todo   : D: doesn't work in signatures
-S17-supply/do.rakudo.jvm...........................  14    0    1    0   15
+S17-supply/do.rakudo.jvm...........................   6    0    1    0    7
      1 todo   : D: doesn't work in signatures
-S17-supply/elems.rakudo.jvm........................  22    0    1    0   23
+S17-supply/elems.rakudo.jvm........................   6    0    1    0    7
      1 todo   : D: doesn't work in signatures
-S17-supply/flat.rakudo.jvm.........................  12    0    1    0   13
+S17-supply/flat.rakudo.jvm.........................   4    0    1    0    5
      1 todo   : D: doesn't work in signatures
-S17-supply/for.rakudo.jvm..........................  54    0    1    0   55
+S17-supply/for.rakudo.jvm..........................  14    0    1    0   15
      1 todo   : D: doesn't work in signatures
-S17-supply/grab.t..................................  23    0    0    0   23
-S17-supply/grep.rakudo.jvm.........................  22    0    1    0   23
+S17-supply/grab.t..................................   7    0    0    0    7
+S17-supply/grep.rakudo.jvm.........................   6    0    1    0    7
      1 todo   : D: doesn't work in signatures
-S17-supply/interval.t..............................  10    1    0    0   11
-S17-supply/last.rakudo.jvm.........................  32    1    2    0   35
+S17-supply/interval.t..............................   2    1    0    0    3
+S17-supply/last.rakudo.jvm.........................   8    1    2    0   11
      1 todo   : we don't have Natural numbers yet
      1 todo   : D: doesn't work in signatures
 S17-supply/list.rakudo.jvm.........................   3    0    0    4    7
      4 skipped: hangs
-S17-supply/map.rakudo.jvm..........................  41    1    1    0   43
+S17-supply/map.rakudo.jvm..........................   9    1    1    0   11
      1 todo   : D: doesn't work in signatures
-S17-supply/max.t...................................  43    1    0    0   44
-S17-supply/merge.t.................................  34    0    0    0   34
-S17-supply/migrate.rakudo.jvm......................  24    0    1    0   25
+S17-supply/max.t...................................  11    1    0    0   12
+S17-supply/merge.t.................................  10    0    0    0   10
+S17-supply/migrate.rakudo.jvm......................  22    0    1    0   23
      1 todo   : D: doesn't work in signatures
-S17-supply/min.t...................................  43    1    0    0   44
-S17-supply/minmax.t................................  41    3    0    0   44
-S17-supply/on.t....................................  51    1    0    0   52
-S17-supply/reduce.rakudo.jvm.......................  43    0    1    0   44
+S17-supply/min.t...................................  11    1    0    0   12
+S17-supply/minmax.t................................   9    3    0    0   12
+S17-supply/on.t....................................  11    1    0    0   12
+S17-supply/reduce.rakudo.jvm.......................  11    0    1    0   12
      1 todo   : D: doesn't work in signatures
-S17-supply/reverse.rakudo.jvm......................  12    0    1    0   13
+S17-supply/reverse.rakudo.jvm......................   4    0    1    0    5
      1 todo   : D: doesn't work in signatures
-S17-supply/rotor.rakudo.jvm........................  33    1    1    0   35
+S17-supply/rotor.rakudo.jvm........................  10    0    1    0   11
      1 todo   : D: doesn't work in signatures
-S17-supply/schedule_on.rakudo.jvm..................  16    0    1    0   17
+S17-supply/schedule_on.rakudo.jvm..................   8    0    1    0    9
      1 todo   : D: doesn't work in signatures
-S17-supply/sort.rakudo.jvm.........................  31    1    1    0   33
+S17-supply/sort.rakudo.jvm.........................   7    1    1    0    9
      1 todo   : D: doesn't work in signatures
-S17-supply/squish.rakudo.jvm.......................  51    1    1    0   53
+S17-supply/squish.rakudo.jvm.......................  12    0    1    0   13
      1 todo   : D: doesn't work in signatures
-S17-supply/stable.rakudo.jvm.......................  22    2    1    0   25
+S17-supply/stable.rakudo.jvm.......................   6    0    1    2    9
+     2 skipped: doesn't work or can't test
      1 todo   : D: doesn't work in signatures
 S17-supply/start.rakudo.jvm........................   8    0    1    0    9
      1 todo   : D: doesn't work in signatures
-S17-supply/uniq.rakudo.jvm.........................  82    0    1    0   83
+S17-supply/uniq.rakudo.jvm.........................  18    0    1    0   19
      1 todo   : D: doesn't work in signatures
 S17-supply/wait.t..................................   4    0    0    0    4
 S17-supply/watch_path.rakudo.jvm...................   1    0    0   22   23
     22 skipped: file system events NYI?
-S17-supply/zip.t...................................  33    1    0    0   34
+S17-supply/zip.t...................................   9    1    0    0   10
                                                    pass fail todo skip plan
 S19-command-line/dash-e.rakudo.jvm.................   0    0    0    3    3
      3 skipped: nigh
@@ -1606,12 +1606,12 @@ S29-conversions/ord_and_chr.rakudo.jvm............. 254    0    2    1  257
      1 skipped: high character name lookup
      1 todo   : RT #65172 - combining graphemes
      1 todo   : chr surrogate
-S29-os/system.rakudo.jvm...........................   3    0    1    1    5
-     1 skipped: run() broken (and test questionable
-     1 todo   : depends on rakudo being installed
+S29-os/system.rakudo.jvm...........................   3    0    0    2    5
+     1 skipped: run() broken (and test questionable)
+     1 skipped: not reliable: depends on rakudo being installed
                                                    pass fail todo skip plan
 S32-array/bool.t...................................  15    0    0    0   15
-S32-array/create.t.................................   8    0    0    0    8
+S32-array/create.t.................................   6    0    0    0    6
 S32-array/delete-adverb-native.t...................use of uninitialized value of type Int in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Int in string context
@@ -1660,7 +1660,7 @@ use of uninitialized value of type BagHash in string context
   16    0    0    0   16
 S32-container/zip.rakudo.jvm.......................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.jvm..................... 710    0    0    5  715
+S32-exceptions/misc.rakudo.jvm..................... 263    1    0    5  269
      1 skipped: RT 114134
      3 skipped: still handled by <special_var>
      1 skipped: parsing regression
@@ -1784,7 +1784,7 @@ S32-num/power.rakudo.jvm...........................  48    0    0    4   52
      1 skipped: i
      1 skipped: NaN**0 should be NaN
      1 skipped: 1i**NaN should be NaN
-S32-num/rand.rakudo.jvm............................ 114    0    0    1  115
+S32-num/rand.rakudo.jvm............................ 112    0    0    1  113
      1 skipped: Test is too slow
 S32-num/rat.rakudo.jvm............................. 819    0    4    1  824
      1 skipped: RT 74648
@@ -2169,8 +2169,7 @@ integration/advent2012-day12.t.....................   5    0    0    0    5
 integration/advent2012-day13.t.....................  42    0    0    0   42
 integration/advent2012-day14.rakudo.jvm............   3    0    0    3    6
      3 skipped: RT121802 failing on JVM
-integration/advent2012-day15.rakudo.jvm............  10    0    1    0   11
-     1 todo   : Hash ordering quirk
+integration/advent2012-day15.t.....................  11    0    0    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
@@ -3790,48 +3789,44 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4240,     1,   131,   323,  4695,  4815
-"S03",        4815,     0,   112,   130,  5057,  5080
-"S04",         955,     0,    39,    52,  1046,  1112
-"S05",        4908,     0,    92,   411,  5411,  5895
-"S06",        1163,     0,    38,   107,  1308,  1388
+"S02",        4227,     0,   130,   324,  4681,  4801
+"S03",        4811,     0,   112,   130,  5053,  5076
+"S04",         953,     0,    39,    52,  1044,  1110
+"S05",        4905,     0,    92,   411,  5408,  5892
+"S06",        1158,     0,    38,   107,  1303,  1383
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
-"S11",          81,     0,     2,     9,    92,   147
-"S12",        1341,     0,    50,   124,  1515,  1573
+"S11",          75,     0,     2,     7,    84,   139
+"S12",        1336,     2,    48,   124,  1510,  1568
 "S13",          33,     0,    10,    28,    71,    81
 "S14",         294,     0,    10,    12,   316,   329
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         234,     0,     5,    19,   258,   302
-"S17",        1370,    17,    19,    33,  1439,  1439
+"S17",         600,    11,    19,    39,   669,   669
 "S19",           1,     0,     0,     3,     4,     6
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         310,     0,     0,     1,   311,   311
 "S28",           7,     0,     0,     0,     7,    13
-"S29",         332,     0,     4,     5,   341,   351
-"S32",        9498,     0,    89,   250,  9837,  7517
-"int",         945,     6,    18,    34,  1003,  1036
+"S29",         332,     0,     3,     6,   341,   351
+"S32",        9047,     1,    89,   250,  9387,  7513
+"int",         946,     6,    17,    34,  1003,  1049
 "ros",           2,     0,     0,     0,     2,     2
-"total",     30775,    24,   629,  1577, 33005, 32157
+"total",     29517,    20,   624,  1583, 31744, 31355
 ----------------
 Failure summary:
-S02-types/baghash.rakudo.jvm 40 - Cannot -- an element that doesn't exist
-S17-supply/delay.rakudo.jvm 7 - .delay with on-demand Supply worked
-S17-supply/delay.rakudo.jvm 8 - on-demand sufficiently delayed
+S12-methods/chaining.t 16 - chaining through temp variable
+S12-methods/chaining.t 17 - chaining through Any return
 S17-supply/interval.t 1 - can not be called as an instance method
-S17-supply/last.rakudo.jvm 19 - the last 15 works
-S17-supply/map.rakudo.jvm 22 - mapping tap with multiple values works
+S17-supply/last.rakudo.jvm 7 - the last 15 works
+S17-supply/map.rakudo.jvm 6 - mapping tap with multiple values works
 S17-supply/max.t 1 - can not be called as a class method
 S17-supply/min.t 1 - can not be called as a class method
 S17-supply/minmax.t 1 - can not be called as a class method
-S17-supply/minmax.t 18 - ascending alpha works
-S17-supply/minmax.t 23 - decending alpha works
-S17-supply/on.t 16 - basic 2 supply with (a,b) 'on' works
-S17-supply/rotor.rakudo.jvm 12 - we can rotor by number of elements and overlap
-S17-supply/sort.rakudo.jvm 12 - we can sort strings
-S17-supply/squish.rakudo.jvm 7 - squish tap with 2 ranges works
-S17-supply/stable.rakudo.jvm 7 - .stable worked
-S17-supply/stable.rakudo.jvm 19 - .stable worked
-S17-supply/zip.t 11 - zipping with 3 supplies works
+S17-supply/minmax.t 6 - ascending alpha works
+S17-supply/minmax.t 7 - decending alpha works
+S17-supply/on.t 4 - basic 2 supply with (a,b) 'on' works
+S17-supply/sort.rakudo.jvm 4 - we can sort strings
+S17-supply/zip.t 3 - zipping with 3 supplies works
+S32-exceptions/misc.rakudo.jvm 187 - did we throws_like X::Phaser::PrePost?
 integration/advent2013-day19.t aborted 6 test(s)
