@@ -58,7 +58,8 @@ S02-literals/quoting.rakudo.jvm.................... 148    0    8    3  159
      1 todo   : «...»
      2 todo   : q:x assigned to array
      4 todo   : quoting adverbs
-S02-literals/radix.rakudo.jvm...................... 129    0    5    0  134
+S02-literals/radix.rakudo.jvm...................... 129    0    6    0  135
+     1 todo   : This needs an RT
      4 todo   : Some question of what this form should actually do
      1 todo   : Really?!
 S02-literals/string-interpolation.t................Potential difficulties:
@@ -460,7 +461,8 @@ use of uninitialized value of type Any in string context
 S03-operators/bag.rakudo.jvm.......................  92    0    0   16  108
     16 skipped: Reduction and bag operators
 S03-operators/basic-types.t........................  19    0    0    0   19
-S03-operators/bit.t................................  33    0    0    0   33
+S03-operators/bit.rakudo.jvm.......................  34    0    0    3   37
+     3 skipped: RT#115966
 S03-operators/boolean-bitwise.t....................  45    0    0    0   45
 S03-operators/brainos.t............................   9    0    0    0    9
 S03-operators/buf.t................................  34    0    0    0   34
@@ -1534,15 +1536,15 @@ S17-supply/last.rakudo.jvm.........................   8    1    2    0   11
      1 todo   : D: doesn't work in signatures
 S17-supply/list.rakudo.jvm.........................   3    0    0    4    7
      4 skipped: hangs
-S17-supply/map.rakudo.jvm..........................   9    1    1    0   11
+S17-supply/map.rakudo.jvm..........................   8    2    1    0   11
      1 todo   : D: doesn't work in signatures
 S17-supply/max.t...................................  11    1    0    0   12
 S17-supply/merge.t.................................  10    0    0    0   10
 S17-supply/migrate.rakudo.jvm......................  22    0    1    0   23
      1 todo   : D: doesn't work in signatures
 S17-supply/min.t...................................  11    1    0    0   12
-S17-supply/minmax.t................................   9    3    0    0   12
-S17-supply/on.t....................................  11    1    0    0   12
+S17-supply/minmax.t................................  10    2    0    0   12
+S17-supply/on.t....................................   9    3    0    0   12
 S17-supply/reduce.rakudo.jvm.......................  11    0    1    0   12
      1 todo   : D: doesn't work in signatures
 S17-supply/reverse.rakudo.jvm......................   4    0    1    0    5
@@ -1551,7 +1553,7 @@ S17-supply/rotor.rakudo.jvm........................  10    0    1    0   11
      1 todo   : D: doesn't work in signatures
 S17-supply/schedule_on.rakudo.jvm..................   8    0    1    0    9
      1 todo   : D: doesn't work in signatures
-S17-supply/sort.rakudo.jvm.........................   7    1    1    0    9
+S17-supply/sort.rakudo.jvm.........................   6    2    1    0    9
      1 todo   : D: doesn't work in signatures
 S17-supply/squish.rakudo.jvm.......................  12    0    1    0   13
      1 todo   : D: doesn't work in signatures
@@ -3789,8 +3791,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4227,     0,   130,   324,  4681,  4801
-"S03",        4811,     0,   112,   130,  5053,  5076
+"S02",        4227,     0,   131,   324,  4682,  4802
+"S03",        4812,     0,   112,   133,  5057,  5080
 "S04",         953,     0,    39,    52,  1044,  1110
 "S05",        4905,     0,    92,   411,  5408,  5892
 "S06",        1158,     0,    38,   107,  1303,  1383
@@ -3803,7 +3805,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         294,     0,    10,    12,   316,   329
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         234,     0,     5,    19,   258,   302
-"S17",         600,    11,    19,    39,   669,   669
+"S17",         597,    14,    19,    39,   669,   669
 "S19",           1,     0,     0,     3,     4,     6
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         310,     0,     0,     1,   311,   311
@@ -3812,20 +3814,23 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9047,     1,    89,   250,  9387,  7513
 "int",         946,     6,    17,    34,  1003,  1049
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29517,    20,   624,  1583, 31744, 31355
+"total",     29515,    23,   625,  1586, 31749, 31360
 ----------------
 Failure summary:
 S12-methods/chaining.t 16 - chaining through temp variable
 S12-methods/chaining.t 17 - chaining through Any return
 S17-supply/interval.t 1 - can not be called as an instance method
 S17-supply/last.rakudo.jvm 7 - the last 15 works
+S17-supply/map.rakudo.jvm 5 - mapping tap with single values works
 S17-supply/map.rakudo.jvm 6 - mapping tap with multiple values works
 S17-supply/max.t 1 - can not be called as a class method
 S17-supply/min.t 1 - can not be called as a class method
 S17-supply/minmax.t 1 - can not be called as a class method
 S17-supply/minmax.t 6 - ascending alpha works
-S17-supply/minmax.t 7 - decending alpha works
+S17-supply/on.t 3 - basic 2 supply 'on' works
 S17-supply/on.t 4 - basic 2 supply with (a,b) 'on' works
+S17-supply/on.t 5 - basic 3 supply with array 'on' works
+S17-supply/sort.rakudo.jvm 3 - we can sort numbers
 S17-supply/sort.rakudo.jvm 4 - we can sort strings
 S17-supply/zip.t 3 - zipping with 3 supplies works
 S32-exceptions/misc.rakudo.jvm 187 - did we throws_like X::Phaser::PrePost?

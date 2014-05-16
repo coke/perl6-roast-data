@@ -77,7 +77,8 @@ so that this message will disappear!
      1 todo   : «...»
      2 todo   : q:x assigned to array
      4 todo   : quoting adverbs
-S02-literals/radix.rakudo.parrot................... 129    0    5    0  134
+S02-literals/radix.rakudo.parrot................... 129    0    6    0  135
+     1 todo   : This needs an RT
      4 todo   : Some question of what this form should actually do
      1 todo   : Really?!
 S02-literals/string-interpolation.t................Potential difficulties:
@@ -694,7 +695,8 @@ use of uninitialized value of type Any in string context  in any  at gen/parrot/
 S03-operators/bag.rakudo.parrot....................  92    0    0   16  108
     16 skipped: Reduction and bag operators
 S03-operators/basic-types.t........................  19    0    0    0   19
-S03-operators/bit.t................................  33    0    0    0   33
+S03-operators/bit.rakudo.parrot....................  34    0    0    3   37
+     3 skipped: RT#115966
 S03-operators/boolean-bitwise.t....................  45    0    0    0   45
 S03-operators/brainos.t............................   9    0    0    0    9
 S03-operators/buf.t................................  34    0    0    0   34
@@ -1911,7 +1913,13 @@ S14-roles/basic.rakudo.parrot......................  38    0    2    3   43
      1 todo   : RT #121308
      1 todo   : can see it in the position, but even STD message doesn't include it
 S14-roles/bool.t...................................   3    0    0    0    3
-S14-roles/composition.rakudo.parrot................  24    0    0    2   26
+S14-roles/composition.rakudo.parrot................use of uninitialized value of type Any in string context  in any  at gen/parrot/BOOTSTRAP.nqp:103
+
+use of uninitialized value of type Any in string context  in any  at gen/parrot/BOOTSTRAP.nqp:103
+
+use of uninitialized value of type Any in string context  in any  at gen/parrot/BOOTSTRAP.nqp:103
+
+  21    3    0    2   26
      2 skipped: diamond composition
 S14-roles/conflicts.t..............................  11    0    0    0   11
 S14-roles/crony.t..................................   4    0    0    0    4
@@ -3175,8 +3183,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4261,     0,   125,   295,  4681,  4801
-"S03",        4811,     0,   112,   130,  5053,  5076
+"S02",        4261,     0,   126,   295,  4682,  4802
+"S03",        4812,     0,   112,   133,  5057,  5080
 "S04",         960,     0,    37,    47,  1044,  1110
 "S05",        4904,     0,    93,   411,  5408,  5892
 "S06",        1161,     0,    38,   104,  1303,  1383
@@ -3186,7 +3194,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S11",          75,     0,     2,     7,    84,   139
 "S12",        1336,     2,    48,   124,  1510,  1568
 "S13",          33,     0,    10,    28,    71,    81
-"S14",         296,     0,     8,    12,   316,   329
+"S14",         293,     3,     8,    12,   316,   329
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         234,     1,     5,    18,   258,   302
 "S17",           0,     0,     0,     0,     0,   669
@@ -3198,11 +3206,14 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        8902,   194,    92,   199,  9387,  7513
 "int",         938,     2,    14,    39,   993,  1049
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28812,   200,   598,  1455, 31065, 31355
+"total",     28810,   203,   599,  1458, 31070, 31360
 ----------------
 Failure summary:
 S12-methods/chaining.t 16 - chaining through temp variable
 S12-methods/chaining.t 17 - chaining through Any return
+S14-roles/composition.rakudo.parrot 23 - method of the same name from two different roles collide in a class composition
+S14-roles/composition.rakudo.parrot 24 - colliding role mentioned in error (1)
+S14-roles/composition.rakudo.parrot 25 - colliding role mentioned in error (2)
 S16-io/bare-say.rakudo.parrot 8 - for %h { .say } (RT 74822)
 S29-os/system.rakudo.parrot 1 - run() to an existing program does not die (and returns something true)
 S32-list/roll.t 40 - different results due to random random-number seed
