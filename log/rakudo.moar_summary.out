@@ -1507,7 +1507,7 @@ S17-supply/elems.t.................................   7    0    0    0    7
 S17-supply/flat.t..................................   5    0    0    0    5
 S17-supply/for.t...................................  15    0    0    0   15
 S17-supply/grab.t..................................   7    0    0    0    7
-S17-supply/grep.t..................................   7    0    0    0    7
+S17-supply/grep.t..................................   9    0    0    0    9
 S17-supply/interval.t..............................   3    0    0    0    3
 S17-supply/last.rakudo.moar........................Aborted (core dumped)
   10    0    1    0   11
@@ -2130,7 +2130,19 @@ integration/advent2010-day08.t.....................   7    0    0    0    7
 integration/advent2010-day10.rakudo.moar...........   2    0    2    0    4
      2 todo   : RT121843
 integration/advent2012-day02.t.....................   4    0    0    0    4
-integration/advent2012-day03.t.....................   2    0    0    0    2
+integration/advent2012-day03.t.....................Cannot invoke this object (REPR: Uninstantiable, cs = 0)
+  in block  at src/gen/m-CORE.setting:1632
+  in method reify at src/gen/m-CORE.setting:7783
+  in method reify at src/gen/m-CORE.setting:7646
+  in method reify at src/gen/m-CORE.setting:7646
+  in method gimme at src/gen/m-CORE.setting:8101
+  in method eager at src/gen/m-CORE.setting:8073
+  in method STORE at src/gen/m-CORE.setting:8842
+  in method compute-layout at t/spec/integration/advent2012-day03.t:29
+  in block  at t/spec/integration/advent2012-day03.t:56
+
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
 integration/advent2012-day04.t.....................   8    0    1    0    9
      1 todo   : differing result
 integration/advent2012-day06.t.....................   2    0    0    0    2
@@ -2210,16 +2222,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         294,     0,    10,    12,   316,   329
 "S15",         234,     0,     0,     0,   234,   283
 "S16",         235,     0,     5,    18,   258,   302
-"S17",         638,    14,     1,    16,   669,   669
+"S17",         640,    14,     1,    16,   671,   671
 "S19",           4,     0,     0,     0,     4,     6
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         310,     0,     0,     1,   311,   311
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     0,     4,     5,   341,   351
 "S32",        9086,     0,   100,   201,  9387,  7513
-"int",         946,     0,    17,    34,   997,  1048
+"int",         944,     2,    17,    34,   997,  1048
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29964,    14,   609,  1390, 31977, 31359
+"total",     29964,    16,   609,  1390, 31979, 31361
 ----------------
 Failure summary:
 S17-supply/on.t 3 - basic 2 supply 'on' works
@@ -2233,3 +2245,4 @@ S17-supply/watch_path.t 17 - a slurp should not cause any file events
 S17-supply/watch_path.t 19 - the unlink caused an event
 S17-supply/watch_path.t 22 - at least 3 renaming
 S17-supply/watch_path.t 23 - maybe one changing
+integration/advent2012-day03.t aborted 2 test(s)

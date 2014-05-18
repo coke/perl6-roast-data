@@ -2329,13 +2329,13 @@ S32-temporal/DateTime-Instant-Duration.rakudo.par..  25    3    4    1   33
      1 skipped: nom regression
      4 todo   : high-precision Instants NYI (need FatRats)
 S32-temporal/DateTime.rakudo.parrot................month out of range. Is: 23994, should be in 1..12
-  in method check-value at gen/parrot/CORE.setting:15258
-  in method check-date at gen/parrot/CORE.setting:15265
-  in method new at gen/parrot/CORE.setting:15339
+  in method check-value at gen/parrot/CORE.setting:15309
+  in method check-date at gen/parrot/CORE.setting:15316
+  in method new at gen/parrot/CORE.setting:15390
   in method new at gen/parrot/CORE.setting:837
-  in method new at gen/parrot/CORE.setting:15380
+  in method new at gen/parrot/CORE.setting:15431
   in method new at gen/parrot/CORE.setting:837
-  in method delta at gen/parrot/CORE.setting:15540
+  in method delta at gen/parrot/CORE.setting:15591
   in block  at t/spec/S32-temporal/DateTime.rakudo.parrot:442
 
  160   40    1    0  201
@@ -2409,12 +2409,12 @@ S32-temporal/calendar.t............................Potential difficulties:
     at t/spec/S32-temporal/calendar.t:140
     ------> [32mis dtim(2010, 01, 03[33m⏏[31m).week-number, 53, 'DateTime.week-number[0m
 month out of range. Is: 23816, should be in 1..12
-  in method check-value at gen/parrot/CORE.setting:15258
-  in method check-date at gen/parrot/CORE.setting:15265
-  in method new at gen/parrot/CORE.setting:15629
+  in method check-value at gen/parrot/CORE.setting:15309
+  in method check-date at gen/parrot/CORE.setting:15316
+  in method new at gen/parrot/CORE.setting:15680
   in method new at gen/parrot/CORE.setting:837
-  in method clone at gen/parrot/CORE.setting:15720
-  in method truncated-to at gen/parrot/CORE.setting:15683
+  in method clone at gen/parrot/CORE.setting:15771
+  in method truncated-to at gen/parrot/CORE.setting:15734
   in block  at t/spec/S32-temporal/calendar.t:27
 
    4  126    0    0  130
@@ -2717,7 +2717,19 @@ integration/advent2010-day08.t.....................   7    0    0    0    7
 integration/advent2010-day10.rakudo.parrot.........   2    0    2    0    4
      2 todo   : RT121843
 integration/advent2012-day02.t.....................   4    0    0    0    4
-integration/advent2012-day03.t.....................   2    0    0    0    2
+integration/advent2012-day03.t.....................invoke() not implemented in class 'Callable'
+  in block  at gen/parrot/CORE.setting:1636
+  in method reify at gen/parrot/CORE.setting:7706
+  in method reify at gen/parrot/CORE.setting:7597
+  in method reify at gen/parrot/CORE.setting:7597
+  in method gimme at gen/parrot/CORE.setting:8064
+  in method eager at gen/parrot/CORE.setting:8036
+  in method STORE at gen/parrot/CORE.setting:8805
+  in method compute-layout at t/spec/integration/advent2012-day03.t:29
+  in block  at t/spec/integration/advent2012-day03.t:56
+
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
 integration/advent2012-day04.t.....................   8    0    1    0    9
      1 todo   : differing result
 integration/advent2012-day06.t.....................   2    0    0    0    2
@@ -2791,16 +2803,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         296,     0,     8,    12,   316,   329
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         235,     0,     5,    18,   258,   302
-"S17",           0,     0,     0,     0,     0,   669
+"S17",           0,     0,     0,     0,     0,   671
 "S19",           4,     0,     0,     0,     4,     6
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         310,     0,     0,     1,   311,   311
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     1,     4,     4,   341,   351
 "S32",        8902,   194,    92,   199,  9387,  7513
-"int",         938,     2,    14,    39,   993,  1048
+"int",         936,     4,    14,    39,   993,  1048
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28814,   199,   599,  1458, 31070, 31359
+"total",     28812,   201,   599,  1458, 31070, 31361
 ----------------
 Failure summary:
 S12-methods/chaining.t 16 - chaining through temp variable
@@ -2842,5 +2854,6 @@ S32-temporal/DateTime.rakudo.parrot 138 - DateTime.in-timezone (year rollover)
 S32-temporal/DateTime.rakudo.parrot 140 - DateTime.in-timezone (big rollover)
 S32-temporal/DateTime.rakudo.parrot aborted 34 test(s)
 S32-temporal/calendar.t aborted 126 test(s)
+integration/advent2012-day03.t aborted 2 test(s)
 integration/advent2012-day24.t 1 - calendar
 integration/advent2013-day06.t 1 - Recurring date spec
