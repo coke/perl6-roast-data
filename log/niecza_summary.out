@@ -1416,8 +1416,15 @@ S03-operators/nesting.niecza.......................Potential difficulties:
      1 skipped: undeclared name [<=>]
      1 skipped: undeclared name [==]
 S03-operators/not.t................................  22    0    0    0   22
-S03-operators/numeric-shift.niecza.................  24    0    0   12   36
-    12 skipped: shift by negative bit count
+S03-operators/numeric-shift.niecza.................[31m===[0mSORRY![31m===[0m
+
+Malformed my at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S03-operators/numeric-shift.niecza line 34:
+------> [32mmy[33m⏏[31m int $t = 10;[0m
+
+Parse failed
+
+   0   37    0    0   37
+    37 tests aborted (missing ok/not ok)
 S03-operators/overflow.t...........................  98    0    0    0   98
 S03-operators/precedence.niecza....................  52    0    0    2   54
      2 skipped: assigning to readonly value
@@ -5075,7 +5082,7 @@ Use of uninitialized value in numeric context
 S32-list/reverse.niecza............................  16    0    0    5   21
      1 skipped: Unable to resolve method reverse in class Parcel
      4 skipped: Iterable NYI
-S32-list/roll.niecza...............................  42    4    0    2   48
+S32-list/roll.niecza...............................  41    5    0    2   48
      1 skipped: That's not the right way to spawn another Niecza
      1 skipped: .roll on empty list
 S32-list/sort.niecza...............................  24    0    4    4   32
@@ -6706,7 +6713,7 @@ Unhandled exception: System.Exception: Check failed
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
 "S02",        2958,   348,   109,   332,  3730,  4802
-"S03",        3328,   549,   198,   396,  4471,  5080
+"S03",        3304,   586,   198,   384,  4472,  5081
 "S04",         804,     0,    34,    60,   896,  1110
 "S05",        4083,    93,    93,   218,  4484,  5892
 "S06",         765,    26,    49,   162,  1002,  1383
@@ -6725,10 +6732,10 @@ Unhandled exception: System.Exception: Check failed
 "S26",           0,     0,     0,     0,     0,   311
 "S28",           6,     0,     1,     0,     7,    13
 "S29",         289,    19,     2,     9,   319,   351
-"S32",        6519,   293,   128,   258,  7194,  7513
+"S32",        6518,   294,   128,   258,  7194,  7513
 "int",         448,    38,    19,    20,   525,  1048
 "ros",           0,     0,     0,     0,     0,     2
-"total",     20407,  1451,   706,  1711, 24249, 31361
+"total",     20382,  1489,   706,  1699, 24250, 31362
 ----------------
 Failure summary:
 S02-lexical-conventions/comments.niecza aborted 1 test(s)
@@ -6747,6 +6754,7 @@ S02-types/sethash.niecza 41 - SetHash.kv returns list of keys and values
 S03-metaops/hyper.niecza aborted 203 test(s)
 S03-metaops/reduce.niecza aborted 203 test(s)
 S03-operators/andthen.t aborted 1 test(s)
+S03-operators/numeric-shift.niecza aborted 37 test(s)
 S03-operators/range-basic.niecza aborted 140 test(s)
 S03-operators/value_equivalence.niecza 33 - === on scalar references (1-3)
 S03-operators/value_equivalence.niecza 55 - === on anonymous scalar references (2)
@@ -6794,6 +6802,7 @@ S32-list/pick.niecza 55 - all pick on Enum is sane
 S32-list/pick.niecza 56 - too many pick on Enum is sane
 S32-list/roll.niecza 41 - simple roll on Enum type works
 S32-list/roll.niecza 42 - one roll on Enum type works
+S32-list/roll.niecza 45 - simple roll on Enum is sane
 S32-list/roll.niecza 46 - one roll on Enum is sane
 S32-list/roll.niecza 47 - too many roll on Enum is sane
 S32-num/cool-num.niecza passed 1 unplanned test(s)

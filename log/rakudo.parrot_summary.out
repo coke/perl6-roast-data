@@ -205,7 +205,9 @@ S02-types/baghash.rakudo.parrot.................... 212    0    4   26  242
      2 skipped: Odd number of elements
      2 todo   : Needs to catch up with spec
      2 todo   : in flux
-S02-types/bool.t...................................  51    0    0    0   51
+S02-types/bool.t...................................Segmentation fault (core dumped)
+  49    2    0    0   51
+     2 tests aborted (missing ok/not ok)
 S02-types/capture.rakudo.parrot....................  18    0    2    1   21
      1 skipped: nom regression
      2 todo   : nom regression
@@ -704,7 +706,8 @@ S03-operators/names.t..............................   7    0    0    0    7
 S03-operators/nesting.t............................  26    0    0    0   26
 S03-operators/not.rakudo.parrot....................  21    0    1    0   22
      1 todo   : RT 65556
-S03-operators/numeric-shift.t......................  36    0    0    0   36
+S03-operators/numeric-shift.rakudo.parrot..........  36    0    1    0   37
+     1 todo   : RT121909 - giving wrong result
 S03-operators/orelse.rakudo.parrot.................   8    0    0    3   11
      1 skipped: orelse sets $!
      1 skipped: orelse passes $! as argument
@@ -2717,19 +2720,7 @@ integration/advent2010-day08.t.....................   7    0    0    0    7
 integration/advent2010-day10.rakudo.parrot.........   2    0    2    0    4
      2 todo   : RT121843
 integration/advent2012-day02.t.....................   4    0    0    0    4
-integration/advent2012-day03.t.....................invoke() not implemented in class 'Callable'
-  in block  at gen/parrot/CORE.setting:1636
-  in method reify at gen/parrot/CORE.setting:7706
-  in method reify at gen/parrot/CORE.setting:7597
-  in method reify at gen/parrot/CORE.setting:7597
-  in method gimme at gen/parrot/CORE.setting:8064
-  in method eager at gen/parrot/CORE.setting:8036
-  in method STORE at gen/parrot/CORE.setting:8805
-  in method compute-layout at t/spec/integration/advent2012-day03.t:29
-  in block  at t/spec/integration/advent2012-day03.t:56
-
-   0    2    0    0    2
-     2 tests aborted (missing ok/not ok)
+integration/advent2012-day03.t.....................   2    0    0    0    2
 integration/advent2012-day04.t.....................   8    0    1    0    9
      1 todo   : differing result
 integration/advent2012-day06.t.....................   2    0    0    0    2
@@ -2789,8 +2780,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4261,     0,   126,   295,  4682,  4802
-"S03",        4812,     0,   112,   133,  5057,  5080
+"S02",        4259,     2,   126,   295,  4682,  4802
+"S03",        4812,     0,   113,   133,  5058,  5081
 "S04",         960,     0,    37,    47,  1044,  1110
 "S05",        4904,     0,    93,   411,  5408,  5892
 "S06",        1161,     0,    38,   104,  1303,  1383
@@ -2810,11 +2801,12 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     1,     4,     4,   341,   351
 "S32",        8902,   194,    92,   199,  9387,  7513
-"int",         936,     4,    14,    39,   993,  1048
+"int",         938,     2,    14,    39,   993,  1048
 "ros",           2,     0,     0,     0,     2,     2
-"total",     28812,   201,   599,  1458, 31070, 31361
+"total",     28812,   201,   600,  1458, 31071, 31362
 ----------------
 Failure summary:
+S02-types/bool.t aborted 2 test(s)
 S12-methods/chaining.t 16 - chaining through temp variable
 S12-methods/chaining.t 17 - chaining through Any return
 S29-os/system.rakudo.parrot 1 - run() to an existing program does not die (and returns something true)
@@ -2854,6 +2846,5 @@ S32-temporal/DateTime.rakudo.parrot 138 - DateTime.in-timezone (year rollover)
 S32-temporal/DateTime.rakudo.parrot 140 - DateTime.in-timezone (big rollover)
 S32-temporal/DateTime.rakudo.parrot aborted 34 test(s)
 S32-temporal/calendar.t aborted 126 test(s)
-integration/advent2012-day03.t aborted 2 test(s)
 integration/advent2012-day24.t 1 - calendar
 integration/advent2013-day06.t 1 - Recurring date spec
