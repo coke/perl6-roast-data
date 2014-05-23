@@ -173,11 +173,7 @@ S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.rakudo.moar...............  15    0    3    0   18
      3 todo   : non-flattening hash refs
 S02-types/autovivification.t.......................  25    0    0    0   25
-S02-types/bag.rakudo.moar..........................Potential difficulties:
-    Redeclaration of symbol $b2
-    at t/spec/S02-types/bag.rakudo.moar:422
-    ------> [32m    my $b2 [33m⏏[31m= <a b c d>.Bag;[0m
- 188    0    2    5  195
+S02-types/bag.rakudo.moar.......................... 188    0    2    5  195
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
      2 todo   : Not properly interpolating
@@ -653,7 +649,7 @@ S03-smartmatch/hash-hash.rakudo.moar...............   2    0    2    0    4
 S03-smartmatch/range-range.t.......................  14    0    0    0   14
 S03-smartmatch/regex-hash.t........................   4    0    0    0    4
 S03-smartmatch/scalar-hash.t.......................   3    0    0    0    3
-S03-smartmatch/signature-signature.rakudo.moar.....  17    1    0    2   20
+S03-smartmatch/signature-signature.rakudo.moar.....  17    0    0    2   19
      1 skipped: Parametric types
      1 skipped: Code params with signatures
                                                    pass fail todo skip plan
@@ -1517,7 +1513,10 @@ S17-supply/merge.t.................................  10    0    0    0   10
 S17-supply/migrate.t...............................  23    0    0    0   23
 S17-supply/min.t...................................  12    0    0    0   12
 S17-supply/minmax.t................................  12    0    0    0   12
-S17-supply/on.t....................................  12    0    0    0   12
+S17-supply/on.rakudo.moar..........................Aborted (core dumped)
+   0    0   12    0   12
+     1 todo   : test results are flapping
+    11 todo PASSED: test results are flapping
 S17-supply/reduce.t................................  12    0    0    0   12
 S17-supply/reverse.t...............................   5    0    0    0    5
 S17-supply/rotor.t.................................  11    0    0    0   11
@@ -1527,10 +1526,15 @@ S17-supply/squish.t................................  13    0    0    0   13
 S17-supply/stable.rakudo.moar......................Aborted (core dumped)
    7    0    0    2    9
      2 skipped: doesn't work or can't test
-S17-supply/start.t.................................   9    0    0    0    9
+S17-supply/start.rakudo.moar.......................Aborted (core dumped)
+   8    0    1    0    9
+     1 todo   : test results are flapping
 S17-supply/uniq.t..................................  19    0    0    0   19
 S17-supply/wait.t..................................   4    0    0    0    4
-S17-supply/watch_path.t............................  14    9    0    0   23
+S17-supply/watch_path.rakudo.moar..................Aborted (core dumped)
+  12    0   11    0   23
+     9 todo   : test results are flapping
+     2 todo PASSED: test results are flapping
 S17-supply/zip.t...................................  10    0    0    0   10
                                                    pass fail todo skip plan
 S19-command-line/dash-e.t..........................   3    0    0    0    3
@@ -2190,7 +2194,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        4314,     0,   129,   295,  4738,  4858
-"S03",        4812,     1,   112,   133,  5058,  5081
+"S03",        4812,     0,   112,   133,  5057,  5080
 "S04",         968,     0,    37,    44,  1049,  1115
 "S05",        4997,     0,    86,   325,  5408,  5892
 "S06",        1158,     0,    38,   107,  1303,  1383
@@ -2203,7 +2207,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         294,     0,    10,    12,   316,   329
 "S15",         234,     0,     0,     0,   234,   283
 "S16",         235,     0,     5,    18,   258,   302
-"S17",         645,     9,     1,    16,   671,   671
+"S17",         630,     0,    25,    16,   671,   671
 "S19",           4,     0,     0,     0,     4,     6
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         310,     0,     0,     1,   311,   311
@@ -2212,16 +2216,6 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9093,     0,    98,   196,  9387,  7513
 "int",         946,     0,    17,    34,   997,  1071
 "ros",           2,     0,     0,     0,     2,     2
-"total",     30043,    10,   607,  1381, 32041, 31446
+"total",     30028,     0,   631,  1381, 32040, 31445
 ----------------
-Failure summary:
-S03-smartmatch/signature-signature.rakudo.moar 6 - :(:a($x), :b($y)) ~~ :(:a(:b(:c($x))))
-S17-supply/watch_path.t 7 - did we NOT get an event for writing to the file
-S17-supply/watch_path.t 9 - did we NOT get an event for closing the file
-S17-supply/watch_path.t 11 - did we NOT get an event for opening the file again
-S17-supply/watch_path.t 13 - did we NOT get an event for writing to the file again
-S17-supply/watch_path.t 15 - did we get an event for closing the file again
-S17-supply/watch_path.t 17 - a slurp should not cause any file events
-S17-supply/watch_path.t 19 - the unlink caused an event
-S17-supply/watch_path.t 22 - at least 3 renaming
-S17-supply/watch_path.t 23 - maybe one changing
+No failures!

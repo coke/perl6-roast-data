@@ -108,7 +108,7 @@ S02-names-vars/names.rakudo.jvm.................... 128    0    1   13  142
 S02-names-vars/perl.rakudo.jvm.....................use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
-  91    1    0    6   98
+  92    0    0    6   98
      2 skipped: {...}.perl does not work
      2 skipped: recursive data structure
      2 skipped: RT 67790
@@ -173,15 +173,11 @@ S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.rakudo.jvm................  15    0    3    0   18
      3 todo   : non-flattening hash refs
 S02-types/autovivification.t.......................  25    0    0    0   25
-S02-types/bag.rakudo.jvm...........................Potential difficulties:
-    Redeclaration of symbol $b2
-    at t/spec/S02-types/bag.rakudo.jvm:422
-    ------> [32m    my $b2 [33m⏏[31m= <a b c d>.Bag;[0m
- 184    4    2    5  195
+S02-types/bag.rakudo.jvm........................... 188    0    2    5  195
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
      2 todo   : Not properly interpolating
-S02-types/baghash.rakudo.jvm....................... 214    4    6   26  250
+S02-types/baghash.rakudo.jvm....................... 218    0    6   26  250
     21 skipped: 'is ObjectType' NYI
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
@@ -241,7 +237,7 @@ S02-types/lists.rakudo.jvm.........................use of uninitialized value of
 use of uninitialized value of type Parcel in string context
   25    0    0    3   28
      3 skipped: list binding
-S02-types/mix.rakudo.jvm........................... 166    4    2    5  177
+S02-types/mix.rakudo.jvm........................... 170    0    2    5  177
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
      2 todo   : Not properly interpolating
@@ -250,7 +246,7 @@ use of uninitialized value of type Any in string context
   77    0    3    0   80
      2 todo   : unknown
      1 todo   : isa hash
-S02-types/mixhash.rakudo.jvm....................... 181    4    4   26  215
+S02-types/mixhash.rakudo.jvm....................... 185    0    4   26  215
     21 skipped: 'is ObjectType' NYI
      3 skipped: No longer Iterable
      2 skipped: Odd number of elements
@@ -302,13 +298,13 @@ S02-types/parcel.t.................................  44    0    0    0   44
 S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.t..................................use of uninitialized value of type Range in numeric context
  129    0    0    0  129
-S02-types/set.rakudo.jvm........................... 147    4   11    5  167
+S02-types/set.rakudo.jvm........................... 151    0   11    5  167
      1 skipped: Set is no longer Iterable
      1 skipped: seems to be fall out of S02 BagHash change
      3 skipped: Odd number of elements
      2 todo   : Not properly interpolating
      9 todo   : Hypers not yet Set compatible
-S02-types/sethash.rakudo.jvm....................... 182    4    2   11  199
+S02-types/sethash.rakudo.jvm....................... 186    0    2   11  199
     10 skipped: 'is ObjectType' NYI
      1 skipped: no longer Iterable
      2 todo   : Not up to current spec
@@ -653,7 +649,7 @@ S03-smartmatch/hash-hash.rakudo.jvm................   2    0    2    0    4
 S03-smartmatch/range-range.t.......................  14    0    0    0   14
 S03-smartmatch/regex-hash.t........................   4    0    0    0    4
 S03-smartmatch/scalar-hash.t.......................   3    0    0    0    3
-S03-smartmatch/signature-signature.rakudo.jvm......  18    0    0    2   20
+S03-smartmatch/signature-signature.rakudo.jvm......  17    0    0    2   19
      1 skipped: Parametric types
      1 skipped: Code params with signatures
                                                    pass fail todo skip plan
@@ -1361,7 +1357,8 @@ S12-methods/attribute-params.t.....................  13    0    0    0   13
 S12-methods/calling_sets.rakudo.jvm................  21    0    0   11   32
     11 skipped: ambiguous dispatch
 S12-methods/calling_syntax.t.......................  11    0    0    0   11
-S12-methods/chaining.t.............................  15    2    0    0   17
+S12-methods/chaining.rakudo.jvm....................  15    0    2    0   17
+     2 todo   : RT #121945
 S12-methods/class-and-instance.t...................   8    0    0    0    8
 S12-methods/default-trait.t........................   6    0    0    0    6
 S12-methods/defer-call.t...........................  14    0    0    0   14
@@ -1528,24 +1525,30 @@ S17-supply/for.rakudo.jvm..........................  14    0    1    0   15
 S17-supply/grab.t..................................   7    0    0    0    7
 S17-supply/grep.rakudo.jvm.........................   8    0    1    0    9
      1 todo   : D: doesn't work in signatures
-S17-supply/interval.t..............................   2    1    0    0    3
+S17-supply/interval.rakudo.jvm.....................   2    0    1    0    3
+     1 todo   : QAST::ParamTypeCheck needs to be implemented on jvm
 S17-supply/last.rakudo.jvm.........................   9    0    2    0   11
      1 todo   : we don't have Natural numbers yet
      1 todo   : D: doesn't work in signatures
 S17-supply/list.rakudo.jvm.........................   3    0    0    4    7
      4 skipped: hangs
-S17-supply/map.rakudo.jvm..........................   9    1    1    0   11
+S17-supply/map.rakudo.jvm..........................  10    0    1    0   11
      1 todo   : D: doesn't work in signatures
-S17-supply/max.t...................................  11    1    0    0   12
+S17-supply/max.rakudo.jvm..........................  11    0    1    0   12
+     1 todo   : QAST::ParamTypeCheck needs to be implemented on jvm
 S17-supply/merge.t.................................  10    0    0    0   10
 S17-supply/migrate.rakudo.jvm......................  22    0    1    0   23
      1 todo   : D: doesn't work in signatures
-S17-supply/min.t...................................  10    2    0    0   12
-S17-supply/minmax.t................................  10    2    0    0   12
-S17-supply/on.t....................................  11    1    0    0   12
+S17-supply/min.rakudo.jvm..........................  11    0    1    0   12
+     1 todo   : QAST::ParamTypeCheck needs to be implemented on jvm
+S17-supply/minmax.rakudo.jvm.......................  10    1    1    0   12
+     1 todo   : QAST::ParamTypeCheck needs to be implemented on jvm
+S17-supply/on.rakudo.jvm...........................   0    0   12    0   12
+     3 todo   : test results are flapping
+     9 todo PASSED: test results are flapping
 S17-supply/reduce.rakudo.jvm.......................  11    0    1    0   12
      1 todo   : D: doesn't work in signatures
-S17-supply/reverse.rakudo.jvm......................   4    0    1    0    5
+S17-supply/reverse.rakudo.jvm......................   3    1    1    0    5
      1 todo   : D: doesn't work in signatures
 S17-supply/rotor.rakudo.jvm........................  10    0    1    0   11
      1 todo   : D: doesn't work in signatures
@@ -1553,19 +1556,19 @@ S17-supply/schedule_on.rakudo.jvm..................   8    0    1    0    9
      1 todo   : D: doesn't work in signatures
 S17-supply/sort.rakudo.jvm.........................   7    1    1    0    9
      1 todo   : D: doesn't work in signatures
-S17-supply/squish.rakudo.jvm.......................  11    1    1    0   13
+S17-supply/squish.rakudo.jvm.......................  12    0    1    0   13
      1 todo   : D: doesn't work in signatures
 S17-supply/stable.rakudo.jvm.......................   6    0    1    2    9
      2 skipped: doesn't work or can't test
      1 todo   : D: doesn't work in signatures
-S17-supply/start.rakudo.jvm........................   8    0    1    0    9
+S17-supply/start.rakudo.jvm........................   7    1    1    0    9
      1 todo   : D: doesn't work in signatures
 S17-supply/uniq.rakudo.jvm.........................  18    0    1    0   19
      1 todo   : D: doesn't work in signatures
 S17-supply/wait.t..................................   4    0    0    0    4
 S17-supply/watch_path.rakudo.jvm...................   1    0    0   22   23
     22 skipped: file system events NYI?
-S17-supply/zip.t...................................   9    1    0    0   10
+S17-supply/zip.t...................................  10    0    0    0   10
                                                    pass fail todo skip plan
 S19-command-line/dash-e.rakudo.jvm.................   0    0    0    3    3
      3 skipped: nigh
@@ -2225,8 +2228,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4250,    25,   131,   332,  4738,  4858
-"S03",        4813,     0,   112,   133,  5058,  5081
+"S02",        4275,     0,   131,   332,  4738,  4858
+"S03",        4812,     0,   112,   133,  5057,  5080
 "S04",         962,     0,    39,    48,  1049,  1115
 "S05",        4905,     0,    92,   411,  5408,  5892
 "S06",        1158,     0,    38,   107,  1303,  1383
@@ -2234,12 +2237,12 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S09",         177,     0,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
 "S11",          75,     0,     2,     7,    84,   139
-"S12",        1336,     2,    48,   124,  1510,  1568
+"S12",        1336,     0,    50,   124,  1510,  1568
 "S13",          33,     0,    10,    28,    71,    81
 "S14",         294,     0,    10,    12,   316,   329
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         234,     0,     5,    19,   258,   302
-"S17",         602,    11,    19,    39,   671,   671
+"S17",         593,     4,    35,    39,   671,   671
 "S19",           1,     0,     0,     3,     4,     6
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         310,     0,     0,     1,   311,   311
@@ -2248,44 +2251,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9047,     0,    90,   250,  9387,  7513
 "int",         946,     0,    17,    34,   997,  1071
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29553,    38,   626,  1590, 31807, 31446
+"total",     29568,     4,   644,  1590, 31806, 31445
 ----------------
 Failure summary:
-S02-names-vars/perl.rakudo.jvm 84 - .perl on user-defined type roundtrips okay
-S02-types/bag.rakudo.jvm 176 - .fmt(%s) works (non-empty 10)
-S02-types/bag.rakudo.jvm 177 - .fmt(%s,sep) works (non-empty 10)
-S02-types/bag.rakudo.jvm 178 - .fmt(%s%s) works (non-empty 10)
-S02-types/bag.rakudo.jvm 179 - .fmt(%s%s,sep) works (non-empty 10)
-S02-types/baghash.rakudo.jvm 231 - .fmt(%s) works (non-empty 10)
-S02-types/baghash.rakudo.jvm 232 - .fmt(%s,sep) works (non-empty 10)
-S02-types/baghash.rakudo.jvm 233 - .fmt(%s%s) works (non-empty 10)
-S02-types/baghash.rakudo.jvm 234 - .fmt(%s%s,sep) works (non-empty 10)
-S02-types/mix.rakudo.jvm 158 - .fmt(%s) works (non-empty 11)
-S02-types/mix.rakudo.jvm 159 - .fmt(%s,sep) works (non-empty 11)
-S02-types/mix.rakudo.jvm 160 - .fmt(%s%s) works (non-empty 11)
-S02-types/mix.rakudo.jvm 161 - .fmt(%s%s,sep) works (non-empty 11)
-S02-types/mixhash.rakudo.jvm 196 - .fmt(%s) works (non-empty 11)
-S02-types/mixhash.rakudo.jvm 197 - .fmt(%s,sep) works (non-empty 11)
-S02-types/mixhash.rakudo.jvm 198 - .fmt(%s%s) works (non-empty 11)
-S02-types/mixhash.rakudo.jvm 199 - .fmt(%s%s,sep) works (non-empty 11)
-S02-types/set.rakudo.jvm 156 - .fmt(%s) works (non-empty)
-S02-types/set.rakudo.jvm 157 - .fmt(%s,sep) works (non-empty)
-S02-types/set.rakudo.jvm 158 - .fmt(%s%s) works (non-empty)
-S02-types/set.rakudo.jvm 159 - .fmt(%s%s,sep) works (non-empty)
-S02-types/sethash.rakudo.jvm 188 - .fmt(%s) works (non-empty)
-S02-types/sethash.rakudo.jvm 189 - .fmt(%s,sep) works (non-empty)
-S02-types/sethash.rakudo.jvm 190 - .fmt(%s%s) works (non-empty)
-S02-types/sethash.rakudo.jvm 191 - .fmt(%s%s,sep) works (non-empty)
-S12-methods/chaining.t 16 - chaining through temp variable
-S12-methods/chaining.t 17 - chaining through Any return
-S17-supply/interval.t 1 - can not be called as an instance method
-S17-supply/map.rakudo.jvm 5 - mapping tap with single values works
-S17-supply/max.t 1 - can not be called as a class method
-S17-supply/min.t 1 - can not be called as a class method
-S17-supply/min.t 5 - descending min works
-S17-supply/minmax.t 1 - can not be called as a class method
-S17-supply/minmax.t 6 - ascending alpha works
-S17-supply/on.t 3 - basic 2 supply 'on' works
+S17-supply/minmax.rakudo.jvm 6 - ascending alpha works
+S17-supply/reverse.rakudo.jvm 3 - we can reverse
 S17-supply/sort.rakudo.jvm 4 - we can sort strings
-S17-supply/squish.rakudo.jvm 3 - squish tap with 2 ranges works
-S17-supply/zip.t 3 - zipping with 3 supplies works
+S17-supply/start.rakudo.jvm 9 - did we get the other original value
