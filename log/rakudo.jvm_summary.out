@@ -119,7 +119,8 @@ S02-magicals/dollar_bang.rakudo.jvm................  15    0    1    0   16
 S02-magicals/env.rakudo.jvm........................  16    0    0    1   17
      1 skipped: import keyword
 S02-magicals/file_line.t...........................   2    0    0    0    2
-S02-magicals/pid.t.................................   1    0    0    0    1
+S02-magicals/pid.rakudo.jvm........................   1    0    1    0    2
+     1 todo PASSED: assigning to $*PID does not die
 S02-magicals/progname.t............................   4    0    0    0    4
 S02-magicals/sub.t.................................   6    0    0    0    6
 S02-names-vars/contextual.t........................  23    0    0    0   23
@@ -890,9 +891,7 @@ S05-mass/named-chars.rakudo.jvm.................... 337    0    0   94  431
      7 skipped: \c[NEL] not valid charname
      4 skipped: \c[FF] not valid charname
      2 skipped: LF as char name
-S05-mass/properties-block.t........................Killed
-   0  670    0    0  670
-   670 tests aborted (missing ok/not ok)
+S05-mass/properties-block.t........................ 670    0    0    0  670
 S05-mass/properties-derived.rakudo.jvm............. 189    0    1   66  256
      3 skipped: icu
     10 skipped: isCommon not implemented
@@ -1561,7 +1560,7 @@ S17-supply/last.rakudo.jvm.........................   9    0    2    0   11
      1 todo   : D: doesn't work in signatures
 S17-supply/list.rakudo.jvm.........................   3    0    0    4    7
      4 skipped: hangs
-S17-supply/map.rakudo.jvm..........................   9    1    1    0   11
+S17-supply/map.rakudo.jvm..........................  10    0    1    0   11
      1 todo   : D: doesn't work in signatures
 S17-supply/max.rakudo.jvm..........................  11    0    1    0   12
      1 todo   : QAST::ParamTypeCheck needs to be implemented on jvm
@@ -1572,7 +1571,7 @@ S17-supply/min.rakudo.jvm..........................  11    0    1    0   12
      1 todo   : QAST::ParamTypeCheck needs to be implemented on jvm
 S17-supply/minmax.rakudo.jvm.......................  10    1    1    0   12
      1 todo   : QAST::ParamTypeCheck needs to be implemented on jvm
-S17-supply/on.t....................................  11    1    0    0   12
+S17-supply/on.t....................................  10    2    0    0   12
 S17-supply/reduce.rakudo.jvm.......................  11    0    1    0   12
      1 todo   : D: doesn't work in signatures
 S17-supply/reverse.rakudo.jvm......................   4    0    1    0    5
@@ -1581,7 +1580,7 @@ S17-supply/rotor.rakudo.jvm........................  10    0    1    0   11
      1 todo   : D: doesn't work in signatures
 S17-supply/schedule_on.rakudo.jvm..................   8    0    1    0    9
      1 todo   : D: doesn't work in signatures
-S17-supply/sort.rakudo.jvm.........................   8    0    1    0    9
+S17-supply/sort.rakudo.jvm.........................   7    1    1    0    9
      1 todo   : D: doesn't work in signatures
 S17-supply/squish.rakudo.jvm.......................  12    0    1    0   13
      1 todo   : D: doesn't work in signatures
@@ -2270,10 +2269,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4327,     1,   148,   398,  4874,  4994
+"S02",        4327,     1,   149,   398,  4875,  4995
 "S03",        4812,     0,   112,   133,  5057,  5080
 "S04",         964,     0,    39,    48,  1051,  1117
-"S05",        4235,   670,    92,   411,  5408,  5892
+"S05",        4905,     0,    92,   411,  5408,  5892
 "S06",        1158,     0,    38,   107,  1303,  1383
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
@@ -2284,7 +2283,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         294,     0,    10,    12,   316,   329
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         234,     0,     5,    19,   258,   302
-"S17",         605,     5,    23,    17,   650,   650
+"S17",         604,     6,    23,    17,   650,   650
 "S19",           1,     0,     0,     3,     4,     6
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         310,     0,     0,     1,   311,   311
@@ -2293,12 +2292,12 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9051,     0,    90,   250,  9391,  7517
 "int",        1029,     0,    18,    34,  1081,  1081
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29051,   676,   650,  1634, 32011, 31576
+"total",     29720,     7,   651,  1634, 32012, 31577
 ----------------
 Failure summary:
 S02-magicals/VM.rakudo.jvm aborted 1 test(s)
-S05-mass/properties-block.t aborted 670 test(s)
-S17-supply/map.rakudo.jvm 5 - mapping tap with single values works
 S17-supply/minmax.rakudo.jvm 6 - ascending alpha works
-S17-supply/on.t 5 - basic 3 supply with array 'on' works
+S17-supply/on.t 3 - basic 2 supply 'on' works
+S17-supply/on.t 4 - basic 2 supply with (a,b) 'on' works
+S17-supply/sort.rakudo.jvm 4 - we can sort strings
 S17-supply/watch_path.rakudo.jvm aborted 2 test(s)
