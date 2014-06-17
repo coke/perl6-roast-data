@@ -4,14 +4,14 @@ This project contains tools for running the perl6 spec test suite
 (roast) by several different implementations, as well as tracking the
 results of those runs.
 
-See "perl6_pass_rates.csv" for the data, with a pretty version here:
-https://github.com/coke/perl6-roast-data/blob/master/perl6_pass_rates.csv
+See "perl6\_pass\_rates.csv" for the data, with a pretty version here:
+https://github.com/coke/perl6-roast-data/blob/master/perl6\_pass\_rates.csv
 
 Each implementation's last run is checked in under a corresponding
-".out" file. Check your implementation's file for any failures or
-unexpected passes.
+".out" file in the log/ directory. Check your implementation's file for
+any failures or unexpected passes.
 
-Note - the percentage column shows the percentage of the implmentations
+Note - the percentage column shows the percentage of the implementations
 against each other for that day's run - so the highest number of passes
 is always 100%, and the others are in relation to that number. So,
 100% doesn't mean "passes every spectest". 
@@ -39,43 +39,22 @@ or keep reading if you want to fix it.
 
 # How to Help
 
-## rakudo.parrot
+## rakudo
 
 The most complete implementation/vm combination, any failures here
 are from a regression, or from a newly added or changed test that doesn't
 pass. In either case, please open an RT (email to rakudobug at perl
 dot org), get a ticket number, and fudge the test, giving the ticket #.
 
-## rakudo.jvm
-
-rakudo.jvm is nearly passing 100% of the spec tests, but is not
-completely fudged yet - Any fudges marked "rakudo.jvm" will eventually
-need tickets opened in RT (same as for rakudo.parrot), or to be fixed.
-Any failures should be
-considered under development. Tickets can also be opened for those
-as well - if you open a ticket, please fudge the test and add the RT #
-to the ticket.
+There are 3 backends (parrot, jvm, and moar), and a test may fail on
+any or all of these backends. Be sure to mark the ticket in RT with
+the appropriate vm, and only fudge the test for the appropriate backend.
+(#?rakudo for all backends, #?rakudo.jvm for, e.g. the JVM backend)
 
 ## pugs
 
-Since Pugs is in maintenance mode, any new tests are not
-likely to get a patch to work; To keep Pugs green, any failing tests
-should be fudged. For most tests, this involves prefixing the test
-with:
-
-    #?pugs todo
-  
-If this still doesn't allow the test file to complete, change the todo
-to a skip - this requires a reason; either put in the error diagnostic
-or the word "parsefail", e.g.:
-
-    #?pugs skip 'No compatible multi variant found: "&is"'
-
-If you still can't get a test file to pass, drop by #perl6 on freenode.
-
 ## niecza
 
-Niecza is in maintenance mode, but unlike pugs, may still get some bug fixes.
-Any tests that are not passing need a ticket
-opened in https://github.com/sorear/niecza/issues, and then need to be fudged
-with a reference to that ticket number.
+These versions are in maintenance mode.
+Any tests that are not passing should be fudged with a todo if possible,
+or a skip if necessary.
