@@ -1247,7 +1247,7 @@ S17-supply/stable.rakudo.jvm.......................   4    0    1    2    7
      1 todo   : D: doesn't work in signatures
 S17-supply/start.rakudo.jvm........................   8    0    1    0    9
      1 todo   : D: doesn't work in signatures
-S17-supply/uniq.rakudo.jvm.........................  16    0    1    0   17
+S17-supply/uniq.rakudo.jvm.........................  14    2    1    0   17
      1 todo   : D: doesn't work in signatures
 S17-supply/wait.t..................................   4    0    0    0    4
 S17-supply/watch_path.rakudo.jvm...................   2    0    0    0    2
@@ -1348,350 +1348,652 @@ S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.jvm..........................  18    0   11    0   29
     11 todo   : binding on hash elements unimplemented
 S32-io/IO-Socket-Async.t...........................   6    0    0    0    6
-S32-io/IO-Socket-INET.t............................  42    5    0    0   47
-S32-io/chdir.rakudo.jvm............................   8    0    0    2   10
-     2 skipped: spec non-conformance due to missing sink context
-S32-io/copy.t......................................  29    0    0    0   29
-S32-io/dir.t.......................................  12    0    0    0   12
-S32-io/file-tests.t................................  34    0    0    0   34
-S32-io/io-path-cygwin.rakudo.jvm...................  49    0    1    2   52
-     2 skipped: On-system tests for filetest inheritance
-     1 todo   : resolve NYI, needs nqp::readlink
-S32-io/io-path-unix.rakudo.jvm.....................  36    0    1    0   37
-     1 todo   : resolve NYI, needs nqp::readlink
-S32-io/io-path-win.rakudo.jvm......................  48    0    1    2   51
-     2 skipped: On-system tests for filetest inheritance
-     1 todo   : resolve NYI, needs nqp::readlink
-S32-io/io-path.t...................................  13    0    0    0   13
-S32-io/io-spec-cygwin.t............................ 100    0    0    2  102
-     2 skipped: cygwin on-platform tests
-S32-io/io-spec-unix.t.............................. 129    0    0    0  129
-S32-io/io-spec-win.t............................... 206    0    0    3  209
-     3 skipped: Win32ish on-platform tests
-S32-io/note.rakudo.jvm.............................   5    0    1    0    6
-     1 todo   : nom regression
-S32-io/other.t.....................................  60    0    0    0   60
-S32-io/slurp.t.....................................  16    0    0    0   16
-S32-io/spurt.t.....................................  33    0    0    0   33
-S32-list/categorize.t..............................  12    0    0    0   12
-S32-list/classify.rakudo.jvm.......................  12    0    0    3   15
-     3 skipped: Cannot use bind operator with this LHS
-S32-list/combinations.t............................   6    0    0    0    6
-S32-list/create.t..................................   6    0    0    0    6
-S32-list/end.t.....................................  14    0    0    0   14
-S32-list/first-index.rakudo.jvm....................  19    0    0    2   21
-     2 skipped: adverbial block
-S32-list/first.rakudo.jvm..........................  21    0    0    2   23
-     2 skipped: adverbial block
-S32-list/grep-index.rakudo.jvm.....................  15    0    0   20   35
-     6 skipped: closure as non-final argument
-     2 skipped: test error -- is $_ rw here?
-    12 skipped: adverbial block
-S32-list/grep.rakudo.jvm...........................  17    0    0   21   38
-     6 skipped: closure as non-final argument
-     1 skipped: RT 71544: grep arity sensitivity different from map
-     2 skipped: test error -- is $_ rw here?
-    12 skipped: adverbial block
-S32-list/join.t....................................  34    0    0    0   34
-S32-list/last-index.rakudo.jvm.....................  19    0    0    2   21
-     2 skipped: adverbial block
-S32-list/map.rakudo.jvm............................  51    0    0    8   59
-     4 skipped: adverbial block; RT #53804
-     2 skipped: closure as non-final argument
-     2 skipped: adverbial block
-S32-list/map_function_return_values.t..............   2    0    0    0    2
-S32-list/minmax.t..................................  55    0    0    0   55
-S32-list/pick.rakudo.jvm...........................  56    0    1    0   57
-     1 todo   : error on pick :replace
-S32-list/reduce.rakudo.jvm.........................  13    0    1    0   14
-     1 todo   : n-ary reduce
-S32-list/reverse.rakudo.jvm........................  20    0    1    0   21
-     1 todo   : RT 77914
-S32-list/roll.rakudo.jvm...........................  47    0    0    1   48
-     1 skipped: Cannot spawn rakudo like this (RT 121528)
-S32-list/sort.rakudo.jvm...........................  28    0    1    3   32
-     1 skipped: closure as non-final argument
-     2 skipped: determine behavior of 0-arity methods passed to sort
-     1 todo   : method fallback to sub unimpl
-S32-list/squish.t..................................  28    0    0    0   28
-S32-list/uniq.t....................................  33    0    0    0   33
-S32-num/abs.t......................................  49    0    0    0   49
-S32-num/base.t.....................................  12    0    0    0   12
-S32-num/complex.t.................................. 488    0    0    0  488
-S32-num/cool-num.rakudo.jvm........................  39    0    0    4   43
-     4 skipped: angle conversion
-S32-num/exp.t......................................  72    0    0    0   72
-S32-num/expmod.t................................... 117    0    0    0  117
-S32-num/fatrat.rakudo.jvm.......................... 271    0    1    2  274
-     2 skipped: FatRat arith + type objects
-     1 todo   : unknown
-S32-num/int.rakudo.jvm............................. 102    0    2    3  107
-     2 skipped: trailing characters produce failures
-     1 skipped: Inf and NaN NYI for Int
-     2 todo   : Inf and NaN NYI for Int
-S32-num/is-prime.t.................................  35    0    0    0   35
-S32-num/log.rakudo.jvm.............................  28    0    1    0   29
-     1 todo   : HugeInt.log
-S32-num/narrow.t...................................   9    0    0    0    9
-S32-num/pi.t.......................................   4    0    0    0    4
-S32-num/polar.t....................................  48    0    0    0   48
-S32-num/power.rakudo.jvm...........................  48    0    0    4   52
-     1 skipped: NaN**1i should be NaN
-     1 skipped: i
-     1 skipped: NaN**0 should be NaN
-     1 skipped: 1i**NaN should be NaN
-S32-num/rand.rakudo.jvm............................ 112    0    0    1  113
-     1 skipped: Test is too slow
-S32-num/rat.rakudo.jvm............................. 819    0    4    1  824
-     1 skipped: RT 74648
-     4 todo   : <1/3> literal should be Rat
-S32-num/real-bridge.t.............................. 200    0    0    0  200
-S32-num/roots.t....................................  55    0    0    0   55
-S32-num/rounders.rakudo.jvm........................ 127    0    1    0  128
-     1 todo   : nigh
-S32-num/rshift_pos_amount.t........................ 189    0    0    0  189
-S32-num/sign.rakudo.jvm............................  33    0    1    1   35
-     1 skipped: Test is kind of doubtful IMO -- colomon
-     1 todo   : Nom does not yet have a NaN framework in place
-S32-num/sqrt.t.....................................  18    0    0    0   18
-S32-num/stringify.rakudo.jvm.......................  97    0   11    4  112
-     4 skipped: big stuff
-    11 todo   : Complex.perl
-S32-num/unpolar.t.................................. 199    0    0    0  199
-S32-scalar/defined.t...............................  56    0    0    0   56
-S32-scalar/perl.rakudo.jvm.........................   4    0    2    0    6
-     2 todo   : cannot roundtrip constrained scalars yet
-S32-scalar/undef.rakudo.jvm........................  66    0    4   16   86
-    10 skipped: Cannot use bind operator with this left-hand side
-     6 skipped: access to &your_sub
-     1 todo   : definedness of hash
-     2 todo   : todo: lists, defined, truthness
-     1 todo   : definedness of array
-S32-str/append.t...................................   7    0    0    0    7
-S32-str/bool.t.....................................  12    0    0    0   12
-S32-str/capitalize.rakudo.jvm......................  15    0    2    0   17
-     2 todo   : graphemes results wrong
-S32-str/chomp.t....................................  39    0    0    0   39
-S32-str/chop.t.....................................   6    0    0    0    6
-S32-str/comb.rakudo.jvm............................  38    0    2    1   41
-     1 skipped: cannot call match, no signature matches
-     2 todo   : graphemes not implemented
-S32-str/encode.rakudo.jvm..........................  21    0    0    1   22
-     1 skipped: We do not handle NDF yet
-S32-str/flip.rakudo.jvm............................  11    0    2    0   13
-     2 todo   : graphemes not implemented
-S32-str/indent.rakudo.jvm..........................  61    0    0    1   62
-     1 skipped: coercion to Int
-S32-str/index.rakudo.jvm...........................  36    0    0    2   38
-     2 skipped: StrPos not implemented
-S32-str/lc.t.......................................  13    0    0    0   13
-S32-str/lines.t....................................   4    0    0    0    4
-S32-str/numeric.rakudo.jvm......................... 161    0    6    1  168
-     1 skipped: NYI
-     5 todo   : Failure
-     1 todo   : complex Str.Numeric
-S32-str/ords.t.....................................   6    0    0    0    6
-S32-str/pack.t.....................................   6    0    0    0    6
-S32-str/pos.t......................................   2    0    0    0    2
-S32-str/rindex.t...................................  33    0    0    0   33
-S32-str/samecase.t.................................   8    0    0    0    8
-S32-str/split-simple.rakudo.jvm....................  48    0    1    0   49
-     1 todo   : RT 112868
-S32-str/split.rakudo.jvm...........................  52    0    0    1   53
-     1 skipped: No such method null for invocant of type Cursor
-S32-str/sprintf.rakudo.jvm......................... 133    0    2   14  149
-    10 skipped: Issues with Inf
-     1 skipped: %p doesn't yet throw exception - but should it, or just Failure?
-     3 skipped: java.lang.NumberFormatException
-     2 todo   : buggy
-S32-str/substr-rw.rakudo.jvm.......................  19    0   12    0   31
-    12 todo   : NYI
-S32-str/substr.rakudo.jvm..........................  53    0    0   39   92
-     3 skipped: java.nio.charset.MalformedInputException
-    28 skipped: No support for StrPos
-     1 skipped: lvalue substr
-     7 skipped: too many args
-S32-str/tc.rakudo.jvm..............................   6    0    3    0    9
-     2 todo   : NYI
-     1 todo   : tc works on codepoints greater than 0xffff
-S32-str/tclc.rakudo.jvm............................   5    0    1    0    6
-     1 todo   : RT 121377
-S32-str/trim.t.....................................  36    0    0    0   36
-S32-str/uc.rakudo.jvm..............................  14    0    0    4   18
-     4 skipped: but RoleName
-S32-str/unpack.t...................................  12    0    0    0   12
-S32-str/words.rakudo.jvm...........................  11    0    0    2   13
-     2 skipped: graphemes not implemented
-S32-temporal/Date.t................................  72    0    0    0   72
-S32-temporal/DateTime-Instant-Duration.rakudo.jvm..  28    0    4    1   33
-     1 skipped: nom regression
-     4 todo   : high-precision Instants NYI (need FatRats)
-S32-temporal/DateTime.rakudo.jvm................... 200    0    1    0  201
-     1 todo   : nom regression
-S32-temporal/calendar.t............................ 130    0    0    0  130
-S32-temporal/local.t...............................   6    0    0   19   25
-    19 skipped: The local time zone may not be America/New_York.
-S32-trig/atan2.t................................... 115    0    0    0  115
-S32-trig/cos.t..................................... 154    0    0    0  154
-S32-trig/cosec.t................................... 114    0    0    0  114
-S32-trig/cosech.t.................................. 146    0    0    0  146
-S32-trig/cosh.t.................................... 138    0    0    0  138
-S32-trig/cotan.t................................... 114    0    0    0  114
-S32-trig/cotanh.t.................................. 146    0    0    0  146
-S32-trig/e.t.......................................   5    0    0    0    5
-S32-trig/pi.t......................................   3    0    0    0    3
-S32-trig/sec.t..................................... 114    0    0    0  114
-S32-trig/sech.t.................................... 154    0    0    0  154
-S32-trig/simple.t..................................  12    0    0    0   12
-S32-trig/sin.t..................................... 154    0    0    0  154
-S32-trig/sinh.t.................................... 138    0    0    0  138
-S32-trig/tan.t..................................... 138    0    0    0  138
-S32-trig/tanh.t.................................... 154    0    0    0  154
+S32-io/IO-Socket-INET.t............................  18   29    0    0   47
+    10 tests aborted (missing ok/not ok)
+S32-io/chdir.rakudo.jvm............................cannot connect to eval server: Connection refused
+   0   10    0    0   10
+    10 tests aborted (missing ok/not ok)
+S32-io/copy.t......................................cannot connect to eval server: Connection refused
+   0   29    0    0   29
+    29 tests aborted (missing ok/not ok)
+S32-io/dir.t.......................................cannot connect to eval server: Connection refused
+   0   12    0    0   12
+    12 tests aborted (missing ok/not ok)
+S32-io/file-tests.t................................cannot connect to eval server: Connection refused
+   0   34    0    0   34
+    34 tests aborted (missing ok/not ok)
+S32-io/io-path-cygwin.rakudo.jvm...................cannot connect to eval server: Connection refused
+   0   52    0    0   52
+    52 tests aborted (missing ok/not ok)
+S32-io/io-path-unix.rakudo.jvm.....................cannot connect to eval server: Connection refused
+   0   37    0    0   37
+    37 tests aborted (missing ok/not ok)
+S32-io/io-path-win.rakudo.jvm......................cannot connect to eval server: Connection refused
+   0   51    0    0   51
+    51 tests aborted (missing ok/not ok)
+S32-io/io-path.t...................................cannot connect to eval server: Connection refused
+   0   13    0    0   13
+    13 tests aborted (missing ok/not ok)
+S32-io/io-spec-cygwin.t............................cannot connect to eval server: Connection refused
+   0  102    0    0  102
+   102 tests aborted (missing ok/not ok)
+S32-io/io-spec-unix.t..............................cannot connect to eval server: Connection refused
+   0  129    0    0  129
+   129 tests aborted (missing ok/not ok)
+S32-io/io-spec-win.t...............................cannot connect to eval server: Connection refused
+   0  209    0    0  209
+   209 tests aborted (missing ok/not ok)
+S32-io/note.rakudo.jvm.............................cannot connect to eval server: Connection refused
+   0    6    0    0    6
+     6 tests aborted (missing ok/not ok)
+S32-io/other.t.....................................cannot connect to eval server: Connection refused
+   0   60    0    0   60
+    60 tests aborted (missing ok/not ok)
+S32-io/slurp.t.....................................cannot connect to eval server: Connection refused
+   0   16    0    0   16
+    16 tests aborted (missing ok/not ok)
+S32-io/spurt.t.....................................cannot connect to eval server: Connection refused
+   0    0    0    0    0
+S32-list/categorize.t..............................cannot connect to eval server: Connection refused
+   0   12    0    0   12
+    12 tests aborted (missing ok/not ok)
+S32-list/classify.rakudo.jvm.......................cannot connect to eval server: Connection refused
+   0   15    0    0   15
+    15 tests aborted (missing ok/not ok)
+S32-list/combinations.t............................cannot connect to eval server: Connection refused
+   0    6    0    0    6
+     6 tests aborted (missing ok/not ok)
+S32-list/create.t..................................cannot connect to eval server: Connection refused
+   0    6    0    0    6
+     6 tests aborted (missing ok/not ok)
+S32-list/end.t.....................................cannot connect to eval server: Connection refused
+   0   14    0    0   14
+    14 tests aborted (missing ok/not ok)
+S32-list/first-index.rakudo.jvm....................cannot connect to eval server: Connection refused
+   0   21    0    0   21
+    21 tests aborted (missing ok/not ok)
+S32-list/first.rakudo.jvm..........................cannot connect to eval server: Connection refused
+   0   23    0    0   23
+    23 tests aborted (missing ok/not ok)
+S32-list/grep-index.rakudo.jvm.....................cannot connect to eval server: Connection refused
+   0   35    0    0   35
+    35 tests aborted (missing ok/not ok)
+S32-list/grep.rakudo.jvm...........................cannot connect to eval server: Connection refused
+   0   38    0    0   38
+    38 tests aborted (missing ok/not ok)
+S32-list/join.t....................................cannot connect to eval server: Connection refused
+   0   34    0    0   34
+    34 tests aborted (missing ok/not ok)
+S32-list/last-index.rakudo.jvm.....................cannot connect to eval server: Connection refused
+   0   21    0    0   21
+    21 tests aborted (missing ok/not ok)
+S32-list/map.rakudo.jvm............................cannot connect to eval server: Connection refused
+   0   59    0    0   59
+    59 tests aborted (missing ok/not ok)
+S32-list/map_function_return_values.t..............cannot connect to eval server: Connection refused
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
+S32-list/minmax.t..................................cannot connect to eval server: Connection refused
+   0   55    0    0   55
+    55 tests aborted (missing ok/not ok)
+S32-list/pick.rakudo.jvm...........................cannot connect to eval server: Connection refused
+   0   57    0    0   57
+    57 tests aborted (missing ok/not ok)
+S32-list/reduce.rakudo.jvm.........................cannot connect to eval server: Connection refused
+   0   14    0    0   14
+    14 tests aborted (missing ok/not ok)
+S32-list/reverse.rakudo.jvm........................cannot connect to eval server: Connection refused
+   0   21    0    0   21
+    21 tests aborted (missing ok/not ok)
+S32-list/roll.rakudo.jvm...........................cannot connect to eval server: Connection refused
+   0   48    0    0   48
+    48 tests aborted (missing ok/not ok)
+S32-list/sort.rakudo.jvm...........................cannot connect to eval server: Connection refused
+   0   32    0    0   32
+    32 tests aborted (missing ok/not ok)
+S32-list/squish.t..................................cannot connect to eval server: Connection refused
+   0   28    0    0   28
+    28 tests aborted (missing ok/not ok)
+S32-list/uniq.t....................................cannot connect to eval server: Connection refused
+   0   33    0    0   33
+    33 tests aborted (missing ok/not ok)
+S32-num/abs.t......................................cannot connect to eval server: Connection refused
+   0   49    0    0   49
+    49 tests aborted (missing ok/not ok)
+S32-num/base.t.....................................cannot connect to eval server: Connection refused
+   0   12    0    0   12
+    12 tests aborted (missing ok/not ok)
+S32-num/complex.t..................................cannot connect to eval server: Connection refused
+   0  488    0    0  488
+   488 tests aborted (missing ok/not ok)
+S32-num/cool-num.rakudo.jvm........................cannot connect to eval server: Connection refused
+   0   43    0    0   43
+    43 tests aborted (missing ok/not ok)
+S32-num/exp.t......................................cannot connect to eval server: Connection refused
+   0   72    0    0   72
+    72 tests aborted (missing ok/not ok)
+S32-num/expmod.t...................................cannot connect to eval server: Connection refused
+   0  117    0    0  117
+   117 tests aborted (missing ok/not ok)
+S32-num/fatrat.rakudo.jvm..........................cannot connect to eval server: Connection refused
+   0  274    0    0  274
+   274 tests aborted (missing ok/not ok)
+S32-num/int.rakudo.jvm.............................cannot connect to eval server: Connection refused
+   0  107    0    0  107
+   107 tests aborted (missing ok/not ok)
+S32-num/is-prime.t.................................cannot connect to eval server: Connection refused
+   0   35    0    0   35
+    35 tests aborted (missing ok/not ok)
+S32-num/log.rakudo.jvm.............................cannot connect to eval server: Connection refused
+   0   29    0    0   29
+    29 tests aborted (missing ok/not ok)
+S32-num/narrow.t...................................cannot connect to eval server: Connection refused
+   0    9    0    0    9
+     9 tests aborted (missing ok/not ok)
+S32-num/pi.t.......................................cannot connect to eval server: Connection refused
+   0    4    0    0    4
+     4 tests aborted (missing ok/not ok)
+S32-num/polar.t....................................cannot connect to eval server: Connection refused
+   0   48    0    0   48
+    48 tests aborted (missing ok/not ok)
+S32-num/power.rakudo.jvm...........................cannot connect to eval server: Connection refused
+   0   52    0    0   52
+    52 tests aborted (missing ok/not ok)
+S32-num/rand.rakudo.jvm............................cannot connect to eval server: Connection refused
+   0  113    0    0  113
+   113 tests aborted (missing ok/not ok)
+S32-num/rat.rakudo.jvm.............................cannot connect to eval server: Connection refused
+   0  824    0    0  824
+   824 tests aborted (missing ok/not ok)
+S32-num/real-bridge.t..............................cannot connect to eval server: Connection refused
+   0  200    0    0  200
+   200 tests aborted (missing ok/not ok)
+S32-num/roots.t....................................cannot connect to eval server: Connection refused
+   0   55    0    0   55
+    55 tests aborted (missing ok/not ok)
+S32-num/rounders.rakudo.jvm........................cannot connect to eval server: Connection refused
+   0  128    0    0  128
+   128 tests aborted (missing ok/not ok)
+S32-num/rshift_pos_amount.t........................cannot connect to eval server: Connection refused
+   0  189    0    0  189
+   189 tests aborted (missing ok/not ok)
+S32-num/sign.rakudo.jvm............................cannot connect to eval server: Connection refused
+   0   35    0    0   35
+    35 tests aborted (missing ok/not ok)
+S32-num/sqrt.t.....................................cannot connect to eval server: Connection refused
+   0   18    0    0   18
+    18 tests aborted (missing ok/not ok)
+S32-num/stringify.rakudo.jvm.......................cannot connect to eval server: Connection refused
+   0  112    0    0  112
+   112 tests aborted (missing ok/not ok)
+S32-num/unpolar.t..................................cannot connect to eval server: Connection refused
+   0  199    0    0  199
+   199 tests aborted (missing ok/not ok)
+S32-scalar/defined.t...............................cannot connect to eval server: Connection refused
+   0   56    0    0   56
+    56 tests aborted (missing ok/not ok)
+S32-scalar/perl.rakudo.jvm.........................cannot connect to eval server: Connection refused
+   0    6    0    0    6
+     6 tests aborted (missing ok/not ok)
+S32-scalar/undef.rakudo.jvm........................cannot connect to eval server: Connection refused
+   0   86    0    0   86
+    86 tests aborted (missing ok/not ok)
+S32-str/append.t...................................cannot connect to eval server: Connection refused
+   0    7    0    0    7
+     7 tests aborted (missing ok/not ok)
+S32-str/bool.t.....................................cannot connect to eval server: Connection refused
+   0   12    0    0   12
+    12 tests aborted (missing ok/not ok)
+S32-str/capitalize.rakudo.jvm......................cannot connect to eval server: Connection refused
+   0   17    0    0   17
+    17 tests aborted (missing ok/not ok)
+S32-str/chomp.t....................................cannot connect to eval server: Connection refused
+   0   39    0    0   39
+    39 tests aborted (missing ok/not ok)
+S32-str/chop.t.....................................cannot connect to eval server: Connection refused
+   0    6    0    0    6
+     6 tests aborted (missing ok/not ok)
+S32-str/comb.rakudo.jvm............................cannot connect to eval server: Connection refused
+   0   41    0    0   41
+    41 tests aborted (missing ok/not ok)
+S32-str/encode.rakudo.jvm..........................cannot connect to eval server: Connection refused
+   0   22    0    0   22
+    22 tests aborted (missing ok/not ok)
+S32-str/flip.rakudo.jvm............................cannot connect to eval server: Connection refused
+   0   13    0    0   13
+    13 tests aborted (missing ok/not ok)
+S32-str/indent.rakudo.jvm..........................cannot connect to eval server: Connection refused
+   0   62    0    0   62
+    62 tests aborted (missing ok/not ok)
+S32-str/index.rakudo.jvm...........................cannot connect to eval server: Connection refused
+   0   38    0    0   38
+    38 tests aborted (missing ok/not ok)
+S32-str/lc.t.......................................cannot connect to eval server: Connection refused
+   0   13    0    0   13
+    13 tests aborted (missing ok/not ok)
+S32-str/lines.t....................................cannot connect to eval server: Connection refused
+   0    4    0    0    4
+     4 tests aborted (missing ok/not ok)
+S32-str/numeric.rakudo.jvm.........................cannot connect to eval server: Connection refused
+   0  168    0    0  168
+   168 tests aborted (missing ok/not ok)
+S32-str/ords.t.....................................cannot connect to eval server: Connection refused
+   0    6    0    0    6
+     6 tests aborted (missing ok/not ok)
+S32-str/pack.t.....................................cannot connect to eval server: Connection refused
+   0    6    0    0    6
+     6 tests aborted (missing ok/not ok)
+S32-str/pos.t......................................cannot connect to eval server: Connection refused
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
+S32-str/rindex.t...................................cannot connect to eval server: Connection refused
+   0   33    0    0   33
+    33 tests aborted (missing ok/not ok)
+S32-str/samecase.t.................................cannot connect to eval server: Connection refused
+   0    8    0    0    8
+     8 tests aborted (missing ok/not ok)
+S32-str/split-simple.rakudo.jvm....................cannot connect to eval server: Connection refused
+   0   49    0    0   49
+    49 tests aborted (missing ok/not ok)
+S32-str/split.rakudo.jvm...........................cannot connect to eval server: Connection refused
+   0   53    0    0   53
+    53 tests aborted (missing ok/not ok)
+S32-str/sprintf.rakudo.jvm.........................cannot connect to eval server: Connection refused
+   0  149    0    0  149
+   149 tests aborted (missing ok/not ok)
+S32-str/substr-rw.rakudo.jvm.......................cannot connect to eval server: Connection refused
+   0   31    0    0   31
+    31 tests aborted (missing ok/not ok)
+S32-str/substr.rakudo.jvm..........................cannot connect to eval server: Connection refused
+   0   92    0    0   92
+    92 tests aborted (missing ok/not ok)
+S32-str/tc.rakudo.jvm..............................cannot connect to eval server: Connection refused
+   0    9    0    0    9
+     9 tests aborted (missing ok/not ok)
+S32-str/tclc.rakudo.jvm............................cannot connect to eval server: Connection refused
+   0    6    0    0    6
+     6 tests aborted (missing ok/not ok)
+S32-str/trim.t.....................................cannot connect to eval server: Connection refused
+   0   36    0    0   36
+    36 tests aborted (missing ok/not ok)
+S32-str/uc.rakudo.jvm..............................cannot connect to eval server: Connection refused
+   0   18    0    0   18
+    18 tests aborted (missing ok/not ok)
+S32-str/unpack.t...................................cannot connect to eval server: Connection refused
+   0   12    0    0   12
+    12 tests aborted (missing ok/not ok)
+S32-str/words.rakudo.jvm...........................cannot connect to eval server: Connection refused
+   0   13    0    0   13
+    13 tests aborted (missing ok/not ok)
+S32-temporal/Date.t................................cannot connect to eval server: Connection refused
+   0   72    0    0   72
+    72 tests aborted (missing ok/not ok)
+S32-temporal/DateTime-Instant-Duration.rakudo.jvm..cannot connect to eval server: Connection refused
+   0   33    0    0   33
+    33 tests aborted (missing ok/not ok)
+S32-temporal/DateTime.rakudo.jvm...................cannot connect to eval server: Connection refused
+   0  201    0    0  201
+   201 tests aborted (missing ok/not ok)
+S32-temporal/calendar.t............................cannot connect to eval server: Connection refused
+   0  130    0    0  130
+   130 tests aborted (missing ok/not ok)
+S32-temporal/local.t...............................cannot connect to eval server: Connection refused
+   0   25    0    0   25
+    25 tests aborted (missing ok/not ok)
+S32-trig/atan2.t...................................cannot connect to eval server: Connection refused
+   0    0    0    0    0
+S32-trig/cos.t.....................................cannot connect to eval server: Connection refused
+   0    0    0    0    0
+S32-trig/cosec.t...................................cannot connect to eval server: Connection refused
+   0  114    0    0  114
+   114 tests aborted (missing ok/not ok)
+S32-trig/cosech.t..................................cannot connect to eval server: Connection refused
+   0    0    0    0    0
+S32-trig/cosh.t....................................cannot connect to eval server: Connection refused
+   0    0    0    0    0
+S32-trig/cotan.t...................................cannot connect to eval server: Connection refused
+   0    0    0    0    0
+S32-trig/cotanh.t..................................cannot connect to eval server: Connection refused
+   0    0    0    0    0
+S32-trig/e.t.......................................cannot connect to eval server: Connection refused
+   0    5    0    0    5
+     5 tests aborted (missing ok/not ok)
+S32-trig/pi.t......................................cannot connect to eval server: Connection refused
+   0    3    0    0    3
+     3 tests aborted (missing ok/not ok)
+S32-trig/sec.t.....................................cannot connect to eval server: Connection refused
+   0    0    0    0    0
+S32-trig/sech.t....................................cannot connect to eval server: Connection refused
+   0    0    0    0    0
+S32-trig/simple.t..................................cannot connect to eval server: Connection refused
+   0   12    0    0   12
+    12 tests aborted (missing ok/not ok)
+S32-trig/sin.t.....................................cannot connect to eval server: Connection refused
+   0    0    0    0    0
+S32-trig/sinh.t....................................cannot connect to eval server: Connection refused
+   0    0    0    0    0
+S32-trig/tan.t.....................................cannot connect to eval server: Connection refused
+   0    0    0    0    0
+S32-trig/tanh.t....................................cannot connect to eval server: Connection refused
+   0    0    0    0    0
                                                    pass fail todo skip plan
-integration/99problems-01-to-10.rakudo.jvm.........  21    0    0    1   22
-     1 skipped: groupless gather/take
-integration/99problems-11-to-20.rakudo.jvm.........  23    0    2    0   25
-     2 todo   : unknown
-integration/99problems-21-to-30.rakudo.jvm.........  12    0    3    0   15
-     3 todo   : unknown
-integration/99problems-31-to-40.t..................  66    0    0    1   67
-     1 skipped: No Benchmark module yet
-integration/99problems-41-to-50.rakudo.jvm.........   5    0    1    7   13
-     1 skipped: Test(s) not yet written: (*) Truth tables for logical expressions (2).
-     1 skipped: s:P5///
-     4 skipped: Shaped variable declarations
-     1 skipped: Test(s) not yet written: (**) Truth tables for logical expressions (3).
-     1 todo   : making Parcel.reverse return a Parcel seems to break this
-integration/99problems-51-to-60.t..................  35    0    0    2   37
-     1 skipped: Test(s) not yet written: (**) Generate-and-test paradigm
-     1 skipped: Test(s) not yet written: (**) Construct height-balanced binary trees with a given number of nodes
-integration/99problems-61-to-70.t..................   9    0    0    6   15
-     1 skipped: Test(s) not yet written: (**) Tree construction from a node string
-     1 skipped: Test(s) not yet written: (**) Dotstring representation of binary trees
-     1 skipped: Test(s) not yet written: (***) Layout a binary tree (3)
-     1 skipped: Test(s) not yet written: (**) A string representation of binary trees
-     1 skipped: Test(s) not yet written: (**) Preorder and inorder sequences of binary trees
-     1 skipped: Test(s) not yet written: (**) Construct a complete binary tree
-integration/advent2009-day01.t.....................   2    0    0    0    2
-integration/advent2009-day02.t.....................  10    0    0    0   10
-integration/advent2009-day03.t.....................   6    0    0    0    6
-integration/advent2009-day04.t.....................   6    0    0    0    6
-integration/advent2009-day05.t.....................  17    0    0    0   17
-integration/advent2009-day06.rakudo.jvm............  14    0    1    0   15
-     1 todo   : Cannot assign to readonly value
-integration/advent2009-day07.rakudo.jvm............  12    0    0    1   13
-     1 skipped: No candidates found to invoke
-integration/advent2009-day08.t.....................   8    0    0    0    8
-integration/advent2009-day09.t.....................  17    0    0    0   17
-integration/advent2009-day10.t.....................   5    0    0    0    5
-integration/advent2009-day11.t.....................   6    0    0    0    6
-integration/advent2009-day12.rakudo.jvm............   5    0    0    4    9
-     3 skipped: Importing symbols by name doesn't work in current Rakudo
-     1 skipped: Multi subs aren't imported by default in current Rakudo - is this to spec?
-integration/advent2009-day13.t.....................  16    0    0    0   16
-integration/advent2009-day14.t.....................  21    0    0    0   21
-integration/advent2009-day15.t.....................   4    0    0    0    4
-integration/advent2009-day16.t.....................  11    0    0    0   11
-integration/advent2009-day17.t.....................  62    0    0    0   62
-integration/advent2009-day18.rakudo.jvm............   5    0    0    1    6
-     1 skipped: parse error
-integration/advent2009-day19.t.....................   6    0    0    0    6
-integration/advent2009-day20.t.....................  21    0    0    0   21
-integration/advent2009-day21.t.....................   2    0    0    0    2
-integration/advent2009-day22.t.....................   4    0    0    0    4
-integration/advent2009-day23.rakudo.jvm............   3    0    0    1    4
-     1 skipped: lists aren't properly lazy in Rakudo yet
-integration/advent2010-day03.t.....................  12    0    0    0   12
-integration/advent2010-day04.t.....................  11    0    0    0   11
-integration/advent2010-day06.t.....................  12    0    0    0   12
-integration/advent2010-day07.t.....................   8    0    0    0    8
-integration/advent2010-day08.t.....................   7    0    0    0    7
-integration/advent2010-day10.rakudo.jvm............   2    0    2    0    4
-     2 todo   : RT121843
-integration/advent2010-day11.t.....................   2    0    0    0    2
-integration/advent2010-day12.t.....................  13    0    0    0   13
-integration/advent2010-day14.t.....................   5    0    0    0    5
-integration/advent2010-day16.t.....................  13    0    0    0   13
-integration/advent2010-day19.rakudo.jvm............   5    0    1    0    6
-     1 todo   : RT121940 - should be 'True'
-integration/advent2010-day21.t.....................   4    0    0    0    4
-integration/advent2011-day03.t.....................   2    0    0    0    2
-integration/advent2011-day04.t.....................   2    0    0    0    2
-integration/advent2011-day05.t.....................   5    0    0    0    5
-integration/advent2011-day07.t.....................   3    0    0    0    3
-integration/advent2011-day10.rakudo.jvm............   4    0    0    1    5
-     1 skipped: RT12205
-integration/advent2011-day11.t.....................   9    0    0    0    9
-integration/advent2011-day14.t.....................   8    0    0    0    8
-integration/advent2011-day15.t.....................   9    0    0    0    9
-integration/advent2011-day16.t.....................  11    0    0    0   11
-integration/advent2011-day20.t.....................  16    0    0    0   16
-integration/advent2012-day02.t.....................   4    0    0    0    4
-integration/advent2012-day03.t.....................   2    0    0    0    2
-integration/advent2012-day04.t.....................   8    0    1    0    9
-     1 todo   : differing result
-integration/advent2012-day06.t.....................   2    0    0    0    2
-integration/advent2012-day09.t.....................   8    0    0    0    8
-integration/advent2012-day10.t.....................  26    0    0    0   26
-integration/advent2012-day12.t.....................   5    0    0    0    5
-integration/advent2012-day13.t.....................  42    0    0    0   42
-integration/advent2012-day14.rakudo.jvm............   3    0    0    3    6
-     3 skipped: RT121802 failing on JVM
-integration/advent2012-day15.t.....................  11    0    0    0   11
-integration/advent2012-day16.t.....................  11    0    0    0   11
-integration/advent2012-day19.t.....................  10    0    0    0   10
-integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................   9    0    0    0    9
-integration/advent2012-day22.rakudo.jvm............   5    0    0    1    6
-     1 skipped: RT121789
-integration/advent2012-day23.t.....................   2    0    0    0    2
-integration/advent2012-day24.t.....................   1    0    0    0    1
-integration/advent2013-day02.t.....................  12    0    0    0   12
-integration/advent2013-day04.rakudo.jvm............   6    0    1    0    7
-     1 todo   : :c in heredocs
-integration/advent2013-day06.t.....................   1    0    0    0    1
-integration/advent2013-day07.t.....................   6    0    0    0    6
-integration/advent2013-day08.t.....................  11    0    0    0   11
-integration/advent2013-day09.t.....................  21    0    0    0   21
-integration/advent2013-day10.rakudo.jvm............  43    0    1    0   44
-     1 todo   : adverb stacking
-integration/advent2013-day12.rakudo.jvm............  30    0    0    2   32
-     2 skipped: RT121622 aborting on jvm
-integration/advent2013-day14.t.....................  10    0    0    0   10
-integration/advent2013-day15.rakudo.jvm............  26    0    4    0   30
-     1 todo   : jvm rounding quirks
-     3 todo   : list of numbers
-integration/advent2013-day18.t.....................  10    0    0    0   10
-integration/advent2013-day19.t.....................   4    0    0    0    4
-integration/advent2013-day20.t.....................  22    0    0    0   22
-integration/advent2013-day21.t.....................  24    0    0    0   24
-integration/advent2013-day22.t.....................   9    0    0    0    9
-integration/advent2013-day23.t.....................   9    0    0    0    9
-integration/code-blocks-as-sub-args.t..............   4    0    0    0    4
-integration/error-reporting.rakudo.jvm.............  15    0    1    0   16
-     1 todo   : nigh
-integration/lazy-bentley-generator.t...............   1    0    0    0    1
-integration/lexical-array-in-inner-block.t.........   2    0    0    0    2
-integration/lexicals-and-attributes.t..............   8    0    0    0    8
-integration/man-or-boy.t...........................  10    0    0    0   10
-integration/method-calls-and-instantiation.t.......   2    0    0    0    2
-integration/no-indirect-new.t......................   2    0    0    0    2
-integration/packages.t.............................   3    0    0    0    3
-integration/pair-in-array.t........................   3    0    0    0    3
-integration/passing-pair-class-to-sub.t............   2    0    0    0    2
-integration/real-strings.t.........................  20    0    0    0   20
-integration/role-composition-vs-attribute.rakudo...   6    0    0    4   10
-     2 skipped: alas, no visibility of native private attributes yet
-     2 skipped: alas, no visibility of private attributes in other role
-integration/rule-in-class-Str.t....................   3    0    0    0    3
-integration/say-crash.t............................   4    0    0    0    4
-integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
-integration/topic_in_double_loop.t.................   5    0    0    0    5
-integration/variables-in-do.t......................   3    0    0    0    3
-integration/weird-errors.t.........................  12    0    0    0   12
+integration/99problems-01-to-10.rakudo.jvm.........cannot connect to eval server: Connection refused
+   0   22    0    0   22
+    22 tests aborted (missing ok/not ok)
+integration/99problems-11-to-20.rakudo.jvm.........cannot connect to eval server: Connection refused
+   0   25    0    0   25
+    25 tests aborted (missing ok/not ok)
+integration/99problems-21-to-30.rakudo.jvm.........cannot connect to eval server: Connection refused
+   0   15    0    0   15
+    15 tests aborted (missing ok/not ok)
+integration/99problems-31-to-40.t..................cannot connect to eval server: Connection refused
+   0   67    0    0   67
+    67 tests aborted (missing ok/not ok)
+integration/99problems-41-to-50.rakudo.jvm.........cannot connect to eval server: Connection refused
+   0   13    0    0   13
+    13 tests aborted (missing ok/not ok)
+integration/99problems-51-to-60.t..................cannot connect to eval server: Connection refused
+   0   37    0    0   37
+    37 tests aborted (missing ok/not ok)
+integration/99problems-61-to-70.t..................cannot connect to eval server: Connection refused
+   0   15    0    0   15
+    15 tests aborted (missing ok/not ok)
+integration/advent2009-day01.t.....................cannot connect to eval server: Connection refused
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
+integration/advent2009-day02.t.....................cannot connect to eval server: Connection refused
+   0   10    0    0   10
+    10 tests aborted (missing ok/not ok)
+integration/advent2009-day03.t.....................cannot connect to eval server: Connection refused
+   0    6    0    0    6
+     6 tests aborted (missing ok/not ok)
+integration/advent2009-day04.t.....................cannot connect to eval server: Connection refused
+   0    6    0    0    6
+     6 tests aborted (missing ok/not ok)
+integration/advent2009-day05.t.....................cannot connect to eval server: Connection refused
+   0   17    0    0   17
+    17 tests aborted (missing ok/not ok)
+integration/advent2009-day06.rakudo.jvm............cannot connect to eval server: Connection refused
+   0   15    0    0   15
+    15 tests aborted (missing ok/not ok)
+integration/advent2009-day07.rakudo.jvm............cannot connect to eval server: Connection refused
+   0   13    0    0   13
+    13 tests aborted (missing ok/not ok)
+integration/advent2009-day08.t.....................cannot connect to eval server: Connection refused
+   0    8    0    0    8
+     8 tests aborted (missing ok/not ok)
+integration/advent2009-day09.t.....................cannot connect to eval server: Connection refused
+   0   17    0    0   17
+    17 tests aborted (missing ok/not ok)
+integration/advent2009-day10.t.....................cannot connect to eval server: Connection refused
+   0    5    0    0    5
+     5 tests aborted (missing ok/not ok)
+integration/advent2009-day11.t.....................cannot connect to eval server: Connection refused
+   0    6    0    0    6
+     6 tests aborted (missing ok/not ok)
+integration/advent2009-day12.rakudo.jvm............cannot connect to eval server: Connection refused
+   0    9    0    0    9
+     9 tests aborted (missing ok/not ok)
+integration/advent2009-day13.t.....................cannot connect to eval server: Connection refused
+   0   16    0    0   16
+    16 tests aborted (missing ok/not ok)
+integration/advent2009-day14.t.....................cannot connect to eval server: Connection refused
+   0   21    0    0   21
+    21 tests aborted (missing ok/not ok)
+integration/advent2009-day15.t.....................cannot connect to eval server: Connection refused
+   0    4    0    0    4
+     4 tests aborted (missing ok/not ok)
+integration/advent2009-day16.t.....................cannot connect to eval server: Connection refused
+   0   11    0    0   11
+    11 tests aborted (missing ok/not ok)
+integration/advent2009-day17.t.....................cannot connect to eval server: Connection refused
+   0   62    0    0   62
+    62 tests aborted (missing ok/not ok)
+integration/advent2009-day18.rakudo.jvm............cannot connect to eval server: Connection refused
+   0    6    0    0    6
+     6 tests aborted (missing ok/not ok)
+integration/advent2009-day19.t.....................cannot connect to eval server: Connection refused
+   0    6    0    0    6
+     6 tests aborted (missing ok/not ok)
+integration/advent2009-day20.t.....................cannot connect to eval server: Connection refused
+   0   21    0    0   21
+    21 tests aborted (missing ok/not ok)
+integration/advent2009-day21.t.....................cannot connect to eval server: Connection refused
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
+integration/advent2009-day22.t.....................cannot connect to eval server: Connection refused
+   0    4    0    0    4
+     4 tests aborted (missing ok/not ok)
+integration/advent2009-day23.rakudo.jvm............cannot connect to eval server: Connection refused
+   0    4    0    0    4
+     4 tests aborted (missing ok/not ok)
+integration/advent2010-day03.t.....................cannot connect to eval server: Connection refused
+   0   12    0    0   12
+    12 tests aborted (missing ok/not ok)
+integration/advent2010-day04.t.....................cannot connect to eval server: Connection refused
+   0   11    0    0   11
+    11 tests aborted (missing ok/not ok)
+integration/advent2010-day06.t.....................cannot connect to eval server: Connection refused
+   0   12    0    0   12
+    12 tests aborted (missing ok/not ok)
+integration/advent2010-day07.t.....................cannot connect to eval server: Connection refused
+   0    8    0    0    8
+     8 tests aborted (missing ok/not ok)
+integration/advent2010-day08.t.....................cannot connect to eval server: Connection refused
+   0    7    0    0    7
+     7 tests aborted (missing ok/not ok)
+integration/advent2010-day10.rakudo.jvm............cannot connect to eval server: Connection refused
+   0    4    0    0    4
+     4 tests aborted (missing ok/not ok)
+integration/advent2010-day11.t.....................cannot connect to eval server: Connection refused
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
+integration/advent2010-day12.t.....................cannot connect to eval server: Connection refused
+   0   13    0    0   13
+    13 tests aborted (missing ok/not ok)
+integration/advent2010-day14.t.....................cannot connect to eval server: Connection refused
+   0    5    0    0    5
+     5 tests aborted (missing ok/not ok)
+integration/advent2010-day16.t.....................cannot connect to eval server: Connection refused
+   0   13    0    0   13
+    13 tests aborted (missing ok/not ok)
+integration/advent2010-day19.rakudo.jvm............cannot connect to eval server: Connection refused
+   0    6    0    0    6
+     6 tests aborted (missing ok/not ok)
+integration/advent2010-day21.t.....................cannot connect to eval server: Connection refused
+   0    4    0    0    4
+     4 tests aborted (missing ok/not ok)
+integration/advent2011-day03.t.....................cannot connect to eval server: Connection refused
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
+integration/advent2011-day04.t.....................cannot connect to eval server: Connection refused
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
+integration/advent2011-day05.t.....................cannot connect to eval server: Connection refused
+   0    5    0    0    5
+     5 tests aborted (missing ok/not ok)
+integration/advent2011-day07.t.....................cannot connect to eval server: Connection refused
+   0    3    0    0    3
+     3 tests aborted (missing ok/not ok)
+integration/advent2011-day10.rakudo.jvm............cannot connect to eval server: Connection refused
+   0    5    0    0    5
+     5 tests aborted (missing ok/not ok)
+integration/advent2011-day11.t.....................cannot connect to eval server: Connection refused
+   0    9    0    0    9
+     9 tests aborted (missing ok/not ok)
+integration/advent2011-day14.t.....................cannot connect to eval server: Connection refused
+   0    8    0    0    8
+     8 tests aborted (missing ok/not ok)
+integration/advent2011-day15.t.....................cannot connect to eval server: Connection refused
+   0    9    0    0    9
+     9 tests aborted (missing ok/not ok)
+integration/advent2011-day16.t.....................cannot connect to eval server: Connection refused
+   0   11    0    0   11
+    11 tests aborted (missing ok/not ok)
+integration/advent2011-day20.t.....................cannot connect to eval server: Connection refused
+   0   16    0    0   16
+    16 tests aborted (missing ok/not ok)
+integration/advent2012-day02.t.....................cannot connect to eval server: Connection refused
+   0    4    0    0    4
+     4 tests aborted (missing ok/not ok)
+integration/advent2012-day03.t.....................cannot connect to eval server: Connection refused
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
+integration/advent2012-day04.t.....................cannot connect to eval server: Connection refused
+   0    9    0    0    9
+     9 tests aborted (missing ok/not ok)
+integration/advent2012-day06.t.....................cannot connect to eval server: Connection refused
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
+integration/advent2012-day09.t.....................cannot connect to eval server: Connection refused
+   0    8    0    0    8
+     8 tests aborted (missing ok/not ok)
+integration/advent2012-day10.t.....................cannot connect to eval server: Connection refused
+   0   26    0    0   26
+    26 tests aborted (missing ok/not ok)
+integration/advent2012-day12.t.....................cannot connect to eval server: Connection refused
+   0    5    0    0    5
+     5 tests aborted (missing ok/not ok)
+integration/advent2012-day13.t.....................cannot connect to eval server: Connection refused
+   0   42    0    0   42
+    42 tests aborted (missing ok/not ok)
+integration/advent2012-day14.rakudo.jvm............cannot connect to eval server: Connection refused
+   0    6    0    0    6
+     6 tests aborted (missing ok/not ok)
+integration/advent2012-day15.t.....................cannot connect to eval server: Connection refused
+   0   11    0    0   11
+    11 tests aborted (missing ok/not ok)
+integration/advent2012-day16.t.....................cannot connect to eval server: Connection refused
+   0   11    0    0   11
+    11 tests aborted (missing ok/not ok)
+integration/advent2012-day19.t.....................cannot connect to eval server: Connection refused
+   0   10    0    0   10
+    10 tests aborted (missing ok/not ok)
+integration/advent2012-day20.t.....................cannot connect to eval server: Connection refused
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
+integration/advent2012-day21.t.....................cannot connect to eval server: Connection refused
+   0    9    0    0    9
+     9 tests aborted (missing ok/not ok)
+integration/advent2012-day22.rakudo.jvm............cannot connect to eval server: Connection refused
+   0    6    0    0    6
+     6 tests aborted (missing ok/not ok)
+integration/advent2012-day23.t.....................cannot connect to eval server: Connection refused
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
+integration/advent2012-day24.t.....................cannot connect to eval server: Connection refused
+   0    1    0    0    1
+     1 tests aborted (missing ok/not ok)
+integration/advent2013-day02.t.....................cannot connect to eval server: Connection refused
+   0   12    0    0   12
+    12 tests aborted (missing ok/not ok)
+integration/advent2013-day04.rakudo.jvm............cannot connect to eval server: Connection refused
+   0    7    0    0    7
+     7 tests aborted (missing ok/not ok)
+integration/advent2013-day06.t.....................cannot connect to eval server: Connection refused
+   0    1    0    0    1
+     1 tests aborted (missing ok/not ok)
+integration/advent2013-day07.t.....................cannot connect to eval server: Connection refused
+   0    6    0    0    6
+     6 tests aborted (missing ok/not ok)
+integration/advent2013-day08.t.....................cannot connect to eval server: Connection refused
+   0   11    0    0   11
+    11 tests aborted (missing ok/not ok)
+integration/advent2013-day09.t.....................cannot connect to eval server: Connection refused
+   0   21    0    0   21
+    21 tests aborted (missing ok/not ok)
+integration/advent2013-day10.rakudo.jvm............cannot connect to eval server: Connection refused
+   0   44    0    0   44
+    44 tests aborted (missing ok/not ok)
+integration/advent2013-day12.rakudo.jvm............cannot connect to eval server: Connection refused
+   0   32    0    0   32
+    32 tests aborted (missing ok/not ok)
+integration/advent2013-day14.t.....................cannot connect to eval server: Connection refused
+   0   10    0    0   10
+    10 tests aborted (missing ok/not ok)
+integration/advent2013-day15.rakudo.jvm............cannot connect to eval server: Connection refused
+   0   30    0    0   30
+    30 tests aborted (missing ok/not ok)
+integration/advent2013-day18.t.....................cannot connect to eval server: Connection refused
+   0   10    0    0   10
+    10 tests aborted (missing ok/not ok)
+integration/advent2013-day19.t.....................cannot connect to eval server: Connection refused
+   0    4    0    0    4
+     4 tests aborted (missing ok/not ok)
+integration/advent2013-day20.t.....................cannot connect to eval server: Connection refused
+   0   22    0    0   22
+    22 tests aborted (missing ok/not ok)
+integration/advent2013-day21.t.....................cannot connect to eval server: Connection refused
+   0   24    0    0   24
+    24 tests aborted (missing ok/not ok)
+integration/advent2013-day22.t.....................cannot connect to eval server: Connection refused
+   0    9    0    0    9
+     9 tests aborted (missing ok/not ok)
+integration/advent2013-day23.t.....................cannot connect to eval server: Connection refused
+   0    9    0    0    9
+     9 tests aborted (missing ok/not ok)
+integration/code-blocks-as-sub-args.t..............cannot connect to eval server: Connection refused
+   0    4    0    0    4
+     4 tests aborted (missing ok/not ok)
+integration/error-reporting.rakudo.jvm.............cannot connect to eval server: Connection refused
+   0   16    0    0   16
+    16 tests aborted (missing ok/not ok)
+integration/lazy-bentley-generator.t...............cannot connect to eval server: Connection refused
+   0    1    0    0    1
+     1 tests aborted (missing ok/not ok)
+integration/lexical-array-in-inner-block.t.........cannot connect to eval server: Connection refused
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
+integration/lexicals-and-attributes.t..............cannot connect to eval server: Connection refused
+   0    8    0    0    8
+     8 tests aborted (missing ok/not ok)
+integration/man-or-boy.t...........................cannot connect to eval server: Connection refused
+   0    0    0    0    0
+integration/method-calls-and-instantiation.t.......cannot connect to eval server: Connection refused
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
+integration/no-indirect-new.t......................cannot connect to eval server: Connection refused
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
+integration/packages.t.............................cannot connect to eval server: Connection refused
+   0    0    0    0    0
+integration/pair-in-array.t........................cannot connect to eval server: Connection refused
+   0    3    0    0    3
+     3 tests aborted (missing ok/not ok)
+integration/passing-pair-class-to-sub.t............cannot connect to eval server: Connection refused
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
+integration/real-strings.t.........................cannot connect to eval server: Connection refused
+   0   20    0    0   20
+    20 tests aborted (missing ok/not ok)
+integration/role-composition-vs-attribute.rakudo...cannot connect to eval server: Connection refused
+   0   10    0    0   10
+    10 tests aborted (missing ok/not ok)
+integration/rule-in-class-Str.t....................cannot connect to eval server: Connection refused
+   0    3    0    0    3
+     3 tests aborted (missing ok/not ok)
+integration/say-crash.t............................cannot connect to eval server: Connection refused
+   0    4    0    0    4
+     4 tests aborted (missing ok/not ok)
+integration/substr-after-match-in-gather-in-for.t..cannot connect to eval server: Connection refused
+   0    1    0    0    1
+     1 tests aborted (missing ok/not ok)
+integration/topic_in_double_loop.t.................cannot connect to eval server: Connection refused
+   0    5    0    0    5
+     5 tests aborted (missing ok/not ok)
+integration/variables-in-do.t......................cannot connect to eval server: Connection refused
+   0    3    0    0    3
+     3 tests aborted (missing ok/not ok)
+integration/weird-errors.t.........................cannot connect to eval server: Connection refused
+   0   12    0    0   12
+    12 tests aborted (missing ok/not ok)
                                                    pass fail todo skip plan
-rosettacode/greatest_element_of_a_list.t...........   1    0    0    0    1
-rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
+rosettacode/greatest_element_of_a_list.t...........cannot connect to eval server: Connection refused
+   0    1    0    0    1
+     1 tests aborted (missing ok/not ok)
+rosettacode/sierpinski_triangle.t..................cannot connect to eval server: Connection refused
+   0    1    0    0    1
+     1 tests aborted (missing ok/not ok)
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
@@ -1709,23 +2011,244 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         294,     0,    10,    12,   316,   329
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         234,     0,     5,    19,   258,   302
-"S17",         551,     1,    23,    21,   596,   596
+"S17",         549,     3,    23,    21,   596,   596
 "S19",           1,     0,     0,     3,     4,     6
 "S22",          12,     0,     1,     0,    13,    24
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         312,     0,     0,     2,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     0,     3,     6,   341,   351
-"S32",        9101,     5,    90,   203,  9399,  7523
-"int",        1098,     0,    18,    35,  1151,  1151
-"ros",           2,     0,     0,     0,     2,     2
-"total",     29816,     6,   651,  1598, 32071, 31646
+"S32",        1391,  6283,    19,     8,  7701,  7523
+"int",           0,  1138,     0,     0,  1138,  1141
+"ros",           0,     2,     0,     0,     2,     2
+"total",     21004,  7426,   562,  1368, 30360, 31636
 ----------------
 Failure summary:
 S17-promise/allof.t 10 - got the right order
+S17-supply/uniq.rakudo.jvm 6 - uniq with expiry works
+S17-supply/uniq.rakudo.jvm 15 - uniq with as and expiry works
 note: test_summary.pl @syn does not have S22
-S32-io/IO-Socket-INET.t 1 - [46s] echo server and client
-S32-io/IO-Socket-INET.t 3 - [47s] discard server and client
-S32-io/IO-Socket-INET.t 32 - [45s] received first character
+S32-io/IO-Socket-INET.t 1 - [48s] echo server and client
+S32-io/IO-Socket-INET.t 3 - [50s] discard server and client
+S32-io/IO-Socket-INET.t 5 - [47s] received first 7 characters
+S32-io/IO-Socket-INET.t 7 - [0s] received next 3 characters
+S32-io/IO-Socket-INET.t 9 - [0s] remaining 26 were buffered
+S32-io/IO-Socket-INET.t 11 - [0s] received 뻯
+S32-io/IO-Socket-INET.t 13 - [0s] ... which is 1 character
+S32-io/IO-Socket-INET.t 15 - [0s] received another character
+S32-io/IO-Socket-INET.t 17 - [0s] combined the bytes form 몾
+S32-io/IO-Socket-INET.t 19 - [46s] get() with default separator
+S32-io/IO-Socket-INET.t 21 - [1s] default separator
+S32-io/IO-Socket-INET.t 23 - [0s] \r\n separator
+S32-io/IO-Socket-INET.t 25 - [0s] . as a separator
+S32-io/IO-Socket-INET.t 27 - [0s] ! separator not at end of string
+S32-io/IO-Socket-INET.t 29 - [0s] Multiple separators not at end of string
+S32-io/IO-Socket-INET.t 31 - [1s] ! separator at end of string
+S32-io/IO-Socket-INET.t 32 - [47s] received first character
 S32-io/IO-Socket-INET.t 34 - [0s] received last character
 S32-io/IO-Socket-INET.t 36 - [0s] total amount 
+S32-io/IO-Socket-INET.t aborted 10 test(s)
+S32-io/chdir.rakudo.jvm aborted 10 test(s)
+S32-io/copy.t aborted 29 test(s)
+S32-io/dir.t aborted 12 test(s)
+S32-io/file-tests.t aborted 34 test(s)
+S32-io/io-path-cygwin.rakudo.jvm aborted 52 test(s)
+S32-io/io-path-unix.rakudo.jvm aborted 37 test(s)
+S32-io/io-path-win.rakudo.jvm aborted 51 test(s)
+S32-io/io-path.t aborted 13 test(s)
+S32-io/io-spec-cygwin.t aborted 102 test(s)
+S32-io/io-spec-unix.t aborted 129 test(s)
+S32-io/io-spec-win.t aborted 209 test(s)
+S32-io/note.rakudo.jvm aborted 6 test(s)
+S32-io/other.t aborted 60 test(s)
+S32-io/slurp.t aborted 16 test(s)
+S32-list/categorize.t aborted 12 test(s)
+S32-list/classify.rakudo.jvm aborted 15 test(s)
+S32-list/combinations.t aborted 6 test(s)
+S32-list/create.t aborted 6 test(s)
+S32-list/end.t aborted 14 test(s)
+S32-list/first-index.rakudo.jvm aborted 21 test(s)
+S32-list/first.rakudo.jvm aborted 23 test(s)
+S32-list/grep-index.rakudo.jvm aborted 35 test(s)
+S32-list/grep.rakudo.jvm aborted 38 test(s)
+S32-list/join.t aborted 34 test(s)
+S32-list/last-index.rakudo.jvm aborted 21 test(s)
+S32-list/map.rakudo.jvm aborted 59 test(s)
+S32-list/map_function_return_values.t aborted 2 test(s)
+S32-list/minmax.t aborted 55 test(s)
+S32-list/pick.rakudo.jvm aborted 57 test(s)
+S32-list/reduce.rakudo.jvm aborted 14 test(s)
+S32-list/reverse.rakudo.jvm aborted 21 test(s)
+S32-list/roll.rakudo.jvm aborted 48 test(s)
+S32-list/sort.rakudo.jvm aborted 32 test(s)
+S32-list/squish.t aborted 28 test(s)
+S32-list/uniq.t aborted 33 test(s)
+S32-num/abs.t aborted 49 test(s)
+S32-num/base.t aborted 12 test(s)
+S32-num/complex.t aborted 488 test(s)
+S32-num/cool-num.rakudo.jvm aborted 43 test(s)
+S32-num/exp.t aborted 72 test(s)
+S32-num/expmod.t aborted 117 test(s)
+S32-num/fatrat.rakudo.jvm aborted 274 test(s)
+S32-num/int.rakudo.jvm aborted 107 test(s)
+S32-num/is-prime.t aborted 35 test(s)
+S32-num/log.rakudo.jvm aborted 29 test(s)
+S32-num/narrow.t aborted 9 test(s)
+S32-num/pi.t aborted 4 test(s)
+S32-num/polar.t aborted 48 test(s)
+S32-num/power.rakudo.jvm aborted 52 test(s)
+S32-num/rand.rakudo.jvm aborted 113 test(s)
+S32-num/rat.rakudo.jvm aborted 824 test(s)
+S32-num/real-bridge.t aborted 200 test(s)
+S32-num/roots.t aborted 55 test(s)
+S32-num/rounders.rakudo.jvm aborted 128 test(s)
+S32-num/rshift_pos_amount.t aborted 189 test(s)
+S32-num/sign.rakudo.jvm aborted 35 test(s)
+S32-num/sqrt.t aborted 18 test(s)
+S32-num/stringify.rakudo.jvm aborted 112 test(s)
+S32-num/unpolar.t aborted 199 test(s)
+S32-scalar/defined.t aborted 56 test(s)
+S32-scalar/perl.rakudo.jvm aborted 6 test(s)
+S32-scalar/undef.rakudo.jvm aborted 86 test(s)
+S32-str/append.t aborted 7 test(s)
+S32-str/bool.t aborted 12 test(s)
+S32-str/capitalize.rakudo.jvm aborted 17 test(s)
+S32-str/chomp.t aborted 39 test(s)
+S32-str/chop.t aborted 6 test(s)
+S32-str/comb.rakudo.jvm aborted 41 test(s)
+S32-str/encode.rakudo.jvm aborted 22 test(s)
+S32-str/flip.rakudo.jvm aborted 13 test(s)
+S32-str/indent.rakudo.jvm aborted 62 test(s)
+S32-str/index.rakudo.jvm aborted 38 test(s)
+S32-str/lc.t aborted 13 test(s)
+S32-str/lines.t aborted 4 test(s)
+S32-str/numeric.rakudo.jvm aborted 168 test(s)
+S32-str/ords.t aborted 6 test(s)
+S32-str/pack.t aborted 6 test(s)
+S32-str/pos.t aborted 2 test(s)
+S32-str/rindex.t aborted 33 test(s)
+S32-str/samecase.t aborted 8 test(s)
+S32-str/split-simple.rakudo.jvm aborted 49 test(s)
+S32-str/split.rakudo.jvm aborted 53 test(s)
+S32-str/sprintf.rakudo.jvm aborted 149 test(s)
+S32-str/substr-rw.rakudo.jvm aborted 31 test(s)
+S32-str/substr.rakudo.jvm aborted 92 test(s)
+S32-str/tc.rakudo.jvm aborted 9 test(s)
+S32-str/tclc.rakudo.jvm aborted 6 test(s)
+S32-str/trim.t aborted 36 test(s)
+S32-str/uc.rakudo.jvm aborted 18 test(s)
+S32-str/unpack.t aborted 12 test(s)
+S32-str/words.rakudo.jvm aborted 13 test(s)
+S32-temporal/Date.t aborted 72 test(s)
+S32-temporal/DateTime-Instant-Duration.rakudo.jvm aborted 33 test(s)
+S32-temporal/DateTime.rakudo.jvm aborted 201 test(s)
+S32-temporal/calendar.t aborted 130 test(s)
+S32-temporal/local.t aborted 25 test(s)
+S32-trig/cosec.t aborted 114 test(s)
+S32-trig/e.t aborted 5 test(s)
+S32-trig/pi.t aborted 3 test(s)
+S32-trig/simple.t aborted 12 test(s)
+integration/99problems-01-to-10.rakudo.jvm aborted 22 test(s)
+integration/99problems-11-to-20.rakudo.jvm aborted 25 test(s)
+integration/99problems-21-to-30.rakudo.jvm aborted 15 test(s)
+integration/99problems-31-to-40.t aborted 67 test(s)
+integration/99problems-41-to-50.rakudo.jvm aborted 13 test(s)
+integration/99problems-51-to-60.t aborted 37 test(s)
+integration/99problems-61-to-70.t aborted 15 test(s)
+integration/advent2009-day01.t aborted 2 test(s)
+integration/advent2009-day02.t aborted 10 test(s)
+integration/advent2009-day03.t aborted 6 test(s)
+integration/advent2009-day04.t aborted 6 test(s)
+integration/advent2009-day05.t aborted 17 test(s)
+integration/advent2009-day06.rakudo.jvm aborted 15 test(s)
+integration/advent2009-day07.rakudo.jvm aborted 13 test(s)
+integration/advent2009-day08.t aborted 8 test(s)
+integration/advent2009-day09.t aborted 17 test(s)
+integration/advent2009-day10.t aborted 5 test(s)
+integration/advent2009-day11.t aborted 6 test(s)
+integration/advent2009-day12.rakudo.jvm aborted 9 test(s)
+integration/advent2009-day13.t aborted 16 test(s)
+integration/advent2009-day14.t aborted 21 test(s)
+integration/advent2009-day15.t aborted 4 test(s)
+integration/advent2009-day16.t aborted 11 test(s)
+integration/advent2009-day17.t aborted 62 test(s)
+integration/advent2009-day18.rakudo.jvm aborted 6 test(s)
+integration/advent2009-day19.t aborted 6 test(s)
+integration/advent2009-day20.t aborted 21 test(s)
+integration/advent2009-day21.t aborted 2 test(s)
+integration/advent2009-day22.t aborted 4 test(s)
+integration/advent2009-day23.rakudo.jvm aborted 4 test(s)
+integration/advent2010-day03.t aborted 12 test(s)
+integration/advent2010-day04.t aborted 11 test(s)
+integration/advent2010-day06.t aborted 12 test(s)
+integration/advent2010-day07.t aborted 8 test(s)
+integration/advent2010-day08.t aborted 7 test(s)
+integration/advent2010-day10.rakudo.jvm aborted 4 test(s)
+integration/advent2010-day11.t aborted 2 test(s)
+integration/advent2010-day12.t aborted 13 test(s)
+integration/advent2010-day14.t aborted 5 test(s)
+integration/advent2010-day16.t aborted 13 test(s)
+integration/advent2010-day19.rakudo.jvm aborted 6 test(s)
+integration/advent2010-day21.t aborted 4 test(s)
+integration/advent2011-day03.t aborted 2 test(s)
+integration/advent2011-day04.t aborted 2 test(s)
+integration/advent2011-day05.t aborted 5 test(s)
+integration/advent2011-day07.t aborted 3 test(s)
+integration/advent2011-day10.rakudo.jvm aborted 5 test(s)
+integration/advent2011-day11.t aborted 9 test(s)
+integration/advent2011-day14.t aborted 8 test(s)
+integration/advent2011-day15.t aborted 9 test(s)
+integration/advent2011-day16.t aborted 11 test(s)
+integration/advent2011-day20.t aborted 16 test(s)
+integration/advent2012-day02.t aborted 4 test(s)
+integration/advent2012-day03.t aborted 2 test(s)
+integration/advent2012-day04.t aborted 9 test(s)
+integration/advent2012-day06.t aborted 2 test(s)
+integration/advent2012-day09.t aborted 8 test(s)
+integration/advent2012-day10.t aborted 26 test(s)
+integration/advent2012-day12.t aborted 5 test(s)
+integration/advent2012-day13.t aborted 42 test(s)
+integration/advent2012-day14.rakudo.jvm aborted 6 test(s)
+integration/advent2012-day15.t aborted 11 test(s)
+integration/advent2012-day16.t aborted 11 test(s)
+integration/advent2012-day19.t aborted 10 test(s)
+integration/advent2012-day20.t aborted 2 test(s)
+integration/advent2012-day21.t aborted 9 test(s)
+integration/advent2012-day22.rakudo.jvm aborted 6 test(s)
+integration/advent2012-day23.t aborted 2 test(s)
+integration/advent2012-day24.t aborted 1 test(s)
+integration/advent2013-day02.t aborted 12 test(s)
+integration/advent2013-day04.rakudo.jvm aborted 7 test(s)
+integration/advent2013-day06.t aborted 1 test(s)
+integration/advent2013-day07.t aborted 6 test(s)
+integration/advent2013-day08.t aborted 11 test(s)
+integration/advent2013-day09.t aborted 21 test(s)
+integration/advent2013-day10.rakudo.jvm aborted 44 test(s)
+integration/advent2013-day12.rakudo.jvm aborted 32 test(s)
+integration/advent2013-day14.t aborted 10 test(s)
+integration/advent2013-day15.rakudo.jvm aborted 30 test(s)
+integration/advent2013-day18.t aborted 10 test(s)
+integration/advent2013-day19.t aborted 4 test(s)
+integration/advent2013-day20.t aborted 22 test(s)
+integration/advent2013-day21.t aborted 24 test(s)
+integration/advent2013-day22.t aborted 9 test(s)
+integration/advent2013-day23.t aborted 9 test(s)
+integration/code-blocks-as-sub-args.t aborted 4 test(s)
+integration/error-reporting.rakudo.jvm aborted 16 test(s)
+integration/lazy-bentley-generator.t aborted 1 test(s)
+integration/lexical-array-in-inner-block.t aborted 2 test(s)
+integration/lexicals-and-attributes.t aborted 8 test(s)
+integration/method-calls-and-instantiation.t aborted 2 test(s)
+integration/no-indirect-new.t aborted 2 test(s)
+integration/pair-in-array.t aborted 3 test(s)
+integration/passing-pair-class-to-sub.t aborted 2 test(s)
+integration/real-strings.t aborted 20 test(s)
+integration/role-composition-vs-attribute.rakudo. aborted 10 test(s)
+integration/rule-in-class-Str.t aborted 3 test(s)
+integration/say-crash.t aborted 4 test(s)
+integration/substr-after-match-in-gather-in-for.t aborted 1 test(s)
+integration/topic_in_double_loop.t aborted 5 test(s)
+integration/variables-in-do.t aborted 3 test(s)
+integration/weird-errors.t aborted 12 test(s)
+rosettacode/greatest_element_of_a_list.t aborted 1 test(s)
+rosettacode/sierpinski_triangle.t aborted 1 test(s)
