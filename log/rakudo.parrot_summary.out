@@ -84,14 +84,10 @@ S02-literals/underscores.t.........................  19    0    0    0   19
 S02-literals/version.rakudo.parrot.................  25    0    3    0   28
      3 todo   : trailing zeroes fail
 S02-magicals/78258.t...............................   1    0    0    0    1
-S02-magicals/DISTRO.rakudo.parrot..................use of uninitialized value of type Blob in string context  in any  at gen/parrot/Metamodel.nqp:1480
-
-use of uninitialized value of type Str in string context  in block  at t/spec/S02-magicals/DISTRO.rakudo.parrot:47
-
-  11    0    3   14   28
+S02-magicals/DISTRO.rakudo.parrot..................  11    0    0   17   28
     14 skipped: unimpl $?DISTRO
-     1 todo   : no Distro.desc yet
-     2 todo   : no Distro.signature yet
+     1 skipped: no Distro.desc yet
+     2 skipped: no Distro.signature yet
 S02-magicals/KERNEL.rakudo.parrot..................use of uninitialized value of type Blob in string context  in any  at gen/parrot/Metamodel.nqp:1480
 
 use of uninitialized value of type Str in string context  in block  at t/spec/S02-magicals/KERNEL.rakudo.parrot:39
@@ -100,31 +96,19 @@ use of uninitialized value of type Str in string context  in block  at t/spec/S0
     16 skipped: unimpl $?KERNEL
      1 todo   : no Kernel.desc yet
      2 todo   : no Kernel.signature yet
-S02-magicals/PERL.rakudo.parrot....................use of uninitialized value of type Blob in string context  in any  at gen/parrot/Metamodel.nqp:1480
-
-use of uninitialized value of type Str in string context  in block  at t/spec/S02-magicals/PERL.rakudo.parrot:49
-
-use of uninitialized value of type Blob in string context  in any  at gen/parrot/Metamodel.nqp:1480
-
-use of uninitialized value of type Str in string context  in block  at t/spec/S02-magicals/PERL.rakudo.parrot:68
-
-  17    0    8   25   50
+S02-magicals/PERL.rakudo.parrot....................  17    0    0   33   50
+     1 skipped: no Perl.compiler.codename yet
+     1 skipped: no Perl.desc yet
+     1 skipped: no Perl.compiler.release yet
+     2 skipped: no Perl.compiler.signature yet
+     1 skipped: no Perl.compiler.desc yet
     25 skipped: unimpl $?PERL
-     1 todo   : no Perl.compiler.codename yet
-     1 todo   : no Perl.desc yet
-     1 todo   : no Perl.compiler.release yet
-     2 todo   : no Perl.compiler.signature yet
-     1 todo   : no Perl.compiler.desc yet
-     2 todo   : no Perl.signature yet
-S02-magicals/VM.rakudo.parrot......................use of uninitialized value of type Blob in string context  in any  at gen/parrot/Metamodel.nqp:1480
-
-use of uninitialized value of type Str in string context  in block  at t/spec/S02-magicals/VM.rakudo.parrot:48
-
-  12    0    3   17   32
+     2 skipped: no Perl.signature yet
+S02-magicals/VM.rakudo.parrot......................  12    0    0   20   32
      2 skipped: VM.properties does not exist
+     1 skipped: no VM.desc yet
+     2 skipped: no VM.signature yet
     15 skipped: unimpl $?VM
-     1 todo   : no VM.desc yet
-     2 todo   : no VM.signature yet
 S02-magicals/args.t................................   6    0    0    0    6
 S02-magicals/dollar-underscore.rakudo.parrot.......   8    0    0    1    9
      1 skipped: for() with nullary block
@@ -1291,7 +1275,15 @@ S06-advanced/recurse.t.............................  13    0    0    0   13
 S06-advanced/return.rakudo.parrot..................  75    0    1    3   79
      3 skipped: RT 75118
      1 todo   : RT 61732
-S06-advanced/wrap.rakudo.parrot....................  64    0    5    0   69
+S06-advanced/wrap.rakudo.parrot....................use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:92
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:95
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:92
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:95
+
+  76    4    5    0   85
      1 todo   : RT 70267: call to nextsame with nowhere to go
      1 todo   : RT 77472
      1 todo   : callwith
@@ -2854,11 +2846,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4391,     0,   143,   365,  4899,  5006
+"S02",        4391,     0,   129,   379,  4899,  5006
 "S03",        4815,     0,   113,   133,  5061,  5084
 "S04",         976,     7,    41,    43,  1067,  1119
 "S05",        4904,     0,    93,   411,  5408,  5893
-"S06",        1161,     0,    40,   104,  1305,  1385
+"S06",        1173,     4,    40,   104,  1321,  1401
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
@@ -2878,7 +2870,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9101,     0,    92,   200,  9393,  7523
 "int",        1102,     0,    16,    40,  1158,  1151
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29353,     7,   628,  1528, 31516, 31646
+"total",     29365,    11,   614,  1542, 31532, 31662
 ----------------
 Failure summary:
 S04-phasers/init.t 1 - init blocks run after begin blocks
@@ -2888,4 +2880,8 @@ S04-phasers/init.t 4 - our INIT {...} block already gets called
 S04-phasers/init.t 7 - our rvalue INIT {...} block was executed exactly once
 S04-phasers/init.t 10 - INIT has run exactly once (first time)
 S04-phasers/init.t 11 - INIT has run exactly once (second time)
+S06-advanced/wrap.rakudo.parrot 71 - default works with wrapped accessor, capture return
+S06-advanced/wrap.rakudo.parrot 72 - BUILD binding works with wrapped accessor, capture return
+S06-advanced/wrap.rakudo.parrot 77 - assignment works with wrapped accessor, return callsame
+S06-advanced/wrap.rakudo.parrot 85 - assignment works with wrapped accessor, nextsame
 note: test_summary.pl @syn does not have S22

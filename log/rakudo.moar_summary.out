@@ -1060,7 +1060,11 @@ S06-advanced/recurse.t.............................  13    0    0    0   13
 S06-advanced/return.rakudo.moar....................  75    0    1    3   79
      3 skipped: RT 75118
      1 todo   : RT 61732
-S06-advanced/wrap.rakudo.moar......................  64    0    5    0   69
+S06-advanced/wrap.rakudo.moar......................use of uninitialized value of type Any in string context
+use of uninitialized value of type Any in string context
+use of uninitialized value of type Any in string context
+use of uninitialized value of type Any in string context
+  76    4    5    0   85
      1 todo   : RT 70267: call to nextsame with nowhere to go
      1 todo   : RT 77472
      1 todo   : callwith
@@ -1118,9 +1122,7 @@ S06-other/main-usage.rakudo.moar...................  15    0    7    0   22
      5 todo   : nom regression
      2 todo   : RT 115744
 S06-other/main.t...................................   6    0    0    0    6
-S06-other/misc.t...................................Internal error: zeroed target thread ID in work pass
-   0    3    0    0    3
-     3 tests aborted (missing ok/not ok)
+S06-other/misc.t...................................   3    0    0    0    3
 S06-routine-modifiers/lvalue-subroutines.rakudo.m..  11    0    0    3   14
      2 skipped: maximum recursion depth exceeded
      1 skipped: hangs, probably due to [RT #114134]
@@ -1509,7 +1511,9 @@ S17-lowlevel/lock.rakudo.moar......................   7    0    0    1    8
      1 skipped: not sure this test is valid
 S17-lowlevel/thread.rakudo.moar....................  22    0    0    3   25
      3 skipped: segfaults randomly
-S17-promise/allof.t................................  10    0    0    0   10
+S17-promise/allof.t................................Segmentation fault (core dumped)
+   7    3    0    0   10
+     3 tests aborted (missing ok/not ok)
 S17-promise/anyof.t................................   9    0    0    0    9
 S17-promise/basic.t................................  19    0    0    0   19
 S17-promise/in.t...................................   2    0    0    0    2
@@ -2252,7 +2256,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S03",        4816,     0,   112,   133,  5061,  5084
 "S04",         984,     0,    39,    44,  1067,  1119
 "S05",        4997,     0,    86,   325,  5408,  5893
-"S06",        1157,     3,    38,   107,  1305,  1385
+"S06",        1172,     4,    38,   107,  1321,  1401
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,     9,    14,   200,   200
 "S10",          68,     0,     1,     2,    71,   128
@@ -2262,7 +2266,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         294,     0,    10,    12,   316,   329
 "S15",         234,     0,     0,     0,   234,   283
 "S16",         235,     0,     5,    18,   258,   302
-"S17",         575,     0,     1,    20,   596,   596
+"S17",         572,     3,     1,    20,   596,   596
 "S19",           6,     0,     0,     0,     6,     6
 "S22",          23,     0,     1,     0,    24,    24
 "S24",           1,     0,     0,     0,     1,    88
@@ -2272,8 +2276,12 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9105,     0,    98,   196,  9399,  7523
 "int",        1109,     0,    18,    35,  1162,  1151
 "ros",           2,     0,     0,     0,     2,     2
-"total",     30268,     3,   628,  1457, 32356, 31646
+"total",     30280,     7,   628,  1457, 32372, 31662
 ----------------
 Failure summary:
-S06-other/misc.t aborted 3 test(s)
+S06-advanced/wrap.rakudo.moar 71 - default works with wrapped accessor, capture return
+S06-advanced/wrap.rakudo.moar 72 - BUILD binding works with wrapped accessor, capture return
+S06-advanced/wrap.rakudo.moar 77 - assignment works with wrapped accessor, return callsame
+S06-advanced/wrap.rakudo.moar 85 - assignment works with wrapped accessor, nextsame
+S17-promise/allof.t aborted 3 test(s)
 note: test_summary.pl @syn does not have S22
