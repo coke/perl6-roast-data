@@ -145,8 +145,8 @@ S02-names-vars/signature.rakudo.moar...............  11    0    2    0   13
 S02-names-vars/variables-and-packages.rakudo.moar..  32    0    3    3   38
      3 skipped: nom regression
      3 todo   : nom regression
-S02-names-vars/varnames.rakudo.moar................  10    0    0    2   12
-     2 skipped: cannot easily override [] at the moment
+S02-names-vars/varnames.rakudo.moar................  10    0    2    0   12
+     2 todo   : cannot easily override [] at the moment
 S02-names/bare-sigil.t.............................  10    0    0    0   10
 S02-names/caller.t.................................  15    0    0    0   15
 S02-names/identifier.t.............................  22    0    0    0   22
@@ -381,8 +381,7 @@ S03-binding/arrays.t...............................use of uninitialized value of
 S03-binding/attributes.rakudo.moar.................   9    0    0    3   12
      3 skipped: class attributes
 S03-binding/closure.t..............................   8    0    0    0    8
-S03-binding/hashes.rakudo.moar.....................  38    0    0    1   39
-     1 skipped: without fudging 1 rakudo test, the whole file fails?
+S03-binding/hashes.t...............................  39    0    0    0   39
 S03-binding/nested.t...............................  43    0    0    0   43
 S03-binding/ro.rakudo.moar.........................   3    0    6    0    9
      4 todo   : ::= on arrays
@@ -430,12 +429,10 @@ use of uninitialized value of type Int in string context
 use of uninitialized value of type Int in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
- 354    0    8    4  366
-     2 skipped: huh?
-     2 skipped: [!===]
+ 357    0    9    0  366
      1 todo   : item context
      2 todo   : triangle [\^^] and [\xor]
-     2 todo   : huh?
+     3 todo   : huh?
      2 todo   : orelse
      1 todo   : reduced hyper op
 S03-metaops/reverse.t..............................  34    0    0    0   34
@@ -486,8 +483,7 @@ use of uninitialized value of type Any in string context
 S03-operators/bag.rakudo.moar......................  92    0    0   16  108
     16 skipped: Reduction and bag operators
 S03-operators/basic-types.t........................  19    0    0    0   19
-S03-operators/bit.rakudo.moar......................  34    0    0    3   37
-     3 skipped: RT#115966
+S03-operators/bit.t................................  37    0    0    0   37
 S03-operators/boolean-bitwise.t....................  45    0    0    0   45
 S03-operators/brainos.t............................   9    0    0    0    9
 S03-operators/buf.t................................  34    0    0    0   34
@@ -592,8 +588,7 @@ S03-operators/nesting.t............................  26    0    0    0   26
 S03-operators/not.rakudo.moar......................  21    0    1    0   22
      1 todo   : RT 65556
 S03-operators/numeric-shift.t......................  37    0    0    0   37
-S03-operators/orelse.rakudo.moar...................   8    0    0    3   11
-     1 skipped: orelse sets $!
+S03-operators/orelse.rakudo.moar...................   9    0    0    2   11
      1 skipped: orelse passes $! as argument
      1 skipped: orelse passes $! as multiple arguments
 S03-operators/overflow.t...........................  98    0    0    0   98
@@ -610,8 +605,7 @@ use of uninitialized value of type Any in numeric context
      2 todo   : huh?
 S03-operators/reduce-le1arg.rakudo.moar............use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
-  50    0    0    4   54
-     1 skipped: [Z] hangs
+  51    0    0    3   54
      1 skipped: ~> NYI
      1 skipped: expected Any but got Mu instead
      1 skipped: ~< NYI
@@ -643,11 +637,11 @@ S03-sequence/basic.rakudo.moar..................... 127    0    2    0  129
 S03-sequence/limit-arity-2-or-more.t...............   8    0    0    0    8
 S03-sequence/misc.rakudo.moar......................use of uninitialized value of type Nil in numeric context
 use of uninitialized value of type Nil in numeric context
-  12    0    5    2   19
-     1 skipped: Slicel lists are NYI
+  12    0    6    1   19
      1 skipped: Not enough positional parameters passed; got 0 but expected 1
      1 todo   : gives True instead
      2 todo   : NYI
+     1 todo   : Slicel lists are NYI
      1 todo   : bogus test?
      1 todo   : RT 80574
 S03-sequence/nonnumeric.rakudo.moar................  18    0    0   19   37
@@ -678,9 +672,8 @@ S03-smartmatch/hash-hash.rakudo.moar...............   2    0    2    0    4
 S03-smartmatch/range-range.t.......................  14    0    0    0   14
 S03-smartmatch/regex-hash.t........................   4    0    0    0    4
 S03-smartmatch/scalar-hash.t.......................   3    0    0    0    3
-S03-smartmatch/signature-signature.rakudo.moar.....  17    0    0    2   19
+S03-smartmatch/signature-signature.rakudo.moar.....  18    0    0    1   19
      1 skipped: Parametric types
-     1 skipped: Code params with signatures
                                                    pass fail todo skip plan
 S04-blocks-and-statements/let.t....................  12    0    0    0   12
 S04-blocks-and-statements/pointy-rw.t..............  10    0    0    0   10
@@ -808,13 +801,12 @@ S04-statements/do.rakudo.moar......................  21    0    0    6   27
      3 skipped: Undeclared name A
      1 skipped: next without loop construct
 S04-statements/for-scope.t.........................  16    0    0    0   16
-S04-statements/for.rakudo.moar.....................  76    0    2    2   80
+S04-statements/for.rakudo.moar.....................  77    0    2    1   80
      1 skipped: optional variable in for loop (RT #63994)
-     1 skipped: maybe bogus, for loops are not supposed to be lazy?
      2 todo   : RT 113026 array iterator does not track a growing array
 S04-statements/for_with_only_one_item.t............   9    0    0    0    9
-S04-statements/gather.rakudo.moar..................  27    0    0    1   28
-     1 skipped: RT #117635 (infinite loop)
+S04-statements/gather.rakudo.moar..................  27    0    1    0   28
+     1 todo   : RT #117635 (infinite loop)
 S04-statements/given.t.............................  51    0    0    0   51
 S04-statements/if.t................................  29    0    0    0   29
 S04-statements/label.t.............................   4    0    0    0    4
@@ -871,9 +863,10 @@ S05-grammar/signatures.t...........................   2    0    0    0    2
 S05-grammar/ws.rakudo.moar.........................  10    0    0    2   12
      2 skipped: infinite loop: RT #64094 (noauto)
 S05-interpolation/lexicals.t.......................  10    0    0    0   10
-S05-interpolation/regex-in-variable.rakudo.moar....  30    0    1    3   34
-     3 skipped: instance member interpolation
+S05-interpolation/regex-in-variable.rakudo.moar....use of uninitialized value of type Any in string context
+  31    0    3    0   34
      1 todo   : warn on undef
+     2 todo   : instance member interpolation
 S05-mass/charsets.t................................  16    0    0    0   16
 S05-mass/named-chars.rakudo.moar................... 337    0    0   94  431
      2 skipped: CR as char name
@@ -923,9 +916,9 @@ S05-match/capturing-contexts.rakudo.moar...........  37    0    1    5   43
 S05-match/make.t...................................   3    0    0    0    3
 S05-match/non-capturing.t..........................   9    0    0    0    9
 S05-match/positions.t..............................  10    0    0    0   10
-S05-metachars/closure.rakudo.moar..................   4    0    0    8   12
-     3 skipped: make() inside closure
+S05-metachars/closure.rakudo.moar..................   6    0    1    5   12
      5 skipped: assignment to match variables (dubious)
+     1 todo   : make() inside closure
 S05-metachars/line-anchors.t.......................  19    0    0    0   19
 S05-metachars/newline.t............................  15    0    0    0   15
 S05-metachars/tilde.rakudo.moar....................  14    0    0   12   26
@@ -1042,14 +1035,21 @@ use of uninitialized value of type Any in string context
      3 skipped: s[...] op= RHS
      1 todo   : be smarter about constant detection
 S05-transliteration/79778.t........................   1    0    0    0    1
-S05-transliteration/trans.rakudo.moar..............  42    0   11    7   60
-     2 skipped: closures and regexes
+S05-transliteration/trans.rakudo.moar..............use of uninitialized value of type Int in string context
+use of uninitialized value of type Int in string context
+use of uninitialized value of type Int in string context
+use of uninitialized value of type Int in string context
+  42    0   13    5   60
      5 skipped: tr///, feed operator not implemented
+     2 todo   : closures and regexes
     10 todo   : flags
      1 todo   : disambiguate ranges
-S05-transliteration/with-closure.rakudo.moar.......  10    0    5    1   16
-     1 skipped: Unable to resolve method ord in class Any
+S05-transliteration/with-closure.rakudo.moar.......use of uninitialized value of type Int in string context
+use of uninitialized value of type Int in string context
+use of uninitialized value of type Int in string context
+  10    0    6    0   16
      5 todo   : nom regression
+     1 todo   : Unable to resolve method ord in class Any
                                                    pass fail todo skip plan
 S06-advanced/callframe.rakudo.moar.................   8    0    0    1    9
      1 skipped: Unable to resolve method inline in type CallFrame
@@ -1225,13 +1225,13 @@ S09-hashes/objecthash.rakudo.moar..................  25    0    0    6   31
 S09-subscript/slice.rakudo.moar....................  22    0    0    4   26
      2 skipped: #120383
      2 skipped: RT 61844
-S09-typed-arrays/arrays.rakudo.moar................  53    0    5    3   61
+S09-typed-arrays/arrays.rakudo.moar................  53    0    6    2   61
      1 skipped: nested typechecks are borked
      1 skipped: type on our-variables
-     1 skipped: initialization
      1 todo   : need parameterized Lists
      2 todo   : nested typechecks are borked
      2 todo   : no parametrization
+     1 todo   : initialization
 S09-typed-arrays/hashes.t..........................use of uninitialized value of type Int in string context
 use of uninitialized value of type Int in string context
 use of uninitialized value of type Any in string context
@@ -1242,17 +1242,17 @@ use of uninitialized value of type Int in string context
 use of uninitialized value of type Int in string context
   33    0    0    0   33
                                                    pass fail todo skip plan
-S10-packages/basic.rakudo.moar.....................  56    0    1    2   59
-     1 skipped: ticket based only on class... RT #60446
+S10-packages/basic.rakudo.moar.....................  56    0    2    1   59
      1 skipped: RT #59484
+     1 todo   : ticket based only on class... RT #60446
      1 todo   : RT #64606
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
 S10-packages/use-with-class.t......................   9    0    0    0    9
                                                    pass fail todo skip plan
-S11-modules/import-multi.rakudo.moar...............  14    0    1    2   17
+S11-modules/import-multi.rakudo.moar...............  14    0    2    1   17
      1 skipped: A symbol "&Gfoo" has already been exported
-     1 skipped: it just dies, can't check using throws_like
      1 todo   : huh?
+     1 todo   : it just dies, can't check using throws_like
 S11-modules/import-tag.t...........................  12    0    0    0   12
 S11-modules/import.rakudo.moar.....................  12    0    0    4   16
      4 skipped: import plus inline module
@@ -1444,8 +1444,7 @@ use of uninitialized value of type Any in string context
   10    0    2    1   13
      1 skipped: anonymous roles only created once
      2 todo   : RT 121626
-S14-roles/attributes.rakudo.moar...................   5    0    0    2    7
-     2 skipped: review test and rakudo
+S14-roles/attributes.t.............................   7    0    0    0    7
 S14-roles/basic.rakudo.moar........................  38    0    2    3   43
      3 skipped: RT 67768
      1 todo   : RT #121308
@@ -1483,8 +1482,7 @@ S16-filehandles/filestat.t.........................  12    0    0    0   12
 S16-filehandles/filetest.rakudo.moar...............  32    0    0    9   41
      6 skipped: :M, :C, :A
      3 skipped: no file README
-S16-filehandles/io.rakudo.moar.....................  83    0    0    1   84
-     1 skipped: :rw on open() unimplemented
+S16-filehandles/io.t...............................  84    0    0    0   84
 S16-filehandles/io_in_for_loops.t..................  29    0    0    0   29
 S16-filehandles/io_in_while_loops.t................  13    0    0    0   13
 S16-filehandles/mkdir_rmdir.rakudo.moar............  13    0    0    1   14
@@ -1583,8 +1581,8 @@ S26-documentation/06-lists.t.......................  39    0    0    0   39
 S26-documentation/07-tables.t......................  38    0    0    0   38
 S26-documentation/08-formattingcodes.t.............  45    0    0    0   45
 S26-documentation/09-configuration.t...............  15    0    0    0   15
-S26-documentation/10-doc-cli.rakudo.moar...........   1    0    0    1    2
-     1 skipped: RT12205
+S26-documentation/10-doc-cli.rakudo.moar...........   1    0    1    0    2
+     1 todo   : RT12205
 S26-documentation/why.t............................  18    0    0    1   19
      1 skipped: segfault
                                                    pass fail todo skip plan
@@ -1665,10 +1663,9 @@ use of uninitialized value of type BagHash in string context
   16    0    0    0   16
 S32-container/zip.rakudo.moar......................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.moar.................... 266    0    0    5  271
-     1 skipped: RT 114134
-     3 skipped: still handled by <special_var>
-     1 skipped: parsing regression
+S32-exceptions/misc.rakudo.moar.................... 268    0    3    0  271
+     2 todo   : still handled by <special_var>
+     1 todo   : parsing regression
 S32-hash/delete-adverb.t...........................use of uninitialized value of type Int in string context
 use of uninitialized value of type Int in string context
  130    0    0    0  130
@@ -1686,7 +1683,7 @@ S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.moar.........................  18    0   11    0   29
     11 todo   : binding on hash elements unimplemented
-S32-io/IO-Socket-Async.t...........................   6    0    0    0    6
+S32-io/IO-Socket-Async.t...........................   5    1    0    0    6
 S32-io/IO-Socket-INET.t............................  47    0    0    0   47
 S32-io/chdir.rakudo.moar...........................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
@@ -1728,10 +1725,9 @@ S32-list/grep-index.rakudo.moar....................  15    0    0   20   35
      6 skipped: closure as non-final argument
      2 skipped: test error -- is $_ rw here?
     12 skipped: adverbial block
-S32-list/grep.rakudo.moar..........................  17    0    0   21   38
+S32-list/grep.rakudo.moar..........................  19    0    0   19   38
      6 skipped: closure as non-final argument
      1 skipped: RT 71544: grep arity sensitivity different from map
-     2 skipped: test error -- is $_ rw here?
     12 skipped: adverbial block
 S32-list/join.t....................................use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
@@ -1746,20 +1742,134 @@ S32-list/map.rakudo.moar...........................  51    0    0    8   59
      2 skipped: adverbial block
 S32-list/map_function_return_values.t..............   2    0    0    0    2
 S32-list/minmax.t..................................  55    0    0    0   55
-S32-list/pick.rakudo.moar..........................  56    0    1    0   57
+S32-list/pick.rakudo.moar..........................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': free(): invalid size: 0x0000000008b68f40 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x80996)[0x7f3e65a17996]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(+0x15911c)[0x7f3e65eb811c]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_gc_collect_free_nursery_uncopied+0x52)[0x7f3e65eb2ab9]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(+0x14abc7)[0x7f3e65ea9bc7]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_gc_enter_from_allocator+0x37e)[0x7f3e65eaa067]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_gc_allocate_nursery+0x51)[0x7f3e65eaa150]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_gc_allocate_zeroed+0xf)[0x7f3e65eaa18e]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_gc_allocate_object+0x2a)[0x7f3e65eaa2d9]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(+0x15dd8e)[0x7f3e65ebcd8e]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_interp_run+0xafc9)[0x7f3e65e83759]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_vm_run_file+0xa3)[0x7f3e65ef1ed5]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar[0x400dc0]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5)[0x7f3e659b8de5]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar[0x400a19]
+======= Memory map: ========
+00400000-00402000 r-xp 00000000 fd:00 3810194                            /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar
+00601000-00602000 r--p 00001000 fd:00 3810194                            /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar
+00602000-00603000 rw-p 00002000 fd:00 3810194                            /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar
+013d1000-0984f000 rw-p 00000000 00:00 0                                  [heap]
+7f3e61bfb000-7f3e61c10000 r-xp 00000000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f3e61c10000-7f3e61e0f000 ---p 00015000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f3e61e0f000-7f3e61e10000 r--p 00014000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f3e61e10000-7f3e61e11000 rw-p 00015000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f3e61e11000-7f3e61e45000 r--p 00000000 fd:00 3810613                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.moarvm
+7f3e61e45000-7f3e62465000 rw-p 00000000 00:00 0 
+7f3e62465000-7f3e62666000 rw-p 00000000 00:00 0 
+7f3e62666000-7f3e62805000 rw-p 00000000 00:00 0 
+7f3e62823000-7f3e629a9000 rw-p 00000000 00:00 0 
+7f3e629a9000-7f3e629f5000 r--p 00000000 fd:00 3810606                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/Metamodel.moarvm
+7f3e629f5000-7f3e62a31000 rw-p 00000000 00:00 0 
+7f3e62a31000-7f3e62a61000 r--p 00000000 fd:00 3810608                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/BOOTSTRAP.moarvm
+7f3e62a61000-7f3e62af4000 rw-p 00000000 00:00 0 
+7f3e62af4000-7f3e63a81000 r--p 00000000 fd:00 3810610                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/CORE.setting.moarvm
+7f3e63a81000-7f3e63a86000 r-xp 00000000 fd:00 3810594                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/dynext/libperl6_ops_moar.so
+7f3e63a86000-7f3e63c86000 ---p 00005000 fd:00 3810594                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/dynext/libperl6_ops_moar.so
+7f3e63c86000-7f3e63c87000 r--p 00005000 fd:00 3810594                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/dynext/libperl6_ops_moar.so
+7f3e63c87000-7f3e63c88000 rw-p 00006000 fd:00 3810594                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/dynext/libperl6_ops_moar.so
+7f3e63c92000-7f3e63d3f000 rw-p 00000000 00:00 0 
+7f3e63d3f000-7f3e63d70000 rw-p 00000000 00:00 0 
+7f3e63d89000-7f3e63e8a000 rw-p 00000000 00:00 0 
+7f3e63e9e000-7f3e63ef9000 rw-p 00000000 00:00 0 
+7f3e63ef9000-7f3e63f19000 r--p 00000000 fd:00 3810600                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/Optimizer.moarvm
+7f3e63f19000-7f3e63fab000 rw-p 00000000 00:00 0 
+7f3e63fab000-7f3e63fdb000 r--p 00000000 fd:00 3810596                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/World.moarvm
+7f3e63fdb000-7f3e64026000 rw-p 00000000 00:00 0 
+7f3e64026000-7f3e64036000 r--p 00000000 fd:00 3810595                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/Ops.moarvm
+7f3e64036000-7f3e64083000 rw-p 00000000 00:00 0 
+7f3e64083000-7f3e64098000 r--p 00000000 fd:00 3810597                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/Pod.moarvm
+7f3e64098000-7f3e6414b000 r--p 00000000 fd:00 3810598                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/Actions.moarvm
+7f3e6414b000-7f3e641a7000 rw-p 00000000 00:00 0 
+7f3e641a7000-7f3e641fb000 r--p 00000000 fd:00 3810577                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/NQPP5QRegex.moarvm
+7f3e64217000-7f3e6421c000 r--p 00000000 fd:00 3810601                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/Compiler.moarvm
+7f3e6421c000-7f3e64719000 r--p 00000000 fd:00 3810599                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/Grammar.moarvm
+7f3e64719000-7f3e647ba000 rw-p 00000000 00:00 0 
+7f3e647ba000-7f3e647d5000 r--p 00000000 fd:00 3810572                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/MASTOps.moarvm
+7f3e647d5000-7f3e647fa000 rw-p 00000000 00:00 0 
+7f3e647fa000-7f3e64868000 r--p 00000000 fd:00 3810574                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/QAST.moarvm
+7f3e64868000-7f3e6506a000 rw-p 00000000 00:00 0 
+7f3e6506a000-7f3e6506d000 r-xp 00000000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
+7f3e6506d000-7f3e6526c000 ---p 00003000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
+7f3e6526c000-7f3e6526d000 r--p 00002000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
+7f3e6526d000-7f3e6526e000 rw-p 00003000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
+7f3e6526e000-7f3e65275000 r-xp 00000000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
+7f3e65275000-7f3e65474000 ---p 00007000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
+7f3e65474000-7f3e65475000 r--p 00006000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
+7f3e65475000-7f3e65476000 rw-p 00007000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
+7f3e65476000-7f3e6548d000 r-xp 00000000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
+7f3e6548d000-7f3e6568d000 ---p 00017000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
+7f3e6568d000-7f3e6568e000 r--p 00017000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
+7f3e6568e000-7f3e6568f000 rw-p 00018000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
+7f3e6568f000-7f3e65693000 rw-p 00000000 00:00 0 
+7f3e65693000-7f3e65796000 r-xp 00000000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
+7f3e65796000-7f3e65995000 ---p 00103000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
+7f3e65995000-7f3e65996000 r--p 00102000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
+7f3e65996000-7f3e65997000 rw-p 00103000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
+7f3e65997000-7f3e65b54000 r-xp 00000000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
+7f3e65b54000-7f3e65d54000 ---p 001bd000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
+7f3e65d54000-7f3e65d58000 r--p 001bd000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
+7f3e65d58000-7f3e65d5a000 rw-p 001c1000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
+7f3e65d5a000-7f3e65d5f000 rw-p 00000000 00:00 0 
+7f3e65d5f000-7f3e66042000 r-xp 00000000 fd:00 3810197                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so
+7f3e66042000-7f3e66241000 ---p 002e3000 fd:00 3810197                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so
+7f3e66241000-7f3e662c5000 r--p 002e2000 fd:00 3810197                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so
+7f3e662c5000-7f3e662cd000 rw-p 00366000 fd:00 3810197                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so
+7f3e662cd000-7f3e662f0000 r-xp 00000000 fd:00 1310908                    /lib/x86_64-linux-gnu/ld-2.17.so
+7f3e662f2000-7f3e662fb000 r--p 00000000 fd:00 3810591                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/ModuleLoader.moarvm
+7f3e662fb000-7f3e6630b000 r--p 00000000 fd:00 3810573                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/MASTNodes.moarvm
+7f3e6630b000-7f3e66335000 rw-p 00000000 00:00 0 
+7f3e66335000-7f3e66391000 r--p 00000000 fd:00 3810571                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/NQPHLL.moarvm
+7f3e66391000-7f3e663b5000 rw-p 00000000 00:00 0 
+7f3e663b5000-7f3e663cd000 r--p 00000000 fd:00 3810569                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/QASTNode.moarvm
+7f3e663cd000-7f3e663ea000 r--p 00000000 fd:00 3810570                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/QRegex.moarvm
+7f3e663ea000-7f3e66470000 r--p 00000000 fd:00 3810575                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/NQPP6QRegex.moarvm
+7f3e66470000-7f3e664bd000 rw-p 00000000 00:00 0 
+7f3e664bd000-7f3e664d2000 r--p 00000000 fd:00 3810566                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/nqpmo.moarvm
+7f3e664d2000-7f3e664de000 r--p 00000000 fd:00 3810568                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/NQPCORE.setting.moarvm
+7f3e664de000-7f3e664e3000 rw-p 00000000 00:00 0 
+7f3e664e5000-7f3e664e6000 rw-p 00000000 00:00 0 
+7f3e664e6000-7f3e664e9000 r--p 00000000 fd:00 3810567                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/ModuleLoader.moarvm
+7f3e664e9000-7f3e664ed000 r--p 00000000 fd:00 3810604                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/perl6.moarvm
+7f3e664ed000-7f3e664ef000 rw-p 00000000 00:00 0 
+7f3e664ef000-7f3e664f0000 r--p 00022000 fd:00 1310908                    /lib/x86_64-linux-gnu/ld-2.17.so
+7f3e664f0000-7f3e664f2000 rw-p 00023000 fd:00 1310908                    /lib/x86_64-linux-gnu/ld-2.17.so
+7ffff4764000-7ffff4783000 rwxp 00000000 00:00 0                          [stack]
+7ffff4783000-7ffff4785000 rw-p 00000000 00:00 0 
+7ffff478e000-7ffff4790000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+Aborted (core dumped)
+  29   27    1    0   57
      1 todo   : error on pick :replace
+    27 tests aborted (missing ok/not ok)
 S32-list/reduce.rakudo.moar........................use of uninitialized value of type Any in numeric context
   13    0    1    0   14
      1 todo   : n-ary reduce
 S32-list/reverse.rakudo.moar.......................  20    0    1    0   21
      1 todo   : RT 77914
-S32-list/roll.rakudo.moar..........................  47    0    0    1   48
-     1 skipped: Cannot spawn rakudo like this (RT 121528)
+S32-list/roll.rakudo.moar........................../bin/sh: 1: perl6-m: not found
+/bin/sh: 1: perl6-m: not found
+/bin/sh: 1: perl6-m: not found
+  47    0    1    0   48
+     1 todo   : Cannot spawn rakudo like this (RT 121528)
 S32-list/sort.rakudo.moar..........................use of uninitialized value of type Code in string context
-  28    0    1    3   32
+  28    0    3    1   32
      1 skipped: closure as non-final argument
-     2 skipped: determine behavior of 0-arity methods passed to sort
      1 todo   : method fallback to sub unimpl
+     2 todo   : determine behavior of 0-arity methods passed to sort
 S32-list/squish.t..................................  28    0    0    0   28
 S32-list/uniq.t....................................  33    0    0    0   33
 S32-num/abs.t......................................  49    0    0    0   49
@@ -1849,9 +1959,9 @@ S32-str/index.rakudo.moar..........................  36    0    0    2   38
 S32-str/lc.rakudo.moar.............................  12    0    1    0   13
      1 todo   : case folding, moarvm issue 87
 S32-str/lines.t....................................   4    0    0    0    4
-S32-str/numeric.rakudo.moar........................ 161    0    6    1  168
-     1 skipped: NYI
+S32-str/numeric.rakudo.moar........................ 161    0    7    0  168
      5 todo   : Failure
+     1 todo   : NYI
      1 todo   : complex Str.Numeric
 S32-str/ords.t.....................................   6    0    0    0    6
 S32-str/pack.t.....................................   6    0    0    0    6
@@ -2173,8 +2283,8 @@ integration/advent2011-day03.t.....................   2    0    0    0    2
 integration/advent2011-day04.t.....................   2    0    0    0    2
 integration/advent2011-day05.t.....................   5    0    0    0    5
 integration/advent2011-day07.t.....................   3    0    0    0    3
-integration/advent2011-day10.rakudo.moar...........   4    0    0    1    5
-     1 skipped: RT12205
+integration/advent2011-day10.rakudo.moar...........   4    0    1    0    5
+     1 todo   : RT12205
 integration/advent2011-day11.t.....................   9    0    0    0    9
 integration/advent2011-day14.t.....................   8    0    0    0    8
 integration/advent2011-day15.t.....................   9    0    0    0    9
@@ -2196,8 +2306,8 @@ integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
 integration/advent2012-day21.t.....................   9    0    0    0    9
-integration/advent2012-day22.rakudo.moar...........   5    0    0    1    6
-     1 skipped: RT121789
+integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
+     1 todo   : RT121789
 integration/advent2012-day23.t.....................   2    0    0    0    2
 integration/advent2012-day24.t.....................   1    0    0    0    1
 integration/advent2013-day02.t.....................  12    0    0    0   12
@@ -2250,35 +2360,36 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4388,     0,   146,   365,  4899,  5006
-"S03",        4816,     0,   112,   133,  5061,  5084
-"S04",         984,     0,    39,    44,  1067,  1119
-"S05",        4997,     0,    86,   325,  5408,  5893
+"S02",        4388,     0,   148,   363,  4899,  5006
+"S03",        4826,     0,   114,   121,  5061,  5084
+"S04",         985,     0,    40,    42,  1067,  1119
+"S05",        5000,     0,    92,   316,  5408,  5893
 "S06",        1172,     4,    38,   107,  1321,  1401
 "S07",           0,     0,     0,     0,     0,     0
-"S09",         177,     0,     9,    14,   200,   200
-"S10",          68,     0,     1,     2,    71,   128
-"S11",          75,     0,     2,     7,    84,   139
+"S09",         177,     0,    10,    13,   200,   200
+"S10",          68,     0,     2,     1,    71,   128
+"S11",          75,     0,     3,     6,    84,   139
 "S12",        1338,     0,    48,   124,  1510,  1568
 "S13",          33,     0,    10,    28,    71,    81
-"S14",         294,     0,    10,    12,   316,   329
+"S14",         296,     0,    10,    10,   316,   329
 "S15",         234,     0,     0,     0,   234,   283
-"S16",         235,     0,     5,    18,   258,   302
+"S16",         236,     0,     5,    17,   258,   302
 "S17",         575,     0,     1,    20,   596,   596
 "S19",           6,     0,     0,     0,     6,     6
 "S22",          23,     0,     1,     0,    24,    24
 "S24",           1,     0,     0,     0,     1,    88
-"S26",         312,     0,     0,     2,   314,   314
+"S26",         312,     0,     1,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     0,     4,     5,   341,   351
-"S32",        9105,     0,    98,   196,  9399,  7523
-"int",        1109,     0,    18,    35,  1162,  1151
+"S32",        9081,    28,   105,   185,  9399,  7523
+"int",        1109,     0,    20,    33,  1162,  1151
 "ros",           2,     0,     0,     0,     2,     2
-"total",     30283,     4,   628,  1457, 32372, 31662
+"total",     30276,    32,   652,  1412, 32372, 31662
 ----------------
 Failure summary:
 S06-advanced/wrap.rakudo.moar 71 - default works with wrapped accessor, capture return
 S06-advanced/wrap.rakudo.moar 72 - BUILD binding works with wrapped accessor, capture return
 S06-advanced/wrap.rakudo.moar 77 - assignment works with wrapped accessor, return callsame
 S06-advanced/wrap.rakudo.moar 85 - assignment works with wrapped accessor, nextsame
-note: test_summary.pl @syn does not have S22
+S32-io/IO-Socket-Async.t 4 - Echo server
+S32-list/pick.rakudo.moar aborted 27 test(s)
