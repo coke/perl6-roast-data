@@ -258,7 +258,8 @@ S02-types/deprecations.rakudo.moar.................  38    0    0    2   40
      1 skipped: Could not create deprecated Order::Decrease
      1 skipped: Could not create deprecated Order::Increase
 S02-types/fatrat.t.................................   1    0    0    0    1
-S02-types/flattening.t.............................  37    0    0    0   37
+S02-types/flattening.rakudo.moar...................  40    0    1    0   41
+     1 todo   : RT 122223
 S02-types/hash.rakudo.moar.........................use of uninitialized value of type Failure in string context
   87    0    1    0   88
      1 todo   : auto-vivified binding does not work yet
@@ -1768,114 +1769,116 @@ S32-list/reverse.rakudo.moar.......................  20    0    1    0   21
 S32-list/roll.t..................................../bin/sh: 1: perl6-m: not found
 /bin/sh: 1: perl6-m: not found
 /bin/sh: 1: perl6-m: not found
-*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': double free or corruption (out): 0x0000000007fead70 ***
+*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': free(): invalid size: 0x0000000008a6f280 ***
 ======= Backtrace: =========
-/lib/x86_64-linux-gnu/libc.so.6(+0x80996)[0x7fb1783d1996]
-/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_fixed_size_free+0x5e)[0x7fb17885f8ab]
-/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_frame_dec_ref+0xcc)[0x7fb17884a9b7]
-/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(+0x160534)[0x7fb178879534]
-/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_gc_collect_free_nursery_uncopied+0x52)[0x7fb17886cc49]
-/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(+0x14ab87)[0x7fb178863b87]
-/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_gc_enter_from_allocator+0x37e)[0x7fb178864027]
-/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_gc_allocate_nursery+0x51)[0x7fb178864110]
-/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_gc_allocate_zeroed+0xf)[0x7fb17886414e]
-/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_interp_run+0x13167)[0x7fb1788458d7]
-/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_vm_run_file+0xa3)[0x7fb1788ac215]
+/lib/x86_64-linux-gnu/libc.so.6(+0x80996)[0x7fae16d44996]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_fixed_size_free+0x5e)[0x7fae171d28ab]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_frame_dec_ref+0xcc)[0x7fae171bd9b7]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(+0x160534)[0x7fae171ec534]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_gc_collect_free_nursery_uncopied+0x52)[0x7fae171dfc49]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(+0x14ab87)[0x7fae171d6b87]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_gc_enter_from_allocator+0x37e)[0x7fae171d7027]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_gc_allocate_nursery+0x51)[0x7fae171d7110]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_gc_allocate_zeroed+0xf)[0x7fae171d714e]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_gc_allocate_object+0x2a)[0x7fae171d7299]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_frame_takeclosure+0x4f)[0x7fae171be714]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_interp_run+0x316b)[0x7fae171a88db]
+/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so(MVM_vm_run_file+0xa3)[0x7fae1721f215]
 /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar[0x400dc0]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5)[0x7fb178372de5]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5)[0x7fae16ce5de5]
 /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar[0x400a19]
 ======= Memory map: ========
-00400000-00402000 r-xp 00000000 fd:00 3682607                            /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar
-00601000-00602000 r--p 00001000 fd:00 3682607                            /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar
-00602000-00603000 rw-p 00002000 fd:00 3682607                            /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar
-01630000-08c55000 rw-p 00000000 00:00 0                                  [heap]
-7fb174506000-7fb17451b000 r-xp 00000000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
-7fb17451b000-7fb17471a000 ---p 00015000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
-7fb17471a000-7fb17471b000 r--p 00014000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
-7fb17471b000-7fb17471c000 rw-p 00015000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
-7fb17471c000-7fb174750000 r--p 00000000 fd:00 3808802                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.moarvm
-7fb174750000-7fb174dfc000 rw-p 00000000 00:00 0 
-7fb174dfc000-7fb174ffd000 rw-p 00000000 00:00 0 
-7fb174ffd000-7fb17519c000 rw-p 00000000 00:00 0 
-7fb1751b0000-7fb175340000 rw-p 00000000 00:00 0 
-7fb175340000-7fb17538c000 r--p 00000000 fd:00 3808798                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/Metamodel.moarvm
-7fb17538c000-7fb1753c8000 rw-p 00000000 00:00 0 
-7fb1753c8000-7fb1753f8000 r--p 00000000 fd:00 3808800                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/BOOTSTRAP.moarvm
-7fb1753f8000-7fb17548b000 rw-p 00000000 00:00 0 
-7fb17548b000-7fb176402000 r--p 00000000 fd:00 3682958                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/CORE.setting.moarvm
-7fb176402000-7fb17643a000 rw-p 00000000 00:00 0 
-7fb17643a000-7fb17643f000 r-xp 00000000 fd:00 3808787                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/dynext/libperl6_ops_moar.so
-7fb17643f000-7fb17663f000 ---p 00005000 fd:00 3808787                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/dynext/libperl6_ops_moar.so
-7fb17663f000-7fb176640000 r--p 00005000 fd:00 3808787                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/dynext/libperl6_ops_moar.so
-7fb176640000-7fb176641000 rw-p 00006000 fd:00 3808787                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/dynext/libperl6_ops_moar.so
-7fb176645000-7fb1766f8000 rw-p 00000000 00:00 0 
-7fb1766f8000-7fb176729000 rw-p 00000000 00:00 0 
-7fb176742000-7fb176843000 rw-p 00000000 00:00 0 
-7fb17685f000-7fb1768b2000 rw-p 00000000 00:00 0 
-7fb1768b2000-7fb1768d2000 r--p 00000000 fd:00 3808793                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/Optimizer.moarvm
-7fb1768d2000-7fb176964000 rw-p 00000000 00:00 0 
-7fb176964000-7fb176994000 r--p 00000000 fd:00 3808789                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/World.moarvm
-7fb176994000-7fb1769df000 rw-p 00000000 00:00 0 
-7fb1769df000-7fb1769ef000 r--p 00000000 fd:00 3808788                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/Ops.moarvm
-7fb1769ef000-7fb176a3c000 rw-p 00000000 00:00 0 
-7fb176a3c000-7fb176a51000 r--p 00000000 fd:00 3808790                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/Pod.moarvm
-7fb176a51000-7fb176b04000 r--p 00000000 fd:00 3808791                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/Actions.moarvm
-7fb176b04000-7fb176b60000 rw-p 00000000 00:00 0 
-7fb176b60000-7fb176bb4000 r--p 00000000 fd:00 3682955                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/NQPP5QRegex.moarvm
-7fb176bd0000-7fb176bd5000 r--p 00000000 fd:00 3808794                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/Compiler.moarvm
-7fb176bd5000-7fb1770d3000 r--p 00000000 fd:00 3808792                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/Grammar.moarvm
-7fb1770d3000-7fb177174000 rw-p 00000000 00:00 0 
-7fb177174000-7fb17718f000 r--p 00000000 fd:00 3682950                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/MASTOps.moarvm
-7fb17718f000-7fb1771b4000 rw-p 00000000 00:00 0 
-7fb1771b4000-7fb177222000 r--p 00000000 fd:00 3682952                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/QAST.moarvm
-7fb177222000-7fb177a24000 rw-p 00000000 00:00 0 
-7fb177a24000-7fb177a27000 r-xp 00000000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
-7fb177a27000-7fb177c26000 ---p 00003000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
-7fb177c26000-7fb177c27000 r--p 00002000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
-7fb177c27000-7fb177c28000 rw-p 00003000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
-7fb177c28000-7fb177c2f000 r-xp 00000000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
-7fb177c2f000-7fb177e2e000 ---p 00007000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
-7fb177e2e000-7fb177e2f000 r--p 00006000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
-7fb177e2f000-7fb177e30000 rw-p 00007000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
-7fb177e30000-7fb177e47000 r-xp 00000000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
-7fb177e47000-7fb178047000 ---p 00017000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
-7fb178047000-7fb178048000 r--p 00017000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
-7fb178048000-7fb178049000 rw-p 00018000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
-7fb178049000-7fb17804d000 rw-p 00000000 00:00 0 
-7fb17804d000-7fb178150000 r-xp 00000000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
-7fb178150000-7fb17834f000 ---p 00103000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
-7fb17834f000-7fb178350000 r--p 00102000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
-7fb178350000-7fb178351000 rw-p 00103000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
-7fb178351000-7fb17850e000 r-xp 00000000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
-7fb17850e000-7fb17870e000 ---p 001bd000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
-7fb17870e000-7fb178712000 r--p 001bd000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
-7fb178712000-7fb178714000 rw-p 001c1000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
-7fb178714000-7fb178719000 rw-p 00000000 00:00 0 
-7fb178719000-7fb1789fc000 r-xp 00000000 fd:00 3682610                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so
-7fb1789fc000-7fb178bfb000 ---p 002e3000 fd:00 3682610                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so
-7fb178bfb000-7fb178c7f000 r--p 002e2000 fd:00 3682610                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so
-7fb178c7f000-7fb178c87000 rw-p 00366000 fd:00 3682610                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so
-7fb178c87000-7fb178caa000 r-xp 00000000 fd:00 1310908                    /lib/x86_64-linux-gnu/ld-2.17.so
-7fb178cab000-7fb178cb4000 r--p 00000000 fd:00 3808784                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/ModuleLoader.moarvm
-7fb178cb4000-7fb178cc4000 r--p 00000000 fd:00 3682951                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/MASTNodes.moarvm
-7fb178cc4000-7fb178cee000 rw-p 00000000 00:00 0 
-7fb178cee000-7fb178d4b000 r--p 00000000 fd:00 3682949                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/NQPHLL.moarvm
-7fb178d4b000-7fb178d6f000 rw-p 00000000 00:00 0 
-7fb178d6f000-7fb178d87000 r--p 00000000 fd:00 3682947                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/QASTNode.moarvm
-7fb178d87000-7fb178da4000 r--p 00000000 fd:00 3682948                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/QRegex.moarvm
-7fb178da4000-7fb178e2a000 r--p 00000000 fd:00 3682953                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/NQPP6QRegex.moarvm
-7fb178e2a000-7fb178e77000 rw-p 00000000 00:00 0 
-7fb178e77000-7fb178e8c000 r--p 00000000 fd:00 3682944                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/nqpmo.moarvm
-7fb178e8c000-7fb178e98000 r--p 00000000 fd:00 3682946                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/NQPCORE.setting.moarvm
-7fb178e98000-7fb178e9d000 rw-p 00000000 00:00 0 
-7fb178e9f000-7fb178ea0000 rw-p 00000000 00:00 0 
-7fb178ea0000-7fb178ea3000 r--p 00000000 fd:00 3682945                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/ModuleLoader.moarvm
-7fb178ea3000-7fb178ea7000 r--p 00000000 fd:00 3682957                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/perl6.moarvm
-7fb178ea7000-7fb178ea9000 rw-p 00000000 00:00 0 
-7fb178ea9000-7fb178eaa000 r--p 00022000 fd:00 1310908                    /lib/x86_64-linux-gnu/ld-2.17.so
-7fb178eaa000-7fb178eac000 rw-p 00023000 fd:00 1310908                    /lib/x86_64-linux-gnu/ld-2.17.so
-7fff7288b000-7fff728ac000 rwxp 00000000 00:00 0                          [stack]
-7fff72948000-7fff7294a000 r-xp 00000000 00:00 0                          [vdso]
+00400000-00402000 r-xp 00000000 fd:00 3681677                            /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar
+00601000-00602000 r--p 00001000 fd:00 3681677                            /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar
+00602000-00603000 rw-p 00002000 fd:00 3681677                            /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar
+01d5e000-09364000 rw-p 00000000 00:00 0                                  [heap]
+7fae12e3f000-7fae12e54000 r-xp 00000000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fae12e54000-7fae13053000 ---p 00015000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fae13053000-7fae13054000 r--p 00014000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fae13054000-7fae13055000 rw-p 00015000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fae13055000-7fae13089000 r--p 00000000 fd:00 3681721                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.moarvm
+7fae13089000-7fae13735000 rw-p 00000000 00:00 0 
+7fae13735000-7fae13936000 rw-p 00000000 00:00 0 
+7fae13936000-7fae13ad5000 rw-p 00000000 00:00 0 
+7fae13af6000-7fae13cad000 rw-p 00000000 00:00 0 
+7fae13cad000-7fae13cf9000 r--p 00000000 fd:00 3681714                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/Metamodel.moarvm
+7fae13cf9000-7fae13d35000 rw-p 00000000 00:00 0 
+7fae13d35000-7fae13d65000 r--p 00000000 fd:00 3681716                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/BOOTSTRAP.moarvm
+7fae13d65000-7fae13df8000 rw-p 00000000 00:00 0 
+7fae13df8000-7fae14d75000 r--p 00000000 fd:00 3681718                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/CORE.setting.moarvm
+7fae14d75000-7fae14dad000 rw-p 00000000 00:00 0 
+7fae14dad000-7fae14db2000 r-xp 00000000 fd:00 3681702                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/dynext/libperl6_ops_moar.so
+7fae14db2000-7fae14fb2000 ---p 00005000 fd:00 3681702                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/dynext/libperl6_ops_moar.so
+7fae14fb2000-7fae14fb3000 r--p 00005000 fd:00 3681702                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/dynext/libperl6_ops_moar.so
+7fae14fb3000-7fae14fb4000 rw-p 00006000 fd:00 3681702                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/dynext/libperl6_ops_moar.so
+7fae14fbe000-7fae1506b000 rw-p 00000000 00:00 0 
+7fae1506b000-7fae1509c000 rw-p 00000000 00:00 0 
+7fae150b5000-7fae151b6000 rw-p 00000000 00:00 0 
+7fae151d2000-7fae15225000 rw-p 00000000 00:00 0 
+7fae15225000-7fae15245000 r--p 00000000 fd:00 3681708                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/Optimizer.moarvm
+7fae15245000-7fae152d7000 rw-p 00000000 00:00 0 
+7fae152d7000-7fae15307000 r--p 00000000 fd:00 3681704                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/World.moarvm
+7fae15307000-7fae15352000 rw-p 00000000 00:00 0 
+7fae15352000-7fae15362000 r--p 00000000 fd:00 3681703                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/Ops.moarvm
+7fae15362000-7fae153af000 rw-p 00000000 00:00 0 
+7fae153af000-7fae153c4000 r--p 00000000 fd:00 3681705                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/Pod.moarvm
+7fae153c4000-7fae15477000 r--p 00000000 fd:00 3681706                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/Actions.moarvm
+7fae15477000-7fae154d3000 rw-p 00000000 00:00 0 
+7fae154d3000-7fae15527000 r--p 00000000 fd:00 3808110                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/NQPP5QRegex.moarvm
+7fae15543000-7fae15548000 r--p 00000000 fd:00 3681709                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/Compiler.moarvm
+7fae15548000-7fae15a46000 r--p 00000000 fd:00 3681707                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/Grammar.moarvm
+7fae15a46000-7fae15ae7000 rw-p 00000000 00:00 0 
+7fae15ae7000-7fae15b02000 r--p 00000000 fd:00 3808105                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/MASTOps.moarvm
+7fae15b02000-7fae15b27000 rw-p 00000000 00:00 0 
+7fae15b27000-7fae15b95000 r--p 00000000 fd:00 3808107                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/QAST.moarvm
+7fae15b95000-7fae16397000 rw-p 00000000 00:00 0 
+7fae16397000-7fae1639a000 r-xp 00000000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
+7fae1639a000-7fae16599000 ---p 00003000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
+7fae16599000-7fae1659a000 r--p 00002000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
+7fae1659a000-7fae1659b000 rw-p 00003000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
+7fae1659b000-7fae165a2000 r-xp 00000000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
+7fae165a2000-7fae167a1000 ---p 00007000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
+7fae167a1000-7fae167a2000 r--p 00006000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
+7fae167a2000-7fae167a3000 rw-p 00007000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
+7fae167a3000-7fae167ba000 r-xp 00000000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
+7fae167ba000-7fae169ba000 ---p 00017000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
+7fae169ba000-7fae169bb000 r--p 00017000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
+7fae169bb000-7fae169bc000 rw-p 00018000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
+7fae169bc000-7fae169c0000 rw-p 00000000 00:00 0 
+7fae169c0000-7fae16ac3000 r-xp 00000000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
+7fae16ac3000-7fae16cc2000 ---p 00103000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
+7fae16cc2000-7fae16cc3000 r--p 00102000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
+7fae16cc3000-7fae16cc4000 rw-p 00103000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
+7fae16cc4000-7fae16e81000 r-xp 00000000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
+7fae16e81000-7fae17081000 ---p 001bd000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
+7fae17081000-7fae17085000 r--p 001bd000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
+7fae17085000-7fae17087000 rw-p 001c1000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
+7fae17087000-7fae1708c000 rw-p 00000000 00:00 0 
+7fae1708c000-7fae1736f000 r-xp 00000000 fd:00 3681680                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so
+7fae1736f000-7fae1756e000 ---p 002e3000 fd:00 3681680                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so
+7fae1756e000-7fae175f2000 r--p 002e2000 fd:00 3681680                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so
+7fae175f2000-7fae175fa000 rw-p 00366000 fd:00 3681680                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/lib/libmoar.so
+7fae175fa000-7fae1761d000 r-xp 00000000 fd:00 1310908                    /lib/x86_64-linux-gnu/ld-2.17.so
+7fae1761e000-7fae17627000 r--p 00000000 fd:00 3681699                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/blib/Perl6/ModuleLoader.moarvm
+7fae17627000-7fae17637000 r--p 00000000 fd:00 3808106                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/MASTNodes.moarvm
+7fae17637000-7fae17661000 rw-p 00000000 00:00 0 
+7fae17661000-7fae176be000 r--p 00000000 fd:00 3808104                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/NQPHLL.moarvm
+7fae176be000-7fae176e2000 rw-p 00000000 00:00 0 
+7fae176e2000-7fae176fa000 r--p 00000000 fd:00 3808102                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/QASTNode.moarvm
+7fae176fa000-7fae17717000 r--p 00000000 fd:00 3808103                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/QRegex.moarvm
+7fae17717000-7fae1779d000 r--p 00000000 fd:00 3808108                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/NQPP6QRegex.moarvm
+7fae1779d000-7fae177ea000 rw-p 00000000 00:00 0 
+7fae177ea000-7fae177ff000 r--p 00000000 fd:00 3808099                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/nqpmo.moarvm
+7fae177ff000-7fae1780b000 r--p 00000000 fd:00 3808101                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/NQPCORE.setting.moarvm
+7fae1780b000-7fae17810000 rw-p 00000000 00:00 0 
+7fae17812000-7fae17813000 rw-p 00000000 00:00 0 
+7fae17813000-7fae17816000 r--p 00000000 fd:00 3808100                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/ModuleLoader.moarvm
+7fae17816000-7fae1781a000 r--p 00000000 fd:00 3681712                    /home/coke/sandbox/perl6-roast-data/rakudo.moar/perl6.moarvm
+7fae1781a000-7fae1781c000 rw-p 00000000 00:00 0 
+7fae1781c000-7fae1781d000 r--p 00022000 fd:00 1310908                    /lib/x86_64-linux-gnu/ld-2.17.so
+7fae1781d000-7fae1781f000 rw-p 00023000 fd:00 1310908                    /lib/x86_64-linux-gnu/ld-2.17.so
+7fffc8007000-7fffc8028000 rwxp 00000000 00:00 0                          [stack]
+7fffc81a4000-7fffc81a6000 r-xp 00000000 00:00 0                          [vdso]
 ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
 Aborted (core dumped)
   40    8    0    0   48
@@ -2178,9 +2181,9 @@ use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
 Segmentation fault (core dumped)
-  24   12    0    1   37
+  23   13    0    1   37
      1 skipped: Test(s) not yet written: (**) Generate-and-test paradigm
-    12 tests aborted (missing ok/not ok)
+    13 tests aborted (missing ok/not ok)
 integration/99problems-61-to-70.t..................use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
@@ -2375,7 +2378,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4389,     0,   148,   363,  4900,  5007
+"S02",        4392,     0,   149,   363,  4904,  5011
 "S03",        4826,     0,   114,   121,  5061,  5084
 "S04",         985,     0,    40,    42,  1067,  1119
 "S05",        5000,     0,    92,   316,  5408,  5893
@@ -2397,9 +2400,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     0,     4,     5,   341,   351
 "S32",        9102,     8,   104,   185,  9399,  7523
-"int",        1098,    12,    20,    32,  1162,  1151
+"int",        1097,    13,    20,    32,  1162,  1151
 "ros",           2,     0,     0,     0,     2,     2
-"total",     30286,    25,   651,  1411, 32373, 31663
+"total",     30288,    26,   652,  1411, 32377, 31667
 ----------------
 Failure summary:
 S06-advanced/wrap.rakudo.moar 71 - default works with wrapped accessor, capture return
@@ -2409,4 +2412,4 @@ S06-advanced/wrap.rakudo.moar 85 - assignment works with wrapped accessor, nexts
 S17-supply/start.t 9 - did we get the other original value
 S32-list/roll.t 40 - different results due to random random-number seed
 S32-list/roll.t aborted 7 test(s)
-integration/99problems-51-to-60.t aborted 12 test(s)
+integration/99problems-51-to-60.t aborted 13 test(s)
