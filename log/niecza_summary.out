@@ -4585,7 +4585,7 @@ Use of uninitialized value in numeric context
 S32-list/reverse.niecza............................  16    0    0    5   21
      1 skipped: Unable to resolve method reverse in class Parcel
      4 skipped: Iterable NYI
-S32-list/roll.niecza...............................  42    4    0    2   48
+S32-list/roll.niecza...............................  41    5    0    2   48
      1 skipped: That's not the right way to spawn another Niecza
      1 skipped: .roll on empty list
 S32-list/sort.niecza...............................  24    0    4    4   32
@@ -4727,10 +4727,27 @@ S32-str/numeric.niecza............................. 127    0   41    0  168
 S32-str/ords.t.....................................   6    0    0    0    6
 S32-str/pos.t......................................   2    0    0    0    2
 S32-str/rindex.t...................................  33    0    0    0   33
-S32-str/split-simple.niecza........................  39    0    2    8   49
-     4 skipped: niecza has empty value at beginning of list
-     4 skipped: 0 or negative does not return empty list
-     2 todo   : returning 2 element list
+S32-str/split-simple.niecza........................[31m===[0mSORRY![31m===[0m
+
+Undeclared routine:
+	'subtest' used at line 15
+
+Unhandled exception: Check failed
+
+  at /home/coke/sandbox/perl6-roast-data/niecza/boot/lib/CORE.setting line 1502 (die @ 5) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1147 (P6.comp_unit @ 36) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 101 (STD.TOP @ 11) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/boot/lib/CORE.setting line 3018 (Grammar.parse @ 5) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaFrontendSTD.pm6 line 281 (NieczaFrontendSTD.parse @ 70) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaCompiler.pm6 line 34 (NieczaCompiler.compile @ 18) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaCompiler.pm6 line 60 (NieczaCompiler.compile_file @ 8) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/niecza line 165 (mainline @ 144) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/boot/lib/CORE.setting line 4327 (ANON @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/boot/lib/CORE.setting line 4328 (module-CORE @ 582) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/boot/lib/CORE.setting line 4328 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+   0   29    0    0   29
+    29 tests aborted (missing ok/not ok)
 S32-str/split.niecza...............................  31    0    5   17   53
      1 skipped: Unable to resolve method null in class Cursor
      2 skipped: Unable to resolve method wb in class Cursor
@@ -6117,10 +6134,10 @@ integration/weird-errors.niecza....................Unhandled exception: Unable t
 "S26",           0,     0,     0,     0,     0,   314
 "S28",           6,     0,     1,     0,     7,    13
 "S29",         300,     6,     2,    11,   319,   351
-"S32",        6618,   207,   128,   251,  7198,  7523
+"S32",        6578,   237,   126,   243,  7178,  7503
 "int",         447,    36,    19,    22,   524,  1151
 "ros",           0,     0,     0,     0,     0,     2
-"total",     20684,  1206,   713,  1730, 24301, 31661
+"total",     20644,  1236,   711,  1722, 24281, 31641
 ----------------
 Failure summary:
 S02-lexical-conventions/comments.niecza aborted 1 test(s)
@@ -6191,12 +6208,14 @@ S32-list/pick.niecza 55 - all pick on Enum is sane
 S32-list/pick.niecza 56 - too many pick on Enum is sane
 S32-list/roll.niecza 41 - simple roll on Enum type works
 S32-list/roll.niecza 42 - one roll on Enum type works
+S32-list/roll.niecza 45 - simple roll on Enum is sane
 S32-list/roll.niecza 46 - one roll on Enum is sane
 S32-list/roll.niecza 47 - too many roll on Enum is sane
 S32-num/cool-num.niecza passed 1 unplanned test(s)
 S32-num/rand.niecza passed 2 unplanned test(s)
 S32-num/stringify.t passed 3 unplanned test(s)
 S32-scalar/undef.niecza aborted 82 test(s)
+S32-str/split-simple.niecza aborted 29 test(s)
 integration/error-reporting.niecza aborted 16 test(s)
 integration/role-composition-vs-attribute.t aborted 10 test(s)
 integration/weird-errors.niecza aborted 10 test(s)
