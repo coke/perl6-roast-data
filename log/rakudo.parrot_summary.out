@@ -96,16 +96,14 @@ use of uninitialized value of type Str in string context  in block  at t/spec/S0
     16 skipped: unimpl $?KERNEL
      1 todo   : no Kernel.desc yet
      2 todo   : no Kernel.signature yet
-S02-magicals/PERL.rakudo.parrot....................Segmentation fault (core dumped)
-  13    5    0   32   50
+S02-magicals/PERL.rakudo.parrot....................  17    0    0   33   50
      1 skipped: no Perl.compiler.codename yet
      1 skipped: no Perl.desc yet
      1 skipped: no Perl.compiler.release yet
-     1 skipped: no Perl.compiler.signature yet
+     2 skipped: no Perl.compiler.signature yet
      1 skipped: no Perl.compiler.desc yet
     25 skipped: unimpl $?PERL
      2 skipped: no Perl.signature yet
-     5 tests aborted (missing ok/not ok)
 S02-magicals/VM.rakudo.parrot......................  12    0    0   20   32
      2 skipped: VM.properties does not exist
      1 skipped: no VM.desc yet
@@ -155,30 +153,12 @@ S02-names/bare-sigil.t.............................  10    0    0    0   10
 S02-names/caller.t.................................  15    0    0    0   15
 S02-names/identifier.t.............................  22    0    0    0   22
 S02-names/indirect.t...............................   6    0    0    0    6
-S02-names/is_cached.rakudo.parrot..................Element shifted from empty list
-  in method Str at gen/parrot/CORE.setting:12811
-  in method Str at gen/parrot/CORE.setting:1019
-  in method Stringy at gen/parrot/CORE.setting:1029
-  in method Stringy at gen/parrot/CORE.setting:1028
-  in sub infix:<~> at gen/parrot/CORE.setting:1430
-  in sub infix:<~> at gen/parrot/CORE.setting:1428
-  in sub  at gen/parrot/CORE.setting:17586
-  in sub noflat at t/spec/S02-names/is_cached.rakudo.parrot:54
-  in any call_with_capture at gen/parrot/Metamodel.nqp:3048
-  in block  at gen/parrot/CORE.setting:635
-  in block  at gen/parrot/CORE.setting:3324
-  in any enter at gen/parrot/Metamodel.nqp:3124
-  in method postcircumfix:<( )> at gen/parrot/CORE.setting:3280
-  in any  at gen/parrot/BOOTSTRAP.nqp:1680
-  in block  at t/spec/S02-names/is_cached.rakudo.parrot:57
-
-  22   16    0    0   38
-    16 tests aborted (missing ok/not ok)
+S02-names/is_cached.rakudo.parrot..................  36    0    2    0   38
+     2 todo   : optimizer kills the proto even though "is cached"
 S02-names/is_default.t............................. 114    0    0    0  114
 S02-names/is_dynamic.t.............................  22    0    0    0   22
 S02-names/name.t...................................  15    0    0    0   15
-S02-names/our.rakudo.parrot........................   8    0    0    2   10
-     1 skipped: Null PMC access in invoke()
+S02-names/our.rakudo.parrot........................   9    0    0    1   10
      1 skipped: OUR::subname() does not work
 S02-names/pseudo.rakudo.parrot.....................use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:92
 
@@ -222,7 +202,7 @@ Useless use of "," in expression "{$foo4 = \"blah\"}," in sink context (line 86)
 S02-types/array.rakudo.parrot......................use of uninitialized value of type Str in string context  in block  at t/spec/S02-types/array.rakudo.parrot:352
 
   93    0    0    2   95
-     2 skipped: multi-dim arrays
+     2 skipped: multi-dim arrays NYI
 S02-types/array_extending.t........................use of uninitialized value of type Any in string context  in block  at t/spec/S02-types/array_extending.t:104
 
 use of uninitialized value of type Any in string context  in block  at t/spec/S02-types/array_extending.t:104
@@ -244,24 +224,18 @@ so that this message will disappear!
   15    0    3    0   18
      3 todo   : deprecated %h = {...} for now
 S02-types/autovivification.t.......................  25    0    0    0   25
-S02-types/bag.rakudo.parrot........................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in block  at t/spec/S02-types/bag.rakudo.parrot:26
+S02-types/bag.rakudo.parrot........................use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:258
 
-  10  186    0    0  196
-   186 tests aborted (missing ok/not ok)
-S02-types/baghash.rakudo.parrot....................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in block  at t/spec/S02-types/baghash.rakudo.parrot:31
+ 192    0    1    3  196
+     3 skipped: No longer Iterable
+     1 todo   : Not properly interpolating
+S02-types/baghash.rakudo.parrot....................use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:258
 
-  10  239    0    0  249
-   239 tests aborted (missing ok/not ok)
+ 222    0    3   24  249
+    21 skipped: 'is ObjectType' NYI
+     3 skipped: No longer Iterable
+     1 todo   : Needs to catch up with spec
+     2 todo   : in flux
 S02-types/bool.t...................................  51    0    0    0   51
 S02-types/capture.rakudo.parrot....................  18    0    2    1   21
      1 skipped: nom regression
@@ -295,9 +269,7 @@ S02-types/declare.rakudo.parrot....................  52    0    2   24   78
      1 skipped: Codepoint NYI
      1 todo   : int NYI
      1 todo   : num NYI
-S02-types/deprecations.rakudo.parrot...............  37    1    0    2   40
-     1 skipped: Could not create deprecated Order::Decrease
-     1 skipped: Could not create deprecated Order::Increase
+S02-types/deprecations.t...........................  37    1    0    0   38
 S02-types/fatrat.t.................................   1    0    0    0    1
 S02-types/flattening.t.............................  41    0    0    0   41
 S02-types/hash.rakudo.parrot.......................use of uninitialized value of type Failure in string context  in sub is at lib/Test.pm:92
@@ -318,15 +290,11 @@ use of uninitialized value of type Parcel in string context  in sub is at lib/Te
 
   25    0    0    3   28
      3 skipped: list binding
-S02-types/mix.rakudo.parrot........................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in block  at t/spec/S02-types/mix.rakudo.parrot:26
+S02-types/mix.rakudo.parrot........................use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:258
 
-  10  168    0    0  178
-   168 tests aborted (missing ok/not ok)
+ 174    0    1    3  178
+     3 skipped: No longer Iterable
+     1 todo   : Not properly interpolating
 S02-types/mixed_multi_dimensional.rakudo.parrot....use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:92
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:95
@@ -334,15 +302,13 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
   77    0    3    0   80
      2 todo   : unknown
      1 todo   : isa hash
-S02-types/mixhash.rakudo.parrot....................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in block  at t/spec/S02-types/mixhash.rakudo.parrot:31
+S02-types/mixhash.rakudo.parrot....................use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:258
 
-  10  204    0    0  214
-   204 tests aborted (missing ok/not ok)
+ 187    0    3   24  214
+    21 skipped: 'is ObjectType' NYI
+     3 skipped: No longer Iterable
+     1 todo   : Needs to catch up with spec
+     2 todo   : in flux
 S02-types/multi_dimensional_array.rakudo.parrot....WARNINGS:
 Useless use of constant integer 1 in sink context (line 1)
 WARNINGS:
@@ -491,19 +457,11 @@ S03-junctions/associative.t........................  10    0    0    0   10
 S03-junctions/autothreading.t......................  89    0    0    0   89
 S03-junctions/boolean-context.rakudo.parrot........  76    0    1    0   77
      1 todo   : named unary as function call
-S03-junctions/misc.rakudo.parrot...................  97    0    4    4  105
+S03-junctions/misc.rakudo.parrot...................  99    0    2    4  105
      4 skipped: lower case junction
-     2 todo   : lower case junction type
      2 todo   : nom regression
-S03-metaops/cross.rakudo.parrot....................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in block  at t/spec/S03-metaops/cross.rakudo.parrot:18
-
-   3   26    0    0   29
-    26 tests aborted (missing ok/not ok)
+S03-metaops/cross.rakudo.parrot....................  28    0    0    1   29
+     1 skipped: .slice for iterators NYI
 S03-metaops/eager-hyper.rakudo.parrot..............   5    0    1    2    8
      2 skipped: hyper prefix NYI
      1 todo   : Array assignment is not lazy -- is this test wrong?
@@ -515,64 +473,40 @@ use of uninitialized value of type Any in numeric context  in block  at t/spec/S
 
 use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-metaops/hyper.rakudo.parrot:443
 
-Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<*> at gen/parrot/CORE.setting:4211
-  in sub infix:<*> at gen/parrot/CORE.setting:4209
-  in sub  at gen/parrot/CORE.setting:17586
-  in sub postfix:<!> at t/spec/S03-metaops/hyper.rakudo.parrot:487
-  in sub flatmap at gen/parrot/CORE.setting:17796
-  in sub flatmap at gen/parrot/CORE.setting:17780
-  in sub flatmap at gen/parrot/CORE.setting:17817
-  in sub flatmap at gen/parrot/CORE.setting:17780
-  in sub METAOP_HYPER_POSTFIX at gen/parrot/CORE.setting:17695
-  in sub METAOP_HYPER_POSTFIX at gen/parrot/CORE.setting:17694
-  in block  at t/spec/S03-metaops/hyper.rakudo.parrot:491
-
- 129  123    0    5  257
+ 245    0    6    6  257
+     1 skipped: EVAL(Buf)
      3 skipped: huh?
      2 skipped: nom regression: possible spec change/improvement
-   123 tests aborted (missing ok/not ok)
+     6 todo   : nom regression - whatever extension RT #122230
 S03-metaops/not.t..................................  33    0    0    0   33
-S03-metaops/reduce.rakudo.parrot...................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in block  at t/spec/S03-metaops/reduce.rakudo.parrot:23
+S03-metaops/reduce.rakudo.parrot...................use of uninitialized value of type Int in string context  in block  at t/spec/S03-metaops/reduce.rakudo.parrot:330
 
-   0  366    0    0  366
-   366 tests aborted (missing ok/not ok)
+use of uninitialized value of type Int in string context  in block  at t/spec/S03-metaops/reduce.rakudo.parrot:330
+
+use of uninitialized value of type Int in string context  in block  at t/spec/S03-metaops/reduce.rakudo.parrot:330
+
+use of uninitialized value of type Int in string context  in block  at t/spec/S03-metaops/reduce.rakudo.parrot:330
+
+use of uninitialized value of type Int in string context  in block  at t/spec/S03-metaops/reduce.rakudo.parrot:330
+
+use of uninitialized value of type Int in string context  in block  at t/spec/S03-metaops/reduce.rakudo.parrot:330
+
+use of uninitialized value of type Int in string context  in block  at t/spec/S03-metaops/reduce.rakudo.parrot:330
+
+use of uninitialized value of type Any in string context  in block  at t/spec/S03-metaops/reduce.rakudo.parrot:340
+
+use of uninitialized value of type Any in string context  in block  at t/spec/S03-metaops/reduce.rakudo.parrot:343
+
+ 357    0    9    0  366
+     1 todo   : item context
+     2 todo   : triangle [\^^] and [\xor]
+     3 todo   : huh?
+     2 todo   : orelse
+     1 todo   : reduced hyper op
 S03-metaops/reverse.t..............................  34    0    0    0   34
-S03-metaops/zip.rakudo.parrot......................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in block  at gen/parrot/CORE.setting:17562
-  in any coro at gen/parrot/CORE.setting:7849
-  in block  at gen/parrot/CORE.setting:7830
-  in method reify at gen/parrot/CORE.setting:7824
-  in block  at gen/parrot/CORE.setting:7540
-  in block  at gen/parrot/CORE.setting:7532
-  in method reify at gen/parrot/CORE.setting:7508
-  in block  at gen/parrot/CORE.setting:7540
-  in block  at gen/parrot/CORE.setting:7532
-  in method reify at gen/parrot/CORE.setting:7508
-  in block  at gen/parrot/CORE.setting:7540
-  in block  at gen/parrot/CORE.setting:7532
-  in method reify at gen/parrot/CORE.setting:7508
-  in method gimme at gen/parrot/CORE.setting:8032
-  in method eager at gen/parrot/CORE.setting:8004
-  in method join at gen/parrot/CORE.setting:1687
-  in sub join at gen/parrot/CORE.setting:1905
-  in sub join at gen/parrot/CORE.setting:1904
-  in block  at t/spec/S03-metaops/zip.rakudo.parrot:56
-
-  12    7    4    2   25
+S03-metaops/zip.rakudo.parrot......................  19    0    4    2   25
      2 skipped: nom regression RT #122230
      4 todo   : nom regression RT #122230
-     7 tests aborted (missing ok/not ok)
 S03-operators/adverbial-modifiers.rakudo.parrot....use of uninitialized value of type Any in string context  in sub f1 at t/spec/S03-operators/adverbial-modifiers.rakudo.parrot:177
 
   41    0    1    0   42
@@ -632,9 +566,7 @@ S03-operators/basic-types.t........................  19    0    0    0   19
 S03-operators/bit.t................................  34    3    0    0   37
 S03-operators/boolean-bitwise.t....................  45    0    0    0   45
 S03-operators/brainos.t............................   9    0    0    0    9
-S03-operators/buf.t................................Killed
-  11   23    0    0   34
-    23 tests aborted (missing ok/not ok)
+S03-operators/buf.t................................  34    0    0    0   34
 S03-operators/chained-declarators.t................   5    0    0    0    5
 S03-operators/cmp.t................................  22    0    0    0   22
 S03-operators/comparison-simple.t..................  24    0    0    0   24
@@ -779,15 +711,7 @@ use of uninitialized value of type Any in string context  in sub test_ff_cnt at 
 
   37    0    0    2   39
      2 skipped: dubious scoping?
-S03-operators/gcd.t................................Element shifted from empty list
-  in method Int at gen/parrot/CORE.setting:12808
-  in sub infix:<gcd> at gen/parrot/CORE.setting:4240
-  in sub infix:<gcd> at gen/parrot/CORE.setting:4237
-  in sub  at gen/parrot/CORE.setting:17586
-  in block  at t/spec/S03-operators/gcd.t:19
-
-   5   11    0    0   16
-    11 tests aborted (missing ok/not ok)
+S03-operators/gcd.t................................  16    0    0    0   16
 S03-operators/identity.rakudo.parrot...............  37    0    8    0   45
      4 todo   : unspecced
      4 todo   : misuse of =:=
@@ -796,15 +720,7 @@ S03-operators/inplace.rakudo.parrot................  23    0    0    4   27
      4 skipped: Method '' not found for invocant of class 'Str'
 S03-operators/is-divisible-by.rakudo.parrot........  14    0    1    0   15
      1 todo   : not sure why this doesn't fire
-S03-operators/lcm.t................................Element shifted from empty list
-  in method Int at gen/parrot/CORE.setting:12808
-  in sub infix:<lcm> at gen/parrot/CORE.setting:4235
-  in sub infix:<lcm> at gen/parrot/CORE.setting:4233
-  in sub  at gen/parrot/CORE.setting:17586
-  in block  at t/spec/S03-operators/lcm.t:19
-
-   5   10    0    0   15
-    10 tests aborted (missing ok/not ok)
+S03-operators/lcm.t................................  15    0    0    0   15
 S03-operators/list-quote-junction.t................  16    0    0    0   16
 S03-operators/minmax.rakudo.parrot.................  21    0    4    0   25
      2 todo   : Annoying test that we haven't done the obvious yet unspecced, fails because we have indeed done the obvious
@@ -812,15 +728,7 @@ S03-operators/minmax.rakudo.parrot.................  21    0    4    0   25
 S03-operators/misc.rakudo.parrot...................  32    0    1    0   33
      1 todo   : nom regression
 S03-operators/names.t..............................   7    0    0    0    7
-S03-operators/nesting.t............................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in block  at t/spec/S03-operators/nesting.t:45
-
-  21    5    0    0   26
-     5 tests aborted (missing ok/not ok)
+S03-operators/nesting.t............................  26    0    0    0   26
 S03-operators/not.rakudo.parrot....................  21    0    1    0   22
      1 todo   : RT #65556
 S03-operators/numeric-shift.rakudo.parrot..........  36    0    1    0   37
@@ -872,48 +780,14 @@ S03-operators/short-circuit.rakudo.parrot..........use of uninitialized value of
 S03-operators/so.rakudo.parrot.....................  14    0    1    0   15
      1 todo   : check test and rakudo
 S03-operators/spaceship-and-containers.t...........   6    0    0    0    6
-S03-operators/spaceship.t..........................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in block  at t/spec/S03-operators/spaceship.t:16
-
-   1    4    0    0    5
-     4 tests aborted (missing ok/not ok)
+S03-operators/spaceship.t..........................   5    0    0    0    5
 S03-operators/subscript-adverbs.t.................. 108    0    0    0  108
 S03-operators/subscript-vs-lt.t....................   4    0    0    0    4
 S03-operators/ternary.t............................  17    0    0    0   17
 S03-operators/value_equivalence.rakudo.parrot......  73    0    2    0   75
      1 todo   : .WHICH based on type names
      1 todo   : \@a seems to flatten when it should not
-S03-sequence/arity-2-or-more.t.....................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<*> at gen/parrot/CORE.setting:4211
-  in sub infix:<*> at gen/parrot/CORE.setting:4209
-  in sub  at gen/parrot/CORE.setting:17586
-  in sub  at t/spec/S03-sequence/arity-2-or-more.t:47
-  in block  at gen/parrot/CORE.setting:17318
-  in block  at gen/parrot/CORE.setting:17314
-  in any coro at gen/parrot/CORE.setting:7849
-  in block  at gen/parrot/CORE.setting:7830
-  in method reify at gen/parrot/CORE.setting:7824
-  in block  at gen/parrot/CORE.setting:7540
-  in block  at gen/parrot/CORE.setting:7532
-  in method reify at gen/parrot/CORE.setting:7508
-  in block  at gen/parrot/CORE.setting:7540
-  in block  at gen/parrot/CORE.setting:7532
-  in method reify at gen/parrot/CORE.setting:7508
-  in block  at gen/parrot/CORE.setting:7540
-  in block  at gen/parrot/CORE.setting:7532
-  in method reify at gen/parrot/CORE.setting:7508
-  in method gimme at gen/parrot/CORE.setting:8032
-  in method eager at gen/parrot/CORE.setting:8004
-  in method join at gen/parrot/CORE.setting:1687
-  in block  at t/spec/S03-sequence/arity-2-or-more.t:47
-
-  18    1    0    0   19
-     1 tests aborted (missing ok/not ok)
+S03-sequence/arity-2-or-more.t.....................  19    0    0    0   19
 S03-sequence/arity0.t..............................  13    0    0    0   13
 S03-sequence/basic.rakudo.parrot................... 127    0    2    0  129
      1 todo   : sequence + last
@@ -1046,13 +920,12 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:95
 
-   9    0    6    2   17
-     2 skipped: declared variable not visible in block yet
+   9    0    5    3   17
+     3 skipped: declared variable not visible in block yet
      1 todo   : will init NYI
      1 todo   : will post NYI
      1 todo   : will variable not all blocks yet
      2 todo   : declared variable not visible in block yet
-     1 todo PASSED: will init NYI
 S04-exception-handlers/catch.t.....................  29    0    0    0   29
 S04-exceptions/control_across_runloop.t............Nominal type check failed for parameter '$x'; expected Any but got Mu instead
    1    0    0    0    1
@@ -1120,15 +993,9 @@ S04-statements/do.rakudo.parrot....................  21    0    0    6   27
      3 skipped: Undeclared name A
      1 skipped: next without loop construct
 S04-statements/for-scope.t.........................  16    0    0    0   16
-S04-statements/for.rakudo.parrot...................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in block  at t/spec/S04-statements/for.rakudo.parrot:253
-
-  33   47    0    0   80
-    47 tests aborted (missing ok/not ok)
+S04-statements/for.rakudo.parrot...................  77    0    2    1   80
+     1 skipped: optional variable in for loop (RT #63994)
+     2 todo   : RT #113026 array iterator does not track a growing array
 S04-statements/for_with_only_one_item.t............   9    0    0    0    9
 S04-statements/gather.rakudo.parrot................  27    0    1    0   28
      1 todo PASSED: RT #117635 (infinite loop)
@@ -1196,29 +1063,22 @@ S05-interpolation/regex-in-variable.rakudo.parrot..use of uninitialized value of
   31    0    3    0   34
      1 todo   : warn on undef
      2 todo   : instance member interpolation
-S05-mass/charsets.rakudo.parrot....................Element shifted from empty list
-  in method Str at gen/parrot/CORE.setting:12811
-  in method Str at gen/parrot/CORE.setting:1019
-  in method Stringy at gen/parrot/CORE.setting:1029
-  in method Stringy at gen/parrot/CORE.setting:1028
-  in sub infix:<~> at gen/parrot/CORE.setting:1430
-  in sub infix:<~> at gen/parrot/CORE.setting:1428
-  in sub  at gen/parrot/CORE.setting:17586
-  in block  at t/spec/S05-mass/charsets.rakudo.parrot:11
-
-   0   16    0    0   16
-    16 tests aborted (missing ok/not ok)
-S05-mass/named-chars.rakudo.parrot................. 337    0    0   94  431
+S05-mass/charsets.rakudo.parrot....................  13    0    3    0   16
+     1 todo   : unicode 6.0 punct characters
+     1 todo   : blank characters
+     1 todo   : punct characters
+S05-mass/named-chars.rakudo.parrot................. 337    0   53   41  431
      2 skipped: CR as char name
-    62 skipped: negative char class in enumerated list
      2 skipped: NEL as char name
      2 skipped: FF as char name
      4 skipped: \c[LF] not valid charname
      4 skipped: \c[CR] not valid charname
-     5 skipped: escapes in char classes
-     7 skipped: \c[NEL] not valid charname
+     4 skipped: escapes in char classes
+     8 skipped: \c[NEL] not valid charname
      4 skipped: \c[FF] not valid charname
      2 skipped: LF as char name
+     9 skipped: negative char class in enumerated list RT #122245
+    53 todo   : negative char class in enumerated list RT #122245
 S05-mass/properties-block.t........................ 670    0    0    0  670
 S05-mass/properties-derived.rakudo.parrot.......... 190    0    0   66  256
     10 skipped: isCommon NYI
@@ -1466,49 +1326,28 @@ S06-multi/type-based.rakudo.parrot.................  50    0    0    3   53
      3 skipped: our sub in class
 S06-multi/unpackability.t..........................  10    0    0    0   10
 S06-multi/value-based.t............................  12    0    0    0   12
-S06-operator-overloading/imported-subs.t...........Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<*> at gen/parrot/CORE.setting:4211
-  in sub infix:<*> at gen/parrot/CORE.setting:4209
-  in sub  at gen/parrot/CORE.setting:17586
-  in sub postfix:<!> at /home/coke/sandbox/perl6-roast-data/rakudo.parrot/t/spec/packages/Exportops.pm:3
-  in block  at eval_0:1
-  in any  at eval_0:1
-  in sub EVAL at gen/parrot/CORE.setting:702
-  in sub EVAL at gen/parrot/CORE.setting:693
-  in block  at t/spec/S06-operator-overloading/imported-subs.t:15
-
-   0   19    0    0   19
-    19 tests aborted (missing ok/not ok)
+S06-operator-overloading/imported-subs.t...........  19    0    0    0   19
 S06-operator-overloading/methods.rakudo.parrot.....   2    0    1    0    3
      1 todo   : nom regression
 S06-operator-overloading/semicolon.t...............WARNINGS:
 Useless use of constant integer 2 in sink context (line 15)
 Useless use of constant integer 3 in sink context (line 15)
    3    0    0    0    3
-S06-operator-overloading/sub.rakudo.parrot.........Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in sub prefix:<Σ> at t/spec/S06-operator-overloading/sub.rakudo.parrot:128
-  in block  at t/spec/S06-operator-overloading/sub.rakudo.parrot:129
-
-  12   52    0    6   70
+S06-operator-overloading/sub.rakudo.parrot.........  43    0    7   20   70
+     1 skipped: missing block, apparently "if" not an op
+     2 skipped: not yet implemented
+     1 skipped: infix Z will never work; no lexical Z
      4 skipped: prefix:[] form NYI
+     1 skipped: &::
+     4 skipped: missing block, no lexical Z
+     3 skipped: assoc("non")
      2 skipped: macros
-    52 tests aborted (missing ok/not ok)
-S06-operator-overloading/workout.t.................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in method abs at t/spec/S06-operator-overloading/workout.t:17
-  in method abs at gen/parrot/CORE.setting:516
-  in block  at t/spec/S06-operator-overloading/workout.t:76
-
-  10   74    0    0   84
-    74 tests aborted (missing ok/not ok)
+     1 skipped: undeclared name
+     1 skipped: cannot bind with this LHS
+     1 todo   : RT #65638
+     1 todo   : infix:<;>
+     5 todo   : huh?
+S06-operator-overloading/workout.t.................  84    0    0    0   84
 S06-other/anon-hashes-vs-blocks.t..................  22    0    0    0   22
 S06-other/introspection.t..........................  12    0    0    0   12
 S06-other/main-eval.rakudo.parrot..................   2    0    1    0    3
@@ -1584,17 +1423,12 @@ S06-signature/sigilless.t..........................  10    0    0    0   10
 S06-signature/slurpy-and-interpolation.t...........   7    0    0    0    7
 S06-signature/slurpy-params.rakudo.parrot..........use of uninitialized value of type Any in numeric context  in sub foo2 at t/spec/S06-signature/slurpy-params.rakudo.parrot:98
 
-Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in sub foo3 at t/spec/S06-signature/slurpy-params.rakudo.parrot:99
-  in block  at t/spec/S06-signature/slurpy-params.rakudo.parrot:108
+use of uninitialized value of type Any in numeric context  in sub foo2 at t/spec/S06-signature/slurpy-params.rakudo.parrot:98
 
-  20   34    0    3   57
-     3 skipped: types on slurpy params
-    34 tests aborted (missing ok/not ok)
+use of uninitialized value of type Any in numeric context  in sub foo2 at t/spec/S06-signature/slurpy-params.rakudo.parrot:98
+
+  40    0    0   17   57
+    17 skipped: types on slurpy params
 S06-signature/slurpy-placeholders.t................   8    0    0    0    8
 S06-signature/sub-ref.rakudo.parrot................use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:92
 
@@ -1728,20 +1562,6 @@ use of uninitialized value of type Int in string context  in sub is at lib/Test.
 
 use of uninitialized value of type Int in string context  in sub is at lib/Test.pm:95
 
-Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in method t at t/spec/S12-attributes/instance.rakudo.parrot:554
-  in submethod BUILD at t/spec/S12-attributes/instance.rakudo.parrot:565
-  in block  at gen/parrot/CORE.setting:852
-  in method BUILDALL at gen/parrot/CORE.setting:846
-  in method bless at gen/parrot/CORE.setting:835
-  in method new at gen/parrot/CORE.setting:820
-  in method new at gen/parrot/CORE.setting:818
-  in block  at t/spec/S12-attributes/instance.rakudo.parrot:569
-
 Saw 1 call to deprecated code during execution.
 ================================================================================
 %!h = { ... } called at:
@@ -1750,12 +1570,12 @@ Please use %!h = ... instead.
 --------------------------------------------------------------------------------
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
- 118   16    6    0  140
+ 133    0    6    1  140
+     1 skipped: dubious test - the initializer becomes a submethod here, implying a scope
      2 todo   : ro array/hash with accessor
      1 todo   : over-eager auto-vivification bugs
      1 todo   : huh?
      2 todo   : ro on list attributes
-    16 tests aborted (missing ok/not ok)
 S12-attributes/mutators.rakudo.parrot..............   5    0    0    7   12
      7 skipped: Can not get attribute $!varies declared in class MagicVal with this object
 S12-attributes/recursive.t.........................  23    0    0    0   23
@@ -1850,9 +1670,8 @@ S12-methods/attribute-params.t.....................  13    0    0    0   13
 S12-methods/calling_sets.rakudo.parrot.............  21    0    0   11   32
     11 skipped: ambiguous dispatch
 S12-methods/calling_syntax.t.......................  11    0    0    0   11
-S12-methods/chaining.rakudo.parrot.................Killed
-  15    2    0    0   17
-     2 tests aborted (missing ok/not ok)
+S12-methods/chaining.rakudo.parrot.................  15    0    2    0   17
+     2 todo   : RT #121945
 S12-methods/class-and-instance.t...................   8    0    0    0    8
 S12-methods/default-trait.t........................   6    0    0    0    6
 S12-methods/defer-call.t...........................  14    0    0    0   14
@@ -1905,19 +1724,8 @@ S12-subset/multi-dispatch.t........................   6    0    0    0    6
 S12-subset/subtypes.rakudo.parrot..................  75    0    2    0   77
      2 todo   : RT #79160
                                                    pass fail todo skip plan
-S13-overloading/metaoperators.rakudo.parrot........Element shifted from empty list
-  in method Str at gen/parrot/CORE.setting:12811
-  in method Str at gen/parrot/CORE.setting:1019
-  in method Stringy at gen/parrot/CORE.setting:1029
-  in method Stringy at gen/parrot/CORE.setting:1028
-  in sub infix:<~> at gen/parrot/CORE.setting:1430
-  in sub infix:<~> at gen/parrot/CORE.setting:1428
-  in sub infix:<wtf> at t/spec/S13-overloading/metaoperators.rakudo.parrot:9
-  in sub  at gen/parrot/CORE.setting:17586
-  in block  at t/spec/S13-overloading/metaoperators.rakudo.parrot:18
-
-   2    8    0    0   10
-     8 tests aborted (missing ok/not ok)
+S13-overloading/metaoperators.rakudo.parrot........   9    0    0    1   10
+     1 skipped: couldn't find final ']'
 S13-overloading/operators.rakudo.parrot............   3    0    0    1    4
      1 skipped: cannot easily override {} at the moment
 S13-overloading/typecasting-long.rakudo.parrot.....   4    0    0   12   16
@@ -2368,7 +2176,7 @@ S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.parrot.......................  18    0   11    0   29
     11 todo   : binding on hash elements unimplemented
-S32-io/IO-Socket-INET.t............................  45    2    0    0   47
+S32-io/IO-Socket-INET.t............................  47    0    0    0   47
 S32-io/chdir.rakudo.parrot.........................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
@@ -2440,20 +2248,8 @@ S32-list/pick.rakudo.parrot........................  56    0    1    0   57
      1 todo   : error on pick :replace
 S32-list/reduce.rakudo.parrot......................use of uninitialized value of type Any in numeric context  in block  at t/spec/S32-list/reduce.rakudo.parrot:29
 
-Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in sub a at t/spec/S32-list/reduce.rakudo.parrot:69
-  in sub a at t/spec/S32-list/reduce.rakudo.parrot:68
-  in method reduce at gen/parrot/CORE.setting:8489
-  in method reduce at gen/parrot/CORE.setting:1551
-  in block  at t/spec/S32-list/reduce.rakudo.parrot:70
-
-  12    1    1    0   14
+  13    0    1    0   14
      1 todo   : n-ary reduce
-     1 tests aborted (missing ok/not ok)
 S32-list/reverse.rakudo.parrot.....................  20    0    1    0   21
      1 todo   : RT #77914
 S32-list/roll.t....................................  48    0    0    0   48
@@ -2697,16 +2493,7 @@ S32-temporal/calendar.t............................Potential difficulties:
     Leading 0 does not indicate octal in Perl 6; please use 0o3 if you mean that
     at t/spec/S32-temporal/calendar.t:140
     ------> [32mis dtim(2010, 01, 03[33m⏏[31m).week-number, 53, 'DateTime.week-number[0m
-Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in method day-of-year at gen/parrot/CORE.setting:15415
-  in block  at t/spec/S32-temporal/calendar.t:179
-
- 108   22    0    0  130
-    22 tests aborted (missing ok/not ok)
+ 130    0    0    0  130
 S32-temporal/local.t...............................   6    0    0   19   25
     19 skipped: The local time zone may not be America/New_York.
 S32-trig/atan2.t................................... 115    0    0    0  115
@@ -2948,51 +2735,17 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
      1 skipped: Test(s) not yet written: (**) A string representation of binary trees
      1 skipped: Test(s) not yet written: (**) Preorder and inorder sequences of binary trees
      1 skipped: Test(s) not yet written: (**) Construct a complete binary tree
-integration/advent2009-day01.t.....................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in block  at t/spec/integration/advent2009-day01.t:12
-
-   1    1    0    0    2
-     1 tests aborted (missing ok/not ok)
+integration/advent2009-day01.t.....................   2    0    0    0    2
 integration/advent2009-day02.t.....................  10    0    0    0   10
 integration/advent2009-day03.t.....................   6    0    0    0    6
-integration/advent2009-day04.t.....................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<*> at gen/parrot/CORE.setting:4211
-  in sub infix:<*> at gen/parrot/CORE.setting:4209
-  in sub  at gen/parrot/CORE.setting:17586
-  in sub fac at t/spec/integration/advent2009-day04.t:6
-  in block  at t/spec/integration/advent2009-day04.t:14
-
-   2    4    0    0    6
-     4 tests aborted (missing ok/not ok)
-integration/advent2009-day05.t.....................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in block  at t/spec/integration/advent2009-day05.t:13
-
-   0   17    0    0   17
-    17 tests aborted (missing ok/not ok)
+integration/advent2009-day04.t.....................   6    0    0    0    6
+integration/advent2009-day05.t.....................  17    0    0    0   17
 integration/advent2009-day06.rakudo.parrot.........  14    0    1    0   15
      1 todo   : Cannot assign to readonly value
 integration/advent2009-day07.rakudo.parrot.........  12    0    0    1   13
      1 skipped: No candidates found to invoke
 integration/advent2009-day08.t.....................   8    0    0    0    8
-integration/advent2009-day09.t.....................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in sub sum at t/spec/integration/advent2009-day09.t:8
-  in block  at t/spec/integration/advent2009-day09.t:55
-
-   0   17    0    0   17
-    17 tests aborted (missing ok/not ok)
+integration/advent2009-day09.t.....................  17    0    0    0   17
 integration/advent2009-day10.t.....................   5    0    0    0    5
 integration/advent2009-day11.t.....................   6    0    0    0    6
 integration/advent2009-day12.rakudo.parrot.........   5    0    0    4    9
@@ -3027,25 +2780,8 @@ integration/advent2009-day18.rakudo.parrot.........   5    0    0    1    6
      1 skipped: parse error
 integration/advent2009-day19.t.....................   6    0    0    0    6
 integration/advent2009-day20.t.....................  21    0    0    0   21
-integration/advent2009-day21.t.....................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in block  at t/spec/integration/advent2009-day21.t:112
-
-   0    2    0    0    2
-     2 tests aborted (missing ok/not ok)
-integration/advent2009-day22.t.....................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<*> at gen/parrot/CORE.setting:4211
-  in sub infix:<*> at gen/parrot/CORE.setting:4209
-  in sub  at gen/parrot/CORE.setting:17586
-  in sub postfix:<!> at t/spec/integration/advent2009-day22.t:9
-  in block  at t/spec/integration/advent2009-day22.t:12
-
-   0    4    0    0    4
-     4 tests aborted (missing ok/not ok)
+integration/advent2009-day21.t.....................   2    0    0    0    2
+integration/advent2009-day22.t.....................   4    0    0    0    4
 integration/advent2009-day23.rakudo.parrot.........   3    0    0    1    4
      1 skipped: lists aren't properly lazy in Rakudo yet
 integration/advent2010-day03.t.....................  12    0    0    0   12
@@ -3070,80 +2806,21 @@ integration/advent2011-day05.t.....................   5    0    0    0    5
 integration/advent2011-day07.t.....................   3    0    0    0    3
 integration/advent2011-day10.rakudo.parrot.........   4    0    1    0    5
      1 todo   : RT #12205
-integration/advent2011-day11.t.....................   5    4    0    0    9
+integration/advent2011-day11.t.....................   9    0    0    0    9
 integration/advent2011-day14.t.....................   8    0    0    0    8
 integration/advent2011-day15.t.....................   9    0    0    0    9
 integration/advent2011-day16.t.....................  11    0    0    0   11
 integration/advent2011-day20.t.....................  16    0    0    0   16
 integration/advent2012-day02.t.....................   4    0    0    0    4
-integration/advent2012-day03.t.....................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in method compute-layout at t/spec/integration/advent2012-day03.t:32
-  in block  at t/spec/integration/advent2012-day03.t:56
-
-   0    2    0    0    2
-     2 tests aborted (missing ok/not ok)
-integration/advent2012-day04.t.....................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in block  at t/spec/integration/advent2012-day04.t:6
-
-   0    9    0    0    9
-     9 tests aborted (missing ok/not ok)
+integration/advent2012-day03.t.....................   2    0    0    0    2
+integration/advent2012-day04.t.....................   8    0    1    0    9
+     1 todo   : differing result
 integration/advent2012-day06.t.....................   2    0    0    0    2
 integration/advent2012-day09.t.....................   8    0    0    0    8
 integration/advent2012-day10.t.....................  26    0    0    0   26
 integration/advent2012-day12.t.....................   5    0    0    0    5
-integration/advent2012-day13.t.....................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in method total at gen/parrot/CORE.setting:16538
-  in method roll at gen/parrot/CORE.setting:16439
-  in sub red-blue-roll at t/spec/integration/advent2012-day13.t:41
-  in block  at t/spec/integration/advent2012-day13.t:53
-
-   4   38    0    0   42
-    38 tests aborted (missing ok/not ok)
-integration/advent2012-day14.t.....................splice() not implemented in class 'Mu'
-  in block  at gen/parrot/CORE.setting:7542
-  in block  at gen/parrot/CORE.setting:7532
-  in method reify at gen/parrot/CORE.setting:7508
-  in block  at gen/parrot/CORE.setting:7540
-  in block  at gen/parrot/CORE.setting:7532
-  in method reify at gen/parrot/CORE.setting:7508
-  in method gimme at gen/parrot/CORE.setting:8032
-  in method Bool at gen/parrot/CORE.setting:7930
-  in block  at gen/parrot/CORE.setting:17240
-  in any coro at gen/parrot/CORE.setting:7849
-  in block  at gen/parrot/CORE.setting:7830
-  in method reify at gen/parrot/CORE.setting:7824
-  in block  at gen/parrot/CORE.setting:7540
-  in block  at gen/parrot/CORE.setting:7532
-  in method reify at gen/parrot/CORE.setting:7508
-  in block  at gen/parrot/CORE.setting:7540
-  in block  at gen/parrot/CORE.setting:7532
-  in method reify at gen/parrot/CORE.setting:7508
-  in block  at gen/parrot/CORE.setting:7540
-  in block  at gen/parrot/CORE.setting:7532
-  in method reify at gen/parrot/CORE.setting:7508
-  in method gimme at gen/parrot/CORE.setting:8032
-  in method eager at gen/parrot/CORE.setting:8004
-  in method new at gen/parrot/CORE.setting:3366
-  in method new at gen/parrot/CORE.setting:3363
-  in sub none at gen/parrot/CORE.setting:3497
-  in sub is-prime-beta at t/spec/integration/advent2012-day14.t:10
-  in block  at t/spec/integration/advent2012-day14.t:63
-  in block  at t/spec/integration/advent2012-day14.t:59
-
-   3    3    0    0    6
-     3 tests aborted (missing ok/not ok)
+integration/advent2012-day13.t.....................  42    0    0    0   42
+integration/advent2012-day14.t.....................   6    0    0    0    6
 integration/advent2012-day15.rakudo.parrot.........  10    0    1    0   11
      1 todo   : NEXT RT #121722
 integration/advent2012-day16.t.....................  11    0    0    0   11
@@ -3159,16 +2836,7 @@ integration/advent2013-day04.rakudo.parrot.........   6    0    1    0    7
      1 todo   : :c in heredocs
 integration/advent2013-day06.t.....................   1    0    0    0    1
 integration/advent2013-day07.t.....................   6    0    0    0    6
-integration/advent2013-day08.t.....................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<+> at gen/parrot/CORE.setting:4203
-  in sub infix:<+> at gen/parrot/CORE.setting:4201
-  in sub  at gen/parrot/CORE.setting:17586
-  in method magnitude at t/spec/integration/advent2013-day08.t:20
-  in block  at t/spec/integration/advent2013-day08.t:39
-
-   3    8    0    0   11
-     8 tests aborted (missing ok/not ok)
+integration/advent2013-day08.t.....................  11    0    0    0   11
 integration/advent2013-day09.t.....................  21    0    0    0   21
 integration/advent2013-day10.t.....................  44    0    0    0   44
 integration/advent2013-day12.t.....................  32    0    0    0   32
@@ -3179,16 +2847,7 @@ integration/advent2013-day15.rakudo.parrot.........  27    0    3    0   30
 integration/advent2013-day18.t.....................  10    0    0    0   10
 integration/advent2013-day20.t.....................  22    0    0    0   22
 integration/advent2013-day21.t.....................  24    0    0    0   24
-integration/advent2013-day22.t.....................Element shifted from empty list
-  in method Numeric at gen/parrot/CORE.setting:12810
-  in sub infix:<*> at gen/parrot/CORE.setting:4211
-  in sub infix:<*> at gen/parrot/CORE.setting:4209
-  in sub  at gen/parrot/CORE.setting:17586
-  in sub postfix:<!> at t/spec/integration/advent2013-day22.t:6
-  in block  at t/spec/integration/advent2013-day22.t:8
-
-   0    9    0    0    9
-     9 tests aborted (missing ok/not ok)
+integration/advent2013-day22.t.....................   9    0    0    0    9
 integration/advent2013-day23.t.....................   9    0    0    0    9
 integration/code-blocks-as-sub-args.t..............   4    0    0    0    4
 integration/error-reporting.t......................  16    0    0    0   16
@@ -3199,19 +2858,7 @@ integration/man-or-boy.t...........................  10    0    0    0   10
 integration/method-calls-and-instantiation.t.......   2    0    0    0    2
 integration/no-indirect-new.t......................   2    0    0    0    2
 integration/packages.t.............................   3    0    0    0    3
-integration/pair-in-array.t........................Element shifted from empty list
-  in method Str at gen/parrot/CORE.setting:12811
-  in method Str at gen/parrot/CORE.setting:1019
-  in method Stringy at gen/parrot/CORE.setting:1029
-  in method Stringy at gen/parrot/CORE.setting:1028
-  in sub infix:<~> at gen/parrot/CORE.setting:1430
-  in sub infix:<~> at gen/parrot/CORE.setting:1428
-  in sub  at gen/parrot/CORE.setting:17586
-  in sub catWhat at t/spec/integration/pair-in-array.t:14
-  in block  at t/spec/integration/pair-in-array.t:17
-
-   1    2    0    0    3
-     2 tests aborted (missing ok/not ok)
+integration/pair-in-array.t........................   3    0    0    0    3
 integration/passing-pair-class-to-sub.t............   2    0    0    0    2
 integration/real-strings.t.........................  20    0    0    0   20
 integration/role-composition-vs-attribute.rakudo...   6    0    0    4   10
@@ -3229,17 +2876,17 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        3653,   819,   115,   311,  4898,  5005
-"S03",        4263,   579,   100,   119,  5061,  5084
-"S04",         933,    54,    41,    39,  1067,  1119
-"S05",        4894,    16,    96,   402,  5408,  5893
-"S06",        1029,   183,    33,    76,  1321,  1401
+"S02",        4407,     1,   125,   363,  4896,  5003
+"S03",        4824,     3,   113,   121,  5061,  5084
+"S04",         977,     7,    42,    41,  1067,  1119
+"S05",        4907,     0,   152,   349,  5408,  5893
+"S06",        1173,     4,    40,   104,  1321,  1401
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,    10,    13,   200,   200
 "S10",          68,     0,     2,     1,    71,   128
 "S11",          75,     0,     3,     6,    84,   139
-"S12",        1321,    18,    48,   123,  1510,  1568
-"S13",          26,     8,    10,    27,    71,    81
+"S12",        1336,     0,    50,   124,  1510,  1568
+"S13",          33,     0,    10,    28,    71,    81
 "S14",         298,     0,     8,    10,   316,   329
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         236,     0,     5,    17,   258,   302
@@ -3250,32 +2897,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         312,     0,     1,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     0,     4,     5,   341,   351
-"S32",        9060,    26,    98,   189,  9373,  7503
-"int",         983,   120,    17,    38,  1158,  1151
+"S32",        9085,     1,    98,   189,  9373,  7503
+"int",        1102,     0,    18,    38,  1158,  1151
 "ros",           2,     0,     0,     0,     2,     2
-"total",     27699,  1823,   592,  1397, 31511, 31641
+"total",     29381,    16,   682,  1430, 31509, 31639
 ----------------
 Failure summary:
-S02-magicals/PERL.rakudo.parrot aborted 5 test(s)
-S02-names/is_cached.rakudo.parrot aborted 16 test(s)
-S02-types/bag.rakudo.parrot aborted 186 test(s)
-S02-types/baghash.rakudo.parrot aborted 239 test(s)
-S02-types/deprecations.rakudo.parrot 40 - deprecation %h = {...}
-S02-types/mix.rakudo.parrot aborted 168 test(s)
-S02-types/mixhash.rakudo.parrot aborted 204 test(s)
-S03-metaops/cross.rakudo.parrot aborted 26 test(s)
-S03-metaops/hyper.rakudo.parrot aborted 123 test(s)
-S03-metaops/reduce.rakudo.parrot aborted 366 test(s)
-S03-metaops/zip.rakudo.parrot aborted 7 test(s)
+S02-types/deprecations.t 38 - deprecation %h = {...}
 S03-operators/bit.t 9 - logical AND of two negative Int is twos complement
 S03-operators/bit.t 10 - logical OR of two negative Int is twos complement
 S03-operators/bit.t 11 - logical XOR of two negative Int is twos complement
-S03-operators/buf.t aborted 23 test(s)
-S03-operators/gcd.t aborted 11 test(s)
-S03-operators/lcm.t aborted 10 test(s)
-S03-operators/nesting.t aborted 5 test(s)
-S03-operators/spaceship.t aborted 4 test(s)
-S03-sequence/arity-2-or-more.t aborted 1 test(s)
 S04-phasers/init.t 1 - init blocks run after begin blocks
 S04-phasers/init.t 2 - init blocks run after check blocks
 S04-phasers/init.t 3 - init blocks run in forward order
@@ -3283,38 +2914,8 @@ S04-phasers/init.t 4 - our INIT {...} block already gets called
 S04-phasers/init.t 7 - our rvalue INIT {...} block was executed exactly once
 S04-phasers/init.t 10 - INIT has run exactly once (first time)
 S04-phasers/init.t 11 - INIT has run exactly once (second time)
-S04-statements/for.rakudo.parrot aborted 47 test(s)
-S05-mass/charsets.rakudo.parrot aborted 16 test(s)
 S06-advanced/wrap.rakudo.parrot 71 - default works with wrapped accessor, capture return
 S06-advanced/wrap.rakudo.parrot 72 - BUILD binding works with wrapped accessor, capture return
 S06-advanced/wrap.rakudo.parrot 77 - assignment works with wrapped accessor, return callsame
 S06-advanced/wrap.rakudo.parrot 85 - assignment works with wrapped accessor, nextsame
-S06-operator-overloading/imported-subs.t aborted 19 test(s)
-S06-operator-overloading/sub.rakudo.parrot aborted 52 test(s)
-S06-operator-overloading/workout.t aborted 74 test(s)
-S06-signature/slurpy-params.rakudo.parrot aborted 34 test(s)
-S12-attributes/instance.rakudo.parrot aborted 16 test(s)
-S12-methods/chaining.rakudo.parrot aborted 2 test(s)
-S13-overloading/metaoperators.rakudo.parrot aborted 8 test(s)
 S32-exceptions/misc.rakudo.parrot 227 - did we throws_like X::TypeCheck::Binding?
-S32-io/IO-Socket-INET.t 1 - [5s] echo server and client
-S32-io/IO-Socket-INET.t 3 - [5s] discard server and client
-S32-list/reduce.rakudo.parrot aborted 1 test(s)
-S32-temporal/calendar.t aborted 22 test(s)
-integration/advent2009-day01.t aborted 1 test(s)
-integration/advent2009-day04.t aborted 4 test(s)
-integration/advent2009-day05.t aborted 17 test(s)
-integration/advent2009-day09.t aborted 17 test(s)
-integration/advent2009-day21.t aborted 2 test(s)
-integration/advent2009-day22.t aborted 4 test(s)
-integration/advent2011-day11.t 3 - public method sanity
-integration/advent2011-day11.t 6 - inheritance public method, (trusting)
-integration/advent2011-day11.t 7 - inheritance private method, (trusting)
-integration/advent2011-day11.t 8 - inheritance public method, (untrusting)
-integration/advent2012-day03.t aborted 2 test(s)
-integration/advent2012-day04.t aborted 9 test(s)
-integration/advent2012-day13.t aborted 38 test(s)
-integration/advent2012-day14.t aborted 3 test(s)
-integration/advent2013-day08.t aborted 8 test(s)
-integration/advent2013-day22.t aborted 9 test(s)
-integration/pair-in-array.t aborted 2 test(s)

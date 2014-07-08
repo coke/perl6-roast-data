@@ -129,8 +129,7 @@ S02-names/is_cached.rakudo.jvm.....................  36    0    2    0   38
 S02-names/is_default.t............................. 114    0    0    0  114
 S02-names/is_dynamic.t.............................  22    0    0    0   22
 S02-names/name.t...................................  15    0    0    0   15
-S02-names/our.rakudo.jvm...........................   8    0    0    2   10
-     1 skipped: Null PMC access in invoke()
+S02-names/our.rakudo.jvm...........................   9    0    0    1   10
      1 skipped: OUR::subname() does not work
 S02-names/pseudo.rakudo.jvm........................  46    0    8   88  142
     19 skipped: CORE NYI
@@ -154,7 +153,7 @@ S02-types/anon_block.rakudo.jvm....................  36    3    1    2   42
      2 skipped: tests don't work if previous test fails
      1 todo   : Parrot support for zero-arg subs?
 S02-types/array.rakudo.jvm.........................  93    0    0    2   95
-     2 skipped: multi-dim arrays
+     2 skipped: multi-dim arrays NYI
 S02-types/array_extending.t........................  21    0    0    0   21
 S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.rakudo.jvm................  15    0    3    0   18
@@ -202,8 +201,8 @@ S02-types/declare.rakudo.jvm.......................  52    0    2   24   78
      1 skipped: Codepoint NYI
      1 todo   : int NYI
      1 todo   : num NYI
-S02-types/deprecations.rakudo.jvm..................   0    0    0   40   40
-    40 skipped: tracebacks in deprecations
+S02-types/deprecations.rakudo.jvm..................   0    0    0   38   38
+    38 skipped: tracebacks in deprecations
 S02-types/fatrat.t.................................   1    0    0    0    1
 S02-types/flattening.t.............................  41    0    0    0   41
 S02-types/hash.rakudo.jvm..........................  87    0    1    0   88
@@ -303,9 +302,8 @@ S03-junctions/associative.t........................  10    0    0    0   10
 S03-junctions/autothreading.t......................  89    0    0    0   89
 S03-junctions/boolean-context.rakudo.jvm...........  76    0    1    0   77
      1 todo   : named unary as function call
-S03-junctions/misc.rakudo.jvm......................  97    0    4    4  105
+S03-junctions/misc.rakudo.jvm......................  99    0    2    4  105
      4 skipped: lower case junction
-     2 todo   : lower case junction type
      2 todo   : nom regression
 S03-metaops/cross.rakudo.jvm.......................  28    0    0    1   29
      1 skipped: .slice for iterators NYI
@@ -505,12 +503,11 @@ S04-declarations/state.rakudo.jvm..................  33    0    2    5   40
      5 skipped: parse error
      1 todo   : embedded closures in regexen
      1 todo   : initialization happens only on first call(?)
-S04-declarations/will.rakudo.jvm...................  10    0    5    2   17
-     2 skipped: declared variable not visible in block yet
+S04-declarations/will.rakudo.jvm...................  10    0    4    3   17
+     3 skipped: declared variable not visible in block yet
      1 todo   : will init NYI
      1 todo   : will post NYI
      2 todo   : declared variable not visible in block yet
-     1 todo PASSED: will init NYI
 S04-exception-handlers/catch.t.....................  29    0    0    0   29
 S04-exceptions/control_across_runloop.t............   1    0    0    0    1
 S04-exceptions/fail.rakudo.jvm.....................  11    0    0    2   13
@@ -626,17 +623,18 @@ S05-interpolation/regex-in-variable.rakudo.jvm.....  31    0    3    0   34
 S05-mass/charsets.rakudo.jvm.......................  13    0    3    0   16
      1 todo   : Unicode 6.3 -- lower characters
      2 todo   : Unicode 6.3 -- punct characters
-S05-mass/named-chars.rakudo.jvm.................... 337    0    0   94  431
+S05-mass/named-chars.rakudo.jvm.................... 337    0   53   41  431
      2 skipped: CR as char name
-    62 skipped: negative char class in enumerated list
      2 skipped: NEL as char name
      2 skipped: FF as char name
      4 skipped: \c[LF] not valid charname
      4 skipped: \c[CR] not valid charname
-     5 skipped: escapes in char classes
-     7 skipped: \c[NEL] not valid charname
+     4 skipped: escapes in char classes
+     8 skipped: \c[NEL] not valid charname
      4 skipped: \c[FF] not valid charname
      2 skipped: LF as char name
+     9 skipped: negative char class in enumerated list RT #122245
+    53 todo   : negative char class in enumerated list RT #122245
 S05-mass/properties-block.t........................ 670    0    0    0  670
 S05-mass/properties-derived.rakudo.jvm............. 189    0    1   66  256
     10 skipped: isCommon NYI
@@ -1167,7 +1165,7 @@ S17-channel/winner.t...............................   3    0    0    0    3
 S17-lowlevel/lock.rakudo.jvm.......................   7    0    0    1    8
      1 skipped: not sure this test is valid
 S17-lowlevel/thread.t..............................  25    0    0    0   25
-S17-promise/allof.t................................   9    1    0    0   10
+S17-promise/allof.t................................  10    0    0    0   10
 S17-promise/anyof.t................................   9    0    0    0    9
 S17-promise/basic.t................................  19    0    0    0   19
 S17-promise/in.t...................................   2    0    0    0    2
@@ -1338,7 +1336,7 @@ S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.jvm..........................  18    0   11    0   29
     11 todo   : binding on hash elements unimplemented
 S32-io/IO-Socket-Async.t...........................   6    0    0    0    6
-S32-io/IO-Socket-INET.t............................  43    4    0    0   47
+S32-io/IO-Socket-INET.t............................  23   24    0    0   47
 S32-io/chdir.rakudo.jvm............................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
@@ -1685,10 +1683,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4362,     3,   144,   389,  4898,  5005
-"S03",        4826,     0,   114,   121,  5061,  5084
-"S04",         979,     0,    41,    47,  1067,  1119
-"S05",        4908,     0,    98,   402,  5408,  5893
+"S02",        4363,     3,   144,   386,  4896,  5003
+"S03",        4828,     0,   112,   121,  5061,  5084
+"S04",         979,     0,    40,    48,  1067,  1119
+"S05",        4908,     0,   151,   349,  5408,  5893
 "S06",        1161,    15,    38,   107,  1321,  1401
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,    10,    13,   200,   200
@@ -1699,26 +1697,45 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         296,     0,    10,    10,   316,   329
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         235,     0,     5,    18,   258,   302
-"S17",         551,     1,    23,    21,   596,   596
+"S17",         552,     0,    23,    21,   596,   596
 "S19",           3,     0,     0,     3,     6,     6
 "S22",          23,     0,     1,     0,    24,    24
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         312,     0,     1,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     0,     3,     6,   341,   351
-"S32",        9086,     5,    96,   192,  9379,  7503
+"S32",        9066,    25,    96,   192,  9379,  7503
 "int",        1109,     0,    20,    33,  1162,  1151
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29882,    24,   669,  1542, 32117, 31641
+"total",     29866,    43,   719,  1487, 32115, 31639
 ----------------
 Failure summary:
 S02-types/anon_block.rakudo.jvm 30 - bare blocks immediately runs even as the last statement
 S02-types/anon_block.rakudo.jvm 31 - ditto for anonymous subs
 S02-types/anon_block.rakudo.jvm 32 - ditto, even if nested
 S06-advanced/wrap.rakudo.jvm aborted 15 test(s)
-S17-promise/allof.t 10 - got the right order
 S32-exceptions/misc.rakudo.jvm 227 - did we throws_like X::TypeCheck::Binding?
-S32-io/IO-Socket-INET.t 3 - [55s] discard server and client
-S32-io/IO-Socket-INET.t 32 - [45s] received first character
+S32-io/IO-Socket-INET.t 1 - [46s] echo server and client
+S32-io/IO-Socket-INET.t 3 - [47s] discard server and client
+S32-io/IO-Socket-INET.t 5 - [49s] received first 7 characters
+S32-io/IO-Socket-INET.t 7 - [0s] received next 3 characters
+S32-io/IO-Socket-INET.t 9 - [0s] remaining 26 were buffered
+S32-io/IO-Socket-INET.t 11 - [0s] received 뻯
+S32-io/IO-Socket-INET.t 13 - [0s] ... which is 1 character
+S32-io/IO-Socket-INET.t 15 - [0s] received another character
+S32-io/IO-Socket-INET.t 17 - [0s] combined the bytes form 몾
+S32-io/IO-Socket-INET.t 19 - [49s] get() with default separator
+S32-io/IO-Socket-INET.t 21 - [0s] default separator
+S32-io/IO-Socket-INET.t 23 - [0s] \r\n separator
+S32-io/IO-Socket-INET.t 25 - [0s] . as a separator
+S32-io/IO-Socket-INET.t 27 - [0s] ! separator not at end of string
+S32-io/IO-Socket-INET.t 29 - [0s] Multiple separators not at end of string
+S32-io/IO-Socket-INET.t 31 - [0s] ! separator at end of string
+S32-io/IO-Socket-INET.t 32 - [53s] received first character
 S32-io/IO-Socket-INET.t 34 - [0s] received last character
 S32-io/IO-Socket-INET.t 36 - [0s] total amount 
+S32-io/IO-Socket-INET.t 38 - [51s] successful read binary data
+S32-io/IO-Socket-INET.t 40 - [48s] successful received binary data
+S32-io/IO-Socket-INET.t 42 - [48s] received first character
+S32-io/IO-Socket-INET.t 44 - [0s] received last character
+S32-io/IO-Socket-INET.t 46 - [0s] total amount 
