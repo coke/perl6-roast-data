@@ -96,14 +96,16 @@ use of uninitialized value of type Str in string context  in block  at t/spec/S0
     16 skipped: unimpl $?KERNEL
      1 todo   : no Kernel.desc yet
      2 todo   : no Kernel.signature yet
-S02-magicals/PERL.rakudo.parrot....................  17    0    0   33   50
+S02-magicals/PERL.rakudo.parrot....................Segmentation fault (core dumped)
+  13    5    0   32   50
      1 skipped: no Perl.compiler.codename yet
      1 skipped: no Perl.desc yet
      1 skipped: no Perl.compiler.release yet
-     2 skipped: no Perl.compiler.signature yet
+     1 skipped: no Perl.compiler.signature yet
      1 skipped: no Perl.compiler.desc yet
     25 skipped: unimpl $?PERL
      2 skipped: no Perl.signature yet
+     5 tests aborted (missing ok/not ok)
 S02-magicals/VM.rakudo.parrot......................  12    0    0   20   32
      2 skipped: VM.properties does not exist
      1 skipped: no VM.desc yet
@@ -215,9 +217,9 @@ use of uninitialized value of type Any in string context  in block  at t/spec/S0
 S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.rakudo.parrot.............Saw 1 call to deprecated code during execution.
 ================================================================================
-%hash = { ... } called at:
+%hash = itemized hash called at:
   t/spec/S02-types/assigning-refs.rakudo.parrot, lines 37,47,58
-Please use %hash = ... instead.
+Please use %hash = %(itemized hash) instead.
 --------------------------------------------------------------------------------
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
@@ -1564,9 +1566,9 @@ use of uninitialized value of type Int in string context  in sub is at lib/Test.
 
 Saw 1 call to deprecated code during execution.
 ================================================================================
-%!h = { ... } called at:
+%!h = itemized hash called at:
   t/spec/S12-attributes/instance.rakudo.parrot, line 508
-Please use %!h = ... instead.
+Please use %!h = %(itemized hash) instead.
 --------------------------------------------------------------------------------
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
@@ -1805,7 +1807,7 @@ S19-command-line-options/03-dash-p.t...............   2    0    0    0    2
 S19-command-line/dash-e.t..........................   3    0    0    0    3
 S19-command-line/help.t............................   1    0    0    0    1
                                                    pass fail todo skip plan
-S22-package-format/local.t.........................  11    0    0    0   11
+S22-package-format/local.t.........................  21    0    0    0   21
 S22-package-format/parse-spec.rakudo.parrot........  12    0    1    0   13
      1 todo   : RT #122137
                                                    pass fail todo skip plan
@@ -2424,7 +2426,7 @@ S32-temporal/Date.t................................Potential difficulties:
 S32-temporal/DateTime-Instant-Duration.rakudo.par..  28    0    4    1   33
      1 skipped: nom regression
      4 todo   : high-precision Instants NYI (need FatRats)
-S32-temporal/DateTime.rakudo.parrot................ 200    0    1    0  201
+S32-temporal/DateTime.rakudo.parrot................ 216    0    1    0  217
      1 todo   : nom regression
 S32-temporal/calendar.t............................Potential difficulties:
     Leading 0 does not indicate octal in Perl 6; please use 0o1 if you mean that
@@ -2876,7 +2878,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4407,     1,   125,   363,  4896,  5003
+"S02",        4403,     6,   125,   362,  4896,  5003
 "S03",        4824,     3,   113,   121,  5061,  5084
 "S04",         977,     7,    42,    41,  1067,  1119
 "S05",        4907,     0,   152,   349,  5408,  5893
@@ -2892,18 +2894,19 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S16",         236,     0,     5,    17,   258,   302
 "S17",           0,     0,     0,     0,     0,   596
 "S19",           6,     0,     0,     0,     6,     6
-"S22",          23,     0,     1,     0,    24,    24
+"S22",          33,     0,     1,     0,    34,    34
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         312,     0,     1,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         332,     0,     4,     5,   341,   351
-"S32",        9085,     1,    98,   189,  9373,  7503
+"S32",        9101,     1,    98,   189,  9389,  7519
 "int",        1102,     0,    18,    38,  1158,  1151
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29381,    16,   682,  1430, 31509, 31639
+"total",     29403,    21,   682,  1429, 31535, 31665
 ----------------
 Failure summary:
-S02-types/deprecations.t 38 - deprecation %h = {...}
+S02-magicals/PERL.rakudo.parrot aborted 5 test(s)
+S02-types/deprecations.t 38 - deprecation %h = itemized hash
 S03-operators/bit.t 9 - logical AND of two negative Int is twos complement
 S03-operators/bit.t 10 - logical OR of two negative Int is twos complement
 S03-operators/bit.t 11 - logical XOR of two negative Int is twos complement
