@@ -201,8 +201,8 @@ S02-types/declare.rakudo.jvm.......................  52    0    2   24   78
      1 skipped: Codepoint NYI
      1 todo   : int NYI
      1 todo   : num NYI
-S02-types/deprecations.rakudo.jvm..................   0    0    0   38   38
-    38 skipped: tracebacks in deprecations
+S02-types/deprecations.rakudo.jvm..................   0    0    0   36   36
+    36 skipped: tracebacks in deprecations
 S02-types/fatrat.t.................................   1    0    0    0    1
 S02-types/flattening.t.............................  41    0    0    0   41
 S02-types/hash.rakudo.jvm..........................  87    0    1    0   88
@@ -316,12 +316,11 @@ S03-metaops/hyper.rakudo.jvm....................... 245    0    6    6  257
      2 skipped: nom regression: possible spec change/improvement
      6 todo   : nom regression - whatever extension RT #122230
 S03-metaops/not.t..................................  33    0    0    0   33
-S03-metaops/reduce.rakudo.jvm...................... 357    0    9    0  366
+S03-metaops/reduce.rakudo.jvm...................... 358    0    8    0  366
      1 todo   : item context
      2 todo   : triangle [\^^] and [\xor]
      3 todo   : huh?
      2 todo   : orelse
-     1 todo   : reduced hyper op
 S03-metaops/reverse.t..............................  34    0    0    0   34
 S03-metaops/zip.rakudo.jvm.........................  19    0    4    2   25
      2 skipped: nom regression RT #122230
@@ -333,7 +332,7 @@ S03-operators/also.rakudo.jvm......................   4    0    4    0    8
 S03-operators/andthen.t............................   8    0    0    0    8
 S03-operators/arith.t.............................. 145    0    0    0  145
 S03-operators/assign-is-not-binding.t..............   8    0    0    0    8
-S03-operators/assign.rakudo.jvm.................... 256    0   22   12  290
+S03-operators/assign.rakudo.jvm.................... 262    0   22   12  296
      3 skipped: expects a term, found infix >= instead
      3 skipped: Two terms in a row
      3 skipped: cannot modifiy an immutable value
@@ -821,12 +820,12 @@ S06-operator-overloading/methods.rakudo.jvm........   2    0    1    0    3
 S06-operator-overloading/semicolon.t...............   3    0    0    0    3
 S06-operator-overloading/sub.rakudo.jvm............  43    0    7   20   70
      1 skipped: missing block, apparently "if" not an op
-     2 skipped: not yet implemented
      1 skipped: infix Z will never work; no lexical Z
      4 skipped: prefix:[] form NYI
      1 skipped: &::
      4 skipped: missing block, no lexical Z
      3 skipped: assoc("non")
+     2 skipped: NYI
      2 skipped: macros
      1 skipped: undeclared name
      1 skipped: cannot bind with this LHS
@@ -946,7 +945,7 @@ S11-modules/require.rakudo.jvm.....................  11    0    1    1   13
      1 skipped: Trying to import from 'InnerModule', but the following symbols are missing: quux
      1 todo   : variable form plus imports NYI
                                                    pass fail todo skip plan
-S12-attributes/class.rakudo.jvm....................  19    0    0    6   25
+S12-attributes/class.rakudo.jvm....................  20    0    0    6   26
      6 skipped: nom regression - method ^foo
 S12-attributes/clone.rakudo.jvm....................  32    0    2    0   34
      2 todo   : clone currently messes up original
@@ -1246,7 +1245,8 @@ S19-command-line/dash-e.rakudo.jvm.................   0    0    0    3    3
      3 skipped: nigh
 S19-command-line/help.t............................   1    0    0    0    1
                                                    pass fail todo skip plan
-S22-package-format/local.t.........................  21    0    0    0   21
+S22-package-format/local.t.........................   0   38    0    0   38
+    38 tests aborted (missing ok/not ok)
 S22-package-format/parse-spec.rakudo.jvm...........  12    0    1    0   13
      1 todo   : RT #122137
                                                    pass fail todo skip plan
@@ -1273,9 +1273,8 @@ S29-any/cmp.t......................................   6    0    0    0    6
 S29-any/isa.t......................................  10    0    0    0   10
 S29-context/die.rakudo.jvm.........................  15    0    1    0   16
      1 todo   : RT #67374
-S29-context/eval.rakudo.jvm........................  15    0    0    3   18
-     1 skipped: EVAL(Buf)
-     2 skipped: EVAL coerce to string
+S29-context/eval.rakudo.jvm........................  19    0    0    2   21
+     2 skipped: EVAL(Buf) RT #122256
 S29-context/exit-in-if.t...........................   1    0    0    0    1
 S29-context/exit.t.................................   3    0    0    0    3
 S29-context/sleep.t................................  17    0    0    0   17
@@ -1336,7 +1335,7 @@ S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.jvm..........................  18    0   11    0   29
     11 todo   : binding on hash elements unimplemented
 S32-io/IO-Socket-Async.t...........................   6    0    0    0    6
-S32-io/IO-Socket-INET.t............................  46    1    0    0   47
+S32-io/IO-Socket-INET.t............................  33   14    0    0   47
 S32-io/chdir.rakudo.jvm............................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
@@ -1683,8 +1682,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4363,     3,   144,   386,  4896,  5003
-"S03",        4828,     0,   112,   121,  5061,  5084
+"S02",        4363,     3,   144,   384,  4894,  5001
+"S03",        4835,     0,   111,   121,  5067,  5090
 "S04",         979,     0,    40,    48,  1067,  1119
 "S05",        4908,     0,   151,   349,  5408,  5893
 "S06",        1161,    15,    38,   107,  1321,  1401
@@ -1692,27 +1691,41 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S09",         177,     0,    10,    13,   200,   200
 "S10",          68,     0,     2,     1,    71,   128
 "S11",          75,     0,     3,     6,    84,   139
-"S12",        1336,     0,    50,   124,  1510,  1568
+"S12",        1337,     0,    50,   124,  1511,  1569
 "S13",          33,     0,    10,    28,    71,    81
 "S14",         296,     0,    10,    10,   316,   329
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         235,     0,     5,    18,   258,   302
 "S17",         552,     0,    23,    21,   596,   596
 "S19",           3,     0,     0,     3,     6,     6
-"S22",          33,     0,     1,     0,    34,    34
+"S22",          12,    38,     1,     0,    51,    51
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         312,     0,     1,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
-"S29",         332,     0,     3,     6,   341,   351
-"S32",        9105,     2,    96,   192,  9395,  7519
+"S29",         336,     0,     3,     5,   344,   354
+"S32",        9092,    15,    96,   192,  9395,  7519
 "int",        1109,     0,    20,    33,  1162,  1151
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29915,    20,   719,  1487, 32141, 31665
+"total",     29893,    71,   718,  1484, 32166, 31690
 ----------------
 Failure summary:
 S02-types/anon_block.rakudo.jvm 30 - bare blocks immediately runs even as the last statement
 S02-types/anon_block.rakudo.jvm 31 - ditto for anonymous subs
 S02-types/anon_block.rakudo.jvm 32 - ditto, even if nested
 S06-advanced/wrap.rakudo.jvm aborted 15 test(s)
+S22-package-format/local.t aborted 38 test(s)
 S32-exceptions/misc.rakudo.jvm 227 - did we throws_like X::TypeCheck::Binding?
-S32-io/IO-Socket-INET.t 1 - [45s] echo server and client
+S32-io/IO-Socket-INET.t 5 - [47s] received first 7 characters
+S32-io/IO-Socket-INET.t 7 - [0s] received next 3 characters
+S32-io/IO-Socket-INET.t 9 - [0s] remaining 26 were buffered
+S32-io/IO-Socket-INET.t 11 - [0s] received 뻯
+S32-io/IO-Socket-INET.t 13 - [0s] ... which is 1 character
+S32-io/IO-Socket-INET.t 15 - [0s] received another character
+S32-io/IO-Socket-INET.t 17 - [0s] combined the bytes form 몾
+S32-io/IO-Socket-INET.t 19 - [46s] get() with default separator
+S32-io/IO-Socket-INET.t 21 - [0s] default separator
+S32-io/IO-Socket-INET.t 23 - [0s] \r\n separator
+S32-io/IO-Socket-INET.t 25 - [0s] . as a separator
+S32-io/IO-Socket-INET.t 27 - [0s] ! separator not at end of string
+S32-io/IO-Socket-INET.t 29 - [0s] Multiple separators not at end of string
+S32-io/IO-Socket-INET.t 31 - [0s] ! separator at end of string

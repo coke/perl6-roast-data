@@ -251,7 +251,7 @@ S02-types/declare.rakudo.moar......................  52    0    2   24   78
      1 skipped: Codepoint NYI
      1 todo   : int NYI
      1 todo   : num NYI
-S02-types/deprecations.t...........................  38    0    0    0   38
+S02-types/deprecations.t...........................  36    0    0    0   36
 S02-types/fatrat.t.................................   1    0    0    0    1
 S02-types/flattening.t.............................  41    0    0    0   41
 S02-types/hash.rakudo.moar.........................use of uninitialized value of type Failure in string context
@@ -428,12 +428,11 @@ use of uninitialized value of type Int in string context
 use of uninitialized value of type Int in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
- 357    0    9    0  366
+ 358    0    8    0  366
      1 todo   : item context
      2 todo   : triangle [\^^] and [\xor]
      3 todo   : huh?
      2 todo   : orelse
-     1 todo   : reduced hyper op
 S03-metaops/reverse.t..............................  34    0    0    0   34
 S03-metaops/zip.rakudo.moar........................  19    0    4    2   25
      2 skipped: nom regression RT #122230
@@ -448,7 +447,7 @@ S03-operators/arith.t.............................. 145    0    0    0  145
 S03-operators/assign-is-not-binding.t..............   8    0    0    0    8
 S03-operators/assign.rakudo.moar...................Potential difficulties:
     Redeclaration of symbol $a
-    at t/spec/S03-operators/assign.rakudo.moar:981
+    at t/spec/S03-operators/assign.rakudo.moar:997
     ------> [32m    is (foo (my $a [33m⏏[31m= 1,2,3)), (1,2,3), "Routine call taking[0m
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
@@ -458,7 +457,7 @@ use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
- 256    0   22   12  290
+ 262    0   22   12  296
      3 skipped: expects a term, found infix >= instead
      3 skipped: Two terms in a row
      3 skipped: cannot modifiy an immutable value
@@ -697,11 +696,11 @@ S04-declarations/multiple.rakudo.moar..............Potential difficulties:
     ------> [32m    my $x [33m⏏[31m= 3;[0m
 Potential difficulties:
     Redeclaration of symbol $x
-    at eval_0:1
+    at EVAL_0:1
     ------> [32mmy $x; my $x[33m⏏[31m<EOL>[0m
 Potential difficulties:
     Redeclaration of symbol $x
-    at eval_1:1
+    at EVAL_1:1
     ------> [32mstate $x; state $x[33m⏏[31m<EOL>[0m
    5    0    1    0    6
      1 todo   : nom regression
@@ -1063,10 +1062,11 @@ S06-advanced/wrap.rakudo.moar......................use of uninitialized value of
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
 use of uninitialized value of type Any in string context
-  76    4    5    0   85
+  76    0    9    0   85
      1 todo   : RT #77472
      1 todo   : callwith
      1 todo   : RT #70267: call to nextsame with nowhere to go
+     4 todo   : RT #122259
      2 todo   : temp and wrap
 S06-currying/assuming-and-mmd.t....................   6    0    0    0    6
 S06-currying/named.t...............................   3    0    0    0    3
@@ -1100,12 +1100,12 @@ Useless use of constant integer 3 in sink context (line 15)
    3    0    0    0    3
 S06-operator-overloading/sub.rakudo.moar...........  43    0    7   20   70
      1 skipped: missing block, apparently "if" not an op
-     2 skipped: not yet implemented
      1 skipped: infix Z will never work; no lexical Z
      4 skipped: prefix:[] form NYI
      1 skipped: &::
      4 skipped: missing block, no lexical Z
      3 skipped: assoc("non")
+     2 skipped: NYI
      2 skipped: macros
      1 skipped: undeclared name
      1 skipped: cannot bind with this LHS
@@ -1197,7 +1197,7 @@ S06-traits/is-assoc.rakudo.moar....................   4    0    0    2    6
      2 skipped: RT #116244
 S06-traits/is-copy.t...............................Potential difficulties:
     Redeclaration of symbol $x
-    at eval_0:1
+    at EVAL_0:1
     ------> [32msub f ($x is copy) { my $x [33m⏏[31m}[0m
   24    0    0    0   24
 S06-traits/is-readonly.rakudo.moar.................useless use of 'is readonly' on $!attr
@@ -1263,7 +1263,7 @@ S11-modules/require.rakudo.moar....................  11    0    1    1   13
      1 skipped: Trying to import from 'InnerModule', but the following symbols are missing: quux
      1 todo   : variable form plus imports NYI
                                                    pass fail todo skip plan
-S12-attributes/class.rakudo.moar...................  19    0    0    6   25
+S12-attributes/class.rakudo.moar...................  20    0    0    6   26
      6 skipped: nom regression - method ^foo
 S12-attributes/clone.rakudo.moar...................  32    0    2    0   34
      2 todo   : clone currently messes up original
@@ -1562,7 +1562,7 @@ S17-supply/sort.t..................................   7    0    0    0    7
 S17-supply/squish.t................................  11    0    0    0   11
 S17-supply/stable.rakudo.moar......................   5    0    0    2    7
      2 skipped: doesn't work or can't test
-S17-supply/start.t.................................   8    1    0    0    9
+S17-supply/start.t.................................   9    0    0    0    9
 S17-supply/uniq.t..................................  17    0    0    0   17
 S17-supply/wait.t..................................   4    0    0    0    4
 S17-supply/watch_path.t............................   2    0    0    0    2
@@ -1573,7 +1573,7 @@ S19-command-line-options/03-dash-p.t...............   2    0    0    0    2
 S19-command-line/dash-e.t..........................   3    0    0    0    3
 S19-command-line/help.t............................   1    0    0    0    1
                                                    pass fail todo skip plan
-S22-package-format/local.t.........................  21    0    0    0   21
+S22-package-format/local.t.........................  38    0    0    0   38
 S22-package-format/parse-spec.rakudo.moar..........  12    0    1    0   13
      1 todo   : RT #122137
                                                    pass fail todo skip plan
@@ -1602,9 +1602,8 @@ S29-context/die.rakudo.moar........................WARNINGS:
 Useless use of variable $foo in sink context (line 23)
   15    0    1    0   16
      1 todo   : RT #67374
-S29-context/eval.rakudo.moar.......................  15    0    0    3   18
-     1 skipped: EVAL(Buf)
-     2 skipped: EVAL coerce to string
+S29-context/eval.rakudo.moar.......................  19    0    0    2   21
+     2 skipped: EVAL(Buf) RT #122256
 S29-context/exit-in-if.t...........................   1    0    0    0    1
 S29-context/exit.t.................................   3    0    0    0    3
 S29-context/sleep.t................................  17    0    0    0   17
@@ -2252,37 +2251,32 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4405,     0,   142,   349,  4896,  5003
-"S03",        4828,     0,   112,   121,  5061,  5084
+"S02",        4403,     0,   142,   349,  4894,  5001
+"S03",        4835,     0,   111,   121,  5067,  5090
 "S04",         985,     0,    40,    42,  1067,  1119
 "S05",        5000,     0,   145,   263,  5408,  5893
-"S06",        1172,     4,    38,   107,  1321,  1401
+"S06",        1172,     0,    42,   107,  1321,  1401
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,    10,    13,   200,   200
 "S10",          68,     0,     2,     1,    71,   128
 "S11",          75,     0,     3,     6,    84,   139
-"S12",        1338,     0,    48,   124,  1510,  1568
+"S12",        1339,     0,    48,   124,  1511,  1569
 "S13",          33,     0,    10,    28,    71,    81
 "S14",         296,     0,    10,    10,   316,   329
 "S15",         234,     0,     0,     0,   234,   283
 "S16",         236,     0,     5,    17,   258,   302
-"S17",         574,     1,     1,    20,   596,   596
+"S17",         575,     0,     1,    20,   596,   596
 "S19",           6,     0,     0,     0,     6,     6
-"S22",          33,     0,     1,     0,    34,    34
+"S22",          50,     0,     1,     0,    51,    51
 "S24",           1,     0,     0,     0,     1,    88
 "S26",         312,     0,     1,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
-"S29",         332,     0,     4,     5,   341,   351
+"S29",         336,     0,     4,     4,   344,   354
 "S32",        9105,     1,   104,   185,  9395,  7519
 "int",        1097,    13,    20,    32,  1162,  1151
 "ros",           2,     0,     0,     0,     2,     2
-"total",     30316,    19,   696,  1344, 32375, 31665
+"total",     30344,    14,   699,  1343, 32400, 31690
 ----------------
 Failure summary:
-S06-advanced/wrap.rakudo.moar 71 - default works with wrapped accessor, capture return
-S06-advanced/wrap.rakudo.moar 72 - BUILD binding works with wrapped accessor, capture return
-S06-advanced/wrap.rakudo.moar 77 - assignment works with wrapped accessor, return callsame
-S06-advanced/wrap.rakudo.moar 85 - assignment works with wrapped accessor, nextsame
-S17-supply/start.t 9 - did we get the other original value
 S32-io/IO-Socket-Async.t 4 - Echo server
 integration/99problems-51-to-60.t aborted 13 test(s)
