@@ -96,16 +96,14 @@ use of uninitialized value of type Str in string context  in block  at t/spec/S0
     16 skipped: unimpl $?KERNEL
      1 todo   : no Kernel.desc yet
      2 todo   : no Kernel.signature yet
-S02-magicals/PERL.rakudo.parrot....................Segmentation fault (core dumped)
-  13    5    0   32   50
+S02-magicals/PERL.rakudo.parrot....................  17    0    0   33   50
      1 skipped: no Perl.compiler.codename yet
      1 skipped: no Perl.desc yet
      1 skipped: no Perl.compiler.release yet
-     1 skipped: no Perl.compiler.signature yet
+     2 skipped: no Perl.compiler.signature yet
      1 skipped: no Perl.compiler.desc yet
     25 skipped: unimpl $?PERL
      2 skipped: no Perl.signature yet
-     5 tests aborted (missing ok/not ok)
 S02-magicals/VM.rakudo.parrot......................  12    0    0   20   32
      2 skipped: VM.properties does not exist
      1 skipped: no VM.desc yet
@@ -271,7 +269,7 @@ S02-types/declare.rakudo.parrot....................  52    0    2   24   78
      1 skipped: Codepoint NYI
      1 todo   : int NYI
      1 todo   : num NYI
-S02-types/deprecations.t...........................  35    1    0    0   36
+S02-types/deprecations.t...........................  36    0    0    0   36
 S02-types/fatrat.t.................................   1    0    0    0    1
 S02-types/flattening.t.............................  41    0    0    0   41
 S02-types/hash.rakudo.parrot.......................use of uninitialized value of type Failure in string context  in sub is at lib/Test.pm:92
@@ -1269,8 +1267,8 @@ use of uninitialized value of type Int in string context  in sub  at t/spec/S05-
 
 use of uninitialized value of type Int in string context  in sub  at t/spec/S05-transliteration/trans.rakudo.parrot:207
 
-  42    0   13    5   60
-     5 skipped: tr///, feed operator NYI
+  46    0   13    1   60
+     1 skipped: feed operator NYI
      2 todo   : closures and regexes
     10 todo   : flags
      1 todo   : disambiguate ranges
@@ -1807,12 +1805,8 @@ S19-command-line-options/03-dash-p.t...............   2    0    0    0    2
 S19-command-line/dash-e.t..........................   3    0    0    0    3
 S19-command-line/help.t............................   1    0    0    0    1
                                                    pass fail todo skip plan
-S22-package-format/local.rakudo.parrot.............[31m===[0mSORRY![31m===[0m Error while compiling t/spec/S22-package-format/local.rakudo.parrot
-Preceding context expects a term, but found infix , instead
-at t/spec/S22-package-format/local.rakudo.parrot:28
-------> [32mskip('cannot do signals in parrot';,[33m⏏[31m 1); # { ok signal(SIGINT).tap( {die} ),[0m
-   0   39    0    0   39
-    39 tests aborted (missing ok/not ok)
+S22-package-format/local.rakudo.parrot.............  38    0    0    1   39
+     1 skipped: cannot do signals in parrot
 S22-package-format/parse-spec.rakudo.parrot........  12    0    1    0   13
      1 todo   : RT #122137
                                                    pass fail todo skip plan
@@ -1907,8 +1901,8 @@ S32-array/unshift.t................................  57    0    0    0   57
 S32-basics/warn.rakudo.parrot......................# It's OK to see this warning during a test run  in block  at t/spec/S32-basics/warn.rakudo.parrot:14
 
    5    0    2    0    7
+     1 todo   : quietly NYI
      1 todo   : nom regression
-     1 todo   : quietly
 S32-container/roundrobin.rakudo.parrot.............   4    0    1    0    5
      1 todo   : over-flattening
 S32-container/stringify.t..........................use of uninitialized value of type Set in string context  in block  at t/spec/S32-container/stringify.t:14
@@ -2389,12 +2383,10 @@ S32-str/split-simple.rakudo.parrot.................  28    0    1    0   29
      1 todo   : RT #112868
 S32-str/split.rakudo.parrot........................  52    0    0    1   53
      1 skipped: No such method null for invocant of type Cursor
-S32-str/sprintf.rakudo.parrot...................... 133    0    3   13  149
-    10 skipped: Issues with Inf
-     1 skipped: %p doesn't yet throw exception - but should it, or just Failure?
-     2 skipped: sprintf hangs when printing Inf/-Inf
-     1 todo   : sprintf prints numbers before NaN
-     2 todo   : buggy
+S32-str/sprintf.rakudo.parrot......................Killed
+ 119   28    2    0  149
+     2 todo   : Issues with Inf
+    28 tests aborted (missing ok/not ok)
 S32-str/substr-rw.rakudo.parrot....................  19    0   12    0   31
     12 todo   : NYI
 S32-str/substr.rakudo.parrot.......................use of uninitialized value of type Failure in string context  in sub is at lib/Test.pm:92
@@ -2880,10 +2872,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4402,     6,   124,   362,  4894,  5001
+"S02",        4407,     0,   124,   363,  4894,  5001
 "S03",        4831,     3,   112,   121,  5067,  5090
 "S04",         977,     7,    42,    41,  1067,  1119
-"S05",        4907,     0,   152,   349,  5408,  5893
+"S05",        4911,     0,   152,   345,  5408,  5893
 "S06",        1173,     0,    44,   104,  1321,  1401
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,    10,    13,   200,   200
@@ -2896,19 +2888,17 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S16",         236,     0,     5,    17,   258,   302
 "S17",           0,     0,     0,     0,     0,   611
 "S19",           6,     0,     0,     0,     6,     6
-"S22",          12,    39,     1,     0,    52,    52
+"S22",          50,     0,     1,     1,    52,    52
 "S24",           1,     0,     0,     0,     1,    79
 "S26",         312,     0,     1,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         336,     0,     4,     4,   344,   354
-"S32",        9101,     1,    98,   189,  9389,  7519
+"S32",        9087,    29,    97,   176,  9389,  7519
 "int",        1102,     0,    18,    28,  1148,  1151
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29393,    56,   684,  1418, 31551, 31697
+"total",     29426,    39,   683,  1403, 31551, 31697
 ----------------
 Failure summary:
-S02-magicals/PERL.rakudo.parrot aborted 5 test(s)
-S02-types/deprecations.t 36 - deprecation %h = itemized hash
 S03-operators/bit.t 9 - logical AND of two negative Int is twos complement
 S03-operators/bit.t 10 - logical OR of two negative Int is twos complement
 S03-operators/bit.t 11 - logical XOR of two negative Int is twos complement
@@ -2919,5 +2909,5 @@ S04-phasers/init.t 4 - our INIT {...} block already gets called
 S04-phasers/init.t 7 - our rvalue INIT {...} block was executed exactly once
 S04-phasers/init.t 10 - INIT has run exactly once (first time)
 S04-phasers/init.t 11 - INIT has run exactly once (second time)
-S22-package-format/local.rakudo.parrot aborted 39 test(s)
 S32-exceptions/misc.rakudo.parrot 227 - did we throws_like X::TypeCheck::Binding?
+S32-str/sprintf.rakudo.parrot aborted 28 test(s)

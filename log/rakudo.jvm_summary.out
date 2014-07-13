@@ -767,8 +767,8 @@ S05-substitution/subst.rakudo.jvm.................. 134    0    1    5  140
      3 skipped: s[...] op= RHS
      1 todo   : be smarter about constant detection
 S05-transliteration/79778.t........................   1    0    0    0    1
-S05-transliteration/trans.rakudo.jvm...............  42    0   13    5   60
-     5 skipped: tr///, feed operator NYI
+S05-transliteration/trans.rakudo.jvm...............  46    0   13    1   60
+     1 skipped: feed operator NYI
      2 todo   : closures and regexes
     10 todo   : flags
      1 todo   : disambiguate ranges
@@ -1245,8 +1245,8 @@ S19-command-line/dash-e.rakudo.jvm.................   0    0    0    3    3
      3 skipped: nigh
 S19-command-line/help.t............................   1    0    0    0    1
                                                    pass fail todo skip plan
-S22-package-format/local.t.........................   0   39    0    0   39
-    39 tests aborted (missing ok/not ok)
+S22-package-format/local.rakudo.jvm................  38    0    0    1   39
+     1 skipped: cannot do signals in JVM
 S22-package-format/parse-spec.rakudo.jvm...........  12    0    1    0   13
      1 todo   : RT #122137
                                                    pass fail todo skip plan
@@ -1308,8 +1308,8 @@ S32-array/splice.rakudo.jvm........................  37    0    1    0   38
      1 todo   : slice bug
 S32-array/unshift.t................................  57    0    0    0   57
 S32-basics/warn.rakudo.jvm.........................   5    0    2    0    7
+     1 todo   : quietly NYI
      1 todo   : nom regression
-     1 todo   : quietly
 S32-container/roundrobin.rakudo.jvm................   4    0    1    0    5
      1 todo   : over-flattening
 S32-container/stringify.t..........................  16    0    0    0   16
@@ -1484,11 +1484,8 @@ S32-str/split-simple.rakudo.jvm....................  28    0    1    0   29
      1 todo   : RT #112868
 S32-str/split.rakudo.jvm...........................  52    0    0    1   53
      1 skipped: No such method null for invocant of type Cursor
-S32-str/sprintf.rakudo.jvm......................... 133    0    2   14  149
-    10 skipped: Issues with Inf
-     1 skipped: %p doesn't yet throw exception - but should it, or just Failure?
-     3 skipped: java.lang.NumberFormatException
-     2 todo   : buggy
+S32-str/sprintf.rakudo.jvm......................... 119   30    0    0  149
+    30 tests aborted (missing ok/not ok)
 S32-str/substr-rw.rakudo.jvm.......................  19    0   12    0   31
     12 todo   : NYI
 S32-str/substr.rakudo.jvm..........................  53    0    0   39   92
@@ -1685,7 +1682,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        4364,     3,   143,   384,  4894,  5001
 "S03",        4835,     0,   111,   121,  5067,  5090
 "S04",         979,     0,    40,    48,  1067,  1119
-"S05",        4908,     0,   151,   349,  5408,  5893
+"S05",        4912,     0,   151,   345,  5408,  5893
 "S06",        1161,    15,    38,   107,  1321,  1401
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,    10,    13,   200,   200
@@ -1698,20 +1695,20 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S16",         235,     0,     5,    18,   258,   302
 "S17",         567,     0,    23,    21,   611,   611
 "S19",           3,     0,     0,     3,     6,     6
-"S22",          12,    39,     1,     0,    52,    52
+"S22",          50,     0,     1,     1,    52,    52
 "S24",           1,     0,     0,     0,     1,    79
 "S26",         312,     0,     1,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         336,     0,     3,     5,   344,   354
-"S32",        9106,     1,    96,   192,  9395,  7519
+"S32",        9092,    31,    94,   178,  9395,  7519
 "int",        1109,     0,    20,    33,  1162,  1151
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29923,    58,   717,  1484, 32182, 31697
+"total",     29951,    49,   715,  1467, 32182, 31697
 ----------------
 Failure summary:
 S02-types/anon_block.rakudo.jvm 30 - bare blocks immediately runs even as the last statement
 S02-types/anon_block.rakudo.jvm 31 - ditto for anonymous subs
 S02-types/anon_block.rakudo.jvm 32 - ditto, even if nested
 S06-advanced/wrap.rakudo.jvm aborted 15 test(s)
-S22-package-format/local.t aborted 39 test(s)
 S32-exceptions/misc.rakudo.jvm 227 - did we throws_like X::TypeCheck::Binding?
+S32-str/sprintf.rakudo.jvm aborted 30 test(s)
