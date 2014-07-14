@@ -40,7 +40,7 @@ S02-literals/hash-interpolation.t..................  10    0    0    0   10
 S02-literals/heredocs.t............................  16    0    0    0   16
 S02-literals/hex_chars.t...........................   4    0    0    0    4
 S02-literals/listquote-whitespace.rakudo.parrot....  11    0    1    0   12
-     1 todo   : \xa0 should not be a separator for list quotes
+     1 todo   : \xa0 should not be a separator for list quotes: RT #122285
 S02-literals/listquote.rakudo.parrot...............  18    0    4    1   23
      1 skipped: meta operators
      3 todo   : magic type of <...> contents
@@ -138,14 +138,12 @@ use of uninitialized value of type Mu in string context  in block  at t/spec/S02
 
 use of uninitialized value of type Mu in string context  in block  at t/spec/S02-names-vars/perl.rakudo.parrot:58
 
-  92    0    0    6   98
-     2 skipped: {...}.perl does not work
-     2 skipped: recursive data structure
-     2 skipped: RT #67790
+  95    0    0    3   98
+     1 skipped: RT #67790
+     2 skipped: recursive data structure RT #122286
 S02-names-vars/signature.rakudo.parrot.............  11    0    2    0   13
      2 todo   : eqv on signatures
-S02-names-vars/variables-and-packages.rakudo.parr..  32    0    3    3   38
-     3 skipped: nom regression
+S02-names-vars/variables-and-packages.rakudo.parr..  35    0    3    0   38
      3 todo   : nom regression
 S02-names-vars/varnames.rakudo.parrot..............  10    0    2    0   12
      2 todo   : cannot easily override [] at the moment
@@ -1357,9 +1355,9 @@ S06-other/main-usage.rakudo.parrot.................  15    0    7    0   22
      5 todo   : nom regression
 S06-other/main.t...................................   6    0    0    0    6
 S06-other/misc.t...................................   3    0    0    0    3
-S06-routine-modifiers/lvalue-subroutines.rakudo.p..  11    0    0    3   14
-     2 skipped: maximum recursion depth exceeded
-     1 skipped: hangs, probably due to [RT #114134]
+S06-routine-modifiers/lvalue-subroutines.t.........Segmentation fault (core dumped)
+   8    6    0    0   14
+     6 tests aborted (missing ok/not ok)
 S06-routine-modifiers/proxy.t......................  18    0    0    0   18
 S06-routine-modifiers/scoped-named-subs.t..........  12    0    0    0   12
 S06-signature/arity.t..............................  52    0    0    0   52
@@ -1459,7 +1457,7 @@ S06-traits/is-copy.t...............................Potential difficulties:
     at EVAL_0:1
     ------> [32msub f ($x is copy) { my $x [33m⏏[31m}[0m
   24    0    0    0   24
-S06-traits/is-readonly.rakudo.parrot...............useless use of 'is readonly' on $!attr  in any  at src/Perl6/World.nqp:1668
+S06-traits/is-readonly.rakudo.parrot...............useless use of 'is readonly' on $!attr  in any  at src/Perl6/World.nqp:1673
 
    2    0    1    0    3
      1 todo   : readonly attributes
@@ -1683,7 +1681,7 @@ S12-methods/indirect_notation.rakudo.parrot........  10    0    0   23   33
      6 skipped: .@foo not yet working
     15 skipped: .*, .+ and .? with @foo
      2 skipped: TTIAR near $o:
-S12-methods/instance.rakudo.parrot.................useless use of 'is rw' on @!something  in any  at src/Perl6/World.nqp:1668
+S12-methods/instance.rakudo.parrot.................useless use of 'is rw' on @!something  in any  at src/Perl6/World.nqp:1673
 
 use of uninitialized value of type AnonInvocant in string context  in sub is at lib/Test.pm:92
 
@@ -1805,7 +1803,9 @@ S19-command-line-options/03-dash-p.t...............   2    0    0    0    2
 S19-command-line/dash-e.t..........................   3    0    0    0    3
 S19-command-line/help.t............................   1    0    0    0    1
                                                    pass fail todo skip plan
-S22-package-format/local.rakudo.parrot.............  38    0    0    1   39
+S22-package-format/local.rakudo.parrot.............PARROT VM: Could not load bytecode
+Could not load oplib `perl6_ops'
+  55    4    0    1   60
      1 skipped: cannot do signals in parrot
 S22-package-format/parse-spec.rakudo.parrot........  12    0    1    0   13
      1 todo   : RT #122137
@@ -2872,11 +2872,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4407,     0,   124,   363,  4894,  5001
+"S02",        4413,     0,   124,   357,  4894,  5001
 "S03",        4831,     3,   112,   121,  5067,  5090
 "S04",         977,     7,    42,    41,  1067,  1119
 "S05",        4911,     0,   152,   345,  5408,  5893
-"S06",        1173,     0,    44,   104,  1321,  1401
+"S06",        1170,     6,    44,   101,  1321,  1401
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,    10,    13,   200,   200
 "S10",          68,     0,     2,     1,    71,   128
@@ -2888,7 +2888,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S16",         236,     0,     5,    17,   258,   302
 "S17",           0,     0,     0,     0,     0,   611
 "S19",           6,     0,     0,     0,     6,     6
-"S22",          50,     0,     1,     1,    52,    52
+"S22",          67,     4,     1,     1,    73,    73
 "S24",           1,     0,     0,     0,     1,    79
 "S26",         312,     0,     1,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
@@ -2896,7 +2896,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9087,    29,    97,   176,  9389,  7519
 "int",        1102,     0,    18,    28,  1148,  1151
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29426,    39,   683,  1403, 31551, 31697
+"total",     29446,    49,   683,  1394, 31572, 31718
 ----------------
 Failure summary:
 S03-operators/bit.t 9 - logical AND of two negative Int is twos complement
@@ -2909,5 +2909,10 @@ S04-phasers/init.t 4 - our INIT {...} block already gets called
 S04-phasers/init.t 7 - our rvalue INIT {...} block was executed exactly once
 S04-phasers/init.t 10 - INIT has run exactly once (first time)
 S04-phasers/init.t 11 - INIT has run exactly once (second time)
+S06-routine-modifiers/lvalue-subroutines.t aborted 6 test(s)
+S22-package-format/local.rakudo.parrot 42 - did we pre-compile ok?
+S22-package-format/local.rakudo.parrot 48 - is the extension 'pir'
+S22-package-format/local.rakudo.parrot 49 - is the path 'local-file-cmp/NanooNanoo.pir'
+S22-package-format/local.rakudo.parrot 51 - is the module pre-compiled
 S32-exceptions/misc.rakudo.parrot 227 - did we throws_like X::TypeCheck::Binding?
 S32-str/sprintf.rakudo.parrot aborted 28 test(s)

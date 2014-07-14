@@ -36,7 +36,7 @@ S02-literals/hash-interpolation.t..................  10    0    0    0   10
 S02-literals/heredocs.t............................  16    0    0    0   16
 S02-literals/hex_chars.t...........................   4    0    0    0    4
 S02-literals/listquote-whitespace.rakudo.jvm.......  11    0    1    0   12
-     1 todo   : \xa0 should not be a separator for list quotes
+     1 todo   : \xa0 should not be a separator for list quotes: RT #122285
 S02-literals/listquote.rakudo.jvm..................  18    0    4    1   23
      1 skipped: meta operators
      3 todo   : magic type of <...> contents
@@ -109,14 +109,12 @@ S02-names-vars/names.rakudo.jvm.................... 128    0    1   13  142
      2 skipped: this kind of lookup NYI
      7 skipped: package variable autovivification
      1 todo   : dubious test - otherwise why is ::<$foo> allowed?
-S02-names-vars/perl.rakudo.jvm.....................  92    0    0    6   98
-     2 skipped: {...}.perl does not work
-     2 skipped: recursive data structure
-     2 skipped: RT #67790
+S02-names-vars/perl.rakudo.jvm.....................  94    1    0    3   98
+     1 skipped: RT #67790
+     2 skipped: recursive data structure RT #122286
 S02-names-vars/signature.rakudo.jvm................  11    0    2    0   13
      2 todo   : eqv on signatures
-S02-names-vars/variables-and-packages.rakudo.jvm...  32    0    3    3   38
-     3 skipped: nom regression
+S02-names-vars/variables-and-packages.rakudo.jvm...  35    0    3    0   38
      3 todo   : nom regression
 S02-names-vars/varnames.rakudo.jvm.................  10    0    2    0   12
      2 todo   : cannot easily override [] at the moment
@@ -842,9 +840,7 @@ S06-other/main-usage.rakudo.jvm....................  15    0    7    0   22
      5 todo   : nom regression
 S06-other/main.t...................................   6    0    0    0    6
 S06-other/misc.t...................................   3    0    0    0    3
-S06-routine-modifiers/lvalue-subroutines.rakudo.j..  11    0    0    3   14
-     2 skipped: maximum recursion depth exceeded
-     1 skipped: hangs, probably due to [RT #114134]
+S06-routine-modifiers/lvalue-subroutines.t.........  14    0    0    0   14
 S06-routine-modifiers/proxy.t......................  18    0    0    0   18
 S06-routine-modifiers/scoped-named-subs.t..........  12    0    0    0   12
 S06-signature/arity.t..............................  52    0    0    0   52
@@ -1245,7 +1241,7 @@ S19-command-line/dash-e.rakudo.jvm.................   0    0    0    3    3
      3 skipped: nigh
 S19-command-line/help.t............................   1    0    0    0    1
                                                    pass fail todo skip plan
-S22-package-format/local.rakudo.jvm................  38    0    0    1   39
+S22-package-format/local.rakudo.jvm................  55    4    0    1   60
      1 skipped: cannot do signals in JVM
 S22-package-format/parse-spec.rakudo.jvm...........  12    0    1    0   13
      1 todo   : RT #122137
@@ -1335,7 +1331,7 @@ S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.jvm..........................  18    0   11    0   29
     11 todo   : binding on hash elements unimplemented
 S32-io/IO-Socket-Async.t...........................   6    0    0    0    6
-S32-io/IO-Socket-INET.t............................  47    0    0    0   47
+S32-io/IO-Socket-INET.t............................  44    3    0    0   47
 S32-io/chdir.rakudo.jvm............................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
@@ -1679,11 +1675,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4364,     3,   143,   384,  4894,  5001
+"S02",        4369,     4,   143,   378,  4894,  5001
 "S03",        4835,     0,   111,   121,  5067,  5090
 "S04",         979,     0,    40,    48,  1067,  1119
 "S05",        4912,     0,   151,   345,  5408,  5893
-"S06",        1161,    15,    38,   107,  1321,  1401
+"S06",        1164,    15,    38,   104,  1321,  1401
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,    10,    13,   200,   200
 "S10",          68,     0,     2,     1,    71,   128
@@ -1695,20 +1691,28 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S16",         235,     0,     5,    18,   258,   302
 "S17",         567,     0,    23,    21,   611,   611
 "S19",           3,     0,     0,     3,     6,     6
-"S22",          50,     0,     1,     1,    52,    52
+"S22",          67,     4,     1,     1,    73,    73
 "S24",           1,     0,     0,     0,     1,    79
 "S26",         312,     0,     1,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         336,     0,     3,     5,   344,   354
-"S32",        9092,    31,    94,   178,  9395,  7519
+"S32",        9089,    34,    94,   178,  9395,  7519
 "int",        1109,     0,    20,    33,  1162,  1151
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29951,    49,   715,  1467, 32182, 31697
+"total",     29973,    57,   715,  1458, 32203, 31718
 ----------------
 Failure summary:
+S02-names-vars/perl.rakudo.jvm 84 - .perl on user-defined type roundtrips okay
 S02-types/anon_block.rakudo.jvm 30 - bare blocks immediately runs even as the last statement
 S02-types/anon_block.rakudo.jvm 31 - ditto for anonymous subs
 S02-types/anon_block.rakudo.jvm 32 - ditto, even if nested
 S06-advanced/wrap.rakudo.jvm aborted 15 test(s)
+S22-package-format/local.rakudo.jvm 42 - did we pre-compile ok?
+S22-package-format/local.rakudo.jvm 48 - is the extension 'jar'
+S22-package-format/local.rakudo.jvm 49 - is the path 'local-file-cmp/NanooNanoo.jar'
+S22-package-format/local.rakudo.jvm 51 - is the module pre-compiled
 S32-exceptions/misc.rakudo.jvm 227 - did we throws_like X::TypeCheck::Binding?
+S32-io/IO-Socket-INET.t 32 - [46s] received first character
+S32-io/IO-Socket-INET.t 34 - [0s] received last character
+S32-io/IO-Socket-INET.t 36 - [0s] total amount 
 S32-str/sprintf.rakudo.jvm aborted 30 test(s)

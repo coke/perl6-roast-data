@@ -38,7 +38,7 @@ S02-literals/hash-interpolation.t..................  10    0    0    0   10
 S02-literals/heredocs.t............................  16    0    0    0   16
 S02-literals/hex_chars.t...........................   4    0    0    0    4
 S02-literals/listquote-whitespace.rakudo.moar......  11    0    1    0   12
-     1 todo   : \xa0 should not be a separator for list quotes
+     1 todo   : \xa0 should not be a separator for list quotes: RT #122285
 S02-literals/listquote.rakudo.moar.................  18    0    4    1   23
      1 skipped: meta operators
      3 todo   : magic type of <...> contents
@@ -136,14 +136,12 @@ S02-names-vars/names.rakudo.moar................... 128    0    1   13  142
 S02-names-vars/perl.rakudo.moar....................use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
 use of uninitialized value of type Mu in string context
-  92    0    0    6   98
-     2 skipped: {...}.perl does not work
-     2 skipped: recursive data structure
-     2 skipped: RT #67790
+  95    0    0    3   98
+     1 skipped: RT #67790
+     2 skipped: recursive data structure RT #122286
 S02-names-vars/signature.rakudo.moar...............  11    0    2    0   13
      2 todo   : eqv on signatures
-S02-names-vars/variables-and-packages.rakudo.moar..  32    0    3    3   38
-     3 skipped: nom regression
+S02-names-vars/variables-and-packages.rakudo.moar..  35    0    3    0   38
      3 todo   : nom regression
 S02-names-vars/varnames.rakudo.moar................  10    0    2    0   12
      2 todo   : cannot easily override [] at the moment
@@ -1122,9 +1120,7 @@ S06-other/main-usage.rakudo.moar...................  15    0    7    0   22
      5 todo   : nom regression
 S06-other/main.t...................................   6    0    0    0    6
 S06-other/misc.t...................................   3    0    0    0    3
-S06-routine-modifiers/lvalue-subroutines.rakudo.m..  11    0    0    3   14
-     2 skipped: maximum recursion depth exceeded
-     1 skipped: hangs, probably due to [RT #114134]
+S06-routine-modifiers/lvalue-subroutines.t.........  14    0    0    0   14
 S06-routine-modifiers/proxy.t......................  18    0    0    0   18
 S06-routine-modifiers/scoped-named-subs.t..........  12    0    0    0   12
 S06-signature/arity.t..............................  52    0    0    0   52
@@ -1573,7 +1569,11 @@ S19-command-line-options/03-dash-p.t...............   2    0    0    0    2
 S19-command-line/dash-e.t..........................   3    0    0    0    3
 S19-command-line/help.t............................   1    0    0    0    1
                                                    pass fail todo skip plan
-S22-package-format/local.t.........................  39    0    0    0   39
+S22-package-format/local.t.........................Unhandled exception: While looking for 'Perl6/Grammar.moarvm': no such file or directory
+   at src/vm/moar/ModuleLoader.nqp:51  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/ModuleLoader.moarvm::87)
+ from src/vm/moar/ModuleLoader.nqp:41  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/languages/nqp/lib/ModuleLoader.moarvm:load_module:85)
+ from <unknown>:1  (/home/coke/sandbox/perl6-roast-data/rakudo.moar/perl6.moarvm::40)
+  56    4    0    0   60
 S22-package-format/parse-spec.rakudo.moar..........  12    0    1    0   13
      1 todo   : RT #122137
                                                    pass fail todo skip plan
@@ -1689,7 +1689,7 @@ S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.moar.........................  18    0   11    0   29
     11 todo   : binding on hash elements unimplemented
-S32-io/IO-Socket-Async.t...........................   5    1    0    0    6
+S32-io/IO-Socket-Async.t...........................   6    0    0    0    6
 S32-io/IO-Socket-INET.t............................  47    0    0    0   47
 S32-io/chdir.rakudo.moar...........................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
@@ -2250,11 +2250,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4404,     0,   141,   349,  4894,  5001
+"S02",        4410,     0,   141,   343,  4894,  5001
 "S03",        4835,     0,   111,   121,  5067,  5090
 "S04",         985,     0,    40,    42,  1067,  1119
 "S05",        5004,     0,   145,   259,  5408,  5893
-"S06",        1172,     0,    42,   107,  1321,  1401
+"S06",        1175,     0,    42,   104,  1321,  1401
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,    10,    13,   200,   200
 "S10",          68,     0,     2,     1,    71,   128
@@ -2266,16 +2266,19 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S16",         236,     0,     5,    17,   258,   302
 "S17",         590,     0,     1,    20,   611,   611
 "S19",           6,     0,     0,     0,     6,     6
-"S22",          51,     0,     1,     0,    52,    52
+"S22",          68,     4,     1,     0,    73,    73
 "S24",           1,     0,     0,     0,     1,    79
 "S26",         312,     0,     1,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         336,     0,     4,     4,   344,   354
-"S32",        9106,     1,   114,   174,  9395,  7519
+"S32",        9107,     0,   114,   174,  9395,  7519
 "int",        1097,    13,    20,    32,  1162,  1151
 "ros",           2,     0,     0,     0,     2,     2
-"total",     30366,    14,   708,  1328, 32416, 31697
+"total",     30393,    17,   708,  1319, 32437, 31718
 ----------------
 Failure summary:
-S32-io/IO-Socket-Async.t 5 - Discard server
+S22-package-format/local.t 42 - did we pre-compile ok?
+S22-package-format/local.t 48 - is the extension 'moarvm'
+S22-package-format/local.t 49 - is the path 'local-file-cmp/NanooNanoo.moarvm'
+S22-package-format/local.t 51 - is the module pre-compiled
 integration/99problems-51-to-60.t aborted 13 test(s)
