@@ -1241,7 +1241,7 @@ S19-command-line/dash-e.rakudo.jvm.................   0    0    0    3    3
      3 skipped: nigh
 S19-command-line/help.t............................   1    0    0    0    1
                                                    pass fail todo skip plan
-S22-package-format/local.rakudo.jvm................  55    4    0    1   60
+S22-package-format/local.rakudo.jvm................  59    0    0    1   60
      1 skipped: cannot do signals in JVM
 S22-package-format/parse-spec.rakudo.jvm...........  12    0    1    0   13
      1 todo   : RT #122137
@@ -1331,7 +1331,7 @@ S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.jvm..........................  18    0   11    0   29
     11 todo   : binding on hash elements unimplemented
 S32-io/IO-Socket-Async.t...........................   6    0    0    0    6
-S32-io/IO-Socket-INET.t............................  44    3    0    0   47
+S32-io/IO-Socket-INET.t............................  45    2    0    0   47
 S32-io/chdir.rakudo.jvm............................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
@@ -1480,8 +1480,10 @@ S32-str/split-simple.rakudo.jvm....................  28    0    1    0   29
      1 todo   : RT #112868
 S32-str/split.rakudo.jvm...........................  52    0    0    1   53
      1 skipped: No such method null for invocant of type Cursor
-S32-str/sprintf.rakudo.jvm......................... 119   30    0    0  149
-    30 tests aborted (missing ok/not ok)
+S32-str/sprintf.rakudo.jvm......................... 134    0    2   13  149
+     3 skipped: java.lang.NumberFormatException: RT#116280
+    10 skipped: Issues with Inf: RT #116280
+     2 todo   : buggy
 S32-str/substr-rw.rakudo.jvm.......................  19    0   12    0   31
     12 todo   : NYI
 S32-str/substr.rakudo.jvm..........................  53    0    0   39   92
@@ -1691,15 +1693,15 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S16",         235,     0,     5,    18,   258,   302
 "S17",         567,     0,    23,    21,   611,   611
 "S19",           3,     0,     0,     3,     6,     6
-"S22",          67,     4,     1,     1,    73,    73
+"S22",          71,     0,     1,     1,    73,    73
 "S24",           1,     0,     0,     0,     1,    79
 "S26",         312,     0,     1,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         336,     0,     3,     5,   344,   354
-"S32",        9089,    34,    94,   178,  9395,  7519
+"S32",        9105,     3,    96,   191,  9395,  7519
 "int",        1109,     0,    20,    33,  1162,  1151
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29973,    57,   715,  1458, 32203, 31718
+"total",     29993,    22,   717,  1471, 32203, 31718
 ----------------
 Failure summary:
 S02-names-vars/perl.rakudo.jvm 84 - .perl on user-defined type roundtrips okay
@@ -1707,12 +1709,6 @@ S02-types/anon_block.rakudo.jvm 30 - bare blocks immediately runs even as the la
 S02-types/anon_block.rakudo.jvm 31 - ditto for anonymous subs
 S02-types/anon_block.rakudo.jvm 32 - ditto, even if nested
 S06-advanced/wrap.rakudo.jvm aborted 15 test(s)
-S22-package-format/local.rakudo.jvm 42 - did we pre-compile ok?
-S22-package-format/local.rakudo.jvm 48 - is the extension 'jar'
-S22-package-format/local.rakudo.jvm 49 - is the path 'local-file-cmp/NanooNanoo.jar'
-S22-package-format/local.rakudo.jvm 51 - is the module pre-compiled
 S32-exceptions/misc.rakudo.jvm 227 - did we throws_like X::TypeCheck::Binding?
-S32-io/IO-Socket-INET.t 32 - [46s] received first character
-S32-io/IO-Socket-INET.t 34 - [0s] received last character
-S32-io/IO-Socket-INET.t 36 - [0s] total amount 
-S32-str/sprintf.rakudo.jvm aborted 30 test(s)
+S32-io/IO-Socket-INET.t 3 - [54s] discard server and client
+S32-io/IO-Socket-INET.t 40 - [50s] successful received binary data

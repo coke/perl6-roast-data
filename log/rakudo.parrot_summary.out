@@ -1803,9 +1803,7 @@ S19-command-line-options/03-dash-p.t...............   2    0    0    0    2
 S19-command-line/dash-e.t..........................   3    0    0    0    3
 S19-command-line/help.t............................   1    0    0    0    1
                                                    pass fail todo skip plan
-S22-package-format/local.rakudo.parrot.............PARROT VM: Could not load bytecode
-Could not load oplib `perl6_ops'
-  55    4    0    1   60
+S22-package-format/local.rakudo.parrot.............  59    0    0    1   60
      1 skipped: cannot do signals in parrot
 S22-package-format/parse-spec.rakudo.parrot........  12    0    1    0   13
      1 todo   : RT #122137
@@ -2383,10 +2381,12 @@ S32-str/split-simple.rakudo.parrot.................  28    0    1    0   29
      1 todo   : RT #112868
 S32-str/split.rakudo.parrot........................  52    0    0    1   53
      1 skipped: No such method null for invocant of type Cursor
-S32-str/sprintf.rakudo.parrot......................Killed
- 119   28    2    0  149
-     2 todo   : Issues with Inf
-    28 tests aborted (missing ok/not ok)
+S32-str/sprintf.rakudo.parrot...................... 134    0   11    4  149
+     2 skipped: sprintf hangs when printing Inf/-Inf
+     2 skipped: Issues with Inf: RT #116280
+     1 todo   : sprintf prints numbers before NaN
+     2 todo   : buggy
+     8 todo   : Issues with Inf: RT #116280
 S32-str/substr-rw.rakudo.parrot....................  19    0   12    0   31
     12 todo   : NYI
 S32-str/substr.rakudo.parrot.......................use of uninitialized value of type Failure in string context  in sub is at lib/Test.pm:92
@@ -2888,15 +2888,15 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S16",         236,     0,     5,    17,   258,   302
 "S17",           0,     0,     0,     0,     0,   611
 "S19",           6,     0,     0,     0,     6,     6
-"S22",          67,     4,     1,     1,    73,    73
+"S22",          71,     0,     1,     1,    73,    73
 "S24",           1,     0,     0,     0,     1,    79
 "S26",         312,     0,     1,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         336,     0,     4,     4,   344,   354
-"S32",        9087,    29,    97,   176,  9389,  7519
+"S32",        9102,     1,   106,   180,  9389,  7519
 "int",        1102,     0,    18,    28,  1148,  1151
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29446,    49,   683,  1394, 31572, 31718
+"total",     29465,    17,   692,  1398, 31572, 31718
 ----------------
 Failure summary:
 S03-operators/bit.t 9 - logical AND of two negative Int is twos complement
@@ -2910,9 +2910,4 @@ S04-phasers/init.t 7 - our rvalue INIT {...} block was executed exactly once
 S04-phasers/init.t 10 - INIT has run exactly once (first time)
 S04-phasers/init.t 11 - INIT has run exactly once (second time)
 S06-routine-modifiers/lvalue-subroutines.t aborted 6 test(s)
-S22-package-format/local.rakudo.parrot 42 - did we pre-compile ok?
-S22-package-format/local.rakudo.parrot 48 - is the extension 'pir'
-S22-package-format/local.rakudo.parrot 49 - is the path 'local-file-cmp/NanooNanoo.pir'
-S22-package-format/local.rakudo.parrot 51 - is the module pre-compiled
 S32-exceptions/misc.rakudo.parrot 227 - did we throws_like X::TypeCheck::Binding?
-S32-str/sprintf.rakudo.parrot aborted 28 test(s)
