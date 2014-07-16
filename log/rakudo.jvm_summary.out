@@ -109,7 +109,7 @@ S02-names-vars/names.rakudo.jvm.................... 128    0    1   13  142
      2 skipped: this kind of lookup NYI
      7 skipped: package variable autovivification
      1 todo   : dubious test - otherwise why is ::<$foo> allowed?
-S02-names-vars/perl.rakudo.jvm.....................  94    1    0    3   98
+S02-names-vars/perl.rakudo.jvm.....................  95    0    0    3   98
      1 skipped: RT #67790
      2 skipped: recursive data structure RT #122286
 S02-names-vars/signature.rakudo.jvm................  11    0    2    0   13
@@ -1160,7 +1160,7 @@ S17-channel/winner.t...............................   3    0    0    0    3
 S17-lowlevel/lock.rakudo.jvm.......................   7    0    0    1    8
      1 skipped: not sure this test is valid
 S17-lowlevel/thread.t..............................  25    0    0    0   25
-S17-promise/allof.t................................  10    0    0    0   10
+S17-promise/allof.t................................   9    1    0    0   10
 S17-promise/anyof.t................................   9    0    0    0    9
 S17-promise/basic.t................................  19    0    0    0   19
 S17-promise/in.t...................................   2    0    0    0    2
@@ -1176,7 +1176,7 @@ S17-supply/Channel.t...............................  12    0    0    0   12
 S17-supply/Promise.t...............................  13    0    0    0   13
 S17-supply/act.t...................................   5    0    0    0    5
 S17-supply/basic.t.................................  22    0    0    0   22
-S17-supply/batch.t.................................  11    0    0    0   11
+S17-supply/batch.t.................................  10    1    0    0   11
 S17-supply/categorize.t............................  75    0    0    0   75
 S17-supply/classify.t..............................  39    0    0    0   39
 S17-supply/delay.rakudo.jvm........................   4    0    1    8   13
@@ -1331,7 +1331,7 @@ S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.jvm..........................  18    0   11    0   29
     11 todo   : binding on hash elements unimplemented
 S32-io/IO-Socket-Async.t...........................   6    0    0    0    6
-S32-io/IO-Socket-INET.t............................  45    2    0    0   47
+S32-io/IO-Socket-INET.t............................  47    0    0    0   47
 S32-io/chdir.rakudo.jvm............................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
@@ -1677,7 +1677,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
-"S02",        4369,     4,   143,   378,  4894,  5001
+"S02",        4370,     3,   143,   378,  4894,  5001
 "S03",        4835,     0,   111,   121,  5067,  5090
 "S04",         979,     0,    40,    48,  1067,  1119
 "S05",        4912,     0,   151,   345,  5408,  5893
@@ -1691,24 +1691,23 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         296,     0,    10,    10,   316,   329
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         235,     0,     5,    18,   258,   302
-"S17",         567,     0,    23,    21,   611,   611
+"S17",         565,     2,    23,    21,   611,   611
 "S19",           3,     0,     0,     3,     6,     6
 "S22",          71,     0,     1,     1,    73,    73
 "S24",           1,     0,     0,     0,     1,    79
 "S26",         312,     0,     1,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         336,     0,     3,     5,   344,   354
-"S32",        9105,     3,    96,   191,  9395,  7519
+"S32",        9107,     1,    96,   191,  9395,  7519
 "int",        1109,     0,    20,    33,  1162,  1151
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29993,    22,   717,  1471, 32203, 31718
+"total",     29994,    21,   717,  1471, 32203, 31718
 ----------------
 Failure summary:
-S02-names-vars/perl.rakudo.jvm 84 - .perl on user-defined type roundtrips okay
 S02-types/anon_block.rakudo.jvm 30 - bare blocks immediately runs even as the last statement
 S02-types/anon_block.rakudo.jvm 31 - ditto for anonymous subs
 S02-types/anon_block.rakudo.jvm 32 - ditto, even if nested
 S06-advanced/wrap.rakudo.jvm aborted 15 test(s)
+S17-promise/allof.t 10 - got the right order
+S17-supply/batch.t 4 - we can batch by time and elems
 S32-exceptions/misc.rakudo.jvm 227 - did we throws_like X::TypeCheck::Binding?
-S32-io/IO-Socket-INET.t 3 - [54s] discard server and client
-S32-io/IO-Socket-INET.t 40 - [50s] successful received binary data
