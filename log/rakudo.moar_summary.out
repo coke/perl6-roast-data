@@ -796,7 +796,7 @@ S04-statements/do.rakudo.moar......................  21    0    0    6   27
      3 skipped: Undeclared name A
      1 skipped: next without loop construct
 S04-statements/for-scope.t.........................  16    0    0    0   16
-S04-statements/for.rakudo.moar.....................  77    0    2    1   80
+S04-statements/for.rakudo.moar.....................  78    0    2    1   81
      1 skipped: optional variable in for loop (RT #63994)
      2 todo   : RT #113026 array iterator does not track a growing array
 S04-statements/for_with_only_one_item.t............   9    0    0    0    9
@@ -1685,7 +1685,7 @@ S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.moar.........................  18    0   11    0   29
     11 todo   : binding on hash elements unimplemented
-S32-io/IO-Socket-Async.t...........................   6    0    0    0    6
+S32-io/IO-Socket-Async.t...........................   4    2    0    0    6
 S32-io/IO-Socket-INET.t............................  47    0    0    0   47
 S32-io/chdir.rakudo.moar...........................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
@@ -1758,7 +1758,9 @@ S32-list/sort.rakudo.moar..........................use of uninitialized value of
      1 todo   : method fallback to sub unimpl
      2 todo   : determine behavior of 0-arity methods passed to sort
 S32-list/squish.t..................................  28    0    0    0   28
-S32-list/uniq.t....................................  33    0    0    0   33
+S32-list/uniq.t....................................Segmentation fault (core dumped)
+   7   26    0    0   33
+    26 tests aborted (missing ok/not ok)
 S32-num/abs.t......................................  49    0    0    0   49
 S32-num/base.t.....................................  12    0    0    0   12
 S32-num/complex.t.................................. 488    0    0    0  488
@@ -2248,7 +2250,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        4410,     0,   141,   343,  4894,  5001
 "S03",        4835,     0,   111,   121,  5067,  5090
-"S04",         985,     0,    40,    42,  1067,  1119
+"S04",         986,     0,    40,    42,  1068,  1120
 "S05",        5004,     0,   145,   259,  5408,  5893
 "S06",        1175,     0,    42,   104,  1321,  1401
 "S07",           0,     0,     0,     0,     0,     0
@@ -2267,9 +2269,12 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         312,     0,     1,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         336,     0,     4,     4,   344,   354
-"S32",        9107,     0,   114,   174,  9395,  7519
-"int",        1094,     0,    20,    48,  1162,  1151
+"S32",        9079,    28,   114,   174,  9395,  7519
+"int",        1094,     0,    20,    48,  1162,  1208
 "ros",           2,     0,     0,     0,     2,     2
-"total",     30394,     0,   708,  1335, 32437, 31718
+"total",     30367,    28,   708,  1335, 32438, 31776
 ----------------
-No failures!
+Failure summary:
+S32-io/IO-Socket-Async.t 4 - Echo server
+S32-io/IO-Socket-Async.t 6 - bytes_supply
+S32-list/uniq.t aborted 26 test(s)

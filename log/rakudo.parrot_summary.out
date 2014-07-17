@@ -560,7 +560,8 @@ use of uninitialized value of type Any in string context  in any  at gen/parrot/
 S03-operators/bag.rakudo.parrot....................  92    0    0   16  108
     16 skipped: Reduction and bag operators
 S03-operators/basic-types.t........................  19    0    0    0   19
-S03-operators/bit.t................................  34    3    0    0   37
+S03-operators/bit.rakudo.parrot....................  34    0    3    0   37
+     3 todo   : RT #122310
 S03-operators/boolean-bitwise.t....................  45    0    0    0   45
 S03-operators/brainos.t............................   9    0    0    0    9
 S03-operators/buf.t................................  34    0    0    0   34
@@ -947,7 +948,7 @@ S04-phasers/in-eval.rakudo.parrot..................  34    0    1    0   35
      1 todo   : not sure
 S04-phasers/in-loop.rakudo.parrot..................   1    0    2    0    3
      2 todo   : unknown phasers issue
-S04-phasers/init.t.................................use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:92
+S04-phasers/init.rakudo.parrot.....................use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:92
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:95
 
@@ -963,7 +964,8 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:95
 
-   4    7    0    0   11
+   4    0    7    0   11
+     7 todo   : RT #122311
 S04-phasers/keep-undo.t............................  12    0    0    0   12
 S04-phasers/multiple.t.............................   2    0    0    0    2
 S04-phasers/next.rakudo.parrot.....................   9    0    3    1   13
@@ -990,7 +992,7 @@ S04-statements/do.rakudo.parrot....................  21    0    0    6   27
      3 skipped: Undeclared name A
      1 skipped: next without loop construct
 S04-statements/for-scope.t.........................  16    0    0    0   16
-S04-statements/for.rakudo.parrot...................  77    0    2    1   80
+S04-statements/for.rakudo.parrot...................  78    0    2    1   81
      1 skipped: optional variable in for loop (RT #63994)
      2 todo   : RT #113026 array iterator does not track a growing array
 S04-statements/for_with_only_one_item.t............   9    0    0    0    9
@@ -1355,9 +1357,8 @@ S06-other/main-usage.rakudo.parrot.................  15    0    7    0   22
      5 todo   : nom regression
 S06-other/main.t...................................   6    0    0    0    6
 S06-other/misc.t...................................   3    0    0    0    3
-S06-routine-modifiers/lvalue-subroutines.t.........Segmentation fault (core dumped)
-   8    6    0    0   14
-     6 tests aborted (missing ok/not ok)
+S06-routine-modifiers/lvalue-subroutines.rakudo.p..  11    0    0    3   14
+     3 skipped: aborts RT #122313
 S06-routine-modifiers/proxy.t......................  18    0    0    0   18
 S06-routine-modifiers/scoped-named-subs.t..........  12    0    0    0   12
 S06-signature/arity.t..............................  52    0    0    0   52
@@ -2873,10 +2874,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    20,    20,    61
 "S02",        4413,     0,   124,   357,  4894,  5001
-"S03",        4831,     3,   112,   121,  5067,  5090
-"S04",         977,     7,    42,    41,  1067,  1119
+"S03",        4831,     0,   115,   121,  5067,  5090
+"S04",         978,     0,    49,    41,  1068,  1120
 "S05",        4911,     0,   152,   345,  5408,  5893
-"S06",        1170,     6,    44,   101,  1321,  1401
+"S06",        1173,     0,    44,   104,  1321,  1401
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,    10,    13,   200,   200
 "S10",          68,     0,     2,     1,    71,   128
@@ -2894,20 +2895,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         336,     0,     4,     4,   344,   354
 "S32",        9102,     1,   106,   180,  9389,  7519
-"int",        1102,     0,    18,    28,  1148,  1151
+"int",        1102,     0,    18,    28,  1148,  1208
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29465,    17,   692,  1398, 31572, 31718
+"total",     29469,     1,   702,  1401, 31573, 31776
 ----------------
 Failure summary:
-S03-operators/bit.t 9 - logical AND of two negative Int is twos complement
-S03-operators/bit.t 10 - logical OR of two negative Int is twos complement
-S03-operators/bit.t 11 - logical XOR of two negative Int is twos complement
-S04-phasers/init.t 1 - init blocks run after begin blocks
-S04-phasers/init.t 2 - init blocks run after check blocks
-S04-phasers/init.t 3 - init blocks run in forward order
-S04-phasers/init.t 4 - our INIT {...} block already gets called
-S04-phasers/init.t 7 - our rvalue INIT {...} block was executed exactly once
-S04-phasers/init.t 10 - INIT has run exactly once (first time)
-S04-phasers/init.t 11 - INIT has run exactly once (second time)
-S06-routine-modifiers/lvalue-subroutines.t aborted 6 test(s)
 S32-exceptions/misc.rakudo.parrot 227 - did we throws_like X::TypeCheck::Binding?
