@@ -2257,7 +2257,7 @@ Unhandled exception: Unable to resolve method is-win in type Any
      1 skipped: No value for parameter $obj in isa_ok
      1 todo   : match with non-existent capture does not match
     20 tests aborted (missing ok/not ok)
-S05-match/make.t...................................   3    0    0    0    3
+S05-match/make.t...................................   4    0    0    0    4
 S05-match/non-capturing.t..........................Potential difficulties:
   &mumble is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S05-match/non-capturing.t line 33:
 ------> [32m    my rule mumble [33m⏏[31m{<notabc>}[0m
@@ -3196,18 +3196,78 @@ S09-subscript/slice.niecza.........................Use of uninitialized value in
   24    0    0    2   26
      2 skipped: hangs
                                                    pass fail todo skip plan
-S10-packages/basic.niecza..........................Potential difficulties:
-  $x is declared but not used at (eval) line 1:
-------> [32mmy [33m⏏[31m$x = ::P[0m
+S10-packages/basic.niecza..........................[31m===[0mSORRY![31m===[0m
 
-  35    0    5   19   59
-     2 skipped: Unable to locate module PM6 in @path
-     1 skipped: Unable to find lexical $?PACKAGE in pkg
-     2 skipped: Nominal type check failed in binding $l in infix:<===>; got My74592, needed Any
-    10 skipped: Exception not defined
-     3 skipped: Export tags NYI
-     1 skipped: AlsoEmpty undeclared (ie no autovivification, I guess)
-     5 todo   : 
+Export tags NYI at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/packages/Foo.pm line 8:
+------> [32msub ucfirst($thing) is export(:DEFAULT) [33m⏏[31m{ 'overridden ucfirst' }   #OK not used[0m
+
+Unhandled exception: System.Exception: System.Exception: Check failed
+
+  at /home/coke/sandbox/perl6-roast-data/niecza/boot/lib/CORE.setting line 1502 (die @ 5) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1147 (P6.comp_unit @ 36) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 101 (STD.TOP @ 11) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/boot/lib/CORE.setting line 3018 (Grammar.parse @ 5) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaFrontendSTD.pm6 line 281 (NieczaFrontendSTD.parse @ 70) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaCompiler.pm6 line 34 (NieczaCompiler.compile @ 18) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaCompiler.pm6 line 50 (NieczaCompiler.compile_module @ 7) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaBackendDotnet.pm6 line 50 (ANON @ 46) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaBackendDotnet.pm6 line 58 (upcalled @ 6) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at Niecza.CLRBackend.DowncallReceiver.ProbeLoad (Niecza.Compartment setting, System.String oname) [0x00000] in <filename unknown>:0 
+  at Niecza.CLRBackend.DowncallReceiver.unit_need_unit (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at Niecza.CLRBackend.DowncallReceiver.Call (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at Niecza.CLRBackend.DowncallReceiver.get_Item (System.Object i) [0x00000] in <filename unknown>:0 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaBackendDotnet.pm6 line 75 (downcall @ 4) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaBackendDotnet.pm6 line 316 (Unit.FALLBACK @ 4) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaActions.pm6 line 3633 (NieczaActions.statement_control:use @ 71) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1416 (P6.statement_control:use @ 28) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 0 (STD.statement_control @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1351 (P6.statement @ 11) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1287 (P6.statementlist @ 16) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1158 (P6.comp_unit @ 9) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 101 (STD.TOP @ 11) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/boot/lib/CORE.setting line 3018 (Grammar.parse @ 5) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaFrontendSTD.pm6 line 281 (NieczaFrontendSTD.parse @ 70) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaCompiler.pm6 line 34 (NieczaCompiler.compile @ 18) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaCompiler.pm6 line 50 (NieczaCompiler.compile_module @ 7) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaBackendDotnet.pm6 line 50 (ANON @ 46) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaBackendDotnet.pm6 line 58 (upcalled @ 6) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  at Niecza.CLRBackend.DowncallReceiver.ProbeLoad (Niecza.Compartment setting, System.String oname) [0x00000] in <filename unknown>:0 
+  at Niecza.CLRBackend.DowncallReceiver.unit_need_unit (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at Niecza.CLRBackend.DowncallReceiver.Call (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at Niecza.CLRBackend.DowncallReceiver.get_Item (System.Object i) [0x00000] in <filename unknown>:0 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaBackendDotnet.pm6 line 75 (downcall @ 4) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaBackendDotnet.pm6 line 316 (Unit.FALLBACK @ 4) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaActions.pm6 line 3633 (NieczaActions.statement_control:use @ 71) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1416 (P6.statement_control:use @ 28) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 0 (STD.statement_control @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1351 (P6.statement @ 11) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1287 (P6.statementlist @ 16) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1233 (P6.blockoid @ 7) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1196 (P6.pblock @ 64) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 3455 (P6.circumfix:sym<{ }> @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 0 (STD.circumfix @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 2020 (P6.term:circumfix @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 0 (STD.term @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 2011 (P6.termish @ 15) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 4555 (ANON @ 10) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 4663 (STD.EXPR @ 25) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1351 (P6.statement @ 13) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1287 (P6.statementlist @ 16) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 1158 (P6.comp_unit @ 9) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/STD.pm6 line 101 (STD.TOP @ 11) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/boot/lib/CORE.setting line 3018 (Grammar.parse @ 5) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaFrontendSTD.pm6 line 281 (NieczaFrontendSTD.parse @ 70) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaCompiler.pm6 line 34 (NieczaCompiler.compile @ 18) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/NieczaCompiler.pm6 line 60 (NieczaCompiler.compile_file @ 8) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/src/niecza line 165 (mainline @ 144) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/boot/lib/CORE.setting line 4327 (ANON @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/boot/lib/CORE.setting line 4328 (module-CORE @ 582) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/boot/lib/CORE.setting line 4328 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+   0   60    0    0   60
+    60 tests aborted (missing ok/not ok)
                                                    pass fail todo skip plan
 S12-attributes/augment-and-initialization.niecza...   2    0    4    2    8
      2 skipped: Unable to resolve method t in class T1
@@ -4051,7 +4111,7 @@ Use of uninitialized value in string context
 S13-overloading/metaoperators.t....................[31m===[0mSORRY![31m===[0m
 
 $a has already been used as a non-placeholder in the surrounding sub block,
-  so you will confuse the reader if you suddenly declare $^a here at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S13-overloading/metaoperators.t line 36:
+  so you will confuse the reader if you suddenly declare $^a here at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S13-overloading/metaoperators.t line 35:
 ------> [32m    sub foo { [33m⏏[31m$^a ~ $^b };[0m
 
 Unhandled exception: System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
@@ -6127,11 +6187,11 @@ integration/weird-errors.niecza....................Unhandled exception: Unable t
 "S02",        2983,   335,   112,   350,  3768,  5001
 "S03",        3450,   446,   198,   392,  4482,  5090
 "S04",         807,     2,    34,    60,   901,  1120
-"S05",        4102,    70,    94,   221,  4484,  5893
+"S05",        4103,    70,    94,   221,  4485,  5894
 "S06",         766,    26,    50,   162,  1004,  1401
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          66,     0,     1,     8,    75,   200
-"S10",          35,     0,     5,    19,    59,   128
+"S10",           0,    60,     0,     0,    60,   130
 "S11",           0,     0,     0,     0,     0,   139
 "S12",         773,    16,    63,   177,  1029,  1569
 "S13",          22,    10,     1,    10,    43,    81
@@ -6148,7 +6208,7 @@ integration/weird-errors.niecza....................Unhandled exception: Unable t
 "S32",        6575,   241,   126,   242,  7178,  7519
 "int",         447,    36,    19,    22,   524,  1216
 "ros",           0,     0,     0,     0,     0,     2
-"total",     20648,  1243,   711,  1717, 24292, 31784
+"total",     20614,  1303,   706,  1698, 24294, 31787
 ----------------
 Failure summary:
 S02-lexical-conventions/comments.niecza aborted 1 test(s)
@@ -6194,6 +6254,7 @@ S06-advanced/caller.niecza 3 - caller.line works
 S06-operator-overloading/methods.niecza aborted 2 test(s)
 S06-other/main-usage.niecza aborted 22 test(s)
 S06-signature/errors.niecza 11
+S10-packages/basic.niecza aborted 60 test(s)
 S12-attributes/class.niecza 20 - class attribute initialization works
 S12-construction/BUILD.niecza aborted 2 test(s)
 S12-methods/private.niecza aborted 12 test(s)
