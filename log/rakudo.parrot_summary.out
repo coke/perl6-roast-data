@@ -16,8 +16,8 @@ S02-lexical-conventions/unicode.rakudo.parrot......  39    0    0    5   44
 S02-lexical-conventions/unspace.rakudo.parrot......  75    0    0   11   86
      3 skipped: indirect method calls parsefail: RT #122344
      1 skipped: .++ does not work: RT #122342
-     4 skipped: =for pod NYI (in STD.pm): RT: #122343
-     3 skipped: pod and unspace: RT: #122343
+     3 skipped: pod and unspace: RT #122343
+     4 skipped: =for pod NYI (in STD.pm): RT #122343
 S02-lists/tree.rakudo.parrot.......................   8    0    0    1    9
      1 skipped: Any.tree(*@list) NYI
 S02-literals/adverbs.t.............................  15    0    0    0   15
@@ -36,12 +36,10 @@ S02-literals/fmt-interpolation.t...................  11    0    0    0   11
 S02-literals/hash-interpolation.t..................  10    0    0    0   10
 S02-literals/heredocs.t............................  16    0    0    0   16
 S02-literals/hex_chars.t...........................   4    0    0    0    4
-S02-literals/listquote-whitespace.rakudo.parrot....  11    0    1    0   12
-     1 todo   : \xa0 should not be a separator for list quotes: RT #122285
-S02-literals/listquote.rakudo.parrot...............  18    0    4    1   23
+S02-literals/listquote-whitespace.t................  12    0    0    0   12
+S02-literals/listquote.rakudo.parrot...............  19    0    3    1   23
      1 skipped: meta operators
-     3 todo   : magic type of <...> contents
-     1 todo   : unknown errors
+     3 todo   : IntStr/RatStr/NumStr types NYI
 S02-literals/misc-interpolation.t..................  46    0    0    0   46
 S02-literals/numeric.t.............................  22    0    0    0   22
 S02-literals/pair-boolean.t........................   6    0    0    0    6
@@ -332,8 +330,8 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:95
 
   22    0    9   10   41
-    10 skipped: Parse Error: Statement not terminated properly
-     9 todo   : Null PMC access in find_method()
+    10 skipped: multi-dim [;] sugar NYI
+     9 todo   : multi-dim [;] sugar NYI
 S02-types/nan.rakudo.parrot........................  18    0    1    2   21
      1 skipped: unspecced and inconsistent
      1 skipped: RT #83446
@@ -438,10 +436,8 @@ S03-binding/nested.t...............................  43    0    0    0   43
 S03-binding/ro.rakudo.parrot.......................   3    0    6    0    9
      4 todo   : ::= on arrays
      2 todo   : nom regression
-S03-binding/scalars.rakudo.parrot..................  22    0    2    9   33
-     2 skipped: List binding
-     7 skipped: list binding
-     2 todo   : nom regression
+S03-binding/scalars.rakudo.parrot..................  24    0    0    9   33
+     9 skipped: list binding: RT #122369
 S03-feeds/basic.rakudo.parrot......................  10    0    7    8   25
      4 skipped: double-ended feeds
      4 skipped: * feeds
@@ -1060,7 +1056,7 @@ S05-interpolation/regex-in-variable.rakudo.parrot..use of uninitialized value of
   31    0    3    0   34
      1 todo   : warn on undef
      2 todo   : instance member interpolation
-S05-mass/charsets.rakudo.parrot....................  13    0    3    0   16
+S05-mass/charsets.rakudo.parrot....................  14    0    3    0   17
      1 todo   : unicode 6.0 punct characters
      1 todo   : blank characters
      1 todo   : punct characters
@@ -1102,8 +1098,7 @@ S05-mass/stdrules.rakudo.parrot.................... 158    0    0   28  186
     14 skipped: <.print>
     14 skipped: <.graph>
 S05-match/arrayhash.t..............................   8    0    0    0    8
-S05-match/blocks.rakudo.parrot.....................  17    0    5    0   22
-     4 todo   : nom regression
+S05-match/blocks.rakudo.parrot.....................  18    0    1    0   19
      1 todo   : Assignment to matched string affects earlier match objects
 S05-match/capturing-contexts.rakudo.parrot.........  37    0    1    5   43
      5 skipped: binding to $/
@@ -1168,6 +1163,10 @@ S05-metasyntax/regex.t.............................Useless declaration of a has-
 Useless declaration of a has-scoped method in mainline (did you mean 'my regex baz'?)
 use of uninitialized value of type Any in string context  in any  at gen/parrot/BOOTSTRAP.nqp:87
 
+Potential difficulties:
+    Repeated character (.) unexpectedly found in character class
+    at EVAL_9:1
+    ------> [32m/<[33m⏏[31m[..b]>/[0m
   29    0    0    0   29
 S05-metasyntax/repeat.rakudo.parrot................  18    0    0    6   24
      6 skipped: closure repetition
@@ -2355,7 +2354,7 @@ S32-str/indent.rakudo.parrot.......................Asked to remove 4 spaces, but
 S32-str/index.rakudo.parrot........................  36    0    0    2   38
      2 skipped: StrPos NYI
 S32-str/lc.t.......................................  13    0    0    0   13
-S32-str/lines.t....................................   4    0    0    0    4
+S32-str/lines.t....................................   5    0    0    0    5
 S32-str/numeric.rakudo.parrot...................... 161    0    7    0  168
      5 todo   : Failure
      1 todo   : NYI
@@ -2847,10 +2846,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        4417,     0,   123,   362,  4902,  5009
-"S03",        4833,     0,   115,   121,  5069,  5092
+"S02",        4419,     0,   121,   362,  4902,  5009
+"S03",        4835,     0,   113,   121,  5069,  5092
 "S04",         977,     0,    49,    42,  1068,  1120
-"S05",        4972,     0,    99,   344,  5415,  5900
+"S05",        4974,     0,    95,   344,  5413,  5898
 "S06",        1173,     0,    44,   104,  1321,  1401
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,    10,    13,   200,   200
@@ -2868,9 +2867,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         312,     0,     1,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         336,     0,     4,     4,   344,   354
-"S32",        9105,     0,   105,   180,  9390,  7519
+"S32",        9106,     0,   105,   180,  9391,  7520
 "int",        1186,     0,    17,    22,  1225,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29626,     0,   646,  1379, 31651, 31816
+"total",     29633,     0,   638,  1379, 31650, 31815
 ----------------
 No failures!
