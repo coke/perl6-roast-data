@@ -87,7 +87,7 @@ S02-literals/pairs.rakudo.moar.....................use of uninitialized value of
      1 todo   : prefix:<|>
 S02-literals/quoting-unicode.t.....................  73    0    0    0   73
 S02-literals/quoting.rakudo.moar...................
-# Failed test at t/spec/S02-literals/quoting.rakudo.moar line 165
+# Failed test at lib/Test.pm line 213
 
 # Failed test '«a b» interpolation works correctly'
 # at t/spec/S02-literals/quoting.rakudo.moar line 257
@@ -309,7 +309,7 @@ S02-names-vars/contextual.t........................  23    0    0    0   23
 S02-names-vars/fmt.t...............................  21    0    0    0   21
 S02-names-vars/list_array_perl.rakudo.moar.........
 # Failed test 'EVAL(@list.perl) gives a list, not an array ref'
-# at t/spec/S02-names-vars/list_array_perl.rakudo.moar line 73
+# at lib/Test.pm line 89
 #      got: '4'
 # expected: '3'
   18    0    1    2   21
@@ -317,7 +317,7 @@ S02-names-vars/list_array_perl.rakudo.moar.........
      1 todo   : List.perl bug
 S02-names-vars/names.rakudo.moar...................
 # Failed test ':: is not a valid package'
-# at t/spec/S02-names-vars/names.rakudo.moar line 64
+# at lib/Test.pm line 213
  128    0    1   13  142
      4 skipped: ::{ } package lookup NYI
      2 skipped: this kind of lookup NYI
@@ -354,7 +354,7 @@ S02-names-vars/variables-and-packages.rakudo.moar..
 S02-names-vars/varnames.rakudo.moar................
 # Failed test 'Aliasing of $0 into $/ (1)'
 # at lib/Test.pm line 89
-#      got: 'MyMatch<140705424146880>'
+#      got: 'MyMatch<140451248507800>'
 # expected: 'foo0'
 
 # Failed test 'Aliasing of $0 into $/ (2)'
@@ -367,18 +367,8 @@ S02-names/bare-sigil.t.............................  10    0    0    0   10
 S02-names/caller.t.................................  15    0    0    0   15
 S02-names/identifier.t.............................  22    0    0    0   22
 S02-names/indirect.t...............................   6    0    0    0    6
-S02-names/is_cached.rakudo.moar....................
-# Failed test 'was the code done (2)'
-# at t/spec/S02-names/is_cached.rakudo.moar line 79
-#      got: [42, 42]
-# expected: [42]
-
-# Failed test 'was the code done (4)'
-# at t/spec/S02-names/is_cached.rakudo.moar line 85
-#      got: ["Camelia", "Camelia"]
-# expected: ["Camelia"]
-  36    0    2    0   38
-     2 todo   : optimizer kills the proto even though "is cached"
+S02-names/is_cached.rakudo.moar....................  36    0    2    0   38
+     2 todo PASSED: optimizer kills the proto even though "is cached"
 S02-names/is_default.t............................. 114    0    0    0  114
 S02-names/is_dynamic.t.............................  22    0    0    0   22
 S02-names/name.t...................................  15    0    0    0   15
@@ -563,11 +553,11 @@ S02-types/catch_type_cast_mismatch.rakudo.moar.....
      1 todo   : die or fail?
 S02-types/declare.rakudo.moar......................
 # Failed test 'The object is-a 'int''
-# at t/spec/S02-types/declare.rakudo.moar line 125
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.moarvm line 1
 # Actual type: Int
 
 # Failed test 'The object is-a 'num''
-# at t/spec/S02-types/declare.rakudo.moar line 132
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.moarvm line 1
 # Actual type: Num
   52    0    2   24   78
      1 skipped: Grapheme NYI
@@ -757,80 +747,8 @@ S02-types/mixhash.rakudo.moar......................
      3 skipped: No longer Iterable
      1 todo   : Needs to catch up with spec
      2 todo   : in flux
-S02-types/multi_dimensional_array.rakudo.moar......WARNINGS:
-Useless use of constant integer 1 in sink context (line 1)
-
-# Failed test 'got the right value at multi1 index 1,0'
-# at lib/Test.pm line 89
-#      got: '1'
-# expected: 'foo'
-WARNINGS:
-Useless use of constant integer 1 in sink context (line 1)
-
-# Failed test 'got the right value at multi1 index 1,1'
-# at lib/Test.pm line 89
-#      got: 'foo bar baz'
-# expected: 'bar'
-WARNINGS:
-Useless use of constant integer 1 in sink context (line 1)
-
-# Failed test 'got the right value at multi1 index 1,2'
-# at t/spec/S02-types/multi_dimensional_array.rakudo.moar line 62
-#      got: '5'
-# expected: 'baz'
-WARNINGS:
-Useless use of constant integer 0 in sink context (line 1)
-
-# Failed test 'got the right value at multi2 index 0,0'
-# at lib/Test.pm line 89
-#      got: '1 2 3'
-# expected: '1'
-WARNINGS:
-Useless use of constant integer 0 in sink context (line 1)
-
-# Failed test 'got the right value at multi2 index 0,1'
-# at lib/Test.pm line 89
-#      got: '4 5 6'
-# expected: '2'
-WARNINGS:
-Useless use of constant integer 0 in sink context (line 1)
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:92
-
-
-# Failed test 'got the right value at multi2 index 0,2'
-# at lib/Test.pm line 89
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:95
-
-#      got: ''
-# expected: '3'
-WARNINGS:
-Useless use of constant integer 1 in sink context (line 1)
-
-# Failed test 'got the right value at multi2 index 1,0'
-# at t/spec/S02-types/multi_dimensional_array.rakudo.moar line 111
-#      got: '1 2 3'
-# expected: '4'
-WARNINGS:
-Useless use of constant integer 1 in sink context (line 1)
-
-# Failed test 'got the right value at multi2 index 1,1'
-# at t/spec/S02-types/multi_dimensional_array.rakudo.moar line 112
-#      got: '4 5 6'
-# expected: '5'
-WARNINGS:
-Useless use of constant integer 1 in sink context (line 1)
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:92
-
-
-# Failed test 'got the right value at multi2 index 1,2'
-# at t/spec/S02-types/multi_dimensional_array.rakudo.moar line 113
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:95
-
-#      got: ''
-# expected: '6'
-  22    0    9   10   41
-    10 skipped: multi-dim [;] sugar NYI
-     9 todo   : multi-dim [;] sugar NYI
+S02-types/multi_dimensional_array.rakudo.moar......  31    0    0   10   41
+    10 skipped: multi-dim sized arrays NYI
 S02-types/nan.rakudo.moar..........................
 # Failed test 'NaN value identity'
 # at t/spec/S02-types/nan.rakudo.moar line 51
@@ -859,7 +777,7 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 
 
 # Failed test '... set to default'
-# at t/spec/S02-types/nil.rakudo.moar line 89
+# at lib/Test.pm line 89
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:95
 
 #      got: ''
@@ -1038,7 +956,7 @@ S02-types/unicode.rakudo.moar......................
 S02-types/version.t................................  35    0    0    0   35
 S02-types/whatever.rakudo.moar.....................
 # Failed test 'can dummy-asign to *'
-# at t/spec/S02-types/whatever.rakudo.moar line 135
+# at lib/Test.pm line 232
 # Error: Cannot modify an immutable Whatever
   77    0    1    5   83
      5 skipped: currying plus meta ops
@@ -1111,7 +1029,7 @@ S03-feeds/basic.rakudo.moar........................
 #      got: '0 1 2 3'
 # expected: 'a b c d 0 1 2 3'
 
-# Failed test at t/spec/S03-feeds/basic.rakudo.moar line 136
+# Failed test at lib/Test.pm line 89
 #      got: '10'
 # expected: '1'
   10    0    7    8   25
@@ -1158,32 +1076,32 @@ use of uninitialized value of type Any in numeric context  in block  at t/spec/S
 
 # Failed test 'dwimmy hyper extends lists ending with * by copying the last element'
 # at t/spec/S03-metaops/hyper.rakudo.moar line 673
-#      got: 'A1 B2 C3 DWhatever<140101929509256> E1'
+#      got: 'A1 B2 C3 DWhatever<140105271418008> E1'
 # expected: 'A1 B2 C3 D3 E3'
 
 # Failed test 'dwimmy hyper extends lists ending with * by copying the last element'
 # at t/spec/S03-metaops/hyper.rakudo.moar line 677
-#      got: 'A1 B2 C3 DWhatever<140101929985760> E1'
+#      got: 'A1 B2 C3 DWhatever<140105271895048> E1'
 # expected: 'A1 B2 C3 D3 E3'
 
 # Failed test 'dwimmy hyper extends lists ending with * by copying the last element'
 # at t/spec/S03-metaops/hyper.rakudo.moar line 681
-#      got: '1A 2B 3C Whatever<140101930464968>D 1E'
+#      got: '1A 2B 3C Whatever<140105272374256>D 1E'
 # expected: '1A 2B 3C 3D 3E'
 
 # Failed test 'dwimmy hyper extends lists ending with * by copying the last element'
 # at t/spec/S03-metaops/hyper.rakudo.moar line 685
-#      got: '1A 2B 3C Whatever<140101930934656>D 1E'
+#      got: '1A 2B 3C Whatever<140105272843944>D 1E'
 # expected: '1A 2B 3C 3D 3E'
 
 # Failed test 'dwimmy hyper omits * when both arguments of same length have one'
 # at t/spec/S03-metaops/hyper.rakudo.moar line 689
-#      got: '14 25 Whatever<140101931471680>Whatever<140101931471808>'
+#      got: '14 25 Whatever<140105273323552>Whatever<140105273323680>'
 # expected: '14 25'
 
 # Failed test 'dwimmy hyper takes longer length given two arguments ending with *'
 # at t/spec/S03-metaops/hyper.rakudo.moar line 693
-#      got: '14 25 Whatever<140101931871992>6 1Whatever<140101931872120>'
+#      got: '14 25 Whatever<140105273723864>6 1Whatever<140105273723992>'
 # expected: '14 25 26'
  245    0    6    6  257
      1 skipped: EVAL(Buf)
@@ -1252,22 +1170,22 @@ S03-metaops/reverse.t..............................  34    0    0    0   34
 S03-metaops/zip.rakudo.moar........................
 # Failed test 'non-meta zip extends right argument ending with *'
 # at t/spec/S03-metaops/zip.rakudo.moar line 34
-#      got: 'a x b z c Whatever<140676357955240>'
+#      got: 'a x b z c Whatever<139766424881152>'
 # expected: 'a x b z c z d z'
 
 # Failed test 'non-meta zip extends left argument ending with *'
 # at t/spec/S03-metaops/zip.rakudo.moar line 36
-#      got: '1 10 2 20 3 30 Whatever<140676358306112> 40'
+#      got: '1 10 2 20 3 30 Whatever<139766425232024> 40'
 # expected: '1 10 2 20 3 30 3 40 3 50'
 
 # Failed test 'non-meta zip extends two arguments ending with *'
 # at t/spec/S03-metaops/zip.rakudo.moar line 39
-#      got: '2 3 10 4 Whatever<140676358671960> 5'
+#      got: '2 3 10 4 Whatever<139766425597872> 5'
 # expected: '2 3 10 4 10 5 10 5 10 5'
 
 # Failed test 'zip-concat extends right argument ending with *'
 # at t/spec/S03-metaops/zip.rakudo.moar line 43
-#      got: 'ax bz cWhatever<140676359017744>'
+#      got: 'ax bz cWhatever<139766425943656>'
 # expected: 'ax bz cz dz'
   20    0    4    2   26
      2 skipped: nom regression RT #122230
@@ -1289,7 +1207,7 @@ S03-operators/also.rakudo.moar.....................
 # at t/spec/S03-operators/also.rakudo.moar line 12
 
 # Failed test 'blocks called in the right order'
-# at t/spec/S03-operators/also.rakudo.moar line 18
+# at lib/Test.pm line 89
 #      got: ''
 # expected: 'bc'
 
@@ -1312,7 +1230,7 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 
 
 # Failed test '^^= with two true arguments yields False'
-# at t/spec/S03-operators/assign.rakudo.moar line 483
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.moarvm line 1
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:95
 
 #      got: ''
@@ -1358,7 +1276,7 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 # expected: '1'
 
 # Failed test 'lhs treats %a{'x'} as list'
-# at lib/Test.pm line 89
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.moarvm line 1
 #      got: '1 2 1 2'
 # expected: '1'
 
@@ -1377,7 +1295,7 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 #      got: '1 2 1 2'
 # expected: '1'
 
-# Failed test at lib/Test.pm line 89
+# Failed test at /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.moarvm line 1
 #      got: 'True'
 # expected: 'lhs treats @a[@b[$c]] as list'
 
@@ -1663,13 +1581,13 @@ S03-operators/lcm.t................................  15    0    0    0   15
 S03-operators/list-quote-junction.t................  16    0    0    0   16
 S03-operators/minmax.rakudo.moar...................
 # Failed test 'No! No left-associativeness!'
-# at t/spec/S03-operators/minmax.rakudo.moar line 25
+# at lib/Test.pm line 213
 
 # Failed test 'This is also not OK'
 # at t/spec/S03-operators/minmax.rakudo.moar line 26
 
 # Failed test 'NYS'
-# at t/spec/S03-operators/minmax.rakudo.moar line 65
+# at lib/Test.pm line 102
 
 # Failed test 'NYS'
 # at t/spec/S03-operators/minmax.rakudo.moar line 66
@@ -1679,7 +1597,7 @@ S03-operators/minmax.rakudo.moar...................
 S03-operators/misc.rakudo.moar.....................
 # Failed test 'A * as the last value extends lists for infix:<Z> (zip)'
 # at t/spec/S03-operators/misc.rakudo.moar line 101
-#      got: '1|a|2|b|Whatever<140665740301784>|c'
+#      got: '1|a|2|b|Whatever<140595240742208>|c'
 # expected: '1|a|2|b|2|c|2|d'
   32    0    1    0   33
      1 todo   : nom regression
@@ -1699,7 +1617,7 @@ S03-operators/orelse.rakudo.moar...................   9    0    0    2   11
 S03-operators/overflow.t...........................  98    0    0    0   98
 S03-operators/precedence.rakudo.moar...............
 # Failed test '| and ^ may not associate'
-# at t/spec/S03-operators/precedence.rakudo.moar line 79
+# at lib/Test.pm line 213
 
 # Failed test '^ and | may not associate'
 # at t/spec/S03-operators/precedence.rakudo.moar line 80
@@ -1884,7 +1802,7 @@ S04-blocks-and-statements/let.t....................  12    0    0    0   12
 S04-blocks-and-statements/pointy-rw.t..............  10    0    0    0   10
 S04-blocks-and-statements/pointy.rakudo.moar.......
 # Failed test 'pointy control exceptions ran'
-# at t/spec/S04-blocks-and-statements/pointy.rakudo.moar line 50
+# at lib/Test.pm line 89
 #      got: '2'
 # expected: '10'
 
@@ -2001,7 +1919,7 @@ Useless use of constant integer 1 in sink context (line 1)
 # Error: Variable '$a' is not declared
 
 # Failed test 'unreached declaration in effect at block start'
-# at t/spec/S04-declarations/my.rakudo.moar line 212
+# at lib/Test.pm line 75
   71    0    2    2   75
      2 skipped: nom regression, OUR::
      1 todo   : previous test skipped
@@ -2026,7 +1944,7 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 
 
 # Failed test 'initialization not reached on first run of the functions'
-# at t/spec/S04-declarations/state.rakudo.moar line 264
+# at lib/Test.pm line 89
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:95
 
 #      got: ''
@@ -2049,7 +1967,7 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 
 
 # Failed test 'all block blocks get $_'
-# at t/spec/S04-declarations/will.rakudo.moar line 72
+# at lib/Test.pm line 89
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:95
 
 #      got: ''
@@ -2089,7 +2007,7 @@ S04-phasers/end.rakudo.moar........................
 # Error: Variable '$a' is not declared
 
 # Failed test 'and they really worked'
-# at t/spec/S04-phasers/end.rakudo.moar line 19
+# at lib/Test.pm line 89
 #      got: '0'
 # expected: '9'
    3    0    2    0    5
@@ -2215,7 +2133,7 @@ S04-statements/try.rakudo.moar.....................use of uninitialized value of
 
 
 # Failed test 'try block in statement-modifying contextualizer'
-# at t/spec/S04-statements/try.rakudo.moar line 163
+# at lib/Test.pm line 89
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:95
 
 #      got: ''
@@ -2306,7 +2224,7 @@ S05-capture/subrule.t..............................use of uninitialized value of
 S05-grammar/action-stubs.t.........................  22    0    0    0   22
 S05-grammar/inheritance.rakudo.moar................
 # Failed test 'A grammar isa Grammar, even if inherting from a class'
-# at t/spec/S05-grammar/inheritance.rakudo.moar line 69
+# at lib/Test.pm line 178
 # Actual type: B
   30    0    1    0   31
      1 todo   : automatic Grammar superclass
@@ -2407,7 +2325,7 @@ S05-match/non-capturing.t..........................   9    0    0    0    9
 S05-match/positions.t..............................  10    0    0    0   10
 S05-metachars/closure.rakudo.moar..................
 # Failed test 'Zero matched'
-# at lib/Test.pm line 89
+# at t/spec/S05-metachars/closure.rakudo.moar line 49
 #      got: 'abc'
 # expected: 'BC'
    6    0    1    5   12
@@ -2580,12 +2498,12 @@ S05-modifier/overlapping.rakudo.moar...............
      6 todo   : m:overlap NYI
 S05-modifier/perl5_0.rakudo.moar...................
 # Failed test 'returned two values in the match'
-# at t/spec/S05-modifier/perl5_0.rakudo.moar line 56
+# at lib/Test.pm line 89
 #      got: 'False'
 # expected: '2'
 
 # Failed test 'returned two values in the match'
-# at t/spec/S05-modifier/perl5_0.rakudo.moar line 61
+# at lib/Test.pm line 89
 #      got: '1'
 # expected: '2'
 
@@ -2675,7 +2593,7 @@ S05-modifier/perl5_8.rakudo.moar...................
      1 todo   : (?>...) NYI
 S05-modifier/pos.rakudo.moar.......................
 # Failed test 'Correctly substituted contiguously'
-# at t/spec/S05-modifier/pos.rakudo.moar line 27
+# at lib/Test.pm line 89
 #      got: 'FOOFOOFOO FOOFOOFOO'
 # expected: 'FOOFOOFOO foofoofoo'
 
@@ -2709,7 +2627,7 @@ use of uninitialized value of type Any in string context  in block  at t/spec/S0
 
 
 # Failed test ':i(1) is OK'
-# at t/spec/S05-substitution/subst.rakudo.moar line 400
+# at lib/Test.pm line 232
 # Error: Adverb i value must be known at compile time
  135    0    1    5  141
      2 skipped: s:g[...] =
@@ -2796,7 +2714,7 @@ use of uninitialized value of type Int in string context  in sub  at t/spec/S05-
      1 todo   : disambiguate ranges
 S05-transliteration/with-closure.rakudo.moar.......
 # Failed test 'Closure executed three times'
-# at t/spec/S05-transliteration/with-closure.rakudo.moar line 12
+# at lib/Test.pm line 89
 #      got: '4'
 # expected: '3'
 
@@ -2842,7 +2760,7 @@ S06-advanced/lexical-subs.rakudo.moar..............   9    0    0    2   11
 S06-advanced/recurse.t.............................  13    0    0    0   13
 S06-advanced/return.rakudo.moar....................
 # Failed test 'sub with empty catch block returns value before block'
-# at t/spec/S06-advanced/return.rakudo.moar line 318
+# at lib/Test.pm line 89
 #      got: ''
 # expected: '1'
   75    0    1    3   79
@@ -2865,11 +2783,6 @@ S06-advanced/wrap.rakudo.moar......................
 
 # Failed test '{nextsame}() dies properly'
 # at t/spec/S06-advanced/wrap.rakudo.moar line 168
-
-# Failed test 'can wrap a multi'
-# at t/spec/S06-advanced/wrap.rakudo.moar line 228
-#      got: '10'
-# expected: '20'
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:92
 
 
@@ -2899,11 +2812,11 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 #      got: '32'
 # expected: '64'
   76    0    9    0   85
-     1 todo   : RT #77472
      1 todo   : callwith
      1 todo   : RT #70267: call to nextsame with nowhere to go
      4 todo   : RT #122259
      2 todo   : temp and wrap
+     1 todo PASSED: RT #77472
 S06-currying/assuming-and-mmd.t....................   6    0    0    0    6
 S06-currying/named.t...............................   3    0    0    0    3
 S06-macros/errors.t................................   2    0    0    0    2
@@ -2951,23 +2864,23 @@ Useless use of constant integer 2 in sink context (line 15)
 Useless use of constant integer 3 in sink context (line 15)
    3    0    0    0    3
 S06-operator-overloading/sub.rakudo.moar...........
-# Failed test at t/spec/S06-operator-overloading/sub.rakudo.moar line 180
+# Failed test at lib/Test.pm line 89
 #      got: '2'
 # expected: '5'
 
 # Failed test '... basic prefix operator overloading worked'
 # at t/spec/S06-operator-overloading/sub.rakudo.moar line 347
-#      got: 'Bar<139887388621664>'
+#      got: 'Bar<140202661697760>'
 # expected: 'software'
 
 # Failed test '... basic infix operator overloading worked'
 # at t/spec/S06-operator-overloading/sub.rakudo.moar line 356
-#      got: 'Bar<139887388828064> Bar<139887388828064>'
+#      got: 'Bar<140202661903880> Bar<140202661903880>'
 # expected: 'software software'
 
 # Failed test 'stringification overloading worked in array stringification'
 # at t/spec/S06-operator-overloading/sub.rakudo.moar line 374
-#      got: 'Bar<139887389034984> Bar<139887389034984> Bar<139887389034984>'
+#      got: 'Bar<140202662110520> Bar<140202662110520> Bar<140202662110520>'
 # expected: 'pugs pugs pugs'
 
 # Failed test 'stringification with hyperization didn't die'
@@ -2977,7 +2890,7 @@ S06-operator-overloading/sub.rakudo.moar...........
 
 # Failed test 'stringification overloading was hyperized correctly'
 # at t/spec/S06-operator-overloading/sub.rakudo.moar line 378
-#      got: 'Bar<139887389034984> Bar<139887389034984> Bar<139887389034984>'
+#      got: 'Bar<140202662110520> Bar<140202662110520> Bar<140202662110520>'
 # expected: 'pugs! pugs! pugs!'
 
 # Failed test 'infix:<comment char>($a, $b)'
@@ -3003,7 +2916,7 @@ S06-other/anon-hashes-vs-blocks.t..................  22    0    0    0   22
 S06-other/introspection.t..........................  12    0    0    0   12
 S06-other/main-eval.rakudo.moar....................
 # Failed test 'sub MAIN is not called in EVAL()'
-# at t/spec/S06-other/main-eval.rakudo.moar line 22
+# at lib/Test.pm line 89
 #      got: '1'
 # expected: '0'
    2    0    1    0    3
@@ -3131,7 +3044,7 @@ S06-signature/sub-ref.rakudo.moar..................use of uninitialized value of
 
 
 # Failed test '$_ got right value for code ref'
-# at t/spec/S06-signature/sub-ref.rakudo.moar line 61
+# at lib/Test.pm line 89
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:95
 
 #      got: ''
@@ -3154,23 +3067,23 @@ S06-signature/unpack-object.t......................   4    0    0    0    4
 S06-signature/unspecified.rakudo.moar..............
 # Failed test 'signature is :() when none is specified'
 # at lib/Test.pm line 89
-#      got: 'Signature<140103980598992>'
-# expected: 'Signature<140103981028232>'
+#      got: 'Signature<140438854821184>'
+# expected: 'Signature<140438855250848>'
 
 # Failed test 'signature is :(Mu *@_) when none is specified and @_ is used'
 # at t/spec/S06-signature/unspecified.rakudo.moar line 23
-#      got: 'Signature<140103980638744>'
-# expected: 'Signature<140103980946744>'
+#      got: 'Signature<140438854860992>'
+# expected: 'Signature<140438855169360>'
 
 # Failed test 'signature is :(Mu *%_) when none is specified and %_ is used'
 # at t/spec/S06-signature/unspecified.rakudo.moar line 32
-#      got: 'Signature<140103980548880>'
-# expected: 'Signature<140103980870936>'
+#      got: 'Signature<140438854771472>'
+# expected: 'Signature<140438855093552>'
 
 # Failed test 'signature is :(Mu *@_, Mu *%_) when none is specified and @_ and %_ are used'
 # at t/spec/S06-signature/unspecified.rakudo.moar line 40
-#      got: 'Signature<140103980608368>'
-# expected: 'Signature<140103980791408>'
+#      got: 'Signature<140438854830560>'
+# expected: 'Signature<140438855014024>'
 use of uninitialized value of type Any in string context  in sub both at t/spec/S06-signature/unspecified.rakudo.moar:38
 
 use of uninitialized value of type Any in string context  in sub both at t/spec/S06-signature/unspecified.rakudo.moar:38
@@ -3541,7 +3454,7 @@ S12-enums/misc.rakudo.moar.........................  12    0    0    1   13
      1 skipped: RT #63826
 S12-enums/non-int.rakudo.moar......................
 # Failed test '... unles that type covers both enum value types'
-# at t/spec/S12-enums/non-int.rakudo.moar line 16
+# at lib/Test.pm line 232
 # Error: Incompatible MROs in P6opaque rebless
    5    0    1    0    6
      1 todo   : NYI
@@ -3859,13 +3772,13 @@ S14-traits/routines.rakudo.moar....................
 S15-unicode-information/unimatch-general.t......... 209    0    0    0  209
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1406374304
-# Using file temp_1406374304
-# Using file temp_1406374304
+S16-filehandles/chmod.t............................# Using file temp_1406460683
+# Using file temp_1406460683
+# Using file temp_1406460683
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
-S16-filehandles/filestat.t.........................# Using file temp-16-filehandles-filestat-25497-1.temp
-# Using file temp-16-filehandles-filestat-25497-2.temp
+S16-filehandles/filestat.t.........................# Using file temp-16-filehandles-filestat-6277-1.temp
+# Using file temp-16-filehandles-filestat-6277-2.temp
   12    0    0    0   12
 S16-filehandles/filetest.rakudo.moar...............  32    0    0    9   41
      6 skipped: :M, :C, :A
@@ -3873,7 +3786,7 @@ S16-filehandles/filetest.rakudo.moar...............  32    0    0    9   41
 S16-filehandles/io.t...............................  84    0    0    0   84
 S16-filehandles/io_in_for_loops.t..................  29    0    0    0   29
 S16-filehandles/io_in_while_loops.t................  13    0    0    0   13
-S16-filehandles/mkdir_rmdir.rakudo.moar............# mkdir-t-testfile-200966
+S16-filehandles/mkdir_rmdir.rakudo.moar............# mkdir-t-testfile-484346
   13    0    0    1   14
      1 skipped: deviation from spec because we do not have sink yet
 S16-filehandles/open.t.............................   2    0    0    1    3
@@ -3882,7 +3795,7 @@ S16-filehandles/unlink.rakudo.moar.................   5    0    0    1    6
      1 skipped: implicit closure of file handle at scope exit NYI (FAILS ON WINDOWS) (noauto)
 S16-io/bare-say.rakudo.moar........................
 # Failed test 'bare say is a compiler error'
-# at t/spec/S16-io/bare-say.rakudo.moar line 11
+# at lib/Test.pm line 213
 
 # Failed test 'bare print is a compiler error'
 # at t/spec/S16-io/bare-say.rakudo.moar line 12
@@ -4175,13 +4088,13 @@ S32-basics/warn.rakudo.moar........................# It's OK to see this warning
 
 # Failed test 'warn() with arguments; line number'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar/t/spec/packages/Test/Util.pm line 58
-#      got err: "OH NOEZ  in block  at getout-25865-632028.code:1\n\n"
+#      got err: "OH NOEZ  in block  at getout-6646-228008.code:1\n\n"
 
 # Failed test 'quietly does not surpress warnings'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar/t/spec/packages/Test/Util.pm line 58
 #      got status: 256
 #      got out: ""
-#      got err: "\x[1b][31m===\x[1b][0mSORRY!\x[1b][31m===\x[1b][0m Error while compiling getout-25865-751194.code\nUndeclared routine:\n    quietly used at line 1\n\n"
+#      got err: "\x[1b][31m===\x[1b][0mSORRY!\x[1b][31m===\x[1b][0m Error while compiling getout-6646-918740.code\nUndeclared routine:\n    quietly used at line 1\n\n"
 # expected err: ""
    5    0    2    0    7
      1 todo   : quietly NYI
@@ -4323,11 +4236,7 @@ S32-hash/slice.rakudo.moar.........................
 # expected: 'CCC'
   19    0   10    0   29
     10 todo   : binding on hash elements unimplemented
-S32-io/IO-Socket-Async.rakudo.moar.................
-# Failed test 'Echo server'
-# at lib/Test.pm line 75
-# Looks like you failed 1 tests of 6
-   4    1    0    1    6
+S32-io/IO-Socket-Async.rakudo.moar.................   5    0    0    1    6
      1 skipped: RT #122318 - test is flapping
 S32-io/IO-Socket-INET.t............................# [0s] starting tests
 # [0s] Testing on port 1024
@@ -4374,7 +4283,7 @@ S32-io/note.rakudo.moar............................
 # Failed test 'method form of note'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar/t/spec/packages/Test/Util.pm line 58
 #      got status: 256
-#      got err: "No such method 'note' for invocant of type 'Str'\n  in block  at getout-26034-63374.code:1\n\n"
+#      got err: "No such method 'note' for invocant of type 'Str'\n  in block  at getout-6811-367005.code:1\n\n"
 # expected err: "method form\n"
    5    0    1    0    6
      1 todo   : nom regression
@@ -4890,12 +4799,12 @@ S32-str/substr-rw.rakudo.moar......................
 # expected: ' d'
 
 # Failed test 'bound $r is consistent'
-# at t/spec/S32-str/substr-rw.rakudo.moar line 55
+# at lib/Test.pm line 89
 #      got: 'gloop'
 # expected: 'boing'
 
 # Failed test 'other lvalue wiggled around'
-# at t/spec/S32-str/substr-rw.rakudo.moar line 62
+# at lib/Test.pm line 89
 #      got: 'ng'
 # expected: ' d'
 
@@ -4920,12 +4829,12 @@ S32-str/substr-rw.rakudo.moar......................
 # expected: ' d'
 
 # Failed test 'bound $r is consistent (substr-rw(Int, StrLen)).'
-# at t/spec/S32-str/substr-rw.rakudo.moar line 110
+# at lib/Test.pm line 89
 #      got: 'gloop'
 # expected: 'boing'
 
 # Failed test 'other lvalue wiggled around (substr-rw(Int, StrLen)).'
-# at t/spec/S32-str/substr-rw.rakudo.moar line 117
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.moarvm line 1
 #      got: 'ng'
 # expected: ' d'
   19    0   12    0   31
@@ -5115,7 +5024,7 @@ use of uninitialized value of type Any in string context  in sub  at t/spec/inte
 
 # Failed test '... and they should be in the correct range'
 # at t/spec/integration/99problems-21-to-30.rakudo.moar line 86
-# ("2" => 1, "20" => 1, "42" => 1, "14" => 1, "6" => 1, "38" => 1).hash
+# ("49" => 1, "25" => 1, "14" => 1, "10" => 1, "16" => 1, "1" => 1).hash
   12    0    3    0   15
      3 todo   : unknown
 integration/99problems-31-to-40.t..................  66    0    0    1   67
@@ -5196,7 +5105,7 @@ integration/advent2010-day14.t.....................   5    0    0    0    5
 integration/advent2010-day16.t.....................  13    0    0    0   13
 integration/advent2010-day19.rakudo.moar...........
 # Failed test 'True but False'
-# at t/spec/integration/advent2010-day19.rakudo.moar line 21
+# at lib/Test.pm line 89
 #      got: 'False'
 # expected: 'True'
    5    0    1    0    6
@@ -5212,7 +5121,7 @@ integration/advent2011-day10.rakudo.moar...........
 # Failed test '--doc + DOC INIT {}'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar/t/spec/packages/Test/Util.pm line 58
 #      got out: ""
-#      got err: "\x[1b][31m===\x[1b][0mSORRY!\x[1b][31m===\x[1b][0m Error while compiling getout-26482-662462.code\nVariable '\$=POD' is not declared\nat getout-26482-662462.code:25\n------> \x[1b][32m        pod2text(\$=POD\x[1b][33m⏏\x[1b][31m);\x[1b][0m\n    expecting any of:\n        postfix\n"
+#      got err: "\x[1b][31m===\x[1b][0mSORRY!\x[1b][31m===\x[1b][0m Error while compiling getout-7263-257522.code\nVariable '\$=POD' is not declared\nat getout-7263-257522.code:25\n------> \x[1b][32m        pod2text(\$=POD\x[1b][33m⏏\x[1b][31m);\x[1b][0m\n    expecting any of:\n        postfix\n"
 # expected err: ""
    4    0    1    0    5
      1 todo   : RT #12205
@@ -5269,14 +5178,14 @@ integration/advent2012-day15.rakudo.moar...........
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 2.0137030 seconds
-# gerdr: 2.2143172 seconds
-# loop: 2.24159644 seconds
-# recursive-ternary: 2.5801844 seconds
-# recursive-ternary-hand-cached: 4.7551276 seconds
-# sequence-ternary: 4.92337887 seconds
-# hand-memoization: 6.023487 seconds
-# sequence: 7.08669011 seconds
+integration/advent2012-day21.t.....................# gerdr: 2.2754888 seconds
+# kaz: 2.27808361 seconds
+# recursive-ternary: 2.47822243 seconds
+# loop: 2.7078460 seconds
+# recursive-ternary-hand-cached: 4.7110519 seconds
+# sequence-ternary: 4.86842315 seconds
+# hand-memoization: 6.0397891 seconds
+# sequence: 7.3596636 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........
 # Failed test 'integer parse'
@@ -5333,7 +5242,7 @@ integration/error-reporting.rakudo.moar............# Error message: Constraint t
 
 # Failed test 'warning reports correct line number and subroutine'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar/t/spec/packages/Test/Util.pm line 58
-#      got err: "use of uninitialized value of type Any in numeric context  in sub mysub at getout-26601-766375.code:1\n\n"
+#      got err: "use of uninitialized value of type Any in numeric context  in sub mysub at getout-7382-425281.code:1\n\n"
   15    0    1    0   16
      1 todo   : nigh
 integration/lazy-bentley-generator.t...............   1    0    0    0    1
@@ -5361,7 +5270,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        4421,     0,   137,   343,  4901,  5008
+"S02",        4430,     0,   128,   343,  4901,  5008
 "S03",        4845,     0,   103,   121,  5069,  5092
 "S04",         986,     0,    40,    42,  1068,  1120
 "S05",        5142,     0,    88,   182,  5412,  5897
@@ -5382,12 +5291,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         312,     0,     1,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         336,     0,     4,     4,   344,   354
-"S32",        9082,    27,   113,   175,  9397,  7520
+"S32",        9083,    26,   113,   175,  9397,  7520
 "int",        1184,    12,    18,    25,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     30623,    39,   636,  1215, 32513, 31813
+"total",     30633,    38,   627,  1215, 32513, 31813
 ----------------
 Failure summary:
-S32-io/IO-Socket-Async.rakudo.moar 4 - Echo server
 S32-list/uniq.t aborted 26 test(s)
 integration/99problems-51-to-60.t aborted 12 test(s)

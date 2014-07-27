@@ -220,9 +220,8 @@ S02-types/mixhash.rakudo.jvm....................... 187    0    3   24  214
      3 skipped: No longer Iterable
      1 todo   : Needs to catch up with spec
      2 todo   : in flux
-S02-types/multi_dimensional_array.rakudo.jvm.......  22    0    9   10   41
-    10 skipped: multi-dim [;] sugar NYI
-     9 todo   : multi-dim [;] sugar NYI
+S02-types/multi_dimensional_array.rakudo.jvm.......  31    0    0   10   41
+    10 skipped: multi-dim sized arrays NYI
 S02-types/nan.rakudo.jvm...........................  18    0    1    2   21
      1 skipped: unspecced and inconsistent
      1 skipped: RT #83446
@@ -1130,7 +1129,7 @@ S17-channel/winner.t...............................   3    0    0    0    3
 S17-lowlevel/lock.rakudo.jvm.......................   7    0    0    1    8
      1 skipped: not sure this test is valid
 S17-lowlevel/thread.t..............................  25    0    0    0   25
-S17-promise/allof.t................................  10    0    0    0   10
+S17-promise/allof.t................................   9    1    0    0   10
 S17-promise/anyof.t................................   9    0    0    0    9
 S17-promise/basic.t................................  19    0    0    0   19
 S17-promise/in.t...................................   2    0    0    0    2
@@ -1300,8 +1299,8 @@ S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.jvm..........................  19    0   10    0   29
     10 todo   : binding on hash elements unimplemented
-S32-io/IO-Socket-Async.t...........................   6    0    0    0    6
-S32-io/IO-Socket-INET.t............................  47    0    0    0   47
+S32-io/IO-Socket-Async.t...........................   5    1    0    0    6
+S32-io/IO-Socket-INET.t............................  39    8    0    0   47
 S32-io/chdir.rakudo.jvm............................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
@@ -1645,7 +1644,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        4381,     3,   139,   378,  4901,  5008
+"S02",        4390,     3,   130,   378,  4901,  5008
 "S03",        4845,     0,   103,   121,  5069,  5092
 "S04",         980,     0,    40,    48,  1068,  1120
 "S05",        5050,     0,    94,   268,  5412,  5897
@@ -1659,20 +1658,30 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         296,     0,    10,    10,   316,   329
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         235,     0,     5,    18,   258,   302
-"S17",         567,     0,    23,    21,   611,   611
+"S17",         566,     1,    23,    21,   611,   611
 "S19",           3,     0,     0,     3,     6,     6
 "S22",          71,     0,     1,     1,    73,    73
 "S24",           1,     0,     0,     0,     1,    79
 "S26",         312,     0,     1,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         336,     0,     3,     5,   344,   354
-"S32",        9111,     0,    95,   191,  9397,  7520
+"S32",        9102,     9,    95,   191,  9397,  7520
 "int",        1195,     0,    18,    26,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     30250,    18,   645,  1366, 32279, 31813
+"total",     30249,    28,   636,  1366, 32279, 31813
 ----------------
 Failure summary:
 S02-types/anon_block.rakudo.jvm 30 - bare blocks immediately runs even as the last statement
 S02-types/anon_block.rakudo.jvm 31 - ditto for anonymous subs
 S02-types/anon_block.rakudo.jvm 32 - ditto, even if nested
 S06-advanced/wrap.rakudo.jvm aborted 15 test(s)
+S17-promise/allof.t 10 - got the right order
+S32-io/IO-Socket-Async.t 4 - Echo server
+S32-io/IO-Socket-INET.t 32 - [50s] received first character
+S32-io/IO-Socket-INET.t 34 - [0s] received last character
+S32-io/IO-Socket-INET.t 36 - [0s] total amount 
+S32-io/IO-Socket-INET.t 38 - [45s] successful read binary data
+S32-io/IO-Socket-INET.t 40 - [46s] successful received binary data
+S32-io/IO-Socket-INET.t 42 - [49s] received first character
+S32-io/IO-Socket-INET.t 44 - [1s] received last character
+S32-io/IO-Socket-INET.t 46 - [2s] total amount 
