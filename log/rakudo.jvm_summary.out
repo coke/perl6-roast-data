@@ -115,8 +115,7 @@ S02-names/bare-sigil.t.............................  10    0    0    0   10
 S02-names/caller.t.................................  15    0    0    0   15
 S02-names/identifier.t.............................  22    0    0    0   22
 S02-names/indirect.t...............................   6    0    0    0    6
-S02-names/is_cached.rakudo.jvm.....................  36    0    2    0   38
-     2 todo   : optimizer kills the proto even though "is cached"
+S02-names/is_cached.t..............................  36    2    0    0   38
 S02-names/is_default.t............................. 114    0    0    0  114
 S02-names/is_dynamic.t.............................  22    0    0    0   22
 S02-names/name.t...................................  15    0    0    0   15
@@ -752,9 +751,8 @@ S06-advanced/recurse.t.............................  13    0    0    0   13
 S06-advanced/return.rakudo.jvm.....................  75    0    1    3   79
      3 skipped: RT #75118
      1 todo   : RT #61732
-S06-advanced/wrap.rakudo.jvm.......................  64   15    5    1   85
+S06-advanced/wrap.rakudo.jvm.......................  64   16    4    1   85
      1 skipped: control operator crossed continuation barrier
-     1 todo   : RT #77472
      1 todo   : callwith
      1 todo   : RT #70267: call to nextsame with nowhere to go
      2 todo   : temp and wrap
@@ -1129,7 +1127,7 @@ S17-channel/winner.t...............................   3    0    0    0    3
 S17-lowlevel/lock.rakudo.jvm.......................   7    0    0    1    8
      1 skipped: not sure this test is valid
 S17-lowlevel/thread.t..............................  25    0    0    0   25
-S17-promise/allof.t................................   9    1    0    0   10
+S17-promise/allof.t................................  10    0    0    0   10
 S17-promise/anyof.t................................   9    0    0    0    9
 S17-promise/basic.t................................  19    0    0    0   19
 S17-promise/in.t...................................   2    0    0    0    2
@@ -1299,7 +1297,7 @@ S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.jvm..........................  19    0   10    0   29
     10 todo   : binding on hash elements unimplemented
-S32-io/IO-Socket-Async.t...........................   5    1    0    0    6
+S32-io/IO-Socket-Async.t...........................   6    0    0    0    6
 S32-io/IO-Socket-INET.t............................  39    8    0    0   47
 S32-io/chdir.rakudo.jvm............................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
@@ -1499,16 +1497,13 @@ S32-trig/tanh.t.................................... 154    0    0    0  154
                                                    pass fail todo skip plan
 integration/99problems-01-to-10.t..................  22    0    0    0   22
 integration/99problems-11-to-20.t..................  25    0    0    0   25
-integration/99problems-21-to-30.rakudo.jvm.........  12    0    3    0   15
-     3 todo   : unknown
+integration/99problems-21-to-30.t..................  15    0    0    0   15
 integration/99problems-31-to-40.t..................  66    0    0    1   67
      1 skipped: No Benchmark module yet
-integration/99problems-41-to-50.rakudo.jvm.........   5    0    1    7   13
+integration/99problems-41-to-50.rakudo.jvm.........  10    0    0    3   13
      1 skipped: Test(s) not yet written: (*) Truth tables for logical expressions (2).
      1 skipped: s:P5///
-     4 skipped: Shaped variable declarations
      1 skipped: Test(s) not yet written: (**) Truth tables for logical expressions (3).
-     1 todo   : making Parcel.reverse return a Parcel seems to break this
 integration/99problems-51-to-60.t..................  35    0    0    2   37
      1 skipped: Test(s) not yet written: (**) Generate-and-test paradigm
      1 skipped: Test(s) not yet written: (**) Construct height-balanced binary trees with a given number of nodes
@@ -1644,11 +1639,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        4390,     3,   130,   378,  4901,  5008
+"S02",        4390,     5,   128,   378,  4901,  5008
 "S03",        4845,     0,   103,   121,  5069,  5092
 "S04",         980,     0,    40,    48,  1068,  1120
 "S05",        5050,     0,    94,   268,  5412,  5897
-"S06",        1164,    15,    38,   104,  1321,  1401
+"S06",        1164,    16,    37,   104,  1321,  1401
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,    10,    13,   200,   200
 "S10",          70,     0,     2,     1,    73,   130
@@ -1658,30 +1653,31 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         296,     0,    10,    10,   316,   329
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         235,     0,     5,    18,   258,   302
-"S17",         566,     1,    23,    21,   611,   611
+"S17",         567,     0,    23,    21,   611,   611
 "S19",           3,     0,     0,     3,     6,     6
 "S22",          71,     0,     1,     1,    73,    73
 "S24",           1,     0,     0,     0,     1,    79
 "S26",         312,     0,     1,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         336,     0,     3,     5,   344,   354
-"S32",        9102,     9,    95,   191,  9397,  7520
-"int",        1195,     0,    18,    26,  1239,  1228
+"S32",        9103,     8,    95,   191,  9397,  7520
+"int",        1203,     0,    14,    22,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     30249,    28,   636,  1366, 32279, 31813
+"total",     30259,    29,   629,  1362, 32279, 31813
 ----------------
 Failure summary:
+S02-names/is_cached.t 34 - was the code done (2)
+S02-names/is_cached.t 38 - was the code done (4)
 S02-types/anon_block.rakudo.jvm 30 - bare blocks immediately runs even as the last statement
 S02-types/anon_block.rakudo.jvm 31 - ditto for anonymous subs
 S02-types/anon_block.rakudo.jvm 32 - ditto, even if nested
+S06-advanced/wrap.rakudo.jvm 69 - can wrap a multi
 S06-advanced/wrap.rakudo.jvm aborted 15 test(s)
-S17-promise/allof.t 10 - got the right order
-S32-io/IO-Socket-Async.t 4 - Echo server
-S32-io/IO-Socket-INET.t 32 - [50s] received first character
+S32-io/IO-Socket-INET.t 32 - [46s] received first character
 S32-io/IO-Socket-INET.t 34 - [0s] received last character
 S32-io/IO-Socket-INET.t 36 - [0s] total amount 
-S32-io/IO-Socket-INET.t 38 - [45s] successful read binary data
-S32-io/IO-Socket-INET.t 40 - [46s] successful received binary data
-S32-io/IO-Socket-INET.t 42 - [49s] received first character
-S32-io/IO-Socket-INET.t 44 - [1s] received last character
-S32-io/IO-Socket-INET.t 46 - [2s] total amount 
+S32-io/IO-Socket-INET.t 38 - [49s] successful read binary data
+S32-io/IO-Socket-INET.t 40 - [45s] successful received binary data
+S32-io/IO-Socket-INET.t 42 - [47s] received first character
+S32-io/IO-Socket-INET.t 44 - [0s] received last character
+S32-io/IO-Socket-INET.t 46 - [0s] total amount 

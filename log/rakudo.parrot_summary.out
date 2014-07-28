@@ -136,40 +136,14 @@ S02-literals/quoting.rakudo.parrot.................
      1 todo   : «...»
      2 todo   : q:x assigned to array
      4 todo   : quoting adverbs
-S02-literals/radix.rakudo.parrot...................
-# Failed test ':8(0b1110) converts from decimal'
-# at lib/Test.pm line 94
-#      got: '14'
-# expected: '12'
+S02-literals/radix.rakudo.parrot...................invoke() not implemented in class 'Integer'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in sub unbase at gen/parrot/CORE.setting:6895
+  in block  at t/spec/S02-literals/radix.rakudo.parrot:21
 
-# Failed test ':8(0x20) converts from decimal'
-# at lib/Test.pm line 94
-#      got: '32'
-# expected: '26'
-
-# Failed test ':8(0o255) stays decimal'
-# at lib/Test.pm line 94
-#      got: '255'
-# expected: '173'
-
-# Failed test ':8(0d37) converts from decimal'
-# at lib/Test.pm line 94
-#      got: '37'
-# expected: '31'
-
-# Failed test 'Powers of two in <<>> works'
-# at lib/Test.pm line 94
-#      got: ''
-# expected: '6'
-
-# Failed test '32bit and 64bit large radix literals work'
-# at lib/Test.pm line 94
-#      got: '-9223372036854775807 4294967297'
-# expected: '18446744073709551617 4294967297'
- 129    0    6    0  135
-     1 todo   : This needs an RT
-     4 todo   : Some question of what this form should actually do
-     1 todo   : Really?!
+# Looks like you planned 135 tests, but ran 7
+   7  128    0    0  135
+   128 tests aborted (missing ok/not ok)
 S02-literals/string-interpolation.t................Potential difficulties:
     Leading 0 does not indicate octal in Perl 6; please use 0o1 if you mean that
     at t/spec/S02-literals/string-interpolation.t:10
@@ -197,10 +171,16 @@ S02-literals/version.rakudo.parrot.................
   25    0    3    0   28
      3 todo   : trailing zeroes fail
 S02-magicals/78258.t...............................   1    0    0    0    1
-S02-magicals/DISTRO.rakudo.parrot..................  11    0    0   17   28
+S02-magicals/DISTRO.rakudo.parrot..................invoke() not implemented in class 'CallContext'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in block  at t/spec/S02-magicals/DISTRO.rakudo.parrot:61
+
+# Looks like you planned 28 tests, but ran 24
+   8    4    0   16   28
     14 skipped: unimpl $?DISTRO
      1 skipped: no Distro.desc yet
-     2 skipped: no Distro.signature yet
+     1 skipped: no Distro.signature yet
+     4 tests aborted (missing ok/not ok)
 S02-magicals/KERNEL.rakudo.parrot..................use of uninitialized value of type Blob in string context  in any  at gen/parrot/Metamodel.nqp:1480
 
 
@@ -211,14 +191,16 @@ use of uninitialized value of type Str in string context  in block  at t/spec/S0
 
 # Failed test 'Description is '''
 # at lib/Test.pm line 79
+invoke() not implemented in class 'CallContext'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in block  at t/spec/S02-magicals/KERNEL.rakudo.parrot:49
 
-# Failed test 'The object is-a 'Blob''
-# at lib/Test.pm line 178
-# Actual type: Blob
-  13    0    3   16   32
+# Looks like you planned 32 tests, but ran 28
+  10    4    2   16   32
     16 skipped: unimpl $?KERNEL
      1 todo   : no Kernel.desc yet
-     2 todo   : no Kernel.signature yet
+     1 todo   : no Kernel.signature yet
+     4 tests aborted (missing ok/not ok)
 S02-magicals/PERL.rakudo.parrot....................  15    0    0   35   50
      2 skipped: RT #122324 - this makes the tests abort
      1 skipped: no Perl.compiler.release yet
@@ -228,11 +210,17 @@ S02-magicals/PERL.rakudo.parrot....................  15    0    0   35   50
      2 skipped: no Perl.compiler.signature yet
      1 skipped: no Perl.compiler.desc yet
     25 skipped: unimpl $?PERL
-S02-magicals/VM.rakudo.parrot......................  12    0    0   20   32
+S02-magicals/VM.rakudo.parrot......................invoke() not implemented in class 'StringBuilder'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in block  at t/spec/S02-magicals/VM.rakudo.parrot:64
+
+# Looks like you planned 32 tests, but ran 29
+  10    3    0   19   32
      2 skipped: VM.properties does not exist
     15 skipped: unimpl $?VM
      1 skipped: no VM.desc yet
-     2 skipped: no VM.signature yet
+     1 skipped: no VM.signature yet
+     3 tests aborted (missing ok/not ok)
 S02-magicals/args.t................................   6    0    0    0    6
 S02-magicals/dollar-underscore.rakudo.parrot.......   8    0    0    1    9
      1 skipped: for() with nullary block
@@ -296,7 +284,7 @@ S02-names-vars/variables-and-packages.rakudo.parr..
 S02-names-vars/varnames.rakudo.parrot..............
 # Failed test 'Aliasing of $0 into $/ (1)'
 # at lib/Test.pm line 94
-#      got: 'MyMatch<2691471125065277999>'
+#      got: 'MyMatch<7841388575605973424>'
 # expected: 'foo0'
 
 # Failed test 'Aliasing of $0 into $/ (2)'
@@ -309,7 +297,7 @@ S02-names/bare-sigil.t.............................  10    0    0    0   10
 S02-names/caller.t.................................  15    0    0    0   15
 S02-names/identifier.t.............................  22    0    0    0   22
 S02-names/indirect.t...............................   6    0    0    0    6
-S02-names/is_cached.rakudo.parrot..................
+S02-names/is_cached.t..............................
 # Failed test 'was the code done (2)'
 # at lib/Test.pm line 249
 #      got: [42, 42]
@@ -319,8 +307,8 @@ S02-names/is_cached.rakudo.parrot..................
 # at lib/Test.pm line 249
 #      got: ["Camelia", "Camelia"]
 # expected: ["Camelia"]
-  36    0    2    0   38
-     2 todo   : optimizer kills the proto even though "is cached"
+# Looks like you failed 2 tests of 38
+  36    2    0    0   38
 S02-names/is_default.t............................. 114    0    0    0  114
 S02-names/is_dynamic.t.............................  22    0    0    0   22
 S02-names/name.t...................................  15    0    0    0   15
@@ -555,88 +543,9 @@ S02-types/infinity.rakudo.parrot...................
      4 skipped: integer Inf
      3 todo   : Int conversion of NaN and Inf
 S02-types/instants-and-durations.t.................  12    0    0    0   12
-S02-types/isDEPRECATED.rakudo.parrot...............
-# Failed test 'right deprecation for A.new'
-# at lib/Test.pm line 94
-#      got: ''
-# expected: 'Saw 1 call to deprecated code during execution.
-# ================================================================================
-# Method new (from A) called at:
-#   t/spec/S02-types/isDEPRECATED.rakudo.parrot, line 50
-# Please use something else instead.
-# --------------------------------------------------------------------------------'
-
-# Failed test 'right deprecation for Awith.new'
-# at lib/Test.pm line 94
-#      got: ''
-# expected: 'Saw 1 call to deprecated code during execution.
-# ================================================================================
-# Method new (from Awith) called at:
-#   t/spec/S02-types/isDEPRECATED.rakudo.parrot, lines 61,62
-# Please use 'Fnorkle.new' instead.
-# --------------------------------------------------------------------------------'
-
-# Failed test 'right deprecation for B.new'
-# at lib/Test.pm line 94
-#      got: ''
-# expected: 'Saw 1 call to deprecated code during execution.
-# ================================================================================
-# Method new (from B) called at:
-#   t/spec/S02-types/isDEPRECATED.rakudo.parrot, line 82
-# Please use something else instead.
-# --------------------------------------------------------------------------------'
-
-# Failed test 'right deprecation for Bwith.new'
-# at lib/Test.pm line 94
-#      got: ''
-# expected: 'Saw 1 call to deprecated code during execution.
-# ================================================================================
-# Method new (from Bwith) called at:
-#   t/spec/S02-types/isDEPRECATED.rakudo.parrot, lines 94,95
-# Please use 'Borkle.new' instead.
-# --------------------------------------------------------------------------------'
-
-# Failed test 'right deprecation for D.new.foo'
-# at lib/Test.pm line 94
-#      got: ''
-# expected: 'Saw 1 call to deprecated code during execution.
-# ================================================================================
-# Method foo (from D) called at:
-#   t/spec/S02-types/isDEPRECATED.rakudo.parrot, line 147
-# Please use something else instead.
-# --------------------------------------------------------------------------------'
-
-# Failed test 'right deprecation Dwith.new.foo'
-# at lib/Test.pm line 94
-#      got: ''
-# expected: 'Saw 1 call to deprecated code during execution.
-# ================================================================================
-# Method foo (from Dwith) called at:
-#   t/spec/S02-types/isDEPRECATED.rakudo.parrot, lines 158,159
-# Please use 'bar' instead.
-# --------------------------------------------------------------------------------'
-
-# Failed test 'right deprecation for E.new.foo'
-# at lib/Test.pm line 94
-#      got: ''
-# expected: 'Saw 1 call to deprecated code during execution.
-# ================================================================================
-# Method foo (from E) called at:
-#   t/spec/S02-types/isDEPRECATED.rakudo.parrot, line 179
-# Please use something else instead.
-# --------------------------------------------------------------------------------'
-
-# Failed test 'right deprecation Ewith.new.foo'
-# at lib/Test.pm line 94
-#      got: ''
-# expected: 'Saw 1 call to deprecated code during execution.
-# ================================================================================
-# Method foo (from Ewith) called at:
-#   t/spec/S02-types/isDEPRECATED.rakudo.parrot, lines 191,192
-# Please use 'bar' instead.
-# --------------------------------------------------------------------------------'
-  12    0    8    0   20
-     8 todo   : NYI
+S02-types/isDEPRECATED.rakudo.parrot...............Segmentation fault (core dumped)
+   0   20    0    0   20
+    20 tests aborted (missing ok/not ok)
 S02-types/lazy-lists.t.............................  23    0    0    0   23
 S02-types/lists.rakudo.parrot......................use of uninitialized value of type Parcel in string context  in sub is at lib/Test.pm:92
 
@@ -791,20 +700,34 @@ S02-types/set.rakudo.parrot........................use of uninitialized value of
 
 # Failed test 'Set �+� Array is illegal'
 # at lib/Test.pm line 194
- 156    0   10    2  168
+No such method 'postcircumfix:<( )>' for invocant of type 'Int'
+  in any  at gen/parrot/BOOTSTRAP.nqp:1680
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in block  at t/spec/S02-types/set.rakudo.parrot:247
+  in block  at t/spec/S02-types/set.rakudo.parrot:234
+
+# Looks like you planned 168 tests, but ran 113
+ 101   55   10    2  168
      1 skipped: Set is no longer Iterable
      1 skipped: seems to be fall out of S02 BagHash change
      1 todo   : Not properly interpolating
      9 todo   : Hypers not yet Set compatible
+    55 tests aborted (missing ok/not ok)
 S02-types/sethash.rakudo.parrot....................
 # Failed test '... which are all Pairs'
 # at lib/Test.pm line 94
 #      got: '0'
 # expected: '3'
- 187    0    1   11  199
-    10 skipped: 'is ObjectType' NYI
+invoke() not implemented in class 'NQPLexPad'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in block  at t/spec/S02-types/sethash.rakudo.parrot:248
+  in block  at t/spec/S02-types/sethash.rakudo.parrot:4
+
+# Looks like you planned 199 tests, but ran 114
+ 112   85    1    1  199
      1 skipped: no longer Iterable
      1 todo   : Not up to current spec
+    85 tests aborted (missing ok/not ok)
 S02-types/sigils-and-types.rakudo.parrot...........
 # Failed test 'Capture does Positional'
 # at lib/Test.pm line 79
@@ -986,21 +909,31 @@ S03-feeds/basic.rakudo.parrot......................
      1 todo   : * feeds
      3 todo   : feeds + eager
 S03-junctions/associative.t........................  10    0    0    0   10
-S03-junctions/autothreading.t......................  89    0    0    0   89
+S03-junctions/autothreading.t......................===SORRY!===
+No handler to delete.
+# Looks like you planned 89 tests, but ran 3
+   3   86    0    0   89
+    86 tests aborted (missing ok/not ok)
 S03-junctions/boolean-context.rakudo.parrot........
 # Failed test 'boolean context collapses Junctions'
 # at lib/Test.pm line 79
-  76    0    1    0   77
-     1 todo   : named unary as function call
-S03-junctions/misc.rakudo.parrot...................
-# Failed test 'junction can be used to index Array'
-# at lib/Test.pm line 79
+No handler to delete.
+  in method AUTOTHREAD at gen/parrot/CORE.setting:3463
+  in any  at gen/parrot/BOOTSTRAP.nqp:1187
+  in sub infix:<<> at gen/parrot/CORE.setting:4267
+  in block  at t/spec/S03-junctions/boolean-context.rakudo.parrot:129
 
-# Failed test 'junction can be used to index Hash'
-# at lib/Test.pm line 79
-  99    0    2    4  105
-     4 skipped: lower case junction
-     2 todo   : nom regression
+# Looks like you planned 77 tests, but ran 64
+  63   13    1    0   77
+     1 todo   : named unary as function call
+    13 tests aborted (missing ok/not ok)
+S03-junctions/misc.rakudo.parrot...................invoke() not implemented in class 'CallContext'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in block  at t/spec/S03-junctions/misc.rakudo.parrot:33
+
+# Looks like you planned 105 tests, but ran 2
+   2  103    0    0  105
+   103 tests aborted (missing ok/not ok)
 S03-metaops/cross.rakudo.parrot....................  29    0    0    1   30
      1 skipped: .slice for iterators NYI
 S03-metaops/eager-hyper.rakudo.parrot..............
@@ -1022,32 +955,32 @@ use of uninitialized value of type Any in numeric context  in block  at t/spec/S
 
 # Failed test 'dwimmy hyper extends lists ending with * by copying the last element'
 # at lib/Test.pm line 94
-#      got: 'A1 B2 C3 DWhatever<-656757799919947863> E1'
+#      got: 'A1 B2 C3 DWhatever<-1145167348421507663> E1'
 # expected: 'A1 B2 C3 D3 E3'
 
 # Failed test 'dwimmy hyper extends lists ending with * by copying the last element'
 # at lib/Test.pm line 94
-#      got: 'A1 B2 C3 DWhatever<-656757802067104338> E1'
+#      got: 'A1 B2 C3 DWhatever<-1145167348429828956> E1'
 # expected: 'A1 B2 C3 D3 E3'
 
 # Failed test 'dwimmy hyper extends lists ending with * by copying the last element'
 # at lib/Test.pm line 94
-#      got: '1A 2B 3C Whatever<-656757801392236639>D 1E'
+#      got: '1A 2B 3C Whatever<-1145167348560112193>D 1E'
 # expected: '1A 2B 3C 3D 3E'
 
 # Failed test 'dwimmy hyper extends lists ending with * by copying the last element'
 # at lib/Test.pm line 94
-#      got: '1A 2B 3C Whatever<-656757800052202820>D 1E'
+#      got: '1A 2B 3C Whatever<-1145167345344299865>D 1E'
 # expected: '1A 2B 3C 3D 3E'
 
 # Failed test 'dwimmy hyper omits * when both arguments of same length have one'
 # at lib/Test.pm line 94
-#      got: '14 25 Whatever<-656757801667611230>Whatever<-656757801667598405>'
+#      got: '14 25 Whatever<-1145167347755180099>Whatever<-1145167347755184196>'
 # expected: '14 25'
 
 # Failed test 'dwimmy hyper takes longer length given two arguments ending with *'
 # at lib/Test.pm line 94
-#      got: '14 25 Whatever<-656757801927283533>6 1Whatever<-656757801927254858>'
+#      got: '14 25 Whatever<-1145167347757551686>6 1Whatever<-1145167347757608010>'
 # expected: '14 25 26'
  245    0    6    6  257
      1 skipped: EVAL(Buf)
@@ -1116,22 +1049,22 @@ S03-metaops/reverse.t..............................  34    0    0    0   34
 S03-metaops/zip.rakudo.parrot......................
 # Failed test 'non-meta zip extends right argument ending with *'
 # at lib/Test.pm line 94
-#      got: 'a x b z c Whatever<4054867420698109735>'
+#      got: 'a x b z c Whatever<6765571608187524926>'
 # expected: 'a x b z c z d z'
 
 # Failed test 'non-meta zip extends left argument ending with *'
 # at lib/Test.pm line 94
-#      got: '1 10 2 20 3 30 Whatever<4054867421240135737> 40'
+#      got: '1 10 2 20 3 30 Whatever<6765571610877724971> 40'
 # expected: '1 10 2 20 3 30 3 40 3 50'
 
 # Failed test 'non-meta zip extends two arguments ending with *'
 # at lib/Test.pm line 94
-#      got: '2 3 10 4 Whatever<4054867421237602612> 5'
+#      got: '2 3 10 4 Whatever<6765571610869247795> 5'
 # expected: '2 3 10 4 10 5 10 5 10 5'
 
 # Failed test 'zip-concat extends right argument ending with *'
 # at lib/Test.pm line 94
-#      got: 'ax bz cWhatever<4054867419089735463>'
+#      got: 'ax bz cWhatever<6765571608716492334>'
 # expected: 'ax bz cz dz'
   20    0    4    2   26
      2 skipped: nom regression RT #122230
@@ -1559,7 +1492,7 @@ S03-operators/minmax.rakudo.parrot.................
 S03-operators/misc.rakudo.parrot...................
 # Failed test 'A * as the last value extends lists for infix:<Z> (zip)'
 # at lib/Test.pm line 94
-#      got: '1|a|2|b|Whatever<-1877009520491836519>|c'
+#      got: '1|a|2|b|Whatever<-2127593367799684607>|c'
 # expected: '1|a|2|b|2|c|2|d'
   32    0    1    0   33
      1 todo   : nom regression
@@ -1581,7 +1514,14 @@ S03-operators/numeric-shift.rakudo.parrot..........
 S03-operators/orelse.rakudo.parrot.................   9    0    0    2   11
      1 skipped: orelse passes $! as argument
      1 skipped: orelse passes $! as multiple arguments
-S03-operators/overflow.t...........................  98    0    0    0   98
+S03-operators/overflow.t...........................invoke() not implemented in class 'QRPA'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in sub unbase at gen/parrot/CORE.setting:6896
+  in block  at t/spec/S03-operators/overflow.t:246
+
+# Looks like you planned 98 tests, but ran 89
+  89    9    0    0   98
+     9 tests aborted (missing ok/not ok)
 S03-operators/precedence.rakudo.parrot.............
 # Failed test '| and ^ may not associate'
 # at t/spec/S03-operators/precedence.rakudo.parrot line 79
@@ -1773,7 +1713,9 @@ S03-smartmatch/scalar-hash.t.......................   3    0    0    0    3
 S03-smartmatch/signature-signature.rakudo.parrot...  18    0    0    1   19
      1 skipped: Parametric types
                                                    pass fail todo skip plan
-S04-blocks-and-statements/let.t....................  12    0    0    0   12
+S04-blocks-and-statements/let.t....................Segmentation fault (core dumped)
+   0   12    0    0   12
+    12 tests aborted (missing ok/not ok)
 S04-blocks-and-statements/pointy-rw.t..............  10    0    0    0   10
 S04-blocks-and-statements/pointy.rakudo.parrot.....
 # Failed test 'pointy control exceptions ran'
@@ -1788,42 +1730,9 @@ S04-blocks-and-statements/pointy.rakudo.parrot.....
   15    0    2    0   17
      1 todo   : pointy blocks and last/redo
      1 todo   : &?ROUTINE
-S04-blocks-and-statements/temp.rakudo.parrot.......
-# Failed test 'TEMP block (5)'
-# at lib/Test.pm line 175
-
-# Failed test 'TEMP block (6)'
-# at lib/Test.pm line 175
-
-# Failed test 'TEMP block (7)'
-# at lib/Test.pm line 175
-
-# Failed test 'TEMP block (8)'
-# at lib/Test.pm line 175
-
-# Failed test '.TEMP method was executed on temporization'
-# at t/spec/S04-blocks-and-statements/temp.rakudo.parrot line 159
-#      got: '0'
-# expected: '1'
-
-# Failed test '.TEMP method was executed on restoration'
-# at t/spec/S04-blocks-and-statements/temp.rakudo.parrot line 162
-#      got: '0'
-# expected: '2'
-
-# Failed test 'recursive nested temps are restored properly'
-# at t/spec/S04-blocks-and-statements/temp.rakudo.parrot line 174
-#      got: '3'
-# expected: '1'
-
-# Failed test 'recursive function properly resets value'
-# at t/spec/S04-blocks-and-statements/temp.rakudo.parrot line 210
-#      got: '10'
-# expected: '0'
-  28    0    8    0   36
-     6 todo   : TEMP phasers NYI
-     1 todo   : temp + recursion
-     1 todo   : temp and recursion
+S04-blocks-and-statements/temp.rakudo.parrot.......Segmentation fault (core dumped)
+   0   36    0    0   36
+    36 tests aborted (missing ok/not ok)
 S04-declarations/constant.rakudo.parrot............
 # Failed test 'constant can be used as a type constraint'
 # at lib/Test.pm line 206
@@ -1940,45 +1849,13 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
      5 skipped: parse error
      1 todo   : embedded closures in regexen
      1 todo   : initialization happens only on first call(?)
-S04-declarations/will.rakudo.parrot................
-# Failed test 'all init blocks in order'
-# at t/spec/S04-declarations/will.rakudo.parrot line 25
-#      got: 'ab'
-# expected: 'abc'
-
-# Failed test 'all block blocks set variable'
-# at t/spec/S04-declarations/will.rakudo.parrot line 55
-#      got: 'abec'
-# expected: 'abecd'
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:92
-
-
-# Failed test 'all block blocks get $_'
-# at t/spec/S04-declarations/will.rakudo.parrot line 72
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:95
-
-#      got: ''
-# expected: 'abecd'
-
-# Failed test 'all for blocks set variable'
-# at t/spec/S04-declarations/will.rakudo.parrot line 90
-#      got: 'aebebeb'
-# expected: 'aebebebc'
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:92
-
-
-# Failed test 'all for blocks get $_'
-# at t/spec/S04-declarations/will.rakudo.parrot line 109
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:95
-
-#      got: ''
-# expected: 'aebebebc'
-   9    0    5    3   17
-     3 skipped: declared variable not visible in block yet
-     1 todo   : will init NYI
-     1 todo   : will post NYI
-     1 todo   : will variable not all blocks yet
-     2 todo   : declared variable not visible in block yet
+S04-declarations/will.rakudo.parrot................[31m===[0mSORRY![31m===[0m Error while compiling t/spec/S04-declarations/will.rakudo.parrot
+invoke() not implemented in class 'CallContext'
+at t/spec/S04-declarations/will.rakudo.parrot:44
+------> 
+# Looks like you planned 17 tests, but ran 0
+   0   17    0    0   17
+    17 tests aborted (missing ok/not ok)
 S04-exception-handlers/catch.t.....................  29    0    0    0   29
 S04-exceptions/control_across_runloop.rakudo.parr..   0    0    0    1    1
      1 skipped: RT #122325 - assignment to $x fails, expected Any but got Mu
@@ -1991,10 +1868,15 @@ S04-exceptions/pending.rakudo.parrot...............
     13 skipped: $!.pending
      3 skipped: $object.handled
      1 todo   : not full of fail?
-S04-phasers/ascending-order.t......................   7    0    0    0    7
+S04-phasers/ascending-order.t......................Segmentation fault (core dumped)
+   0    7    0    0    7
+     7 tests aborted (missing ok/not ok)
 S04-phasers/begin.t................................   9    0    0    0    9
 S04-phasers/check.t................................   5    0    0    0    5
-S04-phasers/descending-order.t.....................   7    0    0    0    7
+S04-phasers/descending-order.t.....................===SORRY!===
+invoke() not implemented in class 'CallContext'
+   0    7    0    0    7
+     7 tests aborted (missing ok/not ok)
 S04-phasers/end.rakudo.parrot......................
 # Failed test 'and those from eval as well'
 # at t/spec/S04-phasers/end.rakudo.parrot line 15
@@ -2006,34 +1888,23 @@ S04-phasers/end.rakudo.parrot......................
 # expected: '9'
    3    0    2    0    5
      2 todo   : lexicals and EVAL()
-S04-phasers/enter-leave.rakudo.parrot..............
-# Failed test '$! not set in LEAVE if exception not thrown'
-# at t/spec/S04-phasers/enter-leave.rakudo.parrot line 126
-#      got: 'ayeyes'
-# expected: 'ayeno'
-  19    0    1    1   21
-     1 skipped: leave NYI
-     1 todo   : is this spec? why would LEAVE not see outer $!? fossil?
+S04-phasers/enter-leave.rakudo.parrot..............Segmentation fault (core dumped)
+   0   21    0    0   21
+    21 tests aborted (missing ok/not ok)
 S04-phasers/eval-in-begin.t........................   3    0    0    0    3
-S04-phasers/first.t................................   4    0    0    0    4
+S04-phasers/first.t................................Segmentation fault (core dumped)
+   0    4    0    0    4
+     4 tests aborted (missing ok/not ok)
 S04-phasers/in-eval.rakudo.parrot..................
 # Failed test 'INIT did not run at compile time'
 # at lib/Test.pm line 86
 # Looks like you planned 35 tests, but ran 34
   34    0    1    0   35
      1 todo   : not sure
-S04-phasers/in-loop.rakudo.parrot..................
-# Failed test 'trait blocks work properly in for loop'
-# at lib/Test.pm line 94
-#      got: '(1 F)(1 E)(1 a)(1 Lv)(1 N)(2 E)(2 a)(2 b)(2 Lv)(2 N)(3 E)(3 a)(3 Lv)(3 N)(4 E)(4 Lv)(4 Lst)'
-# expected: '(1 F)(1 E)(1 a)(1 N)(1 Lv)(2 E)(2 a)(2 b)(2 N)(2 Lv)(3 E)(3 a)(3 N)(3 Lv)(4 E)(4 Lv)(4 Lst)'
-
-# Failed test 'trait blocks work properly in for loop'
-# at lib/Test.pm line 94
-#      got: '(1 F1)(1 F2)(1 E1)(1 E2)(1 a)(1 Lv2)(1 Lv1)(1 N2)(1 N1)(2 E1)(2 E2)(2 a)(2 b)(2 Lv2)(2 Lv1)(2 N2)(2 N1)(3 E1)(3 E2)(3 a)(3 Lv2)(3 Lv1)(3 N2)(3 N1)(4 E1)(4 E2)(4 Lv2)(4 Lv1)(4 Lst1)(4 Lst2)'
-# expected: '(1 F1)(1 F2)(1 E1)(1 E2)(1 a)(1 N2)(1 N1)(1 Lv2)(1 Lv1)(2 E1)(2 E2)(2 a)(2 b)(2 N2)(2 N1)(2 Lv2)(2 Lv1)(3 E1)(3 E2)(3 a)(3 N2)(3 N1)(3 Lv2)(3 Lv1)(4 E1)(4 E2)(4 Lv2)(4 Lv1)(4 Lst2)(4 Lst1)'
-   1    0    2    0    3
-     2 todo   : unknown phasers issue
+S04-phasers/in-loop.rakudo.parrot..................===SORRY!===
+invoke() not implemented in class 'NQPLexPad'
+   0    3    0    0    3
+     3 tests aborted (missing ok/not ok)
 S04-phasers/init.rakudo.parrot.....................
 # Failed test 'init blocks run after begin blocks'
 # at t/spec/S04-phasers/init.rakudo.parrot line 12
@@ -2087,35 +1958,16 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 # expected: '1'
    4    0    7    0   11
      7 todo   : RT #122311
-S04-phasers/keep-undo.t............................  12    0    0    0   12
+S04-phasers/keep-undo.t............................Segmentation fault (core dumped)
+   0   12    0    0   12
+    12 tests aborted (missing ok/not ok)
 S04-phasers/multiple.t.............................   2    0    0    0    2
-S04-phasers/next.rakudo.parrot.....................
-# Failed test 'NEXT are LAST blocks may not be exclusive'
-# at t/spec/S04-phasers/next.rakudo.parrot line 49
-#      got: 'nn'
-# expected: 'nnl'
-
-# Failed test 'NEXT {} ran before LEAVE {} (1)'
-# at t/spec/S04-phasers/next.rakudo.parrot line 112
-#      got: 'lnln'
-# expected: 'nlnl'
-
-# Failed test 'NEXT {} ran before LEAVE {} (2)'
-# at t/spec/S04-phasers/next.rakudo.parrot line 123
-#      got: 'lnln'
-# expected: 'nlnl'
-   9    0    3    1   13
-     1 skipped: leave NYI
-     2 todo   : NEXT/LEAVE ordering
-     1 todo   : NEXT is evaluated even at the last iteration
-S04-phasers/pre-post.rakudo.parrot.................
-# Failed test 'POST has undefined $! on no exception'
-# at t/spec/S04-phasers/pre-post.rakudo.parrot line 146
-#      got: 'TrueTrue'
-# expected: 'ayeno'
-  20    0    1    1   22
-     1 skipped: POST and exceptions
-     1 todo   : POST and exceptions
+S04-phasers/next.rakudo.parrot.....................Segmentation fault (core dumped)
+   0   13    0    0   13
+    13 tests aborted (missing ok/not ok)
+S04-phasers/pre-post.rakudo.parrot.................Segmentation fault (core dumped)
+   0   22    0    0   22
+    22 tests aborted (missing ok/not ok)
 S04-phasers/rvalue.t...............................  16    0    0    0   16
 S04-statement-modifiers/for.t......................  21    0    0    0   21
 S04-statement-modifiers/given.t....................   6    0    0    0    6
@@ -2565,44 +2417,10 @@ S05-modifier/overlapping.rakudo.parrot.............
   11    0    6    5   22
      5 skipped: m:overlap// NYI
      6 todo   : m:overlap NYI
-S05-modifier/perl5_0.rakudo.parrot.................
-# Failed test 'returned two values in the match'
-# at t/spec/S05-modifier/perl5_0.rakudo.parrot line 56
-#      got: 'False'
-# expected: '2'
-
-# Failed test 'returned two values in the match'
-# at t/spec/S05-modifier/perl5_0.rakudo.parrot line 61
-#      got: '1'
-# expected: '2'
-
-# Failed test 'returned correct first value in the match'
-# at lib/Test.pm line 94
-#      got: 'False'
-# expected: 'hello'
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:92
-
-
-# Failed test 'returned correct second value in the match'
-# at lib/Test.pm line 94
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:95
-
-#      got: ''
-# expected: 'world'
-
-# Failed test 'interpolated rule applied successfully'
-# at lib/Test.pm line 79
-
-# Failed test 'interpolated rule applied successfully'
-# at lib/Test.pm line 79
-
-# Failed test 'variable interpolation in substitute regexp works with :g modifier'
-# at t/spec/S05-modifier/perl5_0.rakudo.parrot line 86
-#      got: 'barrrr'
-# expected: 'baz'
-# Now going to test numbered match variable.
-  17    0    7    0   24
-     7 todo   : NYI
+S05-modifier/perl5_0.rakudo.parrot.................===SORRY!===
+invoke() not implemented in class 'String'
+   0   24    0    0   24
+    24 tests aborted (missing ok/not ok)
 S05-modifier/perl5_1.t............................. 100    0    0    0  100
 S05-modifier/perl5_2.t.............................use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:92
 
@@ -2837,62 +2655,10 @@ S06-advanced/return.rakudo.parrot..................
   75    0    1    3   79
      3 skipped: RT #75118
      1 todo   : RT #61732
-S06-advanced/wrap.rakudo.parrot....................
-# Failed test 'Check that functions have a 'callwith' that works. '
-# at lib/Test.pm line 206
-# No such method 'callwith' for invocant of type 'Sub+{SoftRoutine}'
-
-# Failed test 'Wrap is now out of scope, should be back to normal.'
-# at t/spec/S06-advanced/wrap.rakudo.parrot line 162
-#      got: 'yyy'
-# expected: 'xxx'
-
-# Failed test 'Wrap is now out of scope, should be back to normal.'
-# at t/spec/S06-advanced/wrap.rakudo.parrot line 165
-#      got: 'yyy'
-# expected: 'xxx'
-
-# Failed test '{nextsame}() dies properly'
-# at lib/Test.pm line 194
-
-# Failed test 'can wrap a multi'
-# at t/spec/S06-advanced/wrap.rakudo.parrot line 228
-#      got: '10'
-# expected: '20'
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:92
-
-
-# Failed test 'default works with wrapped accessor, capture return'
-# at lib/Test.pm line 94
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:95
-
-#      got: ''
-# expected: '16'
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:92
-
-
-# Failed test 'BUILD binding works with wrapped accessor, capture return'
-# at lib/Test.pm line 94
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:95
-
-#      got: ''
-# expected: '32'
-
-# Failed test 'assignment works with wrapped accessor, return callsame'
-# at lib/Test.pm line 94
-#      got: '32'
-# expected: '64'
-
-# Failed test 'assignment works with wrapped accessor, nextsame'
-# at lib/Test.pm line 94
-#      got: '32'
-# expected: '64'
-  76    0    9    0   85
-     1 todo   : RT #77472
-     1 todo   : callwith
-     1 todo   : RT #70267: call to nextsame with nowhere to go
-     4 todo   : RT #122259
-     2 todo   : temp and wrap
+S06-advanced/wrap.rakudo.parrot....................===SORRY!===
+invoke() not implemented in class 'CallContext'
+   0   85    0    0   85
+    85 tests aborted (missing ok/not ok)
 S06-currying/assuming-and-mmd.t....................   6    0    0    0    6
 S06-currying/named.t...............................   3    0    0    0    3
 S06-macros/errors.t................................   2    0    0    0    2
@@ -2944,17 +2710,17 @@ S06-operator-overloading/sub.rakudo.parrot.........
 
 # Failed test '... basic prefix operator overloading worked'
 # at t/spec/S06-operator-overloading/sub.rakudo.parrot line 347
-#      got: 'Bar<-960257885144406359>'
+#      got: 'Bar<6911873509800798496>'
 # expected: 'software'
 
 # Failed test '... basic infix operator overloading worked'
 # at t/spec/S06-operator-overloading/sub.rakudo.parrot line 356
-#      got: 'Bar<-960257885671073118> Bar<-960257885671073118>'
+#      got: 'Bar<6911873509812445737> Bar<6911873509812445737>'
 # expected: 'software software'
 
 # Failed test 'stringification overloading worked in array stringification'
 # at t/spec/S06-operator-overloading/sub.rakudo.parrot line 374
-#      got: 'Bar<-960257885683506500> Bar<-960257885683506500> Bar<-960257885683506500>'
+#      got: 'Bar<6911873511421508923> Bar<6911873511421508923> Bar<6911873511421508923>'
 # expected: 'pugs pugs pugs'
 
 # Failed test 'stringification with hyperization didn't die'
@@ -2964,7 +2730,7 @@ S06-operator-overloading/sub.rakudo.parrot.........
 
 # Failed test 'stringification overloading was hyperized correctly'
 # at t/spec/S06-operator-overloading/sub.rakudo.parrot line 378
-#      got: 'Bar<-960257885683506500> Bar<-960257885683506500> Bar<-960257885683506500>'
+#      got: 'Bar<6911873511421508923> Bar<6911873511421508923> Bar<6911873511421508923>'
 # expected: 'pugs! pugs! pugs!'
 
 # Failed test 'infix:<comment char>($a, $b)'
@@ -3151,23 +2917,23 @@ S06-signature/unpack-object.t......................   4    0    0    0    4
 S06-signature/unspecified.rakudo.parrot............
 # Failed test 'signature is :() when none is specified'
 # at lib/Test.pm line 94
-#      got: 'Signature<-7941628774346615484>'
-# expected: 'Signature<-7941628776490211243>'
+#      got: 'Signature<-7201900215334653052>'
+# expected: 'Signature<-7201900216136657530>'
 
 # Failed test 'signature is :(Mu *@_) when none is specified and @_ is used'
 # at lib/Test.pm line 94
-#      got: 'Signature<-7941628774875315642>'
-# expected: 'Signature<-7941628774603506850>'
+#      got: 'Signature<-7201900216402849145>'
+# expected: 'Signature<-7201900216411145852>'
 
 # Failed test 'signature is :(Mu *%_) when none is specified and %_ is used'
 # at lib/Test.pm line 94
-#      got: 'Signature<-7941628774604126902>'
-# expected: 'Signature<-7941628774610683042>'
+#      got: 'Signature<-7201900214249907302>'
+# expected: 'Signature<-7201900214255369331>'
 
 # Failed test 'signature is :(Mu *@_, Mu *%_) when none is specified and @_ and %_ are used'
 # at lib/Test.pm line 94
-#      got: 'Signature<-7941628775683127971>'
-# expected: 'Signature<-7941628773526873519>'
+#      got: 'Signature<-7201900214254525819>'
+# expected: 'Signature<-7201900214792225913>'
 use of uninitialized value of type Any in string context  in sub both at t/spec/S06-signature/unspecified.rakudo.parrot:38
 
 use of uninitialized value of type Any in string context  in sub both at t/spec/S06-signature/unspecified.rakudo.parrot:38
@@ -3464,12 +3230,13 @@ S12-class/type-object.t............................use of uninitialized value of
 use of uninitialized value of type Any in string context  in block  at t/spec/S12-class/type-object.t:7
 
    6    0    0    0    6
-S12-construction/BUILD.rakudo.parrot...............
-# Failed test 'method BUILD produces a compile-time warning'
-# at lib/Test.pm line 79
-#      got err: ""
-   8    0    1    0    9
-     1 todo   : method BUILD should warn
+S12-construction/BUILD.rakudo.parrot...............invoke() not implemented in class 'Integer'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in block  at t/spec/S12-construction/BUILD.rakudo.parrot:74
+
+# Looks like you planned 9 tests, but ran 5
+   5    4    0    0    9
+     4 tests aborted (missing ok/not ok)
 S12-construction/autopairs.rakudo.parrot...........
 # Failed test 'role instantiation with autopair, no spaces'
 # at t/spec/S12-construction/autopairs.rakudo.parrot line 16
@@ -3657,7 +3424,10 @@ use of uninitialized value of type AnonInvocant in string context  in sub is at 
   36    0    0    2   38
      2 skipped: indirect object notation
 S12-methods/lastcall.t.............................   6    0    0    0    6
-S12-methods/lvalue.t...............................  16    0    0    0   16
+S12-methods/lvalue.t...............................===SORRY!===
+invoke() not implemented in class 'Integer'
+   0   16    0    0   16
+    16 tests aborted (missing ok/not ok)
 S12-methods/method-vs-sub.rakudo.parrot............   4    0    0    1    5
      1 skipped: confused near "($obj:),  "
 S12-methods/multi.rakudo.parrot....................
@@ -3850,13 +3620,13 @@ S14-traits/routines.rakudo.parrot..................
   12    0    1    0   13
      1 todo   : trait mod / .wrap interaction
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1406464784
-# Using file temp_1406464784
-# Using file temp_1406464784
+S16-filehandles/chmod.t............................# Using file temp_1406551227
+# Using file temp_1406551227
+# Using file temp_1406551227
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
-S16-filehandles/filestat.t.........................# Using file temp-16-filehandles-filestat-15960-1.temp
-# Using file temp-16-filehandles-filestat-15960-2.temp
+S16-filehandles/filestat.t.........................# Using file temp-16-filehandles-filestat-21654-1.temp
+# Using file temp-16-filehandles-filestat-21654-2.temp
   12    0    0    0   12
 S16-filehandles/filetest.rakudo.parrot.............  32    0    0    9   41
      6 skipped: :M, :C, :A
@@ -3864,7 +3634,7 @@ S16-filehandles/filetest.rakudo.parrot.............  32    0    0    9   41
 S16-filehandles/io.t...............................  84    0    0    0   84
 S16-filehandles/io_in_for_loops.t..................  29    0    0    0   29
 S16-filehandles/io_in_while_loops.t................  13    0    0    0   13
-S16-filehandles/mkdir_rmdir.rakudo.parrot..........# mkdir-t-testfile-813278
+S16-filehandles/mkdir_rmdir.rakudo.parrot..........# mkdir-t-testfile-950343
   13    0    0    1   14
      1 skipped: deviation from spec because we do not have sink yet
 S16-filehandles/open.t.............................   2    0    0    1    3
@@ -4043,13 +3813,13 @@ S32-basics/warn.rakudo.parrot......................# It's OK to see this warning
 
 # Failed test 'warn() with arguments; line number'
 # at lib/Test.pm line 79
-#      got err: "OH NOEZ  in block  at getout-16231-350889.code:1\n\n"
+#      got err: "OH NOEZ  in block  at getout-21909-77129.code:1\n\n"
 
 # Failed test 'quietly does not surpress warnings'
 # at lib/Test.pm line 79
 #      got status: 256
 #      got out: ""
-#      got err: "\x[1b][31m===\x[1b][0mSORRY!\x[1b][31m===\x[1b][0m Error while compiling getout-16231-708892.code\nUndeclared routine:\n    quietly used at line 1\n\n"
+#      got err: "\x[1b][31m===\x[1b][0mSORRY!\x[1b][31m===\x[1b][0m Error while compiling getout-21909-62593.code\nUndeclared routine:\n    quietly used at line 1\n\n"
 # expected err: ""
    5    0    2    0    7
      1 todo   : quietly NYI
@@ -4307,6 +4077,26 @@ use of uninitialized value of type Nil in numeric context  in sub throws_like at
 
 use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:260
 
+    
+# Failed test 'right exception type (X::Phaser::PrePost)'
+# at lib/Test.pm line 79
+    # Got:      (X::AdHoc)
+    # Expected: (X::Phaser::PrePost)
+    # Exception message: invoke() not implemented in class 'CallContext'
+    # Looks like you failed 1 tests of 4
+
+# Failed test 'did we throws_like X::Phaser::PrePost?'
+# at lib/Test.pm line 294
+    
+# Failed test 'right exception type (X::Phaser::PrePost)'
+# at lib/Test.pm line 79
+    # Got:      (X::AdHoc)
+    # Expected: (X::Phaser::PrePost)
+    # Exception message: invoke() not implemented in class 'CallContext'
+    # Looks like you failed 1 tests of 4
+
+# Failed test 'did we throws_like X::Phaser::PrePost?'
+# at lib/Test.pm line 294
 use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:260
 
 use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:260
@@ -4341,7 +4131,8 @@ use of uninitialized value of type Nil in numeric context  in sub throws_like at
 
 use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:260
 
- 269    0    3    0  272
+# Looks like you failed 2 tests of 272
+ 267    2    3    0  272
      2 todo   : still handled by <special_var>
      1 todo   : parsing regression
 S32-hash/delete-adverb.t...........................use of uninitialized value of type Int in string context  in sub is at lib/Test.pm:92
@@ -4369,7 +4160,15 @@ S32-hash/pairs.rakudo.parrot.......................
 # expected: '102'
   20    0    1    0   21
      1 todo   : Rakudo seems to make a copy rather than a reference
-S32-hash/perl.t....................................  12    0    0    0   12
+S32-hash/perl.t....................................invoke() not implemented in class 'HashIteratorKey'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in sub is at lib/Test.pm:92
+  in sub is at lib/Test.pm:94
+  in block  at t/spec/S32-hash/perl.t:10
+
+# Looks like you planned 12 tests, but ran 0
+   0   12    0    0   12
+    12 tests aborted (missing ok/not ok)
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.parrot.......................
 # Failed test 'binding hash slices works (1-1)'
@@ -4421,26 +4220,35 @@ S32-hash/slice.rakudo.parrot.......................
 # expected: 'CCC'
   19    0   10    0   29
     10 todo   : binding on hash elements unimplemented
-S32-io/IO-Socket-INET.t............................# [0s] starting tests
-# [0s] Testing on port 1024
-  47    0    0    0   47
+S32-io/IO-Socket-INET.t............................Segmentation fault (core dumped)
+   0   47    0    0   47
+    47 tests aborted (missing ok/not ok)
 S32-io/chdir.rakudo.parrot.........................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
-S32-io/dir.t.......................................  12    0    0    0   12
+S32-io/dir.t.......................................invoke() not implemented in class 'Integer'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in block  at t/spec/S32-io/dir.t:25
+
+# Looks like you planned 12 tests, but ran 8
+   8    4    0    0   12
+     4 tests aborted (missing ok/not ok)
 S32-io/file-tests.t................................use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:260
 
 use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:260
 
   34    0    0    0   34
-S32-io/io-path-cygwin.rakudo.parrot................
-# Failed test 'absolute inverts relative with resolve'
-# at lib/Test.pm line 94
-#      got: ''
-# expected: '\foo\bar'
-  49    0    1    2   52
-     2 skipped: On-system tests for filetest inheritance
-     1 todo   : resolve NYI, needs nqp::readlink
+S32-io/io-path-cygwin.rakudo.parrot................invoke() not implemented in class 'CallContext'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in method split at gen/parrot/CORE.setting:13487
+  in method split at gen/parrot/CORE.setting:13670
+  in method parts at gen/parrot/CORE.setting:14175
+  in method volume at gen/parrot/CORE.setting:14184
+  in block  at t/spec/S32-io/io-path-cygwin.rakudo.parrot:11
+
+# Looks like you planned 52 tests, but ran 1
+   1   51    0    0   52
+    51 tests aborted (missing ok/not ok)
 S32-io/io-path-unix.rakudo.parrot..................
 # Failed test 'absolute inverts relative with resolve'
 # at lib/Test.pm line 94
@@ -4448,36 +4256,65 @@ S32-io/io-path-unix.rakudo.parrot..................
 # expected: '/foo/bar'
   36    0    1    0   37
      1 todo   : resolve NYI, needs nqp::readlink
-S32-io/io-path-win.rakudo.parrot...................
-# Failed test 'absolute inverts relative with resolve'
-# at lib/Test.pm line 94
-#      got: ''
-# expected: '\foo\bar'
-  48    0    1    2   51
-     2 skipped: On-system tests for filetest inheritance
-     1 todo   : resolve NYI, needs nqp::readlink
-S32-io/io-path.t...................................  13    0    0    0   13
-S32-io/io-spec-cygwin.t............................ 100    0    0    2  102
-     2 skipped: cygwin on-platform tests
+S32-io/io-path-win.rakudo.parrot...................Segmentation fault (core dumped)
+   1   50    0    0   51
+    50 tests aborted (missing ok/not ok)
+S32-io/io-path.t...................................invoke() not implemented in class 'ResizablePMCArray'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in block  at t/spec/S32-io/io-path.t:33
+
+# Looks like you planned 13 tests, but ran 11
+  11    2    0    0   13
+     2 tests aborted (missing ok/not ok)
+S32-io/io-spec-cygwin.t............................invoke() not implemented in class 'CallContext'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in method split at gen/parrot/CORE.setting:13487
+  in method split at gen/parrot/CORE.setting:13670
+  in block  at t/spec/S32-io/io-spec-cygwin.t:66
+
+# Looks like you planned 102 tests, but ran 26
+  26   76    0    0  102
+    76 tests aborted (missing ok/not ok)
 S32-io/io-spec-unix.t..............................use of uninitialized value of type Any in string context  in block  at t/spec/S32-io/io-spec-unix.t:48
 
- 129    0    0    0  129
+invoke() not implemented in class 'CallContext'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in sub isnt at lib/Test.pm:104
+  in sub isnt at lib/Test.pm:107
+  in block  at t/spec/S32-io/io-spec-unix.t:71
+
+# Looks like you planned 129 tests, but ran 45
+  45   84    0    0  129
+    84 tests aborted (missing ok/not ok)
 S32-io/io-spec-win.t...............................use of uninitialized value of type Any in string context  in block  at t/spec/S32-io/io-spec-win.t:52
 
- 206    0    0    3  209
-     3 skipped: Win32ish on-platform tests
+Segmentation fault (core dumped)
+ 109  100    0    0  209
+   100 tests aborted (missing ok/not ok)
 S32-io/note.rakudo.parrot..........................
 # Failed test 'method form of note'
 # at lib/Test.pm line 79
 #      got status: 256
-#      got err: "No such method 'note' for invocant of type 'Str'\n  in block  at getout-16501-613538.code:1\n\n"
+#      got err: "No such method 'note' for invocant of type 'Str'\n  in block  at getout-22043-360187.code:1\n\n"
 # expected err: "method form\n"
    5    0    1    0    6
      1 todo   : nom regression
 S32-io/other.t.....................................  60    0    0    0   60
 S32-io/slurp.t.....................................  16    0    0    0   16
 S32-io/spurt.t.....................................  33    0    0    0   33
-S32-list/categorize.t..............................  12    0    0    0   12
+S32-list/categorize.t..............................No such method 'postcircumfix:<( )>' for invocant of type 'Int'
+  in any  at gen/parrot/BOOTSTRAP.nqp:1680
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in sub charmapper at t/spec/S32-list/categorize.t:64
+  in method categorize-list at gen/parrot/CORE.setting:9478
+  in method categorize-list at gen/parrot/CORE.setting:9472
+  in method categorize at gen/parrot/CORE.setting:1557
+  in method categorize at gen/parrot/CORE.setting:1555
+  in block  at t/spec/S32-list/categorize.t:68
+
+# Looks like you planned 12 tests, but ran 10
+  10    2    0    0   12
+     2 tests aborted (missing ok/not ok)
 S32-list/classify.rakudo.parrot....................  12    0    0    3   15
      3 skipped: Cannot use bind operator with this LHS
 S32-list/combinations.t............................   6    0    0    0    6
@@ -4512,11 +4349,13 @@ S32-list/map.rakudo.parrot.........................  51    0    0    8   59
      2 skipped: adverbial block
 S32-list/map_function_return_values.t..............   2    0    0    0    2
 S32-list/minmax.t..................................  55    0    0    0   55
-S32-list/pick.rakudo.parrot........................
-# Failed test 'error on deprecated :replace'
-# at lib/Test.pm line 194
-  56    0    1    0   57
-     1 todo   : error on pick :replace
+S32-list/pick.rakudo.parrot........................invoke() not implemented in class 'NQPLexPad'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in block  at t/spec/S32-list/pick.rakudo.parrot:20
+
+# Looks like you planned 57 tests, but ran 0
+   0   57    0    0   57
+    57 tests aborted (missing ok/not ok)
 S32-list/reduce.rakudo.parrot......................use of uninitialized value of type Any in numeric context  in block  at t/spec/S32-list/reduce.rakudo.parrot:29
 
 
@@ -4533,7 +4372,13 @@ S32-list/reverse.rakudo.parrot.....................
 # expected: 'dcba'
   20    0    1    0   21
      1 todo   : RT #77914
-S32-list/roll.t....................................  48    0    0    0   48
+S32-list/roll.t....................................invoke() not implemented in class 'NQPMatch'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in block  at t/spec/S32-list/roll.t:19
+
+# Looks like you planned 48 tests, but ran 0
+   0   48    0    0   48
+    48 tests aborted (missing ok/not ok)
 S32-list/sort.rakudo.parrot........................
 # Failed test '... with closure as direct invocant'
 # at t/spec/S32-list/sort.rakudo.parrot line 66
@@ -4861,7 +4706,21 @@ S32-str/numeric.rakudo.parrot......................
      1 todo   : NYI
      1 todo   : complex Str.Numeric
 S32-str/ords.t.....................................   6    0    0    0    6
-S32-str/pack.t.....................................   6    0    0    0    6
+S32-str/pack.t.....................................invoke() not implemented in class 'Hash'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in sub unbase at gen/parrot/CORE.setting:6896
+  in block  at gen/parrot/CORE.setting:5563
+  in block  at gen/parrot/CORE.setting:5558
+  in method reify at gen/parrot/CORE.setting:7686
+  in method reify at gen/parrot/CORE.setting:7548
+  in method gimme at gen/parrot/CORE.setting:8040
+  in method sink at gen/parrot/CORE.setting:8502
+  in sub pack at gen/parrot/CORE.setting:5525
+  in block  at t/spec/S32-str/pack.t:9
+
+# Looks like you planned 6 tests, but ran 0
+   0    6    0    0    6
+     6 tests aborted (missing ok/not ok)
 S32-str/pos.t......................................   2    0    0    0    2
 S32-str/rindex.t...................................  33    0    0    0   33
 S32-str/samecase.t.................................   8    0    0    0    8
@@ -4874,67 +4733,13 @@ S32-str/split-simple.rakudo.parrot.................
      1 todo   : RT #112868
 S32-str/split.rakudo.parrot........................  52    0    0    1   53
      1 skipped: No such method null for invocant of type Cursor
-S32-str/sprintf.rakudo.parrot......................
-# Failed test 'Inf properly handled %e'
-# at lib/Test.pm line 94
-#      got: '9223372036854775808.000NaNe+Inf'
-# expected: 'inf'
+S32-str/sprintf.rakudo.parrot......................invoke() not implemented in class 'NQPMatch'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in block  at t/spec/S32-str/sprintf.rakudo.parrot:146
 
-# Failed test 'Inf properly handled %E'
-# at lib/Test.pm line 94
-#      got: '9223372036854775808.000NaNE+Inf'
-# expected: 'INF'
-
-# Failed test 'Inf properly handled %g'
-# at lib/Test.pm line 94
-#      got: 'NaNe+Inf'
-# expected: 'inf'
-
-# Failed test 'Inf properly handled %G'
-# at lib/Test.pm line 94
-#      got: 'NaNE+Inf'
-# expected: 'INF'
-
-# Failed test '-Inf properly handled %e'
-# at lib/Test.pm line 94
-#      got: '-9223372036854775808.000NaNe+Inf'
-# expected: '-inf'
-
-# Failed test '-Inf properly handled %E'
-# at lib/Test.pm line 94
-#      got: '-9223372036854775808.000NaNE+Inf'
-# expected: '-INF'
-
-# Failed test '-Inf properly handled %g'
-# at lib/Test.pm line 94
-#      got: '-NaNe+Inf'
-# expected: '-inf'
-
-# Failed test '-Inf properly handled %G'
-# at lib/Test.pm line 94
-#      got: '-NaNE+Inf'
-# expected: '-INF'
-
-# Failed test 'RT #116280'
-# at lib/Test.pm line 94
-#      got: '9223372036854775808.00NaN'
-# expected: '         NaN'
-
-# Failed test '%.0f of 1.969 should be 2'
-# at lib/Test.pm line 94
-#      got: '1.'
-# expected: '2'
-
-# Failed test '%.1f of 1.969 should be 2.0'
-# at lib/Test.pm line 94
-#      got: '1.0'
-# expected: '2.0'
- 134    0   11    4  149
-     2 skipped: sprintf hangs when printing Inf/-Inf
-     2 skipped: Issues with Inf: RT #116280
-     1 todo   : sprintf prints numbers before NaN
-     2 todo   : buggy
-     8 todo   : Issues with Inf: RT #116280
+# Looks like you planned 149 tests, but ran 78
+  78   71    0    0  149
+    71 tests aborted (missing ok/not ok)
 S32-str/substr-rw.rakudo.parrot....................
 # Failed test 'assignment to reference modifies original'
 # at t/spec/S32-str/substr-rw.rakudo.parrot line 22
@@ -5041,37 +4846,40 @@ S32-temporal/Date.t................................Potential difficulties:
     Leading 0 does not indicate octal in Perl 6; please use 0o1 if you mean that
     at t/spec/S32-temporal/Date.t:28
     ------> [32m    isa_ok Date.new(2010, 01, 01[33m⏏[31m), Date, 'Date.new() returns a Date';  #[0m
-  72    0    0    0   72
-S32-temporal/DateTime-Instant-Duration.rakudo.par..
-# Failed test 'Instant subtraction (needing high precision)'
-# at lib/Test.pm line 94
-#      got: '3.141590'
-# expected: '3.14159'
+Cannnot use unit day with Date.delta
+  in method later at gen/parrot/CORE.setting:15903
+  in block  at t/spec/S32-temporal/Date.t:121
 
-# Failed test 'Round-tripping DateTime.Instant (2005-12-31T23:59:59.2Z)'
-# at lib/Test.pm line 94
-#      got: '59.2000000476837'
-# expected: '59.2'
+# Looks like you planned 72 tests, but ran 58
+  58   14    0    0   72
+    14 tests aborted (missing ok/not ok)
+S32-temporal/DateTime-Instant-Duration.rakudo.par..invoke() not implemented in class 'QRPA'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in method check-time at gen/parrot/CORE.setting:15567
+  in method new at gen/parrot/CORE.setting:15539
+  in method new at gen/parrot/CORE.setting:810
+  in method new at gen/parrot/CORE.setting:15635
+  in method new at gen/parrot/CORE.setting:810
+  in sub dsi at t/spec/S32-temporal/DateTime-Instant-Duration.rakudo.parrot:24
+  in block  at t/spec/S32-temporal/DateTime-Instant-Duration.rakudo.parrot:37
 
-# Failed test 'Round-tripping DateTime.Instant (2005-12-31T23:59:60.2Z)'
-# at lib/Test.pm line 94
-#      got: '60.2000000476837'
-# expected: '60.2'
+# Looks like you planned 33 tests, but ran 3
+   3   30    0    0   33
+    30 tests aborted (missing ok/not ok)
+S32-temporal/DateTime.rakudo.parrot................get_attr_str() not implemented in class 'Str'
+  in method reify at gen/parrot/CORE.setting:7554
+  in method gimme at gen/parrot/CORE.setting:8045
+  in method print at gen/parrot/CORE.setting:14032
+  in method print at gen/parrot/CORE.setting:14025
+  in sub print at gen/parrot/CORE.setting:13772
+  in sub proclaim at lib/Test.pm:350
+  in sub lives_ok at lib/Test.pm:210
+  in sub lives_ok at lib/Test.pm:206
+  in block  at t/spec/S32-temporal/DateTime.rakudo.parrot:121
 
-# Failed test 'Round-tripping DateTime.Instant (2006-01-01T00:00:00.2Z)'
-# at lib/Test.pm line 94
-#      got: '0.200000047683716'
-# expected: '0.2'
-  28    0    4    1   33
-     1 skipped: nom regression
-     4 todo   : high-precision Instants NYI (need FatRats)
-S32-temporal/DateTime.rakudo.parrot................
-# Failed test 'DateTime.in-timezone (fractional seconds)'
-# at lib/Test.pm line 94
-#      got: '20'
-# expected: '20.5'
- 216    0    1    0  217
-     1 todo   : nom regression
+# Looks like you planned 217 tests, but ran 49
+  49  168    0    0  217
+   168 tests aborted (missing ok/not ok)
 S32-temporal/calendar.t............................Potential difficulties:
     Leading 0 does not indicate octal in Perl 6; please use 0o1 if you mean that
     at t/spec/S32-temporal/calendar.t:119
@@ -5139,9 +4947,24 @@ S32-temporal/calendar.t............................Potential difficulties:
     Leading 0 does not indicate octal in Perl 6; please use 0o3 if you mean that
     at t/spec/S32-temporal/calendar.t:140
     ------> [32mis dtim(2010, 01, 03[33m⏏[31m).week-number, 53, 'DateTime.week-number[0m
- 130    0    0    0  130
-S32-temporal/local.t...............................   6    0    0   19   25
-    19 skipped: The local time zone may not be America/New_York.
+===SORRY!===
+Cannot declare variable with scope 'month'; use 'local' or 'lexical'
+# Looks like you planned 130 tests, but ran 0
+   0  130    0    0  130
+   130 tests aborted (missing ok/not ok)
+S32-temporal/local.t...............................invoke() not implemented in class 'QRPA'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in method check-time at gen/parrot/CORE.setting:15567
+  in method new at gen/parrot/CORE.setting:15539
+  in method new at gen/parrot/CORE.setting:810
+  in method new at gen/parrot/CORE.setting:15635
+  in method new at gen/parrot/CORE.setting:810
+  in sub ds at t/spec/S32-temporal/local.t:8
+  in block  at t/spec/S32-temporal/local.t:18
+
+# Looks like you planned 25 tests, but ran 5
+   5   20    0    0   25
+    20 tests aborted (missing ok/not ok)
 S32-trig/atan2.t................................... 115    0    0    0  115
 S32-trig/cos.t..................................... 154    0    0    0  154
 S32-trig/cosec.t................................... 114    0    0    0  114
@@ -5160,37 +4983,16 @@ S32-trig/tan.t..................................... 138    0    0    0  138
 S32-trig/tanh.t.................................... 154    0    0    0  154
                                                    pass fail todo skip plan
 integration/99problems-01-to-10.t..................  22    0    0    0   22
-integration/99problems-11-to-20.t..................use of uninitialized value of type Any in string context  in sub encode at t/spec/integration/99problems-11-to-20.t:22
+integration/99problems-11-to-20.t..................  25    0    0    0   25
+integration/99problems-21-to-30.t..................use of uninitialized value of type Any in string context  in sub  at t/spec/integration/99problems-21-to-30.t:53
 
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:92
-
-  25    0    0    0   25
-integration/99problems-21-to-30.rakudo.parrot......
-# Failed test '... and they should be in the letters'
-# at lib/Test.pm line 79
-
-# Failed test '... and they should be in the letters'
-# at lib/Test.pm line 79
-use of uninitialized value of type Any in string context  in sub  at t/spec/integration/99problems-21-to-30.rakudo.parrot:56
-
-
-# Failed test '... and they should be in the correct range'
-# at lib/Test.pm line 79
-# ("49" => 1, "48" => 1, "24" => 1, "37" => 1, "17" => 1, "19" => 1).hash
-  12    0    3    0   15
-     3 todo   : unknown
+  15    0    0    0   15
 integration/99problems-31-to-40.t..................  66    0    0    1   67
      1 skipped: No Benchmark module yet
-integration/99problems-41-to-50.rakudo.parrot......
-# Failed test at lib/Test.pm line 94
-#      got: '000 001 011 010 111 110 100 101'
-# expected: '000 001 011 010 110 111 101 100'
-   5    0    1    7   13
+integration/99problems-41-to-50.rakudo.parrot......  10    0    0    3   13
      1 skipped: Test(s) not yet written: (*) Truth tables for logical expressions (2).
      1 skipped: s:P5///
-     4 skipped: Shaped variable declarations
      1 skipped: Test(s) not yet written: (**) Truth tables for logical expressions (3).
-     1 todo   : making Parcel.reverse return a Parcel seems to break this
 integration/99problems-51-to-60.t..................  35    0    0    2   37
      1 skipped: Test(s) not yet written: (**) Generate-and-test paradigm
      1 skipped: Test(s) not yet written: (**) Construct height-balanced binary trees with a given number of nodes
@@ -5202,14 +5004,29 @@ integration/99problems-61-to-70.t..................   9    0    0    6   15
      1 skipped: Test(s) not yet written: (**) Preorder and inorder sequences of binary trees
      1 skipped: Test(s) not yet written: (**) Construct a complete binary tree
 integration/advent2009-day01.t.....................   2    0    0    0    2
-integration/advent2009-day02.t.....................  10    0    0    0   10
+integration/advent2009-day02.t.....................invoke() not implemented in class 'QRPA'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in sub is at lib/Test.pm:92
+  in sub is at lib/Test.pm:94
+  in block  at t/spec/integration/advent2009-day02.t:18
+
+# Looks like you planned 10 tests, but ran 7
+   7    3    0    0   10
+     3 tests aborted (missing ok/not ok)
 integration/advent2009-day03.t.....................   6    0    0    0    6
 integration/advent2009-day04.t.....................   6    0    0    0    6
 integration/advent2009-day05.t.....................  17    0    0    0   17
 integration/advent2009-day06.t.....................  15    0    0    0   15
-integration/advent2009-day07.t.....................  14    0    0    0   14
+integration/advent2009-day07.t.....................===SORRY!===
+invoke() not implemented in class 'CallContext'
+   0   14    0    0   14
+    14 tests aborted (missing ok/not ok)
 integration/advent2009-day08.t.....................   8    0    0    0    8
-integration/advent2009-day09.t.....................  17    0    0    0   17
+integration/advent2009-day09.t.....................===SORRY!===
+No handler to delete.
+# Looks like you planned 17 tests, but ran 8
+   8    9    0    0   17
+     9 tests aborted (missing ok/not ok)
 integration/advent2009-day10.t.....................   5    0    0    0    5
 integration/advent2009-day11.t.....................   6    0    0    0    6
 integration/advent2009-day12.t.....................   9    0    0    0    9
@@ -5229,7 +5046,10 @@ integration/advent2009-day17.t.....................  62    0    0    0   62
 integration/advent2009-day18.t.....................   7    0    0    0    7
 integration/advent2009-day19.t.....................   6    0    0    0    6
 integration/advent2009-day20.t.....................  21    0    0    0   21
-integration/advent2009-day21.t.....................   2    0    0    0    2
+integration/advent2009-day21.t.....................===SORRY!===
+invoke() not implemented in class 'CallContext'
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
 integration/advent2009-day22.t.....................   4    0    0    0    4
 integration/advent2009-day23.rakudo.parrot.........   9    0    0    1   10
      1 skipped: lists aren't properly lazy in Rakudo yet
@@ -5252,7 +5072,10 @@ integration/advent2010-day10.rakudo.parrot.........
      2 todo   : RT #121843
 integration/advent2010-day11.t.....................   2    0    0    0    2
 integration/advent2010-day12.t.....................  13    0    0    0   13
-integration/advent2010-day14.t.....................   5    0    0    0    5
+integration/advent2010-day14.t.....................===SORRY!===
+invoke() not implemented in class 'NQPLexPad'
+   0    5    0    0    5
+     5 tests aborted (missing ok/not ok)
 integration/advent2010-day16.t.....................  13    0    0    0   13
 integration/advent2010-day19.rakudo.parrot.........
 # Failed test 'True but False'
@@ -5264,22 +5087,30 @@ integration/advent2010-day19.rakudo.parrot.........
 integration/advent2010-day21.t.....................   4    0    0    0    4
 integration/advent2010-day22.t.....................   3    0    0    0    3
 integration/advent2010-day23.t.....................   8    0    0    0    8
-integration/advent2011-day03.t.....................   2    0    0    0    2
+integration/advent2011-day03.t.....................Segmentation fault (core dumped)
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
 integration/advent2011-day04.t.....................   2    0    0    0    2
 integration/advent2011-day05.t.....................   5    0    0    0    5
-integration/advent2011-day07.t.....................   3    0    0    0    3
+integration/advent2011-day07.t.....................===SORRY!===
+invoke() not implemented in class 'CallContext'
+   0    3    0    0    3
+     3 tests aborted (missing ok/not ok)
 integration/advent2011-day10.rakudo.parrot.........
 # Failed test '--doc + DOC INIT {}'
 # at lib/Test.pm line 79
 #      got out: ""
-#      got err: "\x[1b][31m===\x[1b][0mSORRY!\x[1b][31m===\x[1b][0m Error while compiling getout-17170-343209.code\nVariable '\$=POD' is not declared\nat getout-17170-343209.code:25\n------> \x[1b][32m        pod2text(\$=POD\x[1b][33m⏏\x[1b][31m);\x[1b][0m\n    expecting any of:\n        postfix\n"
+#      got err: "\x[1b][31m===\x[1b][0mSORRY!\x[1b][31m===\x[1b][0m Error while compiling getout-22701-502172.code\nVariable '\$=POD' is not declared\nat getout-22701-502172.code:25\n------> \x[1b][32m        pod2text(\$=POD\x[1b][33m⏏\x[1b][31m);\x[1b][0m\n    expecting any of:\n        postfix\n"
 # expected err: ""
    4    0    1    0    5
      1 todo   : RT #12205
 integration/advent2011-day11.t.....................   9    0    0    0    9
 integration/advent2011-day14.t.....................   8    0    0    0    8
 integration/advent2011-day15.t.....................   9    0    0    0    9
-integration/advent2011-day16.t.....................  11    0    0    0   11
+integration/advent2011-day16.t.....................===SORRY!===
+invoke() not implemented in class 'Integer'
+   0   11    0    0   11
+    11 tests aborted (missing ok/not ok)
 integration/advent2011-day20.t.....................  16    0    0    0   16
 integration/advent2011-day22.t.....................   2    0    0    0    2
 integration/advent2011-day23.t.....................  55    0    0    0   55
@@ -5299,36 +5130,20 @@ integration/advent2012-day10.t.....................  26    0    0    0   26
 integration/advent2012-day12.t.....................   5    0    0    0    5
 integration/advent2012-day13.t.....................  42    0    0    0   42
 integration/advent2012-day14.t.....................   6    0    0    0    6
-integration/advent2012-day15.rakudo.parrot.........
-# Failed test 'FIRST/NEXT/LAST example'
-# at t/spec/integration/advent2012-day15.rakudo.parrot line 71
-#      got: 'Score	Player
-# -----	------
-# 3	alice
-# 2	bob
-# 42	camelia
-# '
-# expected: 'Score	Player
-# -----	------
-# 3	alice
-# 2	bob
-# 42	camelia
-# -----	------
-# BEST SCORE: 42
-# '
-  10    0    1    0   11
-     1 todo   : NEXT RT #121722
+integration/advent2012-day15.rakudo.parrot.........Segmentation fault (core dumped)
+   0   11    0    0   11
+    11 tests aborted (missing ok/not ok)
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 5.32660183 seconds
-# gerdr: 5.4387685 seconds
-# recursive-ternary: 6.90876677 seconds
-# loop: 7.2235502 seconds
-# recursive-ternary-hand-cached: 18.5520647 seconds
-# hand-memoization: 19.5670166 seconds
-# sequence-ternary: 20.1790555 seconds
-# sequence: 29.503159 seconds
+integration/advent2012-day21.t.....................# kaz: 5.3746763 seconds
+# gerdr: 5.42068241 seconds
+# recursive-ternary: 7.1751279 seconds
+# loop: 7.4531635 seconds
+# recursive-ternary-hand-cached: 19.5531352 seconds
+# hand-memoization: 19.92933485 seconds
+# sequence-ternary: 21.1071058 seconds
+# sequence: 31.46726767 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.parrot.........
 # Failed test 'integer parse'
@@ -5337,8 +5152,13 @@ integration/advent2012-day22.rakudo.parrot.........
 # expected: ["(\"127\", \"0\", \"0\", \"1\")", "(\"173\", \"194\", \"32\", \"32\")"]
    5    0    1    0    6
      1 todo   : RT #121789
-integration/advent2012-day23.t.....................   2    0    0    0    2
-integration/advent2012-day24.t.....................   1    0    0    0    1
+integration/advent2012-day23.t.....................Segmentation fault (core dumped)
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
+integration/advent2012-day24.t.....................===SORRY!===
+invoke() not implemented in class 'NQPLexPad'
+   0    1    0    0    1
+     1 tests aborted (missing ok/not ok)
 integration/advent2013-day02.t.....................  12    0    0    0   12
 integration/advent2013-day04.rakudo.parrot.........
 # Failed test ':c enables closure compilation'
@@ -5347,26 +5167,29 @@ integration/advent2013-day04.rakudo.parrot.........
 # expected: '$dlrs dollars and 18 cents.'
    6    0    1    0    7
      1 todo   : :c in heredocs
-integration/advent2013-day06.t.....................   1    0    0    0    1
+integration/advent2013-day06.t.....................invoke() not implemented in class 'Integer'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in method truncate-parts at gen/parrot/CORE.setting:15471
+  in method truncated-to at gen/parrot/CORE.setting:15894
+  in method next at t/spec/integration/advent2013-day06.t:44
+  in block  at t/spec/integration/advent2013-day06.t:57
+
+# Looks like you planned 1 tests, but ran 0
+   0    1    0    0    1
+     1 tests aborted (missing ok/not ok)
 integration/advent2013-day07.t.....................   6    0    0    0    6
 integration/advent2013-day08.t.....................  11    0    0    0   11
 integration/advent2013-day09.t.....................  21    0    0    0   21
 integration/advent2013-day10.t.....................  44    0    0    0   44
 integration/advent2013-day12.t.....................  32    0    0    0   32
-integration/advent2013-day15.rakudo.parrot.........
-# Failed test 'The object is-a 'Int''
-# at lib/Test.pm line 178
-# Actual type: Str
+integration/advent2013-day15.rakudo.parrot.........invoke() not implemented in class 'CallContext'
+  in sub infix:<eq> at gen/parrot/CORE.setting:1432
+  in sub unbase at gen/parrot/CORE.setting:6895
+  in block  at t/spec/integration/advent2013-day15.rakudo.parrot:19
 
-# Failed test 'The object is-a 'Rat''
-# at lib/Test.pm line 178
-# Actual type: Str
-
-# Failed test 'The object is-a 'Num''
-# at lib/Test.pm line 178
-# Actual type: Str
-  27    0    3    0   30
-     3 todo   : list of numbers
+# Looks like you planned 30 tests, but ran 8
+   8   22    0    0   30
+    22 tests aborted (missing ok/not ok)
 integration/advent2013-day18.t.....................  10    0    0    0   10
 integration/advent2013-day20.t.....................  22    0    0    0   22
 integration/advent2013-day21.t.....................  24    0    0    0   24
@@ -5395,21 +5218,24 @@ integration/topic_in_double_loop.t.................   5    0    0    0    5
 integration/variables-in-do.t......................   3    0    0    0    3
 integration/weird-errors.t.........................  12    0    0    0   12
                                                    pass fail todo skip plan
-rosettacode/greatest_element_of_a_list.t...........   1    0    0    0    1
+rosettacode/greatest_element_of_a_list.t...........===SORRY!===
+invoke() not implemented in class 'NQPLexPad'
+   0    1    0    0    1
+     1 tests aborted (missing ok/not ok)
 rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        4428,     0,   111,   362,  4901,  5008
-"S03",        4841,     0,   107,   121,  5069,  5092
-"S04",         977,     0,    49,    42,  1068,  1120
-"S05",        5008,     0,    95,   309,  5412,  5897
-"S06",        1173,     0,    44,   104,  1321,  1401
+"S02",        4156,   301,    94,   350,  4901,  5008
+"S03",        4636,   211,   105,   117,  5069,  5092
+"S04",         849,   154,    29,    36,  1068,  1120
+"S05",        4991,    24,    88,   309,  5412,  5897
+"S06",        1097,    85,    35,   104,  1321,  1401
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         177,     0,    10,    13,   200,   200
 "S10",          70,     0,     2,     1,    73,   130
 "S11",          75,     0,     3,     6,    84,   139
-"S12",        1337,     0,    50,   124,  1511,  1569
+"S12",        1318,    20,    49,   124,  1511,  1569
 "S13",          35,     0,    10,    27,    72,    82
 "S14",         298,     0,     8,    10,   316,   329
 "S15",           0,     0,     0,     0,     0,   283
@@ -5421,9 +5247,72 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         312,     0,     1,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         336,     0,     4,     4,   344,   354
-"S32",        9106,     0,   105,   180,  9391,  7520
-"int",        1189,     0,    15,    21,  1225,  1228
-"ros",           2,     0,     0,     0,     2,     2
-"total",     29685,     0,   620,  1343, 31648, 31813
+"S32",        8184,   974,    86,   147,  9391,  7520
+"int",        1115,    86,     7,    17,  1225,  1228
+"ros",           1,     1,     0,     0,     2,     2
+"total",     27971,  1856,   537,  1284, 31648, 31813
 ----------------
-No failures!
+Failure summary:
+S02-literals/radix.rakudo.parrot aborted 128 test(s)
+S02-magicals/DISTRO.rakudo.parrot aborted 4 test(s)
+S02-magicals/KERNEL.rakudo.parrot aborted 4 test(s)
+S02-magicals/VM.rakudo.parrot aborted 3 test(s)
+S02-names/is_cached.t 34 - was the code done (2)
+S02-names/is_cached.t 38 - was the code done (4)
+S02-types/isDEPRECATED.rakudo.parrot aborted 20 test(s)
+S02-types/set.rakudo.parrot aborted 55 test(s)
+S02-types/sethash.rakudo.parrot aborted 85 test(s)
+S03-junctions/autothreading.t aborted 86 test(s)
+S03-junctions/boolean-context.rakudo.parrot aborted 13 test(s)
+S03-junctions/misc.rakudo.parrot aborted 103 test(s)
+S03-operators/overflow.t aborted 9 test(s)
+S04-blocks-and-statements/let.t aborted 12 test(s)
+S04-blocks-and-statements/temp.rakudo.parrot aborted 36 test(s)
+S04-declarations/will.rakudo.parrot aborted 17 test(s)
+S04-phasers/ascending-order.t aborted 7 test(s)
+S04-phasers/descending-order.t aborted 7 test(s)
+S04-phasers/enter-leave.rakudo.parrot aborted 21 test(s)
+S04-phasers/first.t aborted 4 test(s)
+S04-phasers/in-loop.rakudo.parrot aborted 3 test(s)
+S04-phasers/keep-undo.t aborted 12 test(s)
+S04-phasers/next.rakudo.parrot aborted 13 test(s)
+S04-phasers/pre-post.rakudo.parrot aborted 22 test(s)
+S05-modifier/perl5_0.rakudo.parrot aborted 24 test(s)
+S06-advanced/wrap.rakudo.parrot aborted 85 test(s)
+S12-construction/BUILD.rakudo.parrot aborted 4 test(s)
+S12-methods/lvalue.t aborted 16 test(s)
+S32-exceptions/misc.rakudo.parrot 186 - did we throws_like X::Phaser::PrePost?
+S32-exceptions/misc.rakudo.parrot 187 - did we throws_like X::Phaser::PrePost?
+S32-hash/perl.t aborted 12 test(s)
+S32-io/IO-Socket-INET.t aborted 47 test(s)
+S32-io/dir.t aborted 4 test(s)
+S32-io/io-path-cygwin.rakudo.parrot aborted 51 test(s)
+S32-io/io-path-win.rakudo.parrot aborted 50 test(s)
+S32-io/io-path.t aborted 2 test(s)
+S32-io/io-spec-cygwin.t aborted 76 test(s)
+S32-io/io-spec-unix.t aborted 84 test(s)
+S32-io/io-spec-win.t aborted 100 test(s)
+S32-list/categorize.t aborted 2 test(s)
+S32-list/pick.rakudo.parrot aborted 57 test(s)
+S32-list/roll.t aborted 48 test(s)
+S32-str/pack.t aborted 6 test(s)
+S32-str/sprintf.rakudo.parrot aborted 71 test(s)
+S32-temporal/Date.t aborted 14 test(s)
+S32-temporal/DateTime-Instant-Duration.rakudo.par aborted 30 test(s)
+S32-temporal/DateTime.rakudo.parrot aborted 168 test(s)
+S32-temporal/calendar.t aborted 130 test(s)
+S32-temporal/local.t aborted 20 test(s)
+integration/advent2009-day02.t aborted 3 test(s)
+integration/advent2009-day07.t aborted 14 test(s)
+integration/advent2009-day09.t aborted 9 test(s)
+integration/advent2009-day21.t aborted 2 test(s)
+integration/advent2010-day14.t aborted 5 test(s)
+integration/advent2011-day03.t aborted 2 test(s)
+integration/advent2011-day07.t aborted 3 test(s)
+integration/advent2011-day16.t aborted 11 test(s)
+integration/advent2012-day15.rakudo.parrot aborted 11 test(s)
+integration/advent2012-day23.t aborted 2 test(s)
+integration/advent2012-day24.t aborted 1 test(s)
+integration/advent2013-day06.t aborted 1 test(s)
+integration/advent2013-day15.rakudo.parrot aborted 22 test(s)
+rosettacode/greatest_element_of_a_list.t aborted 1 test(s)
