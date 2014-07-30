@@ -2968,7 +2968,13 @@ S06-other/main-usage.niecza........................Unhandled exception: Unable t
     22 tests aborted (missing ok/not ok)
 S06-other/main.niecza..............................   5    0    1    0    6
      1 todo   : 
-S06-other/misc.t...................................   3    0    0    0    3
+S06-other/misc.t...................................Potential difficulties:
+  &foo is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S06-other/misc.t line 16:
+------> [32mlives_ok {  sub foo[33m⏏[31m($ where 1 --> Int) { return 42 } }, "wh[0m
+  $y is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S06-other/misc.t line 17:
+------> [32mlives_ok {  sub foo($ where 1, [33m⏏[31m$y  --> Int) { return 42 } }, "where cla[0m
+
+   5    0    0    0    5
 S06-routine-modifiers/lvalue-subroutines.niecza....Potential difficulties:
   $var1 is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S06-routine-modifiers/lvalue-subroutines.niecza line 17:
 ------> [32m  my [33m⏏[31m$var1 = 1;[0m
@@ -4830,11 +4836,15 @@ S32-str/split.niecza...............................  31    0    5   17   53
     14 skipped: rx:Perl5
      1 todo   : 2 element list
      4 todo   : split on empty string has leading empty elements
-S32-str/sprintf.niecza............................. 144    0    3    2  149
-     1 skipped: Date NYI
-     1 skipped: dubious test - should be testing exception type, not string. Niecza does respond with an appropriate, but differently worded string
-     1 todo   : buggy
-     2 todo PASSED: https://github.com/sorear/niecza/issues/181
+S32-str/sprintf.niecza.............................Unhandled exception: invalid format specifier
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 1403 (sprintf @ 4) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S32-str/sprintf.niecza line 191 (mainline @ 363) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4595 (ANON @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4596 (module-CORE @ 576) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4596 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+ 116   39    0    0  155
+    39 tests aborted (missing ok/not ok)
 S32-str/substr-rw.niecza...........................  27    0    4    0   31
      4 todo   : 
 S32-str/substr.niecza..............................  58    0    4   30   92
@@ -4936,7 +4946,7 @@ integration/99problems-31-to-40.t..................  66    0    0    1   67
 integration/99problems-51-to-60.t..................  35    0    0    2   37
      1 skipped: Test(s) not yet written: (**) Generate-and-test paradigm
      1 skipped: Test(s) not yet written: (**) Construct height-balanced binary trees with a given number of nodes
-integration/99problems-61-to-70.t..................   9    0    0    6   15
+integration/99problems-61-to-70.t..................   6    3    0    6   15
      1 skipped: Test(s) not yet written: (**) Tree construction from a node string
      1 skipped: Test(s) not yet written: (**) Dotstring representation of binary trees
      1 skipped: Test(s) not yet written: (***) Layout a binary tree (3)
@@ -5147,7 +5157,7 @@ integration/weird-errors.niecza....................Unhandled exception: Unable t
 "S03",        3452,   446,   198,   392,  4484,  5092
 "S04",         807,     2,    34,    60,   901,  1120
 "S05",        4108,    72,    91,   219,  4487,  5897
-"S06",         766,    26,    50,   162,  1004,  1401
+"S06",         768,    26,    50,   162,  1006,  1403
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          66,     0,     1,     8,    75,   200
 "S10",           0,    60,     0,     0,    60,   130
@@ -5164,10 +5174,10 @@ integration/weird-errors.niecza....................Unhandled exception: Unable t
 "S26",           0,     0,     0,     0,     0,   314
 "S28",           6,     0,     1,     0,     7,    13
 "S29",         302,     6,     2,    12,   322,   354
-"S32",        6577,   242,   126,   242,  7181,  7522
-"int",         423,    68,    15,    25,   531,  1228
+"S32",        6549,   281,   123,   240,  7187,  7528
+"int",         420,    71,    15,    25,   531,  1228
 "ros",           0,     0,     0,     0,     0,     2
-"total",     20607,  1344,   698,  1699, 24321, 31821
+"total",     20578,  1386,   695,  1697, 24329, 31829
 ----------------
 Failure summary:
 S02-lexical-conventions/comments.niecza aborted 1 test(s)
@@ -5254,6 +5264,10 @@ S32-num/stringify.t passed 3 unplanned test(s)
 S32-scalar/undef.niecza aborted 82 test(s)
 S32-str/lines.t aborted 1 test(s)
 S32-str/split-simple.niecza aborted 29 test(s)
+S32-str/sprintf.niecza aborted 39 test(s)
+integration/99problems-61-to-70.t 2 - leaves() works
+integration/99problems-61-to-70.t 3 - internals() collects internal nodes
+integration/99problems-61-to-70.t 6 - atlevel() works at level 3
 integration/advent2009-day07.t aborted 10 test(s)
 integration/advent2009-day14.t aborted 21 test(s)
 integration/advent2009-day23.niecza aborted 1 test(s)
