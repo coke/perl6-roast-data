@@ -103,7 +103,7 @@ S02-names-vars/names.rakudo.jvm.................... 128    0    1   13  142
      2 skipped: this kind of lookup NYI
      7 skipped: package variable autovivification
      1 todo   : dubious test - otherwise why is ::<$foo> allowed?
-S02-names-vars/perl.rakudo.jvm.....................  95    0    0    3   98
+S02-names-vars/perl.rakudo.jvm.....................  94    1    0    3   98
      1 skipped: RT #67790
      2 skipped: recursive data structure RT #122286
 S02-names-vars/signature.rakudo.jvm................  11    0    2    0   13
@@ -400,7 +400,8 @@ S03-operators/reduce-le1arg.rakudo.jvm.............  51    0    0    3   54
      1 skipped: ~> NYI
      1 skipped: expected Any but got Mu instead
      1 skipped: ~< NYI
-S03-operators/relational.t......................... 118    0    0    0  118
+S03-operators/relational.rakudo.jvm................ 118    0    4    0  122
+     4 todo   : RT #121987
 S03-operators/repeat.t.............................  32    0    0    0   32
 S03-operators/scalar-assign.t......................   4    0    0    0    4
 S03-operators/set.rakudo.jvm....................... 276    0    2   18  296
@@ -1299,8 +1300,8 @@ S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.jvm..........................  19    0   10    0   29
     10 todo   : binding on hash elements unimplemented
-S32-io/IO-Socket-Async.t...........................   6    0    0    0    6
-S32-io/IO-Socket-INET.t............................  47    0    0    0   47
+S32-io/IO-Socket-Async.t...........................   5    1    0    0    6
+S32-io/IO-Socket-INET.t............................  23   24    0    0   47
 S32-io/chdir.rakudo.jvm............................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
@@ -1640,8 +1641,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        4391,     3,   130,   378,  4902,  5009
-"S03",        4845,     0,   103,   121,  5069,  5092
+"S02",        4390,     4,   130,   378,  4902,  5009
+"S03",        4845,     0,   107,   121,  5073,  5096
 "S04",         980,     0,    40,    48,  1068,  1120
 "S05",        5050,     0,    94,   268,  5412,  5897
 "S06",        1164,    18,    37,   104,  1323,  1403
@@ -1661,12 +1662,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         312,     0,     1,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         336,     0,     3,     5,   344,   354
-"S32",        9123,     0,    95,   191,  9409,  7530
+"S32",        9098,    25,    95,   191,  9409,  7530
 "int",        1204,     0,    14,    21,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     30286,    21,   631,  1361, 32299, 31831
+"total",     30260,    47,   635,  1361, 32303, 31835
 ----------------
 Failure summary:
+S02-names-vars/perl.rakudo.jvm 84 - .perl on user-defined type roundtrips okay
 S02-types/anon_block.rakudo.jvm 30 - bare blocks immediately runs even as the last statement
 S02-types/anon_block.rakudo.jvm 31 - ditto for anonymous subs
 S02-types/anon_block.rakudo.jvm 32 - ditto, even if nested
@@ -1674,3 +1676,28 @@ S06-advanced/wrap.rakudo.jvm 69 - can wrap a multi
 S06-advanced/wrap.rakudo.jvm aborted 15 test(s)
 S06-routine-modifiers/lvalue-subroutines.t 10 - proxy lvalue subroutine STORE works
 S06-routine-modifiers/lvalue-subroutines.t 11 - proxy lvalue subroutine FETCH works
+S32-io/IO-Socket-Async.t 4 - Echo server
+S32-io/IO-Socket-INET.t 1 - [45s] echo server and client
+S32-io/IO-Socket-INET.t 3 - [49s] discard server and client
+S32-io/IO-Socket-INET.t 5 - [49s] received first 7 characters
+S32-io/IO-Socket-INET.t 7 - [0s] received next 3 characters
+S32-io/IO-Socket-INET.t 9 - [0s] remaining 26 were buffered
+S32-io/IO-Socket-INET.t 11 - [0s] received 뻯
+S32-io/IO-Socket-INET.t 13 - [0s] ... which is 1 character
+S32-io/IO-Socket-INET.t 15 - [0s] received another character
+S32-io/IO-Socket-INET.t 17 - [0s] combined the bytes form 몾
+S32-io/IO-Socket-INET.t 19 - [47s] get() with default separator
+S32-io/IO-Socket-INET.t 21 - [1s] default separator
+S32-io/IO-Socket-INET.t 23 - [0s] \r\n separator
+S32-io/IO-Socket-INET.t 25 - [0s] . as a separator
+S32-io/IO-Socket-INET.t 27 - [0s] ! separator not at end of string
+S32-io/IO-Socket-INET.t 29 - [0s] Multiple separators not at end of string
+S32-io/IO-Socket-INET.t 31 - [0s] ! separator at end of string
+S32-io/IO-Socket-INET.t 32 - [50s] received first character
+S32-io/IO-Socket-INET.t 34 - [0s] received last character
+S32-io/IO-Socket-INET.t 36 - [0s] total amount 
+S32-io/IO-Socket-INET.t 38 - [49s] successful read binary data
+S32-io/IO-Socket-INET.t 40 - [53s] successful received binary data
+S32-io/IO-Socket-INET.t 42 - [49s] received first character
+S32-io/IO-Socket-INET.t 44 - [0s] received last character
+S32-io/IO-Socket-INET.t 46 - [0s] total amount 
