@@ -103,7 +103,7 @@ S02-names-vars/names.rakudo.jvm.................... 128    0    1   13  142
      2 skipped: this kind of lookup NYI
      7 skipped: package variable autovivification
      1 todo   : dubious test - otherwise why is ::<$foo> allowed?
-S02-names-vars/perl.rakudo.jvm.....................  94    1    0    3   98
+S02-names-vars/perl.rakudo.jvm.....................  95    0    0    3   98
      1 skipped: RT #67790
      2 skipped: recursive data structure RT #122286
 S02-names-vars/signature.rakudo.jvm................  11    0    2    0   13
@@ -151,7 +151,7 @@ S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.rakudo.jvm................  15    0    3    0   18
      3 todo   : deprecated %h = {...} for now
 S02-types/autovivification.t.......................  25    0    0    0   25
-S02-types/bag.rakudo.jvm........................... 191    1    1    3  196
+S02-types/bag.rakudo.jvm........................... 192    0    1    3  196
      3 skipped: No longer Iterable
      1 todo   : Not properly interpolating
 S02-types/baghash.rakudo.jvm....................... 220    0    5   24  249
@@ -221,7 +221,7 @@ S02-types/mixhash.rakudo.jvm....................... 187    0    3   24  214
      3 skipped: No longer Iterable
      1 todo   : Needs to catch up with spec
      2 todo   : in flux
-S02-types/multi_dimensional_array.rakudo.jvm.......  31    0    0   10   41
+S02-types/multi_dimensional_array.rakudo.jvm.......  48    0    0   10   58
     10 skipped: multi-dim sized arrays NYI
 S02-types/nan.rakudo.jvm...........................  18    0    1    2   21
      1 skipped: unspecced and inconsistent
@@ -1228,8 +1228,7 @@ S26-documentation/06-lists.t.......................  39    0    0    0   39
 S26-documentation/07-tables.t......................  38    0    0    0   38
 S26-documentation/08-formattingcodes.t.............  45    0    0    0   45
 S26-documentation/09-configuration.t...............  15    0    0    0   15
-S26-documentation/10-doc-cli.rakudo.jvm............   1    0    1    0    2
-     1 todo PASSED: RT #122056
+S26-documentation/10-doc-cli.t.....................   2    0    0    0    2
 S26-documentation/why.t............................  18    0    0    1   19
      1 skipped: segfault
                                                    pass fail todo skip plan
@@ -1561,8 +1560,7 @@ integration/advent2011-day04.t.....................   0    2    0    0    2
      2 tests aborted (missing ok/not ok)
 integration/advent2011-day05.t.....................   5    0    0    0    5
 integration/advent2011-day07.t.....................   3    0    0    0    3
-integration/advent2011-day10.rakudo.jvm............   4    0    1    0    5
-     1 todo   : RT #12205
+integration/advent2011-day10.t.....................   5    0    0    0    5
 integration/advent2011-day11.t.....................   9    0    0    0    9
 integration/advent2011-day14.t.....................   8    0    0    0    8
 integration/advent2011-day15.t.....................   9    0    0    0    9
@@ -1641,7 +1639,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        4389,     5,   130,   378,  4902,  5009
+"S02",        4408,     3,   130,   378,  4919,  5026
 "S03",        4874,     4,   105,    87,  5070,  5088
 "S04",         980,     0,    40,    48,  1068,  1120
 "S05",        5139,     0,   109,   268,  5516,  5897
@@ -1659,20 +1657,18 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S19",           3,     0,     0,     3,     6,     6
 "S22",          51,     0,     1,     1,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
-"S26",         312,     0,     1,     1,   314,   314
+"S26",         313,     0,     0,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         336,     0,     3,     5,   344,   354
 "S32",        9129,     1,    94,   164,  9388,  7509
-"int",        1198,     7,    13,    21,  1239,  1228
+"int",        1199,     7,    12,    21,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     30383,    33,   648,  1297, 32361, 31784
+"total",     30404,    31,   646,  1297, 32378, 31801
 ----------------
 Failure summary:
-S02-names-vars/perl.rakudo.jvm 84 - .perl on user-defined type roundtrips okay
 S02-types/anon_block.rakudo.jvm 30 - bare blocks immediately runs even as the last statement
 S02-types/anon_block.rakudo.jvm 31 - ditto for anonymous subs
 S02-types/anon_block.rakudo.jvm 32 - ditto, even if nested
-S02-types/bag.rakudo.jvm 116 - .roll(100) (2)
 S03-smartmatch/hash-hash.rakudo.jvm aborted 4 test(s)
 S06-advanced/wrap.rakudo.jvm 69 - can wrap a multi
 S06-advanced/wrap.rakudo.jvm aborted 15 test(s)
