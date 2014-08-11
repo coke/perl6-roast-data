@@ -103,7 +103,7 @@ S02-names-vars/names.rakudo.jvm.................... 128    0    1   13  142
      2 skipped: this kind of lookup NYI
      7 skipped: package variable autovivification
      1 todo   : dubious test - otherwise why is ::<$foo> allowed?
-S02-names-vars/perl.rakudo.jvm.....................  94    1    0    3   98
+S02-names-vars/perl.rakudo.jvm.....................  95    0    0    3   98
      1 skipped: RT #67790
      2 skipped: recursive data structure RT #122286
 S02-names-vars/signature.rakudo.jvm................  11    0    2    0   13
@@ -786,7 +786,7 @@ S06-operator-overloading/imported-subs.t...........  19    0    0    0   19
 S06-operator-overloading/methods.rakudo.jvm........   2    0    1    0    3
      1 todo   : nom regression
 S06-operator-overloading/semicolon.t...............   3    0    0    0    3
-S06-operator-overloading/sub.rakudo.jvm............  43    0    7   20   70
+S06-operator-overloading/sub.rakudo.jvm............  44    0    7   20   71
      1 skipped: missing block, apparently "if" not an op
      1 skipped: infix Z will never work; no lexical Z
      4 skipped: prefix:[] form NYI
@@ -1281,7 +1281,8 @@ S32-container/roundrobin.rakudo.jvm................   4    0    1    0    5
 S32-container/stringify.t..........................  16    0    0    0   16
 S32-container/zip.rakudo.jvm.......................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.jvm..................... 268    0    4    0  272
+S32-exceptions/misc.rakudo.jvm..................... 270    0    4    1  275
+     1 skipped: NQP PR 174
      1 todo   : RT #121935
      2 todo   : still handled by <special_var>
      1 todo   : parsing regression
@@ -1303,7 +1304,7 @@ S32-hash/slice.rakudo.jvm..........................  19    0   10    0   29
 S32-io/IO-Socket-Async.rakudo.jvm..................   4    1    0    1    6
      1 skipped: Flapping RT #122318
      1 tests aborted (missing ok/not ok)
-S32-io/IO-Socket-INET.t............................  23   24    0    0   47
+S32-io/IO-Socket-INET.t............................  47    0    0    0   47
 S32-io/chdir.rakudo.jvm............................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
@@ -1641,11 +1642,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        4407,     4,   130,   378,  4919,  5026
+"S02",        4408,     3,   130,   378,  4919,  5026
 "S03",        4874,     4,   105,    87,  5070,  5088
 "S04",         980,     0,    40,    48,  1068,  1120
 "S05",        5139,     0,   109,   268,  5516,  5897
-"S06",        1134,    50,    37,   102,  1323,  1403
+"S06",        1135,    50,    37,   102,  1324,  1404
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         178,     0,    12,    10,   200,   200
 "S10",          70,     0,     2,     1,    73,   130
@@ -1662,13 +1663,12 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         313,     0,     0,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         336,     0,     3,     5,   344,   354
-"S32",        9105,    25,    94,   164,  9388,  7509
+"S32",        9131,     1,    94,   165,  9391,  7509
 "int",        1199,     1,    13,    26,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     30349,    84,   645,  1300, 32378, 31801
+"total",     30377,    59,   645,  1301, 32382, 31802
 ----------------
 Failure summary:
-S02-names-vars/perl.rakudo.jvm 84 - .perl on user-defined type roundtrips okay
 S02-types/anon_block.rakudo.jvm 30 - bare blocks immediately runs even as the last statement
 S02-types/anon_block.rakudo.jvm 31 - ditto for anonymous subs
 S02-types/anon_block.rakudo.jvm 32 - ditto, even if nested
@@ -1678,28 +1678,4 @@ S06-advanced/wrap.rakudo.jvm aborted 15 test(s)
 S06-macros/quasi-blocks.rakudo.jvm aborted 12 test(s)
 S06-other/anon-hashes-vs-blocks.t aborted 22 test(s)
 S32-io/IO-Socket-Async.rakudo.jvm aborted 1 test(s)
-S32-io/IO-Socket-INET.t 1 - [46s] echo server and client
-S32-io/IO-Socket-INET.t 3 - [47s] discard server and client
-S32-io/IO-Socket-INET.t 5 - [47s] received first 7 characters
-S32-io/IO-Socket-INET.t 7 - [0s] received next 3 characters
-S32-io/IO-Socket-INET.t 9 - [0s] remaining 26 were buffered
-S32-io/IO-Socket-INET.t 11 - [0s] received 뻯
-S32-io/IO-Socket-INET.t 13 - [0s] ... which is 1 character
-S32-io/IO-Socket-INET.t 15 - [0s] received another character
-S32-io/IO-Socket-INET.t 17 - [0s] combined the bytes form 몾
-S32-io/IO-Socket-INET.t 19 - [46s] get() with default separator
-S32-io/IO-Socket-INET.t 21 - [0s] default separator
-S32-io/IO-Socket-INET.t 23 - [0s] \r\n separator
-S32-io/IO-Socket-INET.t 25 - [0s] . as a separator
-S32-io/IO-Socket-INET.t 27 - [0s] ! separator not at end of string
-S32-io/IO-Socket-INET.t 29 - [0s] Multiple separators not at end of string
-S32-io/IO-Socket-INET.t 31 - [0s] ! separator at end of string
-S32-io/IO-Socket-INET.t 32 - [45s] received first character
-S32-io/IO-Socket-INET.t 34 - [1s] received last character
-S32-io/IO-Socket-INET.t 36 - [0s] total amount 
-S32-io/IO-Socket-INET.t 38 - [46s] successful read binary data
-S32-io/IO-Socket-INET.t 40 - [45s] successful received binary data
-S32-io/IO-Socket-INET.t 42 - [46s] received first character
-S32-io/IO-Socket-INET.t 44 - [0s] received last character
-S32-io/IO-Socket-INET.t 46 - [0s] total amount 
 integration/weird-errors.t 4 - presence of postcircumfix does not lead to redeclaration warnings
