@@ -1281,8 +1281,7 @@ S32-container/roundrobin.rakudo.jvm................   4    0    1    0    5
 S32-container/stringify.t..........................  16    0    0    0   16
 S32-container/zip.rakudo.jvm.......................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.jvm..................... 270    0    4    1  275
-     1 skipped: NQP PR 174
+S32-exceptions/misc.rakudo.jvm..................... 272    0    4    0  276
      1 todo   : RT #121935
      2 todo   : still handled by <special_var>
      1 todo   : parsing regression
@@ -1334,20 +1333,20 @@ S32-list/classify.rakudo.jvm.......................  12    0    0    3   15
 S32-list/combinations.t............................   7    0    0    0    7
 S32-list/create.t..................................   6    0    0    0    6
 S32-list/end.t.....................................  14    0    0    0   14
-S32-list/first-index.rakudo.jvm....................  19    0    0    2   21
+S32-list/first-index.rakudo.jvm....................  21    2    0    2   25
      2 skipped: adverbial block
-S32-list/first.rakudo.jvm..........................  21    0    0    2   23
+S32-list/first.rakudo.jvm..........................  23    2    0    2   27
      2 skipped: adverbial block
-S32-list/grep-index.rakudo.jvm.....................  15    0    0   20   35
+S32-list/grep-index.rakudo.jvm.....................  17    2    0   20   39
      6 skipped: closure as non-final argument
      2 skipped: test error -- is $_ rw here?
     12 skipped: adverbial block
-S32-list/grep.rakudo.jvm...........................  19    0    0   19   38
+S32-list/grep.rakudo.jvm...........................  21    2    0   19   42
      1 skipped: RT #71544: grep arity sensitivity different from map
      6 skipped: closure as non-final argument
     12 skipped: adverbial block
 S32-list/join.t....................................  34    0    0    0   34
-S32-list/last-index.rakudo.jvm.....................  19    0    0    2   21
+S32-list/last-index.rakudo.jvm.....................  21    2    0    2   25
      2 skipped: adverbial block
 S32-list/map.rakudo.jvm............................  51    0    0    8   59
      4 skipped: adverbial block; RT #53804
@@ -1663,10 +1662,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         313,     0,     0,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         336,     0,     3,     5,   344,   354
-"S32",        9131,     1,    94,   165,  9391,  7509
+"S32",        9143,    11,    94,   164,  9412,  7529
 "int",        1199,     1,    13,    26,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     30377,    59,   645,  1301, 32382, 31802
+"total",     30389,    69,   645,  1300, 32403, 31822
 ----------------
 Failure summary:
 S02-types/anon_block.rakudo.jvm 30 - bare blocks immediately runs even as the last statement
@@ -1678,4 +1677,14 @@ S06-advanced/wrap.rakudo.jvm aborted 15 test(s)
 S06-macros/quasi-blocks.rakudo.jvm aborted 12 test(s)
 S06-other/anon-hashes-vs-blocks.t aborted 22 test(s)
 S32-io/IO-Socket-Async.rakudo.jvm aborted 1 test(s)
+S32-list/first-index.rakudo.jvm 23 - did we throws_like X::Match::Bool?
+S32-list/first-index.rakudo.jvm 24 - can we match on Bool as type
+S32-list/first.rakudo.jvm 25 - did we throws_like X::Match::Bool?
+S32-list/first.rakudo.jvm 26 - can we match on Bool as type
+S32-list/grep-index.rakudo.jvm 37 - did we throws_like X::Match::Bool?
+S32-list/grep-index.rakudo.jvm 38 - can we match on Bool as type
+S32-list/grep.rakudo.jvm 40 - did we throws_like X::Match::Bool?
+S32-list/grep.rakudo.jvm 41 - can we match on Bool as type
+S32-list/last-index.rakudo.jvm 23 - did we throws_like X::Match::Bool?
+S32-list/last-index.rakudo.jvm 24 - can we match on Bool as type
 integration/weird-errors.t 4 - presence of postcircumfix does not lead to redeclaration warnings
