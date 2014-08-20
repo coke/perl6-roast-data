@@ -368,26 +368,21 @@ S02-types/mixhash.rakudo.moar...................... 187    0    3   24  214
      3 skipped: No longer Iterable
      1 todo   : Needs to catch up with spec
      2 todo   : in flux
-S02-types/multi_dimensional_array.rakudo.moar......[31m===[0mSORRY![31m===[0m Error while compiling t/spec/S02-types/multi_dimensional_array.rakudo.moar
-Unsupported use of ; in brackets as a statement sequence; in this and future versions please use SEQ(;) or $(;) for C comma semantics (or set LOLLY for the new list-of-list semantics for the (;) and [;] constructs)
-at t/spec/S02-types/multi_dimensional_array.rakudo.moar:59
-------> [32mis($multi1[1;0[33m⏏[31m], 'foo', 'got the right value at multi1[0m
-    expecting any of:
-        postfix
-        statement end
-        statement modifier
-        statement modifier loop
-   0   58    0    0   58
-    58 tests aborted (missing ok/not ok)
-S02-types/nan.rakudo.moar..........................  18    0    1    2   21
+S02-types/multi_dimensional_array.rakudo.moar......  22    0    0   36   58
+    26 skipped: no LOLLY syntax yet
+    10 skipped: multi-dim sized arrays NYI
+S02-types/nan.rakudo.moar..........................  19    0    0    2   21
      1 skipped: unspecced and inconsistent
      1 skipped: RT #83446
-     1 todo   : RT #83622
 S02-types/native.rakudo.moar.......................  25    0    0    2   27
      2 skipped: RT #102416
 S02-types/nested_arrays.t..........................   8    0    0    0    8
 S02-types/nested_pairs.t...........................  14    0    0    0   14
-S02-types/nil.rakudo.moar..........................use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:97
+S02-types/nil.rakudo.moar..........................    
+# Failed test 'code dies'
+# at lib/Test.pm line 283
+    # Looks like you failed 1 tests of 2
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:97
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:100
 
@@ -611,7 +606,7 @@ use of uninitialized value of type Any in string context  in any !cursor_init at
 
   23    0    0    0   23
 S03-operators/bag.t................................Element shifted from empty list
-  in method Str at src/gen/m-CORE.setting:13071
+  in method Str at src/gen/m-CORE.setting:13075
   in method Stringy at src/gen/m-CORE.setting:1039
   in sub infix:<~> at src/gen/m-CORE.setting:1440
   in sub showkv at t/spec/S03-operators/bag.t:7
@@ -1832,8 +1827,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1408447722
-# Using file temp_1408447722
+S16-filehandles/chmod.t............................# Using file temp_1408534093
+# Using file temp_1408534093
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1867,13 +1862,7 @@ S17-lowlevel/lock.rakudo.moar......................   7    0    0    1    8
      1 skipped: not sure this test is valid
 S17-lowlevel/thread.rakudo.moar....................  22    0    0    3   25
      3 skipped: segfaults randomly
-S17-promise/allof.t................................
-# Failed test 'got the right order'
-# at t/spec/S17-promise/allof.t line 44
-#      got: '0 3 4 1 5 2 6 7 8 9'
-# expected: '0 1 2 3 4 5 6 7 8 9'
-# Looks like you failed 1 tests of 10
-   9    1    0    0   10
+S17-promise/allof.t................................  10    0    0    0   10
 S17-promise/anyof.t................................   9    0    0    0    9
 S17-promise/basic.t................................  19    0    0    0   19
 S17-promise/in.t...................................   2    0    0    0    2
@@ -2305,7 +2294,7 @@ S32-io/spurt.t.....................................  35    0    0    0   35
 S32-list/categorize.t..............................  12    0    0    0   12
 S32-list/classify.rakudo.moar......................  12    0    0    3   15
      3 skipped: Cannot use bind operator with this LHS
-S32-list/combinations.t............................   7    0    0    0    7
+S32-list/combinations.t............................   8    0    0    0    8
 S32-list/create.t..................................   6    0    0    0    6
 S32-list/end.t.....................................  14    0    0    0   14
 S32-list/first-index.rakudo.moar...................use of uninitialized value of type Nil in numeric context  in block  at t/spec/S32-list/first-index.rakudo.moar:77
@@ -2718,14 +2707,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 1.7023145 seconds
-# gerdr: 1.854812 seconds
-# loop: 1.9391136 seconds
-# recursive-ternary: 2.181102 seconds
-# recursive-ternary-hand-cached: 3.93012255 seconds
-# sequence-ternary: 4.09058849 seconds
-# hand-memoization: 5.2431133 seconds
-# sequence: 6.3069033 seconds
+integration/advent2012-day21.t.....................# gerdr: 1.8259940 seconds
+# kaz: 1.8654368 seconds
+# recursive-ternary: 1.9796393 seconds
+# loop: 2.0831284 seconds
+# recursive-ternary-hand-cached: 4.12684979 seconds
+# sequence-ternary: 4.5563874 seconds
+# hand-memoization: 5.26163499 seconds
+# sequence: 5.72075347 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2781,7 +2770,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        4412,    58,   127,   349,  4946,  5038
+"S02",        4435,     0,   126,   385,  4946,  5038
 "S03",        4876,     0,   106,    87,  5069,  5087
 "S04",         986,     0,    40,    42,  1068,  1120
 "S05",        5233,     0,   103,   182,  5518,  5899
@@ -2795,20 +2784,18 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         297,     0,    10,    10,   317,   330
 "S15",         240,     0,     2,    16,   258,   283
 "S16",         239,     0,     5,    17,   261,   305
-"S17",         589,     1,     1,    20,   611,   611
+"S17",         590,     0,     1,    20,   611,   611
 "S19",           6,     0,     0,     0,     6,     6
 "S22",          52,     0,     1,     0,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
 "S26",         313,     0,     0,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         337,     0,     4,     3,   344,   354
-"S32",        9146,     8,   114,   144,  9412,  7529
+"S32",        9147,     8,   114,   144,  9413,  7530
 "int",        1205,     0,    12,    21,  1238,  1227
 "ros",           2,     0,     0,     0,     2,     2
-"total",     30850,    67,   638,  1172, 32727, 31837
+"total",     30875,     8,   637,  1208, 32728, 31838
 ----------------
 Failure summary:
-S02-types/multi_dimensional_array.rakudo.moar aborted 58 test(s)
-S17-promise/allof.t 10 - got the right order
 S32-io/IO-Socket-Async.rakudo.moar aborted 1 test(s)
 S32-list/uniq.t aborted 7 test(s)

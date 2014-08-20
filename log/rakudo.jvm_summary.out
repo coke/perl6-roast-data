@@ -213,7 +213,7 @@ S02-types/isDEPRECATED.rakudo.jvm..................  10    0   10    0   20
 S02-types/lazy-lists.t.............................  23    0    0    0   23
 S02-types/lists.rakudo.jvm.........................  25    0    0    3   28
      3 skipped: list binding
-S02-types/mix.rakudo.jvm........................... 174    0    1    3  178
+S02-types/mix.rakudo.jvm........................... 170    4    1    3  178
      3 skipped: No longer Iterable
      1 todo   : Not properly interpolating
 S02-types/mixed_multi_dimensional.rakudo.jvm.......  77    0    3    0   80
@@ -224,12 +224,12 @@ S02-types/mixhash.rakudo.jvm....................... 187    0    3   24  214
      3 skipped: No longer Iterable
      1 todo   : Needs to catch up with spec
      2 todo   : in flux
-S02-types/multi_dimensional_array.rakudo.jvm.......   0   58    0    0   58
-    58 tests aborted (missing ok/not ok)
-S02-types/nan.rakudo.jvm...........................  18    0    1    2   21
+S02-types/multi_dimensional_array.rakudo.jvm.......  22    0    0   36   58
+    26 skipped: no LOLLY syntax yet
+    10 skipped: multi-dim sized arrays NYI
+S02-types/nan.rakudo.jvm...........................  19    0    0    2   21
      1 skipped: unspecced and inconsistent
      1 skipped: RT #83446
-     1 todo   : RT #83622
 S02-types/native.rakudo.jvm........................  25    0    0    2   27
      2 skipped: RT #102416
 S02-types/nested_arrays.t..........................   8    0    0    0    8
@@ -238,7 +238,7 @@ S02-types/nil.rakudo.jvm...........................  42    0    5    1   48
      1 skipped: triage
      5 todo   : triage
 S02-types/num.t....................................  65    0    0    0   65
-S02-types/pair.rakudo.jvm..........................  94    0    1    2   97
+S02-types/pair.rakudo.jvm..........................  93    1    1    2   97
      2 skipped: method($invocant:) syntax missing
      1 todo   : should it really have \n on the end?
 S02-types/parcel.t.................................  44    0    0    0   44
@@ -1306,7 +1306,7 @@ S32-hash/slice.rakudo.jvm..........................  19    0   10    0   29
 S32-io/IO-Socket-Async.rakudo.jvm..................   4    1    0    1    6
      1 skipped: Flapping RT #122318
      1 tests aborted (missing ok/not ok)
-S32-io/IO-Socket-INET.t............................  43    4    0    0   47
+S32-io/IO-Socket-INET.t............................  35   12    0    0   47
 S32-io/chdir.rakudo.jvm............................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
@@ -1333,7 +1333,7 @@ S32-io/spurt.t.....................................  35    0    0    0   35
 S32-list/categorize.t..............................  12    0    0    0   12
 S32-list/classify.rakudo.jvm.......................  12    0    0    3   15
      3 skipped: Cannot use bind operator with this LHS
-S32-list/combinations.t............................   7    0    0    0    7
+S32-list/combinations.t............................   8    0    0    0    8
 S32-list/create.t..................................   6    0    0    0    6
 S32-list/end.t.....................................  14    0    0    0   14
 S32-list/first-index.rakudo.jvm....................  23    0    0    2   25
@@ -1615,9 +1615,8 @@ integration/advent2013-day21.t.....................  24    0    0    0   24
 integration/advent2013-day22.t.....................   9    0    0    0    9
 integration/advent2013-day23.t.....................   9    0    0    0    9
 integration/code-blocks-as-sub-args.t..............   4    0    0    0    4
-integration/error-reporting.rakudo.jvm.............Terminated
-   8    8    0    0   16
-     8 tests aborted (missing ok/not ok)
+integration/error-reporting.rakudo.jvm.............  15    0    1    0   16
+     1 todo   : nigh
 integration/lazy-bentley-generator.t...............   1    0    0    0    1
 integration/lexical-array-in-inner-block.t.........   2    0    0    0    2
 integration/lexicals-and-attributes.t..............   8    0    0    0    8
@@ -1643,7 +1642,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        4358,    75,   129,   384,  4946,  5038
+"S02",        4376,    22,   128,   420,  4946,  5038
 "S03",        4874,     4,   104,    87,  5069,  5087
 "S04",         961,    19,    40,    48,  1068,  1120
 "S05",        5141,     0,   109,   268,  5518,  5899
@@ -1664,10 +1663,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",         313,     0,     0,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         337,     0,     3,     4,   344,   354
-"S32",        9145,    11,    92,   164,  9412,  7529
-"int",        1190,    11,    11,    26,  1238,  1227
+"S32",        9138,    19,    92,   164,  9413,  7530
+"int",        1197,     3,    12,    26,  1238,  1227
 "ros",           2,     0,     0,     0,     2,     2
-"total",     30332,   186,   638,  1313, 32469, 31837
+"total",     30350,   133,   638,  1349, 32470, 31838
 ----------------
 Failure summary:
 S02-lexical-conventions/comments.rakudo.jvm aborted 9 test(s)
@@ -1679,7 +1678,11 @@ S02-types/bag.rakudo.jvm 17 - Can't assign to an element (Bags are immutable)
 S02-types/bag.rakudo.jvm 79 - Can't assign to an element (Bags are immutable)
 S02-types/bag.rakudo.jvm 80 - Can't assign to a %var implemented by Bag
 S02-types/bag.rakudo.jvm 195 - Cannot change key of Bag.pairs
-S02-types/multi_dimensional_array.rakudo.jvm aborted 58 test(s)
+S02-types/mix.rakudo.jvm 17 - Can't assign to an element (Mixs are immutable)
+S02-types/mix.rakudo.jvm 81 - Can't assign to an element (Mixs are immutable)
+S02-types/mix.rakudo.jvm 82 - Can't assign to a %var implemented by Mix
+S02-types/mix.rakudo.jvm 177 - Cannot change key of Mix.pairs
+S02-types/pair.rakudo.jvm 77 - setting .key dies
 S03-smartmatch/hash-hash.rakudo.jvm aborted 4 test(s)
 S04-phasers/begin.t 9 - BEGIN block was executed before a parse error happened later in the file
 S04-phasers/eval-in-begin.t 1 - EVAL in BEGIN { ... } followed by newline works
@@ -1713,11 +1716,18 @@ S32-exceptions/misc.rakudo.jvm 72 - did we throws_like X::Role::Initialization?
 S32-exceptions/misc.rakudo.jvm 73 - did we throws_like X::Role::Initialization?
 S32-exceptions/misc.rakudo.jvm 260 - did we throws_like X::Package::Stubbed?
 S32-io/IO-Socket-Async.rakudo.jvm aborted 1 test(s)
-S32-io/IO-Socket-INET.t 1 - [46s] echo server and client
+S32-io/IO-Socket-INET.t 1 - [60s] echo server and client
+S32-io/IO-Socket-INET.t 3 - [46s] discard server and client
+S32-io/IO-Socket-INET.t 5 - [45s] received first 7 characters
+S32-io/IO-Socket-INET.t 7 - [0s] received next 3 characters
+S32-io/IO-Socket-INET.t 9 - [0s] remaining 26 were buffered
+S32-io/IO-Socket-INET.t 11 - [0s] received 뻯
+S32-io/IO-Socket-INET.t 13 - [0s] ... which is 1 character
+S32-io/IO-Socket-INET.t 15 - [0s] received another character
+S32-io/IO-Socket-INET.t 17 - [0s] combined the bytes form 몾
 S32-io/IO-Socket-INET.t 32 - [45s] received first character
-S32-io/IO-Socket-INET.t 34 - [0s] received last character
+S32-io/IO-Socket-INET.t 34 - [1s] received last character
 S32-io/IO-Socket-INET.t 36 - [0s] total amount 
 integration/advent2009-day12.t 4 - Can import symbols by name
 integration/advent2009-day12.t 7 - Can import everything marked for export using :ALL
-integration/error-reporting.rakudo.jvm aborted 8 test(s)
 integration/weird-errors.t 4 - presence of postcircumfix does not lead to redeclaration warnings
