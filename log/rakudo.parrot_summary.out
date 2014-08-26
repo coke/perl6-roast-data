@@ -538,7 +538,15 @@ use of uninitialized value of type Any in string context  in block  at t/spec/S0
 
   21    0    0    0   21
 S02-types/array_ref.t..............................  45    0    0    0   45
-S02-types/assigning-refs.rakudo.parrot.............  15    0    3    0   18
+S02-types/assigning-refs.rakudo.parrot.............Saw 1 call to deprecated code during execution.
+================================================================================
+%hash = itemized hash called at:
+  t/spec/S02-types/assigning-refs.rakudo.parrot, lines 37,47,57
+Please use %hash = %(itemized hash) instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
+  15    0    3    0   18
      3 todo   : deprecated %h = {...} for now
 S02-types/autovivification.t.......................  25    0    0    0   25
 S02-types/bag.rakudo.parrot........................use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
@@ -603,10 +611,11 @@ use of uninitialized value of type Nil in numeric context  in sub throws_like at
     # Looks like you failed 1 tests of 2
 use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
 
- 188    0    5    3  196
+ 188    0    6    3  197
      3 skipped: No longer Iterable
      1 todo   : Not properly interpolating
      4 todo   : ?
+     1 todo   : we have not secured .WHICH creation yet
 S02-types/baghash.rakudo.parrot....................use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
 
 use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
@@ -787,10 +796,11 @@ use of uninitialized value of type Nil in numeric context  in sub throws_like at
     # Looks like you failed 1 tests of 2
 use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
 
- 170    0    5    3  178
+ 170    0    6    3  179
      3 skipped: No longer Iterable
      1 todo   : Not properly interpolating
      4 todo   : ?
+     1 todo   : we have not secured .WHICH creation yet
 S02-types/mixed_multi_dimensional.rakudo.parrot....use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:97
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:100
@@ -859,9 +869,10 @@ S02-types/range.t..................................use of uninitialized value of
  129    0    0    0  129
 S02-types/set.rakudo.parrot........................use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
 
- 157    0   10    1  168
+ 157    0   11    1  169
      1 skipped: Set is no longer Iterable
      1 todo   : Not properly interpolating
+     1 todo   : we have not secured .WHICH creation yet
      9 todo   : Hypers not yet Set compatible
 S02-types/sethash.rakudo.parrot.................... 187    0    1   11  199
     10 skipped: 'is ObjectType' NYI
@@ -2097,6 +2108,14 @@ use of uninitialized value of type Int in string context  in sub is at lib/Test.
 
 use of uninitialized value of type Int in string context  in sub is at lib/Test.pm:100
 
+Saw 1 call to deprecated code during execution.
+================================================================================
+%!h = itemized hash called at:
+  t/spec/S12-attributes/instance.rakudo.parrot, line 478
+Please use %!h = %(itemized hash) instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
  133    0    6    1  140
      1 skipped: dubious test - the initializer becomes a submethod here, implying a scope
      2 todo   : ro array/hash with accessor
@@ -2317,8 +2336,8 @@ S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.parrot..................  12    0    1    0   13
      1 todo   : trait mod / .wrap interaction
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1408971694
-# Using file temp_1408971694
+S16-filehandles/chmod.t............................# Using file temp_1409058448
+# Using file temp_1409058448
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -3352,13 +3371,13 @@ integration/advent2012-day15.rakudo.parrot.........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.rakudo.parrot.........# kaz: 5.1490360 seconds
-# gerdr: 5.1539659 seconds
-# recursive-ternary: 7.0342565 seconds
-# loop: 7.222227 seconds
-# sequence-ternary: 18.1163374 seconds
-# recursive-ternary-hand-cached: 19.0447777 seconds
-# sequence: 28.68460717 seconds
+integration/advent2012-day21.rakudo.parrot.........# kaz: 5.7010918 seconds
+# gerdr: 5.75022998 seconds
+# recursive-ternary: 7.6289400 seconds
+# loop: 7.9499143 seconds
+# sequence-ternary: 19.3202575 seconds
+# recursive-ternary-hand-cached: 20.3714822 seconds
+# sequence: 29.66021206 seconds
    8    0    0    1    9
      1 skipped: RT #122497
 integration/advent2012-day22.rakudo.parrot.........   5    0    1    0    6
@@ -3447,7 +3466,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        4424,     0,   119,   406,  4949,  5041
+"S02",        4424,     0,   122,   406,  4952,  5044
 "S03",        4870,     0,   108,    87,  5065,  5087
 "S04",         978,     0,    48,    42,  1068,  1120
 "S05",        5099,     0,   110,   309,  5518,  5899
@@ -3471,6 +3490,6 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9153,     0,   102,   152,  9407,  7530
 "int",        1194,     0,     9,    21,  1224,  1227
 "ros",           2,     0,     0,     0,     2,     2
-"total",     29877,     0,   633,  1329, 31839, 31842
+"total",     29877,     0,   636,  1329, 31842, 31845
 ----------------
 No failures!

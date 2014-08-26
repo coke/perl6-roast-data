@@ -104,7 +104,7 @@ S02-names-vars/names.rakudo.jvm.................... 128    0    0   13  141
      4 skipped: ::{ } package lookup NYI
      2 skipped: this kind of lookup NYI
      7 skipped: package variable autovivification
-S02-names-vars/perl.rakudo.jvm.....................  95    0    0    3   98
+S02-names-vars/perl.rakudo.jvm.....................  94    1    0    3   98
      1 skipped: RT #67790
      2 skipped: recursive data structure RT #122286
 S02-names-vars/signature.rakudo.jvm................  11    0    2    0   13
@@ -157,10 +157,11 @@ S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.rakudo.jvm................  15    0    3    0   18
      3 todo   : deprecated %h = {...} for now
 S02-types/autovivification.t.......................  25    0    0    0   25
-S02-types/bag.rakudo.jvm........................... 188    0    5    3  196
+S02-types/bag.rakudo.jvm........................... 188    0    6    3  197
      3 skipped: No longer Iterable
      1 todo   : Not properly interpolating
      4 todo   : ?
+     1 todo   : we have not secured .WHICH creation yet
 S02-types/baghash.rakudo.jvm....................... 220    0    5   24  249
     21 skipped: 'is ObjectType' NYI
      3 skipped: No longer Iterable
@@ -215,10 +216,11 @@ S02-types/isDEPRECATED.rakudo.jvm..................  12    0    8    0   20
 S02-types/lazy-lists.t.............................  23    0    0    0   23
 S02-types/lists.rakudo.jvm.........................  25    0    0    3   28
      3 skipped: list binding
-S02-types/mix.rakudo.jvm........................... 170    0    5    3  178
+S02-types/mix.rakudo.jvm........................... 170    0    6    3  179
      3 skipped: No longer Iterable
      1 todo   : Not properly interpolating
      4 todo   : ?
+     1 todo   : we have not secured .WHICH creation yet
 S02-types/mixed_multi_dimensional.rakudo.jvm.......  77    0    3    0   80
      2 todo   : unknown
      1 todo   : isa hash
@@ -248,9 +250,10 @@ S02-types/pair.rakudo.jvm..........................  93    0    2    2   97
 S02-types/parcel.t.................................  44    0    0    0   44
 S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.t.................................. 129    0    0    0  129
-S02-types/set.rakudo.jvm........................... 157    0   10    1  168
+S02-types/set.rakudo.jvm........................... 157    0   11    1  169
      1 skipped: Set is no longer Iterable
      1 todo   : Not properly interpolating
+     1 todo   : we have not secured .WHICH creation yet
      9 todo   : Hypers not yet Set compatible
 S02-types/sethash.rakudo.jvm....................... 187    0    1   11  199
     10 skipped: 'is ObjectType' NYI
@@ -1150,7 +1153,7 @@ S17-channel/winner.t...............................   3    0    0    0    3
 S17-lowlevel/lock.rakudo.jvm.......................   7    0    0    1    8
      1 skipped: not sure this test is valid
 S17-lowlevel/thread.t..............................  25    0    0    0   25
-S17-promise/allof.t................................   9    1    0    0   10
+S17-promise/allof.t................................  10    0    0    0   10
 S17-promise/anyof.t................................   9    0    0    0    9
 S17-promise/basic.t................................  19    0    0    0   19
 S17-promise/in.t...................................   2    0    0    0    2
@@ -1340,7 +1343,7 @@ S32-io/io-spec-unix.t.............................. 129    0    0    0  129
 S32-io/io-spec-win.t............................... 206    0    0    3  209
      3 skipped: Win32ish on-platform tests
 S32-io/note.t......................................   6    0    0    0    6
-S32-io/other.t.....................................  60    0    0    0   60
+S32-io/other.t.....................................  59    1    0    0   60
 S32-io/slurp.t.....................................  18    0    0    0   18
 S32-io/spurt.t.....................................  35    0    0    0   35
 S32-list/categorize.t..............................  12    0    0    0   12
@@ -1657,7 +1660,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        4387,     0,   140,   422,  4949,  5041
+"S02",        4386,     1,   143,   422,  4952,  5044
 "S03",        4874,     0,   104,    87,  5065,  5087
 "S04",         967,     0,    43,    58,  1068,  1120
 "S05",        5141,     0,   109,   268,  5518,  5899
@@ -1671,17 +1674,18 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         293,     0,    14,    10,   317,   330
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         238,     0,     5,    18,   261,   305
-"S17",         566,     1,    23,    21,   611,   611
+"S17",         567,     0,    23,    21,   611,   611
 "S19",           3,     0,     0,     3,     6,     6
 "S22",          51,     0,     1,     1,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
 "S26",         313,     0,     0,     1,   314,   314
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         337,     0,     3,     4,   344,   354
-"S32",        9146,     0,    98,   163,  9407,  7530
+"S32",        9145,     1,    98,   163,  9407,  7530
 "int",        1197,     0,    15,    26,  1238,  1227
 "ros",           2,     0,     0,     0,     2,     2
-"total",     30406,     1,   680,  1377, 32464, 31842
+"total",     30405,     2,   683,  1377, 32467, 31845
 ----------------
 Failure summary:
-S17-promise/allof.t 10 - got the right order
+S02-names-vars/perl.rakudo.jvm 84 - .perl on user-defined type roundtrips okay
+S32-io/other.t 27 - Test for 63 bytes + utf8 char
