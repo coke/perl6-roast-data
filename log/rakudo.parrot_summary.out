@@ -1707,7 +1707,7 @@ use of uninitialized value of type Any in string context  in any  at gen/parrot/
 
   23    0    0    0   23
 S03-operators/bag.t................................Element shifted from empty list
-  in method Str at gen/parrot/CORE.setting:13207
+  in method Str at gen/parrot/CORE.setting:13187
   in method Str at gen/parrot/CORE.setting:1081
   in method Stringy at gen/parrot/CORE.setting:1099
   in method Stringy at gen/parrot/CORE.setting:1092
@@ -1765,7 +1765,20 @@ S03-operators/comparison-simple.t..................  24    0    0    0   24
 S03-operators/comparison.t.........................  41    0    0    0   41
 S03-operators/context-forcers.rakudo.parrot........  95    0    0    2   97
      2 skipped: failure modes of Str.Numeric
-S03-operators/context.t............................  36    0    0    0   36
+S03-operators/context.t............................
+# Failed test 'Anonymous $ variable outside of declaration'
+# at t/spec/S03-operators/context.t line 1
+
+# Failed test 'Anonymous @ variable outside of declaration'
+# at t/spec/S03-operators/context.t line 1
+
+# Failed test 'Anonymous % variable outside of declaration'
+# at t/spec/S03-operators/context.t line 1
+
+# Failed test 'Anonymous & variable outside of declaration'
+# at t/spec/S03-operators/context.t line 1
+# Looks like you failed 4 tests of 36
+  32    4    0    0   36
 S03-operators/custom.t.............................   1    0    0    0    1
 S03-operators/div.t................................   6    0    0    0    6
 S03-operators/equality.t...........................use of uninitialized value $foo of type Any in string context  in block <unit> at t/spec/S03-operators/equality.t:28
@@ -2416,15 +2429,14 @@ S05-mass/properties-script.rakudo.parrot........... 326    0    0   35  361
 S05-mass/recursive.t...............................  20    0    0    0   20
 S05-mass/rx.rakudo.parrot..........................use of uninitialized value of type Any in string context  in regex  at t/spec/S05-mass/rx.rakudo.parrot:433
 
- 721    0    2   16  739
-     1 skipped: :s()
+Killed
+ 241  487    2    9  739
      2 skipped: ::: NYI
      1 skipped: <commit> NYI
-     2 skipped: regex <name>
-     1 skipped: parse error
-     9 skipped: :: NYI
+     6 skipped: :: NYI
      1 todo   : anchors and after
      1 todo   : RT #121307
+   487 tests aborted (missing ok/not ok)
 S05-mass/stdrules.rakudo.parrot.................... 158    0    0   28  186
     14 skipped: <.print>
     14 skipped: <.graph>
@@ -3504,8 +3516,8 @@ S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.parrot..................  12    0    1    0   13
      1 todo   : trait mod / .wrap interaction
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1409231259
-# Using file temp_1409231259
+S16-filehandles/chmod.t............................# Using file temp_1409317608
+# Using file temp_1409317608
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -3862,229 +3874,18 @@ use of uninitialized value of type Nil in numeric context  in sub throws_like at
 
 use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
 
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
     
 # Failed test 'right exception type (X::Syntax::Perl5Var)'
 # at lib/Test.pm line 289
     # Expected: (X::Syntax::Perl5Var)
-    # Got:      (X::Comp::AdHoc)
-    # Exception message: Unable to parse quote-words subscript; couldn't find right angle quote
+    # Got:      (X::AdHoc)
+    # Exception message: Error while compiling op callmethod: Unknown QAST node type NQPMu
+===SORRY!===
+get_pmc_keyed_str() not implemented in class 'Pointer'
     # Looks like you failed 1 tests of 2
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-    
-# Failed test 'right exception type (X::Syntax::Perl5Var)'
-# at lib/Test.pm line 289
-    # Expected: (X::Syntax::Perl5Var)
-    # Got:      (X::Obsolete)
-    # Exception message: Unsupported use of $# variable; in Perl 6 please use .fmt
-    # Looks like you failed 1 tests of 2
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value $/ of type Nil in string context  in block  at lib/Test.pm:294
-
-use of uninitialized value $/ of type Nil in string context  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in string context  in block <unit> at EVAL_171:1
-
-use of uninitialized value of type Nil in string context  in block <unit> at EVAL_171:1
-
-use of uninitialized value of type Nil in string context  in block  at lib/Test.pm:292
-
-use of uninitialized value of type Nil in string context  in block  at lib/Test.pm:292
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-use of uninitialized value of type Nil in string context  in block <unit> at EVAL_172:1
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-use of uninitialized value of type Nil in string context  in block <unit> at EVAL_173:1
-
-use of uninitialized value of type Nil in string context  in block <unit> at EVAL_173:1
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-# Variable '$abd' is not declared. Did you mean any of these?
-#     $abe
-#     $abc
-
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
-Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
-
- 273    0    3    0  276
-     2 todo   : still handled by <special_var>
+ 120    0    1    0    0
      1 todo   : parsing regression
+   121 tests more than planned were run
 S32-hash/delete-adverb.t...........................use of uninitialized value $got of type Int in string context  in sub is at lib/Test.pm:97
 
 use of uninitialized value $expected of type Int in string context  in sub is at lib/Test.pm:97
@@ -4407,8 +4208,12 @@ S32-str/sprintf.rakudo.parrot...................... 142    0    9    4  155
      2 skipped: Issues with Inf: RT #116280
      1 todo   : sprintf prints numbers before NaN
      8 todo   : Issues with Inf: RT #116280
-S32-str/substr-rw.rakudo.parrot....................  19    0   12    0   31
-    12 todo   : NYI
+S32-str/substr-rw.rakudo.parrot....................[31m===[0mSORRY![31m===[0m Error while compiling t/spec/S32-str/substr-rw.rakudo.parrot
+Unsupported use of $$ variable; in Perl 6 please use $*PID
+at t/spec/S32-str/substr-rw.rakudo.parrot:74
+------> [32m        is($$r[33m⏏[31m, "gloop", '$r referent is eq to the sub[0m
+   0   31    0    0   31
+    31 tests aborted (missing ok/not ok)
 S32-str/substr.rakudo.parrot.......................use of uninitialized value of type Nil in string context  in block <unit> at t/spec/S32-str/substr.rakudo.parrot:20
 
 use of uninitialized value of type Nil in string context  in block <unit> at t/spec/S32-str/substr.rakudo.parrot:20
@@ -4759,13 +4564,13 @@ use of uninitialized value of type Nil in string context  in block <unit> at t/s
 use of uninitialized value of type Nil in string context
 use of uninitialized value of type Nil in string context
 month out of range. Is: 23994, should be in 1..12
-  in method check-value at gen/parrot/CORE.setting:15851
-  in method check-date at gen/parrot/CORE.setting:15858
-  in method new at gen/parrot/CORE.setting:15932
+  in method check-value at gen/parrot/CORE.setting:15839
+  in method check-date at gen/parrot/CORE.setting:15846
+  in method new at gen/parrot/CORE.setting:15920
   in method new at gen/parrot/CORE.setting:880
-  in method new at gen/parrot/CORE.setting:15973
+  in method new at gen/parrot/CORE.setting:15961
   in method new at gen/parrot/CORE.setting:880
-  in method later at gen/parrot/CORE.setting:16141
+  in method later at gen/parrot/CORE.setting:16129
   in block <unit> at t/spec/S32-temporal/DateTime.rakudo.parrot:462
 
 # Looks like you planned 219 tests, but ran 183
@@ -4847,12 +4652,12 @@ use of uninitialized value of type Nil in string context  in block <unit> at t/s
 use of uninitialized value of type Nil in string context
 use of uninitialized value of type Nil in string context
 month out of range. Is: 23816, should be in 1..12
-  in method check-value at gen/parrot/CORE.setting:15851
-  in method check-date at gen/parrot/CORE.setting:15858
-  in method new at gen/parrot/CORE.setting:16234
+  in method check-value at gen/parrot/CORE.setting:15839
+  in method check-date at gen/parrot/CORE.setting:15846
+  in method new at gen/parrot/CORE.setting:16222
   in method new at gen/parrot/CORE.setting:880
-  in method clone at gen/parrot/CORE.setting:16342
-  in method truncated-to at gen/parrot/CORE.setting:16293
+  in method clone at gen/parrot/CORE.setting:16330
+  in method truncated-to at gen/parrot/CORE.setting:16281
   in block <unit> at t/spec/S32-temporal/calendar.t:27
 
 # Looks like you planned 130 tests, but ran 4
@@ -4962,15 +4767,10 @@ integration/advent2009-day12.t.....................   9    0    0    0    9
 integration/advent2009-day13.t.....................  16    0    0    0   16
 integration/advent2009-day14.t.....................  21    0    0    0   21
 integration/advent2009-day15.t.....................   4    0    0    0    4
-integration/advent2009-day16.t.....................use of uninitialized value $other of type Any in string context  in sub weather at t/spec/integration/advent2009-day16.t:9
-
-use of uninitialized value $other of type Any in string context  in sub weather at t/spec/integration/advent2009-day16.t:10
-
-use of uninitialized value $other of type Any in string context  in sub weather at t/spec/integration/advent2009-day16.t:11
-
-use of uninitialized value $other of type Any in string context  in sub weather at t/spec/integration/advent2009-day16.t:12
-
-  11    0    0    0   11
+integration/advent2009-day16.t.....................===SORRY!===
+No such method 'returns' for invocant of type 'NQPMu'
+   0   11    0    0   11
+    11 tests aborted (missing ok/not ok)
 integration/advent2009-day17.t.....................  62    0    0    0   62
 integration/advent2009-day18.t.....................use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
 
@@ -5073,13 +4873,13 @@ use of uninitialized value of type Nil in string context  in block <unit> at t/s
 
   10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.rakudo.parrot.........# gerdr: 5.5669706 seconds
-# kaz: 5.649288 seconds
-# recursive-ternary: 7.4269875 seconds
-# loop: 8.21902681 seconds
-# recursive-ternary-hand-cached: 19.9561463 seconds
-# sequence-ternary: 20.44685269 seconds
-# sequence: 28.876943 seconds
+integration/advent2012-day21.rakudo.parrot.........# kaz: 5.51599697 seconds
+# gerdr: 6 seconds
+# recursive-ternary: 7.5636561 seconds
+# loop: 7.9395662 seconds
+# recursive-ternary-hand-cached: 19.58215866 seconds
+# sequence-ternary: 24.93956004 seconds
+# sequence: 32.748420 seconds
    8    0    0    1    9
      1 skipped: RT #122497
 integration/advent2012-day22.rakudo.parrot.........   5    0    1    0    6
@@ -5196,9 +4996,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
 "S02",        4424,     0,   122,   406,  4952,  5044
-"S03",        4870,     0,   108,    87,  5065,  5087
+"S03",        4866,     4,   108,    87,  5065,  5087
 "S04",         979,     0,    48,    42,  1069,  1121
-"S05",        5099,     0,   110,   309,  5518,  5899
+"S05",        4619,   487,   110,   302,  5518,  5899
 "S06",        1176,     0,    44,   104,  1324,  1404
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         179,     0,    11,    10,   200,   200
@@ -5216,12 +5016,19 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1205,     0,     0,    42,  1247,  1937
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         337,     0,     4,     3,   344,   354
-"S32",        8958,   195,   102,   152,  9407,  7530
-"int",        1191,     3,     9,    21,  1224,  1227
+"S32",        8786,   226,    88,   152,  9131,  7530
+"int",        1180,    14,     9,    21,  1224,  1227
 "ros",           2,     0,     0,     0,     2,     2
-"total",     30572,   198,   636,  1370, 32776, 33469
+"total",     29905,   731,   622,  1363, 32500, 33469
 ----------------
 Failure summary:
+S03-operators/context.t 30 - Anonymous $ variable outside of declaration
+S03-operators/context.t 31 - Anonymous @ variable outside of declaration
+S03-operators/context.t 32 - Anonymous % variable outside of declaration
+S03-operators/context.t 33 - Anonymous & variable outside of declaration
+S05-mass/rx.rakudo.parrot aborted 487 test(s)
+S32-exceptions/misc.rakudo.parrot passed 121 unplanned test(s)
+S32-str/substr-rw.rakudo.parrot aborted 31 test(s)
 S32-temporal/Date.t 24 - simple .succ
 S32-temporal/Date.t 25 - simple .pred
 S32-temporal/Date.t 26 - .succ with leap year (1)
@@ -5257,6 +5064,7 @@ S32-temporal/DateTime.rakudo.parrot 154 - DateTime.in-timezone (year rollover)
 S32-temporal/DateTime.rakudo.parrot 156 - DateTime.in-timezone (big rollover)
 S32-temporal/DateTime.rakudo.parrot aborted 36 test(s)
 S32-temporal/calendar.t aborted 126 test(s)
+integration/advent2009-day16.t aborted 11 test(s)
 integration/advent2010-day16.t 13 - date increment
 integration/advent2012-day24.t 1 - calendar
 integration/advent2013-day06.t 1 - Recurring date spec
