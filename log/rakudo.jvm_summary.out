@@ -104,7 +104,7 @@ S02-names-vars/names.rakudo.jvm.................... 128    0    0   13  141
      4 skipped: ::{ } package lookup NYI
      2 skipped: this kind of lookup NYI
      7 skipped: package variable autovivification
-S02-names-vars/perl.rakudo.jvm.....................  95    0    0    3   98
+S02-names-vars/perl.rakudo.jvm.....................  94    1    0    3   98
      1 skipped: RT #67790
      2 skipped: recursive data structure RT #122286
 S02-names-vars/signature.rakudo.jvm................  11    0    2    0   13
@@ -359,7 +359,7 @@ S03-operators/comparison-simple.t..................  24    0    0    0   24
 S03-operators/comparison.t.........................  41    0    0    0   41
 S03-operators/context-forcers.rakudo.jvm...........  95    0    0    2   97
      2 skipped: failure modes of Str.Numeric
-S03-operators/context.t............................  32    4    0    0   36
+S03-operators/context.t............................  38    0    0    0   38
 S03-operators/custom.t.............................   1    0    0    0    1
 S03-operators/div.t................................   6    0    0    0    6
 S03-operators/equality.t...........................  32    0    0    0   32
@@ -484,11 +484,8 @@ S04-declarations/implicit-parameter.rakudo.jvm.....  16    0    2    0   18
      2 todo   : pointy blocks and $_
 S04-declarations/multiple.rakudo.jvm...............   5    0    1    0    6
      1 todo   : nom regression
-S04-declarations/my.rakudo.jvm.....................  70    0    2    3   75
-     2 skipped: nom regression, OUR::
-     1 skipped: Method 'submethod_table' not found
-     1 todo   : previous test skipped
-     1 todo   : fails
+S04-declarations/my.rakudo.jvm.....................   0   75    0    0   75
+    75 tests aborted (missing ok/not ok)
 S04-declarations/our.rakudo.jvm....................  32    0    1    0   33
      1 todo   : our-scoped var in role
 S04-declarations/state.rakudo.jvm..................  33    0    2    5   40
@@ -1135,9 +1132,7 @@ S16-filehandles/open.t.............................   4    0    0    1    5
      1 skipped: open('nonexisting') => undefined is waiting on 'use fatal'
 S16-filehandles/unlink.rakudo.jvm..................   5    0    0    1    6
      1 skipped: implicit closure of file handle at scope exit NYI (FAILS ON WINDOWS) (noauto)
-S16-io/bare-say.rakudo.jvm.........................   3    0    5    0    8
-     3 todo   : nom regression
-     2 todo   : bare say
+S16-io/bare-say.t..................................   7    0    0    0    7
 S16-io/basic-open.t................................   9    0    0    0    9
 S16-io/cwd.t.......................................   3    0    0    0    3
 S16-io/getc.rakudo.jvm.............................   1    0    0    1    2
@@ -1309,11 +1304,14 @@ S32-container/roundrobin.rakudo.jvm................   4    0    1    0    5
 S32-container/stringify.t..........................  16    0    0    0   16
 S32-container/zip.rakudo.jvm.......................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.jvm..................... 250    3   10    0  263
+S32-exceptions/misc.rakudo.jvm..................... 253    2   11    0  266
+     1 todo   : Cannot find method "returns"
      1 todo   : RT #121935
      6 todo   : ?
      1 todo   : parsing regression
-     2 todo PASSED: still handled by <special_var>
+     1 todo PASSED: should throw a better error message
+     1 todo PASSED: Unknown QAST node type NQPMu, #122645
+     2 tests aborted (missing ok/not ok)
 S32-hash/delete-adverb.t........................... 130    0    0    0  130
 S32-hash/delete.t..................................   8    0    0    0    8
 S32-hash/exists-adverb.t...........................  46    0    0    0   46
@@ -1555,8 +1553,8 @@ integration/advent2009-day12.rakudo.jvm............   7    0    2    0    9
 integration/advent2009-day13.t.....................  16    0    0    0   16
 integration/advent2009-day14.t.....................  21    0    0    0   21
 integration/advent2009-day15.t.....................   4    0    0    0    4
-integration/advent2009-day16.t.....................   0   11    0    0   11
-    11 tests aborted (missing ok/not ok)
+integration/advent2009-day16.t.....................   7    4    0    0   11
+     4 tests aborted (missing ok/not ok)
 integration/advent2009-day17.t.....................  62    0    0    0   62
 integration/advent2009-day18.t.....................   7    0    0    0    7
 integration/advent2009-day19.t.....................   6    0    0    0    6
@@ -1668,9 +1666,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        4387,     0,   143,   422,  4952,  5044
-"S03",        4870,     4,   104,    87,  5065,  5087
-"S04",         968,     0,    43,    58,  1069,  1121
+"S02",        4386,     1,   143,   422,  4952,  5044
+"S03",        4876,     0,   104,    87,  5067,  5089
+"S04",         898,    75,    41,    55,  1069,  1121
 "S05",        5141,     0,   109,   268,  5518,  5899
 "S06",        1163,     0,    42,   119,  1324,  1404
 "S07",           0,     0,     0,     0,     0,     0
@@ -1681,7 +1679,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S13",          35,     0,    10,    27,    72,    82
 "S14",         293,     0,    14,    10,   317,   330
 "S15",           0,     0,     0,     0,     0,   283
-"S16",         238,     0,     5,    18,   261,   305
+"S16",         242,     0,     0,    18,   260,   304
 "S17",         567,     0,    23,    21,   611,   611
 "S19",           3,     0,     0,     3,     6,     6
 "S22",          51,     0,     1,     1,    53,    53
@@ -1689,18 +1687,14 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1205,     0,     0,    42,  1247,  1937
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         337,     0,     3,     4,   344,   354
-"S32",        9111,    34,    86,   163,  9394,  7530
-"int",        1186,    11,    15,    26,  1238,  1227
+"S32",        9114,    33,    87,   163,  9397,  7796
+"int",        1193,     4,    15,    26,  1238,  1227
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31250,    49,   671,  1418, 33388, 33469
+"total",     31199,   113,   665,  1415, 33392, 33736
 ----------------
 Failure summary:
-S03-operators/context.t 30 - Anonymous $ variable outside of declaration
-S03-operators/context.t 31 - Anonymous @ variable outside of declaration
-S03-operators/context.t 32 - Anonymous % variable outside of declaration
-S03-operators/context.t 33 - Anonymous & variable outside of declaration
-S32-exceptions/misc.rakudo.jvm 122 - did we throws_like X::Syntax::Perl5Var?
-S32-exceptions/misc.rakudo.jvm 139 - did we throws_like X::Backslash::NonVariableDollar?
-S32-exceptions/misc.rakudo.jvm 256 - did we throws_like X::Obsolete?
+S02-names-vars/perl.rakudo.jvm 84 - .perl on user-defined type roundtrips okay
+S04-declarations/my.rakudo.jvm aborted 75 test(s)
+S32-exceptions/misc.rakudo.jvm aborted 2 test(s)
 S32-str/substr-rw.rakudo.jvm aborted 31 test(s)
-integration/advent2009-day16.t aborted 11 test(s)
+integration/advent2009-day16.t aborted 4 test(s)
