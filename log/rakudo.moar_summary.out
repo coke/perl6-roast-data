@@ -404,7 +404,7 @@ S02-types/parcel.t.................................  44    0    0    0   44
 S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.t..................................use of uninitialized value of type Range in numeric context  in block <unit> at t/spec/S02-types/range.t:87
 
- 129    0    0    0  129
+ 135    0    0    0  135
 S02-types/set.rakudo.moar.......................... 157    0   11    1  169
      1 skipped: Set is no longer Iterable
      1 todo   : Not properly interpolating
@@ -926,22 +926,33 @@ Potential difficulties:
     ------> [32mstate $x; state $x[33m⏏[31m<EOL>[0m
    5    0    1    0    6
      1 todo   : nom regression
-S04-declarations/my.rakudo.moar....................[31m===[0mSORRY![31m===[0m
-Malformed my
-at t/spec/S04-declarations/my.rakudo.moar:298
-------> [32m    my &[33m⏏[31m = { * - 5 };[0m
-    expecting any of:
-        infix noun
-Other potential difficulties:
+S04-declarations/my.rakudo.moar....................Potential difficulties:
     Redeclaration of symbol %p
     at t/spec/S04-declarations/my.rakudo.moar:54
     ------> [32m        my %p[33m⏏[31m; #OK[0m
     Redeclaration of symbol $f
     at t/spec/S04-declarations/my.rakudo.moar:158
     ------> [32m    my $f[33m⏏[31m; #OK[0m
+use of uninitialized value $x of type Any in string context  in block  at t/spec/S04-declarations/my.rakudo.moar:23
 
-   0   75    0    0   75
-    75 tests aborted (missing ok/not ok)
+use of uninitialized value $x of type Any in string context  in block  at t/spec/S04-declarations/my.rakudo.moar:23
+
+WARNINGS:
+Useless use of "," in expression "my $x = 1, my $y = 2" in sink context (line 1)
+WARNINGS:
+Useless use of "," in expression "my $x = 1, my $y = 2" in sink context (line 1)
+WARNINGS:
+Useless use of "," in expression "my $x = 1, my $y = 2" in sink context (line 1)
+WARNINGS:
+Useless use of "," in expression "my $x = 1, my $y = 2" in sink context (line 1)
+WARNINGS:
+Useless use of "," in expression "my $x = 1, my $y = 2" in sink context (line 1)
+WARNINGS:
+Useless use of constant integer 1 in sink context (line 1)
+  71    0    2    2   75
+     2 skipped: nom regression, OUR::
+     1 todo   : previous test skipped
+     1 todo   : fails
 S04-declarations/our.rakudo.moar...................use of uninitialized value $got of type Any in string context  in sub is at lib/Test.pm:97
 
 use of uninitialized value $got of type Any in string context  in sub is at lib/Test.pm:101
@@ -1828,8 +1839,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1409398069
-# Using file temp_1409398069
+S16-filehandles/chmod.t............................# Using file temp_1409484578
+# Using file temp_1409484578
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1861,7 +1872,13 @@ S17-lowlevel/lock.rakudo.moar......................   7    0    0    1    8
      1 skipped: not sure this test is valid
 S17-lowlevel/thread.rakudo.moar....................  22    0    0    3   25
      3 skipped: segfaults randomly
-S17-promise/allof.t................................  10    0    0    0   10
+S17-promise/allof.t................................
+# Failed test 'got the right order'
+# at t/spec/S17-promise/allof.t line 44
+# expected: '0 1 2 3 4 5 6 7 8 9'
+#      got: '6 8 2 3 1 0 5 4 7 9'
+# Looks like you failed 1 tests of 10
+   9    1    0    0   10
 S17-promise/anyof.t................................   9    0    0    0    9
 S17-promise/basic.t................................  19    0    0    0   19
 S17-promise/in.t...................................   2    0    0    0    2
@@ -2132,8 +2149,6 @@ Code object coerced to string (please use .gist or .perl to do that)  in block  
     # Looks like you failed 1 tests of 2
 Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
 
-use of uninitialized value $ANON_VAR__1 of type Any in string context  in block <unit> at EVAL_131:1
-
 Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
 
 Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
@@ -2228,18 +2243,10 @@ Code object coerced to string (please use .gist or .perl to do that)  in block  
 
 Code object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:294
 
-Could not find symbol '&Bare'
-  in method <anon> at src/gen/m-CORE.setting:13280
-  in any find_method_fallback at src/gen/m-Metamodel.nqp:2632
-  in any find_method at src/gen/m-Metamodel.nqp:946
-  in block <unit> at t/spec/S32-exceptions/misc.rakudo.moar:532
-
- 260    2    4    0  266
+ 263    0    3    0  266
      1 todo   : Cannot find method "returns"
      1 todo   : parsing regression
      1 todo PASSED: should throw a better error message
-     1 todo PASSED: Unknown QAST node type NQPMu, #122645
-     2 tests aborted (missing ok/not ok)
 S32-hash/delete-adverb.t...........................use of uninitialized value $got of type Int in string context  in sub is at lib/Test.pm:97
 
 use of uninitialized value $expected of type Int in string context  in sub is at lib/Test.pm:97
@@ -2474,12 +2481,8 @@ S32-str/split.rakudo.moar..........................  52    0    0    1   53
 S32-str/sprintf.rakudo.moar........................ 142    0   13    0  155
      3 todo   : RT #116280
     10 todo   : Issues with Inf: RT #116280
-S32-str/substr-rw.rakudo.moar......................[31m===[0mSORRY![31m===[0m Error while compiling t/spec/S32-str/substr-rw.rakudo.moar
-Unsupported use of $$ variable; in Perl 6 please use $*PID
-at t/spec/S32-str/substr-rw.rakudo.moar:74
-------> [32m        is($$r[33m⏏[31m, "gloop", '$r referent is eq to the sub[0m
-   0   31    0    0   31
-    31 tests aborted (missing ok/not ok)
+S32-str/substr-rw.rakudo.moar......................  19    0   12    0   31
+    12 todo   : NYI
 S32-str/substr.rakudo.moar.........................use of uninitialized value $expected of type Failure in string context  in sub is at lib/Test.pm:97
 
   56    0    0   13   69
@@ -2644,15 +2647,7 @@ use of uninitialized value $other of type Any in string context  in sub weather 
 
 use of uninitialized value $other of type Any in string context  in sub weather at t/spec/integration/advent2009-day16.t:12
 
-use of uninitialized value %ANON_VAR__1 of type Any in string context  in block  at t/spec/integration/advent2009-day16.t:67
-
-use of uninitialized value %ANON_VAR__2 of type Any in string context  in block  at t/spec/integration/advent2009-day16.t:67
-
-Too few directives: found 0, fewer than the 2 arguments after the format string
-
-# Looks like you planned 11 tests, but ran 7
-   7    4    0    0   11
-     4 tests aborted (missing ok/not ok)
+  11    0    0    0   11
 integration/advent2009-day17.t.....................  62    0    0    0   62
 integration/advent2009-day18.t.....................   7    0    0    0    7
 integration/advent2009-day19.t.....................   6    0    0    0    6
@@ -2706,14 +2701,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# gerdr: 1.9240085 seconds
-# kaz: 1.9745276 seconds
-# loop: 2.1056390 seconds
-# recursive-ternary: 2.214716173 seconds
-# recursive-ternary-hand-cached: 3.781833 seconds
-# sequence-ternary: 5.1908887 seconds
-# hand-memoization: 5.67978989 seconds
-# sequence: 6.959617 seconds
+integration/advent2012-day21.t.....................# kaz: 2.09487275 seconds
+# recursive-ternary: 2.12088126 seconds
+# gerdr: 2.15411148 seconds
+# loop: 2.3400168 seconds
+# recursive-ternary-hand-cached: 4.0974954 seconds
+# hand-memoization: 5.5412008 seconds
+# sequence-ternary: 5.6578159 seconds
+# sequence: 6.9680931 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2769,9 +2764,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        4438,     0,   127,   387,  4952,  5044
+"S02",        4444,     0,   127,   387,  4958,  5050
 "S03",        4876,     0,   104,    87,  5067,  5089
-"S04",         916,    75,    38,    40,  1069,  1121
+"S04",         987,     0,    40,    42,  1069,  1121
 "S05",        5233,     0,   103,   182,  5518,  5899
 "S06",        1179,     0,    41,   104,  1324,  1404
 "S07",           0,     0,     0,     0,     0,     0
@@ -2783,22 +2778,19 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         297,     0,    10,    10,   317,   330
 "S15",         240,     0,     2,    16,   258,   283
 "S16",         243,     0,     0,    17,   260,   304
-"S17",         590,     0,     1,    20,   611,   611
+"S17",         589,     1,     1,    20,   611,   611
 "S19",           6,     0,     0,     0,     6,     6
 "S22",          52,     0,     1,     0,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
 "S26",        1205,     0,     0,    42,  1247,  1937
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         337,     0,     4,     3,   344,   354
-"S32",        9093,    59,   103,   142,  9397,  7796
-"int",        1187,    19,    12,    20,  1238,  1227
+"S32",        9115,    26,   114,   142,  9397,  7796
+"int",        1191,    15,    12,    20,  1238,  1227
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31633,   153,   618,  1246, 33650, 33736
+"total",     31735,    42,   631,  1248, 33656, 33742
 ----------------
 Failure summary:
-S04-declarations/my.rakudo.moar aborted 75 test(s)
-S32-exceptions/misc.rakudo.moar aborted 2 test(s)
+S17-promise/allof.t 10 - got the right order
 S32-list/uniq.rakudo.moar aborted 26 test(s)
-S32-str/substr-rw.rakudo.moar aborted 31 test(s)
 integration/99problems-51-to-60.t aborted 15 test(s)
-integration/advent2009-day16.t aborted 4 test(s)

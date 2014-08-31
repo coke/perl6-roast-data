@@ -866,7 +866,7 @@ S02-types/parcel.t.................................  44    0    0    0   44
 S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.t..................................use of uninitialized value of type Range in numeric context  in block <unit> at t/spec/S02-types/range.t:87
 
- 129    0    0    0  129
+ 135    0    0    0  135
 S02-types/set.rakudo.parrot........................use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
 
  157    0   11    1  169
@@ -1404,22 +1404,33 @@ Potential difficulties:
     ------> [32mstate $x; state $x[33m⏏[31m<EOL>[0m
    5    0    1    0    6
      1 todo   : nom regression
-S04-declarations/my.rakudo.parrot..................[31m===[0mSORRY![31m===[0m
-Malformed my
-at t/spec/S04-declarations/my.rakudo.parrot:298
-------> [32m    my &[33m⏏[31m = { * - 5 };[0m
-    expecting any of:
-        infix noun
-Other potential difficulties:
+S04-declarations/my.rakudo.parrot..................Potential difficulties:
     Redeclaration of symbol %p
     at t/spec/S04-declarations/my.rakudo.parrot:54
     ------> [32m        my %p[33m⏏[31m; #OK[0m
     Redeclaration of symbol $f
     at t/spec/S04-declarations/my.rakudo.parrot:158
     ------> [32m    my $f[33m⏏[31m; #OK[0m
+use of uninitialized value $x of type Any in string context  in block  at t/spec/S04-declarations/my.rakudo.parrot:23
 
-   0   75    0    0   75
-    75 tests aborted (missing ok/not ok)
+use of uninitialized value $x of type Any in string context  in block  at t/spec/S04-declarations/my.rakudo.parrot:23
+
+WARNINGS:
+Useless use of "," in expression "my $x = 1, my $y = 2" in sink context (line 1)
+WARNINGS:
+Useless use of "," in expression "my $x = 1, my $y = 2" in sink context (line 1)
+WARNINGS:
+Useless use of "," in expression "my $x = 1, my $y = 2" in sink context (line 1)
+WARNINGS:
+Useless use of "," in expression "my $x = 1, my $y = 2" in sink context (line 1)
+WARNINGS:
+Useless use of "," in expression "my $x = 1, my $y = 2" in sink context (line 1)
+WARNINGS:
+Useless use of constant integer 1 in sink context (line 1)
+  71    0    2    2   75
+     2 skipped: nom regression, OUR::
+     1 todo   : previous test skipped
+     1 todo   : fails
 S04-declarations/our.rakudo.parrot.................use of uninitialized value $got of type Any in string context  in sub is at lib/Test.pm:97
 
 use of uninitialized value $got of type Any in string context  in sub is at lib/Test.pm:101
@@ -2326,8 +2337,8 @@ S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.parrot..................  12    0    1    0   13
      1 todo   : trait mod / .wrap interaction
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1409403734
-# Using file temp_1409403734
+S16-filehandles/chmod.t............................# Using file temp_1409490422
+# Using file temp_1409490422
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2668,7 +2679,7 @@ use of uninitialized value of type Nil in numeric context  in sub throws_like at
 
 use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
 
-use of uninitialized value $ANON_VAR__1 of type Any in string context  in block <unit> at EVAL_131:1
+use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
 
 use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
 
@@ -2810,19 +2821,12 @@ Code object coerced to string (please use .gist or .perl to do that)  in block  
 
 use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
 
-Could not find symbol '&Bare'
-  in method <anon> at gen/parrot/CORE.setting:13219
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2702
-  in any find_method at gen/parrot/Metamodel.nqp:947
-  in any  at gen/parrot/BOOTSTRAP.nqp:1703
-  in block <unit> at t/spec/S32-exceptions/misc.rakudo.parrot:532
+use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
 
- 260    2    4    0  266
+ 263    0    3    0  266
      1 todo   : Cannot find method "returns"
      1 todo   : parsing regression
      1 todo PASSED: should throw a better error message
-     1 todo PASSED: Unknown QAST node type NQPMu, #122645
-     2 tests aborted (missing ok/not ok)
 S32-hash/delete-adverb.t...........................use of uninitialized value $got of type Int in string context  in sub is at lib/Test.pm:97
 
 use of uninitialized value $expected of type Int in string context  in sub is at lib/Test.pm:97
@@ -3087,12 +3091,8 @@ S32-str/sprintf.rakudo.parrot...................... 142    0    9    4  155
      2 skipped: Issues with Inf: RT #116280
      1 todo   : sprintf prints numbers before NaN
      8 todo   : Issues with Inf: RT #116280
-S32-str/substr-rw.rakudo.parrot....................[31m===[0mSORRY![31m===[0m Error while compiling t/spec/S32-str/substr-rw.rakudo.parrot
-Unsupported use of $$ variable; in Perl 6 please use $*PID
-at t/spec/S32-str/substr-rw.rakudo.parrot:74
-------> [32m        is($$r[33m⏏[31m, "gloop", '$r referent is eq to the sub[0m
-   0   31    0    0   31
-    31 tests aborted (missing ok/not ok)
+S32-str/substr-rw.rakudo.parrot....................  19    0   12    0   31
+    12 todo   : NYI
 S32-str/substr.rakudo.parrot.......................use of uninitialized value $expected of type Failure in string context  in sub is at lib/Test.pm:97
 
   56    0    0   13   69
@@ -3454,15 +3454,7 @@ use of uninitialized value $other of type Any in string context  in sub weather 
 
 use of uninitialized value $other of type Any in string context  in sub weather at t/spec/integration/advent2009-day16.t:12
 
-use of uninitialized value %ANON_VAR__1 of type Any in string context  in block  at t/spec/integration/advent2009-day16.t:67
-
-use of uninitialized value %ANON_VAR__2 of type Any in string context  in block  at t/spec/integration/advent2009-day16.t:67
-
-Too few directives: found 0, fewer than the 2 arguments after the format string
-
-# Looks like you planned 11 tests, but ran 7
-   7    4    0    0   11
-     4 tests aborted (missing ok/not ok)
+  11    0    0    0   11
 integration/advent2009-day17.t.....................  62    0    0    0   62
 integration/advent2009-day18.t.....................use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
 
@@ -3541,13 +3533,13 @@ integration/advent2012-day15.rakudo.parrot.........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.rakudo.parrot.........# kaz: 5.8482273 seconds
-# gerdr: 5.872775 seconds
-# recursive-ternary: 7.89992025 seconds
-# loop: 8.2960722 seconds
-# recursive-ternary-hand-cached: 19.92047199 seconds
-# sequence-ternary: 23.96965535 seconds
-# sequence: 33.35433926 seconds
+integration/advent2012-day21.rakudo.parrot.........# kaz: 5.552394 seconds
+# gerdr: 5.9699269 seconds
+# recursive-ternary: 7.4737940 seconds
+# loop: 7.9745950 seconds
+# recursive-ternary-hand-cached: 20.74204252 seconds
+# sequence-ternary: 24.4150273 seconds
+# sequence: 34.5576149 seconds
    8    0    0    1    9
      1 skipped: RT #122497
 integration/advent2012-day22.rakudo.parrot.........   5    0    1    0    6
@@ -3663,9 +3655,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        4424,     0,   122,   406,  4952,  5044
+"S02",        4430,     0,   122,   406,  4958,  5050
 "S03",        4872,     0,   108,    87,  5067,  5089
-"S04",         908,    75,    46,    40,  1069,  1121
+"S04",         979,     0,    48,    42,  1069,  1121
 "S05",        5140,     0,   110,   268,  5518,  5899
 "S06",        1176,     0,    44,   104,  1324,  1404
 "S07",           0,     0,     0,     0,     0,     0
@@ -3684,15 +3676,12 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1205,     0,     0,    42,  1247,  1937
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         337,     0,     4,     3,   344,   354
-"S32",        8926,   228,    91,   152,  9397,  7796
-"int",        1187,     7,     9,    21,  1224,  1227
+"S32",        8948,   195,   102,   152,  9397,  7796
+"int",        1191,     3,     9,    21,  1224,  1227
 "ros",           2,     0,     0,     0,     2,     2
-"total",     30512,   310,   618,  1327, 32767, 33736
+"total",     30615,   198,   631,  1329, 32773, 33742
 ----------------
 Failure summary:
-S04-declarations/my.rakudo.parrot aborted 75 test(s)
-S32-exceptions/misc.rakudo.parrot aborted 2 test(s)
-S32-str/substr-rw.rakudo.parrot aborted 31 test(s)
 S32-temporal/Date.t 24 - simple .succ
 S32-temporal/Date.t 25 - simple .pred
 S32-temporal/Date.t 26 - .succ with leap year (1)
@@ -3728,7 +3717,6 @@ S32-temporal/DateTime.rakudo.parrot 154 - DateTime.in-timezone (year rollover)
 S32-temporal/DateTime.rakudo.parrot 156 - DateTime.in-timezone (big rollover)
 S32-temporal/DateTime.rakudo.parrot aborted 36 test(s)
 S32-temporal/calendar.t aborted 126 test(s)
-integration/advent2009-day16.t aborted 4 test(s)
 integration/advent2010-day16.t 13 - date increment
 integration/advent2012-day24.t 1 - calendar
 integration/advent2013-day06.t 1 - Recurring date spec

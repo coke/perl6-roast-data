@@ -104,7 +104,7 @@ S02-names-vars/names.rakudo.jvm.................... 128    0    0   13  141
      4 skipped: ::{ } package lookup NYI
      2 skipped: this kind of lookup NYI
      7 skipped: package variable autovivification
-S02-names-vars/perl.rakudo.jvm.....................  94    1    0    3   98
+S02-names-vars/perl.rakudo.jvm.....................  95    0    0    3   98
      1 skipped: RT #67790
      2 skipped: recursive data structure RT #122286
 S02-names-vars/signature.rakudo.jvm................  11    0    2    0   13
@@ -249,7 +249,7 @@ S02-types/pair.rakudo.jvm..........................  93    0    2    2   97
      1 todo   : should it really have \n on the end?
 S02-types/parcel.t.................................  44    0    0    0   44
 S02-types/parsing-bool.t...........................   4    0    0    0    4
-S02-types/range.t.................................. 129    0    0    0  129
+S02-types/range.t.................................. 135    0    0    0  135
 S02-types/set.rakudo.jvm........................... 157    0   11    1  169
      1 skipped: Set is no longer Iterable
      1 todo   : Not properly interpolating
@@ -484,8 +484,11 @@ S04-declarations/implicit-parameter.rakudo.jvm.....  16    0    2    0   18
      2 todo   : pointy blocks and $_
 S04-declarations/multiple.rakudo.jvm...............   5    0    1    0    6
      1 todo   : nom regression
-S04-declarations/my.rakudo.jvm.....................   0   75    0    0   75
-    75 tests aborted (missing ok/not ok)
+S04-declarations/my.rakudo.jvm.....................  70    0    2    3   75
+     2 skipped: nom regression, OUR::
+     1 skipped: Method 'submethod_table' not found
+     1 todo   : previous test skipped
+     1 todo   : fails
 S04-declarations/our.rakudo.jvm....................  32    0    1    0   33
      1 todo   : our-scoped var in role
 S04-declarations/state.rakudo.jvm..................  33    0    2    5   40
@@ -1145,7 +1148,7 @@ S16-unfiled/rebindstdhandles.rakudo.jvm............   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  12    0    0    0   12
 S17-channel/winner.t...............................   3    0    0    0    3
-S17-lowlevel/lock.rakudo.jvm.......................   7    0    0    1    8
+S17-lowlevel/lock.rakudo.jvm.......................   6    1    0    1    8
      1 skipped: not sure this test is valid
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-promise/allof.t................................  10    0    0    0   10
@@ -1157,7 +1160,7 @@ S17-promise/then.t.................................  14    0    0    0   14
 S17-scheduler/at.t.................................   7    0    0    0    7
 S17-scheduler/basic.rakudo.jvm.....................  26    0    0    6   32
      6 skipped: waiting for new '.loads' semantics
-S17-scheduler/every.t..............................   9    0    0    0    9
+S17-scheduler/every.t..............................   8    1    0    0    9
 S17-scheduler/in.t.................................   6    0    0    0    6
 S17-scheduler/times.t..............................   2    0    0    0    2
 S17-supply/Channel.t...............................  12    0    0    0   12
@@ -1304,14 +1307,12 @@ S32-container/roundrobin.rakudo.jvm................   4    0    1    0    5
 S32-container/stringify.t..........................  16    0    0    0   16
 S32-container/zip.rakudo.jvm.......................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.jvm..................... 253    2   11    0  266
+S32-exceptions/misc.rakudo.jvm..................... 256    0   10    0  266
      1 todo   : Cannot find method "returns"
      1 todo   : RT #121935
      6 todo   : ?
      1 todo   : parsing regression
      1 todo PASSED: should throw a better error message
-     1 todo PASSED: Unknown QAST node type NQPMu, #122645
-     2 tests aborted (missing ok/not ok)
 S32-hash/delete-adverb.t........................... 130    0    0    0  130
 S32-hash/delete.t..................................   8    0    0    0    8
 S32-hash/exists-adverb.t...........................  46    0    0    0   46
@@ -1478,8 +1479,8 @@ S32-str/split.rakudo.jvm...........................  52    0    0    1   53
 S32-str/sprintf.rakudo.jvm......................... 142    0    0   13  155
      3 skipped: java.lang.NumberFormatException: RT#116280
     10 skipped: Issues with Inf: RT #116280
-S32-str/substr-rw.rakudo.jvm.......................   0   31    0    0   31
-    31 tests aborted (missing ok/not ok)
+S32-str/substr-rw.rakudo.jvm.......................  19    0   12    0   31
+    12 todo   : NYI
 S32-str/substr.rakudo.jvm..........................  53    0    0   16   69
      3 skipped: java.nio.charset.MalformedInputException
     13 skipped: StrPos NYI
@@ -1553,8 +1554,7 @@ integration/advent2009-day12.rakudo.jvm............   7    0    2    0    9
 integration/advent2009-day13.t.....................  16    0    0    0   16
 integration/advent2009-day14.t.....................  21    0    0    0   21
 integration/advent2009-day15.t.....................   4    0    0    0    4
-integration/advent2009-day16.t.....................   7    4    0    0   11
-     4 tests aborted (missing ok/not ok)
+integration/advent2009-day16.t.....................  11    0    0    0   11
 integration/advent2009-day17.t.....................  62    0    0    0   62
 integration/advent2009-day18.t.....................   7    0    0    0    7
 integration/advent2009-day19.t.....................   6    0    0    0    6
@@ -1666,9 +1666,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        4386,     1,   143,   422,  4952,  5044
+"S02",        4393,     0,   143,   422,  4958,  5050
 "S03",        4876,     0,   104,    87,  5067,  5089
-"S04",         898,    75,    41,    55,  1069,  1121
+"S04",         968,     0,    43,    58,  1069,  1121
 "S05",        5141,     0,   109,   268,  5518,  5899
 "S06",        1163,     0,    42,   119,  1324,  1404
 "S07",           0,     0,     0,     0,     0,     0
@@ -1680,21 +1680,18 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         293,     0,    14,    10,   317,   330
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         242,     0,     0,    18,   260,   304
-"S17",         567,     0,    23,    21,   611,   611
+"S17",         565,     2,    23,    21,   611,   611
 "S19",           3,     0,     0,     3,     6,     6
 "S22",          51,     0,     1,     1,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
 "S26",        1205,     0,     0,    42,  1247,  1937
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         337,     0,     3,     4,   344,   354
-"S32",        9114,    33,    87,   163,  9397,  7796
-"int",        1193,     4,    15,    26,  1238,  1227
+"S32",        9136,     0,    98,   163,  9397,  7796
+"int",        1197,     0,    15,    26,  1238,  1227
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31199,   113,   665,  1415, 33392, 33736
+"total",     31300,     2,   678,  1418, 33398, 33742
 ----------------
 Failure summary:
-S02-names-vars/perl.rakudo.jvm 84 - .perl on user-defined type roundtrips okay
-S04-declarations/my.rakudo.jvm aborted 75 test(s)
-S32-exceptions/misc.rakudo.jvm aborted 2 test(s)
-S32-str/substr-rw.rakudo.jvm aborted 31 test(s)
-integration/advent2009-day16.t aborted 4 test(s)
+S17-lowlevel/lock.rakudo.jvm 7 - Condition variable worked
+S17-scheduler/every.t 1 - Cue with :every schedules repeatedly

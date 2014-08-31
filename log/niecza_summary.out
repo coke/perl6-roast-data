@@ -1109,13 +1109,14 @@ S02-types/parcel.niecza............................  40    0    1    3   44
      1 todo   : .item.perl on empty Parcel gives Match.ast shorthand
 S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.niecza.............................Potential difficulties:
-  $j is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/range.niecza line 145:
+  $j is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/range.niecza line 153:
 ------> [32m        for $i..5 -> [33m⏏[31m$j { };[0m
 
- 125    0    0    4  129
+Killed
+  58   74    0    3  135
      2 skipped: Unable to resolve method reverse in class Range
      1 skipped: Attempted to access slot $!min of type object for Range
-     1 skipped: Undeclared name: "Failure"
+    74 tests aborted (missing ok/not ok)
 S02-types/set.niecza............................... 123    0   10   36  169
      1 skipped: .grabpairs NYI
      1 skipped: .grab NYI
@@ -2651,33 +2652,15 @@ S05-mass/properties-general.niecza................. 592    0    0   10  602
     10 skipped: No [Lr] property defined
 S05-mass/properties-script.t....................... 361    0    0    0  361
 S05-mass/recursive.t...............................  20    0    0    0   20
-S05-mass/rx.niecza.................................Use of uninitialized value in string context
-  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 1389 (warn @ 5) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 269 (Mu.Str @ 15) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S05-mass/rx.niecza line 2430 (ANON @ 7) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 3119 (Regex.ACCEPTS @ 10) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S05-mass/rx.niecza line 2430 (mainline @ 1696) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4595 (ANON @ 3) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4596 (module-CORE @ 576) 
-  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4596 (mainline @ 3) 
-  at <unknown> line 0 (ExitRunloop @ 0) 
- 669    5   20   45  739
-     1 skipped: Unable to resolve method alpha in class Cursor
-    13 skipped: Unable to resolve method wb in class Cursor
-     1 skipped: Autoloading NYI
-    21 skipped: Action method mod_arg not yet implemented
-     2 skipped: Unable to resolve method name in class Cursor
-     1 skipped: space between - and [ ] is a problem?
-     4 skipped: Unsuppored elements in after list
-     2 skipped: +  [ ] fails
-     9 todo   : 
-     3 todo   : ::: issue
-     1 todo   : allows them
-     2 todo   : :: issues
-     1 todo   : undefined capture
-     1 todo PASSED: 
-     3 todo PASSED: Unable to resolve method cntrl in class Cursor
+S05-mass/rx.niecza.................................[31m===[0mSORRY![31m===[0m
+
+Null pattern not allowed at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S05-mass/rx.niecza line 839:
+------> [32mok 'a' ~~ /a |[33m⏏[31m& b/, 'alternation and conjunction (|&) [0m
+
+Parse failed
+
+   0  739    0    0  739
+   739 tests aborted (missing ok/not ok)
 S05-mass/stdrules.niecza........................... 183    0    0    3  186
      3 skipped: <at>
 S05-match/arrayhash.niecza.........................   4    0    4    0    8
@@ -5785,10 +5768,10 @@ Unhandled exception: Check failed
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        1412,  2109,    51,   214,  3780,  5043
+"S02",        1345,  2183,    51,   213,  3786,  5049
 "S03",        3425,   484,   198,   387,  4490,  5089
 "S04",         808,     2,    34,    60,   902,  1121
-"S05",        4108,    74,    91,   219,  4489,  5899
+"S05",        3439,   808,    71,   174,  4489,  5899
 "S06",         769,    26,    50,   162,  1007,  1404
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          66,     0,     1,     8,    75,   200
@@ -5809,7 +5792,7 @@ Unhandled exception: Check failed
 "S32",        6504,   349,   123,   201,  7171,  7796
 "int",         361,   137,    10,    23,   531,  1227
 "ros",           0,     0,     0,     0,     0,     2
-"total",     18814,  3408,   628,  1501, 24330, 33735
+"total",     18078,  4216,   608,  1455, 24336, 33741
 ----------------
 Failure summary:
 S02-lexical-conventions/begin_end_pod.t aborted 1 test(s)
@@ -5855,6 +5838,7 @@ S02-types/hash.niecza aborted 89 test(s)
 S02-types/lists.niecza aborted 28 test(s)
 S02-types/num.t aborted 66 test(s)
 S02-types/pair.niecza aborted 97 test(s)
+S02-types/range.niecza aborted 74 test(s)
 S02-types/sethash.niecza 41 - SetHash.kv returns list of keys and values
 S03-metaops/hyper.niecza aborted 203 test(s)
 S03-metaops/reduce.niecza aborted 203 test(s)
@@ -5872,11 +5856,7 @@ S05-grammar/action-stubs.niecza aborted 2 test(s)
 S05-grammar/methods.t 6 - duplicate methods err sanely
 S05-grammar/parse_and_parsefile.niecza aborted 11 test(s)
 S05-grammar/protoregex.niecza aborted 30 test(s)
-S05-mass/rx.niecza 424 - sigspace (:s)
-S05-mass/rx.niecza 425 - sigspace (:s)
-S05-mass/rx.niecza 429 - sigspace (:s)
-S05-mass/rx.niecza 434 - sigspace (:sigspace)
-S05-mass/rx.niecza 437 - sigspace (:sigspace)
+S05-mass/rx.niecza aborted 739 test(s)
 S05-match/capturing-contexts.niecza aborted 20 test(s)
 S05-metasyntax/litvar.niecza 23 - can case-insensitive match against interpolated var
 S05-metasyntax/litvar.niecza 24 - can case-insensitive match against var in assertion
