@@ -340,10 +340,10 @@ Unhandled exception: Check failed
 S02-literals/quoting.niecza........................[31m===[0mSORRY![31m===[0m
 
 Undeclared routine:
-	'throws_like' used at line 165,498,501,527,562
+	'throws_like' used at line 165,497,500,526,561
 
 Potential difficulties:
-  $x is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-literals/quoting.niecza line 532:
+  $x is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-literals/quoting.niecza line 531:
 ------> [32mis "foo $( my [33m⏏[31m$x = 3 + 4; "bar" ) baz", 'foo bar baz',[0m
 
 Unhandled exception: Check failed
@@ -1104,9 +1104,27 @@ Unhandled exception: Check failed
   at <unknown> line 0 (ExitRunloop @ 0) 
    0   97    0    0   97
     97 tests aborted (missing ok/not ok)
-S02-types/parcel.niecza............................  40    0    1    3   44
+S02-types/parcel.niecza............................Potential difficulties:
+  $x1 is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/parcel.niecza line 88:
+------> [32m    ok (my [33m⏏[31m$x1=42,1) !=== (42,1), '$x1 = 42,1 !====[0m
+  $x2 is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/parcel.niecza line 89:
+------> [32m    ok (my [33m⏏[31m$x2=42,1) !=== (my $y=42,1), '$x2 = 42,1[0m
+  $y is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/parcel.niecza line 89:
+------> [32m    ok (my $x2=42,1) !=== (my [33m⏏[31m$y=42,1), '$x2 = 42,1 !==== $y = 42,1';[0m
+  $y2 is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/parcel.niecza line 90:
+------> [32m    cmp_ok (my $x3=42,1), '===', (my [33m⏏[31m$y2:=$x3,1), '$x3=42,1 ==== $y2 := $x3,1[0m
+
+Unhandled exception: Unable to resolve method postcircumfix:<( )> in type Str
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/Test.pm6 line 86 (cmp_ok @ 4) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/parcel.niecza line 87 (mainline @ 136) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4595 (ANON @ 3) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4596 (module-CORE @ 576) 
+  at /home/coke/sandbox/perl6-roast-data/niecza/lib/CORE.setting line 4596 (mainline @ 3) 
+  at <unknown> line 0 (ExitRunloop @ 0) 
+  40    4    1    3   48
      3 skipped: .Parcel NYI
      1 todo   : .item.perl on empty Parcel gives Match.ast shorthand
+     4 tests aborted (missing ok/not ok)
 S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.niecza.............................Potential difficulties:
   $j is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S02-types/range.niecza line 153:
@@ -5116,7 +5134,7 @@ S32-list/map.niecza................................  45    0    2   12   59
      1 todo   : 
      1 todo   : https://github.com/sorear/niecza/issues/182
 S32-list/minmax.t..................................  55    0    0    0   55
-S32-list/pick.niecza...............................  49    7    0    1   57
+S32-list/pick.niecza...............................  48    8    0    1   57
      1 skipped: ().pick === Nil
 S32-list/reduce.niecza.............................Potential difficulties:
   @array is declared but not used at /home/coke/sandbox/perl6-roast-data/niecza/t/spec/S32-list/reduce.niecza line 28:
@@ -5768,11 +5786,11 @@ Unhandled exception: Check failed
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        1345,  2183,    51,   213,  3786,  5049
+"S02",        1345,  2187,    51,   213,  3790,  5053
 "S03",        3425,   484,   198,   387,  4490,  5089
 "S04",         808,     2,    34,    60,   902,  1121
 "S05",        3439,   808,    71,   174,  4489,  5899
-"S06",         769,    26,    50,   162,  1007,  1404
+"S06",         769,    26,    50,   162,  1007,  1405
 "S07",           0,     0,     0,     0,     0,     0
 "S09",          66,     0,     1,     8,    75,   200
 "S10",           0,    61,     0,     0,    61,   131
@@ -5789,10 +5807,10 @@ Unhandled exception: Check failed
 "S26",           0,     0,     0,     0,     0,  1937
 "S28",           6,     0,     1,     0,     7,    13
 "S29",         302,     6,     2,    12,   322,   354
-"S32",        6504,   349,   123,   201,  7171,  7796
+"S32",        6503,   350,   123,   201,  7171,  7796
 "int",         361,   137,    10,    23,   531,  1227
 "ros",           0,     0,     0,     0,     0,     2
-"total",     18078,  4216,   608,  1455, 24336, 33741
+"total",     18077,  4221,   608,  1455, 24340, 33746
 ----------------
 Failure summary:
 S02-lexical-conventions/begin_end_pod.t aborted 1 test(s)
@@ -5838,6 +5856,7 @@ S02-types/hash.niecza aborted 89 test(s)
 S02-types/lists.niecza aborted 28 test(s)
 S02-types/num.t aborted 66 test(s)
 S02-types/pair.niecza aborted 97 test(s)
+S02-types/parcel.niecza aborted 4 test(s)
 S02-types/range.niecza aborted 74 test(s)
 S02-types/sethash.niecza 41 - SetHash.kv returns list of keys and values
 S03-metaops/hyper.niecza aborted 203 test(s)
@@ -5895,6 +5914,7 @@ S32-list/pick.niecza 48 - simple pick on Enum type works
 S32-list/pick.niecza 49 - one pick on Enum type works
 S32-list/pick.niecza 50 - all pick on Enum type works
 S32-list/pick.niecza 51 - too many pick on Enum type works
+S32-list/pick.niecza 53 - simple pick on Enum is sane
 S32-list/pick.niecza 54 - one pick on Enum is sane
 S32-list/pick.niecza 55 - all pick on Enum is sane
 S32-list/pick.niecza 56 - too many pick on Enum is sane
