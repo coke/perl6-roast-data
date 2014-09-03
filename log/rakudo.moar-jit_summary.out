@@ -612,7 +612,7 @@ use of uninitialized value of type Any in string context  in any !cursor_init at
 
   23    0    0    0   23
 S03-operators/bag.t................................Element shifted from empty list
-  in method Str at src/gen/m-CORE.setting:13292
+  in method Str at src/gen/m-CORE.setting:13305
   in method Stringy at src/gen/m-CORE.setting:1094
   in sub infix:<~> at src/gen/m-CORE.setting:1495
   in sub showkv at t/spec/S03-operators/bag.t:7
@@ -1839,8 +1839,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1409659012
-# Using file temp_1409659012
+S16-filehandles/chmod.t............................# Using file temp_1409745372
+# Using file temp_1409745372
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2363,31 +2363,10 @@ use of uninitialized value $b of type Code in string context  in block  at t/spe
      2 todo   : determine behavior of 0-arity methods passed to sort
 S32-list/squish.t..................................  28    0    0    0   28
 S32-list/uniq.rakudo.moar..........................Segmentation fault (core dumped)
-  15   18    0    0   33
-    18 tests aborted (missing ok/not ok)
+  14   19    0    0   33
+    19 tests aborted (missing ok/not ok)
 S32-num/abs.t......................................  49    0    0    0   49
-S32-num/base.t.....................................
-# Failed test '(1/10000000000).base(3) (RT 112900)'
-# at t/spec/S32-num/base.t line 1
-# expected: '0.0000000000000000000010'
-#      got: '0.01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-
-# Failed test '(3.25).base(16)'
-# at t/spec/S32-num/base.t line 1
-# expected: '3.4'
-#      got: '3.'
-
-# Failed test '(10.5).base(2)'
-# at t/spec/S32-num/base.t line 1
-# expected: '1010.1'
-#      got: '1010.ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-
-# Failed test '(-3.5).base(16)'
-# at t/spec/S32-num/base.t line 1
-# expected: '-3.8'
-#      got: '-3.'
-# Looks like you failed 4 tests of 12
-   8    4    0    0   12
+S32-num/base.t.....................................  12    0    0    0   12
 S32-num/complex.t.................................. 488    0    0    0  488
 S32-num/cool-num.rakudo.moar.......................  39    0    0    4   43
      4 skipped: angle conversion
@@ -2597,8 +2576,53 @@ S32-temporal/calendar.t............................Potential difficulties:
     at t/spec/S32-temporal/calendar.t:140
     ------> [32mis dtim(2010, 01, 03[33m⏏[31m).week-number, 53, 'DateTime.week-number[0m
  130    0    0    0  130
-S32-temporal/local.t...............................   6    0    0   19   25
-    19 skipped: The local time zone may not be America/New_York.
+S32-temporal/local.t...............................
+# Failed test 'DateTime.in-timezone($*TZ) (from UTC, outside of DST)'
+# at t/spec/S32-temporal/local.t line 1
+# expected: '2007-01-01T21:22:00-0500'
+#      got: '2007-01-01T22:22:00-0400'
+
+# Failed test 'DateTime.local (from UTC, outside of DST)'
+# at t/spec/S32-temporal/local.t line 1
+# expected: '2007-01-01T21:22:00-0500'
+#      got: '2007-01-01T22:22:00-0400'
+
+# Failed test 'DateTime.local (from UTC, just before DST begins)'
+# at t/spec/S32-temporal/local.t line 1
+# expected: '1984-04-29T01:55:00-0500'
+#      got: '1984-04-29T02:55:00-0400'
+
+# Failed test 'DateTime.local (from UTC, just after DST ends)'
+# at t/spec/S32-temporal/local.t line 1
+# expected: '2008-11-02T01:55:00-0500'
+#      got: '2008-11-02T02:55:00-0400'
+
+# Failed test 'DateTime.local (from UTC, just after DST ends, .perl)'
+# at t/spec/S32-temporal/local.t line 1
+# expected: '2008-11-02T01:55:00-0500'
+#      got: '2008-11-02T02:55:00-0400'
+
+# Failed test 'DateTime.local (from -1612, just after DST ends)'
+# at t/spec/S32-temporal/local.t line 1
+# expected: '2008-11-02T01:55:00-0500'
+#      got: '2008-11-02T02:55:00-0400'
+
+# Failed test 'DateTime.utc (from local, outside of DST)'
+# at t/spec/S32-temporal/local.t line 1
+# expected: '1995-01-02T02:22:00Z'
+#      got: '1995-01-02T01:22:00Z'
+
+# Failed test 'DateTime.utc (from local, just before DST starts)'
+# at t/spec/S32-temporal/local.t line 1
+# expected: '2007-03-11T06:55:00Z'
+#      got: '2007-03-11T05:55:00Z'
+
+# Failed test 'DateTime.local (from UTC, with leap second)'
+# at t/spec/S32-temporal/local.t line 1
+# expected: '1998-12-31T18:59:60-0500'
+#      got: '1998-12-31T19:59:60-0400'
+# Looks like you failed 9 tests of 25
+  16    9    0    0   25
 S32-trig/atan2.t................................... 115    0    0    0  115
 S32-trig/cos.t..................................... 154    0    0    0  154
 S32-trig/cosec.t................................... 114    0    0    0  114
@@ -2714,14 +2738,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 2.0944316 seconds
-# gerdr: 2.0978628 seconds
-# loop: 2.1275733 seconds
-# recursive-ternary: 2.205567 seconds
-# recursive-ternary-hand-cached: 4.1130802 seconds
-# hand-memoization: 5.3982269 seconds
-# sequence-ternary: 5.5522502 seconds
-# sequence: 7.18795854 seconds
+integration/advent2012-day21.t.....................# recursive-ternary: 1.93665501 seconds
+# loop: 1.963446 seconds
+# kaz: 2.0505799 seconds
+# gerdr: 2.0657749 seconds
+# recursive-ternary-hand-cached: 4.333048949 seconds
+# hand-memoization: 5.1337954 seconds
+# sequence-ternary: 5.30105462 seconds
+# sequence: 7.164927 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2734,13 +2758,7 @@ integration/advent2013-day06.t.....................   1    0    0    0    1
 integration/advent2013-day07.t.....................   6    0    0    0    6
 integration/advent2013-day08.t.....................  11    0    0    0   11
 integration/advent2013-day09.t.....................  21    0    0    0   21
-integration/advent2013-day10.rakudo.moar...........
-# Failed test 'applies to []'
-# at t/spec/integration/advent2013-day10.rakudo.moar line 118
-# expected: $((0, 10), (1, 20), (2, 30))
-#      got: $(0, 10, 1, 20, 2, 30)
-# Looks like you failed 1 tests of 44
-  42    1    1    0   44
+integration/advent2013-day10.rakudo.moar...........  43    0    1    0   44
      1 todo   : adverb stacking
 integration/advent2013-day12.t.....................  32    0    0    0   32
 integration/advent2013-day14.rakudo.moar...........   5    0    0    5   10
@@ -2804,16 +2822,20 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1205,     0,     0,    42,  1247,  1937
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         337,     0,     4,     3,   344,   354
-"S32",        9121,    22,   112,   142,  9397,  7796
-"int",        1188,    18,    12,    20,  1238,  1227
+"S32",        9134,    28,   112,   123,  9397,  7796
+"int",        1189,    17,    12,    20,  1238,  1227
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32331,    40,   628,  1248, 34247, 34333
+"total",     32345,    45,   628,  1229, 34247, 34333
 ----------------
 Failure summary:
-S32-list/uniq.rakudo.moar aborted 18 test(s)
-S32-num/base.t 9 - (1/10000000000).base(3) (RT 112900)
-S32-num/base.t 10 - (3.25).base(16)
-S32-num/base.t 11 - (10.5).base(2)
-S32-num/base.t 12 - (-3.5).base(16)
+S32-list/uniq.rakudo.moar aborted 19 test(s)
+S32-temporal/local.t 7 - DateTime.in-timezone($*TZ) (from UTC, outside of DST)
+S32-temporal/local.t 8 - DateTime.local (from UTC, outside of DST)
+S32-temporal/local.t 10 - DateTime.local (from UTC, just before DST begins)
+S32-temporal/local.t 14 - DateTime.local (from UTC, just after DST ends)
+S32-temporal/local.t 15 - DateTime.local (from UTC, just after DST ends, .perl)
+S32-temporal/local.t 17 - DateTime.local (from -1612, just after DST ends)
+S32-temporal/local.t 18 - DateTime.utc (from local, outside of DST)
+S32-temporal/local.t 20 - DateTime.utc (from local, just before DST starts)
+S32-temporal/local.t 25 - DateTime.local (from UTC, with leap second)
 integration/99problems-51-to-60.t aborted 17 test(s)
-integration/advent2013-day10.rakudo.moar 30 - applies to []

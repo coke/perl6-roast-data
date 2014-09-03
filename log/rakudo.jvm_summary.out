@@ -1150,7 +1150,7 @@ S17-channel/winner.t...............................   3    0    0    0    3
 S17-lowlevel/lock.rakudo.jvm.......................   7    0    0    1    8
      1 skipped: not sure this test is valid
 S17-lowlevel/thread.t..............................  25    0    0    0   25
-S17-promise/allof.t................................  10    0    0    0   10
+S17-promise/allof.t................................   9    1    0    0   10
 S17-promise/anyof.t................................   9    0    0    0    9
 S17-promise/basic.t................................  19    0    0    0   19
 S17-promise/in.t...................................   2    0    0    0    2
@@ -1391,7 +1391,7 @@ S32-list/sort.rakudo.jvm...........................  28    0    3    1   32
 S32-list/squish.t..................................  28    0    0    0   28
 S32-list/uniq.t....................................  33    0    0    0   33
 S32-num/abs.t......................................  49    0    0    0   49
-S32-num/base.t.....................................   8    4    0    0   12
+S32-num/base.t.....................................  12    0    0    0   12
 S32-num/complex.t.................................. 488    0    0    0  488
 S32-num/cool-num.rakudo.jvm........................  39    0    0    4   43
      4 skipped: angle conversion
@@ -1498,8 +1498,7 @@ S32-temporal/DateTime-Instant-Duration.rakudo.jvm..  28    0    4    1   33
 S32-temporal/DateTime.rakudo.jvm................... 218    0    1    0  219
      1 todo   : nom regression
 S32-temporal/calendar.t............................ 130    0    0    0  130
-S32-temporal/local.t...............................   6    0    0   19   25
-    19 skipped: The local time zone may not be America/New_York.
+S32-temporal/local.t...............................  16    9    0    0   25
 S32-trig/atan2.t................................... 115    0    0    0  115
 S32-trig/cos.t..................................... 154    0    0    0  154
 S32-trig/cosec.t................................... 114    0    0    0  114
@@ -1620,7 +1619,7 @@ integration/advent2013-day06.t.....................   1    0    0    0    1
 integration/advent2013-day07.t.....................   6    0    0    0    6
 integration/advent2013-day08.t.....................  11    0    0    0   11
 integration/advent2013-day09.t.....................  21    0    0    0   21
-integration/advent2013-day10.rakudo.jvm............  42    1    1    0   44
+integration/advent2013-day10.rakudo.jvm............  43    0    1    0   44
      1 todo   : adverb stacking
 integration/advent2013-day12.rakudo.jvm............  30    0    0    2   32
      2 skipped: RT #121622 aborting on jvm
@@ -1677,17 +1676,17 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         293,     0,    14,    10,   317,   330
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         242,     0,     0,    18,   260,   304
-"S17",         567,     0,    23,    21,   611,   611
+"S17",         566,     1,    23,    21,   611,   611
 "S19",           3,     0,     0,     3,     6,     6
 "S22",          51,     0,     1,     1,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
 "S26",        1205,     0,     0,    42,  1247,  1937
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         337,     0,     3,     4,   344,   354
-"S32",        9134,     4,    96,   163,  9397,  7796
-"int",        1196,     1,    15,    26,  1238,  1227
+"S32",        9148,     9,    96,   144,  9397,  7796
+"int",        1197,     0,    15,    26,  1238,  1227
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31852,    50,   674,  1413, 33989, 34333
+"total",     31866,    55,   674,  1394, 33989, 34333
 ----------------
 Failure summary:
 S02-types/WHICH.t 549 - checking Proc::Async.WHICH
@@ -1695,8 +1694,13 @@ S02-types/WHICH.t 569 - checking X::Proc::Async::AlreadyStarted.WHICH
 S02-types/WHICH.t 571 - checking X::Proc::Async::CharsOrBytes.WHICH
 S02-types/WHICH.t 573 - checking X::Proc::Async::TapBeforeSpawn.WHICH
 S05-match/capturing-contexts.rakudo.jvm aborted 41 test(s)
-S32-num/base.t 9 - (1/10000000000).base(3) (RT 112900)
-S32-num/base.t 10 - (3.25).base(16)
-S32-num/base.t 11 - (10.5).base(2)
-S32-num/base.t 12 - (-3.5).base(16)
-integration/advent2013-day10.rakudo.jvm 30 - applies to []
+S17-promise/allof.t 10 - got the right order
+S32-temporal/local.t 7 - DateTime.in-timezone($*TZ) (from UTC, outside of DST)
+S32-temporal/local.t 8 - DateTime.local (from UTC, outside of DST)
+S32-temporal/local.t 10 - DateTime.local (from UTC, just before DST begins)
+S32-temporal/local.t 14 - DateTime.local (from UTC, just after DST ends)
+S32-temporal/local.t 15 - DateTime.local (from UTC, just after DST ends, .perl)
+S32-temporal/local.t 17 - DateTime.local (from -1612, just after DST ends)
+S32-temporal/local.t 18 - DateTime.utc (from local, outside of DST)
+S32-temporal/local.t 20 - DateTime.utc (from local, just before DST starts)
+S32-temporal/local.t 25 - DateTime.local (from UTC, with leap second)
