@@ -1076,7 +1076,7 @@ use of uninitialized value of type Any in string context  in any  at gen/parrot/
 
   23    0    0    0   23
 S03-operators/bag.t................................Element shifted from empty list
-  in method Str at gen/parrot/CORE.setting:13265
+  in method Str at gen/parrot/CORE.setting:13279
   in method Str at gen/parrot/CORE.setting:1081
   in method Stringy at gen/parrot/CORE.setting:1097
   in method Stringy at gen/parrot/CORE.setting:1092
@@ -1720,8 +1720,15 @@ S05-modifier/counted.rakudo.parrot................. 116    0    2    0  118
 S05-modifier/global.t..............................   8    0    0    0    8
 S05-modifier/ignorecase.rakudo.parrot..............  22    0    2    0   24
      2 todo   : ignorecase and SS/&szlig;
-S05-modifier/ii.rakudo.parrot......................  12    0    6    0   18
-     6 todo   : NYI
+S05-modifier/ii.rakudo.parrot......................Cannot modify an immutable value
+  in block  at gen/parrot/CORE.setting:18052
+  in method samecase at gen/parrot/CORE.setting:6733
+  in method subst at gen/parrot/CORE.setting:6597
+  in method subst at gen/parrot/CORE.setting:3916
+  in block <unit> at t/spec/S05-modifier/ii.rakudo.parrot:26
+
+   0   18    0    0   18
+    18 tests aborted (missing ok/not ok)
 S05-modifier/overlapping.rakudo.parrot.............  11    0    6    5   22
      5 skipped: m:overlap// NYI
      6 todo   : m:overlap NYI
@@ -1783,12 +1790,18 @@ S05-substitution/subst.rakudo.parrot...............use of uninitialized value of
 
 use of uninitialized value of type Any in string context  in block <unit> at t/spec/S05-substitution/subst.rakudo.parrot:24
 
-use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
+Cannot modify an immutable value
+  in block  at gen/parrot/CORE.setting:18052
+  in method samecase at gen/parrot/CORE.setting:6729
+  in method subst at gen/parrot/CORE.setting:6597
+  in method subst at gen/parrot/CORE.setting:3916
+  in block <unit> at t/spec/S05-substitution/subst.rakudo.parrot:363
 
- 135    0    1    5  141
+# Looks like you planned 141 tests, but ran 122
+ 117   19    0    5  141
      2 skipped: s:g[...] =
      3 skipped: s[...] op= RHS
-     1 todo   : be smarter about constant detection
+    19 tests aborted (missing ok/not ok)
 S05-transliteration/79778.t........................   1    0    0    0    1
 S05-transliteration/trans.rakudo.parrot............use of uninitialized value of type Int in string context  in sub  at t/spec/S05-transliteration/trans.rakudo.parrot:207
 
@@ -2338,8 +2351,8 @@ S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.parrot..................  12    0    1    0   13
      1 todo   : trait mod / .wrap interaction
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1409835682
-# Using file temp_1409835682
+S16-filehandles/chmod.t............................# Using file temp_1409922333
+# Using file temp_1409922333
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -3080,7 +3093,14 @@ S32-str/ords.t.....................................   6    0    0    0    6
 S32-str/pack.t.....................................   6    0    0    0    6
 S32-str/pos.t......................................   2    0    0    0    2
 S32-str/rindex.t...................................  33    0    0    0   33
-S32-str/samecase.t.................................   8    0    0    0    8
+S32-str/samecase.t.................................Cannot modify an immutable value
+  in block  at gen/parrot/CORE.setting:18052
+  in method samecase at gen/parrot/CORE.setting:6729
+  in sub samecase at gen/parrot/CORE.setting:3989
+  in block <unit> at t/spec/S32-str/samecase.t:15
+
+   0    8    0    0    8
+     8 tests aborted (missing ok/not ok)
 S32-str/split-simple.rakudo.parrot.................  28    0    1    0   29
      1 todo   : RT #112868
 S32-str/split.rakudo.parrot........................  52    0    0    1   53
@@ -3288,13 +3308,13 @@ S32-temporal/DateTime.rakudo.parrot................
 # expected: '29 18 23 27 12 2004 1'
 #      got: '29 18 23 18 23887 4005 6'
 month out of range. Is: 23994, should be in 1..12
-  in method check-value at gen/parrot/CORE.setting:15920
-  in method check-date at gen/parrot/CORE.setting:15927
-  in method new at gen/parrot/CORE.setting:16001
+  in method check-value at gen/parrot/CORE.setting:15934
+  in method check-date at gen/parrot/CORE.setting:15941
+  in method new at gen/parrot/CORE.setting:16015
   in method new at gen/parrot/CORE.setting:880
-  in method new at gen/parrot/CORE.setting:16042
+  in method new at gen/parrot/CORE.setting:16056
   in method new at gen/parrot/CORE.setting:880
-  in method later at gen/parrot/CORE.setting:16210
+  in method later at gen/parrot/CORE.setting:16224
   in block <unit> at t/spec/S32-temporal/DateTime.rakudo.parrot:462
 
 # Looks like you planned 219 tests, but ran 183
@@ -3370,79 +3390,34 @@ S32-temporal/calendar.t............................Potential difficulties:
     at t/spec/S32-temporal/calendar.t:140
     ------> [32mis dtim(2010, 01, 03[33m⏏[31m).week-number, 53, 'DateTime.week-number[0m
 month out of range. Is: 23816, should be in 1..12
-  in method check-value at gen/parrot/CORE.setting:15920
-  in method check-date at gen/parrot/CORE.setting:15927
-  in method new at gen/parrot/CORE.setting:16303
+  in method check-value at gen/parrot/CORE.setting:15934
+  in method check-date at gen/parrot/CORE.setting:15941
+  in method new at gen/parrot/CORE.setting:16317
   in method new at gen/parrot/CORE.setting:880
-  in method clone at gen/parrot/CORE.setting:16411
-  in method truncated-to at gen/parrot/CORE.setting:16362
+  in method clone at gen/parrot/CORE.setting:16425
+  in method truncated-to at gen/parrot/CORE.setting:16376
   in block <unit> at t/spec/S32-temporal/calendar.t:27
 
 # Looks like you planned 130 tests, but ran 4
    4  126    0    0  130
    126 tests aborted (missing ok/not ok)
-S32-temporal/local.t...............................
-# Failed test 'DateTime.in-timezone($*TZ) (from UTC, outside of DST)'
-# at t/spec/S32-temporal/local.t line 41
-# expected: '2007-01-01T21:22:00-0500'
-#      got: '4007-23911-19T22:22:00-0400'
-
-# Failed test 'DateTime.local (from UTC, outside of DST)'
-# at t/spec/S32-temporal/local.t line 44
-# expected: '2007-01-01T21:22:00-0500'
-#      got: '4007-23911-19T22:22:00-0400'
-
+S32-temporal/local.rakudo.parrot...................
 # Failed test 'DateTime.local (from UTC, during DST)'
-# at t/spec/S32-temporal/local.t line 46
+# at t/spec/S32-temporal/local.rakudo.parrot line 48
 # expected: '2003-07-31T22:22:00-0400'
 #      got: '4004-23870-26T22:22:00-0400'
 
-# Failed test 'DateTime.local (from UTC, just before DST begins)'
-# at t/spec/S32-temporal/local.t line 48
-# expected: '1984-04-29T01:55:00-0500'
-#      got: '1984-04-29T02:55:00-0400'
-
-# Failed test 'DateTime.local (from UTC, just after DST ends)'
-# at t/spec/S32-temporal/local.t line 55
-# expected: '2008-11-02T01:55:00-0500'
-#      got: '2008-11-02T02:55:00-0400'
-
-# Failed test 'DateTime.local (from UTC, just after DST ends, .perl)'
-# at t/spec/S32-temporal/local.t line 56
-# expected: '2008-11-02T01:55:00-0500'
-#      got: '2008-11-02T02:55:00-0400'
-
-# Failed test 'DateTime.local (from -1612, just after DST ends)'
-# at t/spec/S32-temporal/local.t line 60
-# expected: '2008-11-02T01:55:00-0500'
-#      got: '4009-23933-15T02:55:00-0400'
-
-# Failed test 'DateTime.utc (from local, outside of DST)'
-# at t/spec/S32-temporal/local.t line 65
-# expected: '1995-01-02T02:22:00Z'
-#      got: '3895-23768-21T01:22:00Z'
-
 # Failed test 'DateTime.utc (from local, during DST)'
-# at t/spec/S32-temporal/local.t line 67
+# at t/spec/S32-temporal/local.rakudo.parrot line 74
 # expected: '1998-08-01T02:22:00Z'
 #      got: '3899-23811-10T02:22:00Z'
 
-# Failed test 'DateTime.utc (from local, just before DST starts)'
-# at t/spec/S32-temporal/local.t line 69
-# expected: '2007-03-11T06:55:00Z'
-#      got: '2007-03-11T05:55:00Z'
-
 # Failed test 'DateTime.in-timezone (local to -1612, just after DST starts)'
-# at t/spec/S32-temporal/local.t line 71
+# at t/spec/S32-temporal/local.rakudo.parrot line 79
 # expected: '2007-03-10T14:50:00-1612'
 #      got: '4007-23913-26T14:50:00-1612'
-
-# Failed test 'DateTime.local (from UTC, with leap second)'
-# at t/spec/S32-temporal/local.t line 81
-# expected: '1998-12-31T18:59:60-0500'
-#      got: '1998-12-31T19:59:60-0400'
-# Looks like you failed 12 tests of 25
-  13   12    0    0   25
+  13    3    9    0   25
+     9 todo   : RT #122702
 S32-trig/atan2.t................................... 115    0    0    0  115
 S32-trig/cos.t..................................... 154    0    0    0  154
 S32-trig/cosec.t................................... 114    0    0    0  114
@@ -3592,13 +3567,13 @@ integration/advent2012-day15.rakudo.parrot.........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.rakudo.parrot.........# kaz: 5.3822851 seconds
-# gerdr: 6.1357882 seconds
-# recursive-ternary: 7.30858155 seconds
-# loop: 7.76574153 seconds
-# recursive-ternary-hand-cached: 18.8218141 seconds
-# sequence-ternary: 23.56957541 seconds
-# sequence: 33.03976024 seconds
+integration/advent2012-day21.rakudo.parrot.........# kaz: 5.71910711 seconds
+# gerdr: 6.23534381 seconds
+# recursive-ternary: 7.8601064 seconds
+# loop: 8.22313792 seconds
+# recursive-ternary-hand-cached: 25.4243312 seconds
+# sequence-ternary: 28.5286354 seconds
+# sequence: 34.7874474 seconds
    8    0    0    1    9
      1 skipped: RT #122497
 integration/advent2012-day22.rakudo.parrot.........   5    0    1    0    6
@@ -3717,7 +3692,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        4973,     0,   121,   454,  5548,  5640
 "S03",        4872,     0,   108,    87,  5067,  5089
 "S04",         979,     0,    48,    42,  1069,  1121
-"S05",        5140,     0,   110,   268,  5518,  5899
+"S05",        5110,    37,   103,   268,  5518,  5899
 "S06",        1177,     0,    44,   104,  1325,  1405
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         179,     0,    11,    10,   200,   200
@@ -3732,15 +3707,18 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S19",           6,     0,     0,     0,     6,     6
 "S22",          51,     0,     1,     1,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
-"S26",        1205,     0,     0,    42,  1247,  1937
+"S26",        1205,     0,     0,    42,  1247,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         337,     0,     4,     3,   344,   354
-"S32",        8957,   207,   100,   133,  9397,  7796
+"S32",        8949,   206,   109,   133,  9397,  7796
 "int",        1191,     3,     9,    21,  1224,  1227
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31168,   210,   628,  1358, 33364, 34333
+"total",     31130,   246,   630,  1358, 33364, 34341
 ----------------
 Failure summary:
+S05-modifier/ii.rakudo.parrot aborted 18 test(s)
+S05-substitution/subst.rakudo.parrot aborted 19 test(s)
+S32-str/samecase.t aborted 8 test(s)
 S32-temporal/Date.t 24 - simple .succ
 S32-temporal/Date.t 25 - simple .pred
 S32-temporal/Date.t 26 - .succ with leap year (1)
@@ -3776,18 +3754,9 @@ S32-temporal/DateTime.rakudo.parrot 154 - DateTime.in-timezone (year rollover)
 S32-temporal/DateTime.rakudo.parrot 156 - DateTime.in-timezone (big rollover)
 S32-temporal/DateTime.rakudo.parrot aborted 36 test(s)
 S32-temporal/calendar.t aborted 126 test(s)
-S32-temporal/local.t 7 - DateTime.in-timezone($*TZ) (from UTC, outside of DST)
-S32-temporal/local.t 8 - DateTime.local (from UTC, outside of DST)
-S32-temporal/local.t 9 - DateTime.local (from UTC, during DST)
-S32-temporal/local.t 10 - DateTime.local (from UTC, just before DST begins)
-S32-temporal/local.t 14 - DateTime.local (from UTC, just after DST ends)
-S32-temporal/local.t 15 - DateTime.local (from UTC, just after DST ends, .perl)
-S32-temporal/local.t 17 - DateTime.local (from -1612, just after DST ends)
-S32-temporal/local.t 18 - DateTime.utc (from local, outside of DST)
-S32-temporal/local.t 19 - DateTime.utc (from local, during DST)
-S32-temporal/local.t 20 - DateTime.utc (from local, just before DST starts)
-S32-temporal/local.t 21 - DateTime.in-timezone (local to -1612, just after DST starts)
-S32-temporal/local.t 25 - DateTime.local (from UTC, with leap second)
+S32-temporal/local.rakudo.parrot 9 - DateTime.local (from UTC, during DST)
+S32-temporal/local.rakudo.parrot 19 - DateTime.utc (from local, during DST)
+S32-temporal/local.rakudo.parrot 21 - DateTime.in-timezone (local to -1612, just after DST starts)
 integration/advent2010-day16.t 13 - date increment
 integration/advent2012-day24.t 1 - calendar
 integration/advent2013-day06.t 1 - Recurring date spec

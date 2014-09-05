@@ -705,8 +705,8 @@ S05-modifier/counted.rakudo.jvm.................... 116    0    2    0  118
 S05-modifier/global.t..............................   8    0    0    0    8
 S05-modifier/ignorecase.rakudo.jvm.................  22    0    2    0   24
      2 todo   : ignorecase and SS/&szlig;
-S05-modifier/ii.rakudo.jvm.........................  12    0    6    0   18
-     6 todo   : NYI
+S05-modifier/ii.rakudo.jvm.........................   0   18    0    0   18
+    18 tests aborted (missing ok/not ok)
 S05-modifier/overlapping.rakudo.jvm................  11    0    6    5   22
      5 skipped: m:overlap// NYI
      6 todo   : m:overlap NYI
@@ -738,10 +738,10 @@ S05-modifier/repetition.rakudo.jvm.................  10    0    2    0   12
      1 todo   : :x(2)
 S05-modifier/sigspace.t............................  16    0    0    0   16
 S05-substitution/match.t...........................  13    0    0    0   13
-S05-substitution/subst.rakudo.jvm.................. 135    0    1    5  141
+S05-substitution/subst.rakudo.jvm.................. 117   19    0    5  141
      2 skipped: s:g[...] =
      3 skipped: s[...] op= RHS
-     1 todo   : be smarter about constant detection
+    19 tests aborted (missing ok/not ok)
 S05-transliteration/79778.t........................   1    0    0    0    1
 S05-transliteration/trans.rakudo.jvm...............  46    0   13    1   60
      1 skipped: feed operator NYI
@@ -1150,7 +1150,7 @@ S17-channel/winner.t...............................   3    0    0    0    3
 S17-lowlevel/lock.rakudo.jvm.......................   7    0    0    1    8
      1 skipped: not sure this test is valid
 S17-lowlevel/thread.t..............................  25    0    0    0   25
-S17-promise/allof.t................................   9    1    0    0   10
+S17-promise/allof.t................................  10    0    0    0   10
 S17-promise/anyof.t................................   9    0    0    0    9
 S17-promise/basic.t................................  19    0    0    0   19
 S17-promise/in.t...................................   2    0    0    0    2
@@ -1468,7 +1468,8 @@ S32-str/ords.t.....................................   6    0    0    0    6
 S32-str/pack.t.....................................   6    0    0    0    6
 S32-str/pos.t......................................   2    0    0    0    2
 S32-str/rindex.t...................................  33    0    0    0   33
-S32-str/samecase.t.................................   8    0    0    0    8
+S32-str/samecase.t.................................   0    8    0    0    8
+     8 tests aborted (missing ok/not ok)
 S32-str/split-simple.rakudo.jvm....................  28    0    1    0   29
      1 todo   : RT #112868
 S32-str/split.rakudo.jvm...........................  52    0    0    1   53
@@ -1498,7 +1499,8 @@ S32-temporal/DateTime-Instant-Duration.rakudo.jvm..  28    0    4    1   33
 S32-temporal/DateTime.rakudo.jvm................... 218    0    1    0  219
      1 todo   : nom regression
 S32-temporal/calendar.t............................ 130    0    0    0  130
-S32-temporal/local.t...............................  16    9    0    0   25
+S32-temporal/local.rakudo.jvm......................  16    0    9    0   25
+     9 todo   : RT #122702
 S32-trig/atan2.t................................... 115    0    0    0  115
 S32-trig/cos.t..................................... 154    0    0    0  154
 S32-trig/cosec.t................................... 114    0    0    0  114
@@ -1665,7 +1667,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        4980,     4,   142,   422,  5548,  5640
 "S03",        4876,     0,   104,    87,  5067,  5089
 "S04",         968,     0,    43,    58,  1069,  1121
-"S05",        5106,    41,   108,   263,  5518,  5899
+"S05",        5076,    78,   101,   263,  5518,  5899
 "S06",        1164,     0,    42,   119,  1325,  1405
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         179,     0,    11,    10,   200,   200
@@ -1676,17 +1678,17 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         293,     0,    14,    10,   317,   330
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         242,     0,     0,    18,   260,   304
-"S17",         566,     1,    23,    21,   611,   611
+"S17",         567,     0,    23,    21,   611,   611
 "S19",           3,     0,     0,     3,     6,     6
 "S22",          51,     0,     1,     1,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
-"S26",        1205,     0,     0,    42,  1247,  1937
+"S26",        1205,     0,     0,    42,  1247,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         337,     0,     3,     4,   344,   354
-"S32",        9148,     9,    96,   144,  9397,  7796
+"S32",        9140,     8,   105,   144,  9397,  7796
 "int",        1197,     0,    15,    26,  1238,  1227
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31866,    55,   674,  1394, 33989, 34333
+"total",     31829,    90,   676,  1394, 33989, 34341
 ----------------
 Failure summary:
 S02-types/WHICH.t 549 - checking Proc::Async.WHICH
@@ -1694,13 +1696,6 @@ S02-types/WHICH.t 569 - checking X::Proc::Async::AlreadyStarted.WHICH
 S02-types/WHICH.t 571 - checking X::Proc::Async::CharsOrBytes.WHICH
 S02-types/WHICH.t 573 - checking X::Proc::Async::TapBeforeSpawn.WHICH
 S05-match/capturing-contexts.rakudo.jvm aborted 41 test(s)
-S17-promise/allof.t 10 - got the right order
-S32-temporal/local.t 7 - DateTime.in-timezone($*TZ) (from UTC, outside of DST)
-S32-temporal/local.t 8 - DateTime.local (from UTC, outside of DST)
-S32-temporal/local.t 10 - DateTime.local (from UTC, just before DST begins)
-S32-temporal/local.t 14 - DateTime.local (from UTC, just after DST ends)
-S32-temporal/local.t 15 - DateTime.local (from UTC, just after DST ends, .perl)
-S32-temporal/local.t 17 - DateTime.local (from -1612, just after DST ends)
-S32-temporal/local.t 18 - DateTime.utc (from local, outside of DST)
-S32-temporal/local.t 20 - DateTime.utc (from local, just before DST starts)
-S32-temporal/local.t 25 - DateTime.local (from UTC, with leap second)
+S05-modifier/ii.rakudo.jvm aborted 18 test(s)
+S05-substitution/subst.rakudo.jvm aborted 19 test(s)
+S32-str/samecase.t aborted 8 test(s)
