@@ -933,8 +933,9 @@ S02-types/unicode.rakudo.parrot....................   2    0    3   11   16
      9 skipped: Bytes/Codes/Graphs NYI
      3 todo   : RT #65170
 S02-types/version.t................................  35    0    0    0   35
-S02-types/whatever.rakudo.parrot...................  77    0    1    5   83
+S02-types/whatever.rakudo.parrot...................  78    0    3    5   86
      5 skipped: currying plus meta ops
+     2 todo   : RT #122708 - currying of min/max
      1 todo   : * as dummy
                                                    pass fail todo skip plan
 S03-binding/arrays.t...............................use of uninitialized value of type Any in string context  in block <unit> at t/spec/S03-binding/arrays.t:44
@@ -1076,12 +1077,12 @@ use of uninitialized value of type Any in string context  in any  at gen/parrot/
 
   23    0    0    0   23
 S03-operators/bag.t................................Element shifted from empty list
-  in method Str at gen/parrot/CORE.setting:13279
-  in method Str at gen/parrot/CORE.setting:1081
-  in method Stringy at gen/parrot/CORE.setting:1097
-  in method Stringy at gen/parrot/CORE.setting:1092
-  in sub infix:<~> at gen/parrot/CORE.setting:1499
-  in sub infix:<~> at gen/parrot/CORE.setting:1497
+  in method Str at gen/parrot/CORE.setting:13284
+  in method Str at gen/parrot/CORE.setting:1103
+  in method Stringy at gen/parrot/CORE.setting:1119
+  in method Stringy at gen/parrot/CORE.setting:1114
+  in sub infix:<~> at gen/parrot/CORE.setting:1521
+  in sub infix:<~> at gen/parrot/CORE.setting:1519
   in sub showkv at t/spec/S03-operators/bag.t:7
   in block <unit> at t/spec/S03-operators/bag.t:162
 
@@ -1720,15 +1721,8 @@ S05-modifier/counted.rakudo.parrot................. 116    0    2    0  118
 S05-modifier/global.t..............................   8    0    0    0    8
 S05-modifier/ignorecase.rakudo.parrot..............  22    0    2    0   24
      2 todo   : ignorecase and SS/&szlig;
-S05-modifier/ii.rakudo.parrot......................Cannot modify an immutable value
-  in block  at gen/parrot/CORE.setting:18052
-  in method samecase at gen/parrot/CORE.setting:6733
-  in method subst at gen/parrot/CORE.setting:6597
-  in method subst at gen/parrot/CORE.setting:3916
-  in block <unit> at t/spec/S05-modifier/ii.rakudo.parrot:26
-
-   0   18    0    0   18
-    18 tests aborted (missing ok/not ok)
+S05-modifier/ii.rakudo.parrot......................  12    0    6    0   18
+     6 todo   : NYI
 S05-modifier/overlapping.rakudo.parrot.............  11    0    6    5   22
      5 skipped: m:overlap// NYI
      6 todo   : m:overlap NYI
@@ -1790,18 +1784,12 @@ S05-substitution/subst.rakudo.parrot...............use of uninitialized value of
 
 use of uninitialized value of type Any in string context  in block <unit> at t/spec/S05-substitution/subst.rakudo.parrot:24
 
-Cannot modify an immutable value
-  in block  at gen/parrot/CORE.setting:18052
-  in method samecase at gen/parrot/CORE.setting:6729
-  in method subst at gen/parrot/CORE.setting:6597
-  in method subst at gen/parrot/CORE.setting:3916
-  in block <unit> at t/spec/S05-substitution/subst.rakudo.parrot:363
+use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
 
-# Looks like you planned 141 tests, but ran 122
- 117   19    0    5  141
+ 135    0    1    5  141
      2 skipped: s:g[...] =
      3 skipped: s[...] op= RHS
-    19 tests aborted (missing ok/not ok)
+     1 todo   : be smarter about constant detection
 S05-transliteration/79778.t........................   1    0    0    0    1
 S05-transliteration/trans.rakudo.parrot............use of uninitialized value of type Int in string context  in sub  at t/spec/S05-transliteration/trans.rakudo.parrot:207
 
@@ -2008,7 +1996,7 @@ S06-traits/is-copy.t...............................Potential difficulties:
     at EVAL_0:1
     ------> [32msub f ($x is copy) { my $x [33m⏏[31m}[0m
   24    0    0    0   24
-S06-traits/is-readonly.rakudo.parrot...............useless use of 'is readonly' on $!attr  in any  at src/Perl6/World.nqp:1683
+S06-traits/is-readonly.rakudo.parrot...............useless use of 'is readonly' on $!attr  in any  at src/Perl6/World.nqp:1703
 
    2    0    1    0    3
      1 todo   : readonly attributes
@@ -2252,7 +2240,7 @@ S12-methods/indirect_notation.rakudo.parrot........  10    0    0   23   33
      6 skipped: .@foo not yet working
     15 skipped: .*, .+ and .? with @foo
      2 skipped: TTIAR near $o:
-S12-methods/instance.rakudo.parrot.................useless use of 'is rw' on @!something  in any  at src/Perl6/World.nqp:1683
+S12-methods/instance.rakudo.parrot.................useless use of 'is rw' on @!something  in any  at src/Perl6/World.nqp:1703
 
 use of uninitialized value $got of type AnonInvocant in string context  in sub is at lib/Test.pm:97
 
@@ -2351,8 +2339,8 @@ S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.parrot..................  12    0    1    0   13
      1 todo   : trait mod / .wrap interaction
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1409922333
-# Using file temp_1409922333
+S16-filehandles/chmod.t............................# Using file temp_1410008851
+# Using file temp_1410008851
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2526,11 +2514,11 @@ use of uninitialized value of type Nil in numeric context  in sub throws_like at
 
 use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
 
-Code object coerced to string (please use .gist or .perl to do that)  in any  at src/Perl6/World.nqp:1683
+Code object coerced to string (please use .gist or .perl to do that)  in any  at src/Perl6/World.nqp:1703
 
 use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
 
-Code object coerced to string (please use .gist or .perl to do that)  in any throw at src/Perl6/World.nqp:2555
+Code object coerced to string (please use .gist or .perl to do that)  in any throw at src/Perl6/World.nqp:2575
 
 use of uninitialized value of type Nil in numeric context  in sub throws_like at lib/Test.pm:274
 
@@ -3093,14 +3081,7 @@ S32-str/ords.t.....................................   6    0    0    0    6
 S32-str/pack.t.....................................   6    0    0    0    6
 S32-str/pos.t......................................   2    0    0    0    2
 S32-str/rindex.t...................................  33    0    0    0   33
-S32-str/samecase.t.................................Cannot modify an immutable value
-  in block  at gen/parrot/CORE.setting:18052
-  in method samecase at gen/parrot/CORE.setting:6729
-  in sub samecase at gen/parrot/CORE.setting:3989
-  in block <unit> at t/spec/S32-str/samecase.t:15
-
-   0    8    0    0    8
-     8 tests aborted (missing ok/not ok)
+S32-str/samecase.t.................................   8    0    0    0    8
 S32-str/split-simple.rakudo.parrot.................  28    0    1    0   29
      1 todo   : RT #112868
 S32-str/split.rakudo.parrot........................  52    0    0    1   53
@@ -3308,13 +3289,13 @@ S32-temporal/DateTime.rakudo.parrot................
 # expected: '29 18 23 27 12 2004 1'
 #      got: '29 18 23 18 23887 4005 6'
 month out of range. Is: 23994, should be in 1..12
-  in method check-value at gen/parrot/CORE.setting:15934
-  in method check-date at gen/parrot/CORE.setting:15941
-  in method new at gen/parrot/CORE.setting:16015
-  in method new at gen/parrot/CORE.setting:880
-  in method new at gen/parrot/CORE.setting:16056
-  in method new at gen/parrot/CORE.setting:880
-  in method later at gen/parrot/CORE.setting:16224
+  in method check-value at gen/parrot/CORE.setting:15925
+  in method check-date at gen/parrot/CORE.setting:15932
+  in method new at gen/parrot/CORE.setting:16006
+  in method new at gen/parrot/CORE.setting:902
+  in method new at gen/parrot/CORE.setting:16047
+  in method new at gen/parrot/CORE.setting:902
+  in method later at gen/parrot/CORE.setting:16215
   in block <unit> at t/spec/S32-temporal/DateTime.rakudo.parrot:462
 
 # Looks like you planned 219 tests, but ran 183
@@ -3390,12 +3371,12 @@ S32-temporal/calendar.t............................Potential difficulties:
     at t/spec/S32-temporal/calendar.t:140
     ------> [32mis dtim(2010, 01, 03[33m⏏[31m).week-number, 53, 'DateTime.week-number[0m
 month out of range. Is: 23816, should be in 1..12
-  in method check-value at gen/parrot/CORE.setting:15934
-  in method check-date at gen/parrot/CORE.setting:15941
-  in method new at gen/parrot/CORE.setting:16317
-  in method new at gen/parrot/CORE.setting:880
-  in method clone at gen/parrot/CORE.setting:16425
-  in method truncated-to at gen/parrot/CORE.setting:16376
+  in method check-value at gen/parrot/CORE.setting:15925
+  in method check-date at gen/parrot/CORE.setting:15932
+  in method new at gen/parrot/CORE.setting:16308
+  in method new at gen/parrot/CORE.setting:902
+  in method clone at gen/parrot/CORE.setting:16416
+  in method truncated-to at gen/parrot/CORE.setting:16367
   in block <unit> at t/spec/S32-temporal/calendar.t:27
 
 # Looks like you planned 130 tests, but ran 4
@@ -3567,13 +3548,13 @@ integration/advent2012-day15.rakudo.parrot.........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.rakudo.parrot.........# kaz: 5.71910711 seconds
-# gerdr: 6.23534381 seconds
-# recursive-ternary: 7.8601064 seconds
-# loop: 8.22313792 seconds
-# recursive-ternary-hand-cached: 25.4243312 seconds
-# sequence-ternary: 28.5286354 seconds
-# sequence: 34.7874474 seconds
+integration/advent2012-day21.rakudo.parrot.........# kaz: 5.4565031 seconds
+# gerdr: 6.300936 seconds
+# recursive-ternary: 7.48755314 seconds
+# loop: 7.7483075 seconds
+# recursive-ternary-hand-cached: 18.95268008 seconds
+# sequence-ternary: 22.79989111 seconds
+# sequence: 31.92997907 seconds
    8    0    0    1    9
      1 skipped: RT #122497
 integration/advent2012-day22.rakudo.parrot.........   5    0    1    0    6
@@ -3689,10 +3670,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        4973,     0,   121,   454,  5548,  5640
+"S02",        4974,     0,   123,   454,  5551,  5643
 "S03",        4872,     0,   108,    87,  5067,  5089
 "S04",         979,     0,    48,    42,  1069,  1121
-"S05",        5110,    37,   103,   268,  5518,  5899
+"S05",        5140,     0,   110,   268,  5518,  5899
 "S06",        1177,     0,    44,   104,  1325,  1405
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         179,     0,    11,    10,   200,   200
@@ -3710,15 +3691,12 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1205,     0,     0,    42,  1247,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         337,     0,     4,     3,   344,   354
-"S32",        8949,   206,   109,   133,  9397,  7796
+"S32",        8957,   198,   109,   133,  9397,  7796
 "int",        1191,     3,     9,    21,  1224,  1227
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31130,   246,   630,  1358, 33364, 34341
+"total",     31169,   201,   639,  1358, 33367, 34344
 ----------------
 Failure summary:
-S05-modifier/ii.rakudo.parrot aborted 18 test(s)
-S05-substitution/subst.rakudo.parrot aborted 19 test(s)
-S32-str/samecase.t aborted 8 test(s)
 S32-temporal/Date.t 24 - simple .succ
 S32-temporal/Date.t 25 - simple .pred
 S32-temporal/Date.t 26 - .succ with leap year (1)
