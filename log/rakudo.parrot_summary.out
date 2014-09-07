@@ -958,7 +958,9 @@ S03-feeds/basic.rakudo.parrot......................  10    0    6    8   24
      2 todo   : feeds + signatures
      3 todo   : feeds + eager
 S03-junctions/associative.t........................  10    0    0    0   10
-S03-junctions/autothreading.t......................  89    0    0    0   89
+S03-junctions/autothreading.t......................Segmentation fault (core dumped)
+  13   76    0    0   89
+    76 tests aborted (missing ok/not ok)
 S03-junctions/boolean-context.rakudo.parrot........  76    0    1    0   77
      1 todo   : named unary as function call
 S03-junctions/misc.rakudo.parrot...................  99    0    2    4  105
@@ -1077,12 +1079,12 @@ use of uninitialized value of type Any in string context  in any  at gen/parrot/
 
   23    0    0    0   23
 S03-operators/bag.t................................Element shifted from empty list
-  in method Str at gen/parrot/CORE.setting:13284
-  in method Str at gen/parrot/CORE.setting:1103
-  in method Stringy at gen/parrot/CORE.setting:1119
-  in method Stringy at gen/parrot/CORE.setting:1114
-  in sub infix:<~> at gen/parrot/CORE.setting:1521
+  in method Str at gen/parrot/CORE.setting:13292
+  in method Str at gen/parrot/CORE.setting:1101
+  in method Stringy at gen/parrot/CORE.setting:1117
+  in method Stringy at gen/parrot/CORE.setting:1112
   in sub infix:<~> at gen/parrot/CORE.setting:1519
+  in sub infix:<~> at gen/parrot/CORE.setting:1517
   in sub showkv at t/spec/S03-operators/bag.t:7
   in block <unit> at t/spec/S03-operators/bag.t:162
 
@@ -2339,16 +2341,50 @@ S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.parrot..................  12    0    1    0   13
      1 todo   : trait mod / .wrap interaction
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1410008851
-# Using file temp_1410008851
+S16-filehandles/chmod.t............................# Using file temp_1410095293
+# Using file temp_1410095293
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
 S16-filehandles/filetest.rakudo.parrot.............  32    0    0    9   41
      6 skipped: :M, :C, :A
      3 skipped: no file README
-S16-filehandles/io.t...............................  86    0    0    0   86
-S16-filehandles/io_in_for_loops.t..................  29    0    0    0   29
+S16-filehandles/io.t...............................
+# Failed test 'we got four lines from the file'
+# at t/spec/S16-filehandles/io.t line 1
+# expected: '4'
+#      got: '5'
+
+# Failed test 'same with .ins'
+# at t/spec/S16-filehandles/io.t line 91
+# expected: '4'
+#      got: '5'
+
+# Failed test 'we got four lines from the file'
+# at t/spec/S16-filehandles/io.t line 1
+# expected: '4'
+#      got: '5'
+
+# Failed test 'we got four lines from the file'
+# at t/spec/S16-filehandles/io.t line 1
+# expected: '4'
+#      got: '5'
+# Looks like you failed 4 tests of 86
+  82    4    0    0   86
+S16-filehandles/io_in_for_loops.t..................
+# Failed test '... got the right line (($fh.lines) controlled loop)'
+# at t/spec/S16-filehandles/io_in_for_loops.t line 34
+# expected: '7'
+#      got: ''
+
+# Failed test '... got the right line ($fh.lines controlled loop)'
+# at t/spec/S16-filehandles/io_in_for_loops.t line 45
+# expected: '7'
+#      got: ''
+# Looks like you planned 29 tests, but ran 31
+# Looks like you failed 2 tests of 31
+  29    2    0    0   29
+     2 tests more than planned were run
 S16-filehandles/io_in_while_loops.t................  13    0    0    0   13
 S16-filehandles/mkdir_rmdir.rakudo.parrot..........  13    0    0    1   14
      1 skipped: deviation from spec because we do not have sink yet
@@ -2358,7 +2394,18 @@ S16-filehandles/open.rakudo.parrot.................   3    0    1    1    5
 S16-filehandles/unlink.rakudo.parrot...............   5    0    0    1    6
      1 skipped: implicit closure of file handle at scope exit NYI (FAILS ON WINDOWS) (noauto)
 S16-io/bare-say.t..................................   7    0    0    0    7
-S16-io/basic-open.t................................   9    0    0    0    9
+S16-io/basic-open.t................................
+# Failed test 'Three lines read'
+# at t/spec/S16-io/basic-open.t line 8
+# expected: '3'
+#      got: '4'
+
+# Failed test 'Three lines read'
+# at t/spec/S16-io/basic-open.t line 8
+# expected: '3'
+#      got: '4'
+# Looks like you failed 2 tests of 9
+   7    2    0    0    9
 S16-io/cwd.t.......................................   3    0    0    0    3
 S16-io/getc.t......................................   2    0    0    0    2
 S16-io/say-and-ref.t...............................   3    0    0    0    3
@@ -2876,7 +2923,13 @@ S32-io/io-spec-win.t...............................use of uninitialized value $p
      3 skipped: Win32ish on-platform tests
 S32-io/note.t......................................   6    0    0    0    6
 S32-io/other.t.....................................  60    0    0    0   60
-S32-io/slurp.t.....................................  18    0    0    0   18
+S32-io/slurp.t.....................................
+# Failed test 'lines() - exactly 3 lines in this file'
+# at t/spec/S32-io/slurp.t line 1
+# expected: '3'
+#      got: '4'
+# Looks like you failed 1 tests of 18
+  17    1    0    0   18
 S32-io/spurt.t.....................................  35    0    0    0   35
 S32-list/categorize.t..............................  12    0    0    0   12
 S32-list/classify.rakudo.parrot....................  12    0    0    3   15
@@ -2952,7 +3005,13 @@ S32-list/map.rakudo.parrot.........................  51    0    0    8   59
      2 skipped: closure as non-final argument
      2 skipped: adverbial block
 S32-list/map_function_return_values.t..............   2    0    0    0    2
-S32-list/minmax.t..................................  55    0    0    0   55
+S32-list/minmax.t..................................
+# Failed test 'min of strings read from a file works'
+# at t/spec/S32-list/minmax.t line 105
+# expected: '-1'
+#      got: ''
+# Looks like you failed 1 tests of 55
+  54    1    0    0   55
 S32-list/permutations.t............................   2    0    0    0    2
 S32-list/pick.rakudo.parrot........................  56    0    1    0   57
      1 todo   : error on pick :replace
@@ -3289,13 +3348,13 @@ S32-temporal/DateTime.rakudo.parrot................
 # expected: '29 18 23 27 12 2004 1'
 #      got: '29 18 23 18 23887 4005 6'
 month out of range. Is: 23994, should be in 1..12
-  in method check-value at gen/parrot/CORE.setting:15925
-  in method check-date at gen/parrot/CORE.setting:15932
-  in method new at gen/parrot/CORE.setting:16006
-  in method new at gen/parrot/CORE.setting:902
-  in method new at gen/parrot/CORE.setting:16047
-  in method new at gen/parrot/CORE.setting:902
-  in method later at gen/parrot/CORE.setting:16215
+  in method check-value at gen/parrot/CORE.setting:15961
+  in method check-date at gen/parrot/CORE.setting:15968
+  in method new at gen/parrot/CORE.setting:16042
+  in method new at gen/parrot/CORE.setting:900
+  in method new at gen/parrot/CORE.setting:16083
+  in method new at gen/parrot/CORE.setting:900
+  in method later at gen/parrot/CORE.setting:16251
   in block <unit> at t/spec/S32-temporal/DateTime.rakudo.parrot:462
 
 # Looks like you planned 219 tests, but ran 183
@@ -3371,12 +3430,12 @@ S32-temporal/calendar.t............................Potential difficulties:
     at t/spec/S32-temporal/calendar.t:140
     ------> [32mis dtim(2010, 01, 03[33m⏏[31m).week-number, 53, 'DateTime.week-number[0m
 month out of range. Is: 23816, should be in 1..12
-  in method check-value at gen/parrot/CORE.setting:15925
-  in method check-date at gen/parrot/CORE.setting:15932
-  in method new at gen/parrot/CORE.setting:16308
-  in method new at gen/parrot/CORE.setting:902
-  in method clone at gen/parrot/CORE.setting:16416
-  in method truncated-to at gen/parrot/CORE.setting:16367
+  in method check-value at gen/parrot/CORE.setting:15961
+  in method check-date at gen/parrot/CORE.setting:15968
+  in method new at gen/parrot/CORE.setting:16344
+  in method new at gen/parrot/CORE.setting:900
+  in method clone at gen/parrot/CORE.setting:16452
+  in method truncated-to at gen/parrot/CORE.setting:16403
   in block <unit> at t/spec/S32-temporal/calendar.t:27
 
 # Looks like you planned 130 tests, but ran 4
@@ -3548,13 +3607,13 @@ integration/advent2012-day15.rakudo.parrot.........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.rakudo.parrot.........# kaz: 5.4565031 seconds
-# gerdr: 6.300936 seconds
-# recursive-ternary: 7.48755314 seconds
-# loop: 7.7483075 seconds
-# recursive-ternary-hand-cached: 18.95268008 seconds
-# sequence-ternary: 22.79989111 seconds
-# sequence: 31.92997907 seconds
+integration/advent2012-day21.rakudo.parrot.........# kaz: 5.7176837 seconds
+# gerdr: 5.9716316 seconds
+# recursive-ternary: 7.5423390 seconds
+# loop: 8.3612118 seconds
+# recursive-ternary-hand-cached: 20.2091644 seconds
+# sequence-ternary: 23.8270308 seconds
+# sequence: 34.2933230 seconds
    8    0    0    1    9
      1 skipped: RT #122497
 integration/advent2012-day22.rakudo.parrot.........   5    0    1    0    6
@@ -3671,7 +3730,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
 "S02",        4974,     0,   123,   454,  5551,  5643
-"S03",        4872,     0,   108,    87,  5067,  5089
+"S03",        4796,    76,   108,    87,  5067,  5089
 "S04",         979,     0,    48,    42,  1069,  1121
 "S05",        5140,     0,   110,   268,  5518,  5899
 "S06",        1177,     0,    44,   104,  1325,  1405
@@ -3683,20 +3742,32 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S13",          35,     0,    10,    27,    72,    82
 "S14",         299,     0,     8,    10,   317,   330
 "S15",           0,     0,     0,     0,     0,   283
-"S16",         242,     0,     1,    17,   260,   304
-"S17",           0,     0,     0,     0,     0,   611
+"S16",         236,     8,     1,    17,   260,   304
+"S17",           0,     0,     0,     0,     0,   614
 "S19",           6,     0,     0,     0,     6,     6
 "S22",          51,     0,     1,     1,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
 "S26",        1205,     0,     0,    42,  1247,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         337,     0,     4,     3,   344,   354
-"S32",        8957,   198,   109,   133,  9397,  7796
+"S32",        8955,   200,   109,   133,  9397,  7796
 "int",        1191,     3,     9,    21,  1224,  1227
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31169,   201,   639,  1358, 33367, 34344
+"total",     31085,   287,   639,  1358, 33367, 34347
 ----------------
 Failure summary:
+S03-junctions/autothreading.t aborted 76 test(s)
+S16-filehandles/io.t 24 - we got four lines from the file
+S16-filehandles/io.t 25 - same with .ins
+S16-filehandles/io.t 39 - we got four lines from the file
+S16-filehandles/io.t 46 - we got four lines from the file
+S16-filehandles/io_in_for_loops.t 13 - ... got the right line (($fh.lines) controlled loop)
+S16-filehandles/io_in_for_loops.t 20 - ... got the right line ($fh.lines controlled loop)
+S16-filehandles/io_in_for_loops.t passed 2 unplanned test(s)
+S16-io/basic-open.t 3 - Three lines read
+S16-io/basic-open.t 7 - Three lines read
+S32-io/slurp.t 17 - lines() - exactly 3 lines in this file
+S32-list/minmax.t 38 - min of strings read from a file works
 S32-temporal/Date.t 24 - simple .succ
 S32-temporal/Date.t 25 - simple .pred
 S32-temporal/Date.t 26 - .succ with leap year (1)
