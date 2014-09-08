@@ -483,7 +483,7 @@ use of uninitialized value of type Nil in numeric context  in sub throws_like at
      1 todo   : no such symbol
 S02-one-pass-parsing/less-than.t...................   9    0    0    0    9
 S02-packages/package-lookup.t......................   7    0    0    0    7
-S02-types/WHICH.rakudo.parrot...................... 538    0    0   48  586
+S02-types/WHICH.rakudo.parrot...................... 540    0    0   48  588
     48 skipped: NYI on parrot
 S02-types/anon_block.rakudo.parrot.................WARNINGS:
 Useless use of "," in expression "{$foo4 = \"blah\"}," in sink context (line 85)
@@ -958,9 +958,7 @@ S03-feeds/basic.rakudo.parrot......................  10    0    6    8   24
      2 todo   : feeds + signatures
      3 todo   : feeds + eager
 S03-junctions/associative.t........................  10    0    0    0   10
-S03-junctions/autothreading.t......................Segmentation fault (core dumped)
-  13   76    0    0   89
-    76 tests aborted (missing ok/not ok)
+S03-junctions/autothreading.t......................  89    0    0    0   89
 S03-junctions/boolean-context.rakudo.parrot........  76    0    1    0   77
      1 todo   : named unary as function call
 S03-junctions/misc.rakudo.parrot...................  99    0    2    4  105
@@ -1079,12 +1077,12 @@ use of uninitialized value of type Any in string context  in any  at gen/parrot/
 
   23    0    0    0   23
 S03-operators/bag.t................................Element shifted from empty list
-  in method Str at gen/parrot/CORE.setting:13292
-  in method Str at gen/parrot/CORE.setting:1101
-  in method Stringy at gen/parrot/CORE.setting:1117
-  in method Stringy at gen/parrot/CORE.setting:1112
-  in sub infix:<~> at gen/parrot/CORE.setting:1519
-  in sub infix:<~> at gen/parrot/CORE.setting:1517
+  in method Str at gen/parrot/CORE.setting:13313
+  in method Str at gen/parrot/CORE.setting:1116
+  in method Stringy at gen/parrot/CORE.setting:1132
+  in method Stringy at gen/parrot/CORE.setting:1127
+  in sub infix:<~> at gen/parrot/CORE.setting:1534
+  in sub infix:<~> at gen/parrot/CORE.setting:1532
   in sub showkv at t/spec/S03-operators/bag.t:7
   in block <unit> at t/spec/S03-operators/bag.t:162
 
@@ -2341,8 +2339,8 @@ S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.parrot..................  12    0    1    0   13
      1 todo   : trait mod / .wrap interaction
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1410095293
-# Using file temp_1410095293
+S16-filehandles/chmod.t............................# Using file temp_1410181414
+# Using file temp_1410181414
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -3179,6 +3177,10 @@ S32-temporal/Date.t................................Potential difficulties:
     at t/spec/S32-temporal/Date.t:28
     ------> [32m    isa_ok Date.new(2010, 01, 01[33m⏏[31m), Date, 'Date.new() returns a Date';  #[0m
 
+# Failed test 'Date.today'
+# at t/spec/S32-temporal/Date.t line 13
+# Dynamic variable $*TZ not found
+
 # Failed test 'simple .succ'
 # at t/spec/S32-temporal/Date.t line 59
 # expected: '2010-04-13'
@@ -3298,8 +3300,8 @@ S32-temporal/Date.t................................Potential difficulties:
 # at t/spec/S32-temporal/Date.t line 134
 # expected: '2014-12-30'
 #      got: '4015-24006-28'
-# Looks like you failed 24 tests of 72
-  48   24    0    0   72
+# Looks like you failed 25 tests of 72
+  47   25    0    0   72
 S32-temporal/DateTime-Instant-Duration.rakudo.par..
 # Failed test 'Instant subtraction (time zones)'
 # at t/spec/S32-temporal/DateTime-Instant-Duration.rakudo.parrot line 64
@@ -3327,41 +3329,18 @@ S32-temporal/DateTime.rakudo.parrot................
 # Failed test 'Leap-second validation: Okay because of TZ; January 1 (second 60.9)'
 # at t/spec/S32-temporal/DateTime.rakudo.parrot line 143
 # second out of range. Is: 60.9, should be in 0..^60; There is no leap second on UTC 3899-23816-09
+Dynamic variable $*TZ not found
+  in method Int at gen/parrot/CORE.setting:13310
+  in method in-timezone at gen/parrot/CORE.setting:16302
+  in method new at gen/parrot/CORE.setting:16110
+  in method new at gen/parrot/CORE.setting:915
+  in method now at gen/parrot/CORE.setting:16164
+  in block <unit> at t/spec/S32-temporal/DateTime.rakudo.parrot:260
 
-# Failed test 'DateTime.in-timezone (one-day rollover)'
-# at t/spec/S32-temporal/DateTime.rakudo.parrot line 380
-# expected: '2005-02-03T20:30:00-1855'
-#      got: '4005-23888-26T20:30:00-1855'
-
-# Failed test 'DateTime.in-timezone (two-day rollover)'
-# at t/spec/S32-temporal/DateTime.rakudo.parrot line 382
-# expected: '2005-02-06T00:31:00+1655'
-#      got: '4005-23888-29T00:31:00+1655'
-
-# Failed test 'DateTime.in-timezone (year rollover)'
-# at t/spec/S32-temporal/DateTime.rakudo.parrot line 384
-# expected: '2004-12-31T23:57:00+0035'
-#      got: '4005-23887-22T23:57:00+0035'
-
-# Failed test 'DateTime.in-timezone (big rollover)'
-# at t/spec/S32-temporal/DateTime.rakudo.parrot line 395
-# expected: '29 18 23 27 12 2004 1'
-#      got: '29 18 23 18 23887 4005 6'
-month out of range. Is: 23994, should be in 1..12
-  in method check-value at gen/parrot/CORE.setting:15961
-  in method check-date at gen/parrot/CORE.setting:15968
-  in method new at gen/parrot/CORE.setting:16042
-  in method new at gen/parrot/CORE.setting:900
-  in method new at gen/parrot/CORE.setting:16083
-  in method new at gen/parrot/CORE.setting:900
-  in method later at gen/parrot/CORE.setting:16251
-  in block <unit> at t/spec/S32-temporal/DateTime.rakudo.parrot:462
-
-# Looks like you planned 219 tests, but ran 183
-# Looks like you failed 6 tests of 183
- 176   42    1    0  219
-     1 todo   : nom regression
-    36 tests aborted (missing ok/not ok)
+# Looks like you planned 219 tests, but ran 111
+# Looks like you failed 2 tests of 111
+ 109  110    0    0  219
+   108 tests aborted (missing ok/not ok)
 S32-temporal/calendar.t............................Potential difficulties:
     Leading 0 does not indicate octal in Perl 6; please use 0o1 if you mean that
     at t/spec/S32-temporal/calendar.t:119
@@ -3430,18 +3409,21 @@ S32-temporal/calendar.t............................Potential difficulties:
     at t/spec/S32-temporal/calendar.t:140
     ------> [32mis dtim(2010, 01, 03[33m⏏[31m).week-number, 53, 'DateTime.week-number[0m
 month out of range. Is: 23816, should be in 1..12
-  in method check-value at gen/parrot/CORE.setting:15961
-  in method check-date at gen/parrot/CORE.setting:15968
-  in method new at gen/parrot/CORE.setting:16344
-  in method new at gen/parrot/CORE.setting:900
-  in method clone at gen/parrot/CORE.setting:16452
-  in method truncated-to at gen/parrot/CORE.setting:16403
+  in method check-value at gen/parrot/CORE.setting:15981
+  in method check-date at gen/parrot/CORE.setting:15988
+  in method new at gen/parrot/CORE.setting:16364
+  in method new at gen/parrot/CORE.setting:915
+  in method clone at gen/parrot/CORE.setting:16472
+  in method truncated-to at gen/parrot/CORE.setting:16423
   in block <unit> at t/spec/S32-temporal/calendar.t:27
 
 # Looks like you planned 130 tests, but ran 4
    4  126    0    0  130
    126 tests aborted (missing ok/not ok)
 S32-temporal/local.rakudo.parrot...................
+# Failed test '$*TZ is defined'
+# at t/spec/S32-temporal/local.rakudo.parrot line 10
+
 # Failed test 'DateTime.local (from UTC, during DST)'
 # at t/spec/S32-temporal/local.rakudo.parrot line 48
 # expected: '2003-07-31T22:22:00-0400'
@@ -3456,7 +3438,7 @@ S32-temporal/local.rakudo.parrot...................
 # at t/spec/S32-temporal/local.rakudo.parrot line 79
 # expected: '2007-03-10T14:50:00-1612'
 #      got: '4007-23913-26T14:50:00-1612'
-  13    3    9    0   25
+  12    4    9    0   25
      9 todo   : RT #122702
 S32-trig/atan2.t................................... 115    0    0    0  115
 S32-trig/cos.t..................................... 154    0    0    0  154
@@ -3561,8 +3543,177 @@ integration/advent2010-day16.t.....................
 #      got: '3864-23397-26'
 # Looks like you failed 1 tests of 13
   12    1    0    0   13
-integration/advent2010-day19.rakudo.parrot.........   5    0    1    0    6
+integration/advent2010-day19.rakudo.parrot.........*** Error in `./perl6-p': free(): invalid pointer: 0x00007fa687ec27c8 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x80996)[0x7fa687b81996]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/nqp_bigint_ops.so(+0xcc6d)[0x7fa6837d8c6d]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/nqp_ops.so(+0x31cf2)[0x7fa683a1bcf2]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(+0x8826e)[0x7fa687f5126e]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(+0x885c7)[0x7fa687f515c7]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(Parrot_gc_new_pmc_header+0x13)[0x7fa687f4c9c3]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(+0xa6e97)[0x7fa687f6fe97]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(Parrot_pmc_new+0x3c)[0x7fa687f7011c]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(Parrot_pcc_reuse_continuation+0x58)[0x7fa687f5b2d8]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(+0x62078)[0x7fa687f2b078]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(+0xa81e5)[0x7fa687f711e5]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(+0xa7e2d)[0x7fa687f70e2d]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(+0x91b58)[0x7fa687f5ab58]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(Parrot_pcc_invoke_from_sig_object+0xbe)[0x7fa687f56bde]
+dynext/perl6_ops.so(+0x10d34)[0x7fa683c5ad34]
+dynext/perl6_ops.so(+0x11767)[0x7fa683c5b767]
+dynext/perl6_ops.so(Parrot_bind_signature+0xa6)[0x7fa683c53306]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(+0xa81e5)[0x7fa687f711e5]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(+0xa7e2d)[0x7fa687f70e2d]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(+0x91b58)[0x7fa687f5ab58]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(Parrot_pcc_invoke_from_sig_object+0xbe)[0x7fa687f56bde]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(Parrot_ext_call+0xd1)[0x7fa687f4b2e1]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(+0x156606)[0x7fa68801f606]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(Parrot_pcc_invoke_from_sig_object+0x7c)[0x7fa687f56b9c]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(Parrot_ext_call+0xd1)[0x7fa687f4b2e1]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(+0xac04f)[0x7fa687f7504f]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(Parrot_cx_begin_execution+0x57)[0x7fa687f75147]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(Parrot_pf_execute_bytecode_program+0xbb)[0x7fa687f7d74b]
+/home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0(Parrot_api_run_bytecode+0xd3)[0x7fa687f473d3]
+./perl6-p(main+0x1d7)[0x401287]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5)[0x7fa687b22de5]
+./perl6-p[0x401336]
+======= Memory map: ========
+00400000-0040e000 r-xp 00000000 fd:00 2766939                            /home/coke/sandbox/perl6-roast-data/rakudo.parrot/perl6-p
+0060e000-0060f000 r--p 0000e000 fd:00 2766939                            /home/coke/sandbox/perl6-roast-data/rakudo.parrot/perl6-p
+0060f000-00610000 rw-p 0000f000 fd:00 2766939                            /home/coke/sandbox/perl6-roast-data/rakudo.parrot/perl6-p
+00da4000-0e607000 rw-p 00000000 00:00 0                                  [heap]
+7fa67de2d000-7fa67e5de000 rw-p 00000000 00:00 0 
+7fa67e5de000-7fa67e5ef000 r-xp 00000000 fd:00 3298743                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/nqp_dyncall_ops.so
+7fa67e5ef000-7fa67e7ee000 ---p 00011000 fd:00 3298743                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/nqp_dyncall_ops.so
+7fa67e7ee000-7fa67e7ef000 r--p 00010000 fd:00 3298743                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/nqp_dyncall_ops.so
+7fa67e7ef000-7fa67e7f0000 rw-p 00011000 fd:00 3298743                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/nqp_dyncall_ops.so
+7fa67e7f0000-7fa67e7f3000 r-xp 00000000 fd:00 3296000                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/sys_ops.so
+7fa67e7f3000-7fa67e9f2000 ---p 00003000 fd:00 3296000                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/sys_ops.so
+7fa67e9f2000-7fa67e9f3000 r--p 00002000 fd:00 3296000                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/sys_ops.so
+7fa67e9f3000-7fa67e9f4000 rw-p 00003000 fd:00 3296000                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/sys_ops.so
+7fa67e9f4000-7fa67e9f8000 r-xp 00000000 fd:00 3295996                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/math_ops.so
+7fa67e9f8000-7fa67ebf7000 ---p 00004000 fd:00 3295996                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/math_ops.so
+7fa67ebf7000-7fa67ebf8000 r--p 00003000 fd:00 3295996                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/math_ops.so
+7fa67ebf8000-7fa67ebfa000 rw-p 00004000 fd:00 3295996                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/math_ops.so
+7fa67ebfa000-7fa67ec03000 r-xp 00000000 fd:00 3295998                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/bit_ops.so
+7fa67ec03000-7fa67ee02000 ---p 00009000 fd:00 3295998                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/bit_ops.so
+7fa67ee02000-7fa67ee03000 r--p 00008000 fd:00 3295998                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/bit_ops.so
+7fa67ee03000-7fa67ee07000 rw-p 00009000 fd:00 3295998                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/bit_ops.so
+7fa67ee07000-7fa67ee0a000 r-xp 00000000 fd:00 3295995                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/obscure_ops.so
+7fa67ee0a000-7fa67f009000 ---p 00003000 fd:00 3295995                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/obscure_ops.so
+7fa67f009000-7fa67f00a000 r--p 00002000 fd:00 3295995                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/obscure_ops.so
+7fa67f00a000-7fa67f00c000 rw-p 00003000 fd:00 3295995                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/obscure_ops.so
+7fa67f00c000-7fa67f00e000 r-xp 00000000 fd:00 3295857                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/file.so
+7fa67f00e000-7fa67f20e000 ---p 00002000 fd:00 3295857                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/file.so
+7fa67f20e000-7fa67f20f000 r--p 00002000 fd:00 3295857                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/file.so
+7fa67f20f000-7fa67f210000 rw-p 00003000 fd:00 3295857                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/file.so
+7fa67f210000-7fa67f212000 r-xp 00000000 fd:00 3295858                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/os.so
+7fa67f212000-7fa67f411000 ---p 00002000 fd:00 3295858                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/os.so
+7fa67f411000-7fa67f412000 r--p 00001000 fd:00 3295858                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/os.so
+7fa67f412000-7fa67f413000 rw-p 00002000 fd:00 3295858                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/os.so
+7fa67f413000-7fa682f8f000 rw-p 00000000 00:00 0 
+7fa682f8f000-7fa682f95000 r-xp 00000000 fd:00 3295997                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/trans_ops.so
+7fa682f95000-7fa683194000 ---p 00006000 fd:00 3295997                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/trans_ops.so
+7fa683194000-7fa683195000 r--p 00005000 fd:00 3295997                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/trans_ops.so
+7fa683195000-7fa683198000 rw-p 00006000 fd:00 3295997                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/trans_ops.so
+7fa683198000-7fa6835c3000 rw-p 00000000 00:00 0 
+7fa6835c3000-7fa6835c9000 r-xp 00000000 fd:00 3296001                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/io_ops.so
+7fa6835c9000-7fa6837c8000 ---p 00006000 fd:00 3296001                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/io_ops.so
+7fa6837c8000-7fa6837c9000 r--p 00005000 fd:00 3296001                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/io_ops.so
+7fa6837c9000-7fa6837cc000 rw-p 00006000 fd:00 3296001                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/io_ops.so
+7fa6837cc000-7fa6837e7000 r-xp 00000000 fd:00 3298742                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/nqp_bigint_ops.so
+7fa6837e7000-7fa6839e6000 ---p 0001b000 fd:00 3298742                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/nqp_bigint_ops.so
+7fa6839e6000-7fa6839e7000 r--p 0001a000 fd:00 3298742                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/nqp_bigint_ops.so
+7fa6839e7000-7fa6839ea000 rw-p 0001b000 fd:00 3298742                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/nqp_bigint_ops.so
+7fa6839ea000-7fa683a3a000 r-xp 00000000 fd:00 3298741                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/nqp_ops.so
+7fa683a3a000-7fa683c39000 ---p 00050000 fd:00 3298741                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/nqp_ops.so
+7fa683c39000-7fa683c3a000 r--p 0004f000 fd:00 3298741                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/nqp_ops.so
+7fa683c3a000-7fa683c4a000 rw-p 00050000 fd:00 3298741                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/nqp_ops.so
+7fa683c4a000-7fa683c64000 r-xp 00000000 fd:00 2766896                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/dynext/perl6_ops.so
+7fa683c64000-7fa683e63000 ---p 0001a000 fd:00 2766896                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/dynext/perl6_ops.so
+7fa683e63000-7fa683e64000 r--p 00019000 fd:00 2766896                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/dynext/perl6_ops.so
+7fa683e64000-7fa683e6a000 rw-p 0001a000 fd:00 2766896                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/dynext/perl6_ops.so
+7fa683e6a000-7fa683e80000 r-xp 00000000 fd:00 3298740                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/nqp_group.so
+7fa683e80000-7fa684080000 ---p 00016000 fd:00 3298740                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/nqp_group.so
+7fa684080000-7fa684081000 r--p 00016000 fd:00 3298740                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/nqp_group.so
+7fa684081000-7fa684082000 rw-p 00017000 fd:00 3298740                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/6.7.0-devel/dynext/nqp_group.so
+7fa684082000-7fa684083000 ---p 00000000 00:00 0 
+7fa684083000-7fa684883000 rwxp 00000000 00:00 0                          [stack:2444]
+7fa684883000-7fa684cf7000 r--p 00000000 fd:00 789671                     /usr/lib/locale/locale-archive
+7fa684cf7000-7fa684d0c000 r-xp 00000000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fa684d0c000-7fa684f0b000 ---p 00015000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fa684f0b000-7fa684f0c000 r--p 00014000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fa684f0c000-7fa684f0d000 rw-p 00015000 fd:00 1311424                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fa684f0d000-7fa684ff3000 r-xp 00000000 fd:00 1049748                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.18
+7fa684ff3000-7fa6851f2000 ---p 000e6000 fd:00 1049748                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.18
+7fa6851f2000-7fa6851fa000 r--p 000e5000 fd:00 1049748                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.18
+7fa6851fa000-7fa6851fc000 rw-p 000ed000 fd:00 1049748                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.18
+7fa6851fc000-7fa685211000 rw-p 00000000 00:00 0 
+7fa685211000-7fa686380000 r-xp 00000000 fd:00 1052141                    /usr/lib/x86_64-linux-gnu/libicudata.so.48.1.1
+7fa686380000-7fa68657f000 ---p 0116f000 fd:00 1052141                    /usr/lib/x86_64-linux-gnu/libicudata.so.48.1.1
+7fa68657f000-7fa686580000 r--p 0116e000 fd:00 1052141                    /usr/lib/x86_64-linux-gnu/libicudata.so.48.1.1
+7fa686580000-7fa686581000 rw-p 0116f000 fd:00 1052141                    /usr/lib/x86_64-linux-gnu/libicudata.so.48.1.1
+7fa686581000-7fa6865a6000 r-xp 00000000 fd:00 1310929                    /lib/x86_64-linux-gnu/libtinfo.so.5.9
+7fa6865a6000-7fa6867a5000 ---p 00025000 fd:00 1310929                    /lib/x86_64-linux-gnu/libtinfo.so.5.9
+7fa6867a5000-7fa6867a9000 r--p 00024000 fd:00 1310929                    /lib/x86_64-linux-gnu/libtinfo.so.5.9
+7fa6867a9000-7fa6867aa000 rw-p 00028000 fd:00 1310929                    /lib/x86_64-linux-gnu/libtinfo.so.5.9
+7fa6867aa000-7fa686901000 r-xp 00000000 fd:00 1052145                    /usr/lib/x86_64-linux-gnu/libicuuc.so.48.1.1
+7fa686901000-7fa686b01000 ---p 00157000 fd:00 1052145                    /usr/lib/x86_64-linux-gnu/libicuuc.so.48.1.1
+7fa686b01000-7fa686b11000 r--p 00157000 fd:00 1052145                    /usr/lib/x86_64-linux-gnu/libicuuc.so.48.1.1
+7fa686b11000-7fa686b12000 rw-p 00167000 fd:00 1052145                    /usr/lib/x86_64-linux-gnu/libicuuc.so.48.1.1
+7fa686b12000-7fa686b16000 rw-p 00000000 00:00 0 
+7fa686b16000-7fa686b1d000 r-xp 00000000 fd:00 1052087                    /usr/lib/x86_64-linux-gnu/libffi.so.6.0.1
+7fa686b1d000-7fa686d1c000 ---p 00007000 fd:00 1052087                    /usr/lib/x86_64-linux-gnu/libffi.so.6.0.1
+7fa686d1c000-7fa686d1d000 r--p 00006000 fd:00 1052087                    /usr/lib/x86_64-linux-gnu/libffi.so.6.0.1
+7fa686d1d000-7fa686d1e000 rw-p 00007000 fd:00 1052087                    /usr/lib/x86_64-linux-gnu/libffi.so.6.0.1
+7fa686d1e000-7fa686d57000 r-xp 00000000 fd:00 1311138                    /lib/x86_64-linux-gnu/libreadline.so.6.2
+7fa686d57000-7fa686f57000 ---p 00039000 fd:00 1311138                    /lib/x86_64-linux-gnu/libreadline.so.6.2
+7fa686f57000-7fa686f59000 r--p 00039000 fd:00 1311138                    /lib/x86_64-linux-gnu/libreadline.so.6.2
+7fa686f59000-7fa686f5f000 rw-p 0003b000 fd:00 1311138                    /lib/x86_64-linux-gnu/libreadline.so.6.2
+7fa686f5f000-7fa686f60000 rw-p 00000000 00:00 0 
+7fa686f60000-7fa686fcc000 r-xp 00000000 fd:00 1049027                    /usr/lib/x86_64-linux-gnu/libgmp.so.10.1.2
+7fa686fcc000-7fa6871cb000 ---p 0006c000 fd:00 1049027                    /usr/lib/x86_64-linux-gnu/libgmp.so.10.1.2
+7fa6871cb000-7fa6871cc000 r--p 0006b000 fd:00 1049027                    /usr/lib/x86_64-linux-gnu/libgmp.so.10.1.2
+7fa6871cc000-7fa6871d4000 rw-p 0006c000 fd:00 1049027                    /usr/lib/x86_64-linux-gnu/libgmp.so.10.1.2
+7fa6871d4000-7fa6871db000 r-xp 00000000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
+7fa6871db000-7fa6873da000 ---p 00007000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
+7fa6873da000-7fa6873db000 r--p 00006000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
+7fa6873db000-7fa6873dc000 rw-p 00007000 fd:00 1310915                    /lib/x86_64-linux-gnu/librt-2.17.so
+7fa6873dc000-7fa6873f3000 r-xp 00000000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
+7fa6873f3000-7fa6875f3000 ---p 00017000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
+7fa6875f3000-7fa6875f4000 r--p 00017000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
+7fa6875f4000-7fa6875f5000 rw-p 00018000 fd:00 1310922                    /lib/x86_64-linux-gnu/libpthread-2.17.so
+7fa6875f5000-7fa6875f9000 rw-p 00000000 00:00 0 
+7fa6875f9000-7fa6876fc000 r-xp 00000000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
+7fa6876fc000-7fa6878fb000 ---p 00103000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
+7fa6878fb000-7fa6878fc000 r--p 00102000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
+7fa6878fc000-7fa6878fd000 rw-p 00103000 fd:00 1310905                    /lib/x86_64-linux-gnu/libm-2.17.so
+7fa6878fd000-7fa687900000 r-xp 00000000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
+7fa687900000-7fa687aff000 ---p 00003000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
+7fa687aff000-7fa687b00000 r--p 00002000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
+7fa687b00000-7fa687b01000 rw-p 00003000 fd:00 1310921                    /lib/x86_64-linux-gnu/libdl-2.17.so
+7fa687b01000-7fa687cbe000 r-xp 00000000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
+7fa687cbe000-7fa687ebe000 ---p 001bd000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
+7fa687ebe000-7fa687ec2000 r--p 001bd000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
+7fa687ec2000-7fa687ec4000 rw-p 001c1000 fd:00 1310920                    /lib/x86_64-linux-gnu/libc-2.17.so
+7fa687ec4000-7fa687ec9000 rw-p 00000000 00:00 0 
+7fa687ec9000-7fa6880be000 r-xp 00000000 fd:00 3295537                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0
+7fa6880be000-7fa6882bd000 ---p 001f5000 fd:00 3295537                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0
+7fa6882bd000-7fa6882c3000 r--p 001f4000 fd:00 3295537                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0
+7fa6882c3000-7fa6882fc000 rw-p 001fa000 fd:00 3295537                    /home/coke/sandbox/perl6-roast-data/rakudo.parrot/install/lib/libparrot.so.6.7.0
+7fa6882fc000-7fa68831f000 r-xp 00000000 fd:00 1310908                    /lib/x86_64-linux-gnu/ld-2.17.so
+7fa688339000-7fa688512000 rw-p 00000000 00:00 0 
+7fa68851b000-7fa68851e000 rw-p 00000000 00:00 0 
+7fa68851e000-7fa68851f000 r--p 00022000 fd:00 1310908                    /lib/x86_64-linux-gnu/ld-2.17.so
+7fa68851f000-7fa688521000 rw-p 00023000 fd:00 1310908                    /lib/x86_64-linux-gnu/ld-2.17.so
+7fffe5c99000-7fffe5cb9000 rwxp 00000000 00:00 0                          [stack]
+7fffe5cb9000-7fffe5cba000 rw-p 00000000 00:00 0 
+7fffe5de5000-7fffe5de7000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+Aborted (core dumped)
+   4    1    1    0    6
      1 todo   : RT #121940 - should be 'True'
+     1 tests aborted (missing ok/not ok)
 integration/advent2010-day21.t.....................   4    0    0    0    4
 integration/advent2010-day22.t.....................   3    0    0    0    3
 integration/advent2010-day23.t.....................   8    0    0    0    8
@@ -3607,13 +3758,13 @@ integration/advent2012-day15.rakudo.parrot.........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.rakudo.parrot.........# kaz: 5.7176837 seconds
-# gerdr: 5.9716316 seconds
-# recursive-ternary: 7.5423390 seconds
-# loop: 8.3612118 seconds
-# recursive-ternary-hand-cached: 20.2091644 seconds
-# sequence-ternary: 23.8270308 seconds
-# sequence: 34.2933230 seconds
+integration/advent2012-day21.rakudo.parrot.........# kaz: 5.2895897 seconds
+# gerdr: 5.6263046 seconds
+# recursive-ternary: 6.95631229 seconds
+# loop: 7.809142 seconds
+# recursive-ternary-hand-cached: 20.04744703 seconds
+# sequence-ternary: 23.6078743 seconds
+# sequence: 34.93851454 seconds
    8    0    0    1    9
      1 skipped: RT #122497
 integration/advent2012-day22.rakudo.parrot.........   5    0    1    0    6
@@ -3729,8 +3880,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        4974,     0,   123,   454,  5551,  5643
-"S03",        4796,    76,   108,    87,  5067,  5089
+"S02",        4976,     0,   123,   454,  5553,  5645
+"S03",        4872,     0,   108,    87,  5067,  5089
 "S04",         979,     0,    48,    42,  1069,  1121
 "S05",        5140,     0,   110,   268,  5518,  5899
 "S06",        1177,     0,    44,   104,  1325,  1405
@@ -3750,13 +3901,12 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1205,     0,     0,    42,  1247,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         337,     0,     4,     3,   344,   354
-"S32",        8955,   200,   109,   133,  9397,  7796
-"int",        1191,     3,     9,    21,  1224,  1227
+"S32",        8886,   270,   108,   133,  9397,  7796
+"int",        1190,     4,     9,    21,  1224,  1227
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31085,   287,   639,  1358, 33367, 34347
+"total",     31093,   282,   638,  1358, 33369, 34349
 ----------------
 Failure summary:
-S03-junctions/autothreading.t aborted 76 test(s)
 S16-filehandles/io.t 24 - we got four lines from the file
 S16-filehandles/io.t 25 - same with .ins
 S16-filehandles/io.t 39 - we got four lines from the file
@@ -3768,6 +3918,7 @@ S16-io/basic-open.t 3 - Three lines read
 S16-io/basic-open.t 7 - Three lines read
 S32-io/slurp.t 17 - lines() - exactly 3 lines in this file
 S32-list/minmax.t 38 - min of strings read from a file works
+S32-temporal/Date.t 4 - Date.today
 S32-temporal/Date.t 24 - simple .succ
 S32-temporal/Date.t 25 - simple .pred
 S32-temporal/Date.t 26 - .succ with leap year (1)
@@ -3797,15 +3948,13 @@ S32-temporal/DateTime-Instant-Duration.rakudo.par 19 - Instant subtraction (leap
 S32-temporal/DateTime-Instant-Duration.rakudo.par 20 - Instant subtraction (thirty-year span)
 S32-temporal/DateTime.rakudo.parrot 63 - Leap-second validation: Okay because of TZ; January 1
 S32-temporal/DateTime.rakudo.parrot 67 - Leap-second validation: Okay because of TZ; January 1 (second 60.9)
-S32-temporal/DateTime.rakudo.parrot 152 - DateTime.in-timezone (one-day rollover)
-S32-temporal/DateTime.rakudo.parrot 153 - DateTime.in-timezone (two-day rollover)
-S32-temporal/DateTime.rakudo.parrot 154 - DateTime.in-timezone (year rollover)
-S32-temporal/DateTime.rakudo.parrot 156 - DateTime.in-timezone (big rollover)
-S32-temporal/DateTime.rakudo.parrot aborted 36 test(s)
+S32-temporal/DateTime.rakudo.parrot aborted 108 test(s)
 S32-temporal/calendar.t aborted 126 test(s)
+S32-temporal/local.rakudo.parrot 1 - $*TZ is defined
 S32-temporal/local.rakudo.parrot 9 - DateTime.local (from UTC, during DST)
 S32-temporal/local.rakudo.parrot 19 - DateTime.utc (from local, during DST)
 S32-temporal/local.rakudo.parrot 21 - DateTime.in-timezone (local to -1612, just after DST starts)
 integration/advent2010-day16.t 13 - date increment
+integration/advent2010-day19.rakudo.parrot aborted 1 test(s)
 integration/advent2012-day24.t 1 - calendar
 integration/advent2013-day06.t 1 - Recurring date spec

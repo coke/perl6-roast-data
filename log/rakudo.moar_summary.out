@@ -244,7 +244,7 @@ S02-names/symbolic-deref.rakudo.moar...............  30    0    2    3   35
      1 todo   : no such symbol
 S02-one-pass-parsing/less-than.t...................   9    0    0    0    9
 S02-packages/package-lookup.t......................   7    0    0    0    7
-S02-types/WHICH.t.................................. 586    0    0    0  586
+S02-types/WHICH.t.................................. 588    0    0    0  588
 S02-types/anon_block.rakudo.moar...................WARNINGS:
 Useless use of "," in expression "{$foo4 = \"blah\"}," in sink context (line 85)
 Code object coerced to string (please use .gist or .perl to do that)  in sub isnt at lib/Test.pm:109
@@ -613,9 +613,9 @@ use of uninitialized value of type Any in string context  in any !cursor_init at
 
   23    0    0    0   23
 S03-operators/bag.t................................Element shifted from empty list
-  in method Str at src/gen/m-CORE.setting:13352
-  in method Stringy at src/gen/m-CORE.setting:1114
-  in sub infix:<~> at src/gen/m-CORE.setting:1515
+  in method Str at src/gen/m-CORE.setting:13373
+  in method Stringy at src/gen/m-CORE.setting:1129
+  in sub infix:<~> at src/gen/m-CORE.setting:1530
   in sub showkv at t/spec/S03-operators/bag.t:7
   in block <unit> at t/spec/S03-operators/bag.t:162
 
@@ -1840,8 +1840,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1410089395
-# Using file temp_1410089395
+S16-filehandles/chmod.t............................# Using file temp_1410175756
+# Using file temp_1410175756
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2039,10 +2039,7 @@ S29-conversions/ord_and_chr.rakudo.moar............ 254    0    3    0  257
      1 todo   : chr max
      1 todo   : RT #65172 - combining graphemes
      1 todo   : chr surrogate
-S29-os/system.rakudo.moar..........................execvp(): No such file or directory
-execvp(): No such file or directory
-execvp(): No such file or directory
-dir: cannot access t: No such file or directory
+S29-os/system.rakudo.moar..........................dir: cannot access t: No such file or directory
    4    0    0    1    5
      1 skipped: not reliable: depends on rakudo being installed
                                                    pass fail todo skip plan
@@ -2502,12 +2499,25 @@ S32-temporal/Date.t................................Potential difficulties:
     Leading 0 does not indicate octal in Perl 6; please use 0o1 if you mean that
     at t/spec/S32-temporal/Date.t:28
     ------> [32m    isa_ok Date.new(2010, 01, 01[33m⏏[31m), Date, 'Date.new() returns a Date';  #[0m
-  72    0    0    0   72
+
+# Failed test 'Date.today'
+# at t/spec/S32-temporal/Date.t line 9
+# Dynamic variable $*TZ not found
+# Looks like you failed 1 tests of 72
+  71    1    0    0   72
 S32-temporal/DateTime-Instant-Duration.rakudo.moa..  28    0    4    1   33
      1 skipped: nom regression
      4 todo   : high-precision Instants NYI (need FatRats)
-S32-temporal/DateTime.rakudo.moar.................. 218    0    1    0  219
-     1 todo   : nom regression
+S32-temporal/DateTime.rakudo.moar..................Dynamic variable $*TZ not found
+  in method Int at src/gen/m-CORE.setting:13370
+  in method in-timezone at src/gen/m-CORE.setting:16166
+  in method new at src/gen/m-CORE.setting:15973
+  in method now at src/gen/m-CORE.setting:16027
+  in block <unit> at t/spec/S32-temporal/DateTime.rakudo.moar:260
+
+# Looks like you planned 219 tests, but ran 111
+ 111  108    0    0  219
+   108 tests aborted (missing ok/not ok)
 S32-temporal/calendar.t............................Potential difficulties:
     Leading 0 does not indicate octal in Perl 6; please use 0o1 if you mean that
     at t/spec/S32-temporal/calendar.t:119
@@ -2576,7 +2586,10 @@ S32-temporal/calendar.t............................Potential difficulties:
     at t/spec/S32-temporal/calendar.t:140
     ------> [32mis dtim(2010, 01, 03[33m⏏[31m).week-number, 53, 'DateTime.week-number[0m
  130    0    0    0  130
-S32-temporal/local.rakudo.moar.....................  16    0    9    0   25
+S32-temporal/local.rakudo.moar.....................
+# Failed test '$*TZ is defined'
+# at t/spec/S32-temporal/local.rakudo.moar line 10
+  15    1    9    0   25
      9 todo   : RT #122702
 S32-trig/atan2.t................................... 115    0    0    0  115
 S32-trig/cos.t..................................... 154    0    0    0  154
@@ -2596,7 +2609,9 @@ S32-trig/tan.t..................................... 138    0    0    0  138
 S32-trig/tanh.t.................................... 154    0    0    0  154
                                                    pass fail todo skip plan
 integration/99problems-01-to-10.t..................  22    0    0    0   22
-integration/99problems-11-to-20.t..................  25    0    0    0   25
+integration/99problems-11-to-20.t..................Segmentation fault (core dumped)
+  14   11    0    0   25
+    11 tests aborted (missing ok/not ok)
 integration/99problems-21-to-30.t..................use of uninitialized value $previous of type Any in string context  in sub  at t/spec/integration/99problems-21-to-30.t:54
 
   15    0    0    0   15
@@ -2693,14 +2708,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 1.7467778 seconds
-# gerdr: 1.7935053 seconds
-# recursive-ternary: 1.9968945 seconds
-# loop: 2.20271402 seconds
-# recursive-ternary-hand-cached: 4.22142609 seconds
-# hand-memoization: 5.1165294 seconds
-# sequence-ternary: 5.2912611 seconds
-# sequence: 7.4029811 seconds
+integration/advent2012-day21.t.....................# kaz: 1.8084366 seconds
+# loop: 1.9560657 seconds
+# recursive-ternary: 2.05833592 seconds
+# gerdr: 2.1263099 seconds
+# recursive-ternary-hand-cached: 3.6000255 seconds
+# sequence-ternary: 4.7644144 seconds
+# hand-memoization: 5.0825957 seconds
+# sequence: 6.73579963 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2756,7 +2771,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5036,     0,   128,   387,  5551,  5643
+"S02",        5038,     0,   128,   387,  5553,  5645
 "S03",        4876,     0,   104,    87,  5067,  5089
 "S04",         987,     0,    40,    42,  1069,  1121
 "S05",        5233,     0,   103,   182,  5518,  5899
@@ -2777,10 +2792,14 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1205,     0,     0,    42,  1247,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         337,     0,     4,     3,   344,   354
-"S32",        9150,     0,   121,   126,  9397,  7796
-"int",        1189,    17,    12,    20,  1238,  1227
+"S32",        9041,   110,   120,   126,  9397,  7796
+"int",        1178,    28,    12,    20,  1238,  1227
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32366,    17,   639,  1231, 34253, 34347
+"total",     32248,   138,   638,  1231, 34255, 34349
 ----------------
 Failure summary:
+S32-temporal/Date.t 4 - Date.today
+S32-temporal/DateTime.rakudo.moar aborted 108 test(s)
+S32-temporal/local.rakudo.moar 1 - $*TZ is defined
+integration/99problems-11-to-20.t aborted 11 test(s)
 integration/99problems-51-to-60.t aborted 17 test(s)
