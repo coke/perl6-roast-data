@@ -103,7 +103,7 @@ S02-names-vars/names.rakudo.jvm.................... 128    0    0   13  141
      4 skipped: ::{ } package lookup NYI
      2 skipped: this kind of lookup NYI
      7 skipped: package variable autovivification
-S02-names-vars/perl.rakudo.jvm.....................  95    0    0    3   98
+S02-names-vars/perl.rakudo.jvm.....................  94    1    0    3   98
      1 skipped: RT #67790
      2 skipped: recursive data structure RT #122286
 S02-names-vars/signature.rakudo.jvm................  11    0    2    0   13
@@ -199,8 +199,7 @@ S02-types/declare.rakudo.jvm.......................  53    0    2   23   78
      1 skipped: Codepoint NYI
      1 todo   : int NYI
      1 todo   : num NYI
-S02-types/deprecations.rakudo.jvm..................   0    0    0   36   36
-    36 skipped: tracebacks in deprecations
+S02-types/deprecations.t...........................  36    0    0    0   36
 S02-types/fatrat.t.................................   1    0    0    0    1
 S02-types/flattening.t.............................  41    0    0    0   41
 S02-types/hash.rakudo.jvm..........................  88    0    1    0   89
@@ -1186,7 +1185,7 @@ S17-supply/for.rakudo.jvm..........................  12    0    1    0   13
 S17-supply/grab.t..................................   5    0    0    0    5
 S17-supply/grep.rakudo.jvm.........................   6    0    1    0    7
      1 todo   : D: doesn't work in signatures RT #122229
-S17-supply/interval.rakudo.jvm.....................   1    1    1    0    3
+S17-supply/interval.rakudo.jvm.....................   2    0    1    0    3
      1 todo   : QAST::ParamTypeCheck needs to be implemented on jvm
 S17-supply/last.rakudo.jvm.........................   7    0    2    0    9
      1 todo   : we don't have Natural numbers yet
@@ -1278,8 +1277,7 @@ S29-conversions/ord_and_chr.rakudo.jvm............. 254    0    2    1  257
      1 skipped: high character name lookup
      1 todo   : RT #65172 - combining graphemes
      1 todo   : chr surrogate
-S29-os/system.rakudo.jvm...........................   4    0    0    1    5
-     1 skipped: not reliable: depends on rakudo being installed
+S29-os/system.t....................................   5    0    0    0    5
                                                    pass fail todo skip plan
 S32-array/bool.t...................................  15    0    0    0   15
 S32-array/create.t.................................   6    0    0    0    6
@@ -1328,7 +1326,7 @@ S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.jvm..........................  19    0   10    0   29
     10 todo   : binding on hash elements unimplemented
-S32-io/IO-Socket-INET.t............................  28   19    0    0   47
+S32-io/IO-Socket-INET.t............................  46    1    0    0   47
 S32-io/chdir.rakudo.jvm............................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
@@ -1666,7 +1664,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        4983,     4,   144,   422,  5553,  5645
+"S02",        5018,     5,   144,   386,  5553,  5645
 "S03",        4876,     0,   104,    87,  5067,  5089
 "S04",         968,     0,    43,    58,  1069,  1121
 "S05",        5106,    41,   108,   263,  5518,  5899
@@ -1680,19 +1678,20 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         293,     0,    14,    10,   317,   330
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         236,     8,     0,    18,   260,   304
-"S17",         567,     1,    23,    23,   614,   614
+"S17",         568,     0,    23,    23,   614,   614
 "S19",           3,     0,     0,     3,     6,     6
 "S22",          51,     0,     1,     1,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
 "S26",        1205,     0,     0,    42,  1247,  1945
 "S28",           7,     0,     0,     0,     7,    13
-"S29",         337,     0,     3,     4,   344,   354
-"S32",        9018,   131,   104,   144,  9397,  7796
+"S29",         338,     0,     3,     3,   344,   354
+"S32",        9036,   113,   104,   144,  9397,  7796
 "int",        1197,     0,    15,    26,  1238,  1227
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31734,   185,   684,  1396, 33997, 34349
+"total",     31789,   167,   684,  1359, 33997, 34349
 ----------------
 Failure summary:
+S02-names-vars/perl.rakudo.jvm 84 - .perl on user-defined type roundtrips okay
 S02-types/WHICH.t 551 - checking Proc::Async.WHICH
 S02-types/WHICH.t 571 - checking X::Proc::Async::AlreadyStarted.WHICH
 S02-types/WHICH.t 573 - checking X::Proc::Async::CharsOrBytes.WHICH
@@ -1707,26 +1706,7 @@ S16-filehandles/io_in_for_loops.t 20 - ... got the right line ($fh.lines control
 S16-filehandles/io_in_for_loops.t passed 2 unplanned test(s)
 S16-io/basic-open.t 3 - Three lines read
 S16-io/basic-open.t 7 - Three lines read
-S17-supply/interval.rakudo.jvm 2 - interval of 1 second
-S32-io/IO-Socket-INET.t 1 - [46s] echo server and client
-S32-io/IO-Socket-INET.t 3 - [45s] discard server and client
-S32-io/IO-Socket-INET.t 5 - [46s] received first 7 characters
-S32-io/IO-Socket-INET.t 7 - [0s] received next 3 characters
-S32-io/IO-Socket-INET.t 9 - [0s] remaining 26 were buffered
-S32-io/IO-Socket-INET.t 11 - [0s] received 뻯
-S32-io/IO-Socket-INET.t 13 - [0s] ... which is 1 character
-S32-io/IO-Socket-INET.t 15 - [0s] received another character
-S32-io/IO-Socket-INET.t 17 - [0s] combined the bytes form 몾
-S32-io/IO-Socket-INET.t 19 - [45s] get() with default separator
-S32-io/IO-Socket-INET.t 21 - [0s] default separator
-S32-io/IO-Socket-INET.t 23 - [0s] \r\n separator
-S32-io/IO-Socket-INET.t 25 - [0s] . as a separator
-S32-io/IO-Socket-INET.t 27 - [0s] ! separator not at end of string
-S32-io/IO-Socket-INET.t 29 - [0s] Multiple separators not at end of string
-S32-io/IO-Socket-INET.t 31 - [0s] ! separator at end of string
-S32-io/IO-Socket-INET.t 32 - [45s] received first character
-S32-io/IO-Socket-INET.t 34 - [0s] received last character
-S32-io/IO-Socket-INET.t 36 - [0s] total amount 
+S32-io/IO-Socket-INET.t 1 - [45s] echo server and client
 S32-io/slurp.t 17 - lines() - exactly 3 lines in this file
 S32-list/minmax.t 38 - min of strings read from a file works
 S32-temporal/Date.t 4 - Date.today
