@@ -103,7 +103,7 @@ S02-names-vars/names.rakudo.jvm.................... 128    0    0   13  141
      4 skipped: ::{ } package lookup NYI
      2 skipped: this kind of lookup NYI
      7 skipped: package variable autovivification
-S02-names-vars/perl.rakudo.jvm.....................  94    1    0    3   98
+S02-names-vars/perl.rakudo.jvm.....................  95    0    0    3   98
      1 skipped: RT #67790
      2 skipped: recursive data structure RT #122286
 S02-names-vars/signature.rakudo.jvm................  11    0    2    0   13
@@ -249,12 +249,12 @@ S02-types/pair.rakudo.jvm..........................  93    0    2    2   97
 S02-types/parcel.t.................................  48    0    0    0   48
 S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.t.................................. 135    0    0    0  135
-S02-types/set.rakudo.jvm........................... 157    0   11    1  169
+S02-types/set.rakudo.jvm........................... 155    2   11    1  169
      1 skipped: Set is no longer Iterable
      1 todo   : Not properly interpolating
      1 todo   : we have not secured .WHICH creation yet
      9 todo   : Hypers not yet Set compatible
-S02-types/sethash.rakudo.jvm....................... 187    0    1   11  199
+S02-types/sethash.rakudo.jvm....................... 185    2    1   11  199
     10 skipped: 'is ObjectType' NYI
      1 skipped: no longer Iterable
      1 todo   : Not up to current spec
@@ -412,7 +412,7 @@ S03-operators/relational.rakudo.jvm................ 118    0    4    0  122
      4 todo   : RT #121987
 S03-operators/repeat.t.............................  32    0    0    0   32
 S03-operators/scalar-assign.t......................   4    0    0    0    4
-S03-operators/set.rakudo.jvm....................... 294    0    2    0  296
+S03-operators/set.rakudo.jvm....................... 288    6    2    0  296
      2 todo   : huh?
 S03-operators/short-circuit.t......................  83    0    0    0   83
 S03-operators/so.rakudo.jvm........................  14    0    1    0   15
@@ -1326,7 +1326,7 @@ S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.jvm..........................  19    0   10    0   29
     10 todo   : binding on hash elements unimplemented
-S32-io/IO-Socket-INET.t............................  46    1    0    0   47
+S32-io/IO-Socket-INET.t............................  23   24    0    0   47
 S32-io/chdir.rakudo.jvm............................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
@@ -1460,7 +1460,8 @@ S32-str/indent.t...................................  62    0    0    0   62
 S32-str/index.rakudo.jvm...........................  36    0    0    2   38
      2 skipped: StrPos NYI
 S32-str/lc.t.......................................  13    0    0    0   13
-S32-str/lines.t....................................   5    0    0    0    5
+S32-str/lines.rakudo.jvm...........................  11    0    3    0   14
+     3 todo   : mixed CR and LF line endings not yet supported
 S32-str/numeric.rakudo.jvm......................... 161    0    7    0  168
      5 todo   : Failure
      1 todo   : NYI
@@ -1590,7 +1591,7 @@ integration/advent2011-day15.t.....................   9    0    0    0    9
 integration/advent2011-day16.t.....................  11    0    0    0   11
 integration/advent2011-day20.t.....................  16    0    0    0   16
 integration/advent2011-day22.t.....................   2    0    0    0    2
-integration/advent2011-day23.rakudo.jvm............  54    0    1    0   55
+integration/advent2011-day23.rakudo.jvm............  52    2    1    0   55
      1 todo   : RT #122306
 integration/advent2011-day24.t.....................   8    0    0    0    8
 integration/advent2012-day02.t.....................   4    0    0    0    4
@@ -1601,7 +1602,7 @@ integration/advent2012-day06.t.....................   2    0    0    0    2
 integration/advent2012-day09.t.....................   8    0    0    0    8
 integration/advent2012-day10.t.....................  26    0    0    0   26
 integration/advent2012-day12.t.....................   5    0    0    0    5
-integration/advent2012-day13.t.....................  42    0    0    0   42
+integration/advent2012-day13.t.....................  41    1    0    0   42
 integration/advent2012-day14.rakudo.jvm............   3    0    0    3    6
      3 skipped: RT #121802 failing on JVM
 integration/advent2012-day15.t.....................  11    0    0    0   11
@@ -1664,8 +1665,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5018,     5,   144,   386,  5553,  5645
-"S03",        4876,     0,   104,    87,  5067,  5089
+"S02",        5015,     8,   144,   386,  5553,  5645
+"S03",        4870,     6,   104,    87,  5067,  5089
 "S04",         968,     0,    43,    58,  1069,  1121
 "S05",        5106,    41,   108,   263,  5518,  5899
 "S06",        1164,     0,    42,   119,  1325,  1405
@@ -1685,17 +1686,26 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1205,     0,     0,    42,  1247,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     3,     3,   344,   354
-"S32",        9036,   113,   104,   144,  9397,  7796
-"int",        1197,     0,    15,    26,  1238,  1227
+"S32",        9019,   136,   107,   144,  9406,  7805
+"int",        1194,     3,    15,    26,  1238,  1227
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31789,   167,   684,  1359, 33997, 34349
+"total",     31760,   202,   687,  1359, 34006, 34358
 ----------------
 Failure summary:
-S02-names-vars/perl.rakudo.jvm 84 - .perl on user-defined type roundtrips okay
 S02-types/WHICH.t 551 - checking Proc::Async.WHICH
 S02-types/WHICH.t 571 - checking X::Proc::Async::AlreadyStarted.WHICH
 S02-types/WHICH.t 573 - checking X::Proc::Async::CharsOrBytes.WHICH
 S02-types/WHICH.t 575 - checking X::Proc::Async::TapBeforeSpawn.WHICH
+S02-types/set.rakudo.jvm 30 - Bag smartmatches with equivalent set
+S02-types/set.rakudo.jvm 31 - ... even if the Bag has greater quantities
+S02-types/sethash.rakudo.jvm 48 - Bag smartmatches with equivalent SetHash:
+S02-types/sethash.rakudo.jvm 49 - ... even if the Bag has greater quantities
+S03-operators/set.rakudo.jvm 3 - earthly is an element of Bag
+S03-operators/set.rakudo.jvm 8 - earthly is an element of Bag (texas)
+S03-operators/set.rakudo.jvm 23 - earthly is contained by Bag
+S03-operators/set.rakudo.jvm 28 - earthly is contained by Bag
+S03-operators/set.rakudo.jvm 81 - Bag symmetric difference with Set is correct
+S03-operators/set.rakudo.jvm 83 - Set symmetric difference with Bag is correct
 S05-match/capturing-contexts.rakudo.jvm aborted 41 test(s)
 S16-filehandles/io.t 24 - we got four lines from the file
 S16-filehandles/io.t 25 - same with .ins
@@ -1707,8 +1717,34 @@ S16-filehandles/io_in_for_loops.t passed 2 unplanned test(s)
 S16-io/basic-open.t 3 - Three lines read
 S16-io/basic-open.t 7 - Three lines read
 S32-io/IO-Socket-INET.t 1 - [45s] echo server and client
+S32-io/IO-Socket-INET.t 3 - [46s] discard server and client
+S32-io/IO-Socket-INET.t 5 - [46s] received first 7 characters
+S32-io/IO-Socket-INET.t 7 - [0s] received next 3 characters
+S32-io/IO-Socket-INET.t 9 - [0s] remaining 26 were buffered
+S32-io/IO-Socket-INET.t 11 - [0s] received 뻯
+S32-io/IO-Socket-INET.t 13 - [0s] ... which is 1 character
+S32-io/IO-Socket-INET.t 15 - [0s] received another character
+S32-io/IO-Socket-INET.t 17 - [0s] combined the bytes form 몾
+S32-io/IO-Socket-INET.t 19 - [46s] get() with default separator
+S32-io/IO-Socket-INET.t 21 - [0s] default separator
+S32-io/IO-Socket-INET.t 23 - [0s] \r\n separator
+S32-io/IO-Socket-INET.t 25 - [0s] . as a separator
+S32-io/IO-Socket-INET.t 27 - [0s] ! separator not at end of string
+S32-io/IO-Socket-INET.t 29 - [0s] Multiple separators not at end of string
+S32-io/IO-Socket-INET.t 31 - [0s] ! separator at end of string
+S32-io/IO-Socket-INET.t 32 - [45s] received first character
+S32-io/IO-Socket-INET.t 34 - [0s] received last character
+S32-io/IO-Socket-INET.t 36 - [0s] total amount 
+S32-io/IO-Socket-INET.t 38 - [46s] successful read binary data
+S32-io/IO-Socket-INET.t 40 - [45s] successful received binary data
+S32-io/IO-Socket-INET.t 42 - [45s] received first character
+S32-io/IO-Socket-INET.t 44 - [0s] received last character
+S32-io/IO-Socket-INET.t 46 - [0s] total amount 
 S32-io/slurp.t 17 - lines() - exactly 3 lines in this file
 S32-list/minmax.t 38 - min of strings read from a file works
 S32-temporal/Date.t 4 - Date.today
 S32-temporal/DateTime.rakudo.jvm aborted 108 test(s)
 S32-temporal/local.rakudo.jvm 1 - $*TZ is defined
+integration/advent2011-day23.rakudo.jvm 1 - $z = @array[ rand*@array ];
+integration/advent2011-day23.rakudo.jvm 2 - $z = @array.pick;
+integration/advent2012-day13.t 10 - set difference (-)
