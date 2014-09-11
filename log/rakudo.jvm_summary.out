@@ -1460,8 +1460,7 @@ S32-str/indent.t...................................  62    0    0    0   62
 S32-str/index.rakudo.jvm...........................  36    0    0    2   38
      2 skipped: StrPos NYI
 S32-str/lc.t.......................................  13    0    0    0   13
-S32-str/lines.rakudo.jvm...........................  11    0    3    0   14
-     3 todo   : mixed CR and LF line endings not yet supported
+S32-str/lines.t....................................  23    0    0    0   23
 S32-str/numeric.rakudo.jvm......................... 161    0    7    0  168
      5 todo   : Failure
      1 todo   : NYI
@@ -1493,14 +1492,14 @@ S32-str/uc.t.......................................  17    0    0    0   17
 S32-str/unpack.t...................................  12    0    0    0   12
 S32-str/words.rakudo.jvm...........................  11    0    0    2   13
      2 skipped: graphemes NYI
-S32-temporal/Date.t................................  71    1    0    0   72
+S32-temporal/Date.t................................  72    0    0    0   72
 S32-temporal/DateTime-Instant-Duration.rakudo.jvm..  28    0    4    1   33
      1 skipped: nom regression
      4 todo   : high-precision Instants NYI (need FatRats)
-S32-temporal/DateTime.rakudo.jvm................... 111  108    0    0  219
-   108 tests aborted (missing ok/not ok)
+S32-temporal/DateTime.rakudo.jvm................... 218    0    1    0  219
+     1 todo   : nom regression
 S32-temporal/calendar.t............................ 130    0    0    0  130
-S32-temporal/local.rakudo.jvm......................  15    1    9    0   25
+S32-temporal/local.rakudo.jvm......................  16    0    9    0   25
      9 todo   : RT #122702
 S32-trig/atan2.t................................... 115    0    0    0  115
 S32-trig/cos.t..................................... 154    0    0    0  154
@@ -1602,7 +1601,7 @@ integration/advent2012-day06.t.....................   2    0    0    0    2
 integration/advent2012-day09.t.....................   8    0    0    0    8
 integration/advent2012-day10.t.....................  26    0    0    0   26
 integration/advent2012-day12.t.....................   5    0    0    0    5
-integration/advent2012-day13.t.....................  41    1    0    0   42
+integration/advent2012-day13.t.....................  42    0    0    0   42
 integration/advent2012-day14.rakudo.jvm............   3    0    0    3    6
      3 skipped: RT #121802 failing on JVM
 integration/advent2012-day15.t.....................  11    0    0    0   11
@@ -1686,10 +1685,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1205,     0,     0,    42,  1247,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     3,     3,   344,   354
-"S32",        9019,   136,   107,   144,  9406,  7805
-"int",        1194,     3,    15,    26,  1238,  1227
+"S32",        9140,    26,   105,   144,  9415,  7814
+"int",        1195,     2,    15,    26,  1238,  1227
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31760,   202,   687,  1359, 34006, 34358
+"total",     31882,    91,   685,  1359, 34015, 34367
 ----------------
 Failure summary:
 S02-types/WHICH.t 551 - checking Proc::Async.WHICH
@@ -1717,15 +1716,15 @@ S16-filehandles/io_in_for_loops.t passed 2 unplanned test(s)
 S16-io/basic-open.t 3 - Three lines read
 S16-io/basic-open.t 7 - Three lines read
 S32-io/IO-Socket-INET.t 1 - [45s] echo server and client
-S32-io/IO-Socket-INET.t 3 - [46s] discard server and client
-S32-io/IO-Socket-INET.t 5 - [46s] received first 7 characters
+S32-io/IO-Socket-INET.t 3 - [45s] discard server and client
+S32-io/IO-Socket-INET.t 5 - [45s] received first 7 characters
 S32-io/IO-Socket-INET.t 7 - [0s] received next 3 characters
 S32-io/IO-Socket-INET.t 9 - [0s] remaining 26 were buffered
 S32-io/IO-Socket-INET.t 11 - [0s] received 뻯
 S32-io/IO-Socket-INET.t 13 - [0s] ... which is 1 character
-S32-io/IO-Socket-INET.t 15 - [0s] received another character
+S32-io/IO-Socket-INET.t 15 - [1s] received another character
 S32-io/IO-Socket-INET.t 17 - [0s] combined the bytes form 몾
-S32-io/IO-Socket-INET.t 19 - [46s] get() with default separator
+S32-io/IO-Socket-INET.t 19 - [45s] get() with default separator
 S32-io/IO-Socket-INET.t 21 - [0s] default separator
 S32-io/IO-Socket-INET.t 23 - [0s] \r\n separator
 S32-io/IO-Socket-INET.t 25 - [0s] . as a separator
@@ -1737,14 +1736,10 @@ S32-io/IO-Socket-INET.t 34 - [0s] received last character
 S32-io/IO-Socket-INET.t 36 - [0s] total amount 
 S32-io/IO-Socket-INET.t 38 - [46s] successful read binary data
 S32-io/IO-Socket-INET.t 40 - [45s] successful received binary data
-S32-io/IO-Socket-INET.t 42 - [45s] received first character
+S32-io/IO-Socket-INET.t 42 - [46s] received first character
 S32-io/IO-Socket-INET.t 44 - [0s] received last character
 S32-io/IO-Socket-INET.t 46 - [0s] total amount 
 S32-io/slurp.t 17 - lines() - exactly 3 lines in this file
 S32-list/minmax.t 38 - min of strings read from a file works
-S32-temporal/Date.t 4 - Date.today
-S32-temporal/DateTime.rakudo.jvm aborted 108 test(s)
-S32-temporal/local.rakudo.jvm 1 - $*TZ is defined
 integration/advent2011-day23.rakudo.jvm 1 - $z = @array[ rand*@array ];
 integration/advent2011-day23.rakudo.jvm 2 - $z = @array.pick;
-integration/advent2012-day13.t 10 - set difference (-)
