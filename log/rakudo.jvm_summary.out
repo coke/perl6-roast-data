@@ -249,12 +249,12 @@ S02-types/pair.rakudo.jvm..........................  93    0    2    2   97
 S02-types/parcel.t.................................  48    0    0    0   48
 S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.t.................................. 135    0    0    0  135
-S02-types/set.rakudo.jvm........................... 155    2   11    1  169
+S02-types/set.rakudo.jvm........................... 157    0   11    1  169
      1 skipped: Set is no longer Iterable
      1 todo   : Not properly interpolating
      1 todo   : we have not secured .WHICH creation yet
      9 todo   : Hypers not yet Set compatible
-S02-types/sethash.rakudo.jvm....................... 185    2    1   11  199
+S02-types/sethash.rakudo.jvm....................... 187    0    1   11  199
     10 skipped: 'is ObjectType' NYI
      1 skipped: no longer Iterable
      1 todo   : Not up to current spec
@@ -412,7 +412,7 @@ S03-operators/relational.rakudo.jvm................ 118    0    4    0  122
      4 todo   : RT #121987
 S03-operators/repeat.t.............................  32    0    0    0   32
 S03-operators/scalar-assign.t......................   4    0    0    0    4
-S03-operators/set.rakudo.jvm....................... 288    6    2    0  296
+S03-operators/set.rakudo.jvm....................... 294    0    2    0  296
      2 todo   : huh?
 S03-operators/short-circuit.t......................  83    0    0    0   83
 S03-operators/so.rakudo.jvm........................  14    0    1    0   15
@@ -925,9 +925,10 @@ S11-modules/importing.t............................  16    0    0    0   16
 S11-modules/lexical.t..............................   2    0    0    0    2
 S11-modules/need.t.................................   2    0    0    0    2
 S11-modules/nested.t...............................   6    0    0    0    6
-S11-modules/require.rakudo.jvm.....................  11    0    1    1   13
+S11-modules/require.rakudo.jvm.....................  12    0    2    1   15
      1 skipped: Trying to import from 'InnerModule', but the following symbols are missing: quux
      1 todo   : variable form plus imports NYI
+     1 todo   : creation of stub package symbol NYI
                                                    pass fail todo skip plan
 S12-attributes/class.rakudo.jvm....................  20    0    0    6   26
      6 skipped: nom regression - method ^foo
@@ -1326,7 +1327,7 @@ S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.jvm..........................  19    0   10    0   29
     10 todo   : binding on hash elements unimplemented
-S32-io/IO-Socket-INET.t............................  23   24    0    0   47
+S32-io/IO-Socket-INET.t............................  47    0    0    0   47
 S32-io/chdir.rakudo.jvm............................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
@@ -1590,7 +1591,7 @@ integration/advent2011-day15.t.....................   9    0    0    0    9
 integration/advent2011-day16.t.....................  11    0    0    0   11
 integration/advent2011-day20.t.....................  16    0    0    0   16
 integration/advent2011-day22.t.....................   2    0    0    0    2
-integration/advent2011-day23.rakudo.jvm............  52    2    1    0   55
+integration/advent2011-day23.rakudo.jvm............  54    0    1    0   55
      1 todo   : RT #122306
 integration/advent2011-day24.t.....................   8    0    0    0    8
 integration/advent2012-day02.t.....................   4    0    0    0    4
@@ -1664,15 +1665,15 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5015,     8,   144,   386,  5553,  5645
-"S03",        4870,     6,   104,    87,  5067,  5089
+"S02",        5019,     4,   144,   386,  5553,  5645
+"S03",        4876,     0,   104,    87,  5067,  5089
 "S04",         968,     0,    43,    58,  1069,  1121
 "S05",        5106,    41,   108,   263,  5518,  5899
 "S06",        1164,     0,    42,   119,  1325,  1405
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         179,     0,    11,    10,   200,   200
 "S10",          65,     0,     8,     1,    74,   131
-"S11",         103,     0,     3,    14,   120,   139
+"S11",         104,     0,     4,    14,   122,   141
 "S12",        1338,     0,    51,   124,  1513,  1571
 "S13",          35,     0,    10,    27,    72,    82
 "S14",         293,     0,    14,    10,   317,   330
@@ -1685,26 +1686,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1205,     0,     0,    42,  1247,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     3,     3,   344,   354
-"S32",        9140,    26,   105,   144,  9415,  7814
-"int",        1195,     2,    15,    26,  1238,  1227
+"S32",        9164,     2,   105,   144,  9415,  7814
+"int",        1197,     0,    15,    26,  1238,  1227
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31882,    91,   685,  1359, 34015, 34367
+"total",     31919,    55,   686,  1359, 34017, 34369
 ----------------
 Failure summary:
 S02-types/WHICH.t 551 - checking Proc::Async.WHICH
 S02-types/WHICH.t 571 - checking X::Proc::Async::AlreadyStarted.WHICH
 S02-types/WHICH.t 573 - checking X::Proc::Async::CharsOrBytes.WHICH
 S02-types/WHICH.t 575 - checking X::Proc::Async::TapBeforeSpawn.WHICH
-S02-types/set.rakudo.jvm 30 - Bag smartmatches with equivalent set
-S02-types/set.rakudo.jvm 31 - ... even if the Bag has greater quantities
-S02-types/sethash.rakudo.jvm 48 - Bag smartmatches with equivalent SetHash:
-S02-types/sethash.rakudo.jvm 49 - ... even if the Bag has greater quantities
-S03-operators/set.rakudo.jvm 3 - earthly is an element of Bag
-S03-operators/set.rakudo.jvm 8 - earthly is an element of Bag (texas)
-S03-operators/set.rakudo.jvm 23 - earthly is contained by Bag
-S03-operators/set.rakudo.jvm 28 - earthly is contained by Bag
-S03-operators/set.rakudo.jvm 81 - Bag symmetric difference with Set is correct
-S03-operators/set.rakudo.jvm 83 - Set symmetric difference with Bag is correct
 S05-match/capturing-contexts.rakudo.jvm aborted 41 test(s)
 S16-filehandles/io.t 24 - we got four lines from the file
 S16-filehandles/io.t 25 - same with .ins
@@ -1715,31 +1706,5 @@ S16-filehandles/io_in_for_loops.t 20 - ... got the right line ($fh.lines control
 S16-filehandles/io_in_for_loops.t passed 2 unplanned test(s)
 S16-io/basic-open.t 3 - Three lines read
 S16-io/basic-open.t 7 - Three lines read
-S32-io/IO-Socket-INET.t 1 - [45s] echo server and client
-S32-io/IO-Socket-INET.t 3 - [45s] discard server and client
-S32-io/IO-Socket-INET.t 5 - [45s] received first 7 characters
-S32-io/IO-Socket-INET.t 7 - [0s] received next 3 characters
-S32-io/IO-Socket-INET.t 9 - [0s] remaining 26 were buffered
-S32-io/IO-Socket-INET.t 11 - [0s] received 뻯
-S32-io/IO-Socket-INET.t 13 - [0s] ... which is 1 character
-S32-io/IO-Socket-INET.t 15 - [1s] received another character
-S32-io/IO-Socket-INET.t 17 - [0s] combined the bytes form 몾
-S32-io/IO-Socket-INET.t 19 - [45s] get() with default separator
-S32-io/IO-Socket-INET.t 21 - [0s] default separator
-S32-io/IO-Socket-INET.t 23 - [0s] \r\n separator
-S32-io/IO-Socket-INET.t 25 - [0s] . as a separator
-S32-io/IO-Socket-INET.t 27 - [0s] ! separator not at end of string
-S32-io/IO-Socket-INET.t 29 - [0s] Multiple separators not at end of string
-S32-io/IO-Socket-INET.t 31 - [0s] ! separator at end of string
-S32-io/IO-Socket-INET.t 32 - [45s] received first character
-S32-io/IO-Socket-INET.t 34 - [0s] received last character
-S32-io/IO-Socket-INET.t 36 - [0s] total amount 
-S32-io/IO-Socket-INET.t 38 - [46s] successful read binary data
-S32-io/IO-Socket-INET.t 40 - [45s] successful received binary data
-S32-io/IO-Socket-INET.t 42 - [46s] received first character
-S32-io/IO-Socket-INET.t 44 - [0s] received last character
-S32-io/IO-Socket-INET.t 46 - [0s] total amount 
 S32-io/slurp.t 17 - lines() - exactly 3 lines in this file
 S32-list/minmax.t 38 - min of strings read from a file works
-integration/advent2011-day23.rakudo.jvm 1 - $z = @array[ rand*@array ];
-integration/advent2011-day23.rakudo.jvm 2 - $z = @array.pick;
