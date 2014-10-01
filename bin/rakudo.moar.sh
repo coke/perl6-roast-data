@@ -9,7 +9,7 @@ git clone repos/nqp.git rakudo.moar/nqp
 git clone repos/MoarVM.git rakudo.moar/nqp/MoarVM
 git clone repos/roast.git rakudo.moar/t/spec
 cd rakudo.moar
-perl Configure.pl --backends=moar --gen-moar --gen-nqp
+perl Configure.pl --gen-moar --gen-nqp --backends=moar --moar-option=--no-jit
 make all
 
 # uninstalled rakudo doesn't know how to find Test.pm
