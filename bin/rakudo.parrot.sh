@@ -9,8 +9,8 @@ git clone repos/nqp.git rakudo.parrot/nqp
 git clone repos/parrot.git rakudo.parrot/parrot
 git clone repos/roast.git rakudo.parrot/t/spec
 cd rakudo.parrot
-perl Configure.pl --backends=parrot --gen-parrot --parrot-make-option='--jobs=8'
-make all
+perl Configure.pl --backends=parrot --gen-parrot --parrot-make-option='-j'
+make -j all
 
 # uninstalled rakudo doesn't know how to find Test.pm
 # ... or any other modules

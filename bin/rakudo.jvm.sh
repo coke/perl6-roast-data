@@ -9,7 +9,7 @@ git clone repos/nqp.git rakudo.jvm/nqp
 git clone repos/roast.git rakudo.jvm/t/spec
 cd rakudo.jvm
 perl Configure.pl --backends=jvm --gen-nqp
-make all
+make -j all
 
 # uninstalled rakudo doesn't know how to find Test.pm
 # ... or any other modules
