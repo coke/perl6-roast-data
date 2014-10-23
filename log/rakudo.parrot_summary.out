@@ -324,7 +324,7 @@ S02-types/declare.rakudo.parrot....................  55    0    2   22   79
      1 skipped: Codepoint NYI
      1 todo   : int NYI
      1 todo   : num NYI
-S02-types/deprecations.t...........................sh: line 1: 37945 Segmentation fault: 11  nice -20 ./perl6-p t/spec/S02-types/deprecations.t
+S02-types/deprecations.t...........................sh: line 1: 96387 Segmentation fault: 11  nice -20 ./perl6-p t/spec/S02-types/deprecations.t
    7    6    0    0   13
      6 tests aborted (missing ok/not ok)
 S02-types/fatrat.t.................................   1    0    0    0    1
@@ -535,7 +535,7 @@ S03-binding/attributes.rakudo.parrot...............   9    0    0    3   12
 S03-binding/closure.t..............................   8    0    0    0    8
 S03-binding/hashes.t...............................  39    0    0    0   39
 S03-binding/nested.t...............................  43    0    0    0   43
-S03-binding/ro.rakudo.parrot.......................   3    0    6    0    9
+S03-binding/ro.rakudo.parrot.......................   5    0    6    0   11
      4 todo   : ::= on arrays
      2 todo   : nom regression
 S03-binding/scalars.rakudo.parrot..................  24    0    0    9   33
@@ -1037,10 +1037,11 @@ S04-exceptions/pending.rakudo.parrot...............   4    0    1   16   21
      3 skipped: $object.handled
      1 todo   : not full of fail?
 S04-phasers/ascending-order.t......................   7    0    0    0    7
-S04-phasers/begin.t................................  10    0    0    0   10
+S04-phasers/begin.rakudo.parrot....................  10    0    0    1   11
+     1 skipped: RT #119749
 S04-phasers/check.t................................   5    0    0    0    5
 S04-phasers/descending-order.t.....................   7    0    0    0    7
-S04-phasers/end.rakudo.parrot......................   4    0    2    0    6
+S04-phasers/end.rakudo.parrot......................   6    0    2    0    8
      2 todo   : lexicals and EVAL()
 S04-phasers/enter-leave.rakudo.parrot..............  20    0    1    2   23
      1 skipped: RT #118387
@@ -1081,7 +1082,7 @@ S04-phasers/pre-post.rakudo.parrot.................  20    0    1    1   22
      1 skipped: POST and exceptions
      1 todo   : POST and exceptions
 S04-phasers/rvalue.t...............................  16    0    0    0   16
-S04-statement-modifiers/for.t......................  21    0    0    0   21
+S04-statement-modifiers/for.t......................  23    0    0    0   23
 S04-statement-modifiers/given.t....................   6    0    0    0    6
 S04-statement-modifiers/if.t.......................  11    0    0    0   11
 S04-statement-modifiers/unless.t...................   6    0    0    0    6
@@ -1168,14 +1169,8 @@ S05-interpolation/regex-in-variable.rakudo.parrot..use of uninitialized value $!
   31    0    3    0   34
      1 todo   : warn on undef
      2 todo   : instance member interpolation
-S05-mass/charsets.rakudo.parrot....................
-# Failed test 'blank chars'
-# at t/spec/S05-mass/charsets.rakudo.parrot line 23
-# expected: '9,32,160'
-#      got: '9,32'
-# Looks like you failed 1 tests of 17
-  14    1    2    0   17
-     1 todo   : punct characters
+S05-mass/charsets.rakudo.parrot....................  15    0    2    0   17
+     1 todo   : blank characters
      1 todo PASSED: Unicode 6.3 -- lower characters
 S05-mass/named-chars.t............................. 431    0    0    0  431
 S05-mass/properties-block.t........................ 670    0    0    0  670
@@ -1624,7 +1619,7 @@ use of uninitialized value $expected of type Int in string context  in sub is at
 
   33    0    0    0   33
                                                    pass fail todo skip plan
-S10-packages/basic.rakudo.parrot...................  58    0    2    1   61
+S10-packages/basic.rakudo.parrot...................  59    0    2    1   62
      1 skipped: RT #59484
      1 todo   : ticket based only on class... RT #60446
      1 todo   : RT #64606
@@ -1898,8 +1893,8 @@ S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.parrot..................  12    0    1    0   13
      1 todo   : trait mod / .wrap interaction
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1413993225
-# Using file temp_1413993225
+S16-filehandles/chmod.t............................# Using file temp_1414071068
+# Using file temp_1414071068
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2524,7 +2519,7 @@ integration/advent2010-day03.t.....................  12    0    0    0   12
 integration/advent2010-day04.t.....................  11    0    0    0   11
 integration/advent2010-day06.t.....................  12    0    0    0   12
 integration/advent2010-day07.t.....................   8    0    0    0    8
-integration/advent2010-day08.t.....................   7    0    0    0    7
+integration/advent2010-day08.t.....................   8    0    0    0    8
 integration/advent2010-day10.rakudo.parrot.........   2    0    2    0    4
      2 todo   : RT #121843
 integration/advent2010-day11.t.....................   2    0    0    0    2
@@ -2565,13 +2560,13 @@ integration/advent2012-day15.rakudo.parrot.........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.rakudo.parrot.........# kaz: 2.2541382 seconds
-# gerdr: 2.49004246 seconds
-# recursive-ternary: 3.0873578 seconds
-# loop: 3.1099576 seconds
-# sequence-ternary: 6.7494105 seconds
-# recursive-ternary-hand-cached: 8.12196569 seconds
-# sequence: 11.0126442 seconds
+integration/advent2012-day21.rakudo.parrot.........# kaz: 2.3842641 seconds
+# gerdr: 2.53858661 seconds
+# recursive-ternary: 2.9936242 seconds
+# loop: 3.0024599 seconds
+# sequence-ternary: 6.64063001 seconds
+# recursive-ternary-hand-cached: 7.9686050 seconds
+# sequence: 10.802888 seconds
    8    0    0    1    9
      1 skipped: RT #122497
 integration/advent2012-day22.rakudo.parrot.........   5    0    1    0    6
@@ -2623,13 +2618,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
 "S02",        5001,     6,   125,   440,  5572,  5664
-"S03",        4898,     0,   111,    92,  5101,  5135
-"S04",        1001,     0,    47,    43,  1091,  1143
-"S05",        5160,     1,   106,   263,  5530,  5911
+"S03",        4900,     0,   111,    92,  5103,  5137
+"S04",        1005,     0,    47,    44,  1096,  1148
+"S05",        5161,     0,   106,   263,  5530,  5911
 "S06",        1184,     0,    44,   109,  1337,  1417
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         184,     0,    11,    10,   205,   205
-"S10",          83,     0,     2,     1,    86,   143
+"S10",          84,     0,     2,     1,    87,   144
 "S11",         105,     0,     4,    14,   123,   142
 "S12",        1354,     0,    48,   125,  1527,  1585
 "S13",          36,     0,    10,    27,    73,    83
@@ -2644,12 +2639,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     4,     2,   344,   354
 "S32",        9159,     0,   111,   178,  9448,  7882
-"int",        1196,     0,     9,    19,  1224,  1227
+"int",        1197,     0,     9,    19,  1225,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31554,     9,   645,  1397, 33605, 34651
+"total",     31563,     8,   645,  1398, 33614, 34660
 ----------------
 Failure summary:
 S02-types/deprecations.t aborted 6 test(s)
-S05-mass/charsets.rakudo.parrot 6 - blank chars
 S19-command-line/dash-e.rakudo.parrot 2 - -e print $something works with non-ASCII string literals
 S19-command-line/dash-e.rakudo.parrot 3 - -e works with non-ASCII program texts

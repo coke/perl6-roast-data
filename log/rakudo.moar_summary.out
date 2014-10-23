@@ -465,7 +465,7 @@ S03-binding/attributes.rakudo.moar.................   9    0    0    3   12
 S03-binding/closure.t..............................   8    0    0    0    8
 S03-binding/hashes.t...............................  39    0    0    0   39
 S03-binding/nested.t...............................  43    0    0    0   43
-S03-binding/ro.rakudo.moar.........................   3    0    6    0    9
+S03-binding/ro.rakudo.moar.........................   5    0    6    0   11
      4 todo   : ::= on arrays
      2 todo   : nom regression
 S03-binding/scalars.rakudo.moar....................  24    0    0    9   33
@@ -971,10 +971,10 @@ S04-exceptions/pending.rakudo.moar.................   4    0    1   16   21
      3 skipped: $object.handled
      1 todo   : not full of fail?
 S04-phasers/ascending-order.t......................   7    0    0    0    7
-S04-phasers/begin.t................................  10    0    0    0   10
+S04-phasers/begin.t................................  11    0    0    0   11
 S04-phasers/check.t................................   5    0    0    0    5
 S04-phasers/descending-order.t.....................   7    0    0    0    7
-S04-phasers/end.rakudo.moar........................   4    0    2    0    6
+S04-phasers/end.rakudo.moar........................   6    0    2    0    8
      2 todo   : lexicals and EVAL()
 S04-phasers/enter-leave.rakudo.moar................  20    0    1    2   23
      1 skipped: unwind, RT #121530
@@ -998,7 +998,7 @@ S04-phasers/pre-post.rakudo.moar...................  19    0    2    1   22
      1 todo   : POST and exceptions
      1 todo   : failing PRE block should not run any other phasers, RT #121531
 S04-phasers/rvalue.t...............................  16    0    0    0   16
-S04-statement-modifiers/for.t......................  21    0    0    0   21
+S04-statement-modifiers/for.t......................  23    0    0    0   23
 S04-statement-modifiers/given.t....................   6    0    0    0    6
 S04-statement-modifiers/if.t.......................  11    0    0    0   11
 S04-statement-modifiers/unless.t...................   6    0    0    0    6
@@ -1527,12 +1527,12 @@ use of uninitialized value $expected of type Int in string context  in sub is at
 
   33    0    0    0   33
                                                    pass fail todo skip plan
-S10-packages/basic.rakudo.moar.....................  58    0    2    1   61
+S10-packages/basic.rakudo.moar.....................  59    0    2    1   62
      1 skipped: RT #59484
      1 todo   : ticket based only on class... RT #60446
      1 todo   : RT #64606
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
-S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 18591 Segmentation fault: 11  ./perl6-m getout-18579-887970.code < getout-18579-887970.in > getout-18579-887970.out 2> getout-18579-887970.err
+S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 77397 Segmentation fault: 11  ./perl6-m getout-77385-199637.code < getout-77385-199637.in > getout-77385-199637.out 2> getout-77385-199637.err
   11    0    2    0   13
      1 todo   : RT #122773
      1 todo   : RT #122896
@@ -1817,8 +1817,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1413990052
-# Using file temp_1413990052
+S16-filehandles/chmod.t............................# Using file temp_1414067967
+# Using file temp_1414067967
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1854,14 +1854,8 @@ S17-procasync/basic.t..............................use of uninitialized value $g
    9    0    0    0    9
 S17-procasync/kill.rakudo.moar.....................  24    0    3    0   27
      3 todo   : we cannot actually send signals yet
-S17-procasync/print.rakudo.moar....................P6opaque: must compose before using get_attribute
-  in sub proclaim at lib/Test.pm:353
-  in sub isa_ok at lib/Test.pm:230
-  in sub isa_ok at lib/Test.pm:228
-  in block <unit> at t/spec/S17-procasync/print.rakudo.moar:51
-
-  11    5    0    0   16
-     5 tests aborted (missing ok/not ok)
+S17-procasync/print.rakudo.moar....................  13    0    3    0   16
+     3 todo   : not getting a Proc::Status back, but Any
 S17-promise/allof.t................................  10    0    0    0   10
 S17-promise/anyof.t................................   9    0    0    0    9
 S17-promise/basic.t................................  19    0    0    0   19
@@ -1974,7 +1968,22 @@ S17-supply/uniq.t..................................# **** scheduling with Thread
 # **** scheduling with CurrentThreadScheduler
   17    0    0    0   17
 S17-supply/wait.t..................................   4    0    0    0    4
-S17-supply/watch_path.t............................   2    0    0    0    2
+S17-supply/watch_path.t............................    
+# Failed test 'at least 3 renaming'
+# at t/spec/S17-supply/watch_path.t line 85
+    # expected: 'any(3, 4)'
+    #      got: '2'
+    
+# Failed test 'maybe one changing'
+# at lib/Test.pm line 200
+    # expected: 'any(0, 1)'
+    #      got: '2'
+    # Looks like you failed 2 tests of 22
+
+# Failed test 'does watch_path work on Mac OS X'
+# at t/spec/S17-supply/watch_path.t line 14
+# Looks like you failed 1 tests of 2
+   1    1    0    0    2
 S17-supply/words.t.................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
    5    0    0    0    5
@@ -2562,7 +2571,7 @@ integration/advent2010-day03.t.....................  12    0    0    0   12
 integration/advent2010-day04.t.....................  11    0    0    0   11
 integration/advent2010-day06.t.....................  12    0    0    0   12
 integration/advent2010-day07.t.....................   8    0    0    0    8
-integration/advent2010-day08.t.....................   7    0    0    0    7
+integration/advent2010-day08.t.....................   8    0    0    0    8
 integration/advent2010-day10.rakudo.moar...........   2    0    2    0    4
      2 todo   : RT #121843
 integration/advent2010-day11.t.....................   2    0    0    0    2
@@ -2602,14 +2611,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 0.878737 seconds
-# gerdr: 0.90650419 seconds
-# recursive-ternary: 0.99120336 seconds
-# loop: 1.00523089 seconds
-# sequence-ternary: 1.7800968 seconds
-# recursive-ternary-hand-cached: 1.84157344 seconds
-# hand-memoization: 2.45570685 seconds
-# sequence: 2.6228435 seconds
+integration/advent2012-day21.t.....................# kaz: 0.8411931 seconds
+# gerdr: 0.84971514 seconds
+# recursive-ternary: 0.9747274 seconds
+# loop: 0.9809261 seconds
+# sequence-ternary: 1.70717789 seconds
+# recursive-ternary-hand-cached: 1.7739735 seconds
+# hand-memoization: 2.359642 seconds
+# sequence: 2.5167698 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2666,20 +2675,20 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
 "S02",        5083,     0,   127,   362,  5572,  5664
-"S03",        4898,     0,   111,    92,  5101,  5135
-"S04",        1009,     0,    40,    42,  1091,  1143
+"S03",        4900,     0,   111,    92,  5103,  5137
+"S04",        1014,     0,    40,    42,  1096,  1148
 "S05",        5248,     0,   105,   177,  5530,  5911
 "S06",        1192,     0,    41,   104,  1337,  1417
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         184,     0,    11,    10,   205,   205
-"S10",          81,     0,     4,     1,    86,   143
+"S10",          82,     0,     4,     1,    87,   144
 "S11",         105,     0,     4,    14,   123,   142
 "S12",        1356,     0,    46,   125,  1527,  1585
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         302,     0,    10,    10,   322,   335
 "S15",         240,     0,     2,    16,   258,   283
 "S16",         246,     0,     0,    17,   263,   307
-"S17",         664,     5,     4,    19,   692,   692
+"S17",         665,     1,     7,    19,   692,   692
 "S19",          11,     0,     0,     1,    12,    17
 "S22",          52,     0,     1,     0,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
@@ -2687,9 +2696,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     4,     2,   344,   354
 "S32",        9158,     0,   121,   169,  9448,  7882
-"int",        1207,     0,    12,    19,  1238,  1227
+"int",        1208,     0,    12,    19,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32656,     5,   657,  1251, 34569, 34678
+"total",     32666,     1,   660,  1251, 34578, 34687
 ----------------
 Failure summary:
-S17-procasync/print.rakudo.moar aborted 5 test(s)
+S17-supply/watch_path.t 2 - does watch_path work on Mac OS X
