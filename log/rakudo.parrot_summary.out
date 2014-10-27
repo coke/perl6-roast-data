@@ -323,7 +323,65 @@ S02-types/declare.rakudo.parrot....................  55    0    2   22   79
      1 skipped: Codepoint NYI
      1 todo   : int NYI
      1 todo   : num NYI
-S02-types/deprecations.t...........................sh: line 1: 51752 Segmentation fault: 11  nice -20 ./perl6-p t/spec/S02-types/deprecations.t
+S02-types/deprecations.t...........................Cannot call 'postcircumfix:<{ }>'; none of these signatures match:
+:(Any \SELF, Any \key)
+:(Any \SELF, Any \key, \ASSIGN)
+:(Any \SELF, Any \key, :BIND($BIND)!)
+:(Any \SELF, Any \key, Any :SINK($SINK)!, *%other)
+:(Any \SELF, Any \key, Any :delete($delete)!, *%other)
+:(Any \SELF, Any \key, Any :exists($exists)!, *%other)
+:(Any \SELF, Any \key, Any :kv($kv)!, *%other)
+:(Any \SELF, Any \key, Any :p($p)!, *%other)
+:(Any \SELF, Any \key, Any :k($k)!, *%other)
+:(Any \SELF, Any \key, Any :v($v)!, *%other)
+:(Any \SELF, Positional \key)
+:(Any \SELF, Positional \key, \ASSIGN)
+:(Any \SELF, Positional \key, Any :BIND($BIND)!)
+:(Any \SELF, Positional \key, Any :SINK($SINK)!, *%other)
+:(Any \SELF, Positional \key, Any :delete($delete)!, *%other)
+:(Any \SELF, Positional \key, Any :exists($exists)!, *%other)
+:(Any \SELF, Positional \key, Any :kv($kv)!, *%other)
+:(Any \SELF, Positional \key, Any :p($p)!, *%other)
+:(Any \SELF, Positional \key, Any :k($k)!, *%other)
+:(Any \SELF, Positional \key, Any :v($v)!, *%other)
+:(Any \SELF, Whatever)
+:(Any \SELF, Whatever, \ASSIGN)
+:(Any \SELF, Whatever, Any :BIND($BIND)!)
+:(Any \SELF, Whatever, Any :SINK($SINK)!, *%other)
+:(Any \SELF, Whatever, Any :delete($delete)!, *%other)
+:(Any \SELF, Whatever, Any :exists($exists)!, *%other)
+:(Any \SELF, Whatever, Any :kv($kv)!, *%other)
+:(Any \SELF, Whatever, Any :p($p)!, *%other)
+:(Any \SELF, Whatever, Any :k($k)!, *%other)
+:(Any \SELF, Whatever, Any :p($p)!, *%other)
+:(Any \SELF)
+:(Any \SELF, Any :BIND($BIND)!)
+:(Any \SELF, Any :SINK($SINK)!, *%other)
+:(Any \SELF, Any :delete($delete)!, *%other)
+:(Any \SELF, Any :exists($exists)!, *%other)
+:(Any \SELF, Any :kv($kv)!, *%other)
+:(Any \SELF, Any :p($p)!, *%other)
+:(Any \SELF, Any :k($k)!, *%other)
+:(Any \SELF, Any :p($p)!, *%other)
+:(Any \SELF is rw, LoL \keys, *%adv)
+:(Any \SELF is rw, LoL \keys, \assignee, *%adv)
+:(VM $d, Str $ where { ... })
+:(VM $d, Str $ where { ... })
+:(Compiler $d, Str $ where { ... })
+:(Compiler $d, Str $ where { ... })
+:(Compiler $d, Str $ where { ... })
+:(Compiler $d, Str $ where { ... })
+:(Compiler $d, Str $ where { ... })
+:(Perl $d, Str $ where { ... })
+:(Perl $d, Str $ where { ... })
+:(CompUnit:D \c, Str $ where { ... })
+:(CompUnit:D \c, Str $ where { ... })
+:(CompUnit:D \c, Str $ where { ... })
+  in any  at gen/parrot/BOOTSTRAP.nqp:1226
+  in sub postcircumfix:<{ }> at gen/parrot/CORE.setting:2889
+  in block <unit> at t/spec/S02-types/deprecations.t:124
+
+# Looks like you planned 13 tests, but ran 7
    7    6    0    0   13
      6 tests aborted (missing ok/not ok)
 S02-types/fatrat.t.................................   1    0    0    0    1
@@ -419,7 +477,7 @@ S02-types/multi_dimensional_array.rakudo.parrot....  48    0    0   10   58
 S02-types/nan.rakudo.parrot........................  19    0    0    2   21
      1 skipped: unspecced and inconsistent
      1 skipped: RT #83446
-S02-types/native.rakudo.parrot.....................  25    0    0    2   27
+S02-types/native.rakudo.parrot.....................  27    0    0    2   29
      2 skipped: RT #102416
 S02-types/nested_arrays.t..........................   8    0    0    0    8
 S02-types/nested_pairs.t...........................  14    0    0    0   14
@@ -819,8 +877,20 @@ use of uninitialized value $i of type Any in string context  in sub test_ff_cnt 
 
 use of uninitialized value $i of type Any in string context  in sub test_ff_cnt at t/spec/S03-operators/flip-flop.rakudo.parrot:59
 
-  37    0    0    2   39
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏B' (indicated by ⏏)
+  in method Numeric at gen/parrot/CORE.setting:13618
+  in sub infix:<==> at gen/parrot/CORE.setting:4536
+  in sub infix:<==> at gen/parrot/CORE.setting:4534
+  in sub infix:<==> at gen/parrot/CORE.setting:4536
+  in sub infix:<==> at gen/parrot/CORE.setting:4534
+  in method ACCEPTS at gen/parrot/CORE.setting:4308
+  in method ACCEPTS at gen/parrot/CORE.setting:862
+  in block  at t/spec/S03-operators/flip-flop.rakudo.parrot:145
+  in block <unit> at t/spec/S03-operators/flip-flop.rakudo.parrot:120
+
+  37    1    0    2   40
      2 skipped: dubious scoping?
+     1 tests aborted (missing ok/not ok)
 S03-operators/gcd.t................................  16    0    0    0   16
 S03-operators/identity.rakudo.parrot...............  37    0    8    0   45
      4 todo   : unspecced
@@ -1027,8 +1097,7 @@ use of uninitialized value $got of type Any in string context  in sub is at lib/
      1 todo   : will variable not all blocks yet
      2 todo   : declared variable not visible in block yet
 S04-exception-handlers/catch.t.....................  29    0    0    0   29
-S04-exceptions/control_across_runloop.rakudo.parr..   0    0    0    1    1
-     1 skipped: RT #122325 - assignment to $x fails, expected Any but got Mu
+S04-exceptions/control_across_runloop.t............   1    0    0    0    1
 S04-exceptions/fail.rakudo.parrot..................  11    0    0    2   13
      2 skipped: RT #64990
 S04-exceptions/pending.rakudo.parrot...............   4    0    1   16   21
@@ -1071,7 +1140,8 @@ use of uninitialized value $got of type Any in string context  in sub is at lib/
 
    4    0    7    0   11
      7 todo   : RT #122311
-S04-phasers/keep-undo.t............................  12    0    0    0   12
+S04-phasers/keep-undo.rakudo.parrot................  14    0    0    2   16
+     2 skipped: RT #111866
 S04-phasers/multiple.t.............................   2    0    0    0    2
 S04-phasers/next.rakudo.parrot.....................   9    0    3    1   13
      1 skipped: leave NYI
@@ -1168,9 +1238,11 @@ S05-interpolation/regex-in-variable.rakudo.parrot..use of uninitialized value $!
   31    0    3    0   34
      1 todo   : warn on undef
      2 todo   : instance member interpolation
-S05-mass/charsets.rakudo.parrot....................  15    0    2    0   17
-     1 todo   : blank characters
+S05-mass/charsets.rakudo.parrot....................  13    0    4    0   17
+     1 todo   : punct characters
+     1 todo   : Unicode 6.1 "blank characters
      1 todo PASSED: Unicode 6.3 -- lower characters
+     1 todo PASSED: Unicode 6.1 :Punctuation characters
 S05-mass/named-chars.t............................. 431    0    0    0  431
 S05-mass/properties-block.t........................ 670    0    0    0  670
 S05-mass/properties-derived.rakudo.parrot.......... 190    0    0   66  256
@@ -1279,7 +1351,7 @@ Potential difficulties:
 S05-metasyntax/repeat.t............................  24    0    0    0   24
 S05-metasyntax/sequential-alternation.t............  10    0    0    0   10
 S05-metasyntax/single-quotes.t.....................   5    0    0    0    5
-S05-metasyntax/unknown.rakudo.parrot...............  10    0    1    0   11
+S05-metasyntax/unknown.rakudo.parrot...............  11    0    1    0   12
      1 todo   : RT #74832
 S05-modifier/continue.t............................  13    0    0    0   13
 S05-modifier/counted-match.rakudo.parrot...........  16    0    0    6   22
@@ -1594,7 +1666,19 @@ S09-hashes/objecthash.rakudo.parrot................  27    0    2    3   32
 S09-subscript/slice.rakudo.parrot..................  22    0    0    4   26
      2 skipped: RT #61844
      2 skipped: RT #120383
-S09-typed-arrays/arrays.rakudo.parrot..............  58    0    5    2   65
+S09-typed-arrays/arrays.rakudo.parrot..............use of uninitialized value $got of type Int in string context  in sub is at lib/Test.pm:116
+
+use of uninitialized value $expected of type Int in string context  in sub is at lib/Test.pm:116
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:116
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:116
+
+use of uninitialized value <element> of type Int in string context  in sub is at lib/Test.pm:116
+
+use of uninitialized value <element> of type Int in string context  in sub is at lib/Test.pm:116
+
+  60    0    5    2   67
      1 skipped: nested typechecks are borked
      1 skipped: type on our-variables
      1 todo   : need parameterized Lists
@@ -1619,7 +1703,8 @@ use of uninitialized value $expected of type Int in string context  in sub is at
 
   33    0    0    0   33
                                                    pass fail todo skip plan
-S10-packages/basic.rakudo.parrot...................  59    0    2    1   62
+S10-packages/basic.rakudo.parrot...................  59    0    2    2   63
+     1 skipped: RT #120561
      1 skipped: RT #59484
      1 todo   : ticket based only on class... RT #60446
      1 todo   : RT #64606
@@ -1653,7 +1738,7 @@ S11-modules/require.rakudo.parrot..................  12    0    2    1   15
      1 todo   : variable form plus imports NYI
      1 todo   : creation of stub package symbol NYI
                                                    pass fail todo skip plan
-S12-attributes/class.rakudo.parrot.................  21    0    0    6   27
+S12-attributes/class.rakudo.parrot.................  23    0    0    6   29
      6 skipped: nom regression - method ^foo
 S12-attributes/clone.rakudo.parrot.................  33    0    2    0   35
      2 todo   : clone currently messes up original
@@ -1691,7 +1776,7 @@ use of uninitialized value %!h of type Int in string context  in sub is at lib/T
 S12-attributes/mutators.rakudo.parrot..............   5    0    0    7   12
      7 skipped: Can not get attribute $!varies declared in class MagicVal with this object
 S12-attributes/recursive.t.........................  23    0    0    0   23
-S12-attributes/undeclared.t........................  10    0    0    0   10
+S12-attributes/undeclared.t........................  11    0    0    0   11
 S12-class/anonymous.rakudo.parrot..................  16    0    1    0   17
      1 todo   : Anonymous class stringification (?)
 S12-class/attributes.rakudo.parrot.................  31    0    0    2   33
@@ -1893,8 +1978,8 @@ S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.parrot..................  12    0    1    0   13
      1 todo   : trait mod / .wrap interaction
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1414161378
-# Using file temp_1414161378
+S16-filehandles/chmod.t............................# Using file temp_1414415135
+# Using file temp_1414415135
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1936,15 +2021,21 @@ S19-command-line/dash-e.rakudo.parrot..............
 # expected out: "23"
 #      got err: "\x[1b][31m===\x[1b][0mSORRY!\x[1b][31m===\x[1b][0m Error while compiling -e\nTwo terms in a row\nat -e:1\n------> \x[1b][32mprint <1 2> \x[1b][33m⏏\x[1b][31mÂ»+Â« <1 1>\x[1b][0m\n    expecting any of:\n        postfix\n        infix stopper\n        infix or meta-infix\n        statement end\n        statement modifier\n        statement modifier loop\n"
 # expected err: ""
-# Looks like you failed 2 tests of 4
-   1    2    0    1    4
-     1 skipped: -e as stopper doesn't work quite yet.
+   1    2    1    0    4
+     1 todo PASSED: -e as stopper doesn't work quite yet.
 S19-command-line/help.t............................   1    0    0    0    1
 S19-command-line/repl.t............................> exit(42)
    1    0    0    0    1
                                                    pass fail todo skip plan
-S22-package-format/local.rakudo.parrot.............  39    0    0    1   40
+S22-package-format/local.rakudo.parrot.............Invocant requires an instance, but a type object was passed
+  in method perl at gen/parrot/CORE.setting:20570
+  in sub isa_ok at lib/Test.pm:228
+  in block <unit> at t/spec/S22-package-format/local.rakudo.parrot:37
+
+# Looks like you planned 40 tests, but ran 4
+   3   36    0    1   40
      1 skipped: cannot do signals in parrot
+    36 tests aborted (missing ok/not ok)
 S22-package-format/parse-spec.rakudo.parrot........  12    0    1    0   13
      1 todo   : RT #122137
                                                    pass fail todo skip plan
@@ -2125,7 +2216,16 @@ S32-io/IO-Socket-INET.t............................   0    0    0   47   47
 S32-io/chdir.rakudo.parrot.........................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
-S32-io/dir.t.......................................  12    0    0    0   12
+S32-io/dir.t.......................................Saw 1 call to deprecated code during execution.
+================================================================================
+Method directory (from IO::Path) called at:
+  t/spec/S32-io/dir.t, lines 16,29
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use dirname instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
+  12    0    0    0   12
 S32-io/file-tests.t................................  34    0    0    0   34
 S32-io/io-path-cygwin.rakudo.parrot................use of uninitialized value of type Any in string context  in block <unit> at t/spec/S32-io/io-path-cygwin.rakudo.parrot:9
 
@@ -2139,11 +2239,49 @@ S32-io/io-path-win.rakudo.parrot...................use of uninitialized value of
 
   48    0    1    0   49
      1 todo   : resolve NYI, needs nqp::readlink
-S32-io/io-path.t...................................  13    0    0    0   13
+S32-io/io-path.t...................................Saw 1 call to deprecated code during execution.
+================================================================================
+Method directory (from IO::Path) called at:
+  t/spec/S32-io/io-path.t, line 16
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use dirname instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
+  13    0    0    0   13
 S32-io/io-spec-cygwin.t............................ 100    0    0    2  102
      2 skipped: cygwin on-platform tests
 S32-io/io-spec-unix.t..............................use of uninitialized value $path of type Any in string context  in block <unit> at t/spec/S32-io/io-spec-unix.t:48
 
+Saw 5 calls to deprecated code during execution.
+================================================================================
+Method no-parent-or-current-test (from IO::Spec::Unix) called at:
+  t/spec/S32-io/io-spec-unix.t, lines 71,72,73,74
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use curupdir instead.
+--------------------------------------------------------------------------------
+Method MODULE (from IO::Spec) called at:
+  t/spec/S32-io/io-spec-unix.t, line 194
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use $*SPEC instead.
+--------------------------------------------------------------------------------
+Method curdir (from IO::Spec) called at:
+  t/spec/S32-io/io-spec-unix.t, line 196
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use $*SPEC.curdir instead.
+--------------------------------------------------------------------------------
+Method rel2abs (from IO::Spec) called at:
+  t/spec/S32-io/io-spec-unix.t, line 196
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use $*SPEC.rel2abs instead.
+--------------------------------------------------------------------------------
+Method tmpdir (from IO::Spec) called at:
+  t/spec/S32-io/io-spec-unix.t, line 197
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use $*TMPDIR instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
  130    0    0    0  130
 S32-io/io-spec-win.t...............................use of uninitialized value $path of type Any in string context  in block <unit> at t/spec/S32-io/io-spec-win.t:52
 
@@ -2151,7 +2289,21 @@ S32-io/io-spec-win.t...............................use of uninitialized value $p
      3 skipped: Win32ish on-platform tests
 S32-io/note.t......................................   6    0    0    0    6
 S32-io/other.t.....................................  60    0    0    0   60
-S32-io/slurp.t.....................................  18    0    0    0   18
+S32-io/slurp.t.....................................Saw 2 calls to deprecated code during execution.
+================================================================================
+Method slurp (from IO::Handle) called at:
+  t/spec/S32-io/slurp.t, line 39
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use IO::Path.slurp instead.
+--------------------------------------------------------------------------------
+slurp($handle,...) called at:
+  t/spec/S32-io/slurp.t, lines 45,53
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use slurp($path,...) instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
+  18    0    0    0   18
 S32-io/spurt.rakudo.parrot.........................  32    0    2    1   35
      1 skipped: is() gets into infinite recursion
      2 todo   : spurt io
@@ -2340,10 +2492,9 @@ S32-str/split-simple.rakudo.parrot.................  28    0    1    0   29
      1 todo   : RT #112868
 S32-str/split.rakudo.parrot........................  52    0    0    1   53
      1 skipped: No such method null for invocant of type Cursor
-S32-str/sprintf.rakudo.parrot...................... 143    0    9    4  156
-     2 skipped: sprintf hangs when printing Inf/-Inf
+S32-str/sprintf.rakudo.parrot...................... 143    0   11    2  156
      2 skipped: Issues with Inf: RT #116280
-     1 todo   : sprintf prints numbers before NaN
+     3 todo   : RT #116280 -- sprintf prints numbers instead of NaN/inf/-inf
      8 todo   : Issues with Inf: RT #116280
 S32-str/substr-rw.rakudo.parrot....................  19    0   12    0   31
     12 todo   : NYI
@@ -2560,13 +2711,13 @@ integration/advent2012-day15.rakudo.parrot.........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.rakudo.parrot.........# kaz: 2.2441314 seconds
-# gerdr: 2.445629 seconds
-# recursive-ternary: 2.901624967 seconds
-# loop: 3.07699388 seconds
-# sequence-ternary: 6.58957082 seconds
-# recursive-ternary-hand-cached: 7.96800946 seconds
-# sequence: 10.6593773 seconds
+integration/advent2012-day21.rakudo.parrot.........# kaz: 2.3195124 seconds
+# gerdr: 2.44068104 seconds
+# loop: 3.0800634 seconds
+# recursive-ternary: 3.1128171 seconds
+# sequence-ternary: 6.6721654 seconds
+# recursive-ternary-hand-cached: 7.9917497 seconds
+# sequence: 10.9161735 seconds
    8    0    0    1    9
      1 skipped: RT #122497
 integration/advent2012-day22.rakudo.parrot.........   5    0    1    0    6
@@ -2617,33 +2768,35 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5002,     6,   124,   440,  5572,  5664
-"S03",        4900,     0,   111,    92,  5103,  5137
-"S04",        1005,     0,    47,    44,  1096,  1148
-"S05",        5155,     0,   112,   263,  5530,  5911
+"S02",        5004,     6,   124,   440,  5574,  5666
+"S03",        4900,     1,   111,    92,  5104,  5138
+"S04",        1008,     0,    47,    45,  1100,  1152
+"S05",        5154,     0,   114,   263,  5531,  5912
 "S06",        1184,     0,    44,   109,  1337,  1417
 "S07",           0,     0,     0,     0,     0,     0
-"S09",         184,     0,    11,    10,   205,   205
-"S10",          84,     0,     2,     1,    87,   144
+"S09",         186,     0,    11,    10,   207,   207
+"S10",          84,     0,     2,     2,    88,   145
 "S11",         105,     0,     4,    14,   123,   142
-"S12",        1354,     0,    48,   125,  1527,  1585
+"S12",        1357,     0,    48,   125,  1530,  1588
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         303,     0,     8,    11,   322,   335
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         246,     0,     0,    17,   263,   307
 "S17",           0,     0,     0,     0,     0,   665
-"S19",           9,     2,     0,     1,    12,    17
-"S22",          51,     0,     1,     1,    53,    53
+"S19",           9,     2,     1,     0,    12,    17
+"S22",          15,    36,     1,     1,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     4,     2,   344,   354
-"S32",        9159,     0,   111,   178,  9448,  7882
+"S32",        9159,     0,   113,   176,  9448,  7882
 "int",        1197,     0,     9,    19,  1225,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31558,     8,   650,  1398, 33614, 34660
+"total",     31531,    45,   655,  1397, 33628, 34674
 ----------------
 Failure summary:
 S02-types/deprecations.t aborted 6 test(s)
+S03-operators/flip-flop.rakudo.parrot aborted 1 test(s)
 S19-command-line/dash-e.rakudo.parrot 2 - -e print $something works with non-ASCII string literals
 S19-command-line/dash-e.rakudo.parrot 3 - -e works with non-ASCII program texts
+S22-package-format/local.rakudo.parrot aborted 36 test(s)

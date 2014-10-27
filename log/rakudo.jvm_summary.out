@@ -106,8 +106,9 @@ S02-names-vars/names.rakudo.jvm.................... 130    0    0   13  143
      4 skipped: ::{ } package lookup NYI
      2 skipped: this kind of lookup NYI
      7 skipped: package variable autovivification
-S02-names-vars/perl.rakudo.jvm.....................  95    0    0    3   98
+S02-names-vars/perl.rakudo.jvm.....................  94    0    0    4   98
      1 skipped: RT #67790
+     1 skipped: RT #123048 -- sporadical failure
      2 skipped: recursive data structure RT #122286
 S02-names-vars/signature.rakudo.jvm................  11    0    2    0   13
      2 todo   : eqv on signatures
@@ -238,7 +239,7 @@ S02-types/multi_dimensional_array.rakudo.jvm.......  48    0    0   10   58
 S02-types/nan.rakudo.jvm...........................  19    0    0    2   21
      1 skipped: unspecced and inconsistent
      1 skipped: RT #83446
-S02-types/native.rakudo.jvm........................  25    0    0    2   27
+S02-types/native.rakudo.jvm........................  27    0    0    2   29
      2 skipped: RT #102416
 S02-types/nested_arrays.t..........................   8    0    0    0    8
 S02-types/nested_pairs.t...........................  14    0    0    0   14
@@ -375,8 +376,9 @@ S03-operators/eqv.rakudo.jvm.......................  50    0    3    1   54
      1 skipped: huh?
      3 todo   : huh?
 S03-operators/fiddly.t.............................   1    0    0    0    1
-S03-operators/flip-flop.rakudo.jvm.................  37    0    0    2   39
+S03-operators/flip-flop.rakudo.jvm.................  37    1    0    2   40
      2 skipped: dubious scoping?
+     1 tests aborted (missing ok/not ok)
 S03-operators/gcd.t................................  16    0    0    0   16
 S03-operators/identity.rakudo.jvm..................  37    0    8    0   45
      4 todo   : unspecced
@@ -531,7 +533,9 @@ S04-phasers/in-eval.rakudo.jvm.....................  24    0    1   10   35
 S04-phasers/in-loop.rakudo.jvm.....................   1    0    0    2    3
      2 skipped: RT #122134 - last+ENTER in loop
 S04-phasers/init.t.................................  11    0    0    0   11
-S04-phasers/keep-undo.t............................  12    0    0    0   12
+S04-phasers/keep-undo.rakudo.jvm...................  14    0    1    1   16
+     1 skipped: RT #111866
+     1 todo   : RT #111866
 S04-phasers/multiple.t.............................   2    0    0    0    2
 S04-phasers/next.rakudo.jvm........................  10    0    2    1   13
      1 skipped: leave NYI
@@ -617,9 +621,10 @@ S05-interpolation/lexicals.t.......................  10    0    0    0   10
 S05-interpolation/regex-in-variable.rakudo.jvm.....  31    0    3    0   34
      1 todo   : warn on undef
      2 todo   : instance member interpolation
-S05-mass/charsets.rakudo.jvm.......................  15    0    2    0   17
+S05-mass/charsets.rakudo.jvm.......................  14    0    3    0   17
      1 todo   : Unicode 6.3 -- lower characters
-     1 todo PASSED: ?
+     1 todo PASSED: Unicode 6.1 -- :Punctuation characters
+     1 todo PASSED: Unicode 6.1 -- punct characters
 S05-mass/named-chars.t............................. 431    0    0    0  431
 S05-mass/properties-block.t........................ 670    0    0    0  670
 S05-mass/properties-derived.rakudo.jvm............. 189    0    1   66  256
@@ -699,7 +704,7 @@ S05-metasyntax/regex.t.............................  29    0    0    0   29
 S05-metasyntax/repeat.t............................  24    0    0    0   24
 S05-metasyntax/sequential-alternation.t............  10    0    0    0   10
 S05-metasyntax/single-quotes.t.....................   5    0    0    0    5
-S05-metasyntax/unknown.rakudo.jvm..................  10    0    1    0   11
+S05-metasyntax/unknown.rakudo.jvm..................  11    0    1    0   12
      1 todo   : RT #74832
 S05-modifier/continue.t............................  13    0    0    0   13
 S05-modifier/counted-match.rakudo.jvm..............  16    0    0    6   22
@@ -899,7 +904,7 @@ S09-hashes/objecthash.rakudo.jvm...................  27    0    2    3   32
 S09-subscript/slice.rakudo.jvm.....................  22    0    0    4   26
      2 skipped: RT #61844
      2 skipped: RT #120383
-S09-typed-arrays/arrays.rakudo.jvm.................  58    0    5    2   65
+S09-typed-arrays/arrays.rakudo.jvm.................  60    0    5    2   67
      1 skipped: nested typechecks are borked
      1 skipped: type on our-variables
      1 todo   : need parameterized Lists
@@ -908,7 +913,7 @@ S09-typed-arrays/arrays.rakudo.jvm.................  58    0    5    2   65
      1 todo   : initialization
 S09-typed-arrays/hashes.t..........................  33    0    0    0   33
                                                    pass fail todo skip plan
-S10-packages/basic.rakudo.jvm......................  53    0    8    1   62
+S10-packages/basic.rakudo.jvm......................  54    0    8    1   63
      1 skipped: RT #59484
      6 todo   : ?
      1 todo   : ticket based only on class... RT #60446
@@ -937,7 +942,7 @@ S11-modules/require.rakudo.jvm.....................  12    0    2    1   15
      1 todo   : variable form plus imports NYI
      1 todo   : creation of stub package symbol NYI
                                                    pass fail todo skip plan
-S12-attributes/class.rakudo.jvm....................  21    0    0    6   27
+S12-attributes/class.rakudo.jvm....................  23    0    0    6   29
      6 skipped: nom regression - method ^foo
 S12-attributes/clone.rakudo.jvm....................  33    0    2    0   35
      2 todo   : clone currently messes up original
@@ -953,7 +958,7 @@ S12-attributes/instance.rakudo.jvm................. 133    0    6    1  140
 S12-attributes/mutators.rakudo.jvm.................   5    0    0    7   12
      7 skipped: Can not get attribute $!varies declared in class MagicVal with this object
 S12-attributes/recursive.t.........................  23    0    0    0   23
-S12-attributes/undeclared.t........................  10    0    0    0   10
+S12-attributes/undeclared.t........................  11    0    0    0   11
 S12-class/anonymous.rakudo.jvm.....................  16    0    1    0   17
      1 todo   : Anonymous class stringification (?)
 S12-class/attributes.rakudo.jvm....................  31    0    0    2   33
@@ -1243,14 +1248,15 @@ S17-supply/zip.t...................................   8    0    0    0    8
 S19-command-line-options/02-dash-n.t...............   3    0    0    0    3
 S19-command-line-options/03-dash-p.t...............   2    0    0    0    2
 S19-command-line/arguments.t.......................   1    0    0    0    1
-S19-command-line/dash-e.rakudo.jvm.................   0    0    0    4    4
+S19-command-line/dash-e.rakudo.jvm.................   0    0    1    3    4
      3 skipped: nigh
-     1 skipped: -e as stopper doesn't work quite yet.
+     1 todo PASSED: -e as stopper doesn't work quite yet.
 S19-command-line/help.t............................   1    0    0    0    1
 S19-command-line/repl.t............................   1    0    0    0    1
                                                    pass fail todo skip plan
-S22-package-format/local.rakudo.jvm................  39    0    0    1   40
+S22-package-format/local.rakudo.jvm................   3   36    0    1   40
      1 skipped: cannot do signals in JVM
+    36 tests aborted (missing ok/not ok)
 S22-package-format/parse-spec.rakudo.jvm...........  12    0    1    0   13
      1 todo   : RT #122137
                                                    pass fail todo skip plan
@@ -1685,23 +1691,23 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5043,     6,   143,   380,  5572,  5664
-"S03",        4900,     0,   111,    92,  5103,  5137
-"S04",         996,     0,    42,    58,  1096,  1148
-"S05",        5157,     0,   110,   263,  5530,  5911
+"S02",        5044,     6,   143,   381,  5574,  5666
+"S03",        4900,     1,   111,    92,  5104,  5138
+"S04",         998,     0,    43,    59,  1100,  1152
+"S05",        5157,     0,   111,   263,  5531,  5912
 "S06",        1185,     0,    42,   110,  1337,  1417
 "S07",           0,     0,     0,     0,     0,     0
-"S09",         184,     0,    11,    10,   205,   205
-"S10",          76,     0,    10,     1,    87,   144
+"S09",         186,     0,    11,    10,   207,   207
+"S10",          77,     0,    10,     1,    88,   145
 "S11",         105,     0,     4,    14,   123,   142
-"S12",        1351,     0,    51,   125,  1527,  1585
+"S12",        1354,     0,    51,   125,  1530,  1588
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         298,     0,    13,    11,   322,   335
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         245,     0,     0,    18,   263,   307
 "S17",         584,     0,    25,    23,   632,   665
-"S19",           8,     0,     0,     4,    12,    17
-"S22",          51,     0,     1,     1,    53,    53
+"S19",           8,     0,     1,     3,    12,    17
+"S22",          15,    36,     1,     1,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
@@ -1709,7 +1715,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9156,     0,   105,   187,  9448,  7882
 "int",        1202,     1,    15,    21,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32161,     7,   700,  1392, 34260, 34660
+"total",     32134,    44,   703,  1393, 34274, 34674
 ----------------
 Failure summary:
 S02-types/mix.rakudo.jvm 125 - We got one of the two choices (and this was pretty quick, we hope!)
@@ -1718,4 +1724,6 @@ S02-types/mix.rakudo.jvm 127 - .roll(100) (1)
 S02-types/mixhash.rakudo.jvm 135 - We got one of the two choices (and this was pretty quick, we hope!)
 S02-types/mixhash.rakudo.jvm 136 - .roll(100) returns 100 items
 S02-types/mixhash.rakudo.jvm 137 - .roll(100) (1)
+S03-operators/flip-flop.rakudo.jvm aborted 1 test(s)
+S22-package-format/local.rakudo.jvm aborted 36 test(s)
 integration/advent2012-day21.rakudo.jvm 3 - recursive-ternary-hand-cached

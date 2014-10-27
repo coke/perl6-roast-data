@@ -357,7 +357,7 @@ S02-types/multi_dimensional_array.rakudo.moar......  48    0    0   10   58
 S02-types/nan.rakudo.moar..........................  19    0    0    2   21
      1 skipped: unspecced and inconsistent
      1 skipped: RT #83446
-S02-types/native.rakudo.moar.......................  25    0    0    2   27
+S02-types/native.rakudo.moar.......................  27    0    0    2   29
      2 skipped: RT #102416
 S02-types/nested_arrays.t..........................   8    0    0    0    8
 S02-types/nested_pairs.t...........................  14    0    0    0   14
@@ -750,8 +750,17 @@ use of uninitialized value $i of type Any in string context  in method Str at ./
 
 use of uninitialized value $i of type Any in string context  in method Str at ././CORE.setting.moarvm:1
 
-  37    0    0    2   39
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏B' (indicated by ⏏)
+  in method Numeric at src/gen/m-CORE.setting:13679
+  in sub infix:<==> at src/gen/m-CORE.setting:4532
+  in sub infix:<==> at src/gen/m-CORE.setting:4532
+  in method ACCEPTS at src/gen/m-CORE.setting:4303
+  in block  at t/spec/S03-operators/flip-flop.rakudo.moar:145
+  in block <unit> at t/spec/S03-operators/flip-flop.rakudo.moar:141
+
+  37    1    0    2   40
      2 skipped: dubious scoping?
+     1 tests aborted (missing ok/not ok)
 S03-operators/gcd.t................................  16    0    0    0   16
 S03-operators/identity.rakudo.moar.................  37    0    8    0   45
      4 todo   : unspecced
@@ -988,7 +997,7 @@ S04-phasers/in-eval.rakudo.moar....................# Looks like you planned 35 t
 S04-phasers/in-loop.rakudo.moar....................   1    0    2    0    3
      2 todo   : unknown phasers issue
 S04-phasers/init.t.................................  11    0    0    0   11
-S04-phasers/keep-undo.t............................  12    0    0    0   12
+S04-phasers/keep-undo.t............................  16    0    0    0   16
 S04-phasers/multiple.t.............................   2    0    0    0    2
 S04-phasers/next.rakudo.moar.......................  10    0    2    1   13
      1 skipped: leave NYI
@@ -1074,6 +1083,15 @@ S05-grammar/methods.t..............................   6    0    0    0    6
 S05-grammar/namespace.t............................   5    0    0    0    5
 S05-grammar/parse_and_parsefile.t..................use of uninitialized value of type Any in string context  in block <unit> at t/spec/S05-grammar/parse_and_parsefile.t:12
 
+Saw 1 call to deprecated code during execution.
+================================================================================
+Method slurp (from IO::Handle) called at:
+  src/gen/m-CORE.setting, line 14115
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use IO::Path.slurp instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
   15    0    0    0   15
 S05-grammar/polymorphism.t.........................use of uninitialized value of type Any in string context  in block <unit> at t/spec/S05-grammar/polymorphism.t:55
 
@@ -1191,7 +1209,7 @@ Potential difficulties:
 S05-metasyntax/repeat.t............................  24    0    0    0   24
 S05-metasyntax/sequential-alternation.t............  10    0    0    0   10
 S05-metasyntax/single-quotes.t.....................   5    0    0    0    5
-S05-metasyntax/unknown.rakudo.moar.................  10    0    1    0   11
+S05-metasyntax/unknown.rakudo.moar.................  11    0    1    0   12
      1 todo   : RT #74832
 S05-modifier/continue.t............................  13    0    0    0   13
 S05-modifier/counted-match.rakudo.moar.............  16    0    0    6   22
@@ -1502,7 +1520,19 @@ S09-hashes/objecthash.rakudo.moar..................  27    0    2    3   32
 S09-subscript/slice.rakudo.moar....................  22    0    0    4   26
      2 skipped: RT #61844
      2 skipped: RT #120383
-S09-typed-arrays/arrays.rakudo.moar................  58    0    5    2   65
+S09-typed-arrays/arrays.rakudo.moar................use of uninitialized value $got of type Int in string context  in sub is at lib/Test.pm:116
+
+use of uninitialized value $expected of type Int in string context  in sub is at lib/Test.pm:116
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:116
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:116
+
+use of uninitialized value <element> of type Int in string context  in sub is at lib/Test.pm:116
+
+use of uninitialized value <element> of type Int in string context  in sub is at lib/Test.pm:116
+
+  60    0    5    2   67
      1 skipped: nested typechecks are borked
      1 skipped: type on our-variables
      1 todo   : need parameterized Lists
@@ -1527,12 +1557,12 @@ use of uninitialized value $expected of type Int in string context  in sub is at
 
   33    0    0    0   33
                                                    pass fail todo skip plan
-S10-packages/basic.rakudo.moar.....................  59    0    2    1   62
+S10-packages/basic.rakudo.moar.....................  60    0    2    1   63
      1 skipped: RT #59484
      1 todo   : ticket based only on class... RT #60446
      1 todo   : RT #64606
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
-S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 32935 Segmentation fault: 11  ./perl6-m getout-32923-337114.code < getout-32923-337114.in > getout-32923-337114.out 2> getout-32923-337114.err
+S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 78216 Segmentation fault: 11  ./perl6-m getout-78204-970324.code < getout-78204-970324.in > getout-78204-970324.out 2> getout-78204-970324.err
   11    0    2    0   13
      1 todo   : RT #122773
      1 todo   : RT #122896
@@ -1564,7 +1594,7 @@ S11-modules/require.rakudo.moar....................  12    0    2    1   15
      1 todo   : variable form plus imports NYI
      1 todo   : creation of stub package symbol NYI
                                                    pass fail todo skip plan
-S12-attributes/class.rakudo.moar...................  21    0    0    6   27
+S12-attributes/class.rakudo.moar...................  23    0    0    6   29
      6 skipped: nom regression - method ^foo
 S12-attributes/clone.rakudo.moar...................  33    0    2    0   35
      2 todo   : clone currently messes up original
@@ -1602,7 +1632,7 @@ use of uninitialized value %!h of type Int in string context  in sub is at lib/T
 S12-attributes/mutators.rakudo.moar................   5    0    0    7   12
      7 skipped: Can not get attribute $!varies declared in class MagicVal with this object
 S12-attributes/recursive.t.........................  23    0    0    0   23
-S12-attributes/undeclared.t........................  10    0    0    0   10
+S12-attributes/undeclared.t........................  11    0    0    0   11
 S12-class/anonymous.rakudo.moar....................  16    0    1    0   17
      1 todo   : Anonymous class stringification (?)
 S12-class/attributes.rakudo.moar...................  31    0    0    2   33
@@ -1817,8 +1847,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1414158275
-# Using file temp_1414158275
+S16-filehandles/chmod.t............................# Using file temp_1414413096
+# Using file temp_1414413096
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1844,7 +1874,16 @@ S16-io/tmpdir.t....................................   3    0    0    0    3
 S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
      2 skipped: contextual rebinding regression
                                                    pass fail todo skip plan
-S17-channel/basic.t................................  12    0    0    0   12
+S17-channel/basic.t................................Saw 1 call to deprecated code during execution.
+================================================================================
+winner called at:
+  src/gen/m-CORE.setting, line 20247
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use earliest instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
+  12    0    0    0   12
 S17-channel/earliest.t.............................   3    0    0    0    3
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.t..............................use of uninitialized value $got of type Any in string context  in sub is at lib/Test.pm:116
@@ -1917,6 +1956,15 @@ S17-supply/lines.t.................................# **** scheduling with Thread
   21    0    0    0   21
 S17-supply/list.t..................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
+Saw 1 call to deprecated code during execution.
+================================================================================
+winner called at:
+  src/gen/m-CORE.setting, line 20422
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use earliest instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
    5    0    0    0    5
 S17-supply/map.t...................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
@@ -1964,7 +2012,16 @@ S17-supply/uniq.t..................................# **** scheduling with Thread
 # **** scheduling with CurrentThreadScheduler
   17    0    0    0   17
 S17-supply/wait.t..................................   4    0    0    0    4
-S17-supply/watch_path.t............................   2    0    0    0    2
+S17-supply/watch_path.t............................Saw 1 call to deprecated code during execution.
+================================================================================
+Method more (from Supply) called at:
+  src/gen/m-CORE.setting, line 14809
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use emit instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
+   2    0    0    0    2
 S17-supply/words.t.................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
    5    0    0    0    5
@@ -1976,12 +2033,20 @@ S17-supply/zip.t...................................# **** scheduling with Curren
 S19-command-line-options/02-dash-n.t...............   3    0    0    0    3
 S19-command-line-options/03-dash-p.t...............   2    0    0    0    2
 S19-command-line/arguments.t.......................   1    0    0    0    1
-S19-command-line/dash-e.rakudo.moar................   3    0    0    1    4
-     1 skipped: -e as stopper doesn't work quite yet.
+S19-command-line/dash-e.rakudo.moar................   3    0    1    0    4
+     1 todo PASSED: -e as stopper doesn't work quite yet.
 S19-command-line/help.t............................   1    0    0    0    1
 S19-command-line/repl.t............................   1    0    0    0    1
                                                    pass fail todo skip plan
-S22-package-format/local.t.........................  40    0    0    0   40
+S22-package-format/local.t.........................Invocant requires an instance, but a type object was passed
+  in method perl at src/gen/m-CORE.setting:23228
+  in sub isa_ok at lib/Test.pm:228
+  in sub isa_ok at lib/Test.pm:228
+  in block <unit> at t/spec/S22-package-format/local.t:36
+
+# Looks like you planned 40 tests, but ran 4
+   4   36    0    0   40
+    36 tests aborted (missing ok/not ok)
 S22-package-format/parse-spec.rakudo.moar..........  12    0    1    0   13
      1 todo   : RT #122137
                                                    pass fail todo skip plan
@@ -2139,11 +2204,11 @@ Code object coerced to string (please use .gist or .perl to do that)  in any thr
  271    0    2    0  273
      1 todo   : Cannot find method "returns"
      1 todo   : parsing regression
-S32-hash/delete-adverb.t...........................moar(34011,0x7fff7bce2310) malloc: *** error for object 0x7f8954e56840: pointer being freed was not allocated
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 34011 Abort trap: 6           nice -20 ./perl6-m t/spec/S32-hash/delete-adverb.t
-   0  131    0    0  131
-   131 tests aborted (missing ok/not ok)
+S32-hash/delete-adverb.t...........................use of uninitialized value $got of type Int in string context  in sub is at lib/Test.pm:116
+
+use of uninitialized value $expected of type Int in string context  in sub is at lib/Test.pm:116
+
+ 131    0    0    0  131
 S32-hash/delete.t..................................   8    0    0    0    8
 S32-hash/exists-adverb.t...........................  46    0    0    0   46
 S32-hash/exists.rakudo.moar........................  20    0    0    1   21
@@ -2163,7 +2228,16 @@ S32-io/IO-Socket-INET.t............................   0    0    0   47   47
 S32-io/chdir.rakudo.moar...........................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
-S32-io/dir.t.......................................  12    0    0    0   12
+S32-io/dir.t.......................................Saw 1 call to deprecated code during execution.
+================================================================================
+Method directory (from IO::Path) called at:
+  t/spec/S32-io/dir.t, lines 16,29
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use dirname instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
+  12    0    0    0   12
 S32-io/file-tests.t................................  34    0    0    0   34
 S32-io/io-path-cygwin.rakudo.moar..................use of uninitialized value $CWD of type Any in string context  in block <unit> at t/spec/S32-io/io-path-cygwin.rakudo.moar:9
 
@@ -2177,11 +2251,49 @@ S32-io/io-path-win.rakudo.moar.....................use of uninitialized value $C
 
   48    0    1    0   49
      1 todo   : resolve NYI, needs nqp::readlink
-S32-io/io-path.t...................................  13    0    0    0   13
+S32-io/io-path.t...................................Saw 1 call to deprecated code during execution.
+================================================================================
+Method directory (from IO::Path) called at:
+  t/spec/S32-io/io-path.t, line 16
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use dirname instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
+  13    0    0    0   13
 S32-io/io-spec-cygwin.t............................ 100    0    0    2  102
      2 skipped: cygwin on-platform tests
 S32-io/io-spec-unix.t..............................use of uninitialized value $path of type Any in string context  in block <unit> at t/spec/S32-io/io-spec-unix.t:48
 
+Saw 5 calls to deprecated code during execution.
+================================================================================
+Method no-parent-or-current-test (from IO::Spec::Unix) called at:
+  t/spec/S32-io/io-spec-unix.t, lines 71,72,73,74
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use curupdir instead.
+--------------------------------------------------------------------------------
+Method MODULE (from IO::Spec) called at:
+  t/spec/S32-io/io-spec-unix.t, line 195
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use $*SPEC instead.
+--------------------------------------------------------------------------------
+Method curdir (from IO::Spec) called at:
+  t/spec/S32-io/io-spec-unix.t, line 196
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use $*SPEC.curdir instead.
+--------------------------------------------------------------------------------
+Method rel2abs (from IO::Spec) called at:
+  t/spec/S32-io/io-spec-unix.t, line 196
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use $*SPEC.rel2abs instead.
+--------------------------------------------------------------------------------
+Method tmpdir (from IO::Spec) called at:
+  t/spec/S32-io/io-spec-unix.t, line 197
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use $*TMPDIR instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
  130    0    0    0  130
 S32-io/io-spec-win.t...............................use of uninitialized value $path of type Any in string context  in block <unit> at t/spec/S32-io/io-spec-win.t:52
 
@@ -2189,8 +2301,31 @@ S32-io/io-spec-win.t...............................use of uninitialized value $p
      3 skipped: Win32ish on-platform tests
 S32-io/note.t......................................   6    0    0    0    6
 S32-io/other.t.....................................  60    0    0    0   60
-S32-io/slurp.t.....................................  18    0    0    0   18
-S32-io/spurt.t.....................................  35    0    0    0   35
+S32-io/slurp.t.....................................Saw 2 calls to deprecated code during execution.
+================================================================================
+Method slurp (from IO::Handle) called at:
+  t/spec/S32-io/slurp.t, line 39
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use IO::Path.slurp instead.
+--------------------------------------------------------------------------------
+slurp($handle,...) called at:
+  t/spec/S32-io/slurp.t, lines 45,53
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use slurp($path,...) instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
+  18    0    0    0   18
+S32-io/spurt.t.....................................Saw 1 call to deprecated code during execution.
+================================================================================
+spurt($handle,...) called at:
+  t/spec/S32-io/spurt.t, lines 65,75,83
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use spurt($path,...) instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
+  35    0    0    0   35
 S32-list/categorize.t..............................  12    0    0    0   12
 S32-list/classify.rakudo.moar......................  12    0    0    3   15
      3 skipped: Cannot use bind operator with this LHS
@@ -2375,7 +2510,7 @@ S32-str/split-simple.rakudo.moar...................  28    0    1    0   29
 S32-str/split.rakudo.moar..........................  52    0    0    1   53
      1 skipped: No such method null for invocant of type Cursor
 S32-str/sprintf.rakudo.moar........................ 143    0   13    0  156
-     3 todo   : RT #116280
+     3 todo   : RT #116280 -- sprintf prints numbers instead of NaN/inf/-inf
     10 todo   : Issues with Inf: RT #116280
 S32-str/substr-rw.rakudo.moar......................  19    0   12    0   31
     12 todo   : NYI
@@ -2592,14 +2727,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 0.8444218 seconds
-# gerdr: 0.8518238 seconds
-# recursive-ternary: 0.95447209 seconds
-# loop: 0.9670848 seconds
-# sequence-ternary: 1.709219 seconds
-# recursive-ternary-hand-cached: 1.7458444 seconds
-# hand-memoization: 2.4072506 seconds
-# sequence: 2.52807148 seconds
+integration/advent2012-day21.t.....................# kaz: 0.8551876 seconds
+# gerdr: 0.87892074 seconds
+# recursive-ternary: 1.00895167 seconds
+# loop: 1.0201960 seconds
+# sequence-ternary: 1.787881 seconds
+# recursive-ternary-hand-cached: 1.84839910 seconds
+# hand-memoization: 2.48983880 seconds
+# sequence: 2.58111034 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2621,7 +2756,16 @@ integration/advent2013-day14.rakudo.moar...........   5    0    0    5   10
 integration/advent2013-day15.rakudo.moar...........  27    0    3    0   30
      3 todo   : list of numbers
 integration/advent2013-day18.t.....................  10    0    0    0   10
-integration/advent2013-day19.t.....................   4    0    0    0    4
+integration/advent2013-day19.t.....................Saw 1 call to deprecated code during execution.
+================================================================================
+Method more (from Supply) called at:
+  t/spec/integration/advent2013-day19.t, lines 17,18,19,27,36,40
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use emit instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
+   4    0    0    0    4
 integration/advent2013-day20.t.....................  22    0    0    0   22
 integration/advent2013-day21.t.....................  24    0    0    0   24
 integration/advent2013-day22.t.....................   9    0    0    0    9
@@ -2655,31 +2799,32 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5083,     0,   127,   362,  5572,  5664
-"S03",        4900,     0,   111,    92,  5103,  5137
-"S04",        1014,     0,    40,    42,  1096,  1148
-"S05",        5248,     0,   105,   177,  5530,  5911
+"S02",        5085,     0,   127,   362,  5574,  5666
+"S03",        4900,     1,   111,    92,  5104,  5138
+"S04",        1018,     0,    40,    42,  1100,  1152
+"S05",        5249,     0,   105,   177,  5531,  5912
 "S06",        1192,     0,    41,   104,  1337,  1417
 "S07",           0,     0,     0,     0,     0,     0
-"S09",         184,     0,    11,    10,   205,   205
-"S10",          82,     0,     4,     1,    87,   144
+"S09",         186,     0,    11,    10,   207,   207
+"S10",          83,     0,     4,     1,    88,   145
 "S11",         105,     0,     4,    14,   123,   142
-"S12",        1356,     0,    46,   125,  1527,  1585
+"S12",        1359,     0,    46,   125,  1530,  1588
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         302,     0,    10,    10,   322,   335
 "S15",         240,     0,     2,    16,   258,   283
 "S16",         246,     0,     0,    17,   263,   307
 "S17",         646,     0,     4,    18,   668,   692
-"S19",          11,     0,     0,     1,    12,    17
-"S22",          52,     0,     1,     0,    53,    53
+"S19",          11,     0,     1,     0,    12,    17
+"S22",          16,    36,     1,     0,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     4,     2,   344,   354
-"S32",        9027,   131,   121,   169,  9448,  7882
+"S32",        9158,     0,   121,   169,  9448,  7882
 "int",        1208,     0,    12,    19,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32516,   131,   657,  1250, 34554, 34687
+"total",     32624,    37,   658,  1249, 34568, 34701
 ----------------
 Failure summary:
-S32-hash/delete-adverb.t aborted 131 test(s)
+S03-operators/flip-flop.rakudo.moar aborted 1 test(s)
+S22-package-format/local.t aborted 36 test(s)
