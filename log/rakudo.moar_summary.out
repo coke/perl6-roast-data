@@ -173,7 +173,7 @@ S02-names-vars/fmt.t...............................  21    0    0    0   21
 S02-names-vars/list_array_perl.rakudo.moar.........  19    0    1    2   22
      2 skipped: recursive data structure
      1 todo   : List.perl bug
-S02-names-vars/names.rakudo.moar................... 130    0    0   13  143
+S02-names-vars/names.rakudo.moar................... 131    0    0   13  144
      4 skipped: ::{ } package lookup NYI
      2 skipped: this kind of lookup NYI
      7 skipped: package variable autovivification
@@ -183,7 +183,7 @@ use of uninitialized value of type Mu in string context  in block  at t/spec/S02
 
 use of uninitialized value of type Mu in string context  in block  at t/spec/S02-names-vars/perl.rakudo.moar:58
 
-  95    0    0    3   98
+  96    0    0    3   99
      1 skipped: RT #67790
      2 skipped: recursive data structure RT #122286
 S02-names-vars/signature.rakudo.moar...............  11    0    2    0   13
@@ -750,17 +750,9 @@ use of uninitialized value $i of type Any in string context  in method Str at ./
 
 use of uninitialized value $i of type Any in string context  in method Str at ././CORE.setting.moarvm:1
 
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏B' (indicated by ⏏)
-  in method Numeric at src/gen/m-CORE.setting:13679
-  in sub infix:<==> at src/gen/m-CORE.setting:4532
-  in sub infix:<==> at src/gen/m-CORE.setting:4532
-  in method ACCEPTS at src/gen/m-CORE.setting:4303
-  in block  at t/spec/S03-operators/flip-flop.rakudo.moar:145
-  in block <unit> at t/spec/S03-operators/flip-flop.rakudo.moar:141
-
-  37    1    0    2   40
+  37    0    0    3   40
      2 skipped: dubious scoping?
-     1 tests aborted (missing ok/not ok)
+     1 skipped: NYM flip-flop with "True but $seqnum"
 S03-operators/gcd.t................................  16    0    0    0   16
 S03-operators/identity.rakudo.moar.................  37    0    8    0   45
      4 todo   : unspecced
@@ -774,8 +766,9 @@ S03-operators/is-divisible-by.rakudo.moar..........  14    0    1    0   15
 S03-operators/lcm.t................................  15    0    0    0   15
 S03-operators/list-quote-junction.t................  16    0    0    0   16
 S03-operators/minmax.rakudo.moar...................  21    0    4    0   25
-     2 todo   : Annoying test that we haven't done the obvious yet unspecced, fails because we have indeed done the obvious
+     1 todo   : Annoying test that we haven't done the obvious yet unspecced, fails because we have indeed done the obvious
      2 todo   : max/min non-associative NYI
+     1 todo PASSED: Annoying test that we haven't done the obvious yet unspecced, fails because we have indeed done the obvious
 S03-operators/misc.t...............................  33    0    0    0   33
 S03-operators/names.t..............................Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:14
 
@@ -954,7 +947,8 @@ S04-declarations/state.rakudo.moar.................use of uninitialized value $g
 
 use of uninitialized value $got of type Any in string context  in sub is at lib/Test.pm:120
 
-  33    0    2    5   40
+  33    0    2    6   41
+     1 skipped: RT #115614
      5 skipped: parse error
      1 todo   : embedded closures in regexen
      1 todo   : initialization happens only on first call(?)
@@ -1086,7 +1080,7 @@ S05-grammar/parse_and_parsefile.t..................use of uninitialized value of
 Saw 1 call to deprecated code during execution.
 ================================================================================
 Method slurp (from IO::Handle) called at:
-  src/gen/m-CORE.setting, line 14115
+  src/gen/m-CORE.setting, line 14122
 Deprecated since v2014.10, will be removed with release v2015.10!
 Please use IO::Path.slurp instead.
 --------------------------------------------------------------------------------
@@ -1562,7 +1556,7 @@ S10-packages/basic.rakudo.moar.....................  60    0    2    1   63
      1 todo   : ticket based only on class... RT #60446
      1 todo   : RT #64606
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
-S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 78216 Segmentation fault: 11  ./perl6-m getout-78204-970324.code < getout-78204-970324.in > getout-78204-970324.out 2> getout-78204-970324.err
+S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 45316 Segmentation fault: 11  ./perl6-m getout-45304-90501.code < getout-45304-90501.in > getout-45304-90501.out 2> getout-45304-90501.err
   11    0    2    0   13
      1 todo   : RT #122773
      1 todo   : RT #122896
@@ -1638,8 +1632,12 @@ S12-class/anonymous.rakudo.moar....................  16    0    1    0   17
 S12-class/attributes.rakudo.moar...................  31    0    0    2   33
      1 skipped: where clauses on attributes NYI, RT #122109
      1 skipped: Cannot use .= to initialize an attribute
-S12-class/augment-supersede.rakudo.moar............  11    0    0    2   13
+S12-class/augment-supersede.rakudo.moar............moar(45398,0x7fff7bce2310) malloc: *** error for object 0x7fa5ec853768: pointer being freed was not allocated
+*** set a breakpoint in malloc_error_break to debug
+sh: line 1: 45398 Abort trap: 6           nice -20 ./perl6-m t/spec/S12-class/augment-supersede.rakudo.moar
+  10    1    0    2   13
      2 skipped: redeclaration of symbol Bar
+     1 tests aborted (missing ok/not ok)
 S12-class/basic.rakudo.moar........................  33    0    0    4   37
      3 skipped: Calling is will never work with argument types (Foo)
      1 skipped: RT #67784
@@ -1847,8 +1845,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1414413096
-# Using file temp_1414413096
+S16-filehandles/chmod.t............................# Using file temp_1414592256
+# Using file temp_1414592257
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1877,7 +1875,7 @@ S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
 S17-channel/basic.t................................Saw 1 call to deprecated code during execution.
 ================================================================================
 winner called at:
-  src/gen/m-CORE.setting, line 20247
+  src/gen/m-CORE.setting, line 20273
 Deprecated since v2014.10, will be removed with release v2015.10!
 Please use earliest instead.
 --------------------------------------------------------------------------------
@@ -1959,7 +1957,7 @@ S17-supply/list.t..................................# **** scheduling with Thread
 Saw 1 call to deprecated code during execution.
 ================================================================================
 winner called at:
-  src/gen/m-CORE.setting, line 20422
+  src/gen/m-CORE.setting, line 20448
 Deprecated since v2014.10, will be removed with release v2015.10!
 Please use earliest instead.
 --------------------------------------------------------------------------------
@@ -2015,7 +2013,7 @@ S17-supply/wait.t..................................   4    0    0    0    4
 S17-supply/watch_path.t............................Saw 1 call to deprecated code during execution.
 ================================================================================
 Method more (from Supply) called at:
-  src/gen/m-CORE.setting, line 14809
+  src/gen/m-CORE.setting, line 14816
 Deprecated since v2014.10, will be removed with release v2015.10!
 Please use emit instead.
 --------------------------------------------------------------------------------
@@ -2033,20 +2031,11 @@ S17-supply/zip.t...................................# **** scheduling with Curren
 S19-command-line-options/02-dash-n.t...............   3    0    0    0    3
 S19-command-line-options/03-dash-p.t...............   2    0    0    0    2
 S19-command-line/arguments.t.......................   1    0    0    0    1
-S19-command-line/dash-e.rakudo.moar................   3    0    1    0    4
-     1 todo PASSED: -e as stopper doesn't work quite yet.
+S19-command-line/dash-e.t..........................   4    0    0    0    4
 S19-command-line/help.t............................   1    0    0    0    1
 S19-command-line/repl.t............................   1    0    0    0    1
                                                    pass fail todo skip plan
-S22-package-format/local.t.........................Invocant requires an instance, but a type object was passed
-  in method perl at src/gen/m-CORE.setting:23228
-  in sub isa_ok at lib/Test.pm:228
-  in sub isa_ok at lib/Test.pm:228
-  in block <unit> at t/spec/S22-package-format/local.t:36
-
-# Looks like you planned 40 tests, but ran 4
-   4   36    0    0   40
-    36 tests aborted (missing ok/not ok)
+S22-package-format/local.t.........................  40    0    0    0   40
 S22-package-format/parse-spec.rakudo.moar..........  12    0    1    0   13
      1 todo   : RT #122137
                                                    pass fail todo skip plan
@@ -2228,26 +2217,17 @@ S32-io/IO-Socket-INET.t............................   0    0    0   47   47
 S32-io/chdir.rakudo.moar...........................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
-S32-io/dir.t.......................................Saw 1 call to deprecated code during execution.
-================================================================================
-Method directory (from IO::Path) called at:
-  t/spec/S32-io/dir.t, lines 16,29
-Deprecated since v2014.10, will be removed with release v2015.10!
-Please use dirname instead.
---------------------------------------------------------------------------------
-Please contact the author to have these calls to deprecated code adapted,
-so that this message will disappear!
-  12    0    0    0   12
+S32-io/dir.t.......................................  12    0    0    0   12
 S32-io/file-tests.t................................  34    0    0    0   34
-S32-io/io-path-cygwin.rakudo.moar..................use of uninitialized value $CWD of type Any in string context  in block <unit> at t/spec/S32-io/io-path-cygwin.rakudo.moar:9
+S32-io/io-path-cygwin.rakudo.moar..................use of uninitialized value $CWD of type Any in string context  in method bless at ././CORE.setting.moarvm:1
 
   49    0    1    0   50
      1 todo   : resolve NYI, needs nqp::readlink
-S32-io/io-path-unix.rakudo.moar....................use of uninitialized value $CWD of type Any in string context  in block <unit> at t/spec/S32-io/io-path-unix.rakudo.moar:9
+S32-io/io-path-unix.rakudo.moar....................use of uninitialized value $CWD of type Any in string context  in method bless at ././CORE.setting.moarvm:1
 
   34    0    1    0   35
      1 todo   : resolve NYI, needs nqp::readlink
-S32-io/io-path-win.rakudo.moar.....................use of uninitialized value $CWD of type Any in string context  in block <unit> at t/spec/S32-io/io-path-win.rakudo.moar:8
+S32-io/io-path-win.rakudo.moar.....................use of uninitialized value $CWD of type Any in string context  in method bless at ././CORE.setting.moarvm:1
 
   48    0    1    0   49
      1 todo   : resolve NYI, needs nqp::readlink
@@ -2727,14 +2707,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 0.8551876 seconds
-# gerdr: 0.87892074 seconds
-# recursive-ternary: 1.00895167 seconds
-# loop: 1.0201960 seconds
-# sequence-ternary: 1.787881 seconds
-# recursive-ternary-hand-cached: 1.84839910 seconds
-# hand-memoization: 2.48983880 seconds
-# sequence: 2.58111034 seconds
+integration/advent2012-day21.t.....................# kaz: 0.87262815 seconds
+# gerdr: 0.8758603 seconds
+# recursive-ternary: 0.987726 seconds
+# loop: 0.99818890 seconds
+# sequence-ternary: 1.74379434 seconds
+# recursive-ternary-hand-cached: 1.81646393 seconds
+# hand-memoization: 2.46035144 seconds
+# sequence: 2.58081936 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2799,23 +2779,23 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5085,     0,   127,   362,  5574,  5666
-"S03",        4900,     1,   111,    92,  5104,  5138
-"S04",        1018,     0,    40,    42,  1100,  1152
+"S02",        5087,     0,   127,   362,  5576,  5668
+"S03",        4900,     0,   111,    93,  5104,  5138
+"S04",        1018,     0,    40,    43,  1101,  1153
 "S05",        5249,     0,   105,   177,  5531,  5912
 "S06",        1192,     0,    41,   104,  1337,  1417
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         186,     0,    11,    10,   207,   207
 "S10",          83,     0,     4,     1,    88,   145
 "S11",         105,     0,     4,    14,   123,   142
-"S12",        1359,     0,    46,   125,  1530,  1588
+"S12",        1358,     1,    46,   125,  1530,  1588
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         302,     0,    10,    10,   322,   335
 "S15",         240,     0,     2,    16,   258,   283
 "S16",         246,     0,     0,    17,   263,   307
 "S17",         646,     0,     4,    18,   668,   692
-"S19",          11,     0,     1,     0,    12,    17
-"S22",          16,    36,     1,     0,    53,    53
+"S19",          12,     0,     0,     0,    12,    17
+"S22",          52,     0,     1,     0,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
@@ -2823,8 +2803,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9158,     0,   121,   169,  9448,  7882
 "int",        1208,     0,    12,    19,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32624,    37,   658,  1249, 34568, 34701
+"total",     32662,     1,   657,  1251, 34571, 34704
 ----------------
 Failure summary:
-S03-operators/flip-flop.rakudo.moar aborted 1 test(s)
-S22-package-format/local.t aborted 36 test(s)
+S12-class/augment-supersede.rakudo.moar aborted 1 test(s)

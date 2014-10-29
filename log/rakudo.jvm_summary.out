@@ -102,14 +102,14 @@ S02-names-vars/fmt.t...............................  21    0    0    0   21
 S02-names-vars/list_array_perl.rakudo.jvm..........  19    0    1    2   22
      2 skipped: recursive data structure
      1 todo   : List.perl bug
-S02-names-vars/names.rakudo.jvm.................... 130    0    0   13  143
+S02-names-vars/names.rakudo.jvm.................... 131    0    0   13  144
      4 skipped: ::{ } package lookup NYI
      2 skipped: this kind of lookup NYI
      7 skipped: package variable autovivification
-S02-names-vars/perl.rakudo.jvm.....................  94    0    0    4   98
+S02-names-vars/perl.rakudo.jvm.....................  95    0    1    3   99
      1 skipped: RT #67790
-     1 skipped: RT #123048 -- sporadical failure
      2 skipped: recursive data structure RT #122286
+     1 todo   : RT #123048
 S02-names-vars/signature.rakudo.jvm................  11    0    2    0   13
      2 todo   : eqv on signatures
 S02-names-vars/variables-and-packages.rakudo.jvm...  35    0    3    0   38
@@ -376,9 +376,9 @@ S03-operators/eqv.rakudo.jvm.......................  50    0    3    1   54
      1 skipped: huh?
      3 todo   : huh?
 S03-operators/fiddly.t.............................   1    0    0    0    1
-S03-operators/flip-flop.rakudo.jvm.................  37    1    0    2   40
+S03-operators/flip-flop.rakudo.jvm.................  37    0    0    3   40
      2 skipped: dubious scoping?
-     1 tests aborted (missing ok/not ok)
+     1 skipped: NYM flip-flop with "True but $seqnum"
 S03-operators/gcd.t................................  16    0    0    0   16
 S03-operators/identity.rakudo.jvm..................  37    0    8    0   45
      4 todo   : unspecced
@@ -392,8 +392,9 @@ S03-operators/is-divisible-by.rakudo.jvm...........  14    0    1    0   15
 S03-operators/lcm.t................................  15    0    0    0   15
 S03-operators/list-quote-junction.t................  16    0    0    0   16
 S03-operators/minmax.rakudo.jvm....................  21    0    4    0   25
-     2 todo   : Annoying test that we haven't done the obvious yet unspecced, fails because we have indeed done the obvious
+     1 todo   : Annoying test that we haven't done the obvious yet unspecced, fails because we have indeed done the obvious
      2 todo   : max/min non-associative NYI
+     1 todo PASSED: Annoying test that we haven't done the obvious yet unspecced, fails because we have indeed done the obvious
 S03-operators/misc.t...............................  33    0    0    0   33
 S03-operators/names.t..............................   7    0    0    0    7
 S03-operators/nesting.t............................  26    0    0    0   26
@@ -488,14 +489,14 @@ S04-declarations/constant.rakudo.jvm...............  47    0    4    3   54
 S04-declarations/implicit-parameter.t..............  19    0    0    0   19
 S04-declarations/multiple.rakudo.jvm...............   5    0    1    0    6
      1 todo   : nom regression
-S04-declarations/my.rakudo.jvm.....................  70    0    2    3   75
+S04-declarations/my.rakudo.jvm.....................  71    0    2    2   75
      2 skipped: nom regression, OUR::
-     1 skipped: Method 'submethod_table' not found
      1 todo   : previous test skipped
      1 todo   : fails
 S04-declarations/our.rakudo.jvm....................  32    0    1    0   33
      1 todo   : our-scoped var in role
-S04-declarations/state.rakudo.jvm..................  33    0    2    5   40
+S04-declarations/state.rakudo.jvm..................  33    0    2    6   41
+     1 skipped: RT #115614
      5 skipped: parse error
      1 todo   : embedded closures in regexen
      1 todo   : initialization happens only on first call(?)
@@ -1248,15 +1249,13 @@ S17-supply/zip.t...................................   8    0    0    0    8
 S19-command-line-options/02-dash-n.t...............   3    0    0    0    3
 S19-command-line-options/03-dash-p.t...............   2    0    0    0    2
 S19-command-line/arguments.t.......................   1    0    0    0    1
-S19-command-line/dash-e.rakudo.jvm.................   0    0    1    3    4
+S19-command-line/dash-e.rakudo.jvm.................   1    0    0    3    4
      3 skipped: nigh
-     1 todo PASSED: -e as stopper doesn't work quite yet.
 S19-command-line/help.t............................   1    0    0    0    1
 S19-command-line/repl.t............................   1    0    0    0    1
                                                    pass fail todo skip plan
-S22-package-format/local.rakudo.jvm................   3   36    0    1   40
+S22-package-format/local.rakudo.jvm................  39    0    0    1   40
      1 skipped: cannot do signals in JVM
-    36 tests aborted (missing ok/not ok)
 S22-package-format/parse-spec.rakudo.jvm...........  12    0    1    0   13
      1 todo   : RT #122137
                                                    pass fail todo skip plan
@@ -1691,9 +1690,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5044,     6,   143,   381,  5574,  5666
-"S03",        4900,     1,   111,    92,  5104,  5138
-"S04",         998,     0,    43,    59,  1100,  1152
+"S02",        5046,     6,   144,   380,  5576,  5668
+"S03",        4900,     0,   111,    93,  5104,  5138
+"S04",         999,     0,    43,    59,  1101,  1153
 "S05",        5157,     0,   111,   263,  5531,  5912
 "S06",        1185,     0,    42,   110,  1337,  1417
 "S07",           0,     0,     0,     0,     0,     0
@@ -1706,8 +1705,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         245,     0,     0,    18,   263,   307
 "S17",         584,     0,    25,    23,   632,   665
-"S19",           8,     0,     1,     3,    12,    17
-"S22",          15,    36,     1,     1,    53,    53
+"S19",           9,     0,     0,     3,    12,    17
+"S22",          51,     0,     1,     1,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
@@ -1715,7 +1714,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9156,     0,   105,   187,  9448,  7882
 "int",        1202,     1,    15,    21,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32134,    44,   703,  1393, 34274, 34674
+"total",     32174,     7,   703,  1393, 34277, 34677
 ----------------
 Failure summary:
 S02-types/mix.rakudo.jvm 125 - We got one of the two choices (and this was pretty quick, we hope!)
@@ -1724,6 +1723,4 @@ S02-types/mix.rakudo.jvm 127 - .roll(100) (1)
 S02-types/mixhash.rakudo.jvm 135 - We got one of the two choices (and this was pretty quick, we hope!)
 S02-types/mixhash.rakudo.jvm 136 - .roll(100) returns 100 items
 S02-types/mixhash.rakudo.jvm 137 - .roll(100) (1)
-S03-operators/flip-flop.rakudo.jvm aborted 1 test(s)
-S22-package-format/local.rakudo.jvm aborted 36 test(s)
 integration/advent2012-day21.rakudo.jvm 3 - recursive-ternary-hand-cached
