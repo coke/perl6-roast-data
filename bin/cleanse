@@ -1,0 +1,19 @@
+#! /usr/bin/env perl6
+
+=begin overview
+
+Remove mention of HOME from the logs.
+
+=end overview
+
+sub MAIN {
+    for "log".IO.dir -> $logfile {
+        cleanse($logfile);
+    }
+}
+
+sub cleanse(IO::Path $file) {
+    my $guts = $file.slurp;
+    $guts ~~ s:g/ "{%*ENV<HOME>}" /.../;
+    $file.IO.spurt($guts);
+}
