@@ -25,7 +25,7 @@ S02-lists/indexing.t...............................   1    0    0    0    1
 S02-lists/tree.t...................................  10    0    0    0   10
 S02-literals/adverbs.t.............................  15    0    0    0   15
 S02-literals/array-interpolation.t.................  12    0    0    0   12
-S02-literals/autoref.t.............................  57    0    0    0   57
+S02-literals/autoref.t.............................  59    0    0    0   59
 S02-literals/char-by-name.rakudo.jvm...............   8    0    0    2   10
      1 skipped: \c[LINE FEED] not valid: RT #117683
      1 skipped: \c[LF] not valid: RT #117683
@@ -214,7 +214,7 @@ S02-types/infinity.rakudo.jvm......................   6    0    3    4   13
      4 skipped: integer Inf
      3 todo   : Int conversion of NaN and Inf
 S02-types/instants-and-durations.t.................  12    0    0    0   12
-S02-types/int-uint.rakudo.jvm......................   1    0    0    0    1
+S02-types/int-uint.t...............................   1    0    0    0    1
 S02-types/isDEPRECATED.rakudo.jvm..................  12    0    8    0   20
      8 todo   : NYI
 S02-types/lazy-lists.rakudo.jvm....................  22    0    1    0   23
@@ -1144,8 +1144,7 @@ S16-filehandles/filetest.rakudo.jvm................  34    0    0    9   43
 S16-filehandles/io.t...............................  87    0    0    0   87
 S16-filehandles/io_in_for_loops.t..................  29    0    0    0   29
 S16-filehandles/io_in_while_loops.t................  13    0    0    0   13
-S16-filehandles/mkdir_rmdir.rakudo.jvm.............  13    0    0    1   14
-     1 skipped: deviation from spec because we do not have sink yet
+S16-filehandles/mkdir_rmdir.t......................  14    0    0    0   14
 S16-filehandles/open.t.............................   4    0    0    1    5
      1 skipped: open('nonexisting') => undefined is waiting on 'use fatal'
 S16-filehandles/unlink.rakudo.jvm..................   5    0    0    1    6
@@ -1171,12 +1170,14 @@ S17-promise/in.t...................................   2    0    0    0    2
 S17-promise/start.rakudo.jvm.......................  13    0    0    2   15
      2 skipped: RT #122715
 S17-promise/then.t.................................  14    0    0    0   14
-S17-scheduler/at.t.................................   7    0    0    0    7
-S17-scheduler/basic.rakudo.jvm.....................  26    0    0    6   32
-     6 skipped: waiting for new '.loads' semantics
-S17-scheduler/every.t..............................   9    0    0    0    9
-S17-scheduler/in.t.................................   6    0    0    0    6
-S17-scheduler/times.t..............................   2    0    0    0    2
+S17-scheduler/at.rakudo.jvm........................  14    0    1    0   15
+     1 todo   : huh?
+S17-scheduler/basic.rakudo.jvm.....................  28    0    2   10   40
+    10 skipped: waiting for new '.loads' semantics
+     2 todo   : huh?
+S17-scheduler/every.t..............................  18    0    0    0   18
+S17-scheduler/in.t.................................  14    0    0    0   14
+S17-scheduler/times.t..............................   4    0    0    0    4
 S17-supply/Channel.t...............................  12    0    0    0   12
 S17-supply/Promise.t...............................  13    0    0    0   13
 S17-supply/act.t...................................   5    0    0    0    5
@@ -1249,8 +1250,7 @@ S17-supply/zip.t...................................   8    0    0    0    8
 S19-command-line-options/02-dash-n.t...............   3    0    0    0    3
 S19-command-line-options/03-dash-p.t...............   2    0    0    0    2
 S19-command-line/arguments.t.......................   1    0    0    0    1
-S19-command-line/dash-e.rakudo.jvm.................   1    0    0    3    4
-     3 skipped: nigh
+S19-command-line/dash-e.t..........................   4    0    0    0    4
 S19-command-line/help.t............................   1    0    0    0    1
 S19-command-line/repl.t............................   1    0    0    0    1
                                                    pass fail todo skip plan
@@ -1522,8 +1522,7 @@ S32-str/unpack.t...................................  12    0    0    0   12
 S32-str/words.rakudo.jvm...........................  11    0    0    2   13
      2 skipped: graphemes NYI
 S32-temporal/Date.t................................  72    0    0    0   72
-S32-temporal/DateTime-Instant-Duration.rakudo.jvm..  28    0    4    1   33
-     1 skipped: nom regression
+S32-temporal/DateTime-Instant-Duration.rakudo.jvm..  29    0    4    0   33
      4 todo   : high-precision Instants NYI (need FatRats)
 S32-temporal/DateTime.rakudo.jvm................... 218    0    1    0  219
      1 todo   : nom regression
@@ -1690,7 +1689,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5046,     6,   144,   380,  5576,  5668
+"S02",        5048,     6,   144,   380,  5578,  5670
 "S03",        4900,     0,   111,    93,  5104,  5138
 "S04",         999,     0,    43,    59,  1101,  1153
 "S05",        5157,     0,   111,   263,  5531,  5912
@@ -1703,18 +1702,18 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         298,     0,    13,    11,   322,   335
 "S15",           0,     0,     0,     0,     0,   283
-"S16",         245,     0,     0,    18,   263,   307
-"S17",         584,     0,    25,    23,   632,   665
-"S19",           9,     0,     0,     3,    12,    17
+"S16",         246,     0,     0,    17,   263,   307
+"S17",         612,     0,    28,    27,   667,   700
+"S19",          12,     0,     0,     0,    12,    17
 "S22",          51,     0,     1,     1,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     3,     3,   344,   354
-"S32",        9156,     0,   105,   187,  9448,  7882
+"S32",        9157,     0,   105,   186,  9448,  7882
 "int",        1202,     1,    15,    21,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32174,     7,   703,  1393, 34277, 34677
+"total",     32209,     7,   706,  1392, 34314, 34714
 ----------------
 Failure summary:
 S02-types/mix.rakudo.jvm 125 - We got one of the two choices (and this was pretty quick, we hope!)

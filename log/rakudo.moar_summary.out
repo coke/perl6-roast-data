@@ -33,7 +33,7 @@ S02-literals/autoref.t.............................use of uninitialized value of
 
 use of uninitialized value of type Any in string context  in block <unit> at t/spec/S02-literals/autoref.t:77
 
-  57    0    0    0   57
+  59    0    0    0   59
 S02-literals/char-by-name.rakudo.moar..............   8    0    0    2   10
      1 skipped: \c[LINE FEED] not valid: RT #117683
      1 skipped: \c[LF] not valid: RT #117683
@@ -154,7 +154,9 @@ S02-magicals/env.rakudo.moar.......................# %*ENV<PUGS_ROCKS>=
      1 skipped: import fails, ENV not available: RT #122339
 S02-magicals/file_line.t...........................   2    0    0    0    2
 S02-magicals/pid.t.................................   2    0    0    0    2
-S02-magicals/progname.t............................   4    0    0    0    4
+S02-magicals/progname.t............................sh: line 1: 95966 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S02-magicals/progname.t
+   3    1    0    0    4
+     1 tests aborted (missing ok/not ok)
 S02-magicals/sub.t.................................Code object coerced to string (please use .gist or .perl to do that)  in sub is at lib/Test.pm:116
 
 Code object coerced to string (please use .gist or .perl to do that)  in sub is at lib/Test.pm:116
@@ -262,7 +264,16 @@ use of uninitialized value of type Any in string context  in block  at t/spec/S0
 
   21    0    0    0   21
 S02-types/array_ref.t..............................  45    0    0    0   45
-S02-types/assigning-refs.rakudo.moar...............  15    0    3    0   18
+S02-types/assigning-refs.rakudo.moar...............Saw 1 call to deprecated code during execution.
+================================================================================
+%hash = itemized hash called at:
+  t/spec/S02-types/assigning-refs.rakudo.moar, lines 37,47,57
+Deprecated since v2014.7, will be removed with release v2015.7!
+Please use %hash = %(itemized hash) instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
+  15    0    3    0   18
      3 todo   : deprecated %h = {...} for now
 S02-types/autovivification.t.......................  25    0    0    0   25
 S02-types/bag.rakudo.moar.......................... 191    0    2    3  196
@@ -314,7 +325,7 @@ S02-types/infinity.rakudo.moar.....................   6    0    3    4   13
      4 skipped: integer Inf
      3 todo   : Int conversion of NaN and Inf
 S02-types/instants-and-durations.t.................  12    0    0    0   12
-S02-types/int-uint.rakudo.moar.....................use of uninitialized value of type Int in string context  in block <unit> at EVAL_6:1
+S02-types/int-uint.t...............................use of uninitialized value of type Int in string context  in block <unit> at EVAL_6:1
 
 use of uninitialized value of type Int in string context  in block <unit> at EVAL_7:1
 
@@ -1080,7 +1091,7 @@ S05-grammar/parse_and_parsefile.t..................use of uninitialized value of
 Saw 1 call to deprecated code during execution.
 ================================================================================
 Method slurp (from IO::Handle) called at:
-  src/gen/m-CORE.setting, line 14122
+  src/gen/m-CORE.setting, line 14127
 Deprecated since v2014.10, will be removed with release v2015.10!
 Please use IO::Path.slurp instead.
 --------------------------------------------------------------------------------
@@ -1551,12 +1562,21 @@ use of uninitialized value $expected of type Int in string context  in sub is at
 
   33    0    0    0   33
                                                    pass fail todo skip plan
-S10-packages/basic.rakudo.moar.....................  60    0    2    1   63
+S10-packages/basic.rakudo.moar.....................Saw 1 call to deprecated code during execution.
+================================================================================
+Method directory (from IO::Path) called at:
+  t/spec/S10-packages/basic.rakudo.moar, line 282
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use dirname instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
+  60    0    2    1   63
      1 skipped: RT #59484
      1 todo   : ticket based only on class... RT #60446
      1 todo   : RT #64606
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
-S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 45316 Segmentation fault: 11  ./perl6-m getout-45304-90501.code < getout-45304-90501.in > getout-45304-90501.out 2> getout-45304-90501.err
+S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 97280 Segmentation fault: 11  ./perl6-m getout-97268-810848.code < getout-97268-810848.in > getout-97268-810848.out 2> getout-97268-810848.err
   11    0    2    0   13
      1 todo   : RT #122773
      1 todo   : RT #122896
@@ -1617,6 +1637,15 @@ use of uninitialized value %!h of type Int in string context  in sub is at lib/T
 
 use of uninitialized value %!h of type Int in string context  in sub is at lib/Test.pm:120
 
+Saw 1 call to deprecated code during execution.
+================================================================================
+%!h = itemized hash called at:
+  t/spec/S12-attributes/instance.rakudo.moar, line 478
+Deprecated since v2014.7, will be removed with release v2015.7!
+Please use %!h = %(itemized hash) instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
  133    0    6    1  140
      1 skipped: dubious test - the initializer becomes a submethod here, implying a scope
      2 todo   : ro array/hash with accessor
@@ -1632,12 +1661,8 @@ S12-class/anonymous.rakudo.moar....................  16    0    1    0   17
 S12-class/attributes.rakudo.moar...................  31    0    0    2   33
      1 skipped: where clauses on attributes NYI, RT #122109
      1 skipped: Cannot use .= to initialize an attribute
-S12-class/augment-supersede.rakudo.moar............moar(45398,0x7fff7bce2310) malloc: *** error for object 0x7fa5ec853768: pointer being freed was not allocated
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 45398 Abort trap: 6           nice -20 ./perl6-m t/spec/S12-class/augment-supersede.rakudo.moar
-  10    1    0    2   13
+S12-class/augment-supersede.rakudo.moar............  11    0    0    2   13
      2 skipped: redeclaration of symbol Bar
-     1 tests aborted (missing ok/not ok)
 S12-class/basic.rakudo.moar........................  33    0    0    4   37
      3 skipped: Calling is will never work with argument types (Foo)
      1 skipped: RT #67784
@@ -1845,8 +1870,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1414592256
-# Using file temp_1414592257
+S16-filehandles/chmod.t............................# Using file temp_1414674499
+# Using file temp_1414674499
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1856,8 +1881,7 @@ S16-filehandles/filetest.rakudo.moar...............  34    0    0    9   43
 S16-filehandles/io.t...............................  87    0    0    0   87
 S16-filehandles/io_in_for_loops.t..................  29    0    0    0   29
 S16-filehandles/io_in_while_loops.t................  13    0    0    0   13
-S16-filehandles/mkdir_rmdir.rakudo.moar............  13    0    0    1   14
-     1 skipped: deviation from spec because we do not have sink yet
+S16-filehandles/mkdir_rmdir.t......................  14    0    0    0   14
 S16-filehandles/open.t.............................   4    0    0    1    5
      1 skipped: open('nonexisting') => undefined is waiting on 'use fatal'
 S16-filehandles/unlink.rakudo.moar.................   5    0    0    1    6
@@ -1875,7 +1899,7 @@ S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
 S17-channel/basic.t................................Saw 1 call to deprecated code during execution.
 ================================================================================
 winner called at:
-  src/gen/m-CORE.setting, line 20273
+  src/gen/m-CORE.setting, line 20305
 Deprecated since v2014.10, will be removed with release v2015.10!
 Please use earliest instead.
 --------------------------------------------------------------------------------
@@ -1896,12 +1920,14 @@ S17-promise/in.t...................................   2    0    0    0    2
 S17-promise/start.rakudo.moar......................  13    0    0    2   15
      2 skipped: RT #122715
 S17-promise/then.t.................................  14    0    0    0   14
-S17-scheduler/at.t.................................   7    0    0    0    7
-S17-scheduler/basic.rakudo.moar....................  26    0    0    6   32
-     6 skipped: waiting for new '.loads' semantics
-S17-scheduler/every.t..............................   9    0    0    0    9
-S17-scheduler/in.t.................................   6    0    0    0    6
-S17-scheduler/times.t..............................   2    0    0    0    2
+S17-scheduler/at.rakudo.moar.......................  14    0    1    0   15
+     1 todo   : huh?
+S17-scheduler/basic.rakudo.moar....................  28    0    2   10   40
+    10 skipped: waiting for new '.loads' semantics
+     2 todo   : huh?
+S17-scheduler/every.t..............................  18    0    0    0   18
+S17-scheduler/in.t.................................  14    0    0    0   14
+S17-scheduler/times.t..............................   4    0    0    0    4
 S17-supply/Channel.t...............................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
   12    0    0    0   12
@@ -1957,7 +1983,7 @@ S17-supply/list.t..................................# **** scheduling with Thread
 Saw 1 call to deprecated code during execution.
 ================================================================================
 winner called at:
-  src/gen/m-CORE.setting, line 20448
+  src/gen/m-CORE.setting, line 20480
 Deprecated since v2014.10, will be removed with release v2015.10!
 Please use earliest instead.
 --------------------------------------------------------------------------------
@@ -2013,7 +2039,7 @@ S17-supply/wait.t..................................   4    0    0    0    4
 S17-supply/watch_path.t............................Saw 1 call to deprecated code during execution.
 ================================================================================
 Method more (from Supply) called at:
-  src/gen/m-CORE.setting, line 14816
+  src/gen/m-CORE.setting, line 14821
 Deprecated since v2014.10, will be removed with release v2015.10!
 Please use emit instead.
 --------------------------------------------------------------------------------
@@ -2050,7 +2076,9 @@ S26-documentation/06-lists.t.......................  39    0    0    0   39
 S26-documentation/07-tables.t......................  38    0    0    0   38
 S26-documentation/08-formattingcodes.t.............  45    0    0    0   45
 S26-documentation/09-configuration.t...............  15    0    0    0   15
-S26-documentation/10-doc-cli.t.....................   2    0    0    0    2
+S26-documentation/10-doc-cli.t.....................sh: line 1: 98359 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S26-documentation/10-doc-cli.t
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
 S26-documentation/module-comment.t.................   1    0    0    0    1
 S26-documentation/multiline-leading.t..............   4    0    0    0    4
 S26-documentation/multiline-trailing.t.............   2    0    0    0    2
@@ -2221,10 +2249,28 @@ S32-io/dir.t.......................................  12    0    0    0   12
 S32-io/file-tests.t................................  34    0    0    0   34
 S32-io/io-path-cygwin.rakudo.moar..................use of uninitialized value $CWD of type Any in string context  in method bless at ././CORE.setting.moarvm:1
 
+Saw 1 call to deprecated code during execution.
+================================================================================
+Method directory (from IO::Path) called at:
+  t/spec/S32-io/io-path-cygwin.rakudo.moar, lines 16,22,30,36
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use dirname instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
   49    0    1    0   50
      1 todo   : resolve NYI, needs nqp::readlink
 S32-io/io-path-unix.rakudo.moar....................use of uninitialized value $CWD of type Any in string context  in method bless at ././CORE.setting.moarvm:1
 
+Saw 1 call to deprecated code during execution.
+================================================================================
+Method directory (from IO::Path) called at:
+  t/spec/S32-io/io-path-unix.rakudo.moar, line 15
+Deprecated since v2014.10, will be removed with release v2015.10!
+Please use dirname instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
   34    0    1    0   35
      1 todo   : resolve NYI, needs nqp::readlink
 S32-io/io-path-win.rakudo.moar.....................use of uninitialized value $CWD of type Any in string context  in method bless at ././CORE.setting.moarvm:1
@@ -2382,8 +2428,7 @@ use of uninitialized value $b of type Code in string context  in block  at t/spe
      1 todo   : method fallback to sub unimpl
      2 todo   : determine behavior of 0-arity methods passed to sort
 S32-list/squish.t..................................  28    0    0    0   28
-S32-list/uniq.rakudo.moar..........................  30    0    0    3   33
-     3 skipped: segfault
+S32-list/uniq.t....................................  33    0    0    0   33
 S32-num/abs.t......................................  49    0    0    0   49
 S32-num/base.t.....................................  12    0    0    0   12
 S32-num/complex.t.................................. 488    0    0    0  488
@@ -2520,8 +2565,7 @@ S32-temporal/Date.t................................Potential difficulties:
     at t/spec/S32-temporal/Date.t:28
     ------> [32m    isa_ok Date.new(2010, 01, 01[33m⏏[31m), Date, 'Date.new() returns a Date';  #[0m
   72    0    0    0   72
-S32-temporal/DateTime-Instant-Duration.rakudo.moa..  28    0    4    1   33
-     1 skipped: nom regression
+S32-temporal/DateTime-Instant-Duration.rakudo.moa..  29    0    4    0   33
      4 todo   : high-precision Instants NYI (need FatRats)
 S32-temporal/DateTime.rakudo.moar.................. 218    0    1    0  219
      1 todo   : nom regression
@@ -2707,14 +2751,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 0.87262815 seconds
-# gerdr: 0.8758603 seconds
-# recursive-ternary: 0.987726 seconds
-# loop: 0.99818890 seconds
-# sequence-ternary: 1.74379434 seconds
-# recursive-ternary-hand-cached: 1.81646393 seconds
-# hand-memoization: 2.46035144 seconds
-# sequence: 2.58081936 seconds
+integration/advent2012-day21.t.....................# kaz: 0.9135204 seconds
+# gerdr: 0.92230873 seconds
+# recursive-ternary: 1.0275605 seconds
+# loop: 1.12904232 seconds
+# sequence-ternary: 1.827415 seconds
+# recursive-ternary-hand-cached: 1.8482603 seconds
+# hand-memoization: 2.5996698 seconds
+# sequence: 2.62421461 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2779,7 +2823,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5087,     0,   127,   362,  5576,  5668
+"S02",        5088,     1,   127,   362,  5578,  5670
 "S03",        4900,     0,   111,    93,  5104,  5138
 "S04",        1018,     0,    40,    43,  1101,  1153
 "S05",        5249,     0,   105,   177,  5531,  5912
@@ -2788,22 +2832,23 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S09",         186,     0,    11,    10,   207,   207
 "S10",          83,     0,     4,     1,    88,   145
 "S11",         105,     0,     4,    14,   123,   142
-"S12",        1358,     1,    46,   125,  1530,  1588
+"S12",        1359,     0,    46,   125,  1530,  1588
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         302,     0,    10,    10,   322,   335
 "S15",         240,     0,     2,    16,   258,   283
-"S16",         246,     0,     0,    17,   263,   307
-"S17",         646,     0,     4,    18,   668,   692
+"S16",         247,     0,     0,    16,   263,   307
+"S17",         674,     0,     7,    22,   703,   727
 "S19",          12,     0,     0,     0,    12,    17
 "S22",          52,     0,     1,     0,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
-"S26",        1236,     0,     4,    44,  1284,  1945
+"S26",        1234,     2,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     4,     2,   344,   354
-"S32",        9158,     0,   121,   169,  9448,  7882
+"S32",        9162,     0,   121,   165,  9448,  7882
 "int",        1208,     0,    12,    19,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32662,     1,   657,  1251, 34571, 34704
+"total",     32695,     3,   660,  1250, 34608, 34741
 ----------------
 Failure summary:
-S12-class/augment-supersede.rakudo.moar aborted 1 test(s)
+S02-magicals/progname.t aborted 1 test(s)
+S26-documentation/10-doc-cli.t aborted 2 test(s)
