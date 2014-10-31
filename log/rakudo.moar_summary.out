@@ -66,11 +66,13 @@ S02-literals/listquote.rakudo.moar.................  19    0    3    1   23
 S02-literals/misc-interpolation.t..................  50    0    0    0   50
 S02-literals/numeric.t.............................  22    0    0    0   22
 S02-literals/pair-boolean.t........................   6    0    0    0    6
-S02-literals/pairs.rakudo.moar.....................  75    0    2    2   79
+S02-literals/pairs.rakudo.moar.....................sh: line 1: 55374 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S02-literals/pairs.rakudo.moar
+  43   32    2    2   79
      1 skipped: reduce meta op
      1 skipped: prefix:<|>
      1 todo   : reduce meta op
      1 todo   : prefix:<|>
+    32 tests aborted (missing ok/not ok)
 S02-literals/quoting-unicode.t.....................  73    0    0    0   73
 S02-literals/quoting.rakudo.moar...................    
 # Failed test 'code dies'
@@ -154,9 +156,7 @@ S02-magicals/env.rakudo.moar.......................# %*ENV<PUGS_ROCKS>=
      1 skipped: import fails, ENV not available: RT #122339
 S02-magicals/file_line.t...........................   2    0    0    0    2
 S02-magicals/pid.t.................................   2    0    0    0    2
-S02-magicals/progname.t............................sh: line 1: 95966 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S02-magicals/progname.t
-   3    1    0    0    4
-     1 tests aborted (missing ok/not ok)
+S02-magicals/progname.t............................   4    0    0    0    4
 S02-magicals/sub.t.................................Code object coerced to string (please use .gist or .perl to do that)  in sub is at lib/Test.pm:116
 
 Code object coerced to string (please use .gist or .perl to do that)  in sub is at lib/Test.pm:116
@@ -1088,15 +1088,6 @@ S05-grammar/methods.t..............................   6    0    0    0    6
 S05-grammar/namespace.t............................   5    0    0    0    5
 S05-grammar/parse_and_parsefile.t..................use of uninitialized value of type Any in string context  in block <unit> at t/spec/S05-grammar/parse_and_parsefile.t:12
 
-Saw 1 call to deprecated code during execution.
-================================================================================
-Method slurp (from IO::Handle) called at:
-  src/gen/m-CORE.setting, line 14127
-Deprecated since v2014.10, will be removed with release v2015.10!
-Please use IO::Path.slurp instead.
---------------------------------------------------------------------------------
-Please contact the author to have these calls to deprecated code adapted,
-so that this message will disappear!
   15    0    0    0   15
 S05-grammar/polymorphism.t.........................use of uninitialized value of type Any in string context  in block <unit> at t/spec/S05-grammar/polymorphism.t:55
 
@@ -1576,7 +1567,7 @@ so that this message will disappear!
      1 todo   : ticket based only on class... RT #60446
      1 todo   : RT #64606
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
-S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 97280 Segmentation fault: 11  ./perl6-m getout-97268-810848.code < getout-97268-810848.in > getout-97268-810848.out 2> getout-97268-810848.err
+S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 57353 Segmentation fault: 11  ./perl6-m getout-57341-930874.code < getout-57341-930874.in > getout-57341-930874.out 2> getout-57341-930874.err
   11    0    2    0   13
      1 todo   : RT #122773
      1 todo   : RT #122896
@@ -1870,8 +1861,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1414674499
-# Using file temp_1414674499
+S16-filehandles/chmod.t............................# Using file temp_1414765876
+# Using file temp_1414765876
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1896,16 +1887,7 @@ S16-io/tmpdir.t....................................   3    0    0    0    3
 S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
      2 skipped: contextual rebinding regression
                                                    pass fail todo skip plan
-S17-channel/basic.t................................Saw 1 call to deprecated code during execution.
-================================================================================
-winner called at:
-  src/gen/m-CORE.setting, line 20305
-Deprecated since v2014.10, will be removed with release v2015.10!
-Please use earliest instead.
---------------------------------------------------------------------------------
-Please contact the author to have these calls to deprecated code adapted,
-so that this message will disappear!
-  12    0    0    0   12
+S17-channel/basic.t................................  12    0    0    0   12
 S17-channel/earliest.t.............................   3    0    0    0    3
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.t..............................use of uninitialized value $got of type Any in string context  in sub is at lib/Test.pm:116
@@ -1980,15 +1962,6 @@ S17-supply/lines.t.................................# **** scheduling with Thread
   21    0    0    0   21
 S17-supply/list.t..................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
-Saw 1 call to deprecated code during execution.
-================================================================================
-winner called at:
-  src/gen/m-CORE.setting, line 20480
-Deprecated since v2014.10, will be removed with release v2015.10!
-Please use earliest instead.
---------------------------------------------------------------------------------
-Please contact the author to have these calls to deprecated code adapted,
-so that this message will disappear!
    5    0    0    0    5
 S17-supply/map.t...................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
@@ -2039,7 +2012,7 @@ S17-supply/wait.t..................................   4    0    0    0    4
 S17-supply/watch_path.t............................Saw 1 call to deprecated code during execution.
 ================================================================================
 Method more (from Supply) called at:
-  src/gen/m-CORE.setting, line 14821
+  src/gen/m-CORE.setting, line 14822
 Deprecated since v2014.10, will be removed with release v2015.10!
 Please use emit instead.
 --------------------------------------------------------------------------------
@@ -2076,9 +2049,7 @@ S26-documentation/06-lists.t.......................  39    0    0    0   39
 S26-documentation/07-tables.t......................  38    0    0    0   38
 S26-documentation/08-formattingcodes.t.............  45    0    0    0   45
 S26-documentation/09-configuration.t...............  15    0    0    0   15
-S26-documentation/10-doc-cli.t.....................sh: line 1: 98359 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S26-documentation/10-doc-cli.t
-   0    2    0    0    2
-     2 tests aborted (missing ok/not ok)
+S26-documentation/10-doc-cli.t.....................   2    0    0    0    2
 S26-documentation/module-comment.t.................   1    0    0    0    1
 S26-documentation/multiline-leading.t..............   4    0    0    0    4
 S26-documentation/multiline-trailing.t.............   2    0    0    0    2
@@ -2751,14 +2722,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 0.9135204 seconds
-# gerdr: 0.92230873 seconds
-# recursive-ternary: 1.0275605 seconds
-# loop: 1.12904232 seconds
-# sequence-ternary: 1.827415 seconds
-# recursive-ternary-hand-cached: 1.8482603 seconds
-# hand-memoization: 2.5996698 seconds
-# sequence: 2.62421461 seconds
+integration/advent2012-day21.t.....................# kaz: 0.8759128 seconds
+# gerdr: 0.8854243 seconds
+# loop: 0.9974902 seconds
+# recursive-ternary: 1.01422544 seconds
+# sequence-ternary: 1.7717377 seconds
+# recursive-ternary-hand-cached: 1.82452834 seconds
+# hand-memoization: 2.4818624 seconds
+# sequence: 2.64701137 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2816,14 +2787,16 @@ integration/say-crash.t............................   4    0    0    0    4
 integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 integration/topic_in_double_loop.t.................   5    0    0    0    5
 integration/variables-in-do.t......................   3    0    0    0    3
-integration/weird-errors.t.........................  12    0    0    0   12
+integration/weird-errors.t.........................sh: line 1: 59439 Segmentation fault: 11  nice -20 ./perl6-m t/spec/integration/weird-errors.t
+   0   12    0    0   12
+    12 tests aborted (missing ok/not ok)
                                                    pass fail todo skip plan
 rosettacode/greatest_element_of_a_list.t...........   1    0    0    0    1
 rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5088,     1,   127,   362,  5578,  5670
+"S02",        5057,    32,   127,   362,  5578,  5670
 "S03",        4900,     0,   111,    93,  5104,  5138
 "S04",        1018,     0,    40,    43,  1101,  1153
 "S05",        5249,     0,   105,   177,  5531,  5912
@@ -2841,14 +2814,14 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S19",          12,     0,     0,     0,    12,    17
 "S22",          52,     0,     1,     0,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
-"S26",        1234,     2,     4,    44,  1284,  1945
+"S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     4,     2,   344,   354
 "S32",        9162,     0,   121,   165,  9448,  7882
-"int",        1208,     0,    12,    19,  1239,  1228
+"int",        1196,    12,    12,    19,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32695,     3,   660,  1250, 34608, 34741
+"total",     32654,    44,   660,  1250, 34608, 34741
 ----------------
 Failure summary:
-S02-magicals/progname.t aborted 1 test(s)
-S26-documentation/10-doc-cli.t aborted 2 test(s)
+S02-literals/pairs.rakudo.moar aborted 32 test(s)
+integration/weird-errors.t aborted 12 test(s)
