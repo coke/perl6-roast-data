@@ -63,7 +63,7 @@ S02-literals/sub-calls.t...........................  20    0    0    0   20
 S02-literals/subscript.t...........................   2    0    0    0    2
 S02-literals/types.t...............................   7    0    0    0    7
 S02-literals/underscores.t.........................  19    0    0    0   19
-S02-literals/version.rakudo.jvm....................  25    0    3    0   28
+S02-literals/version.rakudo.jvm....................  27    0    3    0   30
      3 todo   : trailing zeroes fail
 S02-magicals/78258.t...............................   1    0    0    0    1
 S02-magicals/DISTRO.rakudo.jvm.....................  11    0    3   14   28
@@ -391,10 +391,9 @@ S03-operators/is-divisible-by.rakudo.jvm...........  14    0    1    0   15
      1 todo   : not sure why this doesn't fire
 S03-operators/lcm.t................................  15    0    0    0   15
 S03-operators/list-quote-junction.t................  16    0    0    0   16
-S03-operators/minmax.rakudo.jvm....................  21    0    4    0   25
-     1 todo   : Annoying test that we haven't done the obvious yet unspecced, fails because we have indeed done the obvious
+S03-operators/minmax.rakudo.jvm....................  21    0    2    2   25
+     2 skipped: Annoying test that we haven't done the obvious yet unspecced, fails because we have indeed done the obvious
      2 todo   : max/min non-associative NYI
-     1 todo PASSED: Annoying test that we haven't done the obvious yet unspecced, fails because we have indeed done the obvious
 S03-operators/misc.t...............................  33    0    0    0   33
 S03-operators/names.t..............................   7    0    0    0    7
 S03-operators/nesting.t............................  26    0    0    0   26
@@ -968,7 +967,7 @@ S12-class/attributes.rakudo.jvm....................  31    0    0    2   33
 S12-class/augment-supersede.rakudo.jvm.............  10    0    1    2   13
      2 skipped: redeclaration of symbol Bar
      1 todo   : ?
-S12-class/basic.rakudo.jvm.........................  32    0    1    4   37
+S12-class/basic.rakudo.jvm.........................  33    0    1    4   38
      3 skipped: Calling is will never work with argument types (Foo)
      1 skipped: RT #67784
      1 todo   : ?
@@ -1361,7 +1360,11 @@ S32-io/IO-Socket-INET.t............................   0    0    0   47   47
 S32-io/chdir.rakudo.jvm............................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
-S32-io/dir.t.......................................  12    0    0    0   12
+S32-io/dir.rakudo.jvm..............................   8    0    4    0   12
+     1 todo   : entries are still IO::Path
+     1 todo   : dirname is not yet absolute
+     1 todo   : directories are not marked with trailing / yet
+     1 todo   : $*CWD misses slash at end still
 S32-io/file-tests.t................................  34    0    0    0   34
 S32-io/io-path-cygwin.rakudo.jvm...................  49    0    1    0   50
      1 todo   : resolve NYI, needs nqp::readlink
@@ -1689,8 +1692,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5048,     6,   144,   380,  5578,  5670
-"S03",        4900,     0,   111,    93,  5104,  5138
+"S02",        5050,     6,   144,   380,  5580,  5672
+"S03",        4900,     0,   109,    95,  5104,  5138
 "S04",         999,     0,    43,    59,  1101,  1153
 "S05",        5157,     0,   111,   263,  5531,  5912
 "S06",        1185,     0,    42,   110,  1337,  1417
@@ -1698,7 +1701,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S09",         186,     0,    11,    10,   207,   207
 "S10",          77,     0,    10,     1,    88,   145
 "S11",         105,     0,     4,    14,   123,   142
-"S12",        1354,     0,    51,   125,  1530,  1588
+"S12",        1355,     0,    51,   125,  1531,  1589
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         298,     0,    13,    11,   322,   335
 "S15",           0,     0,     0,     0,     0,   283
@@ -1710,10 +1713,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     3,     3,   344,   354
-"S32",        9157,     0,   105,   186,  9448,  7882
+"S32",        9153,     0,   109,   186,  9448,  7882
 "int",        1202,     1,    15,    21,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32209,     7,   706,  1392, 34314, 34714
+"total",     32208,     7,   708,  1394, 34317, 34717
 ----------------
 Failure summary:
 S02-types/mix.rakudo.jvm 125 - We got one of the two choices (and this was pretty quick, we hope!)

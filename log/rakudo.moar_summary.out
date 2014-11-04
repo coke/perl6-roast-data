@@ -100,7 +100,7 @@ S02-literals/sub-calls.t...........................  20    0    0    0   20
 S02-literals/subscript.t...........................   2    0    0    0    2
 S02-literals/types.t...............................   7    0    0    0    7
 S02-literals/underscores.t.........................  19    0    0    0   19
-S02-literals/version.rakudo.moar...................  25    0    3    0   28
+S02-literals/version.rakudo.moar...................  27    0    3    0   30
      3 todo   : trailing zeroes fail
 S02-magicals/78258.t...............................   1    0    0    0    1
 S02-magicals/DISTRO.rakudo.moar....................use of uninitialized value of type Blob in string context  in any  at src/gen/m-Metamodel.nqp:1510
@@ -274,10 +274,11 @@ so that this message will disappear!
   15    0    3    0   18
      3 todo   : deprecated %h = {...} for now
 S02-types/autovivification.t.......................  25    0    0    0   25
-S02-types/bag.rakudo.moar.......................... 191    0    2    3  196
-     3 skipped: No longer Iterable
-     1 todo   : Not properly interpolating
-     1 todo   : we have not secured .WHICH creation yet
+S02-types/bag.rakudo.moar..........................moar(32577,0x7fff7bce2310) malloc: *** error for object 0x7f94edcf8e20: pointer being freed was not allocated
+*** set a breakpoint in malloc_error_break to debug
+sh: line 1: 32577 Abort trap: 6           nice -20 ./perl6-m t/spec/S02-types/bag.rakudo.moar
+   0  196    0    0  196
+   196 tests aborted (missing ok/not ok)
 S02-types/baghash.rakudo.moar...................... 223    0    3   24  250
     21 skipped: 'is ObjectType' NYI
      3 skipped: No longer Iterable
@@ -557,10 +558,33 @@ S03-operators/assign.rakudo.moar...................use of uninitialized value $g
 
 use of uninitialized value $expected of type Any in string context  in sub is at lib/Test.pm:116
 
-sh: line 1: 82154 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S03-operators/assign.rakudo.moar
- 123  168    0    1  292
+use of uninitialized value $got of type Any in string context  in sub is at lib/Test.pm:116
+
+use of uninitialized value $got of type Any in string context  in sub is at lib/Test.pm:120
+
+use of uninitialized value $got of type Any in string context  in sub is at lib/Test.pm:116
+
+use of uninitialized value $got of type Any in string context  in sub is at lib/Test.pm:120
+
+use of uninitialized value $got of type Any in string context  in sub is at lib/Test.pm:116
+
+use of uninitialized value $got of type Any in string context  in sub is at lib/Test.pm:120
+
+ 258    0   22   12  292
+     3 skipped: expects a term, found infix >= instead
+     3 skipped: Two terms in a row
+     3 skipped: cannot modifiy an immutable value
      1 skipped: Odd number of elements found where hash expected
-   168 tests aborted (missing ok/not ok)
+     2 skipped: RT #76734
+     5 todo   : list assignment
+     5 todo   : list assignment to scalar
+     3 todo   : list assignment, autovivification (?)
+     3 todo   : item assignment
+     1 todo   : RT #80614
+     1 todo   : list assignment with ($var, *)
+     2 todo   : unknown
+     1 todo   : huh?
+     1 todo   : item/list assignment
 S03-operators/autoincrement-range.t................# Tests for 'a' .. 'z'
 # Tests for 'Α' .. 'Ω' (Greek uppercase)
 # Tests for 'α' .. 'ω' (Greek lowercase)
@@ -583,8 +607,8 @@ use of uninitialized value of type Any in string context  in any !cursor_init at
   23    0    0    0   23
 S03-operators/bag.rakudo.moar...................... 109    0   12    7  128
      7 skipped: Crashing
-     4 todo   : Wrong answer at the moment
      8 todo   : Rakudo update in progress, but not done yet
+     4 todo   : Wrong answer at the moment
 S03-operators/basic-types.t........................  19    0    0    0   19
 S03-operators/bit.t................................  38    0    0    0   38
 S03-operators/boolean-bitwise.t....................  45    0    0    0   45
@@ -751,10 +775,9 @@ S03-operators/is-divisible-by.rakudo.moar..........  14    0    1    0   15
      1 todo   : not sure why this doesn't fire
 S03-operators/lcm.t................................  15    0    0    0   15
 S03-operators/list-quote-junction.t................  16    0    0    0   16
-S03-operators/minmax.rakudo.moar...................  21    0    4    0   25
-     1 todo   : Annoying test that we haven't done the obvious yet unspecced, fails because we have indeed done the obvious
+S03-operators/minmax.rakudo.moar...................  21    0    2    2   25
+     2 skipped: Annoying test that we haven't done the obvious yet unspecced, fails because we have indeed done the obvious
      2 todo   : max/min non-associative NYI
-     1 todo PASSED: Annoying test that we haven't done the obvious yet unspecced, fails because we have indeed done the obvious
 S03-operators/misc.t...............................  33    0    0    0   33
 S03-operators/names.t..............................Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:14
 
@@ -879,8 +902,8 @@ use of uninitialized value of type Any in numeric context  in block <unit> at t/
   47    0    4    3   54
      2 skipped: binding
      1 skipped: unicode constant name
-     3 todo   : COMPILING
      1 todo   : constants as type constraints
+     3 todo   : COMPILING
 S04-declarations/implicit-parameter.t..............  19    0    0    0   19
 S04-declarations/multiple.rakudo.moar..............Potential difficulties:
     Redeclaration of symbol $x
@@ -948,9 +971,9 @@ use of uninitialized value $got of type Any in string context  in sub is at lib/
 
   10    0    4    3   17
      3 skipped: declared variable not visible in block yet
-     2 todo   : declared variable not visible in block yet
      1 todo   : will init NYI
      1 todo   : will post NYI
+     2 todo   : declared variable not visible in block yet
 S04-exception-handlers/catch.t.....................  29    0    0    0   29
 S04-exceptions/control_across_runloop.t............   1    0    0    0    1
 S04-exceptions/fail.rakudo.moar....................  11    0    0    2   13
@@ -1044,9 +1067,9 @@ use of uninitialized value of type Any in string context  in block <unit> at t/s
 use of uninitialized value of type Any in string context  in block <unit> at t/spec/S05-capture/dot.rakudo.moar:110
 
   51    0   10    0   61
+     1 todo   : really? :-)
      6 todo   : dubious test
      3 todo   : needs review
-     1 todo   : really? :-)
 S05-capture/match-object.rakudo.moar...............  21    0    1    2   24
      1 skipped: No such method pos for invocant of type Any
      1 skipped: Unsupported use of $¢ variable
@@ -1241,9 +1264,9 @@ S05-modifier/perl5_8.rakudo.moar...................  77    0    1   25  103
     18 skipped: expensive quantifier
      1 todo   : (?>...) NYI
 S05-modifier/pos.rakudo.moar.......................  37    0    3    0   40
+     1 todo   : m:g
      1 todo   : s:pos/// NYI
      1 todo   : m:p:i:g// NYI
-     1 todo   : m:g
 S05-modifier/repetition.rakudo.moar................  10    0    2    0   12
      1 todo   : :2x
      1 todo   : :x(2)
@@ -1270,8 +1293,8 @@ use of uninitialized value of type Int in string context  in block  at t/spec/S0
   48    0   13    1   62
      1 skipped: feed operator NYI
      2 todo   : closures and regexes
-     1 todo   : disambiguate ranges
     10 todo   : flags
+     1 todo   : disambiguate ranges
 S05-transliteration/with-closure.rakudo.moar.......use of uninitialized value of type Int in string context  in block <unit> at t/spec/S05-transliteration/with-closure.rakudo.moar:59
 
 use of uninitialized value of type Int in string context  in block <unit> at t/spec/S05-transliteration/with-closure.rakudo.moar:59
@@ -1279,8 +1302,8 @@ use of uninitialized value of type Int in string context  in block <unit> at t/s
 use of uninitialized value of type Int in string context  in block <unit> at t/spec/S05-transliteration/with-closure.rakudo.moar:59
 
   10    0    6    0   16
-     1 todo   : Unable to resolve method ord in class Any
      5 todo   : nom regression
+     1 todo   : Unable to resolve method ord in class Any
                                                    pass fail todo skip plan
 S06-advanced/callframe.rakudo.moar.................   8    0    0    1    9
      1 skipped: Unable to resolve method inline in type CallFrame
@@ -1306,9 +1329,7 @@ use of uninitialized value $got of type Any in string context  in sub is at lib/
      2 todo   : temp and wrap
 S06-currying/assuming-and-mmd.t....................   6    0    0    0    6
 S06-currying/named.t...............................   3    0    0    0    3
-S06-macros/errors.t................................Internal error: zeroed target thread ID in work pass
-   0    2    0    0    2
-     2 tests aborted (missing ok/not ok)
+S06-macros/errors.t................................   2    0    0    0    2
 S06-macros/opaque-ast.rakudo.moar..................   3    0    0    4    7
      3 skipped: :COMPILING flag
      1 skipped: return from macro
@@ -1349,9 +1370,9 @@ S06-operator-overloading/sub.rakudo.moar...........  47    0    7   20   74
      2 skipped: macros
      1 skipped: undeclared name
      1 skipped: cannot bind with this LHS
-     5 todo   : huh?
      1 todo   : RT #65638
      1 todo   : infix:<;>
+     5 todo   : huh?
 S06-operator-overloading/workout.t.................  84    0    0    0   84
 S06-other/anon-hashes-vs-blocks.t..................  22    0    0    0   22
 S06-other/introspection.t..........................  12    0    0    0   12
@@ -1509,9 +1530,9 @@ use of uninitialized value <element> of type Int in string context  in sub is at
      1 skipped: nested typechecks are borked
      1 skipped: type on our-variables
      1 todo   : need parameterized Lists
-     1 todo   : initialization
      1 todo   : nested typechecks are borked
      2 todo   : no parametrization
+     1 todo   : initialization
 S09-typed-arrays/hashes.t..........................use of uninitialized value $got of type Int in string context  in sub is at lib/Test.pm:116
 
 use of uninitialized value $expected of type Int in string context  in sub is at lib/Test.pm:116
@@ -1544,7 +1565,7 @@ so that this message will disappear!
      1 todo   : ticket based only on class... RT #60446
      1 todo   : RT #64606
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
-S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 83196 Segmentation fault: 11  ./perl6-m getout-83184-200907.code < getout-83184-200907.in > getout-83184-200907.out 2> getout-83184-200907.err
+S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 33794 Segmentation fault: 11  ./perl6-m getout-33782-310071.code < getout-33782-310071.in > getout-33782-310071.out 2> getout-33782-310071.err
   11    0    2    0   13
      1 todo   : RT #122773
      1 todo   : RT #122896
@@ -1617,9 +1638,9 @@ so that this message will disappear!
  133    0    6    1  140
      1 skipped: dubious test - the initializer becomes a submethod here, implying a scope
      2 todo   : ro array/hash with accessor
+     1 todo   : over-eager auto-vivification bugs
      1 todo   : huh?
      2 todo   : ro on list attributes
-     1 todo   : over-eager auto-vivification bugs
 S12-attributes/mutators.rakudo.moar................   5    0    0    7   12
      7 skipped: Can not get attribute $!varies declared in class MagicVal with this object
 S12-attributes/recursive.t.........................  23    0    0    0   23
@@ -1631,7 +1652,7 @@ S12-class/attributes.rakudo.moar...................  31    0    0    2   33
      1 skipped: Cannot use .= to initialize an attribute
 S12-class/augment-supersede.rakudo.moar............  11    0    0    2   13
      2 skipped: redeclaration of symbol Bar
-S12-class/basic.rakudo.moar........................  33    0    0    4   37
+S12-class/basic.rakudo.moar........................  34    0    0    4   38
      3 skipped: Calling is will never work with argument types (Foo)
      1 skipped: RT #67784
 S12-class/declaration-order.t......................   2    0    0    0    2
@@ -1679,8 +1700,8 @@ S12-enums/thorough.rakudo.moar.....................  14    0    0   20   34
     16 skipped: does &day::("Tue")
      2 skipped: does day::Tue
 S12-introspection/WHAT.rakudo.moar.................  25    0   12    0   37
-     4 todo   : Foo[Int].new on scalars fails
      3 todo   : of Type on scalars fails
+     4 todo   : Foo[Int].new on scalars fails
      1 todo   : Foo[Int,Str].new on scalars fails
      2 todo   : looks like a type object, but is not
      2 todo   : %h{Str} of Int fails
@@ -1802,8 +1823,8 @@ use of uninitialized value $got of type Any in string context  in sub is at lib/
 S14-roles/attributes.t.............................   7    0    0    0    7
 S14-roles/basic.rakudo.moar........................  40    0    2    3   45
      3 skipped: RT #67768
-     1 todo   : can see it in the position, but even STD message doesn't include it
      1 todo   : RT #121308
+     1 todo   : can see it in the position, but even STD message doesn't include it
 S14-roles/bool.t...................................   3    0    0    0    3
 S14-roles/composition.rakudo.moar..................  24    0    0    2   26
      2 skipped: diamond composition
@@ -1838,8 +1859,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1415022176
-# Using file temp_1415022176
+S16-filehandles/chmod.t............................# Using file temp_1415110718
+# Using file temp_1415110718
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1989,7 +2010,7 @@ S17-supply/wait.t..................................   4    0    0    0    4
 S17-supply/watch_path.t............................Saw 1 call to deprecated code during execution.
 ================================================================================
 Method more (from Supply) called at:
-  src/gen/m-CORE.setting, line 15093
+  src/gen/m-CORE.setting, line 15299
 Deprecated since v2014.10, will be removed with release v2015.10!
 Please use emit instead.
 --------------------------------------------------------------------------------
@@ -2094,11 +2115,19 @@ use of uninitialized value $got of type Int in string context  in sub is at lib/
 use of uninitialized value $expected of type Int in string context  in sub is at lib/Test.pm:116
 
  138    0    0    0  138
-S32-array/delete-adverb.t..........................moar(84159,0x7fff7bce2310) malloc: *** error for object 0x7f8e3e1ce110: pointer being freed was not allocated
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 84159 Abort trap: 6           nice -20 ./perl6-m t/spec/S32-array/delete-adverb.t
-   0  216    0    0  216
-   216 tests aborted (missing ok/not ok)
+S32-array/delete-adverb.t..........................use of uninitialized value $got of type Int in string context  in sub is at lib/Test.pm:116
+
+use of uninitialized value $expected of type Any in string context  in sub is at lib/Test.pm:116
+
+use of uninitialized value $got of type Int in string context  in sub is at lib/Test.pm:116
+
+use of uninitialized value $expected of type Any in string context  in sub is at lib/Test.pm:116
+
+use of uninitialized value $got of type Int in string context  in sub is at lib/Test.pm:116
+
+use of uninitialized value $expected of type Int in string context  in sub is at lib/Test.pm:116
+
+ 216    0    0    0  216
 S32-array/delete.t.................................use of uninitialized value of type Any in string context  in block <unit> at t/spec/S32-array/delete.t:64
 
   31    0    0    0   31
@@ -2159,8 +2188,8 @@ Code object coerced to string (please use .gist or .perl to do that)  in any thr
 # at lib/Test.pm line 200
     # Looks like you failed 1 tests of 5
  271    0    2    0  273
-     1 todo   : parsing regression
      1 todo   : Cannot find method "returns"
+     1 todo   : parsing regression
 S32-hash/delete-adverb.t...........................use of uninitialized value $got of type Int in string context  in sub is at lib/Test.pm:116
 
 use of uninitialized value $expected of type Int in string context  in sub is at lib/Test.pm:116
@@ -2185,7 +2214,11 @@ S32-io/IO-Socket-INET.t............................   0    0    0   47   47
 S32-io/chdir.rakudo.moar...........................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
-S32-io/dir.t.......................................  12    0    0    0   12
+S32-io/dir.rakudo.moar.............................   8    0    4    0   12
+     1 todo   : entries are still IO::Path
+     1 todo   : dirname is not yet absolute
+     1 todo   : directories are not marked with trailing / yet
+     1 todo   : $*CWD misses slash at end still
 S32-io/file-tests.t................................  34    0    0    0   34
 S32-io/io-path-cygwin.rakudo.moar..................use of uninitialized value $CWD of type Any in string context  in method bless at ././CORE.setting.moarvm:1
 
@@ -2389,8 +2422,8 @@ S32-num/narrow.t...................................   9    0    0    0    9
 S32-num/pi.t.......................................   5    0    0    0    5
 S32-num/polar.t....................................  48    0    0    0   48
 S32-num/power.rakudo.moar..........................  43    0    9    0   52
-     1 todo   : NaN**0 should be NaN
      1 todo   : NaN**1i should be NaN
+     1 todo   : NaN**0 should be NaN
      1 todo   : i
      1 todo   : 1i**NaN should be NaN
      5 todo   : big exponents
@@ -2401,11 +2434,7 @@ S32-num/rat.rakudo.moar............................ 819    0    4    1  824
      4 todo   : <1/3> literal should be Rat
 S32-num/real-bridge.t.............................. 200    0    0    0  200
 S32-num/roots.t....................................  55    0    0    0   55
-S32-num/rounders.t.................................moar(84641,0x7fff7bce2310) malloc: *** error for object 0x10a21ea78: pointer being freed was not allocated
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 84641 Abort trap: 6           nice -20 ./perl6-m t/spec/S32-num/rounders.t
-  24  104    0    0  128
-   104 tests aborted (missing ok/not ok)
+S32-num/rounders.t................................. 128    0    0    0  128
 S32-num/rshift_pos_amount.t........................ 189    0    0    0  189
 S32-num/sign.rakudo.moar...........................  33    0    1    1   35
      1 skipped: Test is kind of doubtful IMO -- colomon
@@ -2467,8 +2496,8 @@ S32-str/lc.rakudo.moar.............................  12    0    1    0   13
 S32-str/lines.t....................................  47    0    0    0   47
 S32-str/numeric.rakudo.moar........................ 161    0    7    0  168
      5 todo   : Failure
-     1 todo   : complex Str.Numeric
      1 todo   : NYI
+     1 todo   : complex Str.Numeric
 S32-str/ords.t.....................................   6    0    0    0    6
 S32-str/pack.t.....................................   6    0    0    0    6
 S32-str/pos.t......................................   2    0    0    0    2
@@ -2695,14 +2724,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 0.89393014 seconds
-# gerdr: 0.9079327 seconds
-# recursive-ternary: 1.0018147 seconds
-# loop: 1.0244070 seconds
-# sequence-ternary: 1.7738685 seconds
-# recursive-ternary-hand-cached: 1.884330 seconds
-# hand-memoization: 2.4883647 seconds
-# sequence: 2.6141339 seconds
+integration/advent2012-day21.t.....................# kaz: 0.8616571 seconds
+# gerdr: 0.8853846 seconds
+# loop: 0.9922876 seconds
+# recursive-ternary: 1.00104574 seconds
+# sequence-ternary: 1.6969923 seconds
+# recursive-ternary-hand-cached: 1.7854838 seconds
+# hand-memoization: 2.4490377 seconds
+# sequence: 2.6004655 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2767,16 +2796,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5089,     0,   127,   362,  5578,  5670
-"S03",        4765,   168,    89,    82,  5104,  5138
+"S02",        4900,   196,   125,   359,  5580,  5672
+"S03",        4900,     0,   109,    95,  5104,  5138
 "S04",        1018,     0,    40,    43,  1101,  1153
 "S05",        5249,     0,   105,   177,  5531,  5912
-"S06",        1190,     2,    41,   104,  1337,  1417
+"S06",        1192,     0,    41,   104,  1337,  1417
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         186,     0,    11,    10,   207,   207
 "S10",          83,     0,     4,     1,    88,   145
 "S11",         105,     0,     4,    14,   123,   142
-"S12",        1359,     0,    46,   125,  1530,  1588
+"S12",        1360,     0,    46,   125,  1531,  1589
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         302,     0,    10,    10,   322,   335
 "S15",         240,     0,     2,    16,   258,   283
@@ -2788,13 +2817,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     4,     2,   344,   354
-"S32",        8842,   320,   121,   165,  9448,  7882
+"S32",        9158,     0,   125,   165,  9448,  7882
 "int",        1208,     0,    12,    19,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32241,   490,   638,  1239, 34608, 34741
+"total",     32506,   196,   660,  1249, 34611, 34744
 ----------------
 Failure summary:
-S03-operators/assign.rakudo.moar aborted 168 test(s)
-S06-macros/errors.t aborted 2 test(s)
-S32-array/delete-adverb.t aborted 216 test(s)
-S32-num/rounders.t aborted 104 test(s)
+S02-types/bag.rakudo.moar aborted 196 test(s)
