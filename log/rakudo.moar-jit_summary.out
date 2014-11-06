@@ -1009,7 +1009,13 @@ S04-phasers/pre-post.rakudo.moar...................  19    0    2    1   22
      1 todo   : POST and exceptions
      1 todo   : failing PRE block should not run any other phasers, RT #121531
 S04-phasers/rvalue.t...............................  16    0    0    0   16
-S04-statement-modifiers/for.t......................  23    0    0    0   23
+S04-statement-modifiers/for.t......................
+# Failed test 'for modifies the $_ that is visible to the {} interpolator'
+# at t/spec/S04-statement-modifiers/for.t line 127
+# expected: 'cool'
+#      got: 'bogus'
+# Looks like you failed 1 tests of 24
+  23    1    0    0   24
 S04-statement-modifiers/given.t....................   6    0    0    0    6
 S04-statement-modifiers/if.t.......................  11    0    0    0   11
 S04-statement-modifiers/unless.t...................   6    0    0    0    6
@@ -1564,7 +1570,7 @@ so that this message will disappear!
      1 todo   : ticket based only on class... RT #60446
      1 todo   : RT #64606
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
-S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 22679 Segmentation fault: 11  ./perl6-m getout-22667-672928.code < getout-22667-672928.in > getout-22667-672928.out 2> getout-22667-672928.err
+S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 80956 Segmentation fault: 11  ./perl6-m getout-80944-354034.code < getout-80944-354034.in > getout-80944-354034.out 2> getout-80944-354034.err
   12    0    1    0   13
      1 todo   : RT #122896
 S10-packages/use-with-class.t......................   9    0    0    0    9
@@ -1857,8 +1863,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1415196386
-# Using file temp_1415196386
+S16-filehandles/chmod.t............................# Using file temp_1415283882
+# Using file temp_1415283882
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1963,16 +1969,18 @@ S17-supply/map.t...................................# **** scheduling with Thread
 # **** scheduling with CurrentThreadScheduler
    9    0    0    0    9
 S17-supply/max.t...................................# **** scheduling with ThreadPoolScheduler
-# **** scheduling with CurrentThreadScheduler
-  10    0    0    0   10
+sh: line 1: 81529 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S17-supply/max.t
+   2    8    0    0   10
+     8 tests aborted (missing ok/not ok)
 S17-supply/merge.t.................................# **** scheduling with CurrentThreadScheduler
    8    0    0    0    8
 S17-supply/migrate.t...............................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
   21    0    0    0   21
 S17-supply/min.t...................................# **** scheduling with ThreadPoolScheduler
-# **** scheduling with CurrentThreadScheduler
-  10    0    0    0   10
+sh: line 1: 81539 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S17-supply/min.t
+   4    6    0    0   10
+     6 tests aborted (missing ok/not ok)
 S17-supply/minmax.t................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
   10    0    0    0   10
@@ -2008,7 +2016,7 @@ S17-supply/wait.t..................................   4    0    0    0    4
 S17-supply/watch_path.t............................Saw 1 call to deprecated code during execution.
 ================================================================================
 Method more (from Supply) called at:
-  src/gen/m-CORE.setting, line 15299
+  src/gen/m-CORE.setting, line 15310
 Deprecated since v2014.10, will be removed with release v2015.10!
 Please use emit instead.
 --------------------------------------------------------------------------------
@@ -2018,11 +2026,8 @@ so that this message will disappear!
 S17-supply/words.t.................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
    5    0    0    0    5
-S17-supply/zip-latest.t............................Cannot invoke null object
-  in block <unit> at t/spec/S17-supply/zip-latest.t:10
-
-   0   10    0    0   10
-    10 tests aborted (missing ok/not ok)
+S17-supply/zip-latest.t............................# **** scheduling with CurrentThreadScheduler
+  10    0    0    0   10
 S17-supply/zip.t...................................# **** scheduling with CurrentThreadScheduler
    8    0    0    0    8
                                                    pass fail todo skip plan
@@ -2134,7 +2139,11 @@ S32-array/delete.t.................................use of uninitialized value of
   31    0    0    0   31
 S32-array/elems.t..................................  11    0    0    0   11
 S32-array/end.t....................................  12    0    0    0   12
-S32-array/exists-adverb.t..........................  52    0    0    0   52
+S32-array/exists-adverb.t..........................moar(82224,0x7fff7987b310) malloc: *** error for object 0x7f9b7c8604d0: pointer being freed was not allocated
+*** set a breakpoint in malloc_error_break to debug
+sh: line 1: 82224 Abort trap: 6           nice -20 ./perl6-m t/spec/S32-array/exists-adverb.t
+  26   26    0    0   52
+    26 tests aborted (missing ok/not ok)
 S32-array/keys_values.t............................   8    0    0    0    8
 S32-array/kv.t.....................................  18    0    0    0   18
 S32-array/pairs.rakudo.moar........................  13    0    1    0   14
@@ -2453,7 +2462,9 @@ use of uninitialized value of type Rat in string context  in block <unit> at t/s
      4 skipped: big stuff
     11 todo   : Complex.perl
 S32-num/unpolar.t.................................. 199    0    0    0  199
-S32-scalar/defined.t...............................  56    0    0    0   56
+S32-scalar/defined.t...............................sh: line 1: 83190 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S32-scalar/defined.t
+  47    9    0    0   56
+     9 tests aborted (missing ok/not ok)
 S32-scalar/perl.rakudo.moar........................   4    0    2    0    6
      2 todo   : cannot roundtrip constrained scalars yet
 S32-scalar/undef.rakudo.moar.......................use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S32-scalar/undef.rakudo.moar:300
@@ -2725,14 +2736,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# gerdr: 1.0662304 seconds
-# kaz: 1.07156380 seconds
-# recursive-ternary: 1.1460405 seconds
-# loop: 1.1884743 seconds
-# sequence-ternary: 1.9640291 seconds
-# recursive-ternary-hand-cached: 2.01693451 seconds
-# hand-memoization: 2.6994319 seconds
-# sequence: 2.820534 seconds
+integration/advent2012-day21.t.....................# kaz: 1.1324095 seconds
+# gerdr: 1.1362353 seconds
+# recursive-ternary: 1.26720668 seconds
+# loop: 1.328797 seconds
+# sequence-ternary: 2.0155827 seconds
+# recursive-ternary-hand-cached: 2.21166988 seconds
+# hand-memoization: 2.8886432 seconds
+# sequence: 2.991051766 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2799,7 +2810,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S01",           0,     0,     0,     0,     0,    61
 "S02",        5091,     0,   127,   362,  5580,  5672
 "S03",        4900,     0,   109,    95,  5104,  5138
-"S04",        1018,     0,    40,    43,  1101,  1153
+"S04",        1018,     1,    40,    43,  1102,  1154
 "S05",        5249,     0,   105,   177,  5531,  5912
 "S06",        1192,     0,    41,   104,  1337,  1417
 "S07",           0,     0,     0,     0,     0,     0
@@ -2811,17 +2822,21 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         302,     0,    10,    10,   322,   335
 "S15",         240,     0,     2,    16,   258,   283
 "S16",         247,     0,     0,    16,   263,   307
-"S17",         664,    10,     7,    22,   703,   727
+"S17",         660,    14,     7,    22,   703,   727
 "S19",          12,     0,     0,     0,    12,    17
 "S22",          52,     0,     1,     0,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     4,     2,   344,   354
-"S32",        9158,     0,   125,   165,  9448,  7882
+"S32",        9123,    35,   125,   165,  9448,  7882
 "int",        1208,     0,    12,    19,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32688,    10,   661,  1252, 34611, 34744
+"total",     32649,    50,   661,  1252, 34612, 34745
 ----------------
 Failure summary:
-S17-supply/zip-latest.t aborted 10 test(s)
+S04-statement-modifiers/for.t 24 - for modifies the $_ that is visible to the {} interpolator
+S17-supply/max.t aborted 8 test(s)
+S17-supply/min.t aborted 6 test(s)
+S32-array/exists-adverb.t aborted 26 test(s)
+S32-scalar/defined.t aborted 9 test(s)
