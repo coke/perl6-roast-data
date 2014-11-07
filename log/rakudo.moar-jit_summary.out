@@ -76,11 +76,11 @@ S02-literals/quoting.rakudo.moar...................
 # Failed test 'code dies'
 # at lib/Test.pm line 303
     # Looks like you failed 1 tests of 2
- 150    0    7    3  160
+sh: line 1: 33613 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S02-literals/quoting.rakudo.moar
+ 108   48    1    3  160
      3 skipped: \c@ etc
      1 todo   : retriage
-     2 todo   : q:x assigned to array
-     4 todo   : quoting adverbs
+    48 tests aborted (missing ok/not ok)
 S02-literals/radix.rakudo.moar..................... 129    0    6    0  135
      1 todo   : This needs an RT
      4 todo   : Some question of what this form should actually do
@@ -824,7 +824,11 @@ S03-operators/so.rakudo.moar.......................  14    0    1    0   15
      1 todo   : check test and rakudo
 S03-operators/spaceship-and-containers.t...........   6    0    0    0    6
 S03-operators/spaceship.t..........................   5    0    0    0    5
-S03-operators/subscript-adverbs.t.................. 110    0    0    0  110
+S03-operators/subscript-adverbs.t..................moar(34148,0x7fff7987b310) malloc: *** error for object 0x7f97108bd090: pointer being freed was not allocated
+*** set a breakpoint in malloc_error_break to debug
+sh: line 1: 34148 Abort trap: 6           nice -20 ./perl6-m t/spec/S03-operators/subscript-adverbs.t
+   0  110    0    0  110
+   110 tests aborted (missing ok/not ok)
 S03-operators/subscript-vs-lt.t....................   4    0    0    0    4
 S03-operators/ternary.t............................  17    0    0    0   17
 S03-operators/value_equivalence.rakudo.moar........  73    0    2    0   75
@@ -1295,11 +1299,13 @@ use of uninitialized value of type Int in string context  in block  at t/spec/S0
 
 use of uninitialized value of type Int in string context  in block  at t/spec/S05-transliteration/trans.rakudo.moar:207
 
-  48    0   13    1   62
+sh: line 1: 34687 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S05-transliteration/trans.rakudo.moar
+  37   11   13    1   62
      1 skipped: feed operator NYI
      2 todo   : closures and regexes
     10 todo   : flags
      1 todo   : disambiguate ranges
+    11 tests aborted (missing ok/not ok)
 S05-transliteration/with-closure.rakudo.moar.......use of uninitialized value of type Int in string context  in block <unit> at t/spec/S05-transliteration/with-closure.rakudo.moar:59
 
 use of uninitialized value of type Int in string context  in block <unit> at t/spec/S05-transliteration/with-closure.rakudo.moar:59
@@ -1334,7 +1340,9 @@ use of uninitialized value $got of type Any in string context  in sub is at lib/
      2 todo   : temp and wrap
 S06-currying/assuming-and-mmd.t....................   6    0    0    0    6
 S06-currying/named.t...............................   3    0    0    0    3
-S06-macros/errors.t................................   2    0    0    0    2
+S06-macros/errors.t................................sh: line 1: 34718 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S06-macros/errors.t
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
 S06-macros/opaque-ast.rakudo.moar..................   3    0    0    4    7
      3 skipped: :COMPILING flag
      1 skipped: return from macro
@@ -1570,7 +1578,7 @@ so that this message will disappear!
      1 todo   : ticket based only on class... RT #60446
      1 todo   : RT #64606
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
-S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 80956 Segmentation fault: 11  ./perl6-m getout-80944-354034.code < getout-80944-354034.in > getout-80944-354034.out 2> getout-80944-354034.err
+S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 35015 Segmentation fault: 11  ./perl6-m getout-35003-294240.code < getout-35003-294240.in > getout-35003-294240.out 2> getout-35003-294240.err
   12    0    1    0   13
      1 todo   : RT #122896
 S10-packages/use-with-class.t......................   9    0    0    0    9
@@ -1606,7 +1614,9 @@ S12-attributes/class.rakudo.moar...................  23    0    0    6   29
 S12-attributes/clone.rakudo.moar...................  33    0    2    0   35
      2 todo   : clone currently messes up original
 S12-attributes/defaults.t..........................  34    0    0    0   34
-S12-attributes/delegation.t........................  65    0    0    0   65
+S12-attributes/delegation.t........................sh: line 1: 35072 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S12-attributes/delegation.t
+  35   30    0    0   65
+    30 tests aborted (missing ok/not ok)
 S12-attributes/inheritance.t.......................   7    0    0    0    7
 S12-attributes/instance.rakudo.moar................use of uninitialized value of type Any in string context  in block <unit> at t/spec/S12-attributes/instance.rakudo.moar:466
 
@@ -1863,8 +1873,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1415283882
-# Using file temp_1415283882
+S16-filehandles/chmod.t............................# Using file temp_1415368111
+# Using file temp_1415368111
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1969,18 +1979,16 @@ S17-supply/map.t...................................# **** scheduling with Thread
 # **** scheduling with CurrentThreadScheduler
    9    0    0    0    9
 S17-supply/max.t...................................# **** scheduling with ThreadPoolScheduler
-sh: line 1: 81529 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S17-supply/max.t
-   2    8    0    0   10
-     8 tests aborted (missing ok/not ok)
+# **** scheduling with CurrentThreadScheduler
+  10    0    0    0   10
 S17-supply/merge.t.................................# **** scheduling with CurrentThreadScheduler
    8    0    0    0    8
 S17-supply/migrate.t...............................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
   21    0    0    0   21
 S17-supply/min.t...................................# **** scheduling with ThreadPoolScheduler
-sh: line 1: 81539 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S17-supply/min.t
-   4    6    0    0   10
-     6 tests aborted (missing ok/not ok)
+# **** scheduling with CurrentThreadScheduler
+  10    0    0    0   10
 S17-supply/minmax.t................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
   10    0    0    0   10
@@ -2139,11 +2147,7 @@ S32-array/delete.t.................................use of uninitialized value of
   31    0    0    0   31
 S32-array/elems.t..................................  11    0    0    0   11
 S32-array/end.t....................................  12    0    0    0   12
-S32-array/exists-adverb.t..........................moar(82224,0x7fff7987b310) malloc: *** error for object 0x7f9b7c8604d0: pointer being freed was not allocated
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 82224 Abort trap: 6           nice -20 ./perl6-m t/spec/S32-array/exists-adverb.t
-  26   26    0    0   52
-    26 tests aborted (missing ok/not ok)
+S32-array/exists-adverb.t..........................  52    0    0    0   52
 S32-array/keys_values.t............................   8    0    0    0    8
 S32-array/kv.t.....................................  18    0    0    0   18
 S32-array/pairs.rakudo.moar........................  13    0    1    0   14
@@ -2315,7 +2319,7 @@ S32-io/slurp.t.....................................Saw 2 calls to deprecated cod
 Method slurp (from IO::Handle) called at:
   t/spec/S32-io/slurp.t, line 39
 Deprecated since v2014.10, will be removed with release v2015.10!
-Please use IO::Path.slurp instead.
+Please use $handle.slurp-rest instead.
 --------------------------------------------------------------------------------
 slurp($handle,...) called at:
   t/spec/S32-io/slurp.t, lines 45,53
@@ -2462,9 +2466,7 @@ use of uninitialized value of type Rat in string context  in block <unit> at t/s
      4 skipped: big stuff
     11 todo   : Complex.perl
 S32-num/unpolar.t.................................. 199    0    0    0  199
-S32-scalar/defined.t...............................sh: line 1: 83190 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S32-scalar/defined.t
-  47    9    0    0   56
-     9 tests aborted (missing ok/not ok)
+S32-scalar/defined.t...............................  56    0    0    0   56
 S32-scalar/perl.rakudo.moar........................   4    0    2    0    6
      2 todo   : cannot roundtrip constrained scalars yet
 S32-scalar/undef.rakudo.moar.......................use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S32-scalar/undef.rakudo.moar:300
@@ -2646,8 +2648,9 @@ integration/99problems-11-to-20.t..................  25    0    0    0   25
 integration/99problems-21-to-30.t..................use of uninitialized value $previous of type Any in string context  in sub  at t/spec/integration/99problems-21-to-30.t:54
 
   15    0    0    0   15
-integration/99problems-31-to-40.t..................  66    0    0    1   67
-     1 skipped: No Benchmark module yet
+integration/99problems-31-to-40.t..................sh: line 1: 37650 Segmentation fault: 11  nice -20 ./perl6-m t/spec/integration/99problems-31-to-40.t
+  39   28    0    0   67
+    28 tests aborted (missing ok/not ok)
 integration/99problems-41-to-50.t..................  13    0    0    0   13
 integration/99problems-51-to-60.t..................  35    0    0    2   37
      1 skipped: Test(s) not yet written: (**) Generate-and-test paradigm
@@ -2736,14 +2739,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 1.1324095 seconds
-# gerdr: 1.1362353 seconds
-# recursive-ternary: 1.26720668 seconds
-# loop: 1.328797 seconds
-# sequence-ternary: 2.0155827 seconds
-# recursive-ternary-hand-cached: 2.21166988 seconds
-# hand-memoization: 2.8886432 seconds
-# sequence: 2.991051766 seconds
+integration/advent2012-day21.t.....................# kaz: 1.0649410 seconds
+# gerdr: 1.1036339 seconds
+# recursive-ternary: 1.1881436 seconds
+# loop: 1.2006982 seconds
+# sequence-ternary: 1.91102994 seconds
+# recursive-ternary-hand-cached: 2.00872485 seconds
+# hand-memoization: 2.72232308 seconds
+# sequence: 2.8479629 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2808,35 +2811,37 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5091,     0,   127,   362,  5580,  5672
-"S03",        4900,     0,   109,    95,  5104,  5138
+"S02",        5049,    48,   121,   362,  5580,  5672
+"S03",        4790,   110,   109,    95,  5104,  5138
 "S04",        1018,     1,    40,    43,  1102,  1154
-"S05",        5249,     0,   105,   177,  5531,  5912
-"S06",        1192,     0,    41,   104,  1337,  1417
+"S05",        5238,    11,   105,   177,  5531,  5912
+"S06",        1190,     2,    41,   104,  1337,  1417
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         186,     0,    11,    10,   207,   207
 "S10",          84,     0,     3,     1,    88,   145
 "S11",         105,     0,     4,    14,   123,   142
-"S12",        1360,     0,    46,   125,  1531,  1589
+"S12",        1330,    30,    46,   125,  1531,  1589
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         302,     0,    10,    10,   322,   335
 "S15",         240,     0,     2,    16,   258,   283
 "S16",         247,     0,     0,    16,   263,   307
-"S17",         660,    14,     7,    22,   703,   727
+"S17",         674,     0,     7,    22,   703,   727
 "S19",          12,     0,     0,     0,    12,    17
 "S22",          52,     0,     1,     0,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     4,     2,   344,   354
-"S32",        9123,    35,   125,   165,  9448,  7882
-"int",        1208,     0,    12,    19,  1239,  1228
+"S32",        9158,     0,   125,   165,  9448,  7882
+"int",        1181,    28,    12,    18,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32649,    50,   661,  1252, 34612, 34745
+"total",     32476,   230,   655,  1251, 34612, 34745
 ----------------
 Failure summary:
+S02-literals/quoting.rakudo.moar aborted 48 test(s)
+S03-operators/subscript-adverbs.t aborted 110 test(s)
 S04-statement-modifiers/for.t 24 - for modifies the $_ that is visible to the {} interpolator
-S17-supply/max.t aborted 8 test(s)
-S17-supply/min.t aborted 6 test(s)
-S32-array/exists-adverb.t aborted 26 test(s)
-S32-scalar/defined.t aborted 9 test(s)
+S05-transliteration/trans.rakudo.moar aborted 11 test(s)
+S06-macros/errors.t aborted 2 test(s)
+S12-attributes/delegation.t aborted 30 test(s)
+integration/99problems-31-to-40.t aborted 28 test(s)
