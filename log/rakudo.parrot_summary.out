@@ -4,9 +4,8 @@ defined(@array) is deprecated at t/spec/test_summary line 378.
                                                    pass fail todo skip plan
 S02-lexical-conventions/begin_end_pod.t............   1    0    0    0    1
 S02-lexical-conventions/bom.t......................   1    0    0    0    1
-S02-lexical-conventions/comments.rakudo.parrot.....  48    0    1    2   51
+S02-lexical-conventions/comments.rakudo.parrot.....  49    0    0    2   51
      2 skipped: NYI, and hangs on JVM
-     1 todo   : NYI
 S02-lexical-conventions/end-pod.t..................   1    0    0    0    1
 S02-lexical-conventions/minimal-whitespace.t.......   9    0    0    0    9
 S02-lexical-conventions/one-pass-parsing.t.........   3    0    0    0    3
@@ -20,8 +19,7 @@ S02-lexical-conventions/unspace.rakudo.parrot......
 # Failed test 'code dies'
 # at lib/Test.pm line 303
     # Looks like you failed 1 tests of 2
-  74    0    1   11   86
-     3 skipped: indirect method calls parsefail: RT #122344
+  77    0    1    8   86
      1 skipped: .++ does not work: RT #122342
      3 skipped: pod and unspace: RT #122343
      4 skipped: =for pod NYI (in STD.pm): RT #122343
@@ -1090,8 +1088,10 @@ S04-phasers/pre-post.rakudo.parrot.................  20    0    1    1   22
      1 skipped: POST and exceptions
      1 todo   : POST and exceptions
 S04-phasers/rvalue.t...............................  16    0    0    0   16
-S04-statement-modifiers/for.t......................  24    0    0    0   24
-S04-statement-modifiers/given.t....................   6    0    0    0    6
+S04-statement-modifiers/for.rakudo.parrot..........  23    0    1    0   24
+     1 todo PASSED: RT #100746
+S04-statement-modifiers/given.rakudo.parrot........   6    0    1    0    7
+     1 todo PASSED: RT #100746
 S04-statement-modifiers/if.t.......................  11    0    0    0   11
 S04-statement-modifiers/unless.t...................   6    0    0    0    6
 S04-statement-modifiers/until.t....................   4    0    0    0    4
@@ -1287,7 +1287,22 @@ Potential difficulties:
     at EVAL_9:1
     ------> [32m/<[33m⏏[31m[..b]>/[0m
   29    0    0    0   29
-S05-metasyntax/repeat.t............................  24    0    0    0   24
+S05-metasyntax/repeat.rakudo.parrot................    
+# Failed test 'right exception type (X::Syntax::Regex::SolitaryQuantifier)'
+# at lib/Test.pm line 309
+    # Expected: (X::Syntax::Regex::SolitaryQuantifier)
+    # Got:      (X::Comp::AdHoc)
+    # Exception message: Quantifier quantifies nothing
+    # Looks like you failed 1 tests of 2
+    
+# Failed test 'right exception type (X::Syntax::Regex::SolitaryQuantifier)'
+# at lib/Test.pm line 309
+    # Expected: (X::Syntax::Regex::SolitaryQuantifier)
+    # Got:      (X::Comp::AdHoc)
+    # Exception message: Quantifier quantifies nothing
+    # Looks like you failed 1 tests of 2
+  24    0    2    0   26
+     2 todo   : RT #111956
 S05-metasyntax/sequential-alternation.t............  10    0    0    0   10
 S05-metasyntax/single-quotes.t.....................   5    0    0    0    5
 S05-metasyntax/unknown.rakudo.parrot...............  11    0    1    0   12
@@ -1832,18 +1847,16 @@ S12-methods/defer-next.rakudo.parrot...............  20    0    1    0   21
      1 todo   : variant of RT #69608
 S12-methods/delegation.t...........................   7    0    0    0    7
 S12-methods/how.t..................................   2    0    0    0    2
-S12-methods/indirect_notation.rakudo.parrot........  10    0    0   23   33
+S12-methods/indirect_notation.rakudo.parrot........  16    0    0   21   37
      6 skipped: .@foo not yet working
     15 skipped: .*, .+ and .? with @foo
-     2 skipped: TTIAR near $o:
-S12-methods/instance.rakudo.parrot.................useless use of 'is rw' on @!something  in any  at src/Perl6/World.nqp:1844
+S12-methods/instance.t.............................useless use of 'is rw' on @!something  in any  at src/Perl6/World.nqp:1844
 
 use of uninitialized value $got of type AnonInvocant in string context  in sub is at lib/Test.pm:116
 
 use of uninitialized value $expected of type AnonInvocant in string context  in sub is at lib/Test.pm:116
 
-  36    0    0    2   38
-     2 skipped: indirect object notation
+  38    0    0    0   38
 S12-methods/lastcall.t.............................   6    0    0    0    6
 S12-methods/lvalue.t...............................  16    0    0    0   16
 S12-methods/method-vs-sub.rakudo.parrot............   4    0    0    1    5
@@ -1926,8 +1939,8 @@ S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.parrot..................  12    0    1    0   13
      1 todo   : trait mod / .wrap interaction
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1415370237
-# Using file temp_1415370237
+S16-filehandles/chmod.t............................# Using file temp_1415551454
+# Using file temp_1415551454
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2659,13 +2672,13 @@ integration/advent2012-day15.rakudo.parrot.........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.rakudo.parrot.........# kaz: 2.2155854 seconds
-# gerdr: 2.4887215 seconds
-# recursive-ternary: 2.9522337 seconds
-# loop: 3.1337707 seconds
-# sequence-ternary: 6.54154302 seconds
-# recursive-ternary-hand-cached: 8.04421489 seconds
-# sequence: 10.7827158 seconds
+integration/advent2012-day21.rakudo.parrot.........# kaz: 2.3738704 seconds
+# gerdr: 2.4514458 seconds
+# recursive-ternary: 2.9821921 seconds
+# loop: 3.1996503 seconds
+# sequence-ternary: 6.8640363 seconds
+# recursive-ternary-hand-cached: 8.31805416 seconds
+# sequence: 11.00469298 seconds
    8    0    0    1    9
      1 skipped: RT #122497
 integration/advent2012-day22.rakudo.parrot.........   5    0    1    0    6
@@ -2716,16 +2729,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5016,     0,   124,   440,  5580,  5672
+"S02",        5020,     0,   123,   437,  5580,  5672
 "S03",        4900,     0,   109,    95,  5104,  5138
-"S04",        1009,     0,    47,    46,  1102,  1154
-"S05",        5154,     0,   114,   263,  5531,  5912
+"S04",        1008,     0,    49,    46,  1103,  1155
+"S05",        5154,     0,   116,   263,  5533,  5914
 "S06",        1184,     0,    44,   109,  1337,  1417
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         186,     0,    11,    10,   207,   207
 "S10",          84,     0,     2,     2,    88,   145
 "S11",         105,     0,     4,    14,   123,   142
-"S12",        1358,     0,    48,   125,  1531,  1589
+"S12",        1366,     0,    48,   121,  1535,  1593
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         303,     0,     8,    11,   322,   335
 "S15",           0,     0,     0,     0,     0,   283
@@ -2740,6 +2753,6 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9156,     0,   117,   175,  9448,  7882
 "int",        1197,     0,     9,    19,  1225,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31580,     0,   658,  1399, 33637, 34718
+"total",     31591,     0,   661,  1392, 33644, 34725
 ----------------
 No failures!
