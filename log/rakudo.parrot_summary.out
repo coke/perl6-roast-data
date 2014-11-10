@@ -12,8 +12,7 @@ S02-lexical-conventions/one-pass-parsing.t.........   3    0    0    0    3
 S02-lexical-conventions/pod-in-multi-line-exprs.t..   3    0    0    0    3
 S02-lexical-conventions/sub-block-parsing.t........  11    0    0    0   11
 S02-lexical-conventions/unicode-whitespace.t.......  50    0    0    0   50
-S02-lexical-conventions/unicode.rakudo.parrot......  39    0    0    5   44
-     3 skipped: RT #122341 all codepoints that match \v should work as line separator
+S02-lexical-conventions/unicode.rakudo.parrot......  42    0    0    2   44
      2 skipped: VOWEL SIGNs in identifiers; RT #122340
 S02-lexical-conventions/unspace.rakudo.parrot......    
 # Failed test 'code dies'
@@ -36,32 +35,15 @@ use of uninitialized value of type Any in string context  in block <unit> at t/s
 S02-literals/char-by-name.rakudo.parrot............   8    0    0    2   10
      1 skipped: \c[LINE FEED] not valid: RT #117683
      1 skipped: \c[LF] not valid: RT #117683
-S02-literals/char-by-number.rakudo.parrot..........    
-# Failed test 'code dies'
-# at lib/Test.pm line 303
-    # Looks like you failed 1 tests of 2
-    
-# Failed test 'code dies'
-# at lib/Test.pm line 303
-    # Looks like you failed 1 tests of 2
-    
-# Failed test 'code dies'
-# at lib/Test.pm line 303
-    # Looks like you failed 1 tests of 2
-    
-# Failed test 'code dies'
-# at lib/Test.pm line 303
-    # Looks like you failed 1 tests of 2
-  38    0    4    0   42
-     4 todo   : Detecting malformed escape sequences NYI
+S02-literals/char-by-number.t......................  38    0    0    0   38
 S02-literals/fmt-interpolation.t...................  11    0    0    0   11
 S02-literals/hash-interpolation.t..................  10    0    0    0   10
 S02-literals/heredocs.t............................  16    0    0    0   16
 S02-literals/hex_chars.t...........................   4    0    0    0    4
 S02-literals/listquote-whitespace.t................  12    0    0    0   12
-S02-literals/listquote.rakudo.parrot...............  19    0    3    1   23
+S02-literals/listquote.rakudo.parrot...............  19    0    4    1   24
      1 skipped: meta operators
-     3 todo   : IntStr/RatStr/NumStr types NYI
+     4 todo   : IntStr/RatStr/NumStr types NYI
 S02-literals/misc-interpolation.t..................  50    0    0    0   50
 S02-literals/numeric.t.............................  22    0    0    0   22
 S02-literals/pair-boolean.t........................   6    0    0    0    6
@@ -681,7 +663,9 @@ S03-operators/buf.t................................Code object coerced to string
 
 Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/buf.t:67
 
-  34    0    0    0   34
+use of uninitialized value of type Any in string context  in block <unit> at t/spec/S03-operators/buf.t:93
+
+  38    0    0    0   38
 S03-operators/chained-declarators.t................   5    0    0    0    5
 S03-operators/cmp.t................................  22    0    0    0   22
 S03-operators/comparison-simple.t..................  24    0    0    0   24
@@ -1088,10 +1072,8 @@ S04-phasers/pre-post.rakudo.parrot.................  20    0    1    1   22
      1 skipped: POST and exceptions
      1 todo   : POST and exceptions
 S04-phasers/rvalue.t...............................  16    0    0    0   16
-S04-statement-modifiers/for.rakudo.parrot..........  23    0    1    0   24
-     1 todo PASSED: RT #100746
-S04-statement-modifiers/given.rakudo.parrot........   6    0    1    0    7
-     1 todo PASSED: RT #100746
+S04-statement-modifiers/for.t......................  24    0    0    0   24
+S04-statement-modifiers/given.t....................   7    0    0    0    7
 S04-statement-modifiers/if.t.......................  11    0    0    0   11
 S04-statement-modifiers/unless.t...................   6    0    0    0    6
 S04-statement-modifiers/until.t....................   4    0    0    0    4
@@ -1177,10 +1159,9 @@ S05-interpolation/regex-in-variable.rakudo.parrot..use of uninitialized value $!
   31    0    3    0   34
      1 todo   : warn on undef
      2 todo   : instance member interpolation
-S05-mass/charsets.rakudo.parrot....................  13    0    4    0   17
+S05-mass/charsets.rakudo.parrot....................  14    0    3    0   17
+     1 todo   : Unicode 6.3 -- lower characters
      1 todo   : punct characters
-     1 todo   : Unicode 6.1 "blank characters
-     1 todo PASSED: Unicode 6.3 -- lower characters
      1 todo PASSED: Unicode 6.1 :Punctuation characters
 S05-mass/named-chars.t............................. 431    0    0    0  431
 S05-mass/properties-block.t........................ 670    0    0    0  670
@@ -1224,8 +1205,7 @@ S05-metachars/closure.rakudo.parrot................   6    0    1    5   12
      5 skipped: assignment to match variables (dubious)
      1 todo   : make() inside closure
 S05-metachars/line-anchors.t.......................  19    0    0    0   19
-S05-metachars/newline.rakudo.parrot................  13    0    2    0   15
-     2 todo   : Unicode
+S05-metachars/newline.t............................  15    0    0    0   15
 S05-metachars/tilde.rakudo.parrot..................  14    0    1   12   27
      2 skipped: backtracking to find ~ goal
      3 skipped: exceptions from regexes
@@ -1287,22 +1267,7 @@ Potential difficulties:
     at EVAL_9:1
     ------> [32m/<[33m⏏[31m[..b]>/[0m
   29    0    0    0   29
-S05-metasyntax/repeat.rakudo.parrot................    
-# Failed test 'right exception type (X::Syntax::Regex::SolitaryQuantifier)'
-# at lib/Test.pm line 309
-    # Expected: (X::Syntax::Regex::SolitaryQuantifier)
-    # Got:      (X::Comp::AdHoc)
-    # Exception message: Quantifier quantifies nothing
-    # Looks like you failed 1 tests of 2
-    
-# Failed test 'right exception type (X::Syntax::Regex::SolitaryQuantifier)'
-# at lib/Test.pm line 309
-    # Expected: (X::Syntax::Regex::SolitaryQuantifier)
-    # Got:      (X::Comp::AdHoc)
-    # Exception message: Quantifier quantifies nothing
-    # Looks like you failed 1 tests of 2
-  24    0    2    0   26
-     2 todo   : RT #111956
+S05-metasyntax/repeat.t............................  26    0    0    0   26
 S05-metasyntax/sequential-alternation.t............  10    0    0    0   10
 S05-metasyntax/single-quotes.t.....................   5    0    0    0    5
 S05-metasyntax/unknown.rakudo.parrot...............  11    0    1    0   12
@@ -1461,14 +1426,13 @@ S06-operator-overloading/semicolon.t...............WARNINGS:
 Useless use of constant integer 2 in sink context (line 15)
 Useless use of constant integer 3 in sink context (line 15)
    3    0    0    0    3
-S06-operator-overloading/sub.rakudo.parrot.........  44    0    7   23   74
+S06-operator-overloading/sub.rakudo.parrot.........  48    0    2   21   71
      1 skipped: missing block, apparently "if" not an op
      1 skipped: infix Z will never work; no lexical Z
      4 skipped: prefix:[] form NYI
      1 skipped: &::
      4 skipped: missing block, no lexical Z
      3 skipped: assoc("non")
-     2 skipped: NYI
      2 skipped: macros
      1 skipped: RT #115724
      2 skipped: RT #116643
@@ -1476,7 +1440,6 @@ S06-operator-overloading/sub.rakudo.parrot.........  44    0    7   23   74
      1 skipped: cannot bind with this LHS
      1 todo   : RT #65638
      1 todo   : infix:<;>
-     5 todo   : huh?
 S06-operator-overloading/workout.t.................  84    0    0    0   84
 S06-other/anon-hashes-vs-blocks.t..................  22    0    0    0   22
 S06-other/introspection.t..........................  12    0    0    0   12
@@ -1783,7 +1746,11 @@ S12-construction/new.rakudo.parrot.................  15    0   10    0   25
      1 todo   : nested package handling does't quite get this one right
 S12-enums/anonymous.t..............................   7    0    0    0    7
 S12-enums/as-role.t................................   9    0    0    0    9
-S12-enums/basic.rakudo.parrot......................  30    0    0    5   35
+S12-enums/basic.rakudo.parrot......................Potential difficulties:
+    Redeclaration of symbol b and c
+    at t/spec/S12-enums/basic.rakudo.parrot:126
+    ------> [32m    enum S2 <b c d>[33m⏏[31m;[0m
+  32    0    0    5   37
      5 skipped: Cannot convert string to number
 S12-enums/misc.rakudo.parrot.......................  14    0    0    1   15
      1 skipped: RT #63826
@@ -1922,7 +1889,7 @@ S14-roles/conflicts.t..............................  11    0    0    0   11
 S14-roles/crony.t..................................   4    0    0    0    4
 S14-roles/instantiation.t..........................  19    0    0    0   19
 S14-roles/lexical.t................................   9    0    0    0    9
-S14-roles/mixin.rakudo.parrot......................  29    0    0    3   32
+S14-roles/mixin.rakudo.parrot......................  30    0    0    3   33
      2 skipped: mixin at the point of declaration is compile time
      1 skipped: Twigil ! is only valid on attribute definitions
 S14-roles/namespaced.rakudo.parrot.................   2    0    1    0    3
@@ -1939,8 +1906,8 @@ S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.parrot..................  12    0    1    0   13
      1 todo   : trait mod / .wrap interaction
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1415551454
-# Using file temp_1415551454
+S16-filehandles/chmod.t............................# Using file temp_1415631610
+# Using file temp_1415631610
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1969,7 +1936,7 @@ S19-command-line-options/02-dash-n.t...............   3    0    0    0    3
 S19-command-line-options/03-dash-p.t...............   2    0    0    0    2
 S19-command-line/arguments.t.......................   1    0    0    0    1
 S19-command-line/dash-e.t..........................   2    0    2    0    4
-     2 todo   : RT #111572
+     2 todo PASSED: RT #111572
 S19-command-line/help.t............................   1    0    0    0    1
 S19-command-line/repl.t............................> exit(42)
    1    0    0    0    1
@@ -2672,13 +2639,13 @@ integration/advent2012-day15.rakudo.parrot.........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.rakudo.parrot.........# kaz: 2.3738704 seconds
-# gerdr: 2.4514458 seconds
-# recursive-ternary: 2.9821921 seconds
-# loop: 3.1996503 seconds
-# sequence-ternary: 6.8640363 seconds
-# recursive-ternary-hand-cached: 8.31805416 seconds
-# sequence: 11.00469298 seconds
+integration/advent2012-day21.rakudo.parrot.........# kaz: 2.3812927 seconds
+# gerdr: 2.4710910 seconds
+# recursive-ternary: 3.0631776 seconds
+# loop: 3.17298777 seconds
+# sequence-ternary: 6.66981266 seconds
+# recursive-ternary-hand-cached: 8.15000643 seconds
+# sequence: 10.821706 seconds
    8    0    0    1    9
      1 skipped: RT #122497
 integration/advent2012-day22.rakudo.parrot.........   5    0    1    0    6
@@ -2729,18 +2696,18 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5020,     0,   123,   437,  5580,  5672
-"S03",        4900,     0,   109,    95,  5104,  5138
-"S04",        1008,     0,    49,    46,  1103,  1155
-"S05",        5154,     0,   116,   263,  5533,  5914
-"S06",        1184,     0,    44,   109,  1337,  1417
+"S02",        5023,     0,   120,   434,  5577,  5669
+"S03",        4904,     0,   109,    95,  5108,  5142
+"S04",        1010,     0,    47,    46,  1103,  1155
+"S05",        5159,     0,   111,   263,  5533,  5914
+"S06",        1188,     0,    39,   107,  1334,  1414
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         186,     0,    11,    10,   207,   207
 "S10",          84,     0,     2,     2,    88,   145
 "S11",         105,     0,     4,    14,   123,   142
-"S12",        1366,     0,    48,   121,  1535,  1593
+"S12",        1368,     0,    48,   121,  1537,  1595
 "S13",          36,     0,    10,    27,    73,    83
-"S14",         303,     0,     8,    11,   322,   335
+"S14",         304,     0,     8,    11,   323,   336
 "S15",           0,     0,     0,     0,     0,   283
 "S16",         247,     0,     0,    16,   263,   307
 "S17",           0,     0,     0,     0,     0,   700
@@ -2753,6 +2720,6 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9156,     0,   117,   175,  9448,  7882
 "int",        1197,     0,     9,    19,  1225,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31591,     0,   661,  1392, 33644, 34725
+"total",     31612,     0,   646,  1387, 33645, 34726
 ----------------
 No failures!
