@@ -389,7 +389,10 @@ S02-types/sethash.rakudo.moar...................... 187    0    1   11  199
 S02-types/sigils-and-types.rakudo.moar.............  26    0    2    0   28
      1 todo   : Capture does Associative
      1 todo   : Capture does Positional
-S02-types/stash.t..................................   1    0    0    0    1
+S02-types/stash.t..................................moar(96065,0x7fff7987b310) malloc: *** error for object 0x7fa80d011f90: incorrect checksum for freed object - object was probably modified after being freed.
+*** set a breakpoint in malloc_error_break to debug
+sh: line 1: 96065 Abort trap: 6           nice -20 ./perl6-m t/spec/S02-types/stash.t
+   1    0    0    0    1
 S02-types/subscripts_and_context.t.................   8    0    0    0    8
 S02-types/subset.rakudo.moar.......................  42    0    0    1   43
      1 skipped: (noauto) succeeds for the wrong reason (need to test the error)
@@ -974,7 +977,11 @@ S04-phasers/enter-leave.rakudo.moar................  20    0    1    2   23
      1 skipped: unwind, RT #121530
      1 skipped: leave NYI
      1 todo   : is this spec? why would LEAVE not see outer $!? fossil?
-S04-phasers/eval-in-begin.t........................   3    0    0    0    3
+S04-phasers/eval-in-begin.t........................moar(96479,0x7fff7987b310) malloc: *** error for object 0x7f907dfb8410: incorrect checksum for freed object - object was probably modified after being freed.
+*** set a breakpoint in malloc_error_break to debug
+sh: line 1: 96479 Abort trap: 6           nice -20 ./perl6-m t/spec/S04-phasers/eval-in-begin.t
+   0    3    0    0    3
+     3 tests aborted (missing ok/not ok)
 S04-phasers/first.t................................   4    0    0    0    4
 S04-phasers/in-eval.rakudo.moar....................# Looks like you planned 35 tests, but ran 34
   34    0    1    0   35
@@ -1261,7 +1268,7 @@ S05-substitution/subst.rakudo.moar.................use of uninitialized value of
 
 use of uninitialized value of type Any in string context  in block <unit> at t/spec/S05-substitution/subst.rakudo.moar:24
 
- 135    0    1    5  141
+ 136    0    1    5  142
      2 skipped: s:g[...] =
      3 skipped: s[...] op= RHS
      1 todo   : be smarter about constant detection
@@ -1319,10 +1326,8 @@ S06-macros/opaque-ast.rakudo.moar..................   3    0    0    4    7
      1 skipped: return from macro
 S06-macros/quasi-blocks.rakudo.moar................  12    0    0    2   14
      2 skipped: No such method 'STORE' for invocant of type 'Mu'
-S06-macros/unquoting.rakudo.moar...................sh: line 1: 49297 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S06-macros/unquoting.rakudo.moar
-   3    2    0    1    6
+S06-macros/unquoting.rakudo.moar...................   5    0    0    1    6
      1 skipped: Specified code ref has no outer, RT #121533
-     2 tests aborted (missing ok/not ok)
 S06-multi/lexical-multis.rakudo.moar...............  14    0    1    0   15
      1 todo   : lexical scope as tie breaker
 S06-multi/positional-vs-named.rakudo.moar..........  25    0    0    2   27
@@ -1549,7 +1554,7 @@ so that this message will disappear!
      1 todo   : ticket based only on class... RT #60446
      1 todo   : RT #64606
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
-S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 49584 Segmentation fault: 11  ./perl6-m getout-49572-485177.code < getout-49572-485177.in > getout-49572-485177.out 2> getout-49572-485177.err
+S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 97240 Segmentation fault: 11  ./perl6-m getout-97228-169554.code < getout-97228-169554.in > getout-97228-169554.out 2> getout-97228-169554.err
   12    0    1    0   13
      1 todo   : RT #122896
 S10-packages/use-with-class.t......................   9    0    0    0    9
@@ -1626,11 +1631,7 @@ so that this message will disappear!
      2 todo   : ro on list attributes
 S12-attributes/mutators.rakudo.moar................   5    0    0    7   12
      7 skipped: Can not get attribute $!varies declared in class MagicVal with this object
-S12-attributes/recursive.t.........................moar(49654,0x7fff7987b310) malloc: *** error for object 0x7fb7d234b128: incorrect checksum for freed object - object was probably modified after being freed.
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 49654 Abort trap: 6           nice -20 ./perl6-m t/spec/S12-attributes/recursive.t
-  15    8    0    0   23
-     8 tests aborted (missing ok/not ok)
+S12-attributes/recursive.t.........................  23    0    0    0   23
 S12-attributes/undeclared.t........................  11    0    0    0   11
 S12-class/anonymous.rakudo.moar....................  16    0    1    0   17
      1 todo   : Anonymous class stringification (?)
@@ -1848,8 +1849,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1415629431
-# Using file temp_1415629431
+S16-filehandles/chmod.t............................# Using file temp_1415740633
+# Using file temp_1415740633
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1866,11 +1867,19 @@ S16-filehandles/unlink.rakudo.moar.................   5    0    0    1    6
      1 skipped: implicit closure of file handle at scope exit NYI (FAILS ON WINDOWS) (noauto)
 S16-io/bare-say.t..................................   7    0    0    0    7
 S16-io/basic-open.t................................   9    0    0    0    9
-S16-io/cwd.t.......................................   3    0    0    0    3
+S16-io/cwd.t.......................................moar(97665,0x7fff7987b310) malloc: *** error for object 0x7f945e14f750: incorrect checksum for freed object - object was probably modified after being freed.
+*** set a breakpoint in malloc_error_break to debug
+sh: line 1: 97665 Abort trap: 6           nice -20 ./perl6-m t/spec/S16-io/cwd.t
+   1    2    0    0    3
+     2 tests aborted (missing ok/not ok)
 S16-io/getc.t......................................   2    0    0    0    2
 S16-io/say-and-ref.t...............................   3    0    0    0    3
 S16-io/say.t.......................................   8    0    0    0    8
-S16-io/tmpdir.t....................................   3    0    0    0    3
+S16-io/tmpdir.t....................................moar(97687,0x7fff7987b310) malloc: *** error for object 0x7fe20e7b8740: incorrect checksum for freed object - object was probably modified after being freed.
+*** set a breakpoint in malloc_error_break to debug
+sh: line 1: 97687 Abort trap: 6           nice -20 ./perl6-m t/spec/S16-io/tmpdir.t
+   0    3    0    0    3
+     3 tests aborted (missing ok/not ok)
 S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
      2 skipped: contextual rebinding regression
                                                    pass fail todo skip plan
@@ -1999,7 +2008,7 @@ S17-supply/wait.t..................................   4    0    0    0    4
 S17-supply/watch_path.t............................Saw 1 call to deprecated code during execution.
 ================================================================================
 Method more (from Supply) called at:
-  src/gen/m-CORE.setting, line 15323
+  src/gen/m-CORE.setting, line 15357
 Deprecated since v2014.10, will be removed with release v2015.10!
 Please use emit instead.
 --------------------------------------------------------------------------------
@@ -2037,7 +2046,10 @@ S26-documentation/07-tables.t......................  38    0    0    0   38
 S26-documentation/08-formattingcodes.t.............  45    0    0    0   45
 S26-documentation/09-configuration.t...............  15    0    0    0   15
 S26-documentation/10-doc-cli.t.....................   2    0    0    0    2
-S26-documentation/module-comment.t.................   1    0    0    0    1
+S26-documentation/module-comment.t.................moar(97992,0x7fff7987b310) malloc: *** error for object 0x7f9dfcf95170: incorrect checksum for freed object - object was probably modified after being freed.
+*** set a breakpoint in malloc_error_break to debug
+sh: line 1: 97992 Abort trap: 6           nice -20 ./perl6-m t/spec/S26-documentation/module-comment.t
+   1    0    0    0    1
 S26-documentation/multiline-leading.t..............   4    0    0    0    4
 S26-documentation/multiline-trailing.t.............   2    0    0    0    2
 S26-documentation/wacky.t..........................use of uninitialized value $got of type Any in string context  in sub is at lib/Test.pm:116
@@ -2368,7 +2380,9 @@ S32-list/map.rakudo.moar...........................  51    0    0    8   59
      2 skipped: closure as non-final argument
      2 skipped: adverbial block
 S32-list/map_function_return_values.t..............   2    0    0    0    2
-S32-list/minmax.t..................................  55    0    0    0   55
+S32-list/minmax.t..................................sh: line 1: 98483 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S32-list/minmax.t
+  36   19    0    0   55
+    19 tests aborted (missing ok/not ok)
 S32-list/permutations.t............................   2    0    0    0    2
 S32-list/pick.rakudo.moar..........................  56    0    1    0   57
      1 todo   : error on pick :replace
@@ -2423,7 +2437,9 @@ S32-num/rat.rakudo.moar............................ 819    0    4    1  824
      4 todo   : <1/3> literal should be Rat
 S32-num/real-bridge.t.............................. 200    0    0    0  200
 S32-num/roots.t....................................  55    0    0    0   55
-S32-num/rounders.t................................. 128    0    0    0  128
+S32-num/rounders.t.................................sh: line 1: 98574 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S32-num/rounders.t
+  24  104    0    0  128
+   104 tests aborted (missing ok/not ok)
 S32-num/rshift_pos_amount.t........................ 189    0    0    0  189
 S32-num/sign.rakudo.moar...........................  33    0    1    1   35
      1 skipped: Test is kind of doubtful IMO -- colomon
@@ -2713,14 +2729,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 1.08927748 seconds
-# gerdr: 1.1172916 seconds
-# recursive-ternary: 1.2445656 seconds
-# loop: 1.2593800 seconds
-# sequence-ternary: 2.0145627 seconds
-# recursive-ternary-hand-cached: 2.1142512 seconds
-# hand-memoization: 2.87183236 seconds
-# sequence: 2.9728916 seconds
+integration/advent2012-day21.t.....................# gerdr: 1.10742435 seconds
+# kaz: 1.1569930 seconds
+# recursive-ternary: 1.1978185 seconds
+# loop: 1.2826305 seconds
+# sequence-ternary: 2.0463157 seconds
+# recursive-ternary-hand-cached: 2.0963139 seconds
+# hand-memoization: 2.77362150 seconds
+# sequence: 2.9706334 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2787,18 +2803,18 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S01",           0,     0,     0,     0,     0,    61
 "S02",        5095,     0,   123,   359,  5577,  5669
 "S03",        4904,     0,   109,    95,  5108,  5142
-"S04",        1018,     0,    42,    43,  1103,  1155
-"S05",        5251,     0,   105,   177,  5533,  5914
-"S06",        1194,     2,    36,   102,  1334,  1414
+"S04",        1015,     3,    42,    43,  1103,  1155
+"S05",        5252,     0,   105,   177,  5534,  5915
+"S06",        1196,     0,    36,   102,  1334,  1414
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         186,     0,    11,    10,   207,   207
 "S10",          84,     0,     3,     1,    88,   145
 "S11",         105,     0,     4,    14,   123,   142
-"S12",        1362,     8,    46,   121,  1537,  1595
+"S12",        1370,     0,    46,   121,  1537,  1595
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         303,     0,    10,    10,   323,   336
 "S15",         240,     0,     2,    16,   258,   283
-"S16",         247,     0,     0,    16,   263,   307
+"S16",         242,     5,     0,    16,   263,   307
 "S17",         674,     0,     7,    22,   703,   727
 "S19",          12,     0,     0,     0,    12,    17
 "S22",          52,     0,     1,     0,    53,    53
@@ -2806,11 +2822,14 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     4,     2,   344,   354
-"S32",        9158,     0,   125,   165,  9448,  7882
+"S32",        9035,   123,   125,   165,  9448,  7882
 "int",        1208,     0,    12,    19,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32713,    10,   654,  1243, 34620, 34753
+"total",     32593,   131,   654,  1243, 34621, 34754
 ----------------
 Failure summary:
-S06-macros/unquoting.rakudo.moar aborted 2 test(s)
-S12-attributes/recursive.t aborted 8 test(s)
+S04-phasers/eval-in-begin.t aborted 3 test(s)
+S16-io/cwd.t aborted 2 test(s)
+S16-io/tmpdir.t aborted 3 test(s)
+S32-list/minmax.t aborted 19 test(s)
+S32-num/rounders.t aborted 104 test(s)
