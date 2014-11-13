@@ -1460,7 +1460,7 @@ S06-signature/closure-parameters.rakudo.parrot.....   4    0    0   11   15
     11 skipped: type syntax parse failure
 S06-signature/code.rakudo.parrot...................   7    0    1    0    8
      1 todo   : RT #67932
-S06-signature/defaults.t...........................   7    0    0    0    7
+S06-signature/defaults.t...........................   8    0    0    0    8
 S06-signature/errors.t.............................  11    0    0    0   11
 S06-signature/introspection.rakudo.parrot..........  51    0    0    1   52
      1 skipped: expected Any but got Mu instead
@@ -1906,8 +1906,8 @@ S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.parrot..................  12    0    1    0   13
      1 todo   : trait mod / .wrap interaction
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1415742780
-# Using file temp_1415742780
+S16-filehandles/chmod.t............................# Using file temp_1415892855
+# Using file temp_1415892855
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2223,18 +2223,14 @@ Please use slurp($path,...) instead.
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
   18    0    0    0   18
-S32-io/spurt.rakudo.parrot.........................Saw 1 call to deprecated code during execution.
-================================================================================
-spurt($handle,...) called at:
-  t/spec/S32-io/spurt.rakudo.parrot, lines 65,83
-Deprecated since v2014.10, will be removed with release v2015.10!
-Please use spurt($path,...) instead.
---------------------------------------------------------------------------------
-Please contact the author to have these calls to deprecated code adapted,
-so that this message will disappear!
-  32    0    2    1   35
-     1 skipped: is() gets into infinite recursion
-     2 todo   : spurt io
+S32-io/spurt.rakudo.parrot.........................[31m===[0mSORRY![31m===[0m Error while compiling t/spec/S32-io/spurt.rakudo.parrot
+Variable '$io' is not declared
+at t/spec/S32-io/spurt.rakudo.parrot:77
+------> [32m        spurt $io[33m⏏[31m, $buf;[0m
+    expecting any of:
+        postfix
+   0   35    0    0   35
+    35 tests aborted (missing ok/not ok)
 S32-list/categorize.t..............................  12    0    0    0   12
 S32-list/classify.rakudo.parrot....................  12    0    0    3   15
      3 skipped: Cannot use bind operator with this LHS
@@ -2638,13 +2634,13 @@ integration/advent2012-day15.rakudo.parrot.........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.rakudo.parrot.........# kaz: 2.32626741 seconds
-# gerdr: 2.41226386 seconds
-# loop: 3.022486 seconds
-# recursive-ternary: 3.034057 seconds
-# sequence-ternary: 6.5187525 seconds
-# recursive-ternary-hand-cached: 7.98293372 seconds
-# sequence: 10.739324943 seconds
+integration/advent2012-day21.rakudo.parrot.........# kaz: 2.277704 seconds
+# gerdr: 2.4071175 seconds
+# recursive-ternary: 2.9512321 seconds
+# loop: 3.10851376 seconds
+# sequence-ternary: 6.59894506 seconds
+# recursive-ternary-hand-cached: 7.8591781 seconds
+# sequence: 10.63794967 seconds
    8    0    0    1    9
      1 skipped: RT #122497
 integration/advent2012-day22.rakudo.parrot.........   5    0    1    0    6
@@ -2699,7 +2695,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S03",        4904,     0,   109,    95,  5108,  5142
 "S04",        1010,     0,    47,    46,  1103,  1155
 "S05",        5160,     0,   111,   263,  5534,  5915
-"S06",        1188,     0,    39,   107,  1334,  1414
+"S06",        1189,     0,    39,   107,  1335,  1415
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         186,     0,    11,    10,   207,   207
 "S10",          84,     0,     2,     2,    88,   145
@@ -2716,9 +2712,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     4,     2,   344,   354
-"S32",        9156,     0,   117,   175,  9448,  7882
+"S32",        9124,    35,   115,   174,  9448,  7882
 "int",        1197,     0,     9,    19,  1225,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31615,     0,   644,  1387, 33646, 34727
+"total",     31584,    35,   642,  1386, 33647, 34728
 ----------------
-No failures!
+Failure summary:
+S32-io/spurt.rakudo.parrot aborted 35 test(s)
