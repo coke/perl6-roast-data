@@ -823,9 +823,8 @@ S03-operators/is-divisible-by.rakudo.parrot........  14    0    1    0   15
      1 todo   : not sure why this doesn't fire
 S03-operators/lcm.t................................  15    0    0    0   15
 S03-operators/list-quote-junction.t................  16    0    0    0   16
-S03-operators/minmax.rakudo.parrot.................  21    0    2    2   25
+S03-operators/minmax.rakudo.parrot.................  23    0    0    2   25
      2 skipped: Annoying test that we haven't done the obvious yet unspecced, fails because we have indeed done the obvious
-     2 todo   : max/min non-associative NYI
 S03-operators/misc.t...............................  33    0    0    0   33
 S03-operators/names.t..............................Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:14
 
@@ -840,11 +839,8 @@ S03-operators/orelse.rakudo.parrot.................   9    0    0    2   11
      1 skipped: orelse passes $! as argument
      1 skipped: orelse passes $! as multiple arguments
 S03-operators/overflow.t...........................  98    0    0    0   98
-S03-operators/precedence.rakudo.parrot.............  48    0    4    2   54
+S03-operators/precedence.rakudo.parrot.............  52    0    0    2   54
      2 skipped: nom regression
-     1 todo   : list associativity bug
-     1 todo   : RT #77848
-     2 todo   : non-associativeness of infix:<^> and |
 S03-operators/range-basic.t........................ 140    0    0    0  140
 S03-operators/range-int.t.......................... 480    0    0    0  480
 S03-operators/range.rakudo.parrot..................use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-operators/range.rakudo.parrot:220
@@ -1851,18 +1847,8 @@ use of uninitialized value of type Match in numeric context  in block <unit> at 
 
   33    0    0    0   33
 S12-subset/multi-dispatch.t........................   6    0    0    0    6
-S12-subset/subtypes.t..............................get_bool() not implemented in class 'Int::Even'
-  in sub prefix:<!> at gen/parrot/CORE.setting:4283
-  in sub prefix:<!> at gen/parrot/CORE.setting:4281
-  in block <unit> at EVAL_9:1
-  in any <unit-outer> at EVAL_9:1
-  in sub EVAL at gen/parrot/CORE.setting:785
-  in sub EVAL at gen/parrot/CORE.setting:776
-  in block <unit> at t/spec/S12-subset/subtypes.t:80
-
-# Looks like you planned 77 tests, but ran 16
-  16   61    0    0   77
-    61 tests aborted (missing ok/not ok)
+S12-subset/subtypes.rakudo.parrot..................  76    0    0    1   77
+     1 skipped: RT #123234
                                                    pass fail todo skip plan
 S13-overloading/metaoperators.t....................  11    0    0    0   11
 S13-overloading/operators.rakudo.parrot............   4    0    0    1    5
@@ -1914,8 +1900,8 @@ S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.parrot..................  12    0    1    0   13
      1 todo   : trait mod / .wrap interaction
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1416235689
-# Using file temp_1416235689
+S16-filehandles/chmod.t............................# Using file temp_1416320973
+# Using file temp_1416320973
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2646,13 +2632,13 @@ integration/advent2012-day15.rakudo.parrot.........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.rakudo.parrot.........# kaz: 2.26053306 seconds
-# gerdr: 2.3160169 seconds
-# recursive-ternary: 2.9267680 seconds
-# loop: 3.08017580 seconds
-# sequence-ternary: 6.505787 seconds
-# recursive-ternary-hand-cached: 7.9260015 seconds
-# sequence: 10.6004817 seconds
+integration/advent2012-day21.rakudo.parrot.........# kaz: 2.294752 seconds
+# gerdr: 2.36455121 seconds
+# recursive-ternary: 2.9501140 seconds
+# loop: 3.13278847 seconds
+# sequence-ternary: 6.782333 seconds
+# recursive-ternary-hand-cached: 7.9796993 seconds
+# sequence: 10.6454105 seconds
    8    0    0    1    9
      1 skipped: RT #122497
 integration/advent2012-day22.rakudo.parrot.........   5    0    1    0    6
@@ -2704,7 +2690,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
 "S02",        5023,     0,   120,   434,  5577,  5669
-"S03",        4904,     0,   109,    95,  5108,  5142
+"S03",        4910,     0,   103,    95,  5108,  5142
 "S04",        1010,     0,    47,    46,  1103,  1155
 "S05",        5164,     0,   107,   263,  5534,  5915
 "S06",        1189,     0,    39,   107,  1335,  1415
@@ -2712,7 +2698,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S09",         186,     0,    11,    10,   207,   207
 "S10",          84,     0,     2,     2,    88,   145
 "S11",         105,     0,     4,    14,   123,   142
-"S12",        1307,    61,    48,   121,  1537,  1595
+"S12",        1367,     0,    48,   122,  1537,  1595
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         304,     0,     8,    11,   323,   336
 "S15",           0,     0,     0,     0,     0,   283
@@ -2727,8 +2713,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9146,    11,   116,   175,  9448,  7882
 "int",        1197,     0,     9,    19,  1225,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31549,    72,   639,  1387, 33647, 34728
+"total",     31615,    11,   633,  1388, 33647, 34728
 ----------------
 Failure summary:
-S12-subset/subtypes.t aborted 61 test(s)
 S32-io/spurt.rakudo.parrot aborted 11 test(s)
