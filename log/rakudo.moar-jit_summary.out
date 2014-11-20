@@ -11,9 +11,7 @@ S02-lexical-conventions/minimal-whitespace.t.......   9    0    0    0    9
 S02-lexical-conventions/one-pass-parsing.t.........   3    0    0    0    3
 S02-lexical-conventions/pod-in-multi-line-exprs.t..   3    0    0    0    3
 S02-lexical-conventions/sub-block-parsing.t........  11    0    0    0   11
-S02-lexical-conventions/unicode-whitespace.t.......sh: line 1: 90284 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S02-lexical-conventions/unicode-whitespace.t
-  49    1    0    0   50
-     1 tests aborted (missing ok/not ok)
+S02-lexical-conventions/unicode-whitespace.t.......  50    0    0    0   50
 S02-lexical-conventions/unicode.rakudo.moar........  42    0    0    2   44
      2 skipped: VOWEL SIGNs in identifiers; RT #122340
 S02-lexical-conventions/unspace.rakudo.moar........    
@@ -59,11 +57,11 @@ S02-literals/quoting.rakudo.moar...................
 # Failed test 'code dies'
 # at lib/Test.pm line 303
     # Looks like you failed 1 tests of 2
-sh: line 1: 90348 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S02-literals/quoting.rakudo.moar
- 109   47    1    3  160
+ 150    0    7    3  160
      3 skipped: \c@ etc
      1 todo   : retriage
-    47 tests aborted (missing ok/not ok)
+     2 todo   : q:x assigned to array
+     4 todo   : quoting adverbs
 S02-literals/radix.rakudo.moar..................... 129    0    6    0  135
      1 todo   : This needs an RT
      4 todo   : Some question of what this form should actually do
@@ -221,9 +219,7 @@ S02-names/symbolic-deref.rakudo.moar...............  30    0    2    3   35
      1 todo   : NYI
      1 todo   : no such symbol
 S02-one-pass-parsing/less-than.t...................   9    0    0    0    9
-S02-packages/package-lookup.t......................sh: line 1: 90500 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S02-packages/package-lookup.t
-   0    7    0    0    7
-     7 tests aborted (missing ok/not ok)
+S02-packages/package-lookup.t......................   7    0    0    0    7
 S02-types/WHICH.t.................................. 590    0    0    0  590
 S02-types/anon_block.rakudo.moar...................Code object coerced to string (please use .gist or .perl to do that)  in sub isnt at lib/Test.pm:128
 
@@ -233,10 +229,12 @@ S02-types/anon_block.rakudo.moar...................Code object coerced to string
 S02-types/array-shapes.rakudo.moar.................   6    0    0   19   25
     15 skipped: array shapes NYI
      4 skipped: native arrays NYI
-S02-types/array.rakudo.moar........................use of uninitialized value @bar of type Str in string context  in block  at t/spec/S02-types/array.rakudo.moar:355
-
-  93    0    0    2   95
+S02-types/array.rakudo.moar........................moar(44438,0x7fff7987b310) malloc: *** error for object 0x7fa93518f8a8: pointer being freed was not allocated
+*** set a breakpoint in malloc_error_break to debug
+sh: line 1: 44438 Abort trap: 6           nice -20 ./perl6-m t/spec/S02-types/array.rakudo.moar
+  79   14    0    2   95
      2 skipped: multi-dim arrays NYI
+    14 tests aborted (missing ok/not ok)
 S02-types/array_extending.t........................use of uninitialized value of type Any in string context  in block <unit> at t/spec/S02-types/array_extending.t:100
 
 use of uninitialized value of type Any in string context  in block <unit> at t/spec/S02-types/array_extending.t:100
@@ -328,7 +326,7 @@ use of uninitialized value of type Int in string context  in block <unit> at EVA
 S02-types/isDEPRECATED.rakudo.moar.................  12    0    8    0   20
      8 todo   : NYI
 S02-types/lazy-lists.t.............................  23    0    0    0   23
-S02-types/lists.rakudo.moar........................  26    0    0    3   29
+S02-types/lists.rakudo.moar........................  29    0    0    3   32
      3 skipped: list binding
 S02-types/mix.rakudo.moar.......................... 174    0    2    3  179
      3 skipped: No longer Iterable
@@ -514,7 +512,8 @@ use of uninitialized value <element> of type Any in string context  in block <un
 
 use of uninitialized value <element> of type Any in string context  in block <unit> at t/spec/S03-metaops/reduce.rakudo.moar:342
 
- 358    0    8    0  366
+ 358    0    9    0  367
+     1 todo   : RT #79116
      1 todo   : item context
      2 todo   : triangle [\^^] and [\xor]
      3 todo   : huh?
@@ -850,7 +849,9 @@ S03-smartmatch/any-pair.t..........................  10    0    0    0   10
 S03-smartmatch/any-str.rakudo.moar.................   4    0    0    1    5
      1 skipped: smartmatching Mu against Str: RT #122395
 S03-smartmatch/any-sub.t...........................   8    0    0    0    8
-S03-smartmatch/any-type.t..........................  15    0    0    0   15
+S03-smartmatch/any-type.t..........................sh: line 1: 44874 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S03-smartmatch/any-type.t
+   5   10    0    0   15
+    10 tests aborted (missing ok/not ok)
 S03-smartmatch/array-array.t.......................  36    0    0    0   36
 S03-smartmatch/array-hash.t........................   6    0    0    0    6
 S03-smartmatch/capture-signature.t.................   6    0    0    0    6
@@ -1480,9 +1481,14 @@ S06-traits/precedence.rakudo.moar..................   9    0    1    0   10
 S06-traits/slurpy-is-rw.t..........................   3    0    0    0    3
                                                    pass fail todo skip plan
 S09-autovivification/autoincrement.t...............   7    0    0    0    7
-S09-autovivification/autovivification.rakudo.moar..sh: line 1: 91737 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S09-autovivification/autovivification.rakudo.moar
-   0   42    0    0   42
-    42 tests aborted (missing ok/not ok)
+S09-autovivification/autovivification.rakudo.moar..use of uninitialized value of type Any in string context  in block <unit> at t/spec/S09-autovivification/autovivification.rakudo.moar:59
+
+use of uninitialized value of type Any in string context  in block <unit> at t/spec/S09-autovivification/autovivification.rakudo.moar:59
+
+  37    0    4    1   42
+     1 skipped: isa multi variant
+     2 todo   : autoviv, binding
+     2 todo   : unknown
 S09-hashes/objecthash.rakudo.moar..................  27    0    2    3   32
      3 skipped: oh noes, it dies
      2 todo   : oh noes, it dies
@@ -1540,7 +1546,7 @@ so that this message will disappear!
      1 todo   : ticket based only on class... RT #60446
      1 todo   : RT #64606
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
-S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 91790 Segmentation fault: 11  ./perl6-m getout-91759-548412.code < getout-91759-548412.in > getout-91759-548412.out 2> getout-91759-548412.err
+S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 45673 Segmentation fault: 11  ./perl6-m getout-45661-651228.code < getout-45661-651228.in > getout-45661-651228.out 2> getout-45661-651228.err
   12    0    1    0   13
      1 todo   : RT #122896
 S10-packages/use-with-class.t......................   9    0    0    0    9
@@ -1729,9 +1735,9 @@ S12-methods/defer-next.rakudo.moar.................  20    0    1    0   21
      1 todo   : variant of RT #69608
 S12-methods/delegation.t...........................   7    0    0    0    7
 S12-methods/how.t..................................   2    0    0    0    2
-S12-methods/indirect_notation.rakudo.moar..........  16    0    0   21   37
-     6 skipped: .@foo not yet working
-    15 skipped: .*, .+ and .? with @foo
+S12-methods/indirect_notation.rakudo.moar..........sh: line 1: 45910 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S12-methods/indirect_notation.rakudo.moar
+   8   29    0    0   37
+    29 tests aborted (missing ok/not ok)
 S12-methods/instance.t.............................useless use of 'is rw' on @!something  in any  at src/Perl6/World.nqp:1844
 
 use of uninitialized value $got of type AnonInvocant in string context  in sub is at lib/Test.pm:116
@@ -1835,8 +1841,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1416411909
-# Using file temp_1416411909
+S16-filehandles/chmod.t............................# Using file temp_1416494977
+# Using file temp_1416494977
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1986,7 +1992,7 @@ S17-supply/wait.t..................................   4    0    0    0    4
 S17-supply/watch_path.t............................Saw 1 call to deprecated code during execution.
 ================================================================================
 Method more (from Supply) called at:
-  src/gen/m-CORE.setting, line 15444
+  src/gen/m-CORE.setting, line 15416
 Deprecated since v2014.10, will be removed with release v2015.10!
 Please use emit instead.
 --------------------------------------------------------------------------------
@@ -2106,12 +2112,14 @@ use of uninitialized value $expected of type Int in string context  in sub is at
  216    0    0    0  216
 S32-array/delete.t.................................use of uninitialized value of type Any in string context  in block <unit> at t/spec/S32-array/delete.t:64
 
-sh: line 1: 92857 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S32-array/delete.t
-  25    6    0    0   31
-     6 tests aborted (missing ok/not ok)
+  31    0    0    0   31
 S32-array/elems.t..................................  11    0    0    0   11
 S32-array/end.t....................................  12    0    0    0   12
-S32-array/exists-adverb.t..........................  52    0    0    0   52
+S32-array/exists-adverb.t..........................moar(46527,0x7fff7987b310) malloc: *** error for object 0x7fc8cfb64a00: pointer being freed was not allocated
+*** set a breakpoint in malloc_error_break to debug
+sh: line 1: 46527 Abort trap: 6           nice -20 ./perl6-m t/spec/S32-array/exists-adverb.t
+   0   52    0    0   52
+    52 tests aborted (missing ok/not ok)
 S32-array/keys_values.t............................   8    0    0    0    8
 S32-array/kv.t.....................................  18    0    0    0   18
 S32-array/pairs.rakudo.moar........................  13    0    1    0   14
@@ -2702,14 +2710,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 1.03846692 seconds
-# gerdr: 1.0534296 seconds
-# loop: 1.12103718 seconds
-# recursive-ternary: 1.1353545 seconds
-# sequence-ternary: 1.8513293 seconds
-# recursive-ternary-hand-cached: 1.9891975 seconds
-# hand-memoization: 2.6272985 seconds
-# sequence: 2.677257 seconds
+integration/advent2012-day21.t.....................# kaz: 1.01465064 seconds
+# gerdr: 1.0405039 seconds
+# loop: 1.1606300 seconds
+# recursive-ternary: 1.1622440 seconds
+# sequence-ternary: 1.90685866 seconds
+# recursive-ternary-hand-cached: 1.97501074 seconds
+# hand-memoization: 2.6051161 seconds
+# sequence: 2.6946279 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2774,16 +2782,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5047,    55,   117,   359,  5578,  5670
-"S03",        4911,     0,   104,    95,  5110,  5144
+"S02",        5085,    14,   123,   359,  5581,  5673
+"S03",        4901,    10,   105,    95,  5111,  5145
 "S04",        1018,     0,    42,    43,  1103,  1155
 "S05",        5256,     0,   101,   177,  5534,  5915
 "S06",        1199,     0,    36,   102,  1337,  1417
 "S07",           0,     0,     0,     0,     0,     0
-"S09",         149,    42,     7,     9,   207,   207
+"S09",         186,     0,    11,    10,   207,   207
 "S10",          84,     0,     3,     1,    88,   145
 "S11",         105,     0,     4,    14,   123,   142
-"S12",        1370,     0,    46,   121,  1537,  1595
+"S12",        1362,    29,    46,   100,  1537,  1595
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         303,     0,    10,    10,   323,   336
 "S15",         240,     0,     2,    16,   258,   283
@@ -2795,14 +2803,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     4,     2,   344,   354
-"S32",        9152,     6,   125,   165,  9448,  7882
+"S32",        9106,    52,   125,   165,  9448,  7882
 "int",        1208,     0,    12,    19,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32647,   103,   635,  1242, 34627, 34760
+"total",     32658,   105,   646,  1222, 34631, 34764
 ----------------
 Failure summary:
-S02-lexical-conventions/unicode-whitespace.t aborted 1 test(s)
-S02-literals/quoting.rakudo.moar aborted 47 test(s)
-S02-packages/package-lookup.t aborted 7 test(s)
-S09-autovivification/autovivification.rakudo.moar aborted 42 test(s)
-S32-array/delete.t aborted 6 test(s)
+S02-types/array.rakudo.moar aborted 14 test(s)
+S03-smartmatch/any-type.t aborted 10 test(s)
+S12-methods/indirect_notation.rakudo.moar aborted 29 test(s)
+S32-array/exists-adverb.t aborted 52 test(s)
