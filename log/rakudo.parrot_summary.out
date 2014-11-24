@@ -434,10 +434,15 @@ S02-types/pair.rakudo.parrot.......................
     # Got:      (X::AdHoc)
     # Exception message: Cannot assign to a readonly variable or a value
     # Looks like you failed 1 tests of 2
-  93    0    2    2   97
+duplicate named argument in call
+  in block <unit> at t/spec/S02-types/pair.rakudo.parrot:329
+
+# Looks like you planned 99 tests, but ran 97
+  93    2    2    2   99
      2 skipped: method($invocant:) syntax missing
      1 todo   : ?
      1 todo   : should it really have \n on the end?
+     2 tests aborted (missing ok/not ok)
 S02-types/parcel.t.................................  52    0    0    0   52
 S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.t..................................use of uninitialized value of type Range in numeric context  in block <unit> at t/spec/S02-types/range.t:87
@@ -1030,9 +1035,10 @@ S04-phasers/check.t................................   5    0    0    0    5
 S04-phasers/descending-order.t.....................   7    0    0    0    7
 S04-phasers/end.rakudo.parrot......................   6    0    2    0    8
      2 todo   : lexicals and EVAL()
-S04-phasers/enter-leave.rakudo.parrot..............  20    0    1    2   23
+S04-phasers/enter-leave.rakudo.parrot..............  21    0    2    2   25
      1 skipped: RT #118387
      1 skipped: leave NYI
+     1 todo   : RT #113950
      1 todo   : is this spec? why would LEAVE not see outer $!? fossil?
 S04-phasers/eval-in-begin.t........................   3    0    0    0    3
 S04-phasers/first.t................................   4    0    0    0    4
@@ -1270,7 +1276,8 @@ S05-metasyntax/unknown.rakudo.parrot...............  11    0    1    0   12
 S05-modifier/continue.t............................  13    0    0    0   13
 S05-modifier/counted-match.rakudo.parrot...........  16    0    0    6   22
      6 skipped: hangs
-S05-modifier/counted.rakudo.parrot................. 116    0    2    0  118
+S05-modifier/counted.rakudo.parrot................. 116    0    2    1  119
+     1 skipped: NYI
      2 todo   : unknown
 S05-modifier/global.t..............................   8    0    0    0    8
 S05-modifier/ignorecase.rakudo.parrot..............  22    0    2    0   24
@@ -1619,7 +1626,16 @@ S10-packages/basic.rakudo.parrot...................  59    0    2    2   63
      1 todo   : ticket based only on class... RT #60446
      1 todo   : RT #64606
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
-S10-packages/precompilation.t......................  13    0    0    0   13
+S10-packages/precompilation.rakudo.parrot..........# error: Could not find symbol '&C1'
+#   in method <anon> at gen/parrot/CORE.setting:13720
+#   in any find_method_fallback at gen/parrot/Metamodel.nqp:2795
+#   in any find_method at gen/parrot/Metamodel.nqp:989
+#   in any  at gen/parrot/BOOTSTRAP.nqp:1708
+#   in block <unit> at getout-27808-334880.code:3
+
+
+  16    0    1    0   17
+     1 todo   : RT #123276
 S10-packages/use-with-class.t......................   9    0    0    0    9
                                                    pass fail todo skip plan
 S11-modules/export.rakudo.parrot...................  30    0    0    8   38
@@ -1900,8 +1916,8 @@ S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.parrot..................  12    0    1    0   13
      1 todo   : trait mod / .wrap interaction
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1416698400
-# Using file temp_1416698400
+S16-filehandles/chmod.t............................# Using file temp_1416840034
+# Using file temp_1416840034
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2684,13 +2700,13 @@ integration/advent2012-day15.rakudo.parrot.........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.rakudo.parrot.........# kaz: 2.29836996 seconds
-# gerdr: 2.3250528 seconds
-# recursive-ternary: 2.952063 seconds
-# loop: 3.108203 seconds
-# sequence-ternary: 6.526454 seconds
-# recursive-ternary-hand-cached: 7.9524046 seconds
-# sequence: 10.7298286 seconds
+integration/advent2012-day21.rakudo.parrot.........# kaz: 2.30022570 seconds
+# gerdr: 2.4191847 seconds
+# recursive-ternary: 3.0544581 seconds
+# loop: 3.18718290 seconds
+# sequence-ternary: 6.80823421 seconds
+# recursive-ternary-hand-cached: 7.9554271 seconds
+# sequence: 10.88111160 seconds
    8    0    0    1    9
      1 skipped: RT #122497
 integration/advent2012-day22.rakudo.parrot.........   5    0    1    0    6
@@ -2741,14 +2757,14 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5027,     0,   120,   432,  5579,  5671
+"S02",        5027,     2,   120,   432,  5581,  5673
 "S03",        4911,     0,   106,    95,  5112,  5146
-"S04",        1010,     0,    47,    46,  1103,  1155
-"S05",        5164,     0,   107,   263,  5534,  5915
+"S04",        1011,     0,    48,    46,  1105,  1157
+"S05",        5164,     0,   107,   264,  5535,  5916
 "S06",        1194,     0,    39,   104,  1337,  1417
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         186,     0,    11,    10,   207,   207
-"S10",          84,     0,     2,     2,    88,   145
+"S10",          87,     0,     3,     2,    92,   149
 "S11",         107,     0,     4,    14,   125,   144
 "S12",        1367,     0,    48,   122,  1537,  1595
 "S13",          36,     0,    10,    27,    73,    83
@@ -2765,6 +2781,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9159,     0,   115,   176,  9450,  7884
 "int",        1197,     0,     9,    19,  1225,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31640,     0,   635,  1384, 33659, 34740
+"total",     31644,     2,   637,  1385, 33668, 34749
 ----------------
-No failures!
+Failure summary:
+S02-types/pair.rakudo.parrot aborted 2 test(s)
