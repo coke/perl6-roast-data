@@ -244,9 +244,10 @@ S02-types/nil.rakudo.jvm...........................  45    0    5    1   51
      1 skipped: triage
      5 todo   : triage
 S02-types/num.t....................................  66    0    0    0   66
-S02-types/pair.rakudo.jvm..........................  93    2    2    2   99
+S02-types/pair.rakudo.jvm..........................  93    0    4    2   99
      2 skipped: method($invocant:) syntax missing
      1 todo   : ?
+     2 todo   : RT #123215
      1 todo   : should it really have \n on the end?
 S02-types/parcel.t.................................  52    0    0    0   52
 S02-types/parsing-bool.t...........................   4    0    0    0    4
@@ -331,7 +332,8 @@ S03-operators/adverbial-modifiers.rakudo.jvm.......  41    0    1    0   42
 S03-operators/also.rakudo.jvm......................   4    0    4    0    8
      4 todo   : nom regression
 S03-operators/andthen.t............................   8    0    0    0    8
-S03-operators/arith.t.............................. 145    0    0    0  145
+S03-operators/arith.rakudo.jvm..................... 153    0    1    0  154
+     1 todo   : RT #122053
 S03-operators/assign-is-not-binding.t..............   8    0    0    0    8
 S03-operators/assign.rakudo.jvm.................... 258    0   23   12  293
      3 skipped: expects a term, found infix >= instead
@@ -691,7 +693,7 @@ S05-metasyntax/delimiters.t........................  21    0    0    0   21
 S05-metasyntax/interpolating-closure.rakudo.jvm....   5    0    1    0    6
      1 todo   : dunno
 S05-metasyntax/litvar.t............................  24    0    0    0   24
-S05-metasyntax/longest-alternative.rakudo.jvm......  30    0    0    1   31
+S05-metasyntax/longest-alternative.rakudo.jvm......  40    0    0    1   41
      1 skipped: ::
 S05-metasyntax/lookaround.t........................  10    0    0    0   10
 S05-metasyntax/null.t..............................   4    0    0    0    4
@@ -1688,10 +1690,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5056,     8,   140,   377,  5581,  5673
-"S03",        4911,     0,   106,    95,  5112,  5146
+"S02",        5056,     6,   142,   377,  5581,  5673
+"S03",        4919,     0,   107,    95,  5121,  5155
 "S04",        1000,     0,    47,    58,  1105,  1157
-"S05",        5164,     0,   107,   264,  5535,  5916
+"S05",        5174,     0,   107,   264,  5545,  5926
 "S06",        1192,     0,    37,   108,  1337,  1417
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         186,     0,    11,    10,   207,   207
@@ -1712,7 +1714,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9153,     2,   109,   186,  9450,  7884
 "int",        1202,     1,    15,    21,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32233,    11,   719,  1386, 34349, 34749
+"total",     32251,     9,   722,  1386, 34368, 34768
 ----------------
 Failure summary:
 S02-types/mix.rakudo.jvm 125 - We got one of the two choices (and this was pretty quick, we hope!)
@@ -1721,8 +1723,6 @@ S02-types/mix.rakudo.jvm 127 - .roll(100) (1)
 S02-types/mixhash.rakudo.jvm 135 - We got one of the two choices (and this was pretty quick, we hope!)
 S02-types/mixhash.rakudo.jvm 136 - .roll(100) returns 100 items
 S02-types/mixhash.rakudo.jvm 137 - .roll(100) (1)
-S02-types/pair.rakudo.jvm 98 - chained colonpairs in parens build a list of pairs
-S02-types/pair.rakudo.jvm 99 - chained colonpairs in curlies construct hashes with more than one element
 S32-num/rounders.rakudo.jvm 55 - round(5.0E33) == 4999999999999999727876154935214080
 S32-num/rounders.rakudo.jvm 96 - (5.0E33).round == 4999999999999999727876154935214080
 integration/advent2012-day21.rakudo.jvm 3 - recursive-ternary-hand-cached
