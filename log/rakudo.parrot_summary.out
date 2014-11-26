@@ -217,7 +217,7 @@ S02-types/anon_block.rakudo.parrot.................Code object coerced to string
 S02-types/array-shapes.rakudo.parrot...............   6    0    0   19   25
     15 skipped: array shapes NYI
      4 skipped: native arrays NYI
-S02-types/array.rakudo.parrot......................use of uninitialized value @bar of type Str in string context  in block  at t/spec/S02-types/array.rakudo.parrot:355
+S02-types/array.rakudo.parrot......................use of uninitialized value @bar of type Str in string context  in block  at t/spec/S02-types/array.rakudo.parrot:359
 
   93    0    0    2   95
      2 skipped: multi-dim arrays NYI
@@ -1159,11 +1159,11 @@ S05-grammar/signatures.t...........................   2    0    0    0    2
 S05-grammar/ws.rakudo.parrot.......................  10    0    0    2   12
      2 skipped: infinite loop: RT #64094 (noauto)
 S05-interpolation/lexicals.t.......................  10    0    0    0   10
-S05-interpolation/regex-in-variable.rakudo.parrot..use of uninitialized value $!made of type Any in string context  in regex  at t/spec/S05-interpolation/regex-in-variable.rakudo.parrot:100
-
-  31    0    3    0   34
-     1 todo   : warn on undef
-     2 todo   : instance member interpolation
+S05-interpolation/regex-in-variable.rakudo.parrot..perl6-p(29944,0x7fff7987b310) malloc: *** error for object 0x7fcf1b9baad0: incorrect checksum for freed object - object was probably modified after being freed.
+*** set a breakpoint in malloc_error_break to debug
+sh: line 1: 29944 Abort trap: 6           nice -20 ./perl6-p t/spec/S05-interpolation/regex-in-variable.rakudo.parrot
+  16   18    0    0   34
+    18 tests aborted (missing ok/not ok)
 S05-mass/charsets.rakudo.parrot....................  14    0    3    0   17
      1 todo   : Unicode 6.3 -- lower characters
      1 todo   : punct characters
@@ -1254,11 +1254,11 @@ S05-metasyntax/litvar.t............................Potential difficulties:
     Apparent subscript will be treated as regex
     at t/spec/S05-metasyntax/litvar.t:36
     ------> [32mok('c0' ~~ m/@var[33m⏏[31m[0]/, 'Array ignores 0');               [0m
-perl6-p(75419,0x7fff7987b310) malloc: *** error for object 0x7fd148c07ef8: incorrect checksum for freed object - object was probably modified after being freed.
+perl6-p(30031,0x7fff7987b310) malloc: *** error for object 0x7ffa787e3de8: incorrect checksum for freed object - object was probably modified after being freed.
 *** set a breakpoint in malloc_error_break to debug
-sh: line 1: 75419 Abort trap: 6           nice -20 ./perl6-p t/spec/S05-metasyntax/litvar.t
-  10   14    0    0   24
-    14 tests aborted (missing ok/not ok)
+sh: line 1: 30031 Abort trap: 6           nice -20 ./perl6-p t/spec/S05-metasyntax/litvar.t
+   7   17    0    0   24
+    17 tests aborted (missing ok/not ok)
 S05-metasyntax/longest-alternative.rakudo.parrot...  40    0    0    1   41
      1 skipped: ::
 S05-metasyntax/lookaround.t........................  10    0    0    0   10
@@ -1636,7 +1636,7 @@ S10-packages/precompilation.rakudo.parrot..........# error: Could not find symbo
 #   in any find_method_fallback at gen/parrot/Metamodel.nqp:2795
 #   in any find_method at gen/parrot/Metamodel.nqp:989
 #   in any  at gen/parrot/BOOTSTRAP.nqp:1708
-#   in block <unit> at getout-75841-175086.code:3
+#   in block <unit> at getout-30453-585304.code:3
 
 
   16    0    1    0   17
@@ -1921,8 +1921,8 @@ S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.parrot..................  12    0    1    0   13
      1 todo   : trait mod / .wrap interaction
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1416928644
-# Using file temp_1416928644
+S16-filehandles/chmod.t............................# Using file temp_1417013387
+# Using file temp_1417013387
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2119,11 +2119,9 @@ Code object coerced to string (please use .gist or .perl to do that)  in any thr
 # Failed test ''sub f { f(|$) }' died'
 # at lib/Test.pm line 303
     # Looks like you failed 1 tests of 5
-sh: line 1: 76576 Bus error: 10           nice -20 ./perl6-p t/spec/S32-exceptions/misc.rakudo.parrot
- 263    8    2    0  273
+ 271    0    2    0  273
      1 todo   : Cannot find method "returns"
      1 todo   : parsing regression
-     8 tests aborted (missing ok/not ok)
 S32-hash/delete-adverb.t...........................use of uninitialized value $got of type Int in string context  in sub is at lib/Test.pm:116
 
 use of uninitialized value $expected of type Int in string context  in sub is at lib/Test.pm:116
@@ -2707,13 +2705,13 @@ integration/advent2012-day15.rakudo.parrot.........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.rakudo.parrot.........# kaz: 2.30911829 seconds
-# gerdr: 2.36816135 seconds
-# recursive-ternary: 2.97899303 seconds
-# loop: 3.09487247 seconds
-# sequence-ternary: 6.5989127 seconds
-# recursive-ternary-hand-cached: 7.7387421 seconds
-# sequence: 10.50371696 seconds
+integration/advent2012-day21.rakudo.parrot.........# kaz: 2.3290806 seconds
+# gerdr: 2.3756328 seconds
+# recursive-ternary: 3.0612732 seconds
+# loop: 3.0660071 seconds
+# sequence-ternary: 6.56957372 seconds
+# recursive-ternary-hand-cached: 7.6806659 seconds
+# sequence: 10.64817179 seconds
    8    0    0    1    9
      1 skipped: RT #122497
 integration/advent2012-day22.rakudo.parrot.........   5    0    1    0    6
@@ -2767,7 +2765,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        5027,     0,   120,   434,  5581,  5673
 "S03",        4919,     0,   107,    95,  5121,  5155
 "S04",        1011,     0,    48,    46,  1105,  1157
-"S05",        5160,    14,   107,   264,  5545,  5926
+"S05",        5142,    35,   104,   264,  5545,  5926
 "S06",        1194,     0,    39,   104,  1337,  1417
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         186,     0,    11,    10,   207,   207
@@ -2785,11 +2783,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     4,     2,   344,   354
-"S32",        9151,     8,   115,   176,  9450,  7884
+"S32",        9159,     0,   115,   176,  9450,  7884
 "int",        1197,     0,     9,    19,  1225,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31640,    22,   638,  1387, 33687, 34768
+"total",     31630,    35,   635,  1387, 33687, 34768
 ----------------
 Failure summary:
-S05-metasyntax/litvar.t aborted 14 test(s)
-S32-exceptions/misc.rakudo.parrot aborted 8 test(s)
+S05-interpolation/regex-in-variable.rakudo.parrot aborted 18 test(s)
+S05-metasyntax/litvar.t aborted 17 test(s)
