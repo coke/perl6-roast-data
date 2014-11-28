@@ -885,7 +885,7 @@ S03-operators/value_equivalence.rakudo.parrot......  73    0    2    0   75
      1 todo   : \@a seems to flatten when it should not
 S03-sequence/arity-2-or-more.t.....................  19    0    0    0   19
 S03-sequence/arity0.t..............................  13    0    0    0   13
-S03-sequence/basic.rakudo.parrot................... 128    0    1    0  129
+S03-sequence/basic.rakudo.parrot................... 129    0    1    0  130
      1 todo   : sequence + last
 S03-sequence/limit-arity-2-or-more.t...............Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-sequence/limit-arity-2-or-more.t:32
 
@@ -1159,11 +1159,11 @@ S05-grammar/signatures.t...........................   2    0    0    0    2
 S05-grammar/ws.rakudo.parrot.......................  10    0    0    2   12
      2 skipped: infinite loop: RT #64094 (noauto)
 S05-interpolation/lexicals.t.......................  10    0    0    0   10
-S05-interpolation/regex-in-variable.rakudo.parrot..perl6-p(29944,0x7fff7987b310) malloc: *** error for object 0x7fcf1b9baad0: incorrect checksum for freed object - object was probably modified after being freed.
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 29944 Abort trap: 6           nice -20 ./perl6-p t/spec/S05-interpolation/regex-in-variable.rakudo.parrot
-  16   18    0    0   34
-    18 tests aborted (missing ok/not ok)
+S05-interpolation/regex-in-variable.rakudo.parrot..use of uninitialized value $!made of type Any in string context  in regex  at t/spec/S05-interpolation/regex-in-variable.rakudo.parrot:100
+
+  31    0    3    0   34
+     1 todo   : warn on undef
+     2 todo   : instance member interpolation
 S05-mass/charsets.rakudo.parrot....................  14    0    3    0   17
      1 todo   : Unicode 6.3 -- lower characters
      1 todo   : punct characters
@@ -1254,11 +1254,11 @@ S05-metasyntax/litvar.t............................Potential difficulties:
     Apparent subscript will be treated as regex
     at t/spec/S05-metasyntax/litvar.t:36
     ------> [32mok('c0' ~~ m/@var[33m⏏[31m[0]/, 'Array ignores 0');               [0m
-perl6-p(30031,0x7fff7987b310) malloc: *** error for object 0x7ffa787e3de8: incorrect checksum for freed object - object was probably modified after being freed.
+perl6-p(80848,0x7fff7987b310) malloc: *** error for object 0x7fceb807c2a8: incorrect checksum for freed object - object was probably modified after being freed.
 *** set a breakpoint in malloc_error_break to debug
-sh: line 1: 30031 Abort trap: 6           nice -20 ./perl6-p t/spec/S05-metasyntax/litvar.t
-   7   17    0    0   24
-    17 tests aborted (missing ok/not ok)
+sh: line 1: 80848 Abort trap: 6           nice -20 ./perl6-p t/spec/S05-metasyntax/litvar.t
+  10   14    0    0   24
+    14 tests aborted (missing ok/not ok)
 S05-metasyntax/longest-alternative.rakudo.parrot...  40    0    0    1   41
      1 skipped: ::
 S05-metasyntax/lookaround.t........................  10    0    0    0   10
@@ -1632,11 +1632,11 @@ S10-packages/basic.rakudo.parrot...................  59    0    2    2   63
      1 todo   : RT #64606
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
 S10-packages/precompilation.rakudo.parrot..........# error: Could not find symbol '&C1'
-#   in method <anon> at gen/parrot/CORE.setting:13720
+#   in method <anon> at gen/parrot/CORE.setting:13712
 #   in any find_method_fallback at gen/parrot/Metamodel.nqp:2795
 #   in any find_method at gen/parrot/Metamodel.nqp:989
 #   in any  at gen/parrot/BOOTSTRAP.nqp:1708
-#   in block <unit> at getout-30453-585304.code:3
+#   in block <unit> at getout-81272-457497.code:3
 
 
   16    0    1    0   17
@@ -1921,8 +1921,8 @@ S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.parrot..................  12    0    1    0   13
      1 todo   : trait mod / .wrap interaction
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1417013387
-# Using file temp_1417013387
+S16-filehandles/chmod.t............................# Using file temp_1417192784
+# Using file temp_1417192784
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2246,13 +2246,8 @@ S32-io/io-spec-win.t...............................use of uninitialized value $p
      3 skipped: Win32ish on-platform tests
 S32-io/note.t......................................   6    0    0    0    6
 S32-io/other.t.....................................  60    0    0    0   60
-S32-io/slurp.t.....................................Saw 2 calls to deprecated code during execution.
+S32-io/slurp.t.....................................Saw 1 call to deprecated code during execution.
 ================================================================================
-Method slurp (from IO::Handle) called at:
-  t/spec/S32-io/slurp.t, line 39
-Deprecated since v2014.10, will be removed with release v2015.10!
-Please use $handle.slurp-rest instead.
---------------------------------------------------------------------------------
 slurp($handle,...) called at:
   t/spec/S32-io/slurp.t, lines 45,53
 Deprecated since v2014.10, will be removed with release v2015.10!
@@ -2705,13 +2700,13 @@ integration/advent2012-day15.rakudo.parrot.........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.rakudo.parrot.........# kaz: 2.3290806 seconds
-# gerdr: 2.3756328 seconds
-# recursive-ternary: 3.0612732 seconds
-# loop: 3.0660071 seconds
-# sequence-ternary: 6.56957372 seconds
-# recursive-ternary-hand-cached: 7.6806659 seconds
-# sequence: 10.64817179 seconds
+integration/advent2012-day21.rakudo.parrot.........# kaz: 2.3071658 seconds
+# gerdr: 2.361141 seconds
+# recursive-ternary: 2.9724006 seconds
+# loop: 3.1613681 seconds
+# sequence-ternary: 6.6947706 seconds
+# recursive-ternary-hand-cached: 7.9067835 seconds
+# sequence: 10.7258461 seconds
    8    0    0    1    9
      1 skipped: RT #122497
 integration/advent2012-day22.rakudo.parrot.........   5    0    1    0    6
@@ -2763,9 +2758,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
 "S02",        5027,     0,   120,   434,  5581,  5673
-"S03",        4919,     0,   107,    95,  5121,  5155
+"S03",        4920,     0,   107,    95,  5122,  5156
 "S04",        1011,     0,    48,    46,  1105,  1157
-"S05",        5142,    35,   104,   264,  5545,  5926
+"S05",        5160,    14,   107,   264,  5545,  5926
 "S06",        1194,     0,    39,   104,  1337,  1417
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         186,     0,    11,    10,   207,   207
@@ -2786,8 +2781,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9159,     0,   115,   176,  9450,  7884
 "int",        1197,     0,     9,    19,  1225,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31630,    35,   635,  1387, 33687, 34768
+"total",     31649,    14,   638,  1387, 33688, 34769
 ----------------
 Failure summary:
-S05-interpolation/regex-in-variable.rakudo.parrot aborted 18 test(s)
-S05-metasyntax/litvar.t aborted 17 test(s)
+S05-metasyntax/litvar.t aborted 14 test(s)
