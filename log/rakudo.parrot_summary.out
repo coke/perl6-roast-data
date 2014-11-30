@@ -1159,11 +1159,11 @@ S05-grammar/signatures.t...........................   2    0    0    0    2
 S05-grammar/ws.rakudo.parrot.......................  10    0    0    2   12
      2 skipped: infinite loop: RT #64094 (noauto)
 S05-interpolation/lexicals.t.......................  10    0    0    0   10
-S05-interpolation/regex-in-variable.rakudo.parrot..use of uninitialized value $!made of type Any in string context  in regex  at t/spec/S05-interpolation/regex-in-variable.rakudo.parrot:100
-
-  31    0    3    0   34
-     1 todo   : warn on undef
-     2 todo   : instance member interpolation
+S05-interpolation/regex-in-variable.rakudo.parrot..perl6-p(30648,0x7fff750e6310) malloc: *** error for object 0x7ff14070b340: incorrect checksum for freed object - object was probably modified after being freed.
+*** set a breakpoint in malloc_error_break to debug
+sh: line 1: 30648 Abort trap: 6           nice -20 ./perl6-p t/spec/S05-interpolation/regex-in-variable.rakudo.parrot
+  16   18    0    0   34
+    18 tests aborted (missing ok/not ok)
 S05-mass/charsets.rakudo.parrot....................  14    0    3    0   17
      1 todo   : Unicode 6.3 -- lower characters
      1 todo   : punct characters
@@ -1254,9 +1254,9 @@ S05-metasyntax/litvar.t............................Potential difficulties:
     Apparent subscript will be treated as regex
     at t/spec/S05-metasyntax/litvar.t:36
     ------> [32mok('c0' ~~ m/@var[33m⏏[31m[0]/, 'Array ignores 0');               [0m
-perl6-p(80848,0x7fff7987b310) malloc: *** error for object 0x7fceb807c2a8: incorrect checksum for freed object - object was probably modified after being freed.
+perl6-p(31346,0x7fff750e6310) malloc: *** error for object 0x7f9890138508: incorrect checksum for freed object - object was probably modified after being freed.
 *** set a breakpoint in malloc_error_break to debug
-sh: line 1: 80848 Abort trap: 6           nice -20 ./perl6-p t/spec/S05-metasyntax/litvar.t
+sh: line 1: 31346 Abort trap: 6           nice -20 ./perl6-p t/spec/S05-metasyntax/litvar.t
   10   14    0    0   24
     14 tests aborted (missing ok/not ok)
 S05-metasyntax/longest-alternative.rakudo.parrot...  40    0    0    1   41
@@ -1636,7 +1636,7 @@ S10-packages/precompilation.rakudo.parrot..........# error: Could not find symbo
 #   in any find_method_fallback at gen/parrot/Metamodel.nqp:2795
 #   in any find_method at gen/parrot/Metamodel.nqp:989
 #   in any  at gen/parrot/BOOTSTRAP.nqp:1708
-#   in block <unit> at getout-81272-457497.code:3
+#   in block <unit> at getout-31764-240514.code:3
 
 
   16    0    1    0   17
@@ -1921,8 +1921,8 @@ S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.parrot..................  12    0    1    0   13
      1 todo   : trait mod / .wrap interaction
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1417192784
-# Using file temp_1417192784
+S16-filehandles/chmod.t............................# Using file temp_1417310364
+# Using file temp_1417310364
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2176,15 +2176,6 @@ so that this message will disappear!
      1 todo   : resolve NYI, needs nqp::readlink
 S32-io/io-path-unix.rakudo.parrot..................use of uninitialized value of type Any in string context  in block <unit> at t/spec/S32-io/io-path-unix.rakudo.parrot:9
 
-Saw 1 call to deprecated code during execution.
-================================================================================
-Method directory (from IO::Path) called at:
-  t/spec/S32-io/io-path-unix.rakudo.parrot, line 15
-Deprecated since v2014.10, will be removed with release v2015.10!
-Please use dirname instead.
---------------------------------------------------------------------------------
-Please contact the author to have these calls to deprecated code adapted,
-so that this message will disappear!
   34    0    1    0   35
      1 todo   : resolve NYI, needs nqp::readlink
 S32-io/io-path-win.rakudo.parrot...................use of uninitialized value of type Any in string context  in block <unit> at t/spec/S32-io/io-path-win.rakudo.parrot:8
@@ -2700,13 +2691,13 @@ integration/advent2012-day15.rakudo.parrot.........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.rakudo.parrot.........# kaz: 2.3071658 seconds
-# gerdr: 2.361141 seconds
-# recursive-ternary: 2.9724006 seconds
-# loop: 3.1613681 seconds
-# sequence-ternary: 6.6947706 seconds
-# recursive-ternary-hand-cached: 7.9067835 seconds
-# sequence: 10.7258461 seconds
+integration/advent2012-day21.rakudo.parrot.........# kaz: 2.26993257 seconds
+# gerdr: 2.2827609 seconds
+# recursive-ternary: 2.904248 seconds
+# loop: 2.95584398 seconds
+# sequence-ternary: 6.457166 seconds
+# recursive-ternary-hand-cached: 7.58453658 seconds
+# sequence: 10.44761941 seconds
    8    0    0    1    9
      1 skipped: RT #122497
 integration/advent2012-day22.rakudo.parrot.........   5    0    1    0    6
@@ -2760,7 +2751,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        5027,     0,   120,   434,  5581,  5673
 "S03",        4920,     0,   107,    95,  5122,  5156
 "S04",        1011,     0,    48,    46,  1105,  1157
-"S05",        5160,    14,   107,   264,  5545,  5926
+"S05",        5145,    32,   104,   264,  5545,  5926
 "S06",        1194,     0,    39,   104,  1337,  1417
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         186,     0,    11,    10,   207,   207
@@ -2781,7 +2772,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9159,     0,   115,   176,  9450,  7884
 "int",        1197,     0,     9,    19,  1225,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31649,    14,   638,  1387, 33688, 34769
+"total",     31634,    32,   635,  1387, 33688, 34769
 ----------------
 Failure summary:
+S05-interpolation/regex-in-variable.rakudo.parrot aborted 18 test(s)
 S05-metasyntax/litvar.t aborted 14 test(s)

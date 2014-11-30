@@ -11,7 +11,11 @@ S02-lexical-conventions/minimal-whitespace.t.......   9    0    0    0    9
 S02-lexical-conventions/one-pass-parsing.t.........   3    0    0    0    3
 S02-lexical-conventions/pod-in-multi-line-exprs.t..   3    0    0    0    3
 S02-lexical-conventions/sub-block-parsing.t........  11    0    0    0   11
-S02-lexical-conventions/unicode-whitespace.t.......  50    0    0    0   50
+S02-lexical-conventions/unicode-whitespace.t.......moar(7138,0x7fff750e6310) malloc: *** error for object 0x7fc835494120: incorrect checksum for freed object - object was probably modified after being freed.
+*** set a breakpoint in malloc_error_break to debug
+sh: line 1:  7138 Abort trap: 6           nice -20 ./perl6-m t/spec/S02-lexical-conventions/unicode-whitespace.t
+   4   46    0    0   50
+    46 tests aborted (missing ok/not ok)
 S02-lexical-conventions/unicode.rakudo.moar........  42    0    0    2   44
      2 skipped: VOWEL SIGNs in identifiers; RT #122340
 S02-lexical-conventions/unspace.rakudo.moar........    
@@ -585,7 +589,7 @@ S03-operators/autovivification.t...................use of uninitialized value of
 
 use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-operators/autovivification.t:95
 
-use of uninitialized value of type Any in string context  in any !cursor_init at gen/moar/stage2/QRegex.nqp:678
+use of uninitialized value of type Any in string context  in any !cursor_init at gen/moar/stage2/QRegex.nqp:703
 
   23    0    0    0   23
 S03-operators/bag.rakudo.moar...................... 109    0   12    7  128
@@ -1179,7 +1183,7 @@ S05-metasyntax/null.t..............................   4    0    0    0    4
 S05-metasyntax/proto-token-ltm.t...................  10    0    0    0   10
 S05-metasyntax/regex.t.............................Useless declaration of a has-scoped method in mainline (did you mean 'my token foo'?)
 Useless declaration of a has-scoped method in mainline (did you mean 'my regex baz'?)
-use of uninitialized value of type Any in string context  in any !cursor_init at gen/moar/stage2/QRegex.nqp:678
+use of uninitialized value of type Any in string context  in any !cursor_init at gen/moar/stage2/QRegex.nqp:703
 
 Potential difficulties:
     Repeated character (.) unexpectedly found in character class
@@ -1536,31 +1540,17 @@ use of uninitialized value $expected of type Int in string context  in sub is at
 
   33    0    0    0   33
                                                    pass fail todo skip plan
-S10-packages/basic.rakudo.moar.....................Saw 2 calls to deprecated code during execution.
-================================================================================
-Method path (from Str) called at:
-  t/spec/S10-packages/basic.rakudo.moar, line 282
-Deprecated since v2014.11, will be removed with release v2015.11!
-Please use IO instead.
---------------------------------------------------------------------------------
-Method directory (from IO::Path) called at:
-  t/spec/S10-packages/basic.rakudo.moar, line 282
-Deprecated since v2014.10, will be removed with release v2015.10!
-Please use dirname instead.
---------------------------------------------------------------------------------
-Please contact the author to have these calls to deprecated code adapted,
-so that this message will disappear!
-  60    0    2    1   63
+S10-packages/basic.rakudo.moar.....................  60    0    2    1   63
      1 skipped: RT #59484
      1 todo   : ticket based only on class... RT #60446
      1 todo   : RT #64606
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
-S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 59120 Segmentation fault: 11  ./perl6-m getout-59108-482858.code < getout-59108-482858.in > getout-59108-482858.out 2> getout-59108-482858.err
+S10-packages/precompilation.rakudo.moar............/bin/sh: line 1:  8648 Segmentation fault: 11  ./perl6-m getout-8636-575099.code < getout-8636-575099.in > getout-8636-575099.out 2> getout-8636-575099.err
 # error: Could not find symbol '&C1'
 #   in method <anon> at src/gen/m-CORE.setting:13772
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2725
 #   in any find_method at src/gen/m-Metamodel.nqp:988
-#   in block <unit> at getout-59108-177364.code:3
+#   in block <unit> at getout-8636-285528.code:3
 
 
   15    0    2    0   17
@@ -1589,10 +1579,10 @@ S11-modules/importing.t............................  16    0    0    0   16
 S11-modules/lexical.t..............................   2    0    0    0    2
 S11-modules/need.t.................................   2    0    0    0    2
 S11-modules/nested.t...............................   6    0    0    0    6
-S11-modules/require.rakudo.moar....................  12    0    2    1   15
-     1 skipped: Trying to import from 'InnerModule', but the following symbols are missing: quux
-     1 todo   : variable form plus imports NYI
+S11-modules/require.rakudo.moar....................sh: line 1:  8702 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S11-modules/require.rakudo.moar
+   1   13    1    0   15
      1 todo   : creation of stub package symbol NYI
+    13 tests aborted (missing ok/not ok)
                                                    pass fail todo skip plan
 S12-attributes/class.rakudo.moar...................  23    0    0    6   29
      6 skipped: nom regression - method ^foo
@@ -1708,7 +1698,7 @@ S12-introspection/WHAT.rakudo.moar.................  25    0   12    0   37
      2 todo   : %h{Str} of Int fails
 S12-introspection/attributes.rakudo.moar...........  25    0    0    5   30
      5 skipped: :tree NYI for .^attributes
-S12-introspection/can.t............................Code object coerced to string (please use .gist or .perl to do that)  in any !cursor_init at gen/moar/stage2/QRegex.nqp:678
+S12-introspection/can.t............................Code object coerced to string (please use .gist or .perl to do that)  in any !cursor_init at gen/moar/stage2/QRegex.nqp:703
 
   25    0    0    0   25
 S12-introspection/definite.t.......................   6    0    0    0    6
@@ -1858,8 +1848,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1417189477
-# Using file temp_1417189477
+S16-filehandles/chmod.t............................# Using file temp_1417301376
+# Using file temp_1417301376
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1897,9 +1887,10 @@ S17-promise/start.rakudo.moar......................  13    0    0    2   15
 S17-promise/then.t.................................  14    0    0    0   14
 S17-scheduler/at.rakudo.moar.......................  14    0    1    0   15
      1 todo   : huh?
-S17-scheduler/basic.rakudo.moar....................  28    0    2   10   40
-    10 skipped: waiting for new '.loads' semantics
-     2 todo   : huh?
+S17-scheduler/basic.rakudo.moar....................sh: line 1:  9136 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S17-scheduler/basic.rakudo.moar
+   2   33    0    5   40
+     5 skipped: waiting for new '.loads' semantics
+    33 tests aborted (missing ok/not ok)
 S17-scheduler/every.t..............................  18    0    0    0   18
 S17-scheduler/in.t.................................  14    0    0    0   14
 S17-scheduler/times.t..............................   4    0    0    0    4
@@ -2002,21 +1993,7 @@ S17-supply/unique.t................................# **** scheduling with Thread
 # **** scheduling with CurrentThreadScheduler
   17    0    0    0   17
 S17-supply/wait.t..................................   4    0    0    0    4
-S17-supply/watch_path.t............................Saw 2 calls to deprecated code during execution.
-================================================================================
-Method uniq (from Supply) called at:
-  t/spec/S17-supply/watch_path.t, line 27
-Deprecated since v2014.11, will be removed with release v2015.11!
-Please use unique instead.
---------------------------------------------------------------------------------
-Method more (from Supply) called at:
-  src/gen/m-CORE.setting, line 15414
-Deprecated since v2014.10, will be removed with release v2015.10!
-Please use emit instead.
---------------------------------------------------------------------------------
-Please contact the author to have these calls to deprecated code adapted,
-so that this message will disappear!
-   2    0    0    0    2
+S17-supply/watch_path.t............................   2    0    0    0    2
 S17-supply/words.t.................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
    5    0    0    0    5
@@ -2030,7 +2007,9 @@ S19-command-line-options/03-dash-p.t...............   2    0    0    0    2
 S19-command-line/arguments.t.......................   1    0    0    0    1
 S19-command-line/dash-e.t..........................   4    0    0    0    4
 S19-command-line/help.t............................   1    0    0    0    1
-S19-command-line/repl.t............................   1    0    0    0    1
+S19-command-line/repl.t............................sh: line 1:  9945 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S19-command-line/repl.t
+   0    1    0    0    1
+     1 tests aborted (missing ok/not ok)
                                                    pass fail todo skip plan
 S22-package-format/local.t.........................Saw 1 call to deprecated code during execution.
 ================================================================================
@@ -2253,15 +2232,6 @@ so that this message will disappear!
      1 todo   : resolve NYI, needs nqp::readlink
 S32-io/io-path-unix.rakudo.moar....................use of uninitialized value $CWD of type Any in string context  in block <unit> at t/spec/S32-io/io-path-unix.rakudo.moar:9
 
-Saw 1 call to deprecated code during execution.
-================================================================================
-Method directory (from IO::Path) called at:
-  t/spec/S32-io/io-path-unix.rakudo.moar, line 15
-Deprecated since v2014.10, will be removed with release v2015.10!
-Please use dirname instead.
---------------------------------------------------------------------------------
-Please contact the author to have these calls to deprecated code adapted,
-so that this message will disappear!
   34    0    1    0   35
      1 todo   : resolve NYI, needs nqp::readlink
 S32-io/io-path-win.rakudo.moar.....................use of uninitialized value $CWD of type Any in string context  in block <unit> at t/spec/S32-io/io-path-win.rakudo.moar:8
@@ -2505,14 +2475,12 @@ use of uninitialized value of type Any in numeric context  in block <unit> at t/
 
 use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S32-scalar/undef.rakudo.moar:305
 
-sh: line 1: 60539 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S32-scalar/undef.rakudo.moar
-  55   11    4   16   86
+  66    0    4   16   86
     10 skipped: Cannot use bind operator with this left-hand side
      6 skipped: access to &your_sub
      1 todo   : definedness of hash
      2 todo   : todo: lists, defined, truthness
      1 todo   : definedness of array
-    11 tests aborted (missing ok/not ok)
 S32-str/append.t...................................   7    0    0    0    7
 S32-str/bool.t.....................................  12    0    0    0   12
 S32-str/capitalize.rakudo.moar.....................  15    0    2    0   17
@@ -2742,9 +2710,7 @@ integration/advent2011-day05.t.....................   5    0    0    0    5
 integration/advent2011-day07.t.....................   3    0    0    0    3
 integration/advent2011-day10.t.....................   5    0    0    0    5
 integration/advent2011-day11.t.....................   9    0    0    0    9
-integration/advent2011-day14.t.....................sh: line 1: 60867 Segmentation fault: 11  nice -20 ./perl6-m t/spec/integration/advent2011-day14.t
-   0    8    0    0    8
-     8 tests aborted (missing ok/not ok)
+integration/advent2011-day14.t.....................   8    0    0    0    8
 integration/advent2011-day15.t.....................   9    0    0    0    9
 integration/advent2011-day16.t.....................  11    0    0    0   11
 integration/advent2011-day20.t.....................  16    0    0    0   16
@@ -2775,14 +2741,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 1.0551702 seconds
-# gerdr: 1.0800731 seconds
-# loop: 1.1383576 seconds
-# recursive-ternary: 1.1586922 seconds
-# recursive-ternary-hand-cached: 1.8839017 seconds
-# sequence-ternary: 1.94293440 seconds
-# sequence: 2.6466648 seconds
-# hand-memoization: 2.66035110 seconds
+integration/advent2012-day21.t.....................# kaz: 1.0337922 seconds
+# gerdr: 1.0493791 seconds
+# recursive-ternary: 1.110143 seconds
+# loop: 1.15861077 seconds
+# recursive-ternary-hand-cached: 1.8317859 seconds
+# sequence-ternary: 1.87199773 seconds
+# hand-memoization: 2.64261365 seconds
+# sequence: 2.6518066 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2847,7 +2813,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5099,     0,   123,   359,  5581,  5673
+"S02",        5053,    46,   123,   359,  5581,  5673
 "S03",        4920,     0,   107,    95,  5122,  5156
 "S04",        1019,     0,    44,    42,  1105,  1157
 "S05",        5266,     0,   101,   178,  5545,  5926
@@ -2855,24 +2821,26 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         186,     0,    11,    10,   207,   207
 "S10",          87,     0,     4,     1,    92,   149
-"S11",         107,     0,     4,    14,   125,   144
+"S11",          96,    13,     3,    13,   125,   144
 "S12",        1370,     0,    46,   121,  1537,  1595
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         303,     0,    10,    10,   323,   336
 "S15",         240,     0,     2,    16,   258,   283
 "S16",         247,     0,     0,    16,   263,   307
-"S17",         650,     0,     4,    22,   676,   700
-"S19",          12,     0,     0,     0,    12,    17
+"S17",         624,    33,     2,    17,   676,   700
+"S19",          11,     1,     0,     0,    12,    17
 "S22",          52,     0,     1,     0,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     4,     2,   344,   354
-"S32",        9149,    11,   125,   165,  9450,  7884
-"int",        1200,     8,    12,    19,  1239,  1228
+"S32",        9160,     0,   125,   165,  9450,  7884
+"int",        1208,     0,    12,    19,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32726,    19,   648,  1243, 34636, 34769
+"total",     32661,    93,   645,  1237, 34636, 34769
 ----------------
 Failure summary:
-S32-scalar/undef.rakudo.moar aborted 11 test(s)
-integration/advent2011-day14.t aborted 8 test(s)
+S02-lexical-conventions/unicode-whitespace.t aborted 46 test(s)
+S11-modules/require.rakudo.moar aborted 13 test(s)
+S17-scheduler/basic.rakudo.moar aborted 33 test(s)
+S19-command-line/repl.t aborted 1 test(s)
