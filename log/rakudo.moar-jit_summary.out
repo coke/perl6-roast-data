@@ -62,13 +62,10 @@ S02-literals/quoting.rakudo.moar...................
      1 todo   : retriage
      2 todo   : q:x assigned to array
      4 todo   : quoting adverbs
-S02-literals/radix.rakudo.moar.....................Cannot invoke null object
-  in block <unit> at t/spec/S02-literals/radix.rakudo.moar:205
-
-  88   42    5    0  135
+S02-literals/radix.rakudo.moar..................... 129    0    6    0  135
+     1 todo   : This needs an RT
      4 todo   : Some question of what this form should actually do
      1 todo   : Really?!
-    42 tests aborted (missing ok/not ok)
 S02-literals/string-interpolation.t................Potential difficulties:
     Leading 0 does not indicate octal in Perl 6; please use 0o1 if you mean that
     at t/spec/S02-literals/string-interpolation.t:10
@@ -134,7 +131,28 @@ S02-magicals/dollar-underscore.rakudo.moar.........  10    0    0    1   11
 S02-magicals/dollar_bang.t.........................  15    0    0    0   15
 S02-magicals/env.rakudo.moar.......................# %*ENV<PUGS_ROCKS>=
 # %*ENV<PUGS_ROCKS>=
-  16    0    0    1   17
+    
+# Failed test 'right exception type (X::Undeclared)'
+# at lib/Test.pm line 306
+    # Expected: (X::Undeclared)
+    # Got:      (X::AdHoc)
+    # Exception message: Error while compiling, type X::Undeclared
+#   symbol: %ENV
+#   suggestions: ()
+#   line: 1
+#   modules: ()
+#   pre: %ENV
+#   post: <EOL>
+#   highexpect: (postfix)
+#   is-compile-time: 1
+#   filename: EVAL_0
+#  at line 2, near ""
+    # Looks like you failed 1 tests of 2
+
+# Failed test '%ENV not visible by default'
+# at t/spec/S02-magicals/env.rakudo.moar line 60
+# Looks like you failed 1 tests of 17
+  15    1    0    1   17
      1 skipped: import fails, ENV not available: RT #122339
 S02-magicals/file_line.t...........................   2    0    0    0    2
 S02-magicals/pid.t.................................   2    0    0    0    2
@@ -326,7 +344,9 @@ use of uninitialized value of type Int in string context  in block <unit> at EVA
    1    0    0    0    1
 S02-types/isDEPRECATED.rakudo.moar.................  12    0    8    0   20
      8 todo   : NYI
-S02-types/lazy-lists.t.............................  23    0    0    0   23
+S02-types/lazy-lists.t.............................sh: line 1: 39339 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S02-types/lazy-lists.t
+   2   21    0    0   23
+    21 tests aborted (missing ok/not ok)
 S02-types/lists.rakudo.moar........................  29    0    0    3   32
      3 skipped: list binding
 S02-types/mix.rakudo.moar.......................... 174    0    2    3  179
@@ -444,7 +464,9 @@ S02-types/unicode.rakudo.moar......................   2    0    3   11   16
      2 skipped: graphs NYI
      9 skipped: Bytes/Codes/Graphs NYI
      3 todo   : RT #65170
-S02-types/version.t................................  36    0    0    0   36
+S02-types/version.t................................sh: line 1: 39415 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S02-types/version.t
+   0   36    0    0   36
+    36 tests aborted (missing ok/not ok)
 S02-types/whatever.rakudo.moar.....................  78    0    4    5   87
      5 skipped: currying plus meta ops
      3 todo   : RT #122708 - currying of min/max
@@ -588,7 +610,7 @@ S03-operators/autovivification.t...................use of uninitialized value of
 
 use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-operators/autovivification.t:95
 
-use of uninitialized value of type Any in string context  in any !cursor_init at gen/moar/stage2/QRegex.nqp:1060
+use of uninitialized value of type Any in string context  in any !cursor_init at gen/moar/stage2/QRegex.nqp:1062
 
   23    0    0    0   23
 S03-operators/bag.rakudo.moar...................... 109    0   12    7  128
@@ -603,9 +625,11 @@ S03-operators/buf.t................................Code object coerced to string
 
 Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/buf.t:67
 
-use of uninitialized value of type Any in string context  in block <unit> at t/spec/S03-operators/buf.t:93
-
-  38    0    0    0   38
+moar(39964,0x7fff72d10310) malloc: *** error for object 0x10f049a78: pointer being freed was not allocated
+*** set a breakpoint in malloc_error_break to debug
+sh: line 1: 39964 Abort trap: 6           nice -20 ./perl6-m t/spec/S03-operators/buf.t
+  35    3    0    0   38
+     3 tests aborted (missing ok/not ok)
 S03-operators/chained-declarators.t................   5    0    0    0    5
 S03-operators/cmp.t................................  22    0    0    0   22
 S03-operators/comparison-simple.t..................  24    0    0    0   24
@@ -786,14 +810,59 @@ S03-operators/overflow.t...........................  98    0    0    0   98
 S03-operators/precedence.rakudo.moar...............  53    0    1    2   56
      2 skipped: nom regression
      1 todo   : RT #114210
-S03-operators/range-basic.t........................ 140    0    0    0  140
+S03-operators/range-basic.t........................Unhandled exception: Method 'Int' not found for invocant of class 'Whatever'
+   at <unknown>:1  (./blib/Perl6/BOOTSTRAP.moarvm::4294967295)
+ from src/gen/m-CORE.setting:8207  (././CORE.setting.moarvm::71)
+ from src/gen/m-CORE.setting:8196  (././CORE.setting.moarvm:reify:49)
+ from src/gen/m-CORE.setting:8708  (././CORE.setting.moarvm:gimme:155)
+ from src/gen/m-CORE.setting:8686  (././CORE.setting.moarvm:eager:0)
+ from src/gen/m-CORE.setting:9749  (././CORE.setting.moarvm:circumfix:<[ ]>:19)
+ from src/gen/m-CORE.setting:13934  (././CORE.setting.moarvm::47)
+ from src/gen/m-CORE.setting:13930  (././CORE.setting.moarvm::0)
+ from src/gen/m-CORE.setting:13928  (././CORE.setting.moarvm::0)
+ from src/gen/m-CORE.setting:13928  (././CORE.setting.moarvm::4294967295)
+ from src/gen/m-CORE.setting:13922  (././CORE.setting.moarvm:MATCH:123)
+ from src/gen/m-CORE.setting:14011  (././CORE.setting.moarvm:MATCH_SAVE:0)
+ from src/gen/m-CORE.setting:14222  (././CORE.setting.moarvm:ACCEPTS:54)
+ from src/gen/m-CORE.setting:12297  (././CORE.setting.moarvm::36)
+ from src/gen/m-CORE.setting:12293  (././CORE.setting.moarvm:EXCEPTION:42)
+ from <unknown>:1  (././CORE.setting.moarvm::21)
+ from src/gen/m-BOOTSTRAP.nqp:2875  (./blib/Perl6/BOOTSTRAP.moarvm::12)
+ from src/gen/m-CORE.setting:8207  (././CORE.setting.moarvm::71)
+ from src/gen/m-CORE.setting:8196  (././CORE.setting.moarvm:reify:49)
+ from src/gen/m-CORE.setting:8708  (././CORE.setting.moarvm:gimme:155)
+ from src/gen/m-CORE.setting:8686  (././CORE.setting.moarvm:eager:0)
+ from src/gen/m-CORE.setting:9749  (././CORE.setting.moarvm:circumfix:<[ ]>:19)
+ from src/gen/m-CORE.setting:13934  (././CORE.setting.moarvm::47)
+ from src/gen/m-CORE.setting:13930  (././CORE.setting.moarvm::0)
+ from src/gen/m-CORE.setting:13928  (././CORE.setting.moarvm::0)
+ from src/gen/m-CORE.setting:13928  (././CORE.setting.moarvm::4294967295)
+ from src/gen/m-CORE.setting:13922  (././CORE.setting.moarvm:MATCH:123)
+ from src/gen/m-CORE.setting:14011  (././CORE.setting.moarvm:MATCH_SAVE:0)
+ from src/gen/m-CORE.setting:14222  (././CORE.setting.moarvm:ACCEPTS:54)
+ from src/gen/m-CORE.setting:12297  (././CORE.setting.moarvm::36)
+ from src/gen/m-CORE.setting:12293  (././CORE.setting.moarvm:EXCEPTION:42)
+ from src/gen/m-CORE.setting:12349  (././CORE.setting.moarvm::16)
+ from src/gen/m-CORE.setting:12348  (././CORE.setting.moarvm:print_exception:38)
+ from src/gen/m-CORE.setting:12405  (././CORE.setting.moarvm:<anon>:40)
+ from gen/moar/stage2/NQPHLL.nqp:1370  (.../sandbox/perl6-roast-data/rakudo.moar-jit/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:374)
+ from src/Perl6/Compiler.nqp:17  (./blib/Perl6/Compiler.moarvm:command_eval:93)
+ from gen/moar/stage2/NQPHLL.nqp:1310  (.../sandbox/perl6-roast-data/rakudo.moar-jit/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)
+ from src/gen/m-main.nqp:39  (.../sandbox/perl6-roast-data/rakudo.moar-jit/perl6.moarvm:MAIN:18)
+ from src/gen/m-main.nqp:35  (.../sandbox/perl6-roast-data/rakudo.moar-jit/perl6.moarvm:<mainline>:197)
+ from <unknown>:1  (.../sandbox/perl6-roast-data/rakudo.moar-jit/perl6.moarvm:<main>:8)
+ from <unknown>:1  (.../sandbox/perl6-roast-data/rakudo.moar-jit/perl6.moarvm:<entry>:9)
+  23  117    0    0  140
+   117 tests aborted (missing ok/not ok)
 S03-operators/range-int.t.......................... 480    0    0    0  480
 S03-operators/range.rakudo.moar....................use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-operators/range.rakudo.moar:220
 
 use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-operators/range.rakudo.moar:221
 
- 122    0    2    0  124
+sh: line 1: 40185 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S03-operators/range.rakudo.moar
+ 118    4    2    0  124
      2 todo   : huh?
+     4 tests aborted (missing ok/not ok)
 S03-operators/reduce-le1arg.rakudo.moar............use of uninitialized value $got of type Any in string context  in sub is at lib/Test.pm:113
 
 use of uninitialized value $expected of type Any in string context  in sub is at lib/Test.pm:113
@@ -815,11 +884,7 @@ S03-operators/so.rakudo.moar.......................  14    0    1    0   15
 S03-operators/spaceship-and-containers.t...........   6    0    0    0    6
 S03-operators/spaceship.t..........................   5    0    0    0    5
 S03-operators/subscript-adverbs.t.................. 110    0    0    0  110
-S03-operators/subscript-vs-lt.t....................moar(81812,0x7fff72d10310) malloc: *** error for object 0x7fad2db4aae0: incorrect checksum for freed object - object was probably modified after being freed.
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 81812 Abort trap: 6           nice -20 ./perl6-m t/spec/S03-operators/subscript-vs-lt.t
-   0    4    0    0    4
-     4 tests aborted (missing ok/not ok)
+S03-operators/subscript-vs-lt.t....................   4    0    0    0    4
 S03-operators/ternary.t............................  17    0    0    0   17
 S03-operators/value_equivalence.rakudo.moar........  73    0    2    0   75
      1 todo   : .WHICH based on type names
@@ -833,14 +898,9 @@ S03-sequence/limit-arity-2-or-more.t...............Code object coerced to string
 Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-sequence/limit-arity-2-or-more.t:33
 
    8    0    0    0    8
-S03-sequence/misc.rakudo.moar......................use of uninitialized value of type Nil in numeric context  in block <unit> at t/spec/S03-sequence/misc.rakudo.moar:78
-
-use of uninitialized value of type Nil in numeric context  in block <unit> at t/spec/S03-sequence/misc.rakudo.moar:78
-
-  16    0    5    1   22
-     1 skipped: Not enough positional parameters passed; got 0 but expected 1
+S03-sequence/misc.rakudo.moar......................  16    0    4    6   26
+     6 skipped: RT #123329
      1 todo   : RT #80574
-     1 todo   : gives True instead
      2 todo   : NYI
      1 todo   : bogus test?
 S03-sequence/nonnumeric.rakudo.moar................  22    0    0   17   39
@@ -986,11 +1046,7 @@ S04-phasers/enter-leave.rakudo.moar................  21    0    3    1   25
      1 todo   : unwind, RT #121530
      1 todo   : RT #113950
      1 todo   : is this spec? why would LEAVE not see outer $!? fossil?
-S04-phasers/eval-in-begin.t........................moar(81969,0x7fff72d10310) malloc: *** error for object 0x7fc0fd28a790: incorrect checksum for freed object - object was probably modified after being freed.
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 81969 Abort trap: 6           nice -20 ./perl6-m t/spec/S04-phasers/eval-in-begin.t
-   0    3    0    0    3
-     3 tests aborted (missing ok/not ok)
+S04-phasers/eval-in-begin.t........................   3    0    0    0    3
 S04-phasers/first.t................................   4    0    0    0    4
 S04-phasers/in-eval.rakudo.moar....................# Looks like you planned 35 tests, but ran 34
   34    0    1    0   35
@@ -1129,8 +1185,9 @@ S05-mass/stdrules.rakudo.moar...................... 158    0    0   28  186
 S05-match/arrayhash.t..............................   8    0    0    0    8
 S05-match/blocks.rakudo.moar.......................  18    0    1    0   19
      1 todo   : Assignment to matched string affects earlier match objects
-S05-match/capturing-contexts.rakudo.moar...........  45    0    1    0   46
-     1 todo   : RT #70007
+S05-match/capturing-contexts.rakudo.moar...........sh: line 1: 40596 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S05-match/capturing-contexts.rakudo.moar
+   0   46    0    0   46
+    46 tests aborted (missing ok/not ok)
 S05-match/make.t...................................   4    0    0    0    4
 S05-match/non-capturing.t..........................   9    0    0    0    9
 S05-match/positions.t..............................  10    0    0    0   10
@@ -1190,7 +1247,7 @@ S05-metasyntax/null.t..............................   4    0    0    0    4
 S05-metasyntax/proto-token-ltm.t...................  10    0    0    0   10
 S05-metasyntax/regex.t.............................Useless declaration of a has-scoped method in mainline (did you mean 'my token foo'?)
 Useless declaration of a has-scoped method in mainline (did you mean 'my regex baz'?)
-use of uninitialized value of type Any in string context  in any !cursor_init at gen/moar/stage2/QRegex.nqp:1060
+use of uninitialized value of type Any in string context  in any !cursor_init at gen/moar/stage2/QRegex.nqp:1062
 
 Potential difficulties:
     Repeated character (.) unexpectedly found in character class
@@ -1209,7 +1266,7 @@ S05-modifier/counted.rakudo.moar................... 116    0    2    1  119
      1 skipped: NYI
      2 todo   : unknown
 S05-modifier/global.t..............................   8    0    0    0    8
-S05-modifier/ignorecase.rakudo.moar................  22    0    2    0   24
+S05-modifier/ignorecase.rakudo.moar................  23    0    2    0   25
      2 todo   : ignorecase and SS/&szlig;
 S05-modifier/ii.rakudo.moar........................  12    0    6    0   18
      6 todo   : NYI
@@ -1377,7 +1434,9 @@ S06-other/main-eval.rakudo.moar....................   2    0    1    0    3
 S06-other/main-usage.rakudo.moar...................  15    0    7    0   22
      2 todo   : RT #115744
      5 todo   : nom regression
-S06-other/main.t...................................   6    0    0    0    6
+S06-other/main.t...................................sh: line 1: 40905 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S06-other/main.t
+   1    5    0    0    6
+     5 tests aborted (missing ok/not ok)
 S06-other/misc.t...................................   6    0    0    0    6
 S06-routine-modifiers/lvalue-subroutines.t.........  14    0    0    0   14
 S06-routine-modifiers/proxy.t......................  18    0    0    0   18
@@ -1390,8 +1449,9 @@ S06-signature/code.rakudo.moar.....................   7    0    1    0    8
      1 todo   : RT #67932
 S06-signature/defaults.t...........................   8    0    0    0    8
 S06-signature/errors.t.............................  11    0    0    0   11
-S06-signature/introspection.rakudo.moar............  51    0    0    1   52
-     1 skipped: expected Any but got Mu instead
+S06-signature/introspection.rakudo.moar............sh: line 1: 40939 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S06-signature/introspection.rakudo.moar
+   1   51    0    0   52
+    51 tests aborted (missing ok/not ok)
 S06-signature/mixed-placeholders.t.................  12    0    0    0   12
 S06-signature/multidimensional.t...................  10    0    0    0   10
 S06-signature/named-parameters.rakudo.moar.........  72    0    0   21   93
@@ -1404,7 +1464,9 @@ S06-signature/optional.t...........................  26    0    0    0   26
 S06-signature/outside-subroutine.t.................   2    0    0    0    2
 S06-signature/passing-arrays.t.....................  11    0    0    0   11
 S06-signature/passing-hashes.t.....................   3    0    0    0    3
-S06-signature/positional-placeholders.t............  10    0    0    0   10
+S06-signature/positional-placeholders.t............sh: line 1: 40969 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S06-signature/positional-placeholders.t
+   7    3    0    0   10
+     3 tests aborted (missing ok/not ok)
 S06-signature/positional.t.........................   7    0    0    0    7
 S06-signature/scalar-type.t........................use of uninitialized value $got of type Array in string context  in sub is at lib/Test.pm:113
 
@@ -1484,11 +1546,8 @@ S06-traits/is-copy.t...............................Potential difficulties:
   24    0    0    0   24
 S06-traits/is-readonly.rakudo.moar.................useless use of 'is readonly' on $!attr  in any  at src/Perl6/World.nqp:1844
 
-moar(82612,0x7fff72d10310) malloc: *** error for object 0x7fe7a4a418b0: incorrect checksum for freed object - object was probably modified after being freed.
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 82612 Abort trap: 6           nice -20 ./perl6-m t/spec/S06-traits/is-readonly.rakudo.moar
-   0    3    0    0    3
-     3 tests aborted (missing ok/not ok)
+   2    0    1    0    3
+     1 todo   : readonly attributes
 S06-traits/is-rw.rakudo.moar.......................   5    0    2    0    7
      1 todo   : Depends on preceding test working
      1 todo   : 
@@ -1555,12 +1614,12 @@ S10-packages/basic.rakudo.moar.....................  60    0    2    1   63
      1 todo   : ticket based only on class... RT #60446
      1 todo   : RT #64606
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
-S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 82664 Segmentation fault: 11  ./perl6-m getout-82652-219977.code < getout-82652-219977.in > getout-82652-219977.out 2> getout-82652-219977.err
+S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 41069 Segmentation fault: 11  ./perl6-m getout-41057-824183.code < getout-41057-824183.in > getout-41057-824183.out 2> getout-41057-824183.err
 # error: Could not find symbol '&C1'
 #   in method <anon> at src/gen/m-CORE.setting:13772
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2725
 #   in any find_method at src/gen/m-Metamodel.nqp:988
-#   in block <unit> at getout-82652-296388.code:3
+#   in block <unit> at getout-41057-943976.code:3
 
 
   15    0    2    0   17
@@ -1708,7 +1767,7 @@ S12-introspection/WHAT.rakudo.moar.................  25    0   12    0   37
      2 todo   : %h{Str} of Int fails
 S12-introspection/attributes.rakudo.moar...........  25    0    0    5   30
      5 skipped: :tree NYI for .^attributes
-S12-introspection/can.t............................Code object coerced to string (please use .gist or .perl to do that)  in any !cursor_init at gen/moar/stage2/QRegex.nqp:1060
+S12-introspection/can.t............................Code object coerced to string (please use .gist or .perl to do that)  in any !cursor_init at gen/moar/stage2/QRegex.nqp:1062
 
   25    0    0    0   25
 S12-introspection/definite.t.......................   6    0    0    0    6
@@ -1717,15 +1776,9 @@ S12-introspection/meta-class.rakudo.moar...........   9    0    0    4   13
      1 skipped: .version, version number parsing
      1 skipped: precedence of prefix:<^>
      1 skipped: precedence of HOW
-S12-introspection/methods.rakudo.moar..............Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S12-introspection/methods.rakudo.moar:164
-
-Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S12-introspection/methods.rakudo.moar:164
-
-Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S12-introspection/methods.rakudo.moar:164
-
-  45    0    2   11   58
-    11 skipped: nom regression
-     2 todo   : nom regression
+S12-introspection/methods.rakudo.moar..............sh: line 1: 41270 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S12-introspection/methods.rakudo.moar
+   4   54    0    0   58
+    54 tests aborted (missing ok/not ok)
 S12-introspection/parents.t........................  59    0    0    0   59
 S12-introspection/roles.rakudo.moar................use of uninitialized value of type R3 in string context  in any  at src/gen/m-Metamodel.nqp:1510
 
@@ -1751,11 +1804,7 @@ S12-methods/defer-call.t...........................  14    0    0    0   14
 S12-methods/defer-next.rakudo.moar.................  20    0    1    0   21
      1 todo   : variant of RT #69608
 S12-methods/delegation.t...........................   7    0    0    0    7
-S12-methods/how.t..................................moar(82909,0x7fff72d10310) malloc: *** error for object 0x7fa13ca8aba0: incorrect checksum for freed object - object was probably modified after being freed.
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 82909 Abort trap: 6           nice -20 ./perl6-m t/spec/S12-methods/how.t
-   1    1    0    0    2
-     1 tests aborted (missing ok/not ok)
+S12-methods/how.t..................................   2    0    0    0    2
 S12-methods/indirect_notation.rakudo.moar..........  16    0    0   21   37
      6 skipped: .@foo not yet working
     15 skipped: .*, .+ and .? with @foo
@@ -1795,9 +1844,7 @@ S12-methods/what.t.................................use of uninitialized value of
 use of uninitialized value of type Match in numeric context  in block <unit> at t/spec/S12-methods/what.t:57
 
   33    0    0    0   33
-S12-subset/multi-dispatch.t........................sh: line 1: 82957 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S12-subset/multi-dispatch.t
-   5    1    0    0    6
-     1 tests aborted (missing ok/not ok)
+S12-subset/multi-dispatch.t........................   6    0    0    0    6
 S12-subset/subtypes.t..............................  77    0    0    0   77
                                                    pass fail todo skip plan
 S13-overloading/metaoperators.t....................  11    0    0    0   11
@@ -1864,19 +1911,15 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1417614390
-# Using file temp_1417614390
+S16-filehandles/chmod.t............................# Using file temp_1417714599
+# Using file temp_1417714599
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
 S16-filehandles/filetest.rakudo.moar...............  34    0    0    9   43
      6 skipped: :M, :C, :A
      3 skipped: no file README
-S16-filehandles/io.t...............................moar(83057,0x7fff72d10310) malloc: *** error for object 0x7fd2e89411b0: pointer being freed was not allocated
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 83057 Abort trap: 6           nice -20 ./perl6-m t/spec/S16-filehandles/io.t
-  43   44    0    0   87
-    44 tests aborted (missing ok/not ok)
+S16-filehandles/io.t...............................  87    0    0    0   87
 S16-filehandles/io_in_for_loops.t..................  29    0    0    0   29
 S16-filehandles/io_in_while_loops.t................  13    0    0    0   13
 S16-filehandles/mkdir_rmdir.t......................  14    0    0    0   14
@@ -1890,10 +1933,7 @@ S16-io/cwd.t.......................................   3    0    0    0    3
 S16-io/getc.t......................................   2    0    0    0    2
 S16-io/say-and-ref.t...............................   3    0    0    0    3
 S16-io/say.t.......................................   8    0    0    0    8
-S16-io/tmpdir.t....................................moar(83111,0x7fff72d10310) malloc: *** error for object 0x7f808eb1a310: incorrect checksum for freed object - object was probably modified after being freed.
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 83111 Abort trap: 6           nice -20 ./perl6-m t/spec/S16-io/tmpdir.t
-   3    0    0    0    3
+S16-io/tmpdir.t....................................   3    0    0    0    3
 S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
      2 skipped: contextual rebinding regression
                                                    pass fail todo skip plan
@@ -1904,11 +1944,7 @@ S17-procasync/basic.t..............................   9    0    0    0    9
 S17-promise/allof.t................................  10    0    0    0   10
 S17-promise/anyof.t................................   9    0    0    0    9
 S17-promise/basic.t................................  19    0    0    0   19
-S17-promise/in.t...................................moar(83141,0x7fff72d10310) malloc: *** error for object 0x7fcf74acb910: incorrect checksum for freed object - object was probably modified after being freed.
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 83141 Abort trap: 6           nice -20 ./perl6-m t/spec/S17-promise/in.t
-   0    2    0    0    2
-     2 tests aborted (missing ok/not ok)
+S17-promise/in.t...................................   2    0    0    0    2
 S17-promise/start.rakudo.moar......................  13    0    0    2   15
      2 skipped: RT #122715
 S17-promise/then.t.................................  14    0    0    0   14
@@ -2029,14 +2065,33 @@ S17-supply/zip.t...................................# **** scheduling with Curren
    8    0    0    0    8
                                                    pass fail todo skip plan
 S19-command-line-options/02-dash-n.t...............   3    0    0    0    3
-S19-command-line-options/03-dash-p.t...............   2    0    0    0    2
+S19-command-line-options/03-dash-p.t...............sh: line 1: 41714 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S19-command-line-options/03-dash-p.t
+   0    2    0    0    2
+     2 tests aborted (missing ok/not ok)
 S19-command-line/arguments.t.......................   1    0    0    0    1
-S19-command-line/dash-e.t..........................   4    0    0    0    4
+S19-command-line/dash-e.t..........................p6list may only be used on a concrete List
+  in sub GATHER at src/gen/m-CORE.setting:8583
+  in method match at src/gen/m-CORE.setting:6703
+  in method Bool at src/gen/m-CORE.setting:14253
+  in sub get_out at .../sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Util.pm:90
+  in sub is_run at .../sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Util.pm:23
+  in sub is_run at .../sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Util.pm:18
+  in block <unit> at t/spec/S19-command-line/dash-e.t:10
+
+Unhandled exception: p6list may only be used on a concrete List
+   at <unknown>:1  (././CORE.setting.moarvm:print_exception:4294967295)
+ from src/gen/m-CORE.setting:12405  (././CORE.setting.moarvm:<anon>:40)
+ from gen/moar/stage2/NQPHLL.nqp:1370  (.../sandbox/perl6-roast-data/rakudo.moar-jit/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:374)
+ from src/Perl6/Compiler.nqp:17  (./blib/Perl6/Compiler.moarvm:command_eval:93)
+ from gen/moar/stage2/NQPHLL.nqp:1310  (.../sandbox/perl6-roast-data/rakudo.moar-jit/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)
+ from src/gen/m-main.nqp:39  (.../sandbox/perl6-roast-data/rakudo.moar-jit/perl6.moarvm:MAIN:18)
+ from src/gen/m-main.nqp:35  (.../sandbox/perl6-roast-data/rakudo.moar-jit/perl6.moarvm:<mainline>:197)
+ from <unknown>:1  (.../sandbox/perl6-roast-data/rakudo.moar-jit/perl6.moarvm:<main>:8)
+ from <unknown>:1  (.../sandbox/perl6-roast-data/rakudo.moar-jit/perl6.moarvm:<entry>:9)
+   0    4    0    0    4
+     4 tests aborted (missing ok/not ok)
 S19-command-line/help.t............................   1    0    0    0    1
-S19-command-line/repl.t............................moar(83443,0x7fff72d10310) malloc: *** error for object 0x7fb573a8a610: incorrect checksum for freed object - object was probably modified after being freed.
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 83443 Abort trap: 6           nice -20 ./perl6-m t/spec/S19-command-line/repl.t
-   1    0    0    0    1
+S19-command-line/repl.t............................   1    0    0    0    1
                                                    pass fail todo skip plan
 S22-package-format/local.t.........................Saw 1 call to deprecated code during execution.
 ================================================================================
@@ -2090,11 +2145,7 @@ S26-documentation/why-trailing.t................... 320    0    0   14  334
      7 skipped: declaration comments are NYI on variables
      7 skipped: declaration comments are NYI on constants
                                                    pass fail todo skip plan
-S28-named-variables/cwd.t..........................moar(83521,0x7fff72d10310) malloc: *** error for object 0x7fdc25aeb9b0: incorrect checksum for freed object - object was probably modified after being freed.
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 83521 Abort trap: 6           nice -20 ./perl6-m t/spec/S28-named-variables/cwd.t
-   1    1    0    0    2
-     1 tests aborted (missing ok/not ok)
+S28-named-variables/cwd.t..........................   2    0    0    0    2
 S28-named-variables/inc.t..........................   5    0    0    0    5
                                                    pass fail todo skip plan
 S29-any/cmp.t......................................   6    0    0    0    6
@@ -2163,9 +2214,7 @@ S32-array/push.t...................................  51    0    0    0   51
 S32-array/rotate.t.................................  27    0    0    0   27
 S32-array/shift.t..................................  31    0    0    0   31
 S32-array/splice.t.................................  38    0    0    0   38
-S32-array/unshift.t................................sh: line 1: 83634 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S32-array/unshift.t
-  48    9    0    0   57
-     9 tests aborted (missing ok/not ok)
+S32-array/unshift.t................................  57    0    0    0   57
 S32-basics/warn.rakudo.moar........................# It's OK to see this warning during a test run  in block  at t/spec/S32-basics/warn.rakudo.moar:14
 
    5    0    2    0    7
@@ -2250,7 +2299,7 @@ S32-io/dir.rakudo.moar.............................   8    0    4    0   12
      1 todo   : directories are not marked with trailing / yet
      1 todo   : $*CWD misses slash at end still
 S32-io/file-tests.t................................  34    0    0    0   34
-S32-io/io-path-cygwin.rakudo.moar..................use of uninitialized value $CWD of type Any in string context  in method bless at ././CORE.setting.moarvm:1
+S32-io/io-path-cygwin.rakudo.moar..................use of uninitialized value $CWD of type Any in string context  in block <unit> at t/spec/S32-io/io-path-cygwin.rakudo.moar:9
 
 Saw 1 call to deprecated code during execution.
 ================================================================================
@@ -2263,11 +2312,11 @@ Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
   49    0    1    0   50
      1 todo   : resolve NYI, needs nqp::readlink
-S32-io/io-path-unix.rakudo.moar....................use of uninitialized value $CWD of type Any in string context  in method bless at ././CORE.setting.moarvm:1
+S32-io/io-path-unix.rakudo.moar....................use of uninitialized value $CWD of type Any in string context  in block <unit> at t/spec/S32-io/io-path-unix.rakudo.moar:9
 
   34    0    1    0   35
      1 todo   : resolve NYI, needs nqp::readlink
-S32-io/io-path-win.rakudo.moar.....................use of uninitialized value $CWD of type Any in string context  in method bless at ././CORE.setting.moarvm:1
+S32-io/io-path-win.rakudo.moar.....................use of uninitialized value $CWD of type Any in string context  in block <unit> at t/spec/S32-io/io-path-win.rakudo.moar:8
 
   48    0    1    0   49
      1 todo   : resolve NYI, needs nqp::readlink
@@ -2688,11 +2737,7 @@ integration/99problems-61-to-70.t..................   9    0    0    6   15
      1 skipped: Test(s) not yet written: (**) A string representation of binary trees
      1 skipped: Test(s) not yet written: (**) Preorder and inorder sequences of binary trees
      1 skipped: Test(s) not yet written: (**) Construct a complete binary tree
-integration/advent2009-day01.t.....................moar(84343,0x7fff72d10310) malloc: *** error for object 0x7fcf45a8ae50: incorrect checksum for freed object - object was probably modified after being freed.
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 84343 Abort trap: 6           nice -20 ./perl6-m t/spec/integration/advent2009-day01.t
-   1    1    0    0    2
-     1 tests aborted (missing ok/not ok)
+integration/advent2009-day01.t.....................   2    0    0    0    2
 integration/advent2009-day02.t.....................  10    0    0    0   10
 integration/advent2009-day03.t.....................   6    0    0    0    6
 integration/advent2009-day04.t.....................   6    0    0    0    6
@@ -2707,15 +2752,18 @@ integration/advent2009-day12.t.....................   9    0    0    0    9
 integration/advent2009-day13.t.....................  16    0    0    0   16
 integration/advent2009-day14.t.....................  21    0    0    0   21
 integration/advent2009-day15.t.....................   4    0    0    0    4
-integration/advent2009-day16.t.....................use of uninitialized value $other of type Any in string context  in sub weather at t/spec/integration/advent2009-day16.t:9
-
-use of uninitialized value $other of type Any in string context  in sub weather at t/spec/integration/advent2009-day16.t:10
-
-use of uninitialized value $other of type Any in string context  in sub weather at t/spec/integration/advent2009-day16.t:11
-
-use of uninitialized value $other of type Any in string context  in sub weather at t/spec/integration/advent2009-day16.t:12
-
-  11    0    0    0   11
+integration/advent2009-day16.t.....................Unhandled exception: Cannot call method 'STORE' on a null object
+   at <unknown>:1  (././CORE.setting.moarvm:print_exception:4294967295)
+ from src/gen/m-CORE.setting:12405  (././CORE.setting.moarvm:<anon>:40)
+ from gen/moar/stage2/NQPHLL.nqp:1370  (.../sandbox/perl6-roast-data/rakudo.moar-jit/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:374)
+ from src/Perl6/Compiler.nqp:17  (./blib/Perl6/Compiler.moarvm:command_eval:93)
+ from gen/moar/stage2/NQPHLL.nqp:1310  (.../sandbox/perl6-roast-data/rakudo.moar-jit/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)
+ from src/gen/m-main.nqp:39  (.../sandbox/perl6-roast-data/rakudo.moar-jit/perl6.moarvm:MAIN:18)
+ from src/gen/m-main.nqp:35  (.../sandbox/perl6-roast-data/rakudo.moar-jit/perl6.moarvm:<mainline>:197)
+ from <unknown>:1  (.../sandbox/perl6-roast-data/rakudo.moar-jit/perl6.moarvm:<main>:8)
+ from <unknown>:1  (.../sandbox/perl6-roast-data/rakudo.moar-jit/perl6.moarvm:<entry>:9)
+   0   11    0    0   11
+    11 tests aborted (missing ok/not ok)
 integration/advent2009-day17.t.....................  62    0    0    0   62
 integration/advent2009-day18.t.....................   7    0    0    0    7
 integration/advent2009-day19.t.....................   6    0    0    0    6
@@ -2752,17 +2800,9 @@ integration/advent2011-day15.t.....................   9    0    0    0    9
 integration/advent2011-day16.t.....................  11    0    0    0   11
 integration/advent2011-day20.t.....................  16    0    0    0   16
 integration/advent2011-day22.t.....................   2    0    0    0    2
-integration/advent2011-day23.rakudo.moar...........Saw 1 call to deprecated code during execution.
-================================================================================
-Method uniq (from List) called at:
-  t/spec/integration/advent2011-day23.rakudo.moar, line 91
-Deprecated since v2014.11, will be removed with release v2015.11!
-Please use unique instead.
---------------------------------------------------------------------------------
-Please contact the author to have these calls to deprecated code adapted,
-so that this message will disappear!
-  54    0    1    0   55
-     1 todo   : RT #122306
+integration/advent2011-day23.rakudo.moar...........sh: line 1: 42724 Segmentation fault: 11  nice -20 ./perl6-m t/spec/integration/advent2011-day23.rakudo.moar
+   0   55    0    0   55
+    55 tests aborted (missing ok/not ok)
 integration/advent2011-day24.t.....................   8    0    0    0    8
 integration/advent2012-day02.t.....................   4    0    0    0    4
 integration/advent2012-day03.t.....................   2    0    0    0    2
@@ -2778,11 +2818,15 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................moar(84555,0x7fff72d10310) malloc: *** error for object 0x7fc3d5f06f48: pointer being freed was not allocated
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 84555 Abort trap: 6           nice -20 ./perl6-m t/spec/integration/advent2012-day21.t
-   0    9    0    0    9
-     9 tests aborted (missing ok/not ok)
+integration/advent2012-day21.t.....................# kaz: 1.0951640 seconds
+# recursive-ternary: 1.16010359 seconds
+# gerdr: 1.1606034 seconds
+# loop: 1.23892933 seconds
+# sequence-ternary: 2.04099285 seconds
+# recursive-ternary-hand-cached: 2.0597428 seconds
+# hand-memoization: 2.85749851 seconds
+# sequence: 2.8970359 seconds
+   9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
 integration/advent2012-day23.t.....................   2    0    0    0    2
@@ -2837,15 +2881,8 @@ integration/role-composition-vs-attribute.rakudo...   6    0    0    4   10
 integration/rule-in-class-Str.t....................   3    0    0    0    3
 integration/say-crash.t............................   4    0    0    0    4
 integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
-integration/topic_in_double_loop.t.................moar(84712,0x7fff72d10310) malloc: *** error for object 0x7fe7eb28ae80: incorrect checksum for freed object - object was probably modified after being freed.
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 84712 Abort trap: 6           nice -20 ./perl6-m t/spec/integration/topic_in_double_loop.t
-   0    5    0    0    5
-     5 tests aborted (missing ok/not ok)
-integration/variables-in-do.t......................moar(84716,0x7fff72d10310) malloc: *** error for object 0x7fd62331b750: incorrect checksum for freed object - object was probably modified after being freed.
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 84716 Abort trap: 6           nice -20 ./perl6-m t/spec/integration/variables-in-do.t
-   3    0    0    0    3
+integration/topic_in_double_loop.t.................   5    0    0    0    5
+integration/variables-in-do.t......................   3    0    0    0    3
 integration/weird-errors.t.........................  12    0    0    0   12
                                                    pass fail todo skip plan
 rosettacode/greatest_element_of_a_list.t...........   1    0    0    0    1
@@ -2853,43 +2890,45 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5058,    42,   122,   359,  5581,  5673
-"S03",        4916,     4,   107,    95,  5122,  5156
-"S04",        1016,     3,    44,    42,  1105,  1157
-"S05",        5266,     0,   101,   178,  5545,  5926
-"S06",        1197,     3,    35,   102,  1337,  1417
+"S02",        5041,    58,   123,   359,  5581,  5673
+"S03",        4796,   124,   106,   100,  5126,  5160
+"S04",        1019,     0,    44,    42,  1105,  1157
+"S05",        5222,    46,   100,   178,  5546,  5927
+"S06",        1141,    59,    36,   101,  1337,  1417
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         186,     0,    11,    10,   207,   207
 "S10",          87,     0,     4,     1,    92,   149
 "S11",         107,     0,     4,    14,   125,   144
-"S12",        1368,     2,    46,   121,  1537,  1595
+"S12",        1329,    54,    44,   110,  1537,  1595
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         303,     0,    10,    10,   323,   336
 "S15",         240,     0,     2,    16,   258,   283
-"S16",         203,    44,     0,    16,   263,   307
-"S17",         648,     2,     4,    22,   676,   700
-"S19",          12,     0,     0,     0,    12,    17
+"S16",         247,     0,     0,    16,   263,   307
+"S17",         650,     0,     4,    22,   676,   700
+"S19",           6,     6,     0,     0,    12,    17
 "S22",          52,     0,     1,     0,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
 "S26",        1236,     0,     4,    44,  1284,  1945
-"S28",           6,     1,     0,     0,     7,    13
+"S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     4,     2,   344,   354
-"S32",        9151,     9,   125,   165,  9450,  7884
-"int",        1193,    15,    12,    19,  1239,  1228
+"S32",        9160,     0,   125,   165,  9450,  7884
+"int",        1143,    66,    11,    19,  1239,  1228
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32622,   125,   646,  1243, 34636, 34769
+"total",     32349,   413,   643,  1236, 34641, 34774
 ----------------
 Failure summary:
-S02-literals/radix.rakudo.moar aborted 42 test(s)
-S03-operators/subscript-vs-lt.t aborted 4 test(s)
-S04-phasers/eval-in-begin.t aborted 3 test(s)
-S06-traits/is-readonly.rakudo.moar aborted 3 test(s)
-S12-methods/how.t aborted 1 test(s)
-S12-subset/multi-dispatch.t aborted 1 test(s)
-S16-filehandles/io.t aborted 44 test(s)
-S17-promise/in.t aborted 2 test(s)
-S28-named-variables/cwd.t aborted 1 test(s)
-S32-array/unshift.t aborted 9 test(s)
-integration/advent2009-day01.t aborted 1 test(s)
-integration/advent2012-day21.t aborted 9 test(s)
-integration/topic_in_double_loop.t aborted 5 test(s)
+S02-magicals/env.rakudo.moar 9 - %ENV not visible by default
+S02-types/lazy-lists.t aborted 21 test(s)
+S02-types/version.t aborted 36 test(s)
+S03-operators/buf.t aborted 3 test(s)
+S03-operators/range-basic.t aborted 117 test(s)
+S03-operators/range.rakudo.moar aborted 4 test(s)
+S05-match/capturing-contexts.rakudo.moar aborted 46 test(s)
+S06-other/main.t aborted 5 test(s)
+S06-signature/introspection.rakudo.moar aborted 51 test(s)
+S06-signature/positional-placeholders.t aborted 3 test(s)
+S12-introspection/methods.rakudo.moar aborted 54 test(s)
+S19-command-line-options/03-dash-p.t aborted 2 test(s)
+S19-command-line/dash-e.t aborted 4 test(s)
+integration/advent2009-day16.t aborted 11 test(s)
+integration/advent2011-day23.rakudo.moar aborted 55 test(s)
