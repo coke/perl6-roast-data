@@ -25,7 +25,7 @@ my $best = "";
 my $max = 0;
 foreach my $type (keys %impls) {
 
-    my $output = `grep '"total"' log/${type}_summary.out`;
+    my $output = `grep -a '"total"' log/${type}_summary.out`;
     $output =~ s/total/$type/;
     chomp $output;
     $csv->parse($output);
