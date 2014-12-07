@@ -342,8 +342,13 @@ S02-types/mixhash.rakudo.moar...................... 187    0    3   24  214
      3 skipped: No longer Iterable
      1 todo   : Needs to catch up with spec
      2 todo   : in flux
-S02-types/multi_dimensional_array.rakudo.moar......  48    0    0   10   58
+S02-types/multi_dimensional_array.rakudo.moar......Cannot invoke null object
+  in block <unit> at t/spec/S02-types/multi_dimensional_array.rakudo.moar:48
+
+# Looks like you planned 58 tests, but ran 10
+   0   48    0   10   58
     10 skipped: multi-dim sized arrays NYI
+    48 tests aborted (missing ok/not ok)
 S02-types/nan.rakudo.moar..........................  19    0    0    2   21
      1 skipped: unspecced and inconsistent
      1 skipped: RT #83446
@@ -1541,12 +1546,12 @@ S10-packages/basic.rakudo.moar.....................  60    0    2    1   63
      1 todo   : ticket based only on class... RT #60446
      1 todo   : RT #64606
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
-S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 18486 Segmentation fault: 11  ./perl6-m getout-18474-554280.code < getout-18474-554280.in > getout-18474-554280.out 2> getout-18474-554280.err
+S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 74975 Segmentation fault: 11  ./perl6-m getout-74963-730537.code < getout-74963-730537.in > getout-74963-730537.out 2> getout-74963-730537.err
 # error: Could not find symbol '&C1'
 #   in method <anon> at src/gen/m-CORE.setting:13772
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2725
 #   in any find_method at src/gen/m-Metamodel.nqp:988
-#   in block <unit> at getout-18474-993973.code:3
+#   in block <unit> at getout-74963-6232.code:3
 
 
   15    0    2    0   17
@@ -1682,8 +1687,7 @@ S12-enums/misc.rakudo.moar.........................  14    0    0    1   15
 S12-enums/non-int.rakudo.moar......................   5    0    1    0    6
      1 todo   : NYI
 S12-enums/pseudo-functional.t......................  11    0    0    0   11
-S12-enums/thorough.rakudo.moar.....................sh: line 1: 18666 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S12-enums/thorough.rakudo.moar
-  14    0    0   20   34
+S12-enums/thorough.rakudo.moar.....................  14    0    0   20   34
      2 skipped: NYI
     16 skipped: does &day::("Tue")
      2 skipped: does day::Tue
@@ -1845,8 +1849,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1417788147
-# Using file temp_1417788147
+S16-filehandles/chmod.t............................# Using file temp_1417969613
+# Using file temp_1417969613
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2066,9 +2070,8 @@ S29-context/die.rakudo.moar........................WARNINGS:
 Useless use of variable $foo in sink context (line 23)
   15    0    1    0   16
      1 todo   : RT #67374
-S29-context/eval.rakudo.moar.......................sh: line 1: 19261 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S29-context/eval.rakudo.moar
-   0   21    0    0   21
-    21 tests aborted (missing ok/not ok)
+S29-context/eval.rakudo.moar.......................  19    0    0    2   21
+     2 skipped: EVAL(Buf) RT #122256
 S29-context/exit-in-if.t...........................   1    0    0    0    1
 S29-context/exit.t.................................   3    0    0    0    3
 S29-context/sleep.t................................# sleep-timer() for 3 seconds
@@ -2227,8 +2230,11 @@ so that this message will disappear!
      1 todo   : resolve NYI, needs nqp::readlink
 S32-io/io-path-unix.rakudo.moar....................use of uninitialized value $CWD of type Any in string context  in block <unit> at t/spec/S32-io/io-path-unix.rakudo.moar:9
 
-  34    0    1    0   35
-     1 todo   : resolve NYI, needs nqp::readlink
+===SORRY!===
+Cannot find method 'BUILDALL'
+# Looks like you planned 35 tests, but ran 7
+   7   28    0    0   35
+    28 tests aborted (missing ok/not ok)
 S32-io/io-path-win.rakudo.moar.....................use of uninitialized value $CWD of type Any in string context  in block <unit> at t/spec/S32-io/io-path-win.rakudo.moar:8
 
   48    0    1    0   49
@@ -2252,35 +2258,6 @@ S32-io/io-spec-cygwin.t............................ 100    0    0    2  102
      2 skipped: cygwin on-platform tests
 S32-io/io-spec-unix.t..............................use of uninitialized value $path of type Any in string context  in block <unit> at t/spec/S32-io/io-spec-unix.t:48
 
-Saw 5 calls to deprecated code during execution.
-================================================================================
-Method no-parent-or-current-test (from IO::Spec::Unix) called at:
-  t/spec/S32-io/io-spec-unix.t, lines 71,72,73,74
-Deprecated since v2014.10, will be removed with release v2015.10!
-Please use curupdir instead.
---------------------------------------------------------------------------------
-Method MODULE (from IO::Spec) called at:
-  t/spec/S32-io/io-spec-unix.t, line 195
-Deprecated since v2014.10, will be removed with release v2015.10!
-Please use $*SPEC instead.
---------------------------------------------------------------------------------
-Method curdir (from IO::Spec) called at:
-  t/spec/S32-io/io-spec-unix.t, line 196
-Deprecated since v2014.10, will be removed with release v2015.10!
-Please use $*SPEC.curdir instead.
---------------------------------------------------------------------------------
-Method rel2abs (from IO::Spec) called at:
-  t/spec/S32-io/io-spec-unix.t, line 196
-Deprecated since v2014.10, will be removed with release v2015.10!
-Please use $*SPEC.rel2abs instead.
---------------------------------------------------------------------------------
-Method tmpdir (from IO::Spec) called at:
-  t/spec/S32-io/io-spec-unix.t, line 197
-Deprecated since v2014.10, will be removed with release v2015.10!
-Please use $*TMPDIR instead.
---------------------------------------------------------------------------------
-Please contact the author to have these calls to deprecated code adapted,
-so that this message will disappear!
  130    0    0    0  130
 S32-io/io-spec-win.t...............................use of uninitialized value $path of type Any in string context  in block <unit> at t/spec/S32-io/io-spec-win.t:52
 
@@ -2736,14 +2713,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 0.947833 seconds
-# gerdr: 0.9645289 seconds
-# recursive-ternary: 1.03269779 seconds
-# loop: 1.0523021 seconds
-# recursive-ternary-hand-cached: 1.76552315 seconds
-# sequence-ternary: 1.7804612 seconds
-# hand-memoization: 2.4935783 seconds
-# sequence: 2.5497603 seconds
+integration/advent2012-day21.t.....................# gerdr: 0.9677122 seconds
+# kaz: 0.9889874 seconds
+# loop: 1.1173437 seconds
+# recursive-ternary: 1.1461587 seconds
+# recursive-ternary-hand-cached: 1.81270808 seconds
+# sequence-ternary: 1.8362013 seconds
+# hand-memoization: 2.63502684 seconds
+# sequence: 2.63924131 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2779,7 +2756,8 @@ integration/advent2013-day20.t.....................  22    0    0    0   22
 integration/advent2013-day21.t.....................  24    0    0    0   24
 integration/advent2013-day22.t.....................   9    0    0    0    9
 integration/advent2013-day23.t.....................   9    0    0    0    9
-integration/advent2014-day05.t.....................   7    0    0    0    7
+integration/advent2014-day05.rakudo.moar...........   6    0    0    1    7
+     1 skipped: sometimes hangs, sometimes segfaults
 integration/code-blocks-as-sub-args.t..............   4    0    0    0    4
 integration/error-reporting.rakudo.moar............# Error message: Constraint type check failed for parameter '$x'
   15    0    1    0   16
@@ -2809,7 +2787,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5099,     0,   123,   359,  5581,  5673
+"S02",        5051,    48,   123,   359,  5581,  5673
 "S03",        4920,     0,   106,   100,  5126,  5160
 "S04",        1019,     0,    46,    42,  1107,  1159
 "S05",        5267,     0,   101,   178,  5546,  5927
@@ -2829,11 +2807,12 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S24",           1,     0,     0,     0,     1,    79
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
-"S29",         319,    21,     4,     0,   344,   354
-"S32",        9160,     0,   125,   165,  9450,  7884
-"int",        1215,     0,    12,    19,  1246,  1235
+"S29",         338,     0,     4,     2,   344,   354
+"S32",        9133,    28,   124,   165,  9450,  7884
+"int",        1214,     0,    12,    20,  1246,  1235
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32734,    21,   649,  1246, 34650, 34783
+"total",     32677,    76,   648,  1249, 34650, 34783
 ----------------
 Failure summary:
-S29-context/eval.rakudo.moar aborted 21 test(s)
+S02-types/multi_dimensional_array.rakudo.moar aborted 48 test(s)
+S32-io/io-path-unix.rakudo.moar aborted 28 test(s)
