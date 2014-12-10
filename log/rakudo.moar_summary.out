@@ -7,7 +7,9 @@ S02-lexical-conventions/bom.t......................   1    0    0    0    1
 S02-lexical-conventions/comments.rakudo.moar.......  49    0    0    2   51
      2 skipped: NYI, and hangs on JVM
 S02-lexical-conventions/end-pod.t..................   1    0    0    0    1
-S02-lexical-conventions/minimal-whitespace.t.......   9    0    0    0    9
+S02-lexical-conventions/minimal-whitespace.t.......sh: line 1: 69377 Segmentation fault: 11  nice -20 ./perl6-m t/spec/S02-lexical-conventions/minimal-whitespace.t
+   0    9    0    0    9
+     9 tests aborted (missing ok/not ok)
 S02-lexical-conventions/one-pass-parsing.t.........   3    0    0    0    3
 S02-lexical-conventions/pod-in-multi-line-exprs.t..   3    0    0    0    3
 S02-lexical-conventions/sub-block-parsing.t........  11    0    0    0   11
@@ -135,11 +137,7 @@ S02-magicals/env.rakudo.moar.......................# %*ENV<PUGS_ROCKS>=
      1 skipped: import fails, ENV not available: RT #122339
 S02-magicals/file_line.t...........................   2    0    0    0    2
 S02-magicals/pid.t.................................   2    0    0    0    2
-S02-magicals/progname.t............................moar(85643,0x7fff7823f310) malloc: *** error for object 0x10de6fa78: pointer being freed was not allocated
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 85643 Abort trap: 6           nice -20 ./perl6-m t/spec/S02-magicals/progname.t
-   3    1    0    0    4
-     1 tests aborted (missing ok/not ok)
+S02-magicals/progname.t............................   4    0    0    0    4
 S02-magicals/sub.t.................................Code object coerced to string (please use .gist or .perl to do that)  in sub is at lib/Test.pm:113
 
 Code object coerced to string (please use .gist or .perl to do that)  in sub is at lib/Test.pm:113
@@ -471,7 +469,11 @@ S03-feeds/basic.rakudo.moar........................  10    0    6    8   24
      2 todo   : feeds + signatures
      3 todo   : feeds + eager
 S03-junctions/associative.t........................  10    0    0    0   10
-S03-junctions/autothreading.t......................  89    0    0    0   89
+S03-junctions/autothreading.t......................moar(69814,0x7fff7823f310) malloc: *** error for object 0x7ff47e7c8288: pointer being freed was not allocated
+*** set a breakpoint in malloc_error_break to debug
+sh: line 1: 69814 Abort trap: 6           nice -20 ./perl6-m t/spec/S03-junctions/autothreading.t
+  59   30    0    0   89
+    30 tests aborted (missing ok/not ok)
 S03-junctions/boolean-context.rakudo.moar..........  76    0    1    0   77
      1 todo   : named unary as function call
 S03-junctions/misc.rakudo.moar.....................  99    0    2    4  105
@@ -1387,22 +1389,15 @@ S06-signature/introspection.rakudo.moar............  51    0    0    1   52
      1 skipped: expected Any but got Mu instead
 S06-signature/mixed-placeholders.t.................  12    0    0    0   12
 S06-signature/multidimensional.t...................  10    0    0    0   10
-S06-signature/named-parameters.rakudo.moar.........moar(88295,0x7fff7823f310) malloc: *** error for object 0x102dcca78: pointer being freed was not allocated
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 88295 Abort trap: 6           nice -20 ./perl6-m t/spec/S06-signature/named-parameters.rakudo.moar
-  28   48    0   17   93
+S06-signature/named-parameters.rakudo.moar.........  72    0    0   21   93
+     4 skipped: where constraints
      1 skipped: Not enough positional parameters passed; got 0 but expected 1
     16 skipped: multiple same-named arguments NYI
-    48 tests aborted (missing ok/not ok)
 S06-signature/named-placeholders.t.................   3    0    0    0    3
 S06-signature/named-renaming.t.....................  10    0    0    0   10
 S06-signature/optional.t...........................  26    0    0    0   26
 S06-signature/outside-subroutine.t.................   2    0    0    0    2
-S06-signature/passing-arrays.t.....................moar(88310,0x7fff7823f310) malloc: *** error for object 0x7f86b784bbc0: pointer being freed was not allocated
-*** set a breakpoint in malloc_error_break to debug
-sh: line 1: 88310 Abort trap: 6           nice -20 ./perl6-m t/spec/S06-signature/passing-arrays.t
-   5    6    0    0   11
-     6 tests aborted (missing ok/not ok)
+S06-signature/passing-arrays.t.....................  11    0    0    0   11
 S06-signature/passing-hashes.t.....................   3    0    0    0    3
 S06-signature/positional-placeholders.t............  10    0    0    0   10
 S06-signature/positional.t.........................   7    0    0    0    7
@@ -1552,12 +1547,12 @@ S10-packages/basic.rakudo.moar.....................  60    0    2    1   63
      1 todo   : ticket based only on class... RT #60446
      1 todo   : RT #64606
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
-S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 88415 Segmentation fault: 11  ./perl6-m getout-88403-794539.code < getout-88403-794539.in > getout-88403-794539.out 2> getout-88403-794539.err
+S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 70941 Segmentation fault: 11  ./perl6-m getout-70929-591959.code < getout-70929-591959.in > getout-70929-591959.out 2> getout-70929-591959.err
 # error: Could not find symbol '&C1'
 #   in method <anon> at src/gen/m-CORE.setting:13772
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2725
 #   in any find_method at src/gen/m-Metamodel.nqp:988
-#   in block <unit> at getout-88403-426570.code:3
+#   in block <unit> at getout-70929-60409.code:3
 
 
   15    0    2    0   17
@@ -1855,8 +1850,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1418142921
-# Using file temp_1418142921
+S16-filehandles/chmod.t............................# Using file temp_1418237879
+# Using file temp_1418237879
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2716,14 +2711,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 0.96244295 seconds
-# gerdr: 0.97625917 seconds
-# recursive-ternary: 1.06107272 seconds
-# loop: 1.12429801 seconds
-# recursive-ternary-hand-cached: 1.79270465 seconds
-# sequence-ternary: 1.916573 seconds
-# sequence: 2.67493835 seconds
-# hand-memoization: 2.696378 seconds
+integration/advent2012-day21.t.....................# kaz: 0.9881921 seconds
+# gerdr: 1.0138366 seconds
+# recursive-ternary: 1.13763212 seconds
+# loop: 1.1725873 seconds
+# recursive-ternary-hand-cached: 1.9100341 seconds
+# sequence-ternary: 1.9722923 seconds
+# hand-memoization: 2.6553448 seconds
+# sequence: 2.72205385 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2790,11 +2785,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5098,     1,   123,   359,  5581,  5673
-"S03",        4920,     0,   106,   100,  5126,  5160
+"S02",        5090,     9,   123,   359,  5581,  5673
+"S03",        4890,    30,   106,   100,  5126,  5160
 "S04",        1019,     0,    46,    42,  1107,  1159
 "S05",        5267,     0,   101,   178,  5546,  5927
-"S06",        1157,    54,    36,    92,  1339,  1428
+"S06",        1207,     0,    36,    96,  1339,  1428
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         186,     0,    11,    10,   207,   207
 "S10",          87,     0,     4,     1,    92,   149
@@ -2814,9 +2809,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9160,     0,   125,   165,  9450,  7884
 "int",        1214,     0,    12,    20,  1246,  1235
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32709,    55,   649,  1239, 34652, 34794
+"total",     32721,    39,   649,  1243, 34652, 34794
 ----------------
 Failure summary:
-S02-magicals/progname.t aborted 1 test(s)
-S06-signature/named-parameters.rakudo.moar aborted 48 test(s)
-S06-signature/passing-arrays.t aborted 6 test(s)
+S02-lexical-conventions/minimal-whitespace.t aborted 9 test(s)
+S03-junctions/autothreading.t aborted 30 test(s)
