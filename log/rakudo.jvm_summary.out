@@ -238,7 +238,7 @@ S02-types/nan.rakudo.jvm...........................  19    0    0    2   21
      1 skipped: RT #83446
 S02-types/native.rakudo.jvm........................  27    0    0    2   29
      2 skipped: RT #102416
-S02-types/nested_arrays.t..........................   8    0    0    0    8
+S02-types/nested_arrays.t..........................   9    0    0    0    9
 S02-types/nested_pairs.t...........................  14    0    0    0   14
 S02-types/nil.rakudo.jvm...........................  45    0    5    1   51
      1 skipped: triage
@@ -713,10 +713,7 @@ S05-modifier/ignorecase.rakudo.jvm.................  23    0    2    0   25
      2 todo   : ignorecase and SS/&szlig;
 S05-modifier/ii.rakudo.jvm.........................  12    0    6    0   18
      6 todo   : NYI
-S05-modifier/overlapping.rakudo.jvm................   0   37    4    0   41
-     1 todo   : m:overlap NYI
-     3 todo PASSED: m:overlap NYI
-    37 tests aborted (missing ok/not ok)
+S05-modifier/overlapping.t.........................  22    0    0    0   22
 S05-modifier/perl5_0.rakudo.jvm....................  20    0    4    0   24
      4 todo   : NYI
 S05-modifier/perl5_1.t............................. 100    0    0    0  100
@@ -746,7 +743,7 @@ S05-modifier/repetition.rakudo.jvm.................  10    0    2    0   12
 S05-modifier/sigspace.t............................  16    0    0    0   16
 S05-substitution/67222.t...........................   1    0    0    0    1
 S05-substitution/match.t...........................  13    0    0    0   13
-S05-substitution/subst.rakudo.jvm.................. 136    0    1    5  142
+S05-substitution/subst.rakudo.jvm.................. 140    0    1    5  146
      2 skipped: s:g[...] =
      3 skipped: s[...] op= RHS
      1 todo   : be smarter about constant detection
@@ -1033,7 +1030,8 @@ S12-introspection/roles.rakudo.jvm.................   8    0    0    4   12
      4 skipped: .^roles(:tree)
 S12-introspection/walk.t...........................  11    0    0    0   11
 S12-meta/exporthow.t...............................   8    0    0    0    8
-S12-meta/primitives.t..............................  11    6    0    0   17
+S12-meta/primitives.rakudo.jvm.....................  11    0    6    0   17
+     6 todo   : RT #123426
 S12-methods/accessors.t............................   8    0    0    0    8
 S12-methods/attribute-params.t.....................  13    0    0    0   13
 S12-methods/calling_sets.rakudo.jvm................  21    0    0   11   32
@@ -1353,8 +1351,7 @@ S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.jvm..........................  19    0   10    0   29
     10 todo   : binding on hash elements unimplemented
-S32-io/IO-Socket-INET.t............................   0    0    0   47   47
-    47 skipped: Operating system not yet supported
+S32-io/IO-Socket-INET.t............................  47    0    0    0   47
 S32-io/chdir.rakudo.jvm............................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
@@ -1692,16 +1689,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5056,     6,   142,   377,  5581,  5673
+"S02",        5057,     6,   142,   377,  5582,  5674
 "S03",        4927,     0,   106,    94,  5127,  5161
 "S04",        1000,     0,    49,    58,  1107,  1159
-"S05",        5169,    37,   100,   259,  5565,  5946
+"S05",        5195,     0,    96,   259,  5550,  5931
 "S06",        1200,     0,    37,   102,  1339,  1428
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         186,     0,    11,    10,   207,   207
 "S10",          80,     0,    11,     1,    92,   149
 "S11",          85,     0,    26,    14,   125,   144
-"S12",        1376,     6,    51,   121,  1554,  1612
+"S12",        1376,     0,    57,   121,  1554,  1612
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         298,     0,    13,    12,   323,   336
 "S15",           0,     0,     0,     0,     0,   283
@@ -1713,10 +1710,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     3,     3,   344,   354
-"S32",        9155,     0,   109,   186,  9450,  7884
+"S32",        9202,     0,   109,   139,  9450,  7884
 "int",        1208,     1,    15,    22,  1246,  1235
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32281,    50,   716,  1375, 34422, 34831
+"total",     32355,     7,   718,  1328, 34408, 34817
 ----------------
 Failure summary:
 S02-types/mix.rakudo.jvm 125 - We got one of the two choices (and this was pretty quick, we hope!)
@@ -1725,11 +1722,4 @@ S02-types/mix.rakudo.jvm 127 - .roll(100) (1)
 S02-types/mixhash.rakudo.jvm 135 - We got one of the two choices (and this was pretty quick, we hope!)
 S02-types/mixhash.rakudo.jvm 136 - .roll(100) returns 100 items
 S02-types/mixhash.rakudo.jvm 137 - .roll(100) (1)
-S05-modifier/overlapping.rakudo.jvm aborted 37 test(s)
-S12-meta/primitives.t 10 - Union type works with cache (1)
-S12-meta/primitives.t 11 - Union type works with cache (2)
-S12-meta/primitives.t 12 - Union type works with cache (3)
-S12-meta/primitives.t 13 - Union type works with cache (4)
-S12-meta/primitives.t 16 - Really did use type cache
-S12-meta/primitives.t 17 - Really did use method cache
 integration/advent2012-day21.rakudo.jvm 3 - recursive-ternary-hand-cached
