@@ -544,15 +544,15 @@ S03-metaops/cross.rakudo.parrot....................  29    0    0    1   30
 S03-metaops/eager-hyper.rakudo.parrot..............   5    0    1    2    8
      2 skipped: hyper prefix NYI
      1 todo   : Array assignment is not lazy -- is this test wrong?
-S03-metaops/hyper.rakudo.parrot....................use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-metaops/hyper.rakudo.parrot:399
+S03-metaops/hyper.rakudo.parrot....................use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-metaops/hyper.rakudo.parrot:392
 
-use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-metaops/hyper.rakudo.parrot:405
+use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-metaops/hyper.rakudo.parrot:398
 
-use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-metaops/hyper.rakudo.parrot:427
+use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-metaops/hyper.rakudo.parrot:420
 
-use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-metaops/hyper.rakudo.parrot:438
+use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-metaops/hyper.rakudo.parrot:431
 
- 248    0    6    6  260
+ 247    0    6    6  259
      1 skipped: EVAL(Buf)
      3 skipped: .++ does not work: RT #122342
      2 skipped: nom regression: possible spec change/improvement
@@ -883,7 +883,8 @@ S03-operators/ternary.t............................  17    0    0    0   17
 S03-operators/value_equivalence.rakudo.parrot......  73    0    2    0   75
      1 todo   : .WHICH based on type names
      1 todo   : \@a seems to flatten when it should not
-S03-sequence/arity-2-or-more.t.....................  19    0    0    0   19
+S03-sequence/arity-2-or-more.rakudo.parrot.........  19    0    0    1   20
+     1 skipped: RT #117825
 S03-sequence/arity0.t..............................  13    0    0    0   13
 S03-sequence/basic.rakudo.parrot................... 129    0    1    0  130
      1 todo   : sequence + last
@@ -1614,11 +1615,11 @@ S10-packages/basic.rakudo.parrot...................  59    0    2    2   63
      1 todo   : RT #64606
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
 S10-packages/precompilation.rakudo.parrot..........# error: Could not find symbol '&C1'
-#   in method <anon> at gen/parrot/CORE.setting:13787
+#   in method <anon> at gen/parrot/CORE.setting:13781
 #   in any find_method_fallback at gen/parrot/Metamodel.nqp:2807
 #   in any find_method at gen/parrot/Metamodel.nqp:989
 #   in any  at gen/parrot/BOOTSTRAP.nqp:1708
-#   in block <unit> at getout-36944-613559.code:3
+#   in block <unit> at getout-18415-211969.code:3
 
 
   16    0    1    0   17
@@ -1811,7 +1812,7 @@ S12-methods/defer-call.t...........................  14    0    0    0   14
 S12-methods/defer-next.rakudo.parrot...............  20    0    1    0   21
      1 todo   : variant of RT #69608
 S12-methods/delegation.t...........................   7    0    0    0    7
-S12-methods/fallback.t.............................  11    0    0    0   11
+S12-methods/fallback.t.............................  13    0    0    0   13
 S12-methods/how.t..................................   2    0    0    0    2
 S12-methods/indirect_notation.rakudo.parrot........  16    0    0   21   37
      6 skipped: .@foo not yet working
@@ -1906,8 +1907,8 @@ S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.parrot..................  12    0    1    0   13
      1 todo   : trait mod / .wrap interaction
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1418745750
-# Using file temp_1418745750
+S16-filehandles/chmod.t............................# Using file temp_1419010014
+# Using file temp_1419010014
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2306,7 +2307,7 @@ S32-list/uniq.t....................................Saw 2 calls to deprecated cod
 Method uniq (from List) called at:
   t/spec/S32-list/uniq.t, lines 114,128,15,36,55,85,99
 Deprecated since v2014.11, will be removed with release v2015.11!
-  gen/parrot/CORE.setting, lines 1316,2156
+  gen/parrot/CORE.setting, lines 1312,2152
 Deprecated since v2014.11, will be removed with release v2015.11!
   EVAL_0, line 1
 Deprecated since v2014.11, will be removed with release v2015.11!
@@ -2315,7 +2316,7 @@ Please use unique instead.
 Method uniq (from Any) called at:
   t/spec/S32-list/uniq.t, lines 46,47,61
 Deprecated since v2014.11, will be removed with release v2015.11!
-  gen/parrot/CORE.setting, line 1316
+  gen/parrot/CORE.setting, line 1312
 Deprecated since v2014.11, will be removed with release v2015.11!
 Please use unique instead.
 --------------------------------------------------------------------------------
@@ -2655,13 +2656,13 @@ integration/advent2012-day15.rakudo.parrot.........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.rakudo.parrot.........# kaz: 2.39918023 seconds
-# gerdr: 2.42080370 seconds
-# recursive-ternary: 3.064780 seconds
-# loop: 3.26566407 seconds
-# sequence-ternary: 6.9540208 seconds
-# recursive-ternary-hand-cached: 8.1193051 seconds
-# sequence: 10.97112943 seconds
+integration/advent2012-day21.rakudo.parrot.........# kaz: 2.17075908 seconds
+# gerdr: 2.2789816 seconds
+# recursive-ternary: 2.87502798 seconds
+# loop: 3.0678881 seconds
+# sequence-ternary: 6.6037263 seconds
+# recursive-ternary-hand-cached: 7.73097000 seconds
+# sequence: 10.57780643 seconds
    8    0    0    1    9
      1 skipped: RT #122497
 integration/advent2012-day22.rakudo.parrot.........   5    0    1    0    6
@@ -2713,7 +2714,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
 "S02",        5028,     0,   120,   434,  5582,  5674
-"S03",        4927,     0,   106,    94,  5127,  5161
+"S03",        4926,     0,   106,    95,  5127,  5161
 "S04",        1011,     0,    50,    46,  1107,  1159
 "S05",        5195,     0,    96,   259,  5550,  5931
 "S06",        1202,     0,    39,    98,  1339,  1428
@@ -2721,7 +2722,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S09",         186,     0,    11,    10,   207,   207
 "S10",          87,     0,     3,     2,    92,   149
 "S11",         107,     0,     4,    14,   125,   144
-"S12",        1378,     0,    48,   139,  1565,  1623
+"S12",        1380,     0,    48,   139,  1567,  1625
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         304,     0,     8,    11,   323,   336
 "S15",           0,     0,     0,     0,     0,   283
@@ -2736,6 +2737,6 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9206,     0,   115,   129,  9450,  7884
 "int",        1197,     0,     9,    19,  1225,  1235
 "ros",           2,     0,     0,     0,     2,     2
-"total",     31758,     0,   628,  1345, 33731, 34828
+"total",     31759,     0,   628,  1346, 33733, 34830
 ----------------
 No failures!

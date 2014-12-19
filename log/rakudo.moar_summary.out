@@ -482,11 +482,11 @@ S03-metaops/hyper.rakudo.moar......................use of uninitialized value of
 
 use of uninitialized value of type Any in numeric context  in sub hyper at ././CORE.setting.moarvm:1
 
-use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-metaops/hyper.rakudo.moar:427
+use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-metaops/hyper.rakudo.moar:420
 
-use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-metaops/hyper.rakudo.moar:438
+use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-metaops/hyper.rakudo.moar:431
 
- 248    0    6    6  260
+ 247    0    6    6  259
      1 skipped: EVAL(Buf)
      3 skipped: .++ does not work: RT #122342
      2 skipped: nom regression: possible spec change/improvement
@@ -817,7 +817,7 @@ S03-operators/ternary.t............................  17    0    0    0   17
 S03-operators/value_equivalence.rakudo.moar........  73    0    2    0   75
      1 todo   : .WHICH based on type names
      1 todo   : \@a seems to flatten when it should not
-S03-sequence/arity-2-or-more.t.....................  19    0    0    0   19
+S03-sequence/arity-2-or-more.t.....................  20    0    0    0   20
 S03-sequence/arity0.t..............................  13    0    0    0   13
 S03-sequence/basic.rakudo.moar..................... 129    0    1    0  130
      1 todo   : sequence + last
@@ -1527,12 +1527,12 @@ S10-packages/basic.rakudo.moar.....................  60    0    2    1   63
      1 todo   : ticket based only on class... RT #60446
      1 todo   : RT #64606
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
-S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 12108 Segmentation fault: 11  ./perl6-m getout-12095-782367.code < getout-12095-782367.in > getout-12095-782367.out 2> getout-12095-782367.err
+S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 97783 Segmentation fault: 11  ./perl6-m getout-97749-681705.code < getout-97749-681705.in > getout-97749-681705.out 2> getout-97749-681705.err
 # error: Could not find symbol '&C1'
-#   in method <anon> at src/gen/m-CORE.setting:13847
+#   in method <anon> at src/gen/m-CORE.setting:13841
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2737
 #   in any find_method at src/gen/m-Metamodel.nqp:988
-#   in block <unit> at getout-12095-553559.code:3
+#   in block <unit> at getout-97749-862366.code:3
 
 
   15    0    2    0   17
@@ -1724,7 +1724,7 @@ S12-methods/defer-call.t...........................  14    0    0    0   14
 S12-methods/defer-next.rakudo.moar.................  20    0    1    0   21
      1 todo   : variant of RT #69608
 S12-methods/delegation.t...........................   7    0    0    0    7
-S12-methods/fallback.t.............................  11    0    0    0   11
+S12-methods/fallback.t.............................  13    0    0    0   13
 S12-methods/how.t..................................   2    0    0    0    2
 S12-methods/indirect_notation.rakudo.moar..........  16    0    0   21   37
      6 skipped: .@foo not yet working
@@ -1832,8 +1832,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1418742435
-# Using file temp_1418742435
+S16-filehandles/chmod.t............................# Using file temp_1419006448
+# Using file temp_1419006448
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2354,7 +2354,7 @@ S32-list/uniq.t....................................Saw 2 calls to deprecated cod
 Method uniq (from List) called at:
   t/spec/S32-list/uniq.t, lines 114,128,15,36,55,85,99
 Deprecated since v2014.11, will be removed with release v2015.11!
-  src/gen/m-CORE.setting, lines 1313,2152
+  src/gen/m-CORE.setting, lines 1309,2148
 Deprecated since v2014.11, will be removed with release v2015.11!
   EVAL_0, line 1
 Deprecated since v2014.11, will be removed with release v2015.11!
@@ -2363,7 +2363,7 @@ Please use unique instead.
 Method uniq (from Any) called at:
   t/spec/S32-list/uniq.t, lines 46,47,61
 Deprecated since v2014.11, will be removed with release v2015.11!
-  src/gen/m-CORE.setting, line 1313
+  src/gen/m-CORE.setting, line 1309
 Deprecated since v2014.11, will be removed with release v2015.11!
 Please use unique instead.
 --------------------------------------------------------------------------------
@@ -2701,14 +2701,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# recursive-ternary: 1.077080 seconds
-# gerdr: 1.08699345 seconds
-# kaz: 1.09289197 seconds
-# loop: 1.11073176 seconds
-# sequence-ternary: 1.8871759 seconds
-# recursive-ternary-hand-cached: 1.93933628 seconds
-# sequence: 2.6326069 seconds
-# hand-memoization: 2.88561104 seconds
+integration/advent2012-day21.t.....................# kaz: 0.9300068 seconds
+# gerdr: 0.97233789 seconds
+# recursive-ternary: 1.0738691 seconds
+# loop: 1.10297616 seconds
+# recursive-ternary-hand-cached: 1.8410227 seconds
+# sequence-ternary: 1.87476885 seconds
+# hand-memoization: 2.532927 seconds
+# sequence: 2.5841936 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2784,7 +2784,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S09",         186,     0,    11,    10,   207,   207
 "S10",          87,     0,     4,     1,    92,   149
 "S11",         107,     0,     4,    14,   125,   144
-"S12",        1398,     0,    46,   121,  1565,  1623
+"S12",        1400,     0,    46,   121,  1567,  1625
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         303,     0,    10,    10,   323,   336
 "S15",         240,     0,     2,    16,   258,   283
@@ -2799,6 +2799,6 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9207,     0,   125,   118,  9450,  7884
 "int",        1214,     0,    12,    20,  1246,  1235
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32863,     0,   638,  1185, 34686, 34828
+"total",     32865,     0,   638,  1185, 34688, 34830
 ----------------
 No failures!
