@@ -1527,12 +1527,12 @@ S10-packages/basic.rakudo.moar.....................  60    0    2    1   63
      1 todo   : ticket based only on class... RT #60446
      1 todo   : RT #64606
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
-S10-packages/precompilation.rakudo.moar............/bin/sh: line 1:  8272 Segmentation fault: 11  ./perl6-m getout-8260-755898.code < getout-8260-755898.in > getout-8260-755898.out 2> getout-8260-755898.err
+S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 51439 Segmentation fault: 11  ./perl6-m getout-51427-742513.code < getout-51427-742513.in > getout-51427-742513.out 2> getout-51427-742513.err
 # error: Could not find symbol '&C1'
-#   in method <anon> at src/gen/m-CORE.setting:13841
+#   in method <anon> at src/gen/m-CORE.setting:13843
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2737
 #   in any find_method at src/gen/m-Metamodel.nqp:988
-#   in block <unit> at getout-8260-888362.code:3
+#   in block <unit> at getout-51427-837111.code:3
 
 
   15    0    2    0   17
@@ -1832,8 +1832,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1419007984
-# Using file temp_1419007984
+S16-filehandles/chmod.t............................# Using file temp_1419096448
+# Using file temp_1419096448
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1976,7 +1976,22 @@ S17-supply/unique.t................................# **** scheduling with Thread
 # **** scheduling with CurrentThreadScheduler
   17    0    0    0   17
 S17-supply/wait.t..................................   4    0    0    0    4
-S17-supply/watch_path.t............................   2    0    0    0    2
+S17-supply/watch_path.t............................    
+# Failed test 'at least 3 renaming'
+# at t/spec/S17-supply/watch_path.t line 85
+    # expected: 'any(3, 4)'
+    #      got: '2'
+    
+# Failed test 'maybe one changing'
+# at lib/Test.pm line 197
+    # expected: 'any(0, 1)'
+    #      got: '2'
+    # Looks like you failed 2 tests of 22
+
+# Failed test 'does watch_path work on Mac OS X'
+# at t/spec/S17-supply/watch_path.t line 14
+# Looks like you failed 1 tests of 2
+   1    1    0    0    2
 S17-supply/words.t.................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
    5    0    0    0    5
@@ -2354,7 +2369,7 @@ S32-list/uniq.t....................................Saw 2 calls to deprecated cod
 Method uniq (from List) called at:
   t/spec/S32-list/uniq.t, lines 114,128,15,36,55,85,99
 Deprecated since v2014.11, will be removed with release v2015.11!
-  src/gen/m-CORE.setting, lines 1309,2148
+  src/gen/m-CORE.setting, lines 1309,2149
 Deprecated since v2014.11, will be removed with release v2015.11!
   EVAL_0, line 1
 Deprecated since v2014.11, will be removed with release v2015.11!
@@ -2701,14 +2716,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 0.9747042 seconds
-# gerdr: 0.989190 seconds
-# recursive-ternary: 1.0651970 seconds
-# loop: 1.09908539 seconds
-# sequence-ternary: 1.79728001 seconds
-# recursive-ternary-hand-cached: 1.84050268 seconds
-# hand-memoization: 2.50929943 seconds
-# sequence: 2.52043271 seconds
+integration/advent2012-day21.t.....................# kaz: 0.9703702 seconds
+# gerdr: 1.0026186 seconds
+# recursive-ternary: 1.1012485 seconds
+# loop: 1.11732045 seconds
+# sequence-ternary: 1.8079096 seconds
+# recursive-ternary-hand-cached: 1.84307696 seconds
+# sequence: 2.5937173 seconds
+# hand-memoization: 2.5942288 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2789,7 +2804,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         303,     0,    10,    10,   323,   336
 "S15",         240,     0,     2,    16,   258,   283
 "S16",         247,     0,     0,    16,   263,   307
-"S17",         650,     0,     4,    22,   676,   700
+"S17",         649,     1,     4,    22,   676,   700
 "S19",          12,     0,     0,     0,    12,    17
 "S22",          52,     0,     1,     0,    53,    53
 "S24",           1,     0,     0,     0,     1,    79
@@ -2799,6 +2814,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9207,     0,   125,   118,  9450,  7884
 "int",        1214,     0,    12,    20,  1246,  1235
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32865,     0,   638,  1185, 34688, 34830
+"total",     32864,     1,   638,  1185, 34688, 34830
 ----------------
-No failures!
+Failure summary:
+S17-supply/watch_path.t 2 - does watch_path work on Mac OS X
