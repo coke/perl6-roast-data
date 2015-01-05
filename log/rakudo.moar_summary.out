@@ -251,6 +251,9 @@ Please use %hash = %(itemized hash) instead.
 --------------------------------------------------------------------------------
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
+
+Please note that *ALL* deprecated features will be removed at the release
+of Perl 6.0.0 (expected some time in 2015).
   15    0    3    0   18
      3 todo   : deprecated %h = {...} for now
 S02-types/autovivification.t.......................  25    0    0    0   25
@@ -296,7 +299,7 @@ S02-types/declare.rakudo.moar......................  55    0    2   22   79
 S02-types/deprecations.t...........................  11    0    0    0   11
 S02-types/fatrat.t.................................   1    0    0    0    1
 S02-types/flattening.t.............................  41    0    0    0   41
-S02-types/hash.rakudo.moar.........................  89    0    1    0   90
+S02-types/hash.rakudo.moar.........................  92    0    1    0   93
      1 todo   : auto-vivified binding does not work yet: RT #118947
 S02-types/hash_ref.t...............................  31    0    0    0   31
 S02-types/infinity.rakudo.moar.....................   6    0    3    4   13
@@ -472,9 +475,8 @@ S03-junctions/boolean-context.rakudo.moar..........  76    0    1    0   77
 S03-junctions/misc.rakudo.moar.....................  99    0    2    4  105
      4 skipped: lower case junction
      2 todo   : nom regression
-S03-metaops/cross.rakudo.moar......................  29    0    1    1   31
+S03-metaops/cross.rakudo.moar......................  33    0    0    1   34
      1 skipped: .slice for iterators NYI
-     1 todo   : can_meta not yet checked for all metaops
 S03-metaops/eager-hyper.rakudo.moar................   5    0    1    2    8
      2 skipped: hyper prefix NYI
      1 todo   : Array assignment is not lazy -- is this test wrong?
@@ -516,11 +518,9 @@ use of uninitialized value <element> of type Any in string context  in block <un
      2 todo   : triangle [\^^] and [\xor]
      3 todo   : huh?
      2 todo   : orelse
-S03-metaops/reverse.rakudo.moar....................  34    0    1    0   35
-     1 todo   : related to RT #77114
-S03-metaops/zip.rakudo.moar........................  20    0    5    2   27
+S03-metaops/reverse.t..............................  36    0    0    0   36
+S03-metaops/zip.rakudo.moar........................  21    0    4    2   27
      2 skipped: nom regression RT #122230
-     1 todo   : related to RT #77114
      4 todo   : nom regression RT #122230
 S03-operators/adverbial-modifiers.rakudo.moar......Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/adverbial-modifiers.rakudo.moar:48
 
@@ -606,7 +606,7 @@ use of uninitialized value of type Any in string context  in block <unit> at t/s
 
   38    0    0    0   38
 S03-operators/chained-declarators.t................   5    0    0    0    5
-S03-operators/cmp.t................................  22    0    0    0   22
+S03-operators/cmp.t................................  31    0    0    0   31
 S03-operators/comparison-simple.t..................  24    0    0    0   24
 S03-operators/comparison.t.........................  41    0    0    0   41
 S03-operators/context-forcers.rakudo.moar..........  95    0    0    2   97
@@ -791,7 +791,7 @@ S03-operators/range.rakudo.moar....................use of uninitialized value of
 
 use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-operators/range.rakudo.moar:221
 
- 122    0    2    0  124
+ 123    0    2    0  125
      2 todo   : huh?
 S03-operators/reduce-le1arg.rakudo.moar............use of uninitialized value $got of type Any in string context  in sub is at lib/Test.pm:113
 
@@ -828,7 +828,7 @@ S03-sequence/limit-arity-2-or-more.t...............Code object coerced to string
 Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-sequence/limit-arity-2-or-more.t:33
 
    8    0    0    0    8
-S03-sequence/misc.rakudo.moar......................  23    0    4    0   27
+S03-sequence/misc.rakudo.moar......................  25    0    4    0   29
      1 todo   : RT #80574
      2 todo   : NYI
      1 todo   : bogus test?
@@ -1111,7 +1111,7 @@ S05-mass/rx.rakudo.moar............................use of uninitialized value of
      9 skipped: :: NYI
      1 todo   : anchors and after
      1 todo   : RT #121307
-S05-mass/stdrules.rakudo.moar...................... 158    0    0   28  186
+S05-mass/stdrules.rakudo.moar...................... 160    0    0   28  188
     14 skipped: <.print>
     14 skipped: <.graph>
 S05-match/arrayhash.t..............................   8    0    0    0    8
@@ -1378,7 +1378,7 @@ S06-signature/named-parameters.rakudo.moar.........  72    0    0   21   93
     16 skipped: multiple same-named arguments NYI
 S06-signature/named-placeholders.t.................   3    0    0    0    3
 S06-signature/named-renaming.t.....................  10    0    0    0   10
-S06-signature/optional.t...........................  26    0    0    0   26
+S06-signature/optional.t...........................  28    0    0    0   28
 S06-signature/outside-subroutine.t.................   2    0    0    0    2
 S06-signature/passing-arrays.t.....................  11    0    0    0   11
 S06-signature/passing-hashes.t.....................   3    0    0    0    3
@@ -1530,12 +1530,12 @@ S10-packages/basic.rakudo.moar.....................  60    0    2    1   63
      1 todo   : ticket based only on class... RT #60446
      1 todo   : RT #64606
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
-S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 84826 Segmentation fault: 11  ./perl6-m getout-84814-958052.code < getout-84814-958052.in > getout-84814-958052.out 2> getout-84814-958052.err
+S10-packages/precompilation.rakudo.moar............/bin/sh: line 1: 40969 Segmentation fault: 11  ./perl6-m getout-40935-685556.code < getout-40935-685556.in > getout-40935-685556.out 2> getout-40935-685556.err
 # error: Could not find symbol '&C1'
-#   in method <anon> at src/gen/m-CORE.setting:13888
+#   in method <anon> at src/gen/m-CORE.setting:13895
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2737
 #   in any find_method at src/gen/m-Metamodel.nqp:988
-#   in block <unit> at getout-84814-629993.code:3
+#   in block <unit> at getout-40935-516471.code:3
 
 
   15    0    2    0   17
@@ -1569,8 +1569,7 @@ S11-modules/require.rakudo.moar....................  12    0    2    1   15
      1 todo   : variable form plus imports NYI
      1 todo   : creation of stub package symbol NYI
                                                    pass fail todo skip plan
-S12-attributes/class.rakudo.moar...................  23    0    0    6   29
-     6 skipped: nom regression - method ^foo
+S12-attributes/class.t.............................  21    0    0    0   21
 S12-attributes/clone.rakudo.moar...................  33    0    2    0   35
      2 todo   : clone currently messes up original
 S12-attributes/defaults.t..........................  34    0    0    0   34
@@ -1607,7 +1606,11 @@ Please use %!h = %(itemized hash) instead.
 --------------------------------------------------------------------------------
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
- 133    0    6    1  140
+
+Please note that *ALL* deprecated features will be removed at the release
+of Perl 6.0.0 (expected some time in 2015).
+ 133    0    6    2  141
+     1 skipped: RT #122542
      1 skipped: dubious test - the initializer becomes a submethod here, implying a scope
      2 todo   : ro array/hash with accessor
      1 todo   : over-eager auto-vivification bugs
@@ -1835,8 +1838,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1420049718
-# Using file temp_1420049718
+S16-filehandles/chmod.t............................# Using file temp_1420468722
+# Using file temp_1420468722
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1995,16 +1998,7 @@ S19-command-line/dash-e.t..........................   4    0    0    0    4
 S19-command-line/help.t............................   1    0    0    0    1
 S19-command-line/repl.t............................   1    0    0    0    1
                                                    pass fail todo skip plan
-S22-package-format/local.t.........................Saw 1 call to deprecated code during execution.
-================================================================================
-Method path (from CompUnitRepo::Locally) called at:
-  t/spec/S22-package-format/local.t, lines 37,38,49,50
-Deprecated since v2014.11, will be removed with release v2015.11!
-Please use IO instead.
---------------------------------------------------------------------------------
-Please contact the author to have these calls to deprecated code adapted,
-so that this message will disappear!
-  40    0    0    0   40
+S22-package-format/local.t.........................  24    0    0    0   24
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
                                                    pass fail todo skip plan
@@ -2157,7 +2151,7 @@ Code object coerced to string (please use .gist or .perl to do that)  in any thr
 # Failed test ''sub f { f(|$) }' died'
 # at lib/Test.pm line 197
     # Looks like you failed 1 tests of 5
- 271    0    2    0  273
+ 272    0    2    0  274
      1 todo   : Cannot find method "returns"
      1 todo   : parsing regression
 S32-hash/delete-adverb.t...........................use of uninitialized value $got of type Int in string context  in sub is at lib/Test.pm:113
@@ -2173,7 +2167,11 @@ S32-hash/invert.rakudo.moar........................   4    0    1    0    5
      1 todo   : nom regression
 S32-hash/keys_values.t.............................  14    0    0    0   14
 S32-hash/kv.t......................................  27    0    0    0   27
-S32-hash/pairs.rakudo.moar.........................  20    0    1    0   21
+S32-hash/pairs.rakudo.moar.........................use of uninitialized value %rt117935 of type Any in string context  in sub is at lib/Test.pm:113
+
+use of uninitialized value $!value of type Any in string context  in sub is at lib/Test.pm:113
+
+  24    0    1    0   25
      1 todo   : Rakudo seems to make a copy rather than a reference
 S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
@@ -2188,6 +2186,9 @@ Please use IO instead.
 --------------------------------------------------------------------------------
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
+
+Please note that *ALL* deprecated features will be removed at the release
+of Perl 6.0.0 (expected some time in 2015).
   47    0    0    0   47
 S32-io/chdir.rakudo.moar...........................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
@@ -2200,6 +2201,9 @@ Please use IO instead.
 --------------------------------------------------------------------------------
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
+
+Please note that *ALL* deprecated features will be removed at the release
+of Perl 6.0.0 (expected some time in 2015).
   29    0    0    0   29
 S32-io/dir.rakudo.moar.............................   8    0    4    0   12
      1 todo   : entries are still IO::Path
@@ -2218,6 +2222,9 @@ Please use dirname instead.
 --------------------------------------------------------------------------------
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
+
+Please note that *ALL* deprecated features will be removed at the release
+of Perl 6.0.0 (expected some time in 2015).
   49    0    1    0   50
      1 todo   : resolve NYI, needs nqp::readlink
 S32-io/io-path-unix.rakudo.moar....................use of uninitialized value $CWD of type Any in string context  in block <unit> at t/spec/S32-io/io-path-unix.rakudo.moar:9
@@ -2242,6 +2249,9 @@ Please use dirname instead.
 --------------------------------------------------------------------------------
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
+
+Please note that *ALL* deprecated features will be removed at the release
+of Perl 6.0.0 (expected some time in 2015).
   13    0    0    0   13
 S32-io/io-spec-cygwin.t............................ 100    0    0    2  102
      2 skipped: cygwin on-platform tests
@@ -2263,6 +2273,9 @@ Please use slurp($path,...) instead.
 --------------------------------------------------------------------------------
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
+
+Please note that *ALL* deprecated features will be removed at the release
+of Perl 6.0.0 (expected some time in 2015).
   18    0    0    0   18
 S32-io/spurt.t.....................................Saw 1 call to deprecated code during execution.
 ================================================================================
@@ -2273,6 +2286,9 @@ Please use spurt($path,...) instead.
 --------------------------------------------------------------------------------
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
+
+Please note that *ALL* deprecated features will be removed at the release
+of Perl 6.0.0 (expected some time in 2015).
   35    0    0    0   35
 S32-list/categorize.t..............................  12    0    0    0   12
 S32-list/classify.rakudo.moar......................  12    0    0    3   15
@@ -2375,6 +2391,9 @@ Please use unique instead.
 --------------------------------------------------------------------------------
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
+
+Please note that *ALL* deprecated features will be removed at the release
+of Perl 6.0.0 (expected some time in 2015).
   33    0    0    0   33
 S32-num/abs.t......................................  49    0    0    0   49
 S32-num/base.t.....................................  12    0    0    0   12
@@ -2690,6 +2709,9 @@ Please use unique instead.
 --------------------------------------------------------------------------------
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
+
+Please note that *ALL* deprecated features will be removed at the release
+of Perl 6.0.0 (expected some time in 2015).
   54    0    1    0   55
      1 todo   : RT #122306
 integration/advent2011-day24.t.....................   8    0    0    0    8
@@ -2707,14 +2729,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# gerdr: 1.08907552 seconds
-# kaz: 1.10456077 seconds
-# recursive-ternary: 1.17361440 seconds
-# loop: 1.215801 seconds
-# sequence-ternary: 2.02614141 seconds
-# recursive-ternary-hand-cached: 2.0554350 seconds
-# hand-memoization: 2.9159010 seconds
-# sequence: 2.96187048 seconds
+integration/advent2012-day21.t.....................# kaz: 0.9664917 seconds
+# gerdr: 0.9839821 seconds
+# recursive-ternary: 1.10819857 seconds
+# loop: 1.1095445 seconds
+# recursive-ternary-hand-cached: 1.8210288 seconds
+# sequence-ternary: 1.8674739 seconds
+# hand-memoization: 2.6724726 seconds
+# sequence: 2.7019071 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2745,6 +2767,9 @@ Please use emit instead.
 --------------------------------------------------------------------------------
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
+
+Please note that *ALL* deprecated features will be removed at the release
+of Perl 6.0.0 (expected some time in 2015).
    4    0    0    0    4
 integration/advent2013-day20.t.....................  22    0    0    0   22
 integration/advent2013-day21.t.....................  24    0    0    0   24
@@ -2783,30 +2808,30 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5103,     0,   123,   358,  5584,  5676
-"S03",        4949,     0,   110,    91,  5150,  5184
+"S02",        5106,     0,   123,   358,  5587,  5679
+"S03",        4968,     0,   107,    91,  5166,  5200
 "S04",        1019,     0,    46,    42,  1107,  1159
-"S05",        5287,     0,    90,   173,  5550,  5931
-"S06",        1210,     0,    37,    96,  1343,  1418
+"S05",        5289,     0,    90,   173,  5552,  5933
+"S06",        1212,     0,    37,    96,  1345,  1420
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         190,     0,    11,    10,   211,   211
 "S10",          87,     0,     4,     1,    92,   149
 "S11",         107,     0,     4,    14,   125,   144
-"S12",        1400,     0,    46,   121,  1567,  1625
+"S12",        1398,     0,    46,   116,  1560,  1618
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         303,     0,    10,    10,   323,   336
 "S15",         240,     0,     2,    16,   258,   283
 "S16",         247,     0,     0,    16,   263,   307
 "S17",         663,     0,     4,    22,   689,   713
 "S19",          12,     0,     0,     0,    12,    17
-"S22",          40,     0,     0,     0,    40,    40
+"S22",          24,     0,     0,     0,    24,    24
 "S24",           1,     0,     0,     0,     1,    79
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     4,     2,   344,   354
-"S32",        9207,     0,   125,   118,  9450,  7884
+"S32",        9212,     0,   125,   118,  9455,  7889
 "int",        1248,     0,    12,    20,  1280,  1269
 "ros",           2,     0,     0,     0,     2,     2
-"total",     32932,     0,   642,  1181, 34755, 34883
+"total",     32945,     0,   639,  1176, 34760, 34888
 ----------------
 No failures!
