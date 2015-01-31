@@ -5,7 +5,7 @@ This project contains tools for running the perl6 spec test suite
 results of those runs.
 
 See "perl6\_pass\_rates.csv" for the data, with a pretty version here:
-https://github.com/coke/perl6-roast-data/blob/master/perl6\_pass\_rates.csv
+https://github.com/coke/perl6-roast-data/blob/master/perl6_pass_rates.csv
 
 Each implementation's last run is checked in under a corresponding
 ".out" file in the log/ directory. Check your implementation's file for
