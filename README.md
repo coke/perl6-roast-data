@@ -46,7 +46,7 @@ are from a regression, or from a newly added or changed test that doesn't
 pass. In either case, please open an RT (email to rakudobug at perl
 dot org), get a ticket number, and fudge the test, giving the ticket #.
 
-There are 3 backends (parrot, jvm, and moar), and a test may fail on
+There are multiple backends (JVM, MoarVM, MoarVM-nojit) and a test may fail on
 any or all of these backends. Be sure to mark the ticket in RT with
 the appropriate vm, and only fudge the test for the appropriate backend.
 (#?rakudo for all backends, #?rakudo.jvm for, e.g. the JVM backend)
