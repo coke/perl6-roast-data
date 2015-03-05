@@ -1,3 +1,61 @@
+/home/coke/sandbox/perl6-roast-data/nqp.moar-jit/install/bin/moar --libpath=gen/moar/stage1 gen/moar/stage1/nqp.moarvm --bootstrap --setting=NULL --no-regex-lib --target=mbc \
+    --output=gen/moar/stage2/ModuleLoader.moarvm src/vm/moar/ModuleLoader.nqp
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/moar/stage2/gen
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl moar src/core/NativeTypes.nqp src/core/NQPRoutine.nqp src/core/NQPMu.nqp src/core/NQPCapture.nqp src/core/IO.nqp src/core/Regex.nqp src/core/Hash.nqp src/core/testing.nqp src/core/YOUAREHERE.nqp  > gen/moar/stage2/NQPCORE.setting
+/home/coke/sandbox/perl6-roast-data/nqp.moar-jit/install/bin/moar --libpath=gen/moar/stage1 gen/moar/stage1/nqp.moarvm --bootstrap --module-path=gen/moar/stage2 --setting=NULL --no-regex-lib --target=mbc \
+    --output=gen/moar/stage2/NQPCORE.setting.moarvm gen/moar/stage2/NQPCORE.setting
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/moar/stage2/gen
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl moar src/QAST/CompileTimeValue.nqp src/QAST/SpecialArg.nqp src/QAST/Children.nqp src/QAST/Node.nqp src/QAST/NodeList.nqp src/QAST/Regex.nqp src/QAST/IVal.nqp src/QAST/NVal.nqp src/QAST/SVal.nqp src/QAST/BVal.nqp src/QAST/WVal.nqp src/QAST/Want.nqp src/QAST/Var.nqp src/QAST/VarWithFallback.nqp src/QAST/ParamTypeCheck.nqp src/QAST/Op.nqp src/QAST/VM.nqp src/QAST/Stmts.nqp src/QAST/Stmt.nqp src/QAST/Block.nqp src/QAST/Unquote.nqp src/QAST/CompUnit.nqp src/QAST/InlinePlaceholder.nqp  > gen/moar/stage2/QASTNode.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.moar-jit/install/bin/moar --libpath=gen/moar/stage1 gen/moar/stage1/nqp.moarvm --bootstrap --module-path=gen/moar/stage2 --setting-path=gen/moar/stage2 \
+    --setting=NQPCORE --no-regex-lib --target=mbc \
+    --output=gen/moar/stage2/QASTNode.moarvm gen/moar/stage2/QASTNode.nqp
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/moar/stage2/gen
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl moar src/QRegex/NFA.nqp src/QRegex/Cursor.nqp  > gen/moar/stage2/QRegex.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.moar-jit/install/bin/moar --libpath=gen/moar/stage1 gen/moar/stage1/nqp.moarvm --bootstrap --module-path=gen/moar/stage2 --setting-path=gen/moar/stage2 \
+    --setting=NQPCORE --no-regex-lib --target=mbc \
+    --output=gen/moar/stage2/QRegex.moarvm gen/moar/stage2/QRegex.nqp
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/moar/stage2/gen
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl moar src/vm/moar/HLL/Backend.nqp src/HLL/Grammar.nqp src/HLL/Actions.nqp src/HLL/Compiler.nqp src/HLL/CommandLine.nqp src/HLL/World.nqp src/HLL/sprintf.nqp  > gen/moar/stage2/NQPHLL.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.moar-jit/install/bin/moar --libpath=gen/moar/stage1 gen/moar/stage1/nqp.moarvm --bootstrap --module-path=gen/moar/stage2 --setting-path=gen/moar/stage2 \
+    --setting=NQPCORE --no-regex-lib --target=mbc \
+    --output=gen/moar/stage2/NQPHLL.moarvm gen/moar/stage2/NQPHLL.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.moar-jit/install/bin/moar --libpath=gen/moar/stage1 gen/moar/stage1/nqp.moarvm --bootstrap --module-path=gen/moar/stage2 --setting-path=gen/moar/stage2 \
+    --setting=NQPCORE --no-regex-lib --target=mbc \
+    --output=gen/moar/stage2/MASTOps.moarvm /home/coke/sandbox/perl6-roast-data/nqp.moar-jit/install/share/nqp/lib/MAST/Ops.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.moar-jit/install/bin/moar --libpath=gen/moar/stage1 gen/moar/stage1/nqp.moarvm --bootstrap --module-path=gen/moar/stage2 --setting-path=gen/moar/stage2 \
+    --setting=NQPCORE --no-regex-lib --target=mbc \
+    --output=gen/moar/stage2/MASTNodes.moarvm /home/coke/sandbox/perl6-roast-data/nqp.moar-jit/install/share/nqp/lib/MAST/Nodes.nqp
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/moar/stage2/gen
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl moar src/vm/moar/QAST/QASTRegexCompilerMAST.nqp src/vm/moar/QAST/QASTOperationsMAST.nqp src/vm/moar/QAST/QASTCompilerMAST.nqp  > gen/moar/stage2/QAST.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.moar-jit/install/bin/moar --libpath=gen/moar/stage1 gen/moar/stage1/nqp.moarvm --bootstrap --module-path=gen/moar/stage2 --setting-path=gen/moar/stage2 \
+    --setting=NQPCORE --no-regex-lib --target=mbc \
+    --output=gen/moar/stage2/QAST.moarvm gen/moar/stage2/QAST.nqp
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/moar/stage2/gen
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl moar src/QRegex/P6Regex/Grammar.nqp src/QRegex/P6Regex/Actions.nqp src/QRegex/P6Regex/Compiler.nqp src/QRegex/P6Regex/Optimizer.nqp  > gen/moar/stage2/NQPP6QRegex.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.moar-jit/install/bin/moar --libpath=gen/moar/stage1 gen/moar/stage1/nqp.moarvm --bootstrap --module-path=gen/moar/stage2 --setting-path=gen/moar/stage2 \
+    --setting=NQPCORE --no-regex-lib --target=mbc \
+    --output=gen/moar/stage2/NQPP6QRegex.moarvm gen/moar/stage2/NQPP6QRegex.nqp
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/moar/stage2/gen
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-version.pl > gen/moar/stage2/nqp-config.nqp
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl moar src/vm/moar/NQP/Ops.nqp src/NQP/World.nqp src/NQP/Grammar.nqp src/NQP/Optimizer.nqp src/NQP/Actions.nqp src/NQP/Compiler.nqp  gen/moar/stage2/nqp-config.nqp > gen/moar/stage2/NQP.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.moar-jit/install/bin/moar --libpath=gen/moar/stage1 gen/moar/stage1/nqp.moarvm --bootstrap --module-path=gen/moar/stage2 --setting-path=gen/moar/stage2 \
+    --setting=NQPCORE --target=mbc --no-regex-lib \
+    --output=gen/moar/stage2/nqp.moarvm gen/moar/stage2/NQP.nqp
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/moar/stage2/nqpmo.moarvm .
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/moar/stage2/ModuleLoader.moarvm .
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/moar/stage2/NQPCORE.setting.moarvm .
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/moar/stage2/QASTNode.moarvm .
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/moar/stage2/QRegex.moarvm .
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/moar/stage2/NQPHLL.moarvm .
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/moar/stage2/MASTOps.moarvm .
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/moar/stage2/MASTNodes.moarvm .
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/moar/stage2/QAST.moarvm .
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/moar/stage2/NQPP6QRegex.moarvm .
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/moar/stage2/nqp.moarvm .
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/moar/stage2/gen
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl moar src/QRegex/P5Regex/Grammar.nqp src/QRegex/P5Regex/Actions.nqp src/QRegex/P5Regex/Compiler.nqp  > gen/moar/stage2/NQPP5QRegex.nqp
+./nqp-m --target=mbc --output=NQPP5QRegex.moarvm \
+    gen/moar/stage2/NQPP5QRegex.nqp
 prove -r --exec "./nqp-m" t/nqp t/hll t/qregex t/p5regex t/qast t/moar t/serialization t/nativecall
 t/nqp/01-literals.t ................... ok
 t/nqp/02-if.t ......................... ok
@@ -100,5 +158,5 @@ t/serialization/02-types.t ............ ok
 t/serialization/03-closures.t ......... ok
 t/nativecall/01-basic.t ............... ok
 All tests successful.
-Files=98, Tests=3611, 15 wallclock secs ( 0.50 usr  0.09 sys + 12.54 cusr  0.89 csys = 14.02 CPU)
+Files=98, Tests=3611, 107 wallclock secs ( 0.29 usr  0.06 sys + 10.51 cusr  0.68 csys = 11.54 CPU)
 Result: PASS
