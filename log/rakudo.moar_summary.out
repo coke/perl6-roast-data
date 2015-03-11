@@ -56,7 +56,8 @@ S02-literals/quoting.rakudo.moar...................
      2 todo   : q:x assigned to array
      4 todo   : quoting adverbs
      1 todo   : retriage
-S02-literals/radix.rakudo.moar..................... 130    0    6    0  136
+S02-literals/radix.rakudo.moar..................... 131    0    6    1  138
+     1 skipped: RT #123862 - negative radix
      1 todo   : Really?!
      4 todo   : Some question of what this form should actually do
      1 todo   : This needs an RT
@@ -355,9 +356,10 @@ S02-types/range.t..................................use of uninitialized value of
  135    0    0    0  135
 S02-types/set.rakudo.moar.......................... 157    0   12    1  170
      1 skipped: Set is no longer Iterable
-    10 todo   : Hypers not yet Set compatible
+     8 todo   : Hypers not yet Set compatible
      1 todo   : Not properly interpolating
      1 todo   : we have not secured .WHICH creation yet
+     2 todo PASSED: Hypers not yet Set compatible
 S02-types/sethash.rakudo.moar...................... 188    0    0   11  199
     10 skipped: 'is ObjectType' NYI
      1 skipped: no longer Iterable
@@ -432,13 +434,13 @@ S03-metaops/cross.rakudo.moar......................  33    0    0    1   34
 S03-metaops/eager-hyper.rakudo.moar................   5    0    1    2    8
      2 skipped: hyper prefix NYI
      1 todo   : Array assignment is not lazy -- is this test wrong?
-S03-metaops/hyper.rakudo.moar......................use of uninitialized value of type Any in numeric context  in sub hyper at ././CORE.setting.moarvm:1
+S03-metaops/hyper.rakudo.moar......................use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-metaops/hyper.rakudo.moar:445
+
+use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-metaops/hyper.rakudo.moar:451
 
 use of uninitialized value of type Any in numeric context  in sub hyper at ././CORE.setting.moarvm:1
 
-use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-metaops/hyper.rakudo.moar:473
-
-use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-metaops/hyper.rakudo.moar:484
+use of uninitialized value of type Any in numeric context  in sub hyper at ././CORE.setting.moarvm:1
 
  270    0    7    3  280
      1 skipped: EVAL(Buf)
@@ -488,12 +490,13 @@ S03-operators/arith.t..............................use of uninitialized value of
 
  156    0    0    0  156
 S03-operators/assign-is-not-binding.t..............   8    0    0    0    8
-S03-operators/assign.rakudo.moar................... 262    0   21   12  295
+S03-operators/assign.rakudo.moar................... 262    0   22   12  296
      1 skipped: Odd number of elements found where hash expected
      2 skipped: RT #76734
      3 skipped: Two terms in a row
      3 skipped: cannot modifiy an immutable value
      3 skipped: expects a term, found infix >= instead
+     1 todo   : RT #116178
      1 todo   : RT #80614
      3 todo   : item assignment
      1 todo   : item/list assignment
@@ -877,7 +880,7 @@ use of uninitialized value x1 of type Any in string context  in block  at lib/Te
 
 use of uninitialized value x3 of type Any in string context  in block <unit> at t/spec/S04-declarations/my.rakudo.moar:332
 
-  79    0    7    2   88
+  80    0    7    2   89
      2 skipped: nom regression, OUR::
      3 todo   : RT #102414 still unresolved
      2 todo   : RT #117043
@@ -1316,7 +1319,7 @@ S06-signature/tree-node-parameters.rakudo.moar.....  16    0    0    4   20
      4 skipped: signature binding of return values NYI
 S06-signature/type-capture.rakudo.moar.............   7    0    0    1    8
      1 skipped: nom regression
-S06-signature/types.t..............................   8    0    0    0    8
+S06-signature/types.t..............................   9    0    0    0    9
 S06-signature/unpack-array.t.......................  15    0    0    0   15
 S06-signature/unpack-object.t......................   4    0    0    0    4
 S06-signature/unspecified.rakudo.moar..............use of uninitialized value <element> of type Any in string context  in sub both at t/spec/S06-signature/unspecified.rakudo.moar:38
@@ -1387,10 +1390,10 @@ S10-packages/basic.rakudo.moar.....................  60    0    2    1   63
      1 todo   : ticket based only on class... RT #60446
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
 S10-packages/precompilation.rakudo.moar............# error: Could not find symbol '&C1'
-#   in method <anon> at src/gen/m-CORE.setting:15246
+#   in method <anon> at src/gen/m-CORE.setting:15241
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2904
 #   in any find_method at src/gen/m-Metamodel.nqp:1037
-#   in block <unit> at getout-20775-808956.code:4
+#   in block <unit> at getout-20251-991692.code:4
 
 
   15    0    2    0   17
@@ -1691,8 +1694,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1425997836
-# Using file temp_1425997836
+S16-filehandles/chmod.t............................# Using file temp_1426084013
+# Using file temp_1426084013
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2857,14 +2860,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 1.20475260 seconds
-# gerdr: 1.25323837 seconds
-# recursive-ternary: 1.30473063 seconds
-# loop: 1.33069205 seconds
-# hand-memoization: 1.6978154 seconds
-# sequence-ternary: 2.283173 seconds
-# recursive-ternary-hand-cached: 2.9081887 seconds
-# sequence: 3.755109 seconds
+integration/advent2012-day21.t.....................# kaz: 1.1255775 seconds
+# gerdr: 1.1605853 seconds
+# recursive-ternary: 1.2236128 seconds
+# loop: 1.2616470 seconds
+# hand-memoization: 1.63130073 seconds
+# sequence-ternary: 1.99232683 seconds
+# recursive-ternary-hand-cached: 2.800128 seconds
+# sequence: 3.51436040 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2937,11 +2940,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5163,     0,   133,   347,  5643,  5735
-"S03",        5095,     0,   124,    99,  5318,  5352
-"S04",        1035,     0,    52,    42,  1129,  1181
+"S02",        5164,     0,   133,   348,  5645,  5737
+"S03",        5095,     0,   125,    99,  5319,  5353
+"S04",        1036,     0,    52,    42,  1130,  1182
 "S05",        5318,     0,    93,   170,  5581,  5938
-"S06",        1343,     0,    47,    91,  1481,  1539
+"S06",        1344,     0,    47,    91,  1482,  1540
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         213,     0,     9,    10,   232,   232
 "S10",          87,     0,     4,     1,    92,   149
@@ -2961,6 +2964,6 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9211,     0,   117,   164,  9492,  7927
 "int",        1249,     0,    13,    20,  1282,  1271
 "ros",           2,     0,     0,     0,     2,     2
-"total",     33457,     0,   676,  1221, 35354, 35401
+"total",     33460,     0,   677,  1222, 35359, 35406
 ----------------
 No failures!
