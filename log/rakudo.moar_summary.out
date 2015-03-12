@@ -328,7 +328,7 @@ S02-types/multi_dimensional_array.rakudo.moar......  48    0    0   10   58
 S02-types/nan.rakudo.moar..........................  19    0    0    2   21
      1 skipped: RT #83446
      1 skipped: unspecced and inconsistent
-S02-types/native.rakudo.moar.......................  36    0    1    0   37
+S02-types/native.rakudo.moar.......................  38    0    1    0   39
      1 todo   : RT #102416 - though maybe wrong test? Not sure .WHAT is *that* magic
 S02-types/nested_arrays.rakudo.moar................   8    0    1    0    9
      1 todo   : Should we fail, or should we throw
@@ -431,22 +431,20 @@ S03-junctions/misc.rakudo.moar.....................  99    0    2    4  105
      2 todo   : nom regression
 S03-metaops/cross.rakudo.moar......................  33    0    0    1   34
      1 skipped: .slice for iterators NYI
-S03-metaops/eager-hyper.rakudo.moar................   5    0    1    2    8
+S03-metaops/eager-hyper.rakudo.moar................   6    0    0    2    8
      2 skipped: hyper prefix NYI
-     1 todo   : Array assignment is not lazy -- is this test wrong?
 S03-metaops/hyper.rakudo.moar......................use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-metaops/hyper.rakudo.moar:445
 
 use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-metaops/hyper.rakudo.moar:451
 
-use of uninitialized value of type Any in numeric context  in sub hyper at ././CORE.setting.moarvm:1
+use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-metaops/hyper.rakudo.moar:473
 
-use of uninitialized value of type Any in numeric context  in sub hyper at ././CORE.setting.moarvm:1
+use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-metaops/hyper.rakudo.moar:484
 
- 270    0    7    3  280
+ 297    0    1    3  301
      1 skipped: EVAL(Buf)
      2 skipped: nom regression: possible spec change/improvement
      1 todo   : can_meta check for meta operators NYI
-     6 todo   : nom regression - whatever extension RT #122230
 S03-metaops/not.t..................................  39    0    0    0   39
 S03-metaops/reduce.rakudo.moar.....................use of uninitialized value <element> of type Int in string context  in block <unit> at t/spec/S03-metaops/reduce.rakudo.moar:329
 
@@ -702,7 +700,7 @@ S03-operators/is-divisible-by.rakudo.moar..........
      1 todo   : not sure why this doesn't fire
 S03-operators/lcm.t................................  15    0    0    0   15
 S03-operators/list-quote-junction.t................  16    0    0    0   16
-S03-operators/minmax.rakudo.moar...................  23    0    0    2   25
+S03-operators/minmax.rakudo.moar...................  27    0    0    2   29
      2 skipped: Annoying test that we haven't done the obvious yet unspecced, fails because we have indeed done the obvious
 S03-operators/misc.t...............................  36    0    0    0   36
 S03-operators/mix.rakudo.moar......................  95    0   18   15  128
@@ -1016,10 +1014,7 @@ S05-grammar/signatures.t...........................   2    0    0    0    2
 S05-grammar/ws.rakudo.moar.........................  10    0    0    2   12
      2 skipped: infinite loop: RT #64094 (noauto)
 S05-interpolation/lexicals.t.......................  10    0    0    0   10
-S05-interpolation/regex-in-variable.rakudo.moar....use of uninitialized value $!made of type Any in string context  in method run at t/spec/S05-interpolation/regex-in-variable.rakudo.moar:103
-
-  32    0    3    0   35
-     2 todo   : instance member interpolation
+S05-interpolation/regex-in-variable.rakudo.moar....  34    0    1    0   35
      1 todo   : warn on undef
 S05-mass/charsets.t................................  17    0    0    0   17
 S05-mass/named-chars.t............................. 431    0    0    0  431
@@ -1390,10 +1385,10 @@ S10-packages/basic.rakudo.moar.....................  60    0    2    1   63
      1 todo   : ticket based only on class... RT #60446
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
 S10-packages/precompilation.rakudo.moar............# error: Could not find symbol '&C1'
-#   in method <anon> at src/gen/m-CORE.setting:15241
+#   in method <anon> at src/gen/m-CORE.setting:15247
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2904
 #   in any find_method at src/gen/m-Metamodel.nqp:1037
-#   in block <unit> at getout-20251-991692.code:4
+#   in block <unit> at getout-16046-492762.code:4
 
 
   15    0    2    0   17
@@ -1591,7 +1586,7 @@ S12-methods/defer-next.rakudo.moar.................  20    0    1    0   21
      1 todo   : variant of RT #69608
 S12-methods/delegation.t...........................   7    0    0    0    7
 S12-methods/fallback.t.............................  13    0    0    0   13
-S12-methods/how.t..................................   2    0    0    0    2
+S12-methods/how.t..................................   3    0    0    0    3
 S12-methods/indirect_notation.rakudo.moar..........  16    0    0   21   37
     15 skipped: .*, .+ and .? with @foo
      6 skipped: .@foo not yet working
@@ -1694,8 +1689,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1426084013
-# Using file temp_1426084013
+S16-filehandles/chmod.t............................# Using file temp_1426171151
+# Using file temp_1426171151
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2173,7 +2168,13 @@ Please note that *ALL* deprecated features will be removed at the release
 of Perl 6.0.0 (expected sometime in 2015).
    5    0    0    2    7
      2 skipped: doesn't work or can't test
-S17-supply/start.t.................................   9    0    0    0    9
+S17-supply/start.t.................................
+# Failed test 'did we get the other original value'
+# at t/spec/S17-supply/start.t line 34
+# expected: [1, 1]
+#      got: [1, 1]
+# Looks like you failed 1 tests of 9
+   8    1    0    0    9
 S17-supply/unique.t................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
 Saw 1 call to deprecated code during execution.
@@ -2393,7 +2394,7 @@ S32-io/IO-Socket-INET.t............................   0    0    0   47   47
 S32-io/chdir.rakudo.moar...........................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
 S32-io/copy.t......................................  29    0    0    0   29
-S32-io/dir.rakudo.moar.............................   8    0    4    0   12
+S32-io/dir.rakudo.moar.............................   9    0    4    0   13
      1 todo   : $*CWD misses slash at end still
      1 todo   : directories are not marked with trailing / yet
      1 todo   : dirname is not yet absolute
@@ -2604,7 +2605,7 @@ use of uninitialized value of type Any in numeric context  in block <unit> at t/
 
 use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S32-scalar/undef.rakudo.moar:305
 
-  66    0    4   16   86
+  73    0    4   16   93
     10 skipped: Cannot use bind operator with this left-hand side
      6 skipped: access to &your_sub
      1 todo   : definedness of array
@@ -2860,14 +2861,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 1.1255775 seconds
-# gerdr: 1.1605853 seconds
-# recursive-ternary: 1.2236128 seconds
-# loop: 1.2616470 seconds
-# hand-memoization: 1.63130073 seconds
-# sequence-ternary: 1.99232683 seconds
-# recursive-ternary-hand-cached: 2.800128 seconds
-# sequence: 3.51436040 seconds
+integration/advent2012-day21.t.....................# gerdr: 1.0308648 seconds
+# kaz: 1.15667155 seconds
+# recursive-ternary: 1.25835066 seconds
+# loop: 1.298667 seconds
+# hand-memoization: 1.6421178 seconds
+# sequence-ternary: 1.9633182 seconds
+# recursive-ternary-hand-cached: 2.80460311 seconds
+# sequence: 3.6188702 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2940,30 +2941,31 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5164,     0,   133,   348,  5645,  5737
-"S03",        5095,     0,   125,    99,  5319,  5353
+"S02",        5166,     0,   133,   348,  5647,  5739
+"S03",        5127,     0,   118,    99,  5344,  5378
 "S04",        1036,     0,    52,    42,  1130,  1182
-"S05",        5318,     0,    93,   170,  5581,  5938
+"S05",        5320,     0,    91,   170,  5581,  5938
 "S06",        1344,     0,    47,    91,  1482,  1540
 "S07",           0,     0,     0,     0,     0,     0
 "S09",         213,     0,     9,    10,   232,   232
 "S10",          87,     0,     4,     1,    92,   149
 "S11",         108,     0,     4,    14,   126,   145
-"S12",        1462,     0,    46,   123,  1631,  1689
+"S12",        1463,     0,    46,   123,  1632,  1690
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         308,     0,     8,    10,   326,   339
 "S15",         241,     0,     4,    18,   263,   283
 "S16",         259,     0,     0,    16,   275,   307
-"S17",         708,     0,     4,    23,   735,   735
+"S17",         707,     1,     4,    23,   735,   735
 "S19",          13,     0,     0,     0,    13,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",           1,     0,     0,     0,     1,    79
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         338,     0,     4,     2,   344,   354
-"S32",        9211,     0,   117,   164,  9492,  7927
+"S32",        9219,     0,   117,   164,  9500,  7935
 "int",        1249,     0,    13,    20,  1282,  1271
 "ros",           2,     0,     0,     0,     2,     2
-"total",     33460,     0,   677,  1222, 35359, 35406
+"total",     33504,     1,   668,  1222, 35395, 35442
 ----------------
-No failures!
+Failure summary:
+S17-supply/start.t 9 - did we get the other original value
