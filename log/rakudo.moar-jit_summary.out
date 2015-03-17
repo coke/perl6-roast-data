@@ -2,8 +2,7 @@
                                                    pass fail todo skip plan
 S02-lexical-conventions/begin_end_pod.t............   1    0    0    0    1
 S02-lexical-conventions/bom.t......................   1    0    0    0    1
-S02-lexical-conventions/comments.rakudo.moar.......  49    0    2    0   51
-     2 todo PASSED: NYI
+S02-lexical-conventions/comments.t.................  51    0    0    0   51
 S02-lexical-conventions/end-pod.t..................   1    0    0    0    1
 S02-lexical-conventions/minimal-whitespace.t.......   9    0    0    0    9
 S02-lexical-conventions/one-pass-parsing.t.........   5    0    0    0    5
@@ -755,8 +754,8 @@ S03-operators/value_equivalence.rakudo.moar........  73    0    2    0   75
      1 todo   : \@a seems to flatten when it should not
 S03-sequence/arity-2-or-more.t.....................  20    0    0    0   20
 S03-sequence/arity0.t..............................  13    0    0    0   13
-S03-sequence/basic.rakudo.moar..................... 131    0    1    0  132
-     1 todo   : sequence + last
+S03-sequence/basic.rakudo.moar..................... 131    0    2    0  133
+     2 todo   : sequence + last
 S03-sequence/limit-arity-2-or-more.t...............Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-sequence/limit-arity-2-or-more.t:32
 
 Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-sequence/limit-arity-2-or-more.t:33
@@ -1377,7 +1376,7 @@ use of uninitialized value <element> of type Int in string context  in sub is at
      1 todo   : nested typechecks are borked
 S09-typed-arrays/hashes.t..........................  33    0    0    0   33
 S09-typed-arrays/native-decl.t.....................   8    0    0    0    8
-S09-typed-arrays/native-int.t......................# Testing int8 array
+S09-typed-arrays/native-int.rakudo.moar............# Testing int8 array
 # Testing int16 array
 # Testing int32 array
 # Testing int64 array
@@ -1386,10 +1385,16 @@ S09-typed-arrays/native-int.t......................# Testing int8 array
 # Testing uint16 array
 # Testing uint32 array
 # Testing uint64 array
-1220    0    0    0 1220
+# Testing uint array for unsigned features
+# Testing uint8 array for unsigned features
+# Testing uint16 array for unsigned features
+# Testing uint32 array for unsigned features
+# Testing uint64 array for unsigned features
+1265    0    0    5 1270
+     5 skipped: highest bit length stays negative, RT #124088
 S09-typed-arrays/native-num.rakudo.moar............# Testing num32 array
 # Testing num64 array
- 333    0    0    3  336
+ 351    0    0    3  354
      3 skipped: borkedness with num and iteration
 S09-typed-arrays/native.t..........................   3    0    0    0    3
                                                    pass fail todo skip plan
@@ -1399,10 +1404,10 @@ S10-packages/basic.rakudo.moar.....................  60    0    2    1   63
      1 todo   : ticket based only on class... RT #60446
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
 S10-packages/precompilation.rakudo.moar............# error: Could not find symbol '&C1'
-#   in method <anon> at src/gen/m-CORE.setting:15739
+#   in method <anon> at src/gen/m-CORE.setting:15773
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2908
 #   in any find_method at src/gen/m-Metamodel.nqp:1052
-#   in block <unit> at getout-18514-810725.code:4
+#   in block <unit> at getout-31800-92245.code:4
 
 
   15    0    2    0   17
@@ -1703,8 +1708,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1426518165
-# Using file temp_1426518165
+S16-filehandles/chmod.t............................# Using file temp_1426603732
+# Using file temp_1426603732
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1732,16 +1737,7 @@ S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   3    0    0    0    3
-S17-lowlevel/lock.rakudo.moar......................
-# Failed test 'Condition variable worked'
-# at lib/Test.pm line 110
-# expected: 'ale,porter,stout'
-#      got: 'ale,porter'
-use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S17-lowlevel/lock.rakudo.moar:87
-
-# log = ale porter
-# Looks like you failed 1 tests of 8
-   6    1    0    1    8
+S17-lowlevel/lock.rakudo.moar......................   7    0    0    1    8
      1 skipped: not sure this test is valid
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.t..............................  30    0    0    0   30
@@ -1858,7 +1854,13 @@ S17-supply/stable.rakudo.moar......................# **** scheduling with Thread
 # **** scheduling with CurrentThreadScheduler
    5    0    0    2    7
      2 skipped: doesn't work or can't test
-S17-supply/start.t.................................   9    0    0    0    9
+S17-supply/start.t.................................
+# Failed test 'did we get the other original value'
+# at t/spec/S17-supply/start.t line 34
+# expected: [1, 1]
+#      got: [1, 1]
+# Looks like you failed 1 tests of 9
+   8    1    0    0    9
 S17-supply/unique.t................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
   17    0    0    0   17
@@ -2478,13 +2480,7 @@ integration/advent2011-day23.rakudo.moar...........  54    0    1    0   55
 integration/advent2011-day24.t.....................   8    0    0    0    8
 integration/advent2012-day02.t.....................   4    0    0    0    4
 integration/advent2012-day03.t.....................   2    0    0    0    2
-integration/advent2012-day04.t.....................
-# Failed test 'Pascal's triangle'
-# at t/spec/integration/advent2012-day04.t line 21
-# expected: 4075
-#      got: 0
-# Looks like you failed 1 tests of 8
-   7    1    0    0    8
+integration/advent2012-day04.t.....................   8    0    0    0    8
 integration/advent2012-day06.t.....................   2    0    0    0    2
 integration/advent2012-day09.t.....................   8    0    0    0    8
 integration/advent2012-day10.t.....................WARNINGS:
@@ -2501,14 +2497,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# gerdr: 1.01524520 seconds
-# kaz: 1.0858896 seconds
-# recursive-ternary: 1.1400973 seconds
-# loop: 1.1553435 seconds
-# hand-memoization: 1.5593531 seconds
-# sequence-ternary: 2.98093674 seconds
-# recursive-ternary-hand-cached: 4.12081483 seconds
-# sequence: 4.3760865 seconds
+integration/advent2012-day21.t.....................# gerdr: 1.04146461 seconds
+# kaz: 1.04234248 seconds
+# loop: 1.1382134 seconds
+# recursive-ternary: 1.2197839 seconds
+# hand-memoization: 1.581955 seconds
+# sequence-ternary: 2.6992928 seconds
+# recursive-ternary-hand-cached: 2.70749851 seconds
+# sequence: 4.6266930 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2581,13 +2577,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5170,     0,   133,   348,  5651,  5743
-"S03",        5130,     0,   115,    99,  5344,  5378
+"S02",        5172,     0,   131,   348,  5651,  5743
+"S03",        5130,     0,   116,    99,  5345,  5379
 "S04",        1036,     0,    52,    42,  1130,  1182
 "S05",        5324,     0,    91,   170,  5585,  5942
 "S06",        1345,     0,    47,    91,  1483,  1541
 "S07",           0,     0,     0,     0,     0,     0
-"S09",        1777,     0,     9,    13,  1799,  1799
+"S09",        1840,     0,     9,    18,  1867,  1867
 "S10",          87,     0,     4,     1,    92,   149
 "S11",         108,     0,     4,    14,   126,   145
 "S12",        1463,     0,    46,   123,  1632,  1690
@@ -2603,10 +2599,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         339,     0,     4,     2,   345,   355
 "S32",        9345,     0,   118,   164,  9627,  8062
-"int",        1248,     1,    13,    20,  1282,  1271
+"int",        1249,     0,    13,    20,  1282,  1271
 "ros",           2,     0,     0,     0,     2,     2
-"total",     35214,     2,   666,  1225, 37107, 37154
+"total",     35280,     1,   665,  1230, 37176, 37223
 ----------------
 Failure summary:
-S17-lowlevel/lock.rakudo.moar 7 - Condition variable worked
-integration/advent2012-day04.t 3 - Pascal's triangle
+S17-supply/start.t 9 - did we get the other original value
