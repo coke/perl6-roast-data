@@ -510,7 +510,7 @@ use of uninitialized value $x of type Any in string context  in sub f1 at t/spec
 S03-operators/also.rakudo.moar.....................   4    0    4    0    8
      4 todo   : nom regression
 S03-operators/andthen.t............................   8    0    0    0    8
-S03-operators/arith.t..............................use of uninitialized value of type Int in numeric context  in block <unit> at t/spec/S03-operators/arith.t:360
+S03-operators/arith.t..............................use of uninitialized value of type Int in numeric context  in block <unit> at t/spec/S03-operators/arith.t:366
 
  156    0    0    0  156
 S03-operators/assign-is-not-binding.t..............   8    0    0    0    8
@@ -1434,10 +1434,10 @@ S10-packages/basic.rakudo.moar.....................  60    0    2    1   63
      1 todo   : ticket based only on class... RT #60446
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
 S10-packages/precompilation.rakudo.moar............# error: Could not find symbol '&C1'
-#   in method <anon> at src/gen/m-CORE.setting:15826
+#   in method <anon> at src/gen/m-CORE.setting:15825
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2908
 #   in any find_method at src/gen/m-Metamodel.nqp:1052
-#   in block <unit> at getout-8624-725083.code:4
+#   in block <unit> at getout-13698-386126.code:4
 
 
   15    0    2    0   17
@@ -1740,8 +1740,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1426947926
-# Using file temp_1426947926
+S16-filehandles/chmod.t............................# Using file temp_1427034753
+# Using file temp_1427034753
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1769,7 +1769,14 @@ S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   3    0    0    0    3
-S17-lowlevel/lock.rakudo.moar......................   7    0    0    1    8
+S17-lowlevel/lock.rakudo.moar......................
+# Failed test 'Condition variable worked'
+# at lib/Test.pm line 110
+# expected: 'ale,porter,stout'
+#      got: 'ale,porter'
+# log = ale porter stout, thread was running *after* join
+# Looks like you failed 1 tests of 8
+   6    1    0    1    8
      1 skipped: not sure this test is valid
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.rakudo.moar....................  27    0    0    3   30
@@ -1888,7 +1895,13 @@ S17-supply/stable.rakudo.moar......................# **** scheduling with Thread
 # **** scheduling with CurrentThreadScheduler
    5    0    0    2    7
      2 skipped: doesn't work or can't test
-S17-supply/start.t.................................   9    0    0    0    9
+S17-supply/start.t.................................
+# Failed test 'did we get the other original value'
+# at t/spec/S17-supply/start.t line 34
+# expected: [1, 1]
+#      got: [1, 1]
+# Looks like you failed 1 tests of 9
+   8    1    0    0    9
 S17-supply/unique.t................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
   17    0    0    0   17
@@ -2532,14 +2545,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 0.99189629 seconds
-# gerdr: 1.1734362 seconds
-# recursive-ternary: 1.2502428 seconds
-# loop: 1.27291488 seconds
-# hand-memoization: 1.65683459 seconds
-# recursive-ternary-hand-cached: 2.7468612 seconds
-# sequence-ternary: 2.8553836 seconds
-# sequence: 4.6401779 seconds
+integration/advent2012-day21.t.....................# kaz: 1.005036 seconds
+# gerdr: 1.11952397 seconds
+# recursive-ternary: 1.268091 seconds
+# loop: 1.3088416 seconds
+# hand-memoization: 1.68544246 seconds
+# sequence-ternary: 2.683961 seconds
+# recursive-ternary-hand-cached: 2.77840246 seconds
+# sequence: 4.3365103 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2626,7 +2639,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         308,     0,     8,    10,   326,   339
 "S15",         241,     0,     4,    18,   263,   283
 "S16",         259,     0,     0,    16,   275,   307
-"S17",         708,     0,     4,    31,   743,   743
+"S17",         706,     2,     4,    31,   743,   743
 "S19",          13,     0,     0,     0,    13,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",           1,     0,     0,     0,     1,    79
@@ -2636,6 +2649,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9537,     0,   120,   184,  9841,  8276
 "int",        1249,     0,    13,    20,  1282,  1271
 "ros",           2,     0,     0,     0,     2,     2
-"total",     35541,     0,   666,  1343, 37550, 37597
+"total",     35539,     2,   666,  1343, 37550, 37597
 ----------------
-No failures!
+Failure summary:
+S17-lowlevel/lock.rakudo.moar 7 - Condition variable worked
+S17-supply/start.t 9 - did we get the other original value
