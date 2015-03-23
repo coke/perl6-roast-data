@@ -191,7 +191,7 @@ S02-names/symbolic-deref.rakudo.moar...............  30    0    2    3   35
      1 todo   : no such symbol
 S02-one-pass-parsing/less-than.t...................   9    0    0    0    9
 S02-packages/package-lookup.t......................   7    0    0    0    7
-S02-types/WHICH.t.................................. 602    0    0    0  602
+S02-types/WHICH.t.................................. 650    0    0    0  650
 S02-types/anon_block.rakudo.moar...................Code object coerced to string (please use .gist or .perl to do that)  in sub isnt at lib/Test.pm:178
 
   39    0    1    2   42
@@ -510,7 +510,7 @@ use of uninitialized value $x of type Any in string context  in sub f1 at t/spec
 S03-operators/also.rakudo.moar.....................   4    0    4    0    8
      4 todo   : nom regression
 S03-operators/andthen.t............................   8    0    0    0    8
-S03-operators/arith.t..............................use of uninitialized value of type Int in numeric context  in block <unit> at t/spec/S03-operators/arith.t:366
+S03-operators/arith.rakudo.moar....................use of uninitialized value of type Int in numeric context  in block <unit> at t/spec/S03-operators/arith.rakudo.moar:371
 
  156    0    0    0  156
 S03-operators/assign-is-not-binding.t..............   8    0    0    0    8
@@ -781,8 +781,7 @@ S03-operators/value_equivalence.rakudo.moar........  73    0    2    0   75
      1 todo   : \@a seems to flatten when it should not
 S03-sequence/arity-2-or-more.t.....................  20    0    0    0   20
 S03-sequence/arity0.t..............................  13    0    0    0   13
-S03-sequence/basic.rakudo.moar..................... 131    0    2    0  133
-     2 todo   : sequence + last
+S03-sequence/basic.t............................... 133    0    0    0  133
 S03-sequence/limit-arity-2-or-more.t...............Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-sequence/limit-arity-2-or-more.t:32
 
 Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-sequence/limit-arity-2-or-more.t:33
@@ -1434,10 +1433,10 @@ S10-packages/basic.rakudo.moar.....................  60    0    2    1   63
      1 todo   : ticket based only on class... RT #60446
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
 S10-packages/precompilation.rakudo.moar............# error: Could not find symbol '&C1'
-#   in method <anon> at src/gen/m-CORE.setting:15825
+#   in method <anon> at src/gen/m-CORE.setting:15826
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2908
 #   in any find_method at src/gen/m-Metamodel.nqp:1052
-#   in block <unit> at getout-13698-386126.code:4
+#   in block <unit> at getout-19695-373018.code:4
 
 
   15    0    2    0   17
@@ -1740,8 +1739,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1427034753
-# Using file temp_1427034753
+S16-filehandles/chmod.t............................# Using file temp_1427120815
+# Using file temp_1427120815
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1769,14 +1768,7 @@ S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   3    0    0    0    3
-S17-lowlevel/lock.rakudo.moar......................
-# Failed test 'Condition variable worked'
-# at lib/Test.pm line 110
-# expected: 'ale,porter,stout'
-#      got: 'ale,porter'
-# log = ale porter stout, thread was running *after* join
-# Looks like you failed 1 tests of 8
-   6    1    0    1    8
+S17-lowlevel/lock.rakudo.moar......................   7    0    0    1    8
      1 skipped: not sure this test is valid
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.rakudo.moar....................  27    0    0    3   30
@@ -1895,13 +1887,7 @@ S17-supply/stable.rakudo.moar......................# **** scheduling with Thread
 # **** scheduling with CurrentThreadScheduler
    5    0    0    2    7
      2 skipped: doesn't work or can't test
-S17-supply/start.t.................................
-# Failed test 'did we get the other original value'
-# at t/spec/S17-supply/start.t line 34
-# expected: [1, 1]
-#      got: [1, 1]
-# Looks like you failed 1 tests of 9
-   8    1    0    0    9
+S17-supply/start.t.................................   9    0    0    0    9
 S17-supply/unique.t................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
   17    0    0    0   17
@@ -2250,11 +2236,9 @@ S32-num/power.rakudo.moar..........................  43    0    9    0   52
      1 todo   : i
 S32-num/rand.rakudo.moar........................... 112    0    0    1  113
      1 skipped: Test is too slow; srand call incorrect
-S32-num/rat.rakudo.moar............................ 819    0    4    1  824
+S32-num/rat.rakudo.moar............................ 823    0    0    1  824
      1 skipped: RT #74648
-     4 todo   : <1/3> literal should be Rat
-S32-num/real-bridge.rakudo.moar.................... 185    0    0   15  200
-    15 skipped: hangs
+S32-num/real-bridge.t.............................. 200    0    0    0  200
 S32-num/roots.t....................................  55    0    0    0   55
 S32-num/rounders.t................................. 130    0    0    0  130
 S32-num/rshift_pos_amount.t........................ 189    0    0    0  189
@@ -2460,7 +2444,20 @@ integration/99problems-21-to-30.t..................use of uninitialized value $p
   15    0    0    0   15
 integration/99problems-31-to-40.t..................  66    0    0    1   67
      1 skipped: No Benchmark module yet
-integration/99problems-41-to-50.t..................  13    0    0    0   13
+integration/99problems-41-to-50.t..................Potential difficulties:
+    Leading 0 does not indicate octal in Perl 6; please use 0o0 if you mean that
+    at t/spec/integration/99problems-41-to-50.t:313
+    ------> [32m    is_deeply gray(2), [<00[33m⏏[31m 01 11 10>];[0m
+    Leading 0 does not indicate octal in Perl 6; please use 0o00 if you mean that
+    at t/spec/integration/99problems-41-to-50.t:314
+    ------> [32m    is_deeply gray(3), [<000[33m⏏[31m 001 011 010 110 111 101 100>];[0m
+    Leading 0 does not indicate octal in Perl 6; please use 0o0 if you mean that
+    at t/spec/integration/99problems-41-to-50.t:325
+    ------> [32m    is_deeply gray2(2), [<00[33m⏏[31m 01 11 10>];[0m
+    Leading 0 does not indicate octal in Perl 6; please use 0o00 if you mean that
+    at t/spec/integration/99problems-41-to-50.t:326
+    ------> [32m    is_deeply gray2(3), [<000[33m⏏[31m 001 011 010 110 111 101 100>];[0m
+  13    0    0    0   13
 integration/99problems-51-to-60.t..................  35    0    0    2   37
      1 skipped: Test(s) not yet written: (**) Construct height-balanced binary trees with a given number of nodes
      1 skipped: Test(s) not yet written: (**) Generate-and-test paradigm
@@ -2545,14 +2542,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 1.005036 seconds
-# gerdr: 1.11952397 seconds
-# recursive-ternary: 1.268091 seconds
-# loop: 1.3088416 seconds
-# hand-memoization: 1.68544246 seconds
-# sequence-ternary: 2.683961 seconds
-# recursive-ternary-hand-cached: 2.77840246 seconds
-# sequence: 4.3365103 seconds
+integration/advent2012-day21.t.....................# gerdr: 1.12233009 seconds
+# kaz: 1.1223716 seconds
+# recursive-ternary: 1.3177983 seconds
+# loop: 1.4410642 seconds
+# hand-memoization: 1.6560083 seconds
+# sequence-ternary: 2.7525756 seconds
+# recursive-ternary-hand-cached: 2.99518081 seconds
+# sequence: 4.3242929 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2625,8 +2622,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5172,     0,   131,   348,  5651,  5743
-"S03",        5130,     0,   115,   100,  5345,  5379
+"S02",        5220,     0,   131,   348,  5699,  5791
+"S03",        5132,     0,   113,   100,  5345,  5379
 "S04",        1036,     0,    52,    42,  1130,  1182
 "S05",        5324,     0,    91,   170,  5585,  5942
 "S06",        1361,     0,    47,    91,  1499,  1557
@@ -2639,18 +2636,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         308,     0,     8,    10,   326,   339
 "S15",         241,     0,     4,    18,   263,   283
 "S16",         259,     0,     0,    16,   275,   307
-"S17",         706,     2,     4,    31,   743,   743
+"S17",         708,     0,     4,    31,   743,   743
 "S19",          13,     0,     0,     0,    13,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",           1,     0,     0,     0,     1,    79
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         339,     0,     4,     2,   345,   355
-"S32",        9537,     0,   120,   184,  9841,  8276
+"S32",        9556,     0,   116,   169,  9841,  8276
 "int",        1249,     0,    13,    20,  1282,  1271
 "ros",           2,     0,     0,     0,     2,     2
-"total",     35539,     2,   666,  1343, 37550, 37597
+"total",     35610,     0,   660,  1328, 37598, 37645
 ----------------
-Failure summary:
-S17-lowlevel/lock.rakudo.moar 7 - Condition variable worked
-S17-supply/start.t 9 - did we get the other original value
+No failures!
