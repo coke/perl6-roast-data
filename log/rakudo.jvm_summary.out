@@ -372,7 +372,7 @@ S03-operators/gcd.t................................  16    0    0    0   16
 S03-operators/identity.rakudo.jvm..................  37    0    8    0   45
      4 todo   : misuse of =:=
      4 todo   : unspecced
-S03-operators/increment.t..........................  32    0    0    0   32
+S03-operators/increment.t..........................  37    0    0    0   37
 S03-operators/infixed-function.t...................   5    0    0    0    5
 S03-operators/inplace.rakudo.jvm...................  23    0    0    4   27
      4 skipped: Method '' not found for invocant of class 'Str'
@@ -397,7 +397,7 @@ S03-operators/orelse.rakudo.jvm....................   9    0    0    2   11
      1 skipped: orelse passes $! as argument
      1 skipped: orelse passes $! as multiple arguments
 S03-operators/overflow.t...........................  98    0    0    0   98
-S03-operators/precedence.rakudo.jvm................  54    0    0    2   56
+S03-operators/precedence.rakudo.jvm................  56    0    0    2   58
      2 skipped: nom regression
 S03-operators/range-basic.t........................ 140    0    0    0  140
 S03-operators/range-int.t.......................... 480    0    0    0  480
@@ -481,9 +481,7 @@ S04-declarations/my.rakudo.jvm.....................  80    0    7    2   89
      1 todo   : previous test skipped
 S04-declarations/our.rakudo.jvm....................  32    0    1    0   33
      1 todo   : our-scoped var in role
-S04-declarations/state.rakudo.jvm..................  33    0    2    6   41
-     1 skipped: RT #115614
-     5 skipped: parse error
+S04-declarations/state.rakudo.jvm..................  39    0    2    0   41
      1 todo   : embedded closures in regexen
      1 todo   : initialization happens only on first call(?)
 S04-declarations/will.rakudo.jvm...................  10    0    4    3   17
@@ -1174,7 +1172,7 @@ S16-unfiled/rebindstdhandles.rakudo.jvm............   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   3    0    0    0    3
-S17-lowlevel/lock.rakudo.jvm.......................   6    1    0    1    8
+S17-lowlevel/lock.rakudo.jvm.......................   7    0    0    1    8
      1 skipped: not sure this test is valid
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-promise/allof.t................................  11    0    0    0   11
@@ -1328,7 +1326,7 @@ S32-container/roundrobin.rakudo.jvm................   4    0    1    0    5
 S32-container/stringify.t..........................  16    0    0    0   16
 S32-container/zip.rakudo.jvm.......................   8    0    0    2   10
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.jvm..................... 283    0    2    0  285
+S32-exceptions/misc.rakudo.jvm..................... 285    0    2    0  287
      1 todo   : Cannot find method "returns"
      1 todo   : parsing regression
 S32-hash/delete-adverb.t........................... 131    0    0    0  131
@@ -1411,7 +1409,10 @@ S32-list/sort.rakudo.jvm...........................  28    0    3    1   32
      1 skipped: closure as non-final argument
      2 todo   : determine behavior of 0-arity methods passed to sort
      1 todo   : method fallback to sub unimpl
-S32-list/squish.t..................................  28    0    0    0   28
+S32-list/squish.rakudo.jvm.........................  28    0    8    0   36
+     2 todo   : RT #124204
+     4 todo   : RT #124205
+     2 todo PASSED: RT #124204
 S32-list/unique.t..................................  33    0    0    0   33
 S32-num/abs.t......................................  49    0    0    0   49
 S32-num/base.t.....................................  31    0    0    0   31
@@ -1680,8 +1681,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
 "S02",        5187,     0,   143,   369,  5699,  5791
-"S03",        5137,     0,   113,   100,  5350,  5384
-"S04",        1023,     0,    50,    57,  1130,  1182
+"S03",        5144,     0,   113,   100,  5357,  5391
+"S04",        1029,     0,    50,    51,  1130,  1182
 "S05",        5232,     0,    97,   256,  5585,  5942
 "S06",        1351,     0,    49,    99,  1499,  1557
 "S07",           0,     0,     0,     0,     0,     0
@@ -1693,17 +1694,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         306,     0,     8,    12,   326,   339
 "S15",           7,     0,     4,    18,    29,   283
 "S16",         258,     0,     0,    17,   275,   307
-"S17",         666,     1,     4,    27,   698,   744
+"S17",         667,     0,     4,    27,   698,   744
 "S19",          13,     0,     0,     0,    13,    18
 "S22",          23,     0,     0,     1,    24,    24
 "S24",           1,     0,     0,     0,     1,    79
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         339,     0,     3,     3,   345,   355
-"S32",        9411,     0,    92,   190,  9693,  8128
+"S32",        9413,     0,   100,   190,  9703,  8138
 "int",        1254,     0,    13,    15,  1282,  1276
 "ros",           2,     0,     0,     0,     2,     2
-"total",     35020,     1,   685,  1475, 37181, 37513
+"total",     35036,     0,   693,  1469, 37198, 37530
 ----------------
-Failure summary:
-S17-lowlevel/lock.rakudo.jvm 7 - Condition variable worked
+No failures!
