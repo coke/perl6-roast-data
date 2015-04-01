@@ -399,8 +399,9 @@ S03-operators/precedence.rakudo.jvm................  56    0    0    2   58
      2 skipped: nom regression
 S03-operators/range-basic.t........................ 140    0    0    0  140
 S03-operators/range-int.t.......................... 480    0    0    0  480
-S03-operators/range.rakudo.jvm..................... 123    0    2    0  125
+S03-operators/range.rakudo.jvm.....................  82   41    2    0  125
      2 todo   : huh?
+    41 tests aborted (missing ok/not ok)
 S03-operators/reduce-le1arg.rakudo.jvm.............  51    0    0    3   54
      1 skipped: expected Any but got Mu instead
      1 skipped: ~< NYI
@@ -417,7 +418,7 @@ S03-operators/spaceship-and-containers.t...........   6    0    0    0    6
 S03-operators/spaceship.t..........................   5    0    0    0    5
 S03-operators/subscript-adverbs.t.................. 110    0    0    0  110
 S03-operators/subscript-vs-lt.t....................   4    0    0    0    4
-S03-operators/ternary.t............................  17    0    0    0   17
+S03-operators/ternary.t............................  21    0    0    0   21
 S03-operators/value_equivalence.rakudo.jvm.........  73    0    2    0   75
      1 todo   : .WHICH based on type names
      1 todo   : \@a seems to flatten when it should not
@@ -1327,7 +1328,7 @@ S32-basics/xxPOS.rakudo.jvm........................  55    0    0    5   60
 S32-container/roundrobin.rakudo.jvm................   4    0    1    0    5
      1 todo   : over-flattening
 S32-container/stringify.t..........................  16    0    0    0   16
-S32-container/zip.rakudo.jvm.......................   8    0    0    2   10
+S32-container/zip.rakudo.jvm.......................  12    0    0    2   14
      2 skipped: lvalue zip
 S32-exceptions/misc.rakudo.jvm..................... 285    0    2    0  287
      1 todo   : Cannot find method "returns"
@@ -1404,8 +1405,8 @@ S32-list/minmax.t..................................  97    0    0    0   97
 S32-list/permutations.t............................   2    0    0    0    2
 S32-list/pick.rakudo.jvm...........................  56    0    1    0   57
      1 todo   : error on pick :replace
-S32-list/reduce.rakudo.jvm.........................  13    0    1    0   14
-     1 todo   : n-ary reduce
+S32-list/reduce.t..................................   0   15    0    0   15
+    15 tests aborted (missing ok/not ok)
 S32-list/reverse.rakudo.jvm........................  20    0    1    0   21
      1 todo   : RT #77914
 S32-list/roll.t....................................  48    0    0    0   48
@@ -1681,13 +1682,14 @@ integration/variables-in-do.t......................   3    0    0    0    3
 integration/weird-errors.rakudo.jvm................  13    0    1    0   14
      1 todo PASSED: ?
                                                    pass fail todo skip plan
-rosettacode/greatest_element_of_a_list.t...........   1    0    0    0    1
+rosettacode/greatest_element_of_a_list.t...........   0    1    0    0    1
+     1 tests aborted (missing ok/not ok)
 rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
 "S02",        5193,     0,   141,   368,  5702,  5794
-"S03",        5151,     0,   121,   100,  5372,  5390
+"S03",        5114,    41,   121,   100,  5376,  5394
 "S04",        1029,     0,    50,    51,  1130,  1182
 "S05",        5302,     4,   106,   257,  5669,  5942
 "S06",        1351,     0,    49,    99,  1499,  1557
@@ -1707,13 +1709,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1236,     0,     4,    44,  1284,  1945
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         339,     0,     3,     3,   345,   355
-"S32",        9460,     0,    98,   190,  9748,  8180
+"S32",        9451,    15,    97,   190,  9753,  8185
 "int",        1256,     0,    14,    17,  1287,  1276
-"ros",           2,     0,     0,     0,     2,     2
-"total",     35168,     4,   707,  1471, 37350, 37574
+"ros",           1,     1,     0,     0,     2,     2
+"total",     35121,    61,   706,  1471, 37359, 37583
 ----------------
 Failure summary:
+S03-operators/range.rakudo.jvm aborted 41 test(s)
 S05-modifier/perl5_9.rakudo.jvm 77 - re_tests 1348/1 (1566)
 S05-modifier/perl5_9.rakudo.jvm 79 - re_tests 1352/1 (1570)
 S05-modifier/perl5_9.rakudo.jvm 81 - re_tests 1356/1 (1574)
 S05-modifier/perl5_9.rakudo.jvm 83 - re_tests 1360/1 (1578)
+S32-list/reduce.t aborted 15 test(s)
+rosettacode/greatest_element_of_a_list.t aborted 1 test(s)
