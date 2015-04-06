@@ -423,12 +423,7 @@ S02-types/unicode.rakudo.moar......................   2    0    3   11   16
      2 skipped: graphs NYI
      3 todo   : RT #65170
 S02-types/version.t................................  36    0    0    0   36
-S02-types/whatever.rakudo.moar.....................
-# Failed test '{*.{}}() lives'
-# at t/spec/S02-types/whatever.rakudo.moar line 220
-# Error: Malformed double closure; WhateverCode is already a closure without curlies, so either remove the curlies or use valid parameter syntax instead of *
-# Looks like you failed 1 tests of 87
-  77    1    4    5   87
+S02-types/whatever.rakudo.moar.....................  80    0    4    5   89
      5 skipped: currying plus meta ops
      1 todo   : * as dummy
      3 todo   : RT #122708 - currying of min/max
@@ -813,7 +808,7 @@ S03-smartmatch/any-type.t..........................  15    0    0    0   15
 S03-smartmatch/array-array.t.......................  36    0    0    0   36
 S03-smartmatch/array-hash.t........................   6    0    0    0    6
 S03-smartmatch/capture-signature.t.................   6    0    0    0    6
-S03-smartmatch/disorganized.t......................  41    0    0    0   41
+S03-smartmatch/disorganized.t......................  42    0    0    0   42
 S03-smartmatch/hash-hash.rakudo.moar...............   8    0    8    0   16
      8 todo   : NYI
 S03-smartmatch/range-range.t.......................  14    0    0    0   14
@@ -863,25 +858,55 @@ Potential difficulties:
     ------> [32mstate $x; state $x[33m⏏[31m<EOL>[0m
    5    0    1    0    6
      1 todo   : nom regression
-S04-declarations/my.rakudo.moar....................[31m===[0mSORRY![31m===[0m
-Malformed double closure; WhateverCode is already a closure without curlies, so either remove the curlies or use valid parameter syntax instead of *
-at t/spec/S04-declarations/my.rakudo.moar:319
-------> [32m    my & = { * - 5 }[33m⏏[31m;[0m
-    expecting any of:
-        horizontal whitespace
-        statement end
-        statement modifier
-        statement modifier loop
-Other potential difficulties:
+S04-declarations/my.rakudo.moar....................Potential difficulties:
     Redeclaration of symbol %p
     at t/spec/S04-declarations/my.rakudo.moar:54
     ------> [32m        my %p[33m⏏[31m; #OK[0m
     Redeclaration of symbol $f
     at t/spec/S04-declarations/my.rakudo.moar:158
     ------> [32m    my $f[33m⏏[31m; #OK[0m
+use of uninitialized value $x of type Any in string context  in block  at t/spec/S04-declarations/my.rakudo.moar:23
 
-   0   89    0    0   89
-    89 tests aborted (missing ok/not ok)
+use of uninitialized value $x of type Any in string context  in block  at t/spec/S04-declarations/my.rakudo.moar:23
+
+WARNINGS:
+Useless use of "," in expression "my $x = 1, my $y = 2" in sink context (line 1)
+WARNINGS:
+Useless use of "," in expression "my $x = 1, my $y = 2" in sink context (line 1)
+WARNINGS:
+Useless use of "," in expression "my $x = 1, my $y = 2" in sink context (line 1)
+WARNINGS:
+Useless use of "," in expression "my $x = 1, my $y = 2" in sink context (line 1)
+WARNINGS:
+Useless use of "," in expression "my $x = 1, my $y = 2" in sink context (line 1)
+WARNINGS:
+Useless use of constant integer 1 in sink context (line 1)
+    
+# Failed test 'code dies'
+# at t/spec/S04-declarations/my.rakudo.moar line 227
+    # Looks like you failed 1 tests of 2
+    
+# Failed test 'code dies'
+# at t/spec/S04-declarations/my.rakudo.moar line 229
+    # Looks like you failed 1 tests of 2
+    
+# Failed test 'code dies'
+# at t/spec/S04-declarations/my.rakudo.moar line 231
+    # Looks like you failed 1 tests of 2
+use of uninitialized value x1 of type Any in string context  in sub is at lib/Test.pm:136
+
+use of uninitialized value x1 of type Any in string context  in block  at lib/Test.pm:139
+
+use of uninitialized value x1 of type Any in string context  in block  at lib/Test.pm:146
+
+use of uninitialized value x3 of type Any in string context  in block <unit> at t/spec/S04-declarations/my.rakudo.moar:332
+
+  80    0    7    2   89
+     2 skipped: nom regression, OUR::
+     3 todo   : RT #102414 still unresolved
+     2 todo   : RT #117043
+     1 todo   : fails
+     1 todo   : previous test skipped
 S04-declarations/our.rakudo.moar...................  32    0    1    0   33
      1 todo   : our-scoped var in role
 S04-declarations/state.rakudo.moar.................  39    0    2    0   41
@@ -1413,7 +1438,7 @@ S10-packages/precompilation.rakudo.moar............# error: Could not find symbo
 #   in method <anon> at src/gen/m-CORE.setting:15902
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2908
 #   in any find_method at src/gen/m-Metamodel.nqp:1052
-#   in block <unit> at getout-28833-659629.code:4
+#   in block <unit> at getout-4742-542973.code:4
 
 
   19    0    3    0   22
@@ -1717,8 +1742,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1428244775
-# Using file temp_1428244775
+S16-filehandles/chmod.t............................# Using file temp_1428331330
+# Using file temp_1428331330
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1751,16 +1776,7 @@ S17-lowlevel/lock.rakudo.moar......................   7    0    0    1    8
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.rakudo.moar....................  27    0    0    3   30
      3 skipped: returns Nil (flapping tests)
-S17-procasync/print.rakudo.moar....................Unhandled exception in code scheduled on thread 140094559217408
-MVMArray: Index out of bounds
-  in method BIND-POS at src/gen/m-CORE.setting:10871
-  in sub postcircumfix:<[ ]> at src/gen/m-CORE.setting:3429
-  in block  at src/gen/m-CORE.setting:25418
-  in block  at src/gen/m-CORE.setting:25408
-  in block  at src/gen/m-CORE.setting:22960
-  in block  at src/gen/m-CORE.setting:22957
-
-  11    0    0    5   16
+S17-procasync/print.rakudo.moar....................  11    0    0    5   16
      5 skipped: Flapping tests
 S17-promise/allof.t................................  11    0    0    0   11
 S17-promise/anyof.t................................  10    0    0    0   10
@@ -2537,14 +2553,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 1.0974705 seconds
-# gerdr: 1.12013625 seconds
-# recursive-ternary: 1.2170126 seconds
-# loop: 1.27795197 seconds
-# hand-memoization: 1.62135941 seconds
-# sequence-ternary: 2.5920504 seconds
-# recursive-ternary-hand-cached: 2.6026579 seconds
-# sequence: 4.2942277 seconds
+integration/advent2012-day21.t.....................# gerdr: 0.9674488 seconds
+# kaz: 0.97051569 seconds
+# loop: 1.26037392 seconds
+# recursive-ternary: 1.3263403 seconds
+# hand-memoization: 1.45016782 seconds
+# recursive-ternary-hand-cached: 2.60298088 seconds
+# sequence-ternary: 2.75226672 seconds
+# sequence: 4.30977969 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2625,9 +2641,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5225,     1,   129,   347,  5702,  5794
-"S03",        5155,     0,   121,   100,  5376,  5394
-"S04",         962,    89,    45,    34,  1130,  1182
+"S02",        5228,     0,   129,   347,  5704,  5796
+"S03",        5156,     0,   121,   100,  5377,  5395
+"S04",        1042,     0,    52,    36,  1130,  1182
 "S05",        5398,     0,   100,   171,  5669,  5942
 "S06",        1364,     0,    51,    91,  1506,  1564
 "S07",           0,     0,     0,     0,     0,     0
@@ -2649,8 +2665,6 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9615,     0,   121,   169,  9905,  8337
 "int",        1253,     0,    14,    20,  1287,  1276
 "ros",           2,     0,     0,     0,     2,     2
-"total",     35709,    90,   679,  1320, 37798, 37742
+"total",     35793,     0,   686,  1322, 37801, 37745
 ----------------
-Failure summary:
-S02-types/whatever.rakudo.moar 67 - {*.{}}() lives
-S04-declarations/my.rakudo.moar aborted 89 test(s)
+No failures!
