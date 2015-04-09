@@ -1433,7 +1433,7 @@ S10-packages/precompilation.rakudo.moar............# error: Could not find symbo
 #   in method <anon> at src/gen/m-CORE.setting:15987
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2908
 #   in any find_method at src/gen/m-Metamodel.nqp:1052
-#   in block <unit> at getout-15316-343790.code:4
+#   in block <unit> at getout-9890-808836.code:4
 
 
   19    0    3    0   22
@@ -1737,8 +1737,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1428588992
-# Using file temp_1428588992
+S16-filehandles/chmod.t............................# Using file temp_1428591161
+# Using file temp_1428591161
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1766,9 +1766,8 @@ S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   3    0    0    0    3
-S17-lowlevel/lock.rakudo.moar......................Segmentation fault
-   6    2    0    0    8
-     1 tests aborted (missing ok/not ok)
+S17-lowlevel/lock.rakudo.moar......................   7    0    0    1    8
+     1 skipped: not sure this test is valid
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.rakudo.moar....................  27    0    0    3   30
      3 skipped: returns Nil (flapping tests)
@@ -1886,7 +1885,13 @@ S17-supply/stable.rakudo.moar......................# **** scheduling with Thread
 # **** scheduling with CurrentThreadScheduler
    5    0    0    2    7
      2 skipped: doesn't work or can't test
-S17-supply/start.t.................................   9    0    0    0    9
+S17-supply/start.t.................................
+# Failed test 'did we get the other original value'
+# at t/spec/S17-supply/start.t line 34
+# expected: [1, 1]
+#      got: [1, 1]
+# Looks like you failed 1 tests of 9
+   8    1    0    0    9
 S17-supply/unique.t................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
   17    0    0    0   17
@@ -2557,14 +2562,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# recursive-ternary: 1.17247472 seconds
-# loop: 1.1793042 seconds
-# gerdr: 1.22488427 seconds
-# kaz: 1.5382653 seconds
-# hand-memoization: 1.6668856 seconds
-# recursive-ternary-hand-cached: 3.17829252 seconds
-# sequence-ternary: 7.93030313 seconds
-# sequence: 9.8155222 seconds
+integration/advent2012-day21.t.....................# kaz: 1.16640856 seconds
+# gerdr: 1.16884851 seconds
+# loop: 1.1920458 seconds
+# recursive-ternary: 1.2419541 seconds
+# hand-memoization: 1.6849000 seconds
+# recursive-ternary-hand-cached: 2.760507 seconds
+# sequence-ternary: 6.51411706 seconds
+# sequence: 11.36033112 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2659,7 +2664,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         308,     0,     8,    10,   326,   339
 "S15",         241,     0,     4,    18,   263, 37445
 "S16",         259,     0,     0,    16,   275,   307
-"S17",         708,     2,     4,    30,   744,   744
+"S17",         708,     1,     4,    31,   744,   744
 "S19",          13,     0,     0,     0,    13,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",          14,     0,     0,     0,    14,    92
@@ -2669,9 +2674,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9650,     0,   121,   169,  9940,  8372
 "int",        1247,     6,    14,    20,  1287,  1276
 "ros",           2,     0,     0,     0,     2,     2
-"total",     35846,     8,   685,  1323, 37862, 74968
+"total",     35846,     7,   685,  1324, 37862, 74968
 ----------------
 Failure summary:
-S17-lowlevel/lock.rakudo.moar 7 - Condition variable worked
-S17-lowlevel/lock.rakudo.moar aborted 1 test(s)
+S17-supply/start.t 9 - did we get the other original value
 integration/advent2012-day04.t aborted 6 test(s)
