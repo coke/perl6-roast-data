@@ -1,36 +1,104 @@
-/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/jvm/stage1
-/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl jvm src/QRegex/P6Regex/Grammar.nqp src/QRegex/P6Regex/Actions.nqp src/QRegex/P6Regex/Compiler.nqp src/QRegex/P6Regex/Optimizer.nqp  > gen/jvm/stage1/NQPP6QRegex.nqp
-java -cp src/vm/jvm/stage0 -Xbootclasspath/a:src/vm/jvm/stage0:nqp-runtime.jar:3rdparty/asm/asm-4.1.jar:3rdparty/asm/asm-tree-4.1.jar:3rdparty/jline/jline-1.0.jar:3rdparty/jna/jna.jar:src/vm/jvm/stage0/nqp.jar nqp --bootstrap --module-path=gen/jvm/stage1 --setting-path=gen/jvm/stage1 \
-         --setting=NQPCORE --no-regex-lib --target=jar \
-    --output=gen/jvm/stage1/NQPP6QRegex.jar gen/jvm/stage1/NQPP6QRegex.nqp
-Wrong number of arguments passed; expected 1..1, but got 6
-  in new (gen/jvm/stage1/JASTNodes.nqp)
-  in map_classlib_core_op (gen/jvm/stage1/QAST.nqp:294)
-  in  (gen/jvm/stage1/QAST.nqp:1586)
-  in  (gen/jvm/stage1/QAST.nqp)
-  in  (src/vm/jvm/ModuleLoader.nqp:62)
-  in load_module (src/vm/jvm/ModuleLoader.nqp:52)
-  in load_module (gen/jvm/stage2/NQP.nqp:284)
-  in statement_control:sym<use> (gen/jvm/stage2/NQP.nqp:2090)
-  in !reduce (gen/jvm/stage2/QRegex.nqp:759)
-  in !cursor_pass (gen/jvm/stage2/QRegex.nqp:721)
-  in statement_control:sym<use> (gen/jvm/stage2/NQP.nqp)
-  in !protoregex (gen/jvm/stage2/QRegex.nqp:791)
-  in statement_control (gen/jvm/stage2/NQP.nqp)
-  in statement (gen/jvm/stage2/NQP.nqp)
-  in statementlist (gen/jvm/stage2/NQP.nqp)
-  in comp_unit (gen/jvm/stage2/NQP.nqp:922)
-  in TOP (gen/jvm/stage2/NQP.nqp:820)
-  in parse (gen/jvm/stage2/QRegex.nqp:1302)
-  in parse (gen/jvm/stage2/NQPHLL.nqp:1396)
-  in  (gen/jvm/stage2/NQPHLL.nqp:1352)
-  in compile (gen/jvm/stage2/NQPHLL.nqp:1343)
-  in eval (gen/jvm/stage2/NQPHLL.nqp:1101)
-  in evalfiles (gen/jvm/stage2/NQPHLL.nqp:1310)
-  in command_eval (gen/jvm/stage2/NQPHLL.nqp:1214)
-  in command_line (gen/jvm/stage2/NQPHLL.nqp:1189)
-  in MAIN (gen/jvm/stage2/NQP.nqp:3750)
-  in  (gen/jvm/stage2/NQP.nqp:3746)
-  in  (gen/jvm/stage2/NQP.nqp)
-Makefile:277: recipe for target 'gen/jvm/stage1/NQPP6QRegex.jar' failed
-make: *** [gen/jvm/stage1/NQPP6QRegex.jar] Error 1
+prove -r --exec ./nqp-j t/nqp t/hll t/qregex t/p5regex t/qast t/serialization t/jvm t/nativecall
+t/nqp/01-literals.t ................... ok
+t/nqp/02-if.t ......................... ok
+t/nqp/03-if-else.t .................... ok
+t/nqp/04-unless.t ..................... ok
+t/nqp/05-comments.t ................... ok
+t/nqp/06-args-pos.t ................... ok
+t/nqp/07-boolean.t .................... ok
+t/nqp/08-blocks.t ..................... ok
+t/nqp/09-var.t ........................ ok
+t/nqp/10-cmp.t ........................ ok
+t/nqp/11-sub.t ........................ ok
+t/nqp/12-logical.t .................... ok
+t/nqp/13-op.t ......................... ok
+t/nqp/14-while.t ...................... ok
+t/nqp/15-list.t ....................... ok
+t/nqp/16-ternary.t .................... ok
+t/nqp/17-positional.t ................. ok
+t/nqp/18-associative.t ................ ok
+t/nqp/19-file-ops.t ................... ok
+t/nqp/20-return.t ..................... ok
+t/nqp/21-contextual.t ................. ok
+t/nqp/22-optional-args.t .............. ok
+t/nqp/23-named-args.t ................. ok
+t/nqp/24-module.t ..................... ok
+t/nqp/25-class.t ...................... ok
+t/nqp/26-methodops.t .................. ok
+t/nqp/27-self.t ....................... ok
+t/nqp/28-subclass.t ................... ok
+t/nqp/29-make.t ....................... ok
+t/nqp/31-grammar.t .................... ok
+t/nqp/32-protoregex.t ................. ok
+t/nqp/33-init.t ....................... ok
+t/nqp/34-rxcodeblock.t ................ ok
+t/nqp/35-prefix-sigil.t ............... ok
+t/nqp/36-callable.t ................... ok
+t/nqp/37-slurpy.t ..................... ok
+t/nqp/38-quotes.t ..................... ok
+t/nqp/39-pointy.t ..................... ok
+t/nqp/40-lists.t ...................... ok
+t/nqp/41-flat.t ....................... ok
+t/nqp/42-cond-loop.t .................. ok
+t/nqp/43-package-var.t ................ ok
+t/nqp/44-try-catch.t .................. ok
+t/nqp/45-smartmatch.t ................. ok
+t/nqp/46-charspec.t ................... ok
+t/nqp/47-loop-control.t ............... ok
+t/nqp/48-closure.t .................... ok
+t/nqp/49-regex-interpolation.t ........ ok
+t/nqp/50-regex.t ...................... ok
+t/nqp/51-multi.t ...................... ok
+t/nqp/53-knowhow.t .................... ok
+t/nqp/55-multi-method.t ............... ok
+t/nqp/56-role.t ....................... ok
+t/nqp/57-construction.t ............... ok
+t/nqp/58-attrs.t ...................... ok
+t/nqp/59-nqpop.t ...................... ok
+t/nqp/60-bigint.t ..................... ok
+t/nqp/61-mixin.t ...................... ok
+t/nqp/62-subst.t ...................... ok
+t/nqp/63-slurp.t ...................... ok
+t/nqp/64-native.t ..................... ok
+t/nqp/65-how.t ........................ ok
+t/nqp/66-pararole.t ................... ok
+t/nqp/67-container.t .................. ok
+t/nqp/68-associative-for.t ............ ok
+t/nqp/69-js-keywords-as-identifier.t .. ok
+t/nqp/70-invokespec.t ................. ok
+t/nqp/71-setboolspec.t ................ ok
+t/nqp/72-rolehow.t .................... ok
+t/nqp/73-delegation.t ................. ok
+t/nqp/74-nfa.t ........................ ok
+t/nqp/75-curcode.t .................... ok
+t/nqp/76-capture.t .................... ok
+t/nqp/77-curlexpad.t .................. ok
+t/nqp/78-shell.t ...................... ok
+t/nqp/79-callercode.t ................. ok
+t/nqp/80-matches.t .................... ok
+t/nqp/81-radix.t ...................... ok
+t/nqp/82-decode.t ..................... ok
+t/nqp/83-log.t ........................ ok
+t/nqp/84-loop-labels.t ................ ok
+t/nqp/85-type-tester.t ................ ok
+sh: 1: doesnotexist: not found
+sh: 1: doesnotexist: not found
+t/nqp/86-pipes.t ...................... ok
+t/nqp/87-parametric-6model.t .......... ok
+t/hll/01-language.t ................... skipped: design changes, need re-work
+t/hll/02-modules.t .................... skipped: design changes, need re-work
+t/hll/03-exports.t .................... skipped: design changes (EXPORT now lexical), need re-work
+t/hll/04-import.t ..................... skipped: design changes (EXPORT now lexical), need re-work
+t/hll/05-commandline.t ................ ok
+t/hll/06-sprintf.t .................... ok
+t/qregex/01-qregex.t .................. ok
+t/p5regex/01-p5regex.t ................ ok
+t/qast/01-qast.t ...................... ok
+t/serialization/01-basic.t ............ ok
+t/serialization/02-types.t ............ ok
+t/serialization/03-closures.t ......... ok
+t/jvm/01-continuations.t .............. ok
+t/nativecall/01-basic.t ............... ok
+All tests successful.
+Files=98, Tests=3747, 333 wallclock secs ( 0.62 usr  0.10 sys + 630.70 cusr 12.09 csys = 643.51 CPU)
+Result: PASS

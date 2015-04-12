@@ -42,7 +42,7 @@ S02-literals/listquote.rakudo.moar.................  19    0    4    1   24
      1 skipped: meta operators
      4 todo   : IntStr/RatStr/NumStr types NYI
 S02-literals/misc-interpolation.t..................  50    0    0    0   50
-S02-literals/numeric.t.............................  22    0    0    0   22
+S02-literals/numeric.t.............................  50    0    0    0   50
 S02-literals/pair-boolean.t........................   6    0    0    0    6
 S02-literals/pairs.t...............................  76    0    0    0   76
 S02-literals/quoting-unicode.t.....................  75    0    0    0   75
@@ -325,7 +325,7 @@ S02-types/multi_dimensional_array.rakudo.moar......  48    0    0   10   58
 S02-types/nan.rakudo.moar..........................  19    0    0    2   21
      1 skipped: RT #83446
      1 skipped: unspecced and inconsistent
-S02-types/native.rakudo.moar.......................  38    0    1    0   39
+S02-types/native.rakudo.moar.......................  41    0    1    0   42
      1 todo   : RT #102416 - though maybe wrong test? Not sure .WHAT is *that* magic
 S02-types/nested_arrays.rakudo.moar................   8    0    1    0    9
      1 todo   : Should we fail, or should we throw
@@ -868,18 +868,6 @@ WARNINGS:
 Useless use of "," in expression "my $x = 1, my $y = 2" in sink context (line 1)
 WARNINGS:
 Useless use of constant integer 1 in sink context (line 1)
-    
-# Failed test 'code dies'
-# at t/spec/S04-declarations/my.rakudo.moar line 227
-    # Looks like you failed 1 tests of 2
-    
-# Failed test 'code dies'
-# at t/spec/S04-declarations/my.rakudo.moar line 229
-    # Looks like you failed 1 tests of 2
-    
-# Failed test 'code dies'
-# at t/spec/S04-declarations/my.rakudo.moar line 231
-    # Looks like you failed 1 tests of 2
 use of uninitialized value x1 of type Any in string context  in sub is at lib/Test.pm:136
 
 use of uninitialized value x1 of type Any in string context  in block  at lib/Test.pm:139
@@ -888,12 +876,9 @@ use of uninitialized value x1 of type Any in string context  in block  at lib/Te
 
 use of uninitialized value x3 of type Any in string context  in block <unit> at t/spec/S04-declarations/my.rakudo.moar:332
 
-  80    0    7    2   89
+  91    0    2    2   95
      2 skipped: nom regression, OUR::
-     3 todo   : RT #102414 still unresolved
      2 todo   : RT #117043
-     1 todo   : fails
-     1 todo   : previous test skipped
 S04-declarations/our.rakudo.moar...................  32    0    1    0   33
      1 todo   : our-scoped var in role
 S04-declarations/state.rakudo.moar.................  39    0    2    0   41
@@ -1352,7 +1337,7 @@ S06-traits/is-copy.t...............................Potential difficulties:
     at EVAL_0:1
     ------> [32msub f ($x is copy) { my $x [33m⏏[31m}[0m
   25    0    0    0   25
-S06-traits/is-readonly.rakudo.moar.................useless use of 'is readonly' on $!attr  in any  at src/Perl6/World.nqp:2047
+S06-traits/is-readonly.rakudo.moar.................useless use of 'is readonly' on $!attr  in any  at src/Perl6/World.nqp:2052
 
    2    0    1    0    3
      1 todo   : readonly attributes
@@ -1430,10 +1415,10 @@ S10-packages/basic.rakudo.moar.....................  60    0    2    1   63
      1 todo   : ticket based only on class... RT #60446
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
 S10-packages/precompilation.rakudo.moar............# error: Could not find symbol '&C1'
-#   in method <anon> at src/gen/m-CORE.setting:15989
+#   in method <anon> at src/gen/m-CORE.setting:16011
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2908
 #   in any find_method at src/gen/m-Metamodel.nqp:1052
-#   in block <unit> at getout-32406-831803.code:4
+#   in block <unit> at getout-2046-314052.code:4
 
 
   19    0    3    0   22
@@ -1529,9 +1514,7 @@ S12-attributes/recursive.t.........................  23    0    0    0   23
 S12-attributes/undeclared.t........................  11    0    0    0   11
 S12-class/anonymous.rakudo.moar....................  16    0    1    0   17
      1 todo   : Anonymous class stringification (?)
-S12-class/attributes.rakudo.moar...................  31    0    1    1   33
-     1 skipped: where clauses on attributes NYI, RT #122109
-     1 todo   : where clauses on attributes NYI, RT #122109
+S12-class/attributes.t.............................  33    0    0    0   33
 S12-class/augment-supersede.rakudo.moar............  11    0    0    2   13
      2 skipped: redeclaration of symbol Bar
 S12-class/basic.rakudo.moar........................  37    0    0    3   40
@@ -1636,7 +1619,7 @@ S12-methods/how.t..................................   3    0    0    0    3
 S12-methods/indirect_notation.rakudo.moar..........  16    0    0   21   37
     15 skipped: .*, .+ and .? with @foo
      6 skipped: .@foo not yet working
-S12-methods/instance.t.............................useless use of 'is rw' on @!something  in any  at src/Perl6/World.nqp:2047
+S12-methods/instance.t.............................useless use of 'is rw' on @!something  in any  at src/Perl6/World.nqp:2052
 
   39    0    0    0   39
 S12-methods/lastcall.t.............................   6    0    0    0    6
@@ -1737,8 +1720,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1428762997
-# Using file temp_1428762997
+S16-filehandles/chmod.t............................# Using file temp_1428849888
+# Using file temp_1428849888
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1766,8 +1749,9 @@ S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   3    0    0    0    3
-S17-lowlevel/lock.rakudo.moar......................   7    0    0    1    8
-     1 skipped: not sure this test is valid
+S17-lowlevel/lock.rakudo.moar......................Segmentation fault
+   6    2    0    0    8
+     1 tests aborted (missing ok/not ok)
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.rakudo.moar....................  27    0    0    3   30
      3 skipped: returns Nil (flapping tests)
@@ -2019,9 +2003,9 @@ use of uninitialized value of type BagHash in string context  in block <unit> at
   16    0    0    0   16
 S32-container/zip.rakudo.moar......................  12    0    0    2   14
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.moar....................Code object coerced to string (please use .gist or .perl to do that)  in any  at src/Perl6/World.nqp:2047
+S32-exceptions/misc.rakudo.moar....................Code object coerced to string (please use .gist or .perl to do that)  in any  at src/Perl6/World.nqp:2052
 
-Code object coerced to string (please use .gist or .perl to do that)  in any throw at src/Perl6/World.nqp:2888
+Code object coerced to string (please use .gist or .perl to do that)  in any throw at src/Perl6/World.nqp:2893
 
     
 # Failed test ''#`' died'
@@ -2033,11 +2017,11 @@ Code object coerced to string (please use .gist or .perl to do that)  in any thr
 
     
 # Failed test ''sub f { f(|$) }' died'
-# at t/spec/S32-exceptions/misc.rakudo.moar line 513
+# at t/spec/S32-exceptions/misc.rakudo.moar line 514
     # Looks like you failed 1 tests of 5
-use of uninitialized value of type Any in string context  in block  at t/spec/S32-exceptions/misc.rakudo.moar:586
+use of uninitialized value of type Any in string context  in block  at t/spec/S32-exceptions/misc.rakudo.moar:587
 
- 294    0    2    0  296
+ 300    0    2    0  302
      1 todo   : Cannot find method "returns"
      1 todo   : parsing regression
 S32-hash/delete-adverb.t........................... 131    0    0    0  131
@@ -2456,20 +2440,7 @@ integration/99problems-21-to-30.t..................use of uninitialized value $p
   15    0    0    0   15
 integration/99problems-31-to-40.t..................  66    0    0    1   67
      1 skipped: No Benchmark module yet
-integration/99problems-41-to-50.t..................Potential difficulties:
-    Leading 0 does not indicate octal in Perl 6; please use 0o0 if you mean that
-    at t/spec/integration/99problems-41-to-50.t:313
-    ------> [32m    is_deeply gray(2), [<00[33m⏏[31m 01 11 10>];[0m
-    Leading 0 does not indicate octal in Perl 6; please use 0o00 if you mean that
-    at t/spec/integration/99problems-41-to-50.t:314
-    ------> [32m    is_deeply gray(3), [<000[33m⏏[31m 001 011 010 110 111 101 100>];[0m
-    Leading 0 does not indicate octal in Perl 6; please use 0o0 if you mean that
-    at t/spec/integration/99problems-41-to-50.t:325
-    ------> [32m    is_deeply gray2(2), [<00[33m⏏[31m 01 11 10>];[0m
-    Leading 0 does not indicate octal in Perl 6; please use 0o00 if you mean that
-    at t/spec/integration/99problems-41-to-50.t:326
-    ------> [32m    is_deeply gray2(3), [<000[33m⏏[31m 001 011 010 110 111 101 100>];[0m
-  13    0    0    0   13
+integration/99problems-41-to-50.t..................  13    0    0    0   13
 integration/99problems-51-to-60.t..................  35    0    0    2   37
      1 skipped: Test(s) not yet written: (**) Construct height-balanced binary trees with a given number of nodes
      1 skipped: Test(s) not yet written: (**) Generate-and-test paradigm
@@ -2558,14 +2529,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# gerdr: 1.1079861 seconds
-# kaz: 1.12262465 seconds
-# recursive-ternary: 1.1812181 seconds
-# loop: 1.2606782 seconds
-# hand-memoization: 1.5955379 seconds
-# recursive-ternary-hand-cached: 2.634676900 seconds
-# sequence-ternary: 7.0608245 seconds
-# sequence: 8.45962258 seconds
+integration/advent2012-day21.t.....................# kaz: 1.08580429 seconds
+# gerdr: 1.0984937 seconds
+# loop: 1.20656820 seconds
+# recursive-ternary: 1.296267 seconds
+# hand-memoization: 1.5773021 seconds
+# recursive-ternary-hand-cached: 2.6402908 seconds
+# sequence-ternary: 6.293024 seconds
+# sequence: 8.9552997 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2646,31 +2617,33 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5230,     0,   129,   347,  5706,  5798
+"S02",        5261,     0,   129,   347,  5737,  5829
 "S03",        5144,     0,   121,    99,  5364,  5382
-"S04",        1043,     0,    51,    39,  1133,  1185
+"S04",        1054,     0,    46,    39,  1139,  1191
 "S05",        5403,     0,   100,   171,  5674,  5947
 "S06",        1364,     0,    51,    91,  1506,  1564
 "S07",           0,     0,     0,     0,     0,     0
 "S09",        1899,     0,     9,   102,  2010,  2010
 "S10",          91,     0,     5,     1,    97,   154
 "S11",         109,     0,     4,    14,   127,   146
-"S12",        1464,     0,    46,   123,  1633,  1691
+"S12",        1466,     0,    45,   122,  1633,  1691
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         308,     0,     8,    10,   326,   339
 "S15",         241,     0,     4,    18,   263, 37445
 "S16",         259,     0,     0,    16,   275,   307
-"S17",         709,     0,     4,    31,   744,   744
+"S17",         708,     2,     4,    30,   744,   744
 "S19",          13,     0,     0,     0,    13,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",          17,     0,     0,     0,    17,    94
 "S26",        1234,     0,     4,    48,  1286,  1947
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         339,     0,     4,     2,   345,   355
-"S32",        9650,     0,   121,   169,  9940,  8372
+"S32",        9656,     0,   121,   169,  9946,  8543
 "int",        1247,     6,    14,    20,  1287,  1276
 "ros",           2,     0,     0,     0,     2,     2
-"total",     35833,     6,   685,  1328, 37852, 74957
+"total",     35882,     8,   679,  1326, 37895, 75165
 ----------------
 Failure summary:
+S17-lowlevel/lock.rakudo.moar 7 - Condition variable worked
+S17-lowlevel/lock.rakudo.moar aborted 1 test(s)
 integration/advent2012-day04.t aborted 6 test(s)
