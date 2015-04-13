@@ -27,7 +27,7 @@ S02-literals/char-by-name.rakudo.jvm...............   9    0    0    1   10
 S02-literals/char-by-number.t......................  38    0    0    0   38
 S02-literals/fmt-interpolation.t...................  11    0    0    0   11
 S02-literals/hash-interpolation.t..................  10    0    0    0   10
-S02-literals/heredocs.t............................  16    0    0    0   16
+S02-literals/heredocs.t............................  17    0    0    0   17
 S02-literals/hex_chars.t...........................   4    0    0    0    4
 S02-literals/listquote-whitespace.t................  12    0    0    0   12
 S02-literals/listquote.rakudo.jvm..................  19    0    4    1   24
@@ -35,8 +35,8 @@ S02-literals/listquote.rakudo.jvm..................  19    0    4    1   24
      4 todo   : IntStr/RatStr/NumStr types NYI
 S02-literals/misc-interpolation.rakudo.jvm.........  49    0    1    0   50
      1 todo   : RT #122583
-S02-literals/numeric.t.............................   0   50    0    0   50
-    50 tests aborted (missing ok/not ok)
+S02-literals/numeric.rakudo.jvm....................  48    0    0    4   52
+     4 skipped: aborts nqp-j
 S02-literals/pair-boolean.t........................   6    0    0    0    6
 S02-literals/pairs.t...............................  76    0    0    0   76
 S02-literals/quoting-unicode.t.....................  75    0    0    0   75
@@ -473,7 +473,7 @@ S04-declarations/constant.rakudo.jvm...............  49    0    4    3   56
 S04-declarations/implicit-parameter.t..............  19    0    0    0   19
 S04-declarations/multiple.rakudo.jvm...............   5    0    1    0    6
      1 todo   : nom regression
-S04-declarations/my.rakudo.jvm.....................  91    0    2    2   95
+S04-declarations/my.rakudo.jvm.....................  92    0    2    2   96
      2 skipped: nom regression, OUR::
      2 todo   : RT #117043
 S04-declarations/our.rakudo.jvm....................  32    0    1    0   33
@@ -1124,8 +1124,7 @@ S14-roles/parameter-subtyping.t....................  22    0    0    0   22
 S14-roles/parameterized-basic.t....................  35    0    0    0   35
 S14-roles/parameterized-mixin.rakudo.jvm...........  24    0    4    0   28
      4 todo   : .does with parametric roles
-S14-roles/parameterized-type.rakudo.jvm............  30    0    0    1   31
-     1 skipped: cannot easily override [] at the moment
+S14-roles/parameterized-type.t.....................  31    0    0    0   31
 S14-roles/stubs.t..................................  10    0    0    0   10
 S14-roles/submethods.t.............................   4    0    0    0    4
 S14-traits/attributes.t............................   8    0    0    0    8
@@ -1687,9 +1686,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5178,    50,   141,   368,  5737,  5829
+"S02",        5227,     0,   141,   372,  5740,  5832
 "S03",        5144,     0,   121,    99,  5364,  5382
-"S04",        1037,     3,    45,    54,  1139,  1191
+"S04",        1038,     3,    45,    54,  1140,  1192
 "S05",        5307,     4,   106,   257,  5674,  5947
 "S06",        1354,     0,    53,    99,  1506,  1564
 "S07",           0,     0,     0,     0,     0,     0
@@ -1698,8 +1697,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S11",          87,     0,    26,    14,   127,   146
 "S12",        1458,     0,    53,   122,  1633,  1691
 "S13",          36,     0,    10,    27,    73,    83
-"S14",         306,     0,     8,    12,   326,   339
-"S15",           7,     0,     4,    18,    29, 37445
+"S14",         307,     0,     8,    11,   326,   339
+"S15",           7,     0,     4,    18,    29, 76607
 "S16",         258,     0,     0,    17,   275,   307
 "S17",         667,     0,     4,    27,   698,   744
 "S19",          13,     0,     0,     0,    13,    18
@@ -1711,10 +1710,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9509,     0,    97,   190,  9796,  8393
 "int",        1249,    11,    12,    15,  1287,  1276
 "ros",           2,     0,     0,     0,     2,     2
-"total",     35221,    68,   702,  1474, 37465, 75015
+"total",     35272,    18,   702,  1477, 37469,114181
 ----------------
 Failure summary:
-S02-literals/numeric.t aborted 50 test(s)
 S04-statement-modifiers/values_in_bool_context.t 6 - literal in bool context - stringified true value
 S04-statement-modifiers/values_in_bool_context.t 14 - array in bool context - stringified true value
 S04-statement-modifiers/values_in_bool_context.t 22 - hash in bool context - stringified true value
