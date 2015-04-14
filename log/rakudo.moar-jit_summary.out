@@ -303,8 +303,9 @@ use of uninitialized value of type Int in string context  in block <unit> at EVA
 use of uninitialized value of type Int in string context  in block <unit> at EVAL_13:1
 
    1    0    0    0    1
-S02-types/isDEPRECATED.rakudo.moar.................  13    0    8    0   21
-     8 todo   : NYI
+S02-types/isDEPRECATED.rakudo.moar.................Segmentation fault
+   0   21    0    0   21
+    21 tests aborted (missing ok/not ok)
 S02-types/lazy-lists.t.............................  23    0    0    0   23
 S02-types/lists.rakudo.moar........................  29    0    0    3   32
      3 skipped: list binding
@@ -779,7 +780,7 @@ S03-operators/value_equivalence.rakudo.moar........  73    0    2    0   75
      1 todo   : \@a seems to flatten when it should not
 S03-sequence/arity-2-or-more.t.....................  20    0    0    0   20
 S03-sequence/arity0.t..............................  13    0    0    0   13
-S03-sequence/basic.t............................... 133    0    0    0  133
+S03-sequence/basic.t............................... 134    0    0    0  134
 S03-sequence/limit-arity-2-or-more.t...............   8    0    0    0    8
 S03-sequence/misc.t................................  30    0    0    0   30
 S03-sequence/nonnumeric.rakudo.moar................  27    0    0   17   44
@@ -894,13 +895,11 @@ S04-exception-handlers/top-level.t.................   1    0    0    0    1
 S04-exceptions/control_across_runloop.t............   1    0    0    0    1
 S04-exceptions/fail.rakudo.moar....................  11    0    0    2   13
      2 skipped: RT #64990
-S04-exceptions/pending.rakudo.moar.................use of uninitialized value of type Nil in numeric context  in block  at t/spec/S04-exceptions/pending.rakudo.moar:78
-
-   5    0    2   14   21
+S04-exceptions/pending.rakudo.moar.................use of uninitialized value of type Nil in numeric contextSegmentation fault
+   4    3    1   13   21
     13 skipped: $!.pending
-     1 skipped: $object.handled
-     1 todo   : $object.handled
      1 todo   : not full of fail?
+     3 tests aborted (missing ok/not ok)
 S04-phasers/ascending-order.t......................   7    0    0    0    7
 S04-phasers/begin.t................................  11    0    0    0   11
 S04-phasers/check.t................................   5    0    0    0    5
@@ -1415,10 +1414,10 @@ S10-packages/basic.rakudo.moar.....................  60    0    2    1   63
      1 todo   : ticket based only on class... RT #60446
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
 S10-packages/precompilation.rakudo.moar............# error: Could not find symbol '&C1'
-#   in method <anon> at src/gen/m-CORE.setting:16099
+#   in method <anon> at src/gen/m-CORE.setting:16122
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2908
 #   in any find_method at src/gen/m-Metamodel.nqp:1052
-#   in block <unit> at getout-1181-353512.code:4
+#   in block <unit> at getout-16366-554420.code:4
 
 
   19    0    3    0   22
@@ -1763,8 +1762,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1428937067
-# Using file temp_1428937067
+S16-filehandles/chmod.t............................# Using file temp_1429023468
+# Using file temp_1429023468
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2572,14 +2571,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# loop: 1.0631003 seconds
-# gerdr: 1.0981297 seconds
-# kaz: 1.1983032 seconds
-# recursive-ternary: 1.23021756 seconds
-# hand-memoization: 1.58161903 seconds
-# recursive-ternary-hand-cached: 2.6531317 seconds
-# sequence-ternary: 6.04601354 seconds
-# sequence: 8.9508153 seconds
+integration/advent2012-day21.t.....................# kaz: 1.1007098 seconds
+# gerdr: 1.13428678 seconds
+# recursive-ternary: 1.2004879 seconds
+# loop: 1.2573927 seconds
+# hand-memoization: 1.59229467 seconds
+# recursive-ternary-hand-cached: 2.47095587 seconds
+# sequence-ternary: 6.4950875 seconds
+# sequence: 9.204654 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2660,9 +2659,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5264,     0,   129,   347,  5740,  5832
-"S03",        5144,     0,   121,    99,  5364,  5382
-"S04",        1055,     0,    46,    39,  1140,  1192
+"S02",        5251,    21,   121,   347,  5740,  5832
+"S03",        5145,     0,   121,    99,  5365,  5383
+"S04",        1054,     3,    45,    38,  1140,  1192
 "S05",        5403,     0,   100,   171,  5674,  5947
 "S06",        1364,     0,    51,    91,  1506,  1564
 "S07",           0,     0,     0,     0,     0,     0
@@ -2684,9 +2683,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9656,     0,   121,   169,  9946,  8543
 "int",        1247,     6,    14,    20,  1287,  1276
 "ros",           2,     0,     0,     0,     2,     2
-"total",    112211,     8,   679,  1325,114223,114331
+"total",    112198,    32,   670,  1324,114224,114332
 ----------------
 Failure summary:
+S02-types/isDEPRECATED.rakudo.moar aborted 21 test(s)
+S04-exceptions/pending.rakudo.moar aborted 3 test(s)
 S17-lowlevel/lock.rakudo.moar 7 - Condition variable worked
 S17-lowlevel/lock.rakudo.moar aborted 1 test(s)
 integration/advent2012-day04.t aborted 6 test(s)
