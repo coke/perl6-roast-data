@@ -303,9 +303,8 @@ use of uninitialized value of type Int in string context  in block <unit> at EVA
 use of uninitialized value of type Int in string context  in block <unit> at EVAL_13:1
 
    1    0    0    0    1
-S02-types/isDEPRECATED.rakudo.moar.................Segmentation fault
-   0   21    0    0   21
-    21 tests aborted (missing ok/not ok)
+S02-types/isDEPRECATED.rakudo.moar.................  13    0    8    0   21
+     8 todo   : NYI
 S02-types/lazy-lists.t.............................  23    0    0    0   23
 S02-types/lists.rakudo.moar........................  29    0    0    3   32
      3 skipped: list binding
@@ -513,13 +512,13 @@ S03-operators/arith.rakudo.moar....................use of uninitialized value of
 
  156    0    0    0  156
 S03-operators/assign-is-not-binding.t..............   8    0    0    0    8
-S03-operators/assign.rakudo.moar................... 262    0   22   12  296
+S03-operators/assign.rakudo.moar................... 262    0   21   13  296
      1 skipped: Odd number of elements found where hash expected
+     1 skipped: RT #116178
      2 skipped: RT #76734
      3 skipped: Two terms in a row
      3 skipped: cannot modifiy an immutable value
      3 skipped: expects a term, found infix >= instead
-     1 todo   : RT #116178
      1 todo   : RT #80614
      3 todo   : item assignment
      1 todo   : item/list assignment
@@ -557,11 +556,7 @@ S03-operators/basic-types.t........................  19    0    0    0   19
 S03-operators/bit.t................................  38    0    0    0   38
 S03-operators/boolean-bitwise.t....................  45    0    0    0   45
 S03-operators/brainos.t............................   9    0    0    0    9
-S03-operators/buf.t................................Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/buf.t:67
-
-Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/buf.t:67
-
-use of uninitialized value of type Any in string context  in block <unit> at t/spec/S03-operators/buf.t:93
+S03-operators/buf.t................................use of uninitialized value of type Any in string context  in block <unit> at t/spec/S03-operators/buf.t:93
 
   43    0    0    0   43
 S03-operators/chained-declarators.t................   5    0    0    0    5
@@ -895,11 +890,13 @@ S04-exception-handlers/top-level.t.................   1    0    0    0    1
 S04-exceptions/control_across_runloop.t............   1    0    0    0    1
 S04-exceptions/fail.rakudo.moar....................  11    0    0    2   13
      2 skipped: RT #64990
-S04-exceptions/pending.rakudo.moar.................use of uninitialized value of type Nil in numeric contextSegmentation fault
-   4    3    1   13   21
+S04-exceptions/pending.rakudo.moar.................use of uninitialized value of type Nil in numeric context  in block  at t/spec/S04-exceptions/pending.rakudo.moar:78
+
+   5    0    2   14   21
     13 skipped: $!.pending
+     1 skipped: $object.handled
+     1 todo   : $object.handled
      1 todo   : not full of fail?
-     3 tests aborted (missing ok/not ok)
 S04-phasers/ascending-order.t......................   7    0    0    0    7
 S04-phasers/begin.t................................  11    0    0    0   11
 S04-phasers/check.t................................   5    0    0    0    5
@@ -1166,29 +1163,28 @@ S05-substitution/subst.rakudo.moar.................Potential difficulties:
     Redeclaration of symbol $_
     at t/spec/S05-substitution/subst.rakudo.moar:455
     ------> [32m    my $_[33m⏏[31m = 0; s{^(\d+)$} = sprintf "%3d -", $_;[0m
- 152    0    1    0  153
+ 149    0    1    3  153
+     3 skipped: No such method 'subst-mutate' for invocant of type 'Any'
      1 todo   : be smarter about constant detection
 S05-transliteration/79778.t........................   1    0    0    0    1
-S05-transliteration/trans.rakudo.moar..............use of uninitialized value of type Int in string context  in block  at t/spec/S05-transliteration/trans.rakudo.moar:206
-
-use of uninitialized value of type Int in string context  in block  at t/spec/S05-transliteration/trans.rakudo.moar:206
-
-use of uninitialized value of type Int in string context  in block  at t/spec/S05-transliteration/trans.rakudo.moar:206
-
-use of uninitialized value of type Int in string context  in block  at t/spec/S05-transliteration/trans.rakudo.moar:206
-
-  49    0   12    1   62
+S05-transliteration/trans.rakudo.moar..............  49    0   12    1   62
      1 skipped: feed operator NYI
-     2 todo   : closures and regexes
-    10 todo   : flags
-S05-transliteration/with-closure.rakudo.moar.......use of uninitialized value of type Int in string context  in block <unit> at t/spec/S05-transliteration/with-closure.rakudo.moar:59
+     2 todo PASSED: closures and regexes
+    10 todo PASSED: flags
+S05-transliteration/with-closure.rakudo.moar.......use of uninitialized value $s of type Any in string context  in block  at t/spec/S05-transliteration/with-closure.rakudo.moar:48
 
-use of uninitialized value of type Int in string context  in block <unit> at t/spec/S05-transliteration/with-closure.rakudo.moar:59
+use of uninitialized value $s of type Any in string context  in block  at t/spec/S05-transliteration/with-closure.rakudo.moar:48
 
-use of uninitialized value of type Int in string context  in block <unit> at t/spec/S05-transliteration/with-closure.rakudo.moar:59
+use of uninitialized value $s of type Any in string context  in block  at t/spec/S05-transliteration/with-closure.rakudo.moar:48
 
-  10    0    6    0   16
-     1 todo   : Unable to resolve method ord in class Any
+use of uninitialized value $s of type Any in string context  in block  at t/spec/S05-transliteration/with-closure.rakudo.moar:52
+
+use of uninitialized value $s of type Any in string context  in block  at t/spec/S05-transliteration/with-closure.rakudo.moar:52
+
+use of uninitialized value $s of type Any in string context  in block  at t/spec/S05-transliteration/with-closure.rakudo.moar:52
+
+  10    0    5    1   16
+     1 skipped: Unable to resolve method ord in class Any
      5 todo   : nom regression
                                                    pass fail todo skip plan
 S06-advanced/callframe.rakudo.moar.................  10    0    0    1   11
@@ -1270,7 +1266,17 @@ S06-routine-modifiers/native-lvalue-subroutines.t..  18    0    0    0   18
 S06-routine-modifiers/proxy.t......................  18    0    0    0   18
 S06-routine-modifiers/scoped-named-subs.t..........  12    0    0    0   12
 S06-signature/arity.t..............................  52    0    0    0   52
-S06-signature/caller-param.rakudo.moar.............   2    0    5    0    7
+S06-signature/caller-param.rakudo.moar.............use of uninitialized value $foo of type Any in string context  in sub callerunderscore at t/spec/S06-signature/caller-param.rakudo.moar:5
+
+use of uninitialized value $foo of type Any in string context  in sub callerunderscore at t/spec/S06-signature/caller-param.rakudo.moar:5
+
+use of uninitialized value $foo of type Any in string context  in sub callerunderscore at t/spec/S06-signature/caller-param.rakudo.moar:5
+
+use of uninitialized value $foo of type Any in string context  in sub callerunderscore at t/spec/S06-signature/caller-param.rakudo.moar:5
+
+use of uninitialized value $foo of type Any in string context  in sub callerunderscore at t/spec/S06-signature/caller-param.rakudo.moar:5
+
+   2    0    5    0    7
      5 todo   : NYI
 S06-signature/closure-over-parameters.t............   4    0    0    0    4
 S06-signature/closure-parameters.rakudo.moar.......  12    0    0    5   17
@@ -1413,11 +1419,17 @@ S10-packages/basic.rakudo.moar.....................  60    0    2    1   63
      1 todo   : RT #64606
      1 todo   : ticket based only on class... RT #60446
 S10-packages/joined-namespaces.t...................   3    0    0    0    3
-S10-packages/precompilation.rakudo.moar............# error: Could not find symbol '&C1'
-#   in method <anon> at src/gen/m-CORE.setting:16122
+S10-packages/precompilation.rakudo.moar............use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:76
+
+use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:76
+
+use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:76
+
+# error: Could not find symbol '&C1'
+#   in method <anon> at src/gen/m-CORE.setting:16199
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2908
 #   in any find_method at src/gen/m-Metamodel.nqp:1052
-#   in block <unit> at getout-16366-554420.code:4
+#   in block <unit> at getout-8457-809668.code:4
 
 
   19    0    3    0   22
@@ -1698,7 +1710,9 @@ S14-roles/parameterized-basic.t....................  35    0    0    0   35
 S14-roles/parameterized-mixin.rakudo.moar..........  24    0    4    0   28
      4 todo   : .does with parametric roles
 S14-roles/parameterized-type.t.....................  31    0    0    0   31
-S14-roles/stubs.t..................................  10    0    0    0   10
+S14-roles/stubs.t..................................use of uninitialized value of type Any in string context  in any try_select at src/gen/m-Metamodel.nqp:2413
+
+  10    0    0    0   10
 S14-roles/submethods.t.............................   4    0    0    0    4
 S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.moar....................  12    0    1    0   13
@@ -1762,8 +1776,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1429023468
-# Using file temp_1429023468
+S16-filehandles/chmod.t............................# Using file temp_1429109993
+# Using file temp_1429109993
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1791,9 +1805,8 @@ S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   3    0    0    0    3
-S17-lowlevel/lock.rakudo.moar......................Segmentation fault
-   6    2    0    0    8
-     1 tests aborted (missing ok/not ok)
+S17-lowlevel/lock.rakudo.moar......................   7    0    0    1    8
+     1 skipped: not sure this test is valid
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.rakudo.moar....................  27    0    0    3   30
      3 skipped: returns Nil (flapping tests)
@@ -2164,29 +2177,29 @@ S32-list/classify.rakudo.moar......................  12    0    0    3   15
 S32-list/combinations.t............................   8    0    0    0    8
 S32-list/create.t..................................   6    0    0    0    6
 S32-list/end.t.....................................  14    0    0    0   14
-S32-list/first-index.rakudo.moar...................use of uninitialized value of type Nil in numeric context  in block  at t/spec/S32-list/first-index.rakudo.moar:77
+S32-list/first-index.rakudo.moar...................use of uninitialized value of type Any in numeric context  in block  at t/spec/S32-list/first-index.rakudo.moar:77
 
-use of uninitialized value of type Nil in numeric context  in block  at t/spec/S32-list/first-index.rakudo.moar:78
+use of uninitialized value of type Any in numeric context  in block  at t/spec/S32-list/first-index.rakudo.moar:78
 
   23    0    0    2   25
      2 skipped: adverbial block
-S32-list/first.rakudo.moar.........................use of uninitialized value of type Nil in numeric context  in block  at t/spec/S32-list/first.rakudo.moar:84
+S32-list/first.rakudo.moar.........................use of uninitialized value of type Any in numeric context  in block  at t/spec/S32-list/first.rakudo.moar:84
 
-use of uninitialized value of type Nil in numeric context  in block  at t/spec/S32-list/first.rakudo.moar:85
+use of uninitialized value of type Any in numeric context  in block  at t/spec/S32-list/first.rakudo.moar:85
 
   26    0    0    2   28
      2 skipped: adverbial block
-S32-list/grep-index.rakudo.moar....................use of uninitialized value of type Nil in numeric context  in block  at t/spec/S32-list/grep-index.rakudo.moar:108
+S32-list/grep-index.rakudo.moar....................use of uninitialized value of type Any in numeric context  in block  at t/spec/S32-list/grep-index.rakudo.moar:108
 
-use of uninitialized value of type Nil in numeric context  in block  at t/spec/S32-list/grep-index.rakudo.moar:109
+use of uninitialized value of type Any in numeric context  in block  at t/spec/S32-list/grep-index.rakudo.moar:109
 
   19    0    0   20   39
     12 skipped: adverbial block
      6 skipped: closure as non-final argument
      2 skipped: test error -- is $_ rw here?
-S32-list/grep.rakudo.moar..........................use of uninitialized value of type Nil in numeric context  in block  at t/spec/S32-list/grep.rakudo.moar:135
+S32-list/grep.rakudo.moar..........................use of uninitialized value of type Any in numeric context  in block  at t/spec/S32-list/grep.rakudo.moar:135
 
-use of uninitialized value of type Nil in numeric context  in block  at t/spec/S32-list/grep.rakudo.moar:136
+use of uninitialized value of type Any in numeric context  in block  at t/spec/S32-list/grep.rakudo.moar:136
 
   24    0    0   19   43
      1 skipped: RT #71544: grep arity sensitivity different from map
@@ -2201,9 +2214,9 @@ use of uninitialized value <element> of type Mu in string context  in block <uni
 use of uninitialized value <element> of type Mu in string context  in block <unit> at t/spec/S32-list/join.t:94
 
   34    0    0    0   34
-S32-list/last-index.rakudo.moar....................use of uninitialized value of type Nil in numeric context  in block  at t/spec/S32-list/last-index.rakudo.moar:77
+S32-list/last-index.rakudo.moar....................use of uninitialized value of type Any in numeric context  in block  at t/spec/S32-list/last-index.rakudo.moar:77
 
-use of uninitialized value of type Nil in numeric context  in block  at t/spec/S32-list/last-index.rakudo.moar:78
+use of uninitialized value of type Any in numeric context  in block  at t/spec/S32-list/last-index.rakudo.moar:78
 
   23    0    0    2   25
      2 skipped: adverbial block
@@ -2571,14 +2584,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 1.1007098 seconds
-# gerdr: 1.13428678 seconds
-# recursive-ternary: 1.2004879 seconds
-# loop: 1.2573927 seconds
-# hand-memoization: 1.59229467 seconds
-# recursive-ternary-hand-cached: 2.47095587 seconds
-# sequence-ternary: 6.4950875 seconds
-# sequence: 9.204654 seconds
+integration/advent2012-day21.t.....................# recursive-ternary: 1.09372427 seconds
+# kaz: 1.1653697 seconds
+# gerdr: 1.1811206 seconds
+# loop: 1.24625177 seconds
+# hand-memoization: 1.760336 seconds
+# recursive-ternary-hand-cached: 2.49383097 seconds
+# sequence-ternary: 6.111249 seconds
+# sequence: 8.331005 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2659,10 +2672,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    61
-"S02",        5251,    21,   121,   347,  5740,  5832
-"S03",        5145,     0,   121,    99,  5365,  5383
-"S04",        1054,     3,    45,    38,  1140,  1192
-"S05",        5403,     0,   100,   171,  5674,  5947
+"S02",        5264,     0,   129,   347,  5740,  5832
+"S03",        5145,     0,   120,   100,  5365,  5383
+"S04",        1055,     0,    46,    39,  1140,  1192
+"S05",        5400,     0,    99,   175,  5674,  5947
 "S06",        1364,     0,    51,    91,  1506,  1564
 "S07",           0,     0,     0,     0,     0,     0
 "S09",        1899,     0,     9,   102,  2010,  2010
@@ -2673,7 +2686,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         309,     0,     8,     9,   326,   339
 "S15",       76565,     0,     4,    18, 76587, 76607
 "S16",         259,     0,     0,    16,   275,   307
-"S17",         708,     2,     4,    30,   744,   744
+"S17",         709,     0,     4,    31,   744,   744
 "S19",          13,     0,     0,     0,    13,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",          17,     0,     0,     0,    17,    94
@@ -2683,11 +2696,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9656,     0,   121,   169,  9946,  8543
 "int",        1247,     6,    14,    20,  1287,  1276
 "ros",           2,     0,     0,     0,     2,     2
-"total",    112198,    32,   670,  1324,114224,114332
+"total",    112210,     6,   677,  1331,114224,114332
 ----------------
 Failure summary:
-S02-types/isDEPRECATED.rakudo.moar aborted 21 test(s)
-S04-exceptions/pending.rakudo.moar aborted 3 test(s)
-S17-lowlevel/lock.rakudo.moar 7 - Condition variable worked
-S17-lowlevel/lock.rakudo.moar aborted 1 test(s)
 integration/advent2012-day04.t aborted 6 test(s)
