@@ -242,7 +242,11 @@ S02-types/bag.rakudo.moar.......................... 188    0    2    3  193
      3 skipped: No longer Iterable
      1 todo   : Not properly interpolating
      1 todo   : we have not secured .WHICH creation yet
-S02-types/baghash.rakudo.moar...................... 223    0    3   24  250
+S02-types/baghash.rakudo.moar......................
+# Failed test '.roll(100) (2)'
+# at t/spec/S02-types/baghash.rakudo.moar line 275
+# Looks like you failed 1 tests of 250
+ 222    1    3   24  250
     21 skipped: 'is ObjectType' NYI
      3 skipped: No longer Iterable
      1 todo   : Needs to catch up with spec
@@ -747,6 +751,10 @@ S03-operators/range-basic.t........................ 140    0    0    0  140
 S03-operators/range-int.t.......................... 480    0    0    0  480
 S03-operators/range.rakudo.moar....................use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-operators/range.rakudo.moar:220
 
+use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-operators/range.rakudo.moar:220
+
+use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-operators/range.rakudo.moar:221
+
 use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-operators/range.rakudo.moar:221
 
  123    0    2    0  125
@@ -769,7 +777,7 @@ S03-operators/spaceship-and-containers.t...........   6    0    0    0    6
 S03-operators/spaceship.t..........................   5    0    0    0    5
 S03-operators/subscript-adverbs.t.................. 110    0    0    0  110
 S03-operators/subscript-vs-lt.t....................   4    0    0    0    4
-S03-operators/ternary.t............................  21    0    0    0   21
+S03-operators/ternary.t............................  25    0    0    0   25
 S03-operators/value_equivalence.rakudo.moar........  73    0    2    0   75
      1 todo   : .WHICH based on type names
      1 todo   : \@a seems to flatten when it should not
@@ -1162,8 +1170,8 @@ S05-substitution/subst.rakudo.moar.................Potential difficulties:
     Redeclaration of symbol $_
     at t/spec/S05-substitution/subst.rakudo.moar:457
     ------> [32m    my $_[33m⏏[31m = 0; s{^(\d+)$} = sprintf "%3d -", $_;[0m
- 150    0    1    3  154
-     3 skipped: No such method 'subst-mutate' for invocant of type 'Any'
+ 152    0    1    1  154
+     1 skipped: RT #114388 -- No such method 'subst-mutate' for invocant of type 'Any'
      1 todo   : be smarter about constant detection
 S05-transliteration/79778.t........................   1    0    0    0    1
 S05-transliteration/trans.rakudo.moar..............  61    0    0    1   62
@@ -1423,10 +1431,10 @@ use of uninitialized value $_ of type Any in string context  in block  at t/spec
 use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:76
 
 # error: Could not find symbol '&C1'
-#   in method <anon> at src/gen/m-CORE.setting:16197
+#   in method <anon> at src/gen/m-CORE.setting:16241
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2908
 #   in any find_method at src/gen/m-Metamodel.nqp:1052
-#   in block <unit> at getout-16216-68870.code:4
+#   in block <unit> at getout-16023-825723.code:4
 
 
   19    0    3    0   22
@@ -1773,8 +1781,8 @@ S15-unicode-information/uniname.rakudo.moar........   6    0    2   16   24
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  25    0    0    0   25
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1429196320
-# Using file temp_1429196320
+S16-filehandles/chmod.t............................# Using file temp_1429282694
+# Using file temp_1429282694
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1802,14 +1810,7 @@ S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   3    0    0    0    3
-S17-lowlevel/lock.rakudo.moar......................
-# Failed test 'Condition variable worked'
-# at t/spec/S17-lowlevel/lock.rakudo.moar line 87
-# expected: 'ale,porter,stout'
-#      got: 'ale,porter'
-# log = ale porter stout, thread was running *after* join
-# Looks like you failed 1 tests of 8
-   6    1    0    1    8
+S17-lowlevel/lock.rakudo.moar......................   7    0    0    1    8
      1 skipped: not sure this test is valid
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.rakudo.moar....................  27    0    0    3   30
@@ -2352,10 +2353,9 @@ S32-str/index.rakudo.moar..........................  36    0    0    2   38
 S32-str/lc.rakudo.moar.............................  12    0    1    0   13
      1 todo   : case folding, MoarVM #87
 S32-str/lines.t....................................  47    0    0    0   47
-S32-str/numeric.rakudo.moar........................ 161    0    7    0  168
+S32-str/numeric.rakudo.moar........................ 162    0    6    0  168
      5 todo   : Failure
      1 todo   : complex Str.Numeric
-     1 todo PASSED: NYI
 S32-str/ords.t.....................................   6    0    0    0    6
 S32-str/pack.t.....................................   7    0    0    0    7
 S32-str/pos.t......................................   2    0    0    0    2
@@ -2588,14 +2588,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# gerdr: 1.193758 seconds
-# kaz: 1.20786209 seconds
-# recursive-ternary: 1.2724662 seconds
-# loop: 1.3043493 seconds
-# hand-memoization: 1.6842078 seconds
-# recursive-ternary-hand-cached: 2.6236285 seconds
-# sequence-ternary: 5.99689804 seconds
-# sequence: 8.0793119 seconds
+integration/advent2012-day21.t.....................# gerdr: 1.0175974 seconds
+# kaz: 1.1790404 seconds
+# loop: 1.30638066 seconds
+# recursive-ternary: 1.33786000 seconds
+# hand-memoization: 1.75055833 seconds
+# recursive-ternary-hand-cached: 2.60930367 seconds
+# sequence-ternary: 6.1091898 seconds
+# sequence: 8.0235249 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2669,17 +2669,17 @@ integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 integration/topic_in_double_loop.t.................   5    0    0    0    5
 integration/variables-in-do.t......................   3    0    0    0    3
 integration/weird-errors.rakudo.moar...............  13    0    1    0   14
-     1 todo   : RT #123686
+     1 todo   : RT #123686 & RT #124318
                                                    pass fail todo skip plan
 rosettacode/greatest_element_of_a_list.t...........   1    0    0    0    1
 rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
-"S01",           0,     0,     0,     0,     0,    61
-"S02",        5264,     0,   129,   347,  5740,  5832
-"S03",        5145,     0,   120,   100,  5365,  5383
+"S01",           0,     0,     0,     0,     0,    57
+"S02",        5263,     1,   129,   347,  5740,  5832
+"S03",        5149,     0,   120,   100,  5369,  5387
 "S04",        1072,     0,    46,    36,  1154,  1206
-"S05",        5414,     0,    87,   175,  5676,  5949
+"S05",        5416,     0,    87,   173,  5676,  5949
 "S06",        1364,     0,    51,    91,  1506,  1564
 "S07",           0,     0,     0,     0,     0,     0
 "S09",        1899,     0,     9,   102,  2010,  2010
@@ -2690,18 +2690,18 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         309,     0,     8,     9,   326,   339
 "S15",       76565,     0,     4,    18, 76587, 76607
 "S16",         259,     0,     0,    16,   275,   307
-"S17",         708,     1,     4,    31,   744,   744
+"S17",         709,     0,     4,    31,   744,   744
 "S19",          13,     0,     0,     0,    13,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",          17,     0,     0,     0,    17,    94
 "S26",        1234,     0,     4,    48,  1286,  1947
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         339,     0,     4,     2,   345,   355
-"S32",        9657,     0,   121,   169,  9947,  8544
+"S32",        9658,     0,   120,   169,  9947,  8544
 "int",        1247,     6,    14,    20,  1287,  1276
 "ros",           2,     0,     0,     0,     2,     2
-"total",    112241,     7,   665,  1328,114241,114349
+"total",    112248,     7,   664,  1326,114245,114349
 ----------------
 Failure summary:
-S17-lowlevel/lock.rakudo.moar 7 - Condition variable worked
+S02-types/baghash.rakudo.moar 124 - .roll(100) (2)
 integration/advent2012-day04.t aborted 6 test(s)
