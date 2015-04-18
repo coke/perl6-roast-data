@@ -146,10 +146,8 @@ S02-types/anon_block.rakudo.jvm....................  36    0    4    2   42
 S02-types/array-shapes.rakudo.jvm..................   6    0    0   19   25
     15 skipped: array shapes NYI
      4 skipped: native arrays NYI
-S02-types/array.rakudo.jvm.........................  92    0    1    4   97
-     2 skipped: multi-dim arrays NYI
-     2 skipped: regression to AdHoc exception
-     1 todo   : bind_pos NYI
+S02-types/array.rakudo.jvm.........................   6  104    0    0  110
+   104 tests aborted (missing ok/not ok)
 S02-types/array_extending.t........................  21    0    0    0   21
 S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.rakudo.jvm................  15    0    3    0   18
@@ -418,7 +416,7 @@ S03-operators/spaceship-and-containers.t...........   6    0    0    0    6
 S03-operators/spaceship.t..........................   5    0    0    0    5
 S03-operators/subscript-adverbs.t.................. 110    0    0    0  110
 S03-operators/subscript-vs-lt.t....................   4    0    0    0    4
-S03-operators/ternary.t............................  25    0    0    0   25
+S03-operators/ternary.t............................  27    0    0    0   27
 S03-operators/value_equivalence.rakudo.jvm.........  73    0    2    0   75
      1 todo   : .WHICH based on type names
      1 todo   : \@a seems to flatten when it should not
@@ -751,14 +749,14 @@ S06-advanced/recurse.t.............................  13    0    0    0   13
 S06-advanced/return.rakudo.jvm.....................  77    0    2    0   79
      1 todo   : RT #61732
      1 todo   : RT #75118
-S06-advanced/wrap.rakudo.jvm.......................  64   12    5    4   85
+S06-advanced/wrap.rakudo.jvm.......................  74    0    7    4   85
      3 skipped: RT #122259
      1 skipped: control operator crossed continuation barrier
      1 todo   : ?
+     2 todo   : RT #122259
      1 todo   : RT #70267: call to nextsame with nowhere to go
      1 todo   : callwith
      2 todo   : temp and wrap
-    12 tests aborted (missing ok/not ok)
 S06-currying/assuming-and-mmd.t....................   6    0    0    0    6
 S06-currying/named.t...............................   4    0    0    0    4
 S06-macros/errors.t................................   2    0    0    0    2
@@ -1025,9 +1023,8 @@ S12-introspection/meta-class.rakudo.jvm............   9    0    0    4   13
      1 skipped: .version, version number parsing
      1 skipped: precedence of HOW
      1 skipped: precedence of prefix:<^>
-S12-introspection/methods.rakudo.jvm...............  45    0    2   11   58
-    11 skipped: nom regression
-     2 todo   : nom regression
+S12-introspection/methods.rakudo.jvm...............  45    0    0   12   57
+    12 skipped: nom regression
 S12-introspection/parents.t........................  59    0    0    0   59
 S12-introspection/roles.rakudo.jvm.................   8    0    0    4   12
      4 skipped: .^roles(:tree)
@@ -1133,13 +1130,8 @@ S15-string-types/Str.rakudo.jvm....................   1    0    2    2    5
      1 skipped: :nfg adverb NYI
      1 skipped: Str.graphs NYI
      2 todo   : NYI
-S15-unicode-information/uniname.rakudo.jvm.........   6    0    2   16   24
-     5 skipped: :either NYI
-     5 skipped: :either and :one NYI
-     5 skipped: :one NYI
-     1 skipped: uninames NYI
-     1 todo   : RT #122470
-     1 todo   : RT #122471
+S15-unicode-information/uniname.rakudo.jvm.........   0   27    0    0   27
+    27 tests aborted (missing ok/not ok)
                                                    pass fail todo skip plan
 S16-filehandles/chmod.t............................  16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
@@ -1611,8 +1603,8 @@ integration/advent2011-day23.rakudo.jvm............  54    0    1    0   55
 integration/advent2011-day24.t.....................   8    0    0    0    8
 integration/advent2012-day02.t.....................   4    0    0    0    4
 integration/advent2012-day03.t.....................   2    0    0    0    2
-integration/advent2012-day04.t.....................   2    6    0    0    8
-     6 tests aborted (missing ok/not ok)
+integration/advent2012-day04.rakudo.jvm............   7    0    0    1    8
+     1 skipped: RT #124330
 integration/advent2012-day06.t.....................   2    0    0    0    2
 integration/advent2012-day09.t.....................   8    0    0    0    8
 integration/advent2012-day10.t.....................  26    0    0    0   26
@@ -1682,19 +1674,19 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,     0,     0,    57
-"S02",        5227,     0,   141,   372,  5740,  5832
-"S03",        5149,     0,   120,   100,  5369,  5387
+"S02",        5141,   104,   140,   368,  5753,  5845
+"S03",        5151,     0,   120,   100,  5371,  5389
 "S04",        1058,     0,    45,    51,  1154,  1206
 "S05",        5320,     4,    93,   259,  5676,  5949
-"S06",        1344,    12,    51,    99,  1506,  1564
+"S06",        1354,     0,    53,    99,  1506,  1564
 "S07",           0,     0,     0,     0,     0,     0
 "S09",        1899,     0,     9,   102,  2010,  2010
 "S10",          90,     0,     6,     1,    97,   154
 "S11",          87,     0,    26,    14,   127,   146
-"S12",        1458,     0,    53,   122,  1633,  1691
+"S12",        1458,     0,    51,   123,  1632,  1690
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         307,     0,     8,    11,   326,   339
-"S15",           7,     0,     4,    18,    29, 76607
+"S15",           1,    27,     2,     2,    32, 76625
 "S16",         258,     0,     0,    17,   275,   307
 "S17",         667,     0,     4,    27,   698,   744
 "S19",          13,     0,     0,     0,    13,    18
@@ -1703,16 +1695,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1234,     0,     4,    48,  1286,  1947
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         339,     0,     3,     3,   345,   355
-"S32",        9511,     0,    97,   189,  9797,  8394
-"int",        1249,    11,    12,    15,  1287,  1276
+"S32",        9511,     0,    97,   189,  9797,  8399
+"int",        1254,     5,    12,    16,  1287,  1276
 "ros",           2,     0,     0,     0,     2,     2
-"total",     35302,    27,   686,  1476, 37491,114199
+"total",     35227,   140,   683,  1458, 37508,114236
 ----------------
 Failure summary:
+S02-types/array.rakudo.jvm aborted 104 test(s)
 S05-modifier/perl5_9.rakudo.jvm 77 - re_tests 1348/1 (1566)
 S05-modifier/perl5_9.rakudo.jvm 79 - re_tests 1352/1 (1570)
 S05-modifier/perl5_9.rakudo.jvm 81 - re_tests 1356/1 (1574)
 S05-modifier/perl5_9.rakudo.jvm 83 - re_tests 1360/1 (1578)
-S06-advanced/wrap.rakudo.jvm aborted 12 test(s)
-integration/advent2012-day04.t aborted 6 test(s)
+S15-unicode-information/uniname.rakudo.jvm aborted 27 test(s)
 integration/precompiled.rakudo.jvm aborted 5 test(s)
