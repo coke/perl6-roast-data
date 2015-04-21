@@ -140,9 +140,8 @@ S02-names/is_dynamic.t.............................  22    0    0    0   22
 S02-names/name.t...................................  15    0    0    0   15
 S02-names/our.rakudo.jvm...........................   9    0    0    1   10
      1 skipped: OUR::subname() does not work
-S02-names/pseudo.rakudo.jvm........................  46    0    8   88  142
+S02-names/pseudo.rakudo.jvm........................  52    0    8   82  142
     19 skipped: CORE NYI
-     6 skipped: SETTING NYI
      4 skipped: the binding in here is NYI
     23 skipped: various issues to resolve
     36 skipped: various issues, skipping all for now
@@ -153,9 +152,8 @@ S02-names/pseudo.rakudo.jvm........................  46    0    8   88  142
      2 todo   : these tests disagree with STD
 S02-names/strict.rakudo.jvm........................   5    0    0    1    6
      1 skipped: lax mode does not propagate into EVAL yet
-S02-names/symbolic-deref.rakudo.jvm................  30    0    2    3   35
+S02-names/symbolic-deref.rakudo.jvm................  31    0    2    2   35
      2 skipped: NYI
-     1 skipped: no such symbol
      1 todo   : NYI
      1 todo   : no such symbol
 S02-one-pass-parsing/less-than.t...................   9    0    0    0    9
@@ -345,9 +343,8 @@ S03-operators/also.rakudo.jvm......................   4    0    4    0    8
 S03-operators/andthen.t............................   8    0    0    0    8
 S03-operators/arith.rakudo.jvm..................... 156    0    0    0  156
 S03-operators/assign-is-not-binding.t..............   8    0    0    0    8
-S03-operators/assign.rakudo.jvm.................... 262    0   21   13  296
+S03-operators/assign.rakudo.jvm.................... 261    2   21   12  296
      1 skipped: Odd number of elements found where hash expected
-     1 skipped: RT #116178
      2 skipped: RT #76734
      3 skipped: Two terms in a row
      3 skipped: cannot modifiy an immutable value
@@ -360,6 +357,7 @@ S03-operators/assign.rakudo.jvm.................... 262    0   21   13  296
      1 todo   : list assignment with ($var, *)
      3 todo   : list assignment, autovivification (?)
      2 todo   : unknown
+     2 tests aborted (missing ok/not ok)
 S03-operators/autoincrement-range.t................  96    0    0    0   96
 S03-operators/autoincrement.t......................  79    0    0    0   79
 S03-operators/autovivification.t...................  23    0    0    0   23
@@ -560,22 +558,25 @@ S04-statement-modifiers/until.t....................   4    0    0    0    4
 S04-statement-modifiers/values_in_bool_context.t...  24    0    0    0   24
 S04-statement-modifiers/while.t....................   5    0    0    0    5
 S04-statement-parsing/hash.t.......................   8    0    0    0    8
-S04-statements/do.rakudo.jvm.......................  21    0    0    6   27
+S04-statements/do.rakudo.jvm.......................  21    0    1    7   29
      3 skipped: Undeclared name A
      1 skipped: last without loop construct
-     1 skipped: next without loop construct
+     2 skipped: next without loop construct
      1 skipped: redo without loop construct
+     1 todo PASSED: Rakudo still uses Nil here
 S04-statements/for-scope.t.........................  16    0    0    0   16
-S04-statements/for.rakudo.jvm......................  83    0    4    1   88
+S04-statements/for.rakudo.jvm......................  84    2    6    1   93
      1 skipped: optional variable in for loop (RT #63994)
      2 todo   : RT #113026 array iterator does not track a growing array
      2 todo   : RT #123005
+     2 todo   : Rakudo still uses Nil here
 S04-statements/for_with_only_one_item.t............   9    0    0    0    9
 S04-statements/gather.rakudo.jvm...................  27    0    0    3   30
      2 skipped: RT #66820
      1 skipped: unwind
 S04-statements/given.t.............................  51    0    0    0   51
-S04-statements/if.t................................  29    0    0    0   29
+S04-statements/if.rakudo.jvm.......................  37    0    2    0   39
+     2 todo   : rakudo still uses Nil here
 S04-statements/label.t.............................   5    0    0    0    5
 S04-statements/last.t..............................   9    0    0    0    9
 S04-statements/loop.rakudo.jvm.....................  14    0    0    1   15
@@ -1120,8 +1121,7 @@ S13-overloading/typecasting-short.rakudo.jvm.......   2    0    5    7   14
      4 todo   : cannot easily override {} at the moment
 S13-type-casting/methods.t.........................  13    0    0    0   13
                                                    pass fail todo skip plan
-S14-roles/anonymous.rakudo.jvm.....................  12    0    0    1   13
-     1 skipped: anonymous roles only created once
+S14-roles/anonymous.t..............................  13    0    0    0   13
 S14-roles/attributes.t.............................   7    0    0    0    7
 S14-roles/basic.rakudo.jvm.........................  41    0    2    4   47
      1 skipped: RT #120919
@@ -1300,7 +1300,7 @@ S29-any/cmp.t......................................   6    0    0    0    6
 S29-any/isa.t......................................  10    0    0    0   10
 S29-context/die.rakudo.jvm.........................  15    0    1    0   16
      1 todo   : RT #67374
-S29-context/eval.rakudo.jvm........................  19    0    0    2   21
+S29-context/eval.rakudo.jvm........................  21    0    0    2   23
      2 skipped: EVAL(Buf) RT #122256
 S29-context/exit-in-if.t...........................   1    0    0    0    1
 S29-context/exit.t.................................   3    0    0    0    3
@@ -1498,9 +1498,7 @@ S32-str/indent.t...................................  62    0    0    0   62
 S32-str/index.rakudo.jvm...........................  36    0    0    2   38
      2 skipped: StrPos NYI
 S32-str/lc.t.......................................  13    0    0    0   13
-S32-str/length.rakudo.jvm..........................  27    1    0   18   46
-     2 skipped: "abcdef" > 4 makes rakudo unhappy
-     1 skipped: .codes NYI
+S32-str/length.rakudo.jvm..........................  28    1    0   15   44
     15 skipped: .graphs NYI
 S32-str/lines.t....................................  47    0    0    0   47
 S32-str/numeric.rakudo.jvm......................... 162    0    6    0  168
@@ -1741,9 +1739,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,    19,     0,    56,    75,    86
-"S02",        5227,     0,   141,   372,  5740,  5832
-"S03",        5153,     0,   120,   100,  5373,  5391
-"S04",        1058,     0,    45,    51,  1154,  1206
+"S02",        5234,     0,   141,   365,  5740,  5832
+"S03",        5152,     2,   120,    99,  5373,  5391
+"S04",        1067,     2,    50,    52,  1171,  1223
 "S05",        5320,     4,    93,   259,  5676,  5949
 "S06",        1354,     0,    53,    99,  1506,  1564
 "S07",           0,     0,     0,     0,     0,     0
@@ -1752,8 +1750,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S11",          87,     0,    26,    14,   127,   146
 "S12",        1459,     0,    51,   123,  1633,  1690
 "S13",          36,     0,    10,    27,    73,    83
-"S14",         308,     0,     8,    10,   326,   339
-"S15",           1,    27,     2,     2,    32, 78445
+"S14",         309,     0,     8,     9,   326,   339
+"S15",           1,    27,     2,     2,    32, 78457
 "S16",         258,     0,     0,    17,   275,   307
 "S17",         667,     0,     4,    27,   698,   744
 "S19",          13,     0,     0,     0,    13,    18
@@ -1761,17 +1759,20 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S24",          17,     0,     0,     0,    17,    94
 "S26",        1234,     0,     4,    48,  1286,  1947
 "S28",           7,     0,     0,     0,     7,    13
-"S29",         339,     0,     3,     3,   345,   355
-"S32",        9608,     4,   187,   214, 10013,  8399
+"S29",         341,     0,     3,     3,   347,   357
+"S32",        9609,     4,   187,   211, 10011,  8397
 "int",        1255,     5,    12,    15,  1287,  1276
 "ros",           2,     0,     0,     0,     2,     2
-"total",     35415,    59,   774,  1541, 37789,116074
+"total",     35434,    63,   779,  1530, 37806,116103
 ----------------
 Failure summary:
 S01-perl-5-integration/hash.rakudo.jvm aborted 6 test(s)
 S01-perl-5-integration/roundtrip.t aborted 5 test(s)
 S01-perl-5-integration/strings.rakudo.jvm aborted 6 test(s)
 S01-perl-5-integration/subs.t aborted 2 test(s)
+S03-operators/assign.rakudo.jvm aborted 2 test(s)
+S04-statements/for.rakudo.jvm 61 - for loop with value-less next flattens out nexted iterations
+S04-statements/for.rakudo.jvm 63 - for loop with value-less last flattens out last iteration
 S05-modifier/perl5_9.rakudo.jvm 77 - re_tests 1348/1 (1566)
 S05-modifier/perl5_9.rakudo.jvm 79 - re_tests 1352/1 (1570)
 S05-modifier/perl5_9.rakudo.jvm 81 - re_tests 1356/1 (1574)
@@ -1780,5 +1781,5 @@ S15-unicode-information/uniname.rakudo.jvm aborted 27 test(s)
 S32-io/pipe.t 3 - Child fails and prints nothing
 S32-io/pipe.t 4 - Child fails and prints nothing
 S32-io/pipe.t 5 - Child fails and prints something
-S32-str/length.rakudo.jvm 43 - .codes on a >0xFFFF char
+S32-str/length.rakudo.jvm 41 - .codes on a >0xFFFF char
 integration/precompiled.rakudo.jvm aborted 5 test(s)
