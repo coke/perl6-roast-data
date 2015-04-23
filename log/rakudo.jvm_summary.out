@@ -627,7 +627,9 @@ S05-grammar/signatures.t...........................   2    0    0    0    2
 S05-grammar/ws.rakudo.jvm..........................  10    0    0    2   12
      2 skipped: infinite loop: RT #64094 (noauto)
 S05-interpolation/lexicals.t.......................  10    0    0    0   10
-S05-interpolation/regex-in-variable.rakudo.jvm.....  34    0    1    0   35
+S05-interpolation/regex-in-variable.rakudo.jvm.....  36    0    1    2   39
+     1 skipped: and no need to go all Bobby Tables either
+     1 skipped: escaping characters before EVAL is the wrong way to fix this
      1 todo   : warn on undef
 S05-mass/charsets.rakudo.jvm.......................  14    0    3    0   17
      1 todo   : Unicode 6.1 -- :Punctuation characters
@@ -1155,8 +1157,12 @@ S15-string-types/Str.rakudo.jvm....................   1    0    2    2    5
      1 skipped: :nfg adverb NYI
      1 skipped: Str.graphs NYI
      2 todo   : NYI
-S15-unicode-information/uniname.rakudo.jvm.........   0   27    0    0   27
-    27 tests aborted (missing ok/not ok)
+S15-unicode-information/uniname.rakudo.jvm.........  10    0    2   15   27
+     5 skipped: :either NYI
+     5 skipped: :either and :one NYI
+     5 skipped: :one NYI
+     1 todo   : RT #122470
+     1 todo   : RT #122471
                                                    pass fail todo skip plan
 S16-filehandles/chmod.t............................  16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
@@ -1186,7 +1192,7 @@ S16-unfiled/rebindstdhandles.rakudo.jvm............   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   3    0    0    0    3
-S17-lowlevel/lock.rakudo.jvm.......................   7    0    0    1    8
+S17-lowlevel/lock.rakudo.jvm.......................   6    1    0    1    8
      1 skipped: not sure this test is valid
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-promise/allof.t................................  11    0    0    0   11
@@ -1485,7 +1491,7 @@ S32-str/bool.t.....................................  12    0    0    0   12
 S32-str/capitalize.rakudo.jvm......................  15    0    2    0   17
      2 todo   : graphemes results wrong
 S32-str/chomp.t....................................  39    0    0    0   39
-S32-str/chop.t.....................................   6    0    0    0    6
+S32-str/chop.t.....................................  32    0    0    0   32
 S32-str/comb.rakudo.jvm............................  38    0    2    1   41
      1 skipped: cannot call match, no signature matches
      2 todo   : graphemes NYI
@@ -1498,8 +1504,9 @@ S32-str/indent.t...................................  62    0    0    0   62
 S32-str/index.rakudo.jvm...........................  36    0    0    2   38
      2 skipped: StrPos NYI
 S32-str/lc.t.......................................  13    0    0    0   13
-S32-str/length.rakudo.jvm..........................  28    1    0   15   44
+S32-str/length.rakudo.jvm..........................  28    0    1   15   44
     15 skipped: .graphs NYI
+     1 todo   : .codes weirdness on JVM, possibly NYI?
 S32-str/lines.t....................................  47    0    0    0   47
 S32-str/numeric.rakudo.jvm......................... 162    0    6    0  168
      5 todo   : Failure
@@ -1742,7 +1749,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        5234,     0,   141,   365,  5740,  5832
 "S03",        5153,     0,   120,   100,  5373,  5391
 "S04",        1067,     2,    50,    52,  1171,  1223
-"S05",        5320,     4,    93,   259,  5676,  5949
+"S05",        5322,     4,    93,   261,  5680,  5953
 "S06",        1354,     0,    53,    99,  1506,  1564
 "S07",           0,     0,     0,     0,     0,     0
 "S09",        1899,     0,     9,   102,  2010,  2010
@@ -1751,19 +1758,19 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S12",        1459,     0,    51,   123,  1633,  1690
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         309,     0,     8,     9,   326,   339
-"S15",           1,    27,     2,     2,    32, 78457
+"S15",          11,     0,     4,    17,    32, 78457
 "S16",         258,     0,     0,    17,   275,   307
-"S17",         667,     0,     4,    27,   698,   744
+"S17",         666,     1,     4,    27,   698,   744
 "S19",          13,     0,     0,     0,    13,    18
 "S22",          23,     0,     0,     1,    24,    24
 "S24",          17,     0,     0,     0,    17,    94
 "S26",        1234,     0,     4,    48,  1286,  1947
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         341,     0,     3,     3,   347,   357
-"S32",        9609,     4,   187,   211, 10011,  8397
+"S32",        9635,     3,   188,   211, 10037,  8423
 "int",        1255,     5,    12,    15,  1287,  1276
 "ros",           2,     0,     0,     0,     2,     2
-"total",     35435,    61,   779,  1531, 37806,116103
+"total",     35472,    34,   782,  1548, 37836,116133
 ----------------
 Failure summary:
 S01-perl-5-integration/hash.rakudo.jvm aborted 6 test(s)
@@ -1776,9 +1783,8 @@ S05-modifier/perl5_9.rakudo.jvm 77 - re_tests 1348/1 (1566)
 S05-modifier/perl5_9.rakudo.jvm 79 - re_tests 1352/1 (1570)
 S05-modifier/perl5_9.rakudo.jvm 81 - re_tests 1356/1 (1574)
 S05-modifier/perl5_9.rakudo.jvm 83 - re_tests 1360/1 (1578)
-S15-unicode-information/uniname.rakudo.jvm aborted 27 test(s)
+S17-lowlevel/lock.rakudo.jvm 7 - Condition variable worked
 S32-io/pipe.t 3 - Child fails and prints nothing
 S32-io/pipe.t 4 - Child fails and prints nothing
 S32-io/pipe.t 5 - Child fails and prints something
-S32-str/length.rakudo.jvm 41 - .codes on a >0xFFFF char
 integration/precompiled.rakudo.jvm aborted 5 test(s)
