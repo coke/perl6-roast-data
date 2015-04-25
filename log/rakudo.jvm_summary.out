@@ -285,10 +285,9 @@ S02-types/type.rakudo.jvm..........................  50    0    1    0   51
      1 todo   : nigh
 S02-types/undefined-types.rakudo.jvm...............  45    0    4    0   49
      4 todo   : .clone doesn't copy typedness
-S02-types/unicode.rakudo.jvm.......................   2    0    3   11   16
-     9 skipped: Bytes/Codes/Graphs NYI
+S02-types/unicode.rakudo.jvm.......................   2    0    3    2    7
      2 skipped: graphs NYI
-     3 todo   : RT #65170
+     3 todo   : NFG on JVM
 S02-types/version.t................................  36    0    0    0   36
 S02-types/whatever.rakudo.jvm......................  80    0    4    5   89
      5 skipped: currying plus meta ops
@@ -637,7 +636,7 @@ S05-mass/charsets.rakudo.jvm.......................  14    0    3    0   17
      1 todo   : Unicode 6.3 -- lower characters
 S05-mass/named-chars.t............................. 431    0    0    0  431
 S05-mass/properties-block.t........................ 670    0    0    0  670
-S05-mass/properties-derived.rakudo.jvm............. 189    0    1   66  256
+S05-mass/properties-derived.rakudo.jvm............. 187    0    1   66  254
      3 skipped: icu
      4 skipped: isAny NYI
      7 skipped: isAssigned NYI
@@ -645,12 +644,12 @@ S05-mass/properties-derived.rakudo.jvm............. 189    0    1   66  256
      7 skipped: isGraphemeLink
     35 skipped: isOther* NYI
      1 todo   : isUnassigned NYI
-S05-mass/properties-general.rakudo.jvm............. 569    0    3   30  602
+S05-mass/properties-general.rakudo.jvm............. 566    0    3   30  599
     16 skipped: Invalid codepoint \x[FFFE]
      4 skipped: Invalid codepoint \x[FFFF]
     10 skipped: No [Lr] property defined
      3 todo   : Unicode spec change in v6.1
-S05-mass/properties-script.rakudo.jvm.............. 326    0    0   35  361
+S05-mass/properties-script.rakudo.jvm.............. 325    0    0   35  360
     35 skipped: Unicode properties with arguments
 S05-mass/recursive.t...............................  20    0    0    0   20
 S05-mass/rx.rakudo.jvm............................. 721    0    4   14  739
@@ -1156,7 +1155,7 @@ S14-traits/routines.rakudo.jvm.....................  12    0    1    0   13
 S15-string-types/Str.rakudo.jvm....................   1    0    2    2    5
      1 skipped: :nfg adverb NYI
      1 skipped: Str.graphs NYI
-     2 todo   : NYI
+     2 todo   : NFG on JVM
 S15-unicode-information/uniname.rakudo.jvm.........  12    2    2   15   31
      5 skipped: :either NYI
      5 skipped: :either and :one NYI
@@ -1170,8 +1169,15 @@ S16-filehandles/filestat.t.........................  10    0    0    0   10
 S16-filehandles/filetest.rakudo.jvm................  34    0    0    9   43
      6 skipped: :M, :C, :A
      3 skipped: no file README
-S16-filehandles/io.t...............................  87    0    0    0   87
-S16-filehandles/io_in_for_loops.t..................  29    0    0    0   29
+S16-filehandles/io.rakudo.jvm...................... 102    0    8    2  112
+     1 skipped: Too late to change filehandle encoding
+     1 skipped: Will fail due to above failure
+     1 todo   : builtin JVM charset folds these
+     1 todo   : java.nio.charset.UnmappableCharacterException
+     3 todo   : will fail due to above failures
+     2 todo PASSED: java.nio.charset.UnmappableCharacterException
+     1 todo PASSED: will fail due to above failures
+S16-filehandles/io_in_for_loops.t..................  33    0    0    0   33
 S16-filehandles/io_in_while_loops.t................  13    0    0    0   13
 S16-filehandles/mkdir_rmdir.t......................  14    0    0    0   14
 S16-filehandles/open.t.............................   4    0    0    1    5
@@ -1241,7 +1247,7 @@ S17-supply/on-demand.t.............................   7    0    0    0    7
 S17-supply/on.t....................................  10    0    0    0   10
 S17-supply/reduce.t................................  10    0    0    0   10
 S17-supply/reverse.t...............................   3    0    0    0    3
-S17-supply/rotor.t.................................   9    0    0    0    9
+S17-supply/rotor.t.................................  17    0    0    0   17
 S17-supply/schedule-on.t...........................   7    0    0    0    7
 S17-supply/sort.t..................................   7    0    0    0    7
 S17-supply/squish.t................................  11    0    0    0   11
@@ -1314,7 +1320,7 @@ S29-context/sleep.t................................  17    0    0    0   17
 S29-conversions/hash.t.............................   8    0    0    0    8
 S29-conversions/ord_and_chr.rakudo.jvm............. 254    0    2    1  257
      1 skipped: high character name lookup
-     1 todo   : RT #65172 - combining graphemes
+     1 todo   : NFG on JVM
      1 todo   : chr surrogate
 S29-os/system.t....................................   6    0    0    0    6
                                                    pass fail todo skip plan
@@ -1347,8 +1353,9 @@ S32-basics/xxPOS.rakudo.jvm........................  55    0    0    5   60
 S32-container/roundrobin.rakudo.jvm................   4    0    1    0    5
      1 todo   : over-flattening
 S32-container/stringify.t..........................  16    0    0    0   16
-S32-container/zip.rakudo.jvm.......................  12    0    0    2   14
+S32-container/zip.rakudo.jvm.......................   7    5    0    2   14
      2 skipped: lvalue zip
+     5 tests aborted (missing ok/not ok)
 S32-exceptions/misc.rakudo.jvm..................... 301    0    2    0  303
      1 todo   : Cannot find method "returns"
      1 todo   : parsing regression
@@ -1491,17 +1498,18 @@ S32-scalar/undef.rakudo.jvm........................  73    0    4   16   93
 S32-str/append.t...................................   7    0    0    0    7
 S32-str/bool.t.....................................  12    0    0    0   12
 S32-str/capitalize.rakudo.jvm......................  15    0    2    0   17
-     2 todo   : graphemes results wrong
+     2 todo   : NFG on JVM
 S32-str/chomp.t....................................  39    0    0    0   39
 S32-str/chop.t.....................................  32    0    0    0   32
 S32-str/comb.rakudo.jvm............................  38    0    2    1   41
      1 skipped: cannot call match, no signature matches
-     2 todo   : graphemes NYI
-S32-str/encode.rakudo.jvm..........................  21    0    0    1   22
+     2 todo   : NFG on JVM
+S32-str/encode.rakudo.jvm..........................  23    0    2    1   26
      1 skipped: We do not handle NDF yet
+     2 todo   : builtin JVM cp1252 code folds these
 S32-str/ends-with.t................................   8    0    0    0    8
 S32-str/flip.rakudo.jvm............................  11    0    2    0   13
-     2 todo   : graphemes NYI
+     2 todo   : NFG on JVM
 S32-str/indent.t...................................  62    0    0    0   62
 S32-str/index.rakudo.jvm...........................  36    0    0    2   38
      2 skipped: StrPos NYI
@@ -1580,7 +1588,7 @@ S32-str/trim.t.....................................  36    0    0    0   36
 S32-str/uc.t.......................................  17    0    0    0   17
 S32-str/unpack.t...................................  12    0    0    0   12
 S32-str/words.rakudo.jvm...........................  11    0    0    2   13
-     2 skipped: graphemes NYI
+     2 skipped: NFG on JVM
 S32-temporal/Date.t................................  72    0    0    0   72
 S32-temporal/DateTime-Instant-Duration.t...........  33    0    0    0   33
 S32-temporal/DateTime.rakudo.jvm................... 218    0    1    0  219
@@ -1748,10 +1756,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,    19,     0,    56,    75,    86
-"S02",        5234,     0,   141,   365,  5740,  5832
+"S02",        5234,     0,   141,   356,  5731,  5823
 "S03",        5153,     0,   120,   100,  5373,  5391
 "S04",        1067,     2,    50,    52,  1171,  1223
-"S05",        5323,     4,    93,   261,  5681,  5954
+"S05",        5317,     4,    93,   261,  5675,  5948
 "S06",        1354,     0,    53,    99,  1506,  1564
 "S07",           0,     0,     0,     0,     0,     0
 "S09",        1899,     0,     9,   102,  2010,  2010
@@ -1760,19 +1768,19 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S12",        1459,     0,    51,   123,  1633,  1690
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         309,     0,     8,     9,   326,   339
-"S15",          13,     2,     4,    17,    36, 78504
-"S16",         258,     0,     0,    17,   275,   307
-"S17",         667,     0,     4,    27,   698,   744
+"S15",          13,     2,     4,    17,    36, 78516
+"S16",         277,     0,     8,    19,   304,   336
+"S17",         675,     0,     4,    27,   706,   752
 "S19",          13,     0,     0,     0,    13,    18
 "S22",          23,     0,     0,     1,    24,    24
 "S24",          17,     0,     0,     0,    17,    94
 "S26",        1234,     0,     4,    48,  1286,  1947
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         341,     0,     3,     3,   347,   357
-"S32",        9636,    11,   188,   211, 10046,  8432
+"S32",        9633,    16,   190,   211, 10050,  8425
 "int",        1255,     5,    12,    15,  1287,  1276
 "ros",           2,     0,     0,     0,     2,     2
-"total",     35477,    43,   782,  1548, 37850,116190
+"total",     35495,    48,   792,  1541, 37876,116217
 ----------------
 Failure summary:
 S01-perl-5-integration/hash.rakudo.jvm aborted 6 test(s)
@@ -1787,6 +1795,7 @@ S05-modifier/perl5_9.rakudo.jvm 81 - re_tests 1356/1 (1574)
 S05-modifier/perl5_9.rakudo.jvm 83 - re_tests 1360/1 (1578)
 S15-unicode-information/uniname.rakudo.jvm 28 - uniname too high returns <unassigned> (1)
 S15-unicode-information/uniname.rakudo.jvm 29 - uniname too high returns <unassigned> (2)
+S32-container/zip.rakudo.jvm aborted 5 test(s)
 S32-io/pipe.t 3 - Child fails and prints nothing
 S32-io/pipe.t 4 - Child fails and prints nothing
 S32-io/pipe.t 5 - Child fails and prints something
