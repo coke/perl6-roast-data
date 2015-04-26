@@ -1085,21 +1085,16 @@ S05-metachars/tilde.rakudo.moar....................  14    0    1   12   27
      3 skipped: exceptions from regexes
      5 skipped: should not throw exceptions
      1 todo   : RT #77616
-S05-metasyntax/angle-brackets.rakudo.moar..........Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S05-metasyntax/angle-brackets.rakudo.moar:193
-
-Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S05-metasyntax/angle-brackets.rakudo.moar:193
-
-  67    0    3   21   91
+S05-metasyntax/angle-brackets.rakudo.moar..........  68    0    1   22   91
      2 skipped: <$subrule> NYI
      1 skipped: <&foo()> NYI
     11 skipped: <*literal>
      2 skipped: <test()> NYI
      1 skipped: <~~ ... >
+     2 skipped: The use of a hash as an assertion is reserved.
      2 skipped: angle quotes in regexes
      1 skipped: colon arguments NYI
-     1 skipped: indirect subrule call NYI
      1 todo   : !!! in regexes
-     2 todo   : <%hash> NYI
 S05-metasyntax/assertions.t........................   4    0    0    0    4
 S05-metasyntax/changed.t...........................  12    0    0    0   12
 S05-metasyntax/charset.t...........................  41    0    0    0   41
@@ -1378,7 +1373,7 @@ S06-traits/is-copy.t...............................Potential difficulties:
     at EVAL_0:1
     ------> [32msub f ($x is copy) { my $x [33m⏏[31m}[0m
   25    0    0    0   25
-S06-traits/is-readonly.rakudo.moar.................useless use of 'is readonly' on $!attr  in any  at src/Perl6/World.nqp:2043
+S06-traits/is-readonly.rakudo.moar.................useless use of 'is readonly' on $!attr  in any  at src/Perl6/World.nqp:2047
 
    2    0    1    0    3
      1 todo   : readonly attributes
@@ -1465,7 +1460,7 @@ use of uninitialized value $_ of type Any in string context  in block  at t/spec
 #   in method <anon> at src/gen/m-CORE.setting:16417
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2909
 #   in any find_method at src/gen/m-Metamodel.nqp:1053
-#   in block <unit> at getout-23690-331865.code:4
+#   in block <unit> at getout-1605-886562.code:4
 
 
   19    0    3    0   22
@@ -1666,7 +1661,7 @@ S12-methods/how.t..................................   3    0    0    0    3
 S12-methods/indirect_notation.rakudo.moar..........  16    0    0   21   37
     15 skipped: .*, .+ and .? with @foo
      6 skipped: .@foo not yet working
-S12-methods/instance.t.............................useless use of 'is rw' on @!something  in any  at src/Perl6/World.nqp:2043
+S12-methods/instance.t.............................useless use of 'is rw' on @!something  in any  at src/Perl6/World.nqp:2047
 
   39    0    0    0   39
 S12-methods/lastcall.t.............................   6    0    0    0    6
@@ -1824,17 +1819,18 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1429973965
-# Using file temp_1429973965
+S16-filehandles/chmod.t............................# Using file temp_1430060834
+# Using file temp_1430060834
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
 S16-filehandles/filetest.rakudo.moar...............  34    0    0    9   43
      6 skipped: :M, :C, :A
      3 skipped: no file README
-S16-filehandles/io.rakudo.moar..................... 110    0    0    2  112
+S16-filehandles/io.rakudo.moar..................... 110    0    1    2  113
      1 skipped: Too late to change filehandle encoding
      1 skipped: Will fail due to above failure
+     1 todo   : single char files wind up doubled
 S16-filehandles/io_in_for_loops.t..................  33    0    0    0   33
 S16-filehandles/io_in_while_loops.t................  13    0    0    0   13
 S16-filehandles/mkdir_rmdir.t......................  14    0    0    0   14
@@ -1860,8 +1856,7 @@ S17-lowlevel/lock.rakudo.moar......................   7    0    0    1    8
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.rakudo.moar....................  27    0    0    3   30
      3 skipped: returns Nil (flapping tests)
-S17-procasync/print.rakudo.moar....................Unhandled exception in code scheduled on thread 140477466638080
-  11    0    0    5   16
+S17-procasync/print.rakudo.moar....................  11    0    0    5   16
      5 skipped: Flapping tests
 S17-promise/allof.t................................  11    0    0    0   11
 S17-promise/anyof.t................................  10    0    0    0   10
@@ -1959,9 +1954,21 @@ S17-supply/reduce.t................................# **** scheduling with Thread
 S17-supply/reverse.t...............................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
    3    0    0    0    3
-S17-supply/rotor.t.................................# **** scheduling with ThreadPoolScheduler
-# **** scheduling with CurrentThreadScheduler
-  17    0    0    0   17
+S17-supply/rotor.rakudo.moar.......................# **** scheduling with CurrentThreadScheduler
+Saw 1 call to deprecated code during execution.
+================================================================================
+Method rotor (from Supply) called at:
+  t/spec/S17-supply/rotor.rakudo.moar, line 11
+Deprecated since v2015.4, will be removed with release v2015.9!
+Please use .rotor( $elems => -$gap ) instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these calls to deprecated code adapted,
+so that this message will disappear!
+
+Please note that *ALL* deprecated features will be removed at the release
+of Perl 6.0.0 (expected sometime in 2015).
+  23    0    1    0   24
+     1 todo   : only deprecated so far
 S17-supply/schedule-on.t...........................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
    7    0    0    0    7
@@ -1975,7 +1982,13 @@ S17-supply/stable.rakudo.moar......................# **** scheduling with Thread
 # **** scheduling with CurrentThreadScheduler
    5    0    0    2    7
      2 skipped: doesn't work or can't test
-S17-supply/start.t.................................   9    0    0    0    9
+S17-supply/start.t.................................
+# Failed test 'did we get the other original value'
+# at t/spec/S17-supply/start.t line 34
+# expected: [1, 1]
+#      got: [1, 1]
+# Looks like you failed 1 tests of 9
+   8    1    0    0    9
 S17-supply/unique.t................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
   17    0    0    0   17
@@ -2106,16 +2119,11 @@ use of uninitialized value of type BagHash in string context  in block <unit> at
 use of uninitialized value of type BagHash in string context  in block <unit> at t/spec/S32-container/stringify.t:32
 
   16    0    0    0   16
-S32-container/zip.rakudo.moar......................Method '_join' not found for invocant of class 'List'
-  in block <unit> at t/spec/S32-container/zip.rakudo.moar:67
-
-# Looks like you planned 14 tests, but ran 9
-   7    5    0    2   14
+S32-container/zip.rakudo.moar......................  12    0    0    2   14
      2 skipped: lvalue zip
-     5 tests aborted (missing ok/not ok)
-S32-exceptions/misc.rakudo.moar....................Code object coerced to string (please use .gist or .perl to do that)  in any  at src/Perl6/World.nqp:2043
+S32-exceptions/misc.rakudo.moar....................Code object coerced to string (please use .gist or .perl to do that)  in any  at src/Perl6/World.nqp:2047
 
-Code object coerced to string (please use .gist or .perl to do that)  in any throw at src/Perl6/World.nqp:2884
+Code object coerced to string (please use .gist or .perl to do that)  in any throw at src/Perl6/World.nqp:2888
 
     
 # Failed test ''#`' died'
@@ -2302,13 +2310,13 @@ use of uninitialized value $b of type Code in string context  in block  at t/spe
      1 skipped: closure as non-final argument
      2 todo   : determine behavior of 0-arity methods passed to sort
      1 todo   : method fallback to sub unimpl
-S32-list/squish.rakudo.moar........................use of uninitialized value $x of type Any in string context  in sub is_deeply at lib/Test.pm:371
+S32-list/squish.rakudo.moar........................use of uninitialized value $x of type Any in string context  in sub is-deeply at lib/Test.pm:415
 
-use of uninitialized value $x of type Any in string context  in sub is_deeply at lib/Test.pm:371
+use of uninitialized value $x of type Any in string context  in sub is-deeply at lib/Test.pm:415
 
-use of uninitialized value $x of type Any in string context  in sub is_deeply at lib/Test.pm:371
+use of uninitialized value $x of type Any in string context  in sub is-deeply at lib/Test.pm:415
 
-use of uninitialized value $x of type Any in string context  in sub is_deeply at lib/Test.pm:371
+use of uninitialized value $x of type Any in string context  in sub is-deeply at lib/Test.pm:415
 
   30    0    6    0   36
      2 todo   : RT #124204
@@ -2485,10 +2493,10 @@ S32-temporal/Date.t................................Potential difficulties:
     ------> [32mTime.new(:year(2010),:month(06), :day(04[33m⏏[31m));   #OK octal[0m
     Leading 0 does not indicate octal in Perl 6; please use 0o1 if you mean that
     at t/spec/S32-temporal/Date.t:28
-    ------> [32m    isa_ok Date.new(2010, 01[33m⏏[31m, 01), Date, 'Date.new() returns a Date'[0m
+    ------> [32m    isa-ok Date.new(2010, 01[33m⏏[31m, 01), Date, 'Date.new() returns a Date'[0m
     Leading 0 does not indicate octal in Perl 6; please use 0o1 if you mean that
     at t/spec/S32-temporal/Date.t:28
-    ------> [32m    isa_ok Date.new(2010, 01, 01[33m⏏[31m), Date, 'Date.new() returns a Date';  #[0m
+    ------> [32m    isa-ok Date.new(2010, 01, 01[33m⏏[31m), Date, 'Date.new() returns a Date';  #[0m
   72    0    0    0   72
 S32-temporal/DateTime-Instant-Duration.t...........  33    0    0    0   33
 S32-temporal/DateTime.rakudo.moar.................. 218    0    1    0  219
@@ -2672,14 +2680,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 1.24529757 seconds
-# gerdr: 1.2753615 seconds
-# recursive-ternary: 1.3527194 seconds
-# loop: 1.3776740 seconds
-# hand-memoization: 1.7334924 seconds
-# recursive-ternary-hand-cached: 2.67728684 seconds
-# sequence-ternary: 6.8441612 seconds
-# sequence: 8.8722096 seconds
+integration/advent2012-day21.t.....................# gerdr: 1.11337387 seconds
+# loop: 1.1273832 seconds
+# kaz: 1.24613661 seconds
+# recursive-ternary: 1.2701951 seconds
+# hand-memoization: 1.94435923 seconds
+# recursive-ternary-hand-cached: 2.556053 seconds
+# sequence-ternary: 7.74618737 seconds
+# sequence: 9.0619982 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2761,7 +2769,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        5274,     0,   126,   331,  5731,  5823
 "S03",        5153,     0,   120,   100,  5373,  5391
 "S04",        1083,     0,    51,    37,  1171,  1223
-"S05",        5410,     0,    90,   175,  5675,  5948
+"S05",        5411,     0,    88,   176,  5675,  5948
 "S06",        1364,     0,    51,    91,  1506,  1564
 "S07",           0,     0,     0,     0,     0,     0
 "S09",        1899,     0,     9,   102,  2010,  2010
@@ -2771,22 +2779,22 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         310,     0,     8,     8,   326,   339
 "S15",       78474,     0,     3,    19, 78496, 78516
-"S16",         286,     0,     0,    18,   304,   336
-"S17",         717,     0,     4,    31,   752,   752
+"S16",         286,     0,     1,    18,   305,   337
+"S17",         722,     1,     5,    31,   759,   759
 "S19",          13,     0,     0,     0,    13,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",          17,     0,     0,     0,    17,    94
 "S26",        1234,     0,     4,    48,  1286,  1947
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         342,     0,     3,     2,   347,   357
-"S32",        9802,     5,   204,   189, 10200,  8575
+"S32",        9807,     0,   204,   189, 10200,  8575
 "int",        1258,     0,    14,    15,  1287,  1276
 "ros",           2,     0,     0,     0,     2,     2
-"total",    114372,    24,   749,  1387,116532,116367
+"total",    114383,    20,   749,  1388,116540,116375
 ----------------
 Failure summary:
 S01-perl-5-integration/hash.rakudo.moar aborted 6 test(s)
 S01-perl-5-integration/roundtrip.t aborted 5 test(s)
 S01-perl-5-integration/strings.rakudo.moar aborted 6 test(s)
 S01-perl-5-integration/subs.t aborted 2 test(s)
-S32-container/zip.rakudo.moar aborted 5 test(s)
+S17-supply/start.t 9 - did we get the other original value

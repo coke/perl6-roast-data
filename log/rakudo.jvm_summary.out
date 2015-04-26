@@ -683,17 +683,16 @@ S05-metachars/tilde.rakudo.jvm.....................  14    0    1   12   27
      3 skipped: exceptions from regexes
      5 skipped: should not throw exceptions
      1 todo   : RT #77616
-S05-metasyntax/angle-brackets.rakudo.jvm...........  67    0    3   21   91
+S05-metasyntax/angle-brackets.rakudo.jvm...........  68    0    1   22   91
      2 skipped: <$subrule> NYI
      1 skipped: <&foo()> NYI
     11 skipped: <*literal>
      2 skipped: <test()> NYI
      1 skipped: <~~ ... >
+     2 skipped: The use of a hash as an assertion is reserved.
      2 skipped: angle quotes in regexes
      1 skipped: colon arguments NYI
-     1 skipped: indirect subrule call NYI
      1 todo   : !!! in regexes
-     2 todo   : <%hash> NYI
 S05-metasyntax/assertions.t........................   4    0    0    0    4
 S05-metasyntax/changed.t...........................  12    0    0    0   12
 S05-metasyntax/charset.t...........................  41    0    0    0   41
@@ -1169,7 +1168,7 @@ S16-filehandles/filestat.t.........................  10    0    0    0   10
 S16-filehandles/filetest.rakudo.jvm................  34    0    0    9   43
      6 skipped: :M, :C, :A
      3 skipped: no file README
-S16-filehandles/io.rakudo.jvm...................... 102    0    8    2  112
+S16-filehandles/io.rakudo.jvm...................... 103    0    8    2  113
      1 skipped: Too late to change filehandle encoding
      1 skipped: Will fail due to above failure
      1 todo   : builtin JVM charset folds these
@@ -1247,7 +1246,8 @@ S17-supply/on-demand.t.............................   7    0    0    0    7
 S17-supply/on.t....................................  10    0    0    0   10
 S17-supply/reduce.t................................  10    0    0    0   10
 S17-supply/reverse.t...............................   3    0    0    0    3
-S17-supply/rotor.t.................................  17    0    0    0   17
+S17-supply/rotor.rakudo.jvm........................  23    0    1    0   24
+     1 todo   : only deprecated so far
 S17-supply/schedule-on.t...........................   7    0    0    0    7
 S17-supply/sort.t..................................   7    0    0    0    7
 S17-supply/squish.t................................  11    0    0    0   11
@@ -1353,9 +1353,8 @@ S32-basics/xxPOS.rakudo.jvm........................  55    0    0    5   60
 S32-container/roundrobin.rakudo.jvm................   4    0    1    0    5
      1 todo   : over-flattening
 S32-container/stringify.t..........................  16    0    0    0   16
-S32-container/zip.rakudo.jvm.......................   7    5    0    2   14
+S32-container/zip.rakudo.jvm.......................  12    0    0    2   14
      2 skipped: lvalue zip
-     5 tests aborted (missing ok/not ok)
 S32-exceptions/misc.rakudo.jvm..................... 301    0    2    0  303
      1 todo   : Cannot find method "returns"
      1 todo   : parsing regression
@@ -1759,7 +1758,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        5234,     0,   141,   356,  5731,  5823
 "S03",        5153,     0,   120,   100,  5373,  5391
 "S04",        1067,     2,    50,    52,  1171,  1223
-"S05",        5317,     4,    93,   261,  5675,  5948
+"S05",        5318,     4,    91,   262,  5675,  5948
 "S06",        1354,     0,    53,    99,  1506,  1564
 "S07",           0,     0,     0,     0,     0,     0
 "S09",        1899,     0,     9,   102,  2010,  2010
@@ -1769,18 +1768,18 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         309,     0,     8,     9,   326,   339
 "S15",          13,     2,     4,    17,    36, 78516
-"S16",         277,     0,     8,    19,   304,   336
-"S17",         675,     0,     4,    27,   706,   752
+"S16",         278,     0,     8,    19,   305,   337
+"S17",         681,     0,     5,    27,   713,   759
 "S19",          13,     0,     0,     0,    13,    18
 "S22",          23,     0,     0,     1,    24,    24
 "S24",          17,     0,     0,     0,    17,    94
 "S26",        1234,     0,     4,    48,  1286,  1947
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         341,     0,     3,     3,   347,   357
-"S32",        9633,    16,   190,   211, 10050,  8425
+"S32",        9638,    11,   190,   211, 10050,  8425
 "int",        1255,     5,    12,    15,  1287,  1276
 "ros",           2,     0,     0,     0,     2,     2
-"total",     35495,    48,   792,  1541, 37876,116217
+"total",     35508,    43,   791,  1542, 37884,116225
 ----------------
 Failure summary:
 S01-perl-5-integration/hash.rakudo.jvm aborted 6 test(s)
@@ -1795,7 +1794,6 @@ S05-modifier/perl5_9.rakudo.jvm 81 - re_tests 1356/1 (1574)
 S05-modifier/perl5_9.rakudo.jvm 83 - re_tests 1360/1 (1578)
 S15-unicode-information/uniname.rakudo.jvm 28 - uniname too high returns <unassigned> (1)
 S15-unicode-information/uniname.rakudo.jvm 29 - uniname too high returns <unassigned> (2)
-S32-container/zip.rakudo.jvm aborted 5 test(s)
 S32-io/pipe.t 3 - Child fails and prints nothing
 S32-io/pipe.t 4 - Child fails and prints nothing
 S32-io/pipe.t 5 - Child fails and prints something
