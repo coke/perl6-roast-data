@@ -802,7 +802,18 @@ S03-operators/spaceship-and-containers.t...........   6    0    0    0    6
 S03-operators/spaceship.t..........................   5    0    0    0    5
 S03-operators/subscript-adverbs.t.................. 110    0    0    0  110
 S03-operators/subscript-vs-lt.t....................   4    0    0    0    4
-S03-operators/ternary.t............................  27    0    0    0   27
+S03-operators/ternary.t............................    
+# Failed test 'right exception type (X::Syntax::Adverb)'
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.pm.moarvm line 1
+    # Expected: (X::Syntax::Adverb)
+    # Got:      (X::AdHoc)
+    # Exception message: Cannot find method 'name'
+    # Looks like you failed 1 tests of 2
+
+# Failed test 'parenthesized adverbed literal in second part of ternary'
+# at t/spec/S03-operators/ternary.t line 97
+# Looks like you failed 1 tests of 27
+  26    1    0    0   27
 S03-operators/value_equivalence.rakudo.moar........  73    0    2    0   75
      1 todo   : .WHICH based on type names
      1 todo   : \@a seems to flatten when it should not
@@ -959,8 +970,8 @@ S04-phasers/pre-post.rakudo.moar...................  19    0    2    1   22
      1 todo   : POST and exceptions
      1 todo   : failing PRE block should not run any other phasers, RT #121531
 S04-phasers/rvalue.t...............................  16    0    0    0   16
-S04-statement-modifiers/for.t......................  25    0    0    0   25
-S04-statement-modifiers/given.t....................  10    0    0    0   10
+S04-statement-modifiers/for.t......................  26    0    0    0   26
+S04-statement-modifiers/given.t....................  11    0    0    0   11
 S04-statement-modifiers/if.t.......................  13    0    0    0   13
 S04-statement-modifiers/unless.t...................   8    0    0    0    8
 S04-statement-modifiers/until.t....................   4    0    0    0    4
@@ -1034,7 +1045,7 @@ S05-grammar/protos.t...............................   4    0    0    0    4
 S05-grammar/signatures.t...........................   2    0    0    0    2
 S05-grammar/ws.rakudo.moar.........................  10    0    0    2   12
      2 skipped: infinite loop: RT #64094 (noauto)
-S05-interpolation/lexicals.t.......................  10    0    0    0   10
+S05-interpolation/lexicals.t.......................  14    0    0    0   14
 S05-interpolation/regex-in-variable.rakudo.moar....  36    0    1    2   39
      1 skipped: and no need to go all Bobby Tables either
      1 skipped: escaping characters before EVAL is the wrong way to fix this
@@ -1368,7 +1379,7 @@ S06-traits/is-copy.t...............................Potential difficulties:
     at EVAL_0:1
     ------> [32msub f ($x is copy) { my $x [33m⏏[31m}[0m
   25    0    0    0   25
-S06-traits/is-readonly.rakudo.moar.................useless use of 'is readonly' on $!attr  in any  at src/Perl6/World.nqp:2169
+S06-traits/is-readonly.rakudo.moar.................useless use of 'is readonly' on $!attr  in any  at src/Perl6/World.nqp:2424
 
    2    0    1    0    3
      1 todo   : readonly attributes
@@ -1452,10 +1463,10 @@ use of uninitialized value $_ of type Any in string context  in block  at t/spec
 use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:76
 
 # error: Could not find symbol '&C1'
-#   in method <anon> at src/gen/m-CORE.setting:16437
+#   in method <anon> at src/gen/m-CORE.setting:16443
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2914
 #   in any find_method at src/gen/m-Metamodel.nqp:1053
-#   in block <unit> at getout-22990-716974.code:4
+#   in block <unit> at getout-24610-555441.code:4
 
 
   19    0    3    0   22
@@ -1656,7 +1667,7 @@ S12-methods/how.t..................................   3    0    0    0    3
 S12-methods/indirect_notation.rakudo.moar..........  16    0    0   21   37
     15 skipped: .*, .+ and .? with @foo
      6 skipped: .@foo not yet working
-S12-methods/instance.t.............................useless use of 'is rw' on @!something  in any  at src/Perl6/World.nqp:2169
+S12-methods/instance.t.............................useless use of 'is rw' on @!something  in any  at src/Perl6/World.nqp:2424
 
   39    0    0    0   39
 S12-methods/lastcall.t.............................   6    0    0    0    6
@@ -1814,8 +1825,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1430231633
-# Using file temp_1430231633
+S16-filehandles/chmod.t............................# Using file temp_1430318051
+# Using file temp_1430318051
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1976,7 +1987,13 @@ S17-supply/stable.rakudo.moar......................# **** scheduling with Thread
 # **** scheduling with CurrentThreadScheduler
    5    0    0    2    7
      2 skipped: doesn't work or can't test
-S17-supply/start.t.................................   9    0    0    0    9
+S17-supply/start.t.................................
+# Failed test 'did we get the other original value'
+# at t/spec/S17-supply/start.t line 34
+# expected: [1, 1]
+#      got: [1, 1]
+# Looks like you failed 1 tests of 9
+   8    1    0    0    9
 S17-supply/unique.t................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
   17    0    0    0   17
@@ -2109,9 +2126,9 @@ use of uninitialized value of type BagHash in string context  in block <unit> at
   16    0    0    0   16
 S32-container/zip.rakudo.moar......................  12    0    0    2   14
      2 skipped: lvalue zip
-S32-exceptions/misc.rakudo.moar....................Code object coerced to string (please use .gist or .perl to do that)  in any  at src/Perl6/World.nqp:2169
+S32-exceptions/misc.rakudo.moar....................Code object coerced to string (please use .gist or .perl to do that)  in any  at src/Perl6/World.nqp:2424
 
-Code object coerced to string (please use .gist or .perl to do that)  in any throw at src/Perl6/World.nqp:3010
+Code object coerced to string (please use .gist or .perl to do that)  in any throw at src/Perl6/World.nqp:3265
 
     
 # Failed test ''#`' died'
@@ -2748,14 +2765,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# gerdr: 1.197476 seconds
-# recursive-ternary: 1.25076536 seconds
-# loop: 1.29223694 seconds
-# kaz: 1.31466534 seconds
-# hand-memoization: 1.6787846 seconds
-# recursive-ternary-hand-cached: 2.6436578 seconds
-# sequence-ternary: 6.2955476 seconds
-# sequence: 9.1797851 seconds
+integration/advent2012-day21.t.....................# kaz: 1.1196499 seconds
+# gerdr: 1.155120 seconds
+# recursive-ternary: 1.2282329 seconds
+# loop: 1.2687131 seconds
+# hand-memoization: 1.6276998 seconds
+# recursive-ternary-hand-cached: 2.6038476 seconds
+# sequence-ternary: 6.1948955 seconds
+# sequence: 8.211349896 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2835,9 +2852,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,    19,     0,    56,    75,    86
 "S02",        5275,     0,   126,   331,  5732,  5824
-"S03",        5178,     0,   120,   100,  5398,  5416
-"S04",        1097,     0,    47,    37,  1181,  1233
-"S05",        5446,     0,    88,   141,  5675,  5948
+"S03",        5177,     1,   120,   100,  5398,  5416
+"S04",        1099,     0,    47,    37,  1183,  1259
+"S05",        5450,     0,    88,   141,  5679,  5952
 "S06",        1364,     0,    51,    91,  1506,  1564
 "S07",           0,     0,     0,     0,     0,     0
 "S09",        1899,     0,     9,   102,  2010,  2010
@@ -2848,7 +2865,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         310,     0,     8,     8,   326,   339
 "S15",       78474,     0,     3,    19, 78496, 78516
 "S16",         288,     0,     0,    18,   306,   338
-"S17",         731,     0,     5,    31,   767,   767
+"S17",         730,     1,     5,    31,   767,   767
 "S19",          13,     0,     0,     0,    13,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",          17,     0,     0,     0,    17,    94
@@ -2858,13 +2875,15 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9809,     0,   204,   189, 10202,  8577
 "int",        1197,    62,    13,    15,  1287,  1276
 "ros",           2,     0,     0,     0,     2,     2
-"total",    114410,    81,   743,  1353,116587,116422
+"total",    114414,    83,   743,  1353,116593,116452
 ----------------
 Failure summary:
 S01-perl-5-integration/hash.rakudo.moar aborted 6 test(s)
 S01-perl-5-integration/roundtrip.t aborted 5 test(s)
 S01-perl-5-integration/strings.rakudo.moar aborted 6 test(s)
 S01-perl-5-integration/subs.t aborted 2 test(s)
+S03-operators/ternary.t 22 - parenthesized adverbed literal in second part of ternary
+S17-supply/start.t 9 - did we get the other original value
 integration/advent2009-day17.t 1 - Line 0 -2 matched using map()
 integration/advent2009-day17.t 2 - Line 2 -1.83333333333333 matched using map()
 integration/advent2009-day17.t 3 - Line 4 -1.66666666666667 matched using map()
