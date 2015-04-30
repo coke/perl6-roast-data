@@ -438,7 +438,7 @@ S03-operators/spaceship-and-containers.t...........   6    0    0    0    6
 S03-operators/spaceship.t..........................   5    0    0    0    5
 S03-operators/subscript-adverbs.t.................. 110    0    0    0  110
 S03-operators/subscript-vs-lt.t....................   4    0    0    0    4
-S03-operators/ternary.t............................  26    1    0    0   27
+S03-operators/ternary.t............................  27    0    0    0   27
 S03-operators/value_equivalence.rakudo.jvm.........  73    0    2    0   75
      1 todo   : .WHICH based on type names
      1 todo   : \@a seems to flatten when it should not
@@ -466,7 +466,8 @@ S03-smartmatch/any-str.rakudo.jvm..................   4    0    0    1    5
 S03-smartmatch/any-sub.t...........................   8    0    0    0    8
 S03-smartmatch/any-type.t..........................  15    0    0    0   15
 S03-smartmatch/array-array.t.......................  36    0    0    0   36
-S03-smartmatch/array-hash.t........................   6    0    0    0    6
+S03-smartmatch/array-hash.t........................   0    6    0    0    6
+     6 tests aborted (missing ok/not ok)
 S03-smartmatch/capture-signature.t.................   6    0    0    0    6
 S03-smartmatch/disorganized.t......................  42    0    0    0   42
 S03-smartmatch/hash-hash.rakudo.jvm................   8    0    8    0   16
@@ -916,7 +917,7 @@ S09-subscript/multidim-assignment.t................  10    0    0    0   10
 S09-subscript/slice.rakudo.jvm.....................  27    0    0    4   31
      2 skipped: RT #120383
      2 skipped: RT #61844
-S09-typed-arrays/arrays.rakudo.jvm.................  70    0    3    2   75
+S09-typed-arrays/arrays.rakudo.jvm.................  68    2    3    2   75
      1 skipped: nested typechecks are borked
      1 skipped: type on our-variables
      1 todo   : initialization
@@ -1193,8 +1194,8 @@ S16-unfiled/rebindstdhandles.rakudo.jvm............   0    0    0    2    2
      2 skipped: contextual rebinding regression
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
-S17-channel/earliest.t.............................   3    0    0    0    3
-S17-lowlevel/lock.rakudo.jvm.......................   7    0    0    1    8
+S17-channel/earliest.t.............................   5    0    0    0    5
+S17-lowlevel/lock.rakudo.jvm.......................   6    1    0    1    8
      1 skipped: not sure this test is valid
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-promise/allof.t................................  11    0    0    0   11
@@ -1478,9 +1479,8 @@ S32-num/rshift_pos_amount.t........................ 189    0    0    0  189
 S32-num/sign.rakudo.jvm............................  34    0    1    0   35
      1 todo   : Nom does not yet have a NaN framework in place
 S32-num/sqrt.t.....................................  18    0    0    0   18
-S32-num/stringify.rakudo.jvm.......................  97    0   11    4  112
+S32-num/stringify.rakudo.jvm....................... 108    0    0    4  112
      4 skipped: big stuff
-    11 todo   : Complex.perl
 S32-num/unpolar.t.................................. 199    0    0    0  199
 S32-scalar/defined.t...............................  56    0    0    0   56
 S32-scalar/perl.rakudo.jvm.........................   4    0    2    0    6
@@ -1753,12 +1753,12 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,    19,     0,    56,    75,    86
 "S02",        5235,     0,   141,   356,  5732,  5824
-"S03",        5177,     1,   120,   100,  5398,  5416
+"S03",        5172,     6,   120,   100,  5398,  5416
 "S04",        1082,     2,    47,    52,  1183,  1259
 "S05",        5322,     4,    91,   262,  5679,  5952
 "S06",        1354,     0,    53,    99,  1506,  1564
 "S07",           0,     0,     0,     0,     0,     0
-"S09",        1899,     0,     9,   102,  2010,  2010
+"S09",        1897,     2,     9,   102,  2010,  2010
 "S10",          90,     0,     6,     1,    97,   154
 "S11",          87,     0,    26,    14,   127,   146
 "S12",        1459,     0,    51,   123,  1633,  1690
@@ -1766,30 +1766,33 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         309,     0,     8,     9,   326,   339
 "S15",          15,     0,     4,    17,    36, 78516
 "S16",         279,     0,     8,    19,   306,   338
-"S17",         689,     0,     5,    27,   721,   767
+"S17",         690,     1,     5,    27,   723,   769
 "S19",          13,     0,     0,     0,    13,    18
 "S22",          23,     0,     0,     1,    24,    24
 "S24",          17,     0,     0,     0,    17,    94
 "S26",        1234,     0,     4,    48,  1286,  1947
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         341,     0,     3,     3,   347,   357
-"S32",        9640,    11,   190,   211, 10052,  8427
+"S32",        9651,    11,   179,   211, 10052,  8427
 "int",        1194,    67,    11,    15,  1287,  1276
 "ros",           2,     0,     0,     0,     2,     2
-"total",     35504,   104,   787,  1542, 37937,116302
+"total",     35509,   112,   776,  1542, 37939,116304
 ----------------
 Failure summary:
 S01-perl-5-integration/hash.rakudo.jvm aborted 6 test(s)
 S01-perl-5-integration/roundtrip.t aborted 5 test(s)
 S01-perl-5-integration/strings.rakudo.jvm aborted 6 test(s)
 S01-perl-5-integration/subs.t aborted 2 test(s)
-S03-operators/ternary.t 22 - parenthesized adverbed literal in second part of ternary
+S03-smartmatch/array-hash.t aborted 6 test(s)
 S04-statements/for.rakudo.jvm 61 - for loop with value-less next flattens out nexted iterations
 S04-statements/for.rakudo.jvm 63 - for loop with value-less last flattens out last iteration
 S05-modifier/perl5_9.rakudo.jvm 77 - re_tests 1348/1 (1566)
 S05-modifier/perl5_9.rakudo.jvm 79 - re_tests 1352/1 (1570)
 S05-modifier/perl5_9.rakudo.jvm 81 - re_tests 1356/1 (1574)
 S05-modifier/perl5_9.rakudo.jvm 83 - re_tests 1360/1 (1578)
+S09-typed-arrays/arrays.rakudo.jvm 71 - Can feed Arrays of Type to .new of Array[Array[Type]] (binding)
+S09-typed-arrays/arrays.rakudo.jvm 73 - Can feed Arrays of Type to .new of Array[Array[Type]] (assignment)
+S17-lowlevel/lock.rakudo.jvm 7 - Condition variable worked
 S32-io/pipe.t 3 - Child fails and prints nothing
 S32-io/pipe.t 4 - Child fails and prints nothing
 S32-io/pipe.t 5 - Child fails and prints something
