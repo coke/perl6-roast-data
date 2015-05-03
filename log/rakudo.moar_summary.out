@@ -129,7 +129,7 @@ S02-literals/underscores.t.........................  19    0    0    0   19
 S02-literals/version.rakudo.moar...................  27    0    3    0   30
      3 todo   : trailing zeroes fail
 S02-magicals/78258.t...............................   1    0    0    0    1
-S02-magicals/DISTRO.rakudo.moar....................use of uninitialized value of type Blob in string context  in block <unit> at t/spec/S02-magicals/DISTRO.rakudo.moar:47
+S02-magicals/DISTRO.rakudo.moar....................use of uninitialized value of type Blob in string context  in block <unit> at t/spec/S02-magicals/DISTRO.rakudo.moar:46
 
   12    0    2   14   28
     14 skipped: unimpl $?DISTRO
@@ -141,10 +141,10 @@ use of uninitialized value of type Str in string context
     16 skipped: unimpl $?KERNEL
      1 todo   : no Kernel.desc yet
      2 todo   : no Kernel.signature yet
-S02-magicals/PERL.rakudo.moar......................use of uninitialized value of type Blob in string context  in block <unit> at t/spec/S02-magicals/PERL.rakudo.moar:49
+S02-magicals/PERL.rakudo.moar......................use of uninitialized value of type Blob in string context  in block <unit> at t/spec/S02-magicals/PERL.rakudo.moar:48
 
 use of uninitialized value of type Str in string context
-use of uninitialized value of type Blob in string context  in block <unit> at t/spec/S02-magicals/PERL.rakudo.moar:74
+use of uninitialized value of type Blob in string context  in block <unit> at t/spec/S02-magicals/PERL.rakudo.moar:70
 
 use of uninitialized value of type Str in string context
   17    0    8   25   50
@@ -155,7 +155,7 @@ use of uninitialized value of type Str in string context
      2 todo   : no Perl.compiler.signature yet
      1 todo   : no Perl.desc yet
      2 todo   : no Perl.signature yet
-S02-magicals/VM.rakudo.moar........................use of uninitialized value of type Blob in string context  in block <unit> at t/spec/S02-magicals/VM.rakudo.moar:48
+S02-magicals/VM.rakudo.moar........................use of uninitialized value of type Blob in string context  in block <unit> at t/spec/S02-magicals/VM.rakudo.moar:46
 
   13    0    2   17   32
      2 skipped: VM.properties does not exist
@@ -231,7 +231,7 @@ S02-names/pseudo.rakudo.moar.......................  52    0    8   82  142
      2 todo   : these tests disagree with STD
 S02-names/strict.rakudo.moar.......................   5    0    0    1    6
      1 skipped: lax mode does not propagate into EVAL yet
-S02-names/symbolic-deref.rakudo.moar...............  31    0    2    2   35
+S02-names/symbolic-deref.rakudo.moar...............  32    0    2    2   36
      2 skipped: NYI
      1 todo   : NYI
      1 todo   : no such symbol
@@ -279,8 +279,8 @@ Please use %hash = %(itemized hash) instead.
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
 
-Please note that *ALL* deprecated features will be removed at the release
-of Perl 6.0.0 (expected sometime in 2015).
+Please note that *ALL* deprecated features will be removed at the RC-0 release
+(expected september 2015).
   15    0    3    0   18
      3 todo   : deprecated %h = {...} for now
 S02-types/autovivification.t.......................  25    0    0    0   25
@@ -567,7 +567,7 @@ use of uninitialized value of type Any in numeric context  in block  at lib/Test
 use of uninitialized value of type Int in numeric context  in block <unit> at t/spec/S03-operators/arith.rakudo.moar:370
 
  156    0    0    0  156
-S03-operators/assign-is-not-binding.t..............   8    0    0    0    8
+S03-operators/assign-is-not-binding.t..............   9    0    0    0    9
 S03-operators/assign.rakudo.moar................... 262    0   21   13  296
      1 skipped: Odd number of elements found where hash expected
      1 skipped: RT #116178
@@ -845,11 +845,8 @@ S03-smartmatch/any-str.rakudo.moar.................   4    0    0    1    5
 S03-smartmatch/any-sub.t...........................   8    0    0    0    8
 S03-smartmatch/any-type.t..........................  15    0    0    0   15
 S03-smartmatch/array-array.t.......................  36    0    0    0   36
-S03-smartmatch/array-hash.t........................Type check failed in binding &call; expected 'Callable' but got 'Method+{<anon>}'
-  in block <unit> at t/spec/S03-smartmatch/array-hash.t:8
-
-   0    6    0    0    6
-     6 tests aborted (missing ok/not ok)
+S03-smartmatch/array-hash.rakudo.moar..............   0    0    0    6    6
+     6 skipped: RT #124444
 S03-smartmatch/capture-signature.t.................   6    0    0    0    6
 S03-smartmatch/disorganized.t......................  42    0    0    0   42
 S03-smartmatch/hash-hash.rakudo.moar...............   8    0    8    0   16
@@ -1421,23 +1418,13 @@ use of uninitialized value <element> of type Int in string context  in sub is at
 
 use of uninitialized value <element> of type Int in string context  in sub is at lib/Test.pm:135
 
-
-# Failed test 'Can feed Arrays of Type to .new of Array[Array[Type]] (binding)'
-# at t/spec/S09-typed-arrays/arrays.rakudo.moar line 195
-# expected: $((Bool::True, Bool::False, Bool::True), (Bool::True,))
-#      got: $(Array[Bool].new(Bool::True, Bool::False, Bool::True), Array[Bool].new(Bool::True))
-
-# Failed test 'Can feed Arrays of Type to .new of Array[Array[Type]] (assignment)'
-# at t/spec/S09-typed-arrays/arrays.rakudo.moar line 200
-# expected: $((Bool::True, Bool::False, Bool::True), (Bool::True,))
-#      got: $(Array[Bool].new(Bool::True, Bool::False, Bool::True), Array[Bool].new(Bool::True))
-# Looks like you failed 2 tests of 75
-  68    2    3    2   75
+  68    0    5    2   75
      1 skipped: nested typechecks are borked
      1 skipped: type on our-variables
      1 todo   : initialization
      1 todo   : need parameterized Lists
      1 todo   : nested typechecks are borked
+     2 todo   : unexpectedly getting array Array[Bool].new
 S09-typed-arrays/hashes.t..........................  33    0    0    0   33
 S09-typed-arrays/native-decl.t.....................   8    0    0    0    8
 S09-typed-arrays/native-int.rakudo.moar............# Testing int8 array
@@ -1479,7 +1466,7 @@ use of uninitialized value $_ of type Any in string context  in block <unit> at 
 # error: Could not find symbol '&C1'
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2914
 #   in any find_method at src/gen/m-Metamodel.nqp:1053
-#   in block <unit> at getout-32538-438110.code:4
+#   in block <unit> at getout-18542-481593.code:4
 
 
   19    0    3    0   22
@@ -1560,9 +1547,9 @@ Please use %!h = %(itemized hash) instead.
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
 
-Please note that *ALL* deprecated features will be removed at the release
-of Perl 6.0.0 (expected sometime in 2015).
- 134    0    6    1  141
+Please note that *ALL* deprecated features will be removed at the RC-0 release
+(expected september 2015).
+ 146    0    6    1  153
      1 skipped: dubious test - the initializer becomes a submethod here, implying a scope
      1 todo   : huh?
      1 todo   : over-eager auto-vivification bugs
@@ -1835,8 +1822,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
      1 todo   : RT #122471
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1430577347
-# Using file temp_1430577347
+S16-filehandles/chmod.t............................# Using file temp_1430663629
+# Using file temp_1430663629
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1866,14 +1853,7 @@ S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   5    0    0    0    5
-S17-lowlevel/lock.rakudo.moar......................
-# Failed test 'Condition variable worked'
-# at t/spec/S17-lowlevel/lock.rakudo.moar line 87
-# expected: 'ale,porter,stout'
-#      got: 'ale,porter'
-# log = ale porter stout, thread was running *after* join
-# Looks like you failed 1 tests of 8
-   6    1    0    1    8
+S17-lowlevel/lock.rakudo.moar......................   7    0    0    1    8
      1 skipped: not sure this test is valid
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.rakudo.moar....................  27    0    0    3   30
@@ -1987,8 +1967,8 @@ Please use .rotor( $elems => -$gap ) instead.
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
 
-Please note that *ALL* deprecated features will be removed at the release
-of Perl 6.0.0 (expected sometime in 2015).
+Please note that *ALL* deprecated features will be removed at the RC-0 release
+(expected september 2015).
   31    0    1    0   32
      1 todo   : only deprecated so far
 S17-supply/schedule-on.t...........................# **** scheduling with ThreadPoolScheduler
@@ -2004,13 +1984,7 @@ S17-supply/stable.rakudo.moar......................# **** scheduling with Thread
 # **** scheduling with CurrentThreadScheduler
    5    0    0    2    7
      2 skipped: doesn't work or can't test
-S17-supply/start.t.................................
-# Failed test 'did we get the other original value'
-# at t/spec/S17-supply/start.t line 34
-# expected: [1, 1]
-#      got: [1, 1]
-# Looks like you failed 1 tests of 9
-   8    1    0    0    9
+S17-supply/start.t.................................   9    0    0    0    9
 S17-supply/unique.t................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
   17    0    0    0   17
@@ -2205,8 +2179,8 @@ Please use IO instead.
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
 
-Please note that *ALL* deprecated features will be removed at the release
-of Perl 6.0.0 (expected sometime in 2015).
+Please note that *ALL* deprecated features will be removed at the RC-0 release
+(expected september 2015).
   13    0    0    0   13
 S32-io/io-spec-cygwin.t............................ 100    0    0    2  102
      2 skipped: cygwin on-platform tests
@@ -2228,21 +2202,21 @@ Please use slurp($path,...) instead.
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
 
-Please note that *ALL* deprecated features will be removed at the release
-of Perl 6.0.0 (expected sometime in 2015).
+Please note that *ALL* deprecated features will be removed at the RC-0 release
+(expected september 2015).
   18    0    0    0   18
 S32-io/spurt.t.....................................Saw 1 call to deprecated code during execution.
 ================================================================================
 spurt($handle,...) called at:
-  t/spec/S32-io/spurt.t, lines 65,75,85
+  t/spec/S32-io/spurt.t, lines 65,74,83
 Deprecated since v2014.10, will be removed with release v2015.9!
 Please use spurt($path,...) instead.
 --------------------------------------------------------------------------------
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
 
-Please note that *ALL* deprecated features will be removed at the release
-of Perl 6.0.0 (expected sometime in 2015).
+Please note that *ALL* deprecated features will be removed at the RC-0 release
+(expected september 2015).
   35    0    0    0   35
 S32-list/categorize.t..............................  12    0    0    0   12
 S32-list/classify.rakudo.moar......................  12    0    0    3   15
@@ -2805,14 +2779,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 1.1809511 seconds
-# gerdr: 1.30695923 seconds
-# loop: 1.3072072 seconds
-# recursive-ternary: 1.31457059 seconds
-# hand-memoization: 1.8236139 seconds
-# recursive-ternary-hand-cached: 2.7078695 seconds
-# sequence-ternary: 8.0608022 seconds
-# sequence: 8.87135574 seconds
+integration/advent2012-day21.t.....................# kaz: 1.1568512 seconds
+# gerdr: 1.1745917 seconds
+# recursive-ternary: 1.25026007 seconds
+# loop: 1.2518815 seconds
+# hand-memoization: 2.0049126 seconds
+# recursive-ternary-hand-cached: 2.6046368 seconds
+# sequence-ternary: 6.27163885 seconds
+# sequence: 8.45414219 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT #121789
@@ -2842,8 +2816,8 @@ Please use emit instead.
 Please contact the author to have these calls to deprecated code adapted,
 so that this message will disappear!
 
-Please note that *ALL* deprecated features will be removed at the release
-of Perl 6.0.0 (expected sometime in 2015).
+Please note that *ALL* deprecated features will be removed at the RC-0 release
+(expected september 2015).
    4    0    0    0    4
 integration/advent2013-day20.t.....................  22    0    0    0   22
 integration/advent2013-day21.t.....................  24    0    0    0   24
@@ -2891,21 +2865,21 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,    19,     0,    56,    75,    86
-"S02",        5275,     0,   126,   331,  5732,  5824
-"S03",        5175,     6,   120,   100,  5401,  5419
+"S02",        5276,     0,   126,   331,  5733,  5819
+"S03",        5176,     0,   120,   106,  5402,  5420
 "S04",        1100,     0,    47,    37,  1184,  1260
 "S05",        5454,     0,    84,   141,  5679,  5952
 "S06",        1368,     0,    51,    91,  1510,  1568
 "S07",           0,     0,     0,     0,     0,     0
-"S09",        1897,     2,     9,   102,  2010,  2010
+"S09",        1897,     0,    11,   102,  2010,  2010
 "S10",          91,     0,     5,     1,    97,   154
 "S11",         109,     0,     4,    14,   127,   146
-"S12",        1467,     0,    43,   123,  1633,  1690
+"S12",        1479,     0,    43,   123,  1645,  1702
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         313,     0,     8,     8,   329,   342
 "S15",       78476,     0,     3,    19, 78498, 78518
 "S16",         288,     0,     0,    18,   306,   338
-"S17",         731,     2,     5,    31,   769,   769
+"S17",         733,     0,     5,    31,   769,   769
 "S19",          13,     0,     0,     0,    13,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",          17,     0,     0,     0,    17,    94
@@ -2915,18 +2889,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9821,     0,   193,   189, 10203,  8578
 "int",        1197,    62,    13,    15,  1287,  1276
 "ros",           2,     0,     0,     0,     2,     2
-"total",    114437,    91,   728,  1353,116609,116468
+"total",    114453,    81,   730,  1359,116623,116476
 ----------------
 Failure summary:
 S01-perl-5-integration/hash.rakudo.moar aborted 6 test(s)
 S01-perl-5-integration/roundtrip.t aborted 5 test(s)
 S01-perl-5-integration/strings.rakudo.moar aborted 6 test(s)
 S01-perl-5-integration/subs.t aborted 2 test(s)
-S03-smartmatch/array-hash.t aborted 6 test(s)
-S09-typed-arrays/arrays.rakudo.moar 71 - Can feed Arrays of Type to .new of Array[Array[Type]] (binding)
-S09-typed-arrays/arrays.rakudo.moar 73 - Can feed Arrays of Type to .new of Array[Array[Type]] (assignment)
-S17-lowlevel/lock.rakudo.moar 7 - Condition variable worked
-S17-supply/start.t 9 - did we get the other original value
 integration/advent2009-day17.t 1 - Line 0 -2 matched using map()
 integration/advent2009-day17.t 2 - Line 2 -1.83333333333333 matched using map()
 integration/advent2009-day17.t 3 - Line 4 -1.66666666666667 matched using map()
