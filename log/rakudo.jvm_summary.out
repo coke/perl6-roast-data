@@ -296,7 +296,7 @@ S02-types/subset.rakudo.jvm........................  42    0    0    1   43
      1 skipped: (noauto) succeeds for the wrong reason (need to test the error)
 S02-types/type.rakudo.jvm..........................  50    0    1    0   51
      1 todo   : nigh
-S02-types/undefined-types.rakudo.jvm...............  45    0    4    0   49
+S02-types/undefined-types.rakudo.jvm...............  46    0    4    0   50
      4 todo   : .clone doesn't copy typedness
 S02-types/unicode.rakudo.jvm.......................   2    0    3    2    7
      1 skipped: graphs NYI RT #124498
@@ -342,11 +342,12 @@ S03-metaops/hyper.rakudo.jvm....................... 300    0    1    3  304
      2 skipped: nom regression: possible spec change/improvement RT #124513
      1 todo   : can_meta check for meta operators NYI
 S03-metaops/not.t..................................  39    0    0    0   39
-S03-metaops/reduce.rakudo.jvm...................... 339    0    8    0  347
+S03-metaops/reduce.rakudo.jvm...................... 358    0    8    0  366
      3 todo   : huh?
      1 todo   : item context
      2 todo   : orelse RT \#124516
-     2 todo   : triangle [\^^] and [\xor] RT \#124515
+     1 todo   : triangle [\^^] and [\xor] RT \#124515
+     1 todo PASSED: triangle [\^^] and [\xor] RT \#124515
 S03-metaops/reverse.t..............................  39    0    0    0   39
 S03-metaops/zip.rakudo.jvm.........................  25    0    4    2   31
      2 skipped: nom regression RT #122230
@@ -1175,9 +1176,9 @@ S12-methods/multi.rakudo.jvm.......................  26    0    1    5   32
      2 skipped: proto does not promote to multi RT #124847
      3 skipped: unknown bug RT #124848
      1 todo   : RT \#66006
-S12-methods/parallel-dispatch.rakudo.jvm...........  31    0    5    1   37
+S12-methods/parallel-dispatch.rakudo.jvm...........  32    0    4    1   37
      1 skipped: No such method postcircumfix:<( )> for invocant of type Pair RT #124849
-     5 todo   : is_deeply does not think map results are the same as list on LHS
+     4 todo   : is_deeply does not think map results are the same as list on LHS
 S12-methods/private.t..............................  12    0    0    0   12
 S12-methods/qualified.t............................   2    0    0    0    2
 S12-methods/submethods.rakudo.jvm..................  21    0    0    6   27
@@ -1312,7 +1313,7 @@ S17-scheduler/basic.rakudo.jvm.....................  28    0    2   10   40
      2 skipped: waiting for new '.loads' semantics RT #124777
      2 todo   : huh?
 S17-scheduler/every.t..............................  18    0    0    0   18
-S17-scheduler/in.t.................................  14    0    0    0   14
+S17-scheduler/in.t.................................  13    1    0    0   14
 S17-scheduler/times.t..............................   4    0    0    0    4
 S17-supply/Channel.t...............................  12    0    0    0   12
 S17-supply/Promise.t...............................  13    0    0    0   13
@@ -1869,21 +1870,21 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,    19,     0,    56,    75,    86
-"S02",        5240,     0,   141,   351,  5732,  5818
-"S03",        5176,     0,   120,   106,  5402,  5420
+"S02",        5241,     0,   141,   351,  5733,  5819
+"S03",        5195,     0,   120,   106,  5421,  5439
 "S04",        1083,     2,    47,    52,  1184,  1260
-"S05",        5350,     4,    88,   267,  5709,  5956
+"S05",        5350,     4,    88,   267,  5709,  5957
 "S06",        1352,     6,    53,    99,  1510,  1568
 "S07",           0,     0,     0,     0,     0,     0
 "S09",        1897,     0,    11,   102,  2010,  2010
 "S10",          90,     0,     6,     1,    97,   154
 "S11",          87,     0,    26,    14,   127,   146
-"S12",        1472,     0,    51,   125,  1648,  1702
+"S12",        1473,     0,    50,   125,  1648,  1702
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         312,     0,     8,     9,   329,   342
 "S15",          15,     0,     4,    17,    36, 78518
 "S16",         279,     0,     8,    19,   306,   338
-"S17",         695,     0,     5,    27,   727,   773
+"S17",         694,     1,     5,    27,   727,   773
 "S19",          13,     0,     0,     0,    13,    18
 "S22",          23,     0,     0,     1,    24,    24
 "S24",          17,     0,     0,     0,    17,    94
@@ -1893,7 +1894,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9649,    14,   179,   211, 10053,  8428
 "int",        1194,    67,    11,    15,  1287,  1276
 "ros",           2,     0,     0,     0,     2,     2
-"total",     35564,   112,   775,  1550, 38001,116333
+"total",     35584,   113,   774,  1550, 38021,116354
 ----------------
 Failure summary:
 S01-perl-5-integration/hash.rakudo.jvm aborted 6 test(s)
@@ -1908,6 +1909,7 @@ S05-modifier/perl5_9.rakudo.jvm 81 - re_tests 1356/1 (1574)
 S05-modifier/perl5_9.rakudo.jvm 83 - re_tests 1360/1 (1578)
 S06-currying/assuming-and-mmd.t aborted 2 test(s)
 S06-currying/named.t aborted 4 test(s)
+S17-scheduler/in.t 13 - can we cancel (4)
 S32-io/pipe.t 3 - Child fails and prints nothing
 S32-io/pipe.t 4 - Child fails and prints nothing
 S32-io/pipe.t 5 - Child fails and prints something
