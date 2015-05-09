@@ -209,8 +209,6 @@ use of uninitialized value of type Mu in string context  in block <unit> at t/sp
 
 use of uninitialized value of type Mu in string context  in block <unit> at t/spec/S02-names-vars/perl.rakudo.moar:56
 
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
   96    0    0    3   99
      1 skipped: RT #67790
      2 skipped: recursive data structure RT #122286
@@ -401,8 +399,7 @@ use of uninitialized value of type Empty in string context  in block <unit> at t
      8 todo   : NYI
 S02-types/lazy-lists.t.............................  23    0    0    0   23
 S02-types/lists.rakudo.moar........................  29    0    0    3   32
-     2 skipped: list binding RT #124494
-     1 skipped: list binding RT #124495
+     3 skipped: list binding RT #124494
 S02-types/mix.rakudo.moar.......................... 171    0    2    3  176
      3 skipped: No longer Iterable
      1 todo   : Not properly interpolating
@@ -651,14 +648,12 @@ S03-operators/arith.rakudo.moar....................use of uninitialized value of
 
  156    0    0    0  156
 S03-operators/assign-is-not-binding.t..............   9    0    0    0    9
-S03-operators/assign.rakudo.moar................... 262    0   21   13  296
+S03-operators/assign.rakudo.moar................... 263    0   21   12  296
      1 skipped: Odd number of elements found where hash expected RT #124530
-     1 skipped: RT #116178
      2 skipped: RT #76734
-     3 skipped: Two terms in a row RT #124531
      2 skipped: cannot modifiy an immutable value RT #124533
      1 skipped: cannot modifiy an immutable value RT #124534
-     3 skipped: expects a term, found infix >= instead RT #124532
+     6 skipped: ~< and ~> NYI RT #124531
      1 todo   : RT \#80614
      3 todo   : item assignment
      1 todo   : item/list assignment
@@ -711,8 +706,6 @@ use of uninitialized value of type Empty in string context  in block <unit> at t
 use of uninitialized value of type Empty in string context  in block <unit> at t/spec/S03-operators/buf.t:55
 
 use of uninitialized value of type Empty in string context  in block <unit> at t/spec/S03-operators/buf.t:55
-
-use of uninitialized value of type Empty in string context  in block <unit> at t/spec/S03-operators/buf.t:66
 
 use of uninitialized value of type Empty in string context  in block <unit> at t/spec/S03-operators/buf.t:66
 
@@ -942,8 +935,8 @@ use of uninitialized value of type Any in numeric context  in block <unit> at t/
      1 todo   : huh? RT \#124543
 S03-operators/reduce-le1arg.rakudo.moar............  51    0    0    3   54
      1 skipped: expected Any but got Mu instead RT #124552
-     1 skipped: ~< NYI RT #124550
-     1 skipped: ~> NYI RT #124551
+     1 skipped: ~< NYI RT #124531
+     1 skipped: ~> NYI RT #124531
 S03-operators/relational.rakudo.moar............... 118    0    4    0  122
      4 todo   : RT \#121987
 S03-operators/repeat.rakudo.moar...................  32    0    1    0   33
@@ -1011,13 +1004,8 @@ use of uninitialized value of type Any in numeric context  in block <unit> at t/
 
 use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S04-declarations/constant.rakudo.moar:132
 
-  49    0    4    3   56
-     1 skipped: binding RT #125058
-     1 skipped: binding RT #125059
-     1 skipped: unicode constant name RT #125057
-     1 todo   : COMPILING RT \#125054
-     1 todo   : COMPILING RT \#125055
-     1 todo   : COMPILING RT \#125056
+  52    0    4    0   56
+     3 todo   : COMPILING RT \#125054
      1 todo   : constants as type constraints
 S04-declarations/implicit-parameter.t..............  19    0    0    0   19
 S04-declarations/multiple.rakudo.moar..............Potential difficulties:
@@ -1124,7 +1112,7 @@ S04-phasers/pre-post.rakudo.moar...................  19    0    2    1   22
      1 todo   : POST and exceptions RT \#124961
      1 todo   : failing PRE block should not run any other phasers, RT \#121531
 S04-phasers/rvalue.t...............................  16    0    0    0   16
-S04-statement-modifiers/for.t......................  26    0    0    0   26
+S04-statement-modifiers/for.t......................  27    0    0    0   27
 S04-statement-modifiers/given.t....................  11    0    0    0   11
 S04-statement-modifiers/if.t.......................  13    0    0    0   13
 S04-statement-modifiers/unless.t...................   8    0    0    0    8
@@ -1331,8 +1319,7 @@ S05-modifier/ignorecase.rakudo.moar................  23    0    2    0   25
      2 todo   : ignorecase and SS/&szlig; RT \#125037
 S05-modifier/ii.rakudo.moar........................  15    0    6    0   21
      6 todo   : NYI
-S05-modifier/my.rakudo.moar........................  17    0    2    5   24
-     5 skipped: Can't parse :state $z++ RT #state $z++ RT#:125040
+S05-modifier/my.rakudo.moar........................  22    0    2    0   24
      1 todo   : :our variables in regexes
      1 todo   : unsuccessful match preserves :let value
 S05-modifier/overlapping.t.........................  22    0    0    0   22
@@ -1604,11 +1591,7 @@ use of uninitialized value of type Any in string context  in block <unit> at t/s
      1 skipped: isa multi variant
      2 todo   : autoviv, binding
      2 todo   : unknown
-S09-hashes/objecthash.rakudo.moar..................use of uninitialized value of type Empty in string context  in sub dies-ok at lib/Test.pm:358
-
-use of uninitialized value of type Empty in string context  in sub dies-ok at lib/Test.pm:358
-
-  27    0    2    3   32
+S09-hashes/objecthash.rakudo.moar..................  27    0    2    3   32
      3 skipped: oh noes, it dies
      2 todo   : oh noes, it dies
 S09-subscript/multidim-assignment.t................  10    0    0    0   10
@@ -1671,7 +1654,7 @@ use of uninitialized value $_ of type Any in string context  in block <unit> at 
 # error: Could not find symbol '&C1'
 #   in any find_method_fallback at src/gen/m-Metamodel.nqp:2914
 #   in any find_method at src/gen/m-Metamodel.nqp:1053
-#   in block <unit> at getout-26768-725113.code:4
+#   in block <unit> at getout-22453-288907.code:4
 
 
   19    0    3    0   22
@@ -1774,8 +1757,13 @@ S12-class/anonymous.rakudo.moar....................  16    0    1    0   17
 S12-class/attributes.t.............................  33    0    0    0   33
 S12-class/augment-supersede.rakudo.moar............  11    0    0    2   13
      2 skipped: redeclaration of symbol Bar RT #125046
-S12-class/basic.rakudo.moar........................use of uninitialized value of type Empty in string context
-  37    0    0    3   40
+S12-class/basic.rakudo.moar........................
+# Failed test 'Classname.new.perl just adds .new'
+# at t/spec/S12-class/basic.rakudo.moar line 17
+# expected: 'Foo.new'
+#      got: 'Foo.new()'
+# Looks like you failed 1 tests of 40
+  36    1    0    3   40
      3 skipped: Calling is will never work with argument types (Foo) RT #125043
 S12-class/declaration-order.t......................   2    0    0    0    2
 S12-class/extending-arrays.t.......................  11    0    0    0   11
@@ -1842,120 +1830,12 @@ S12-introspection/attributes.rakudo.moar...........  25    0    0    5   30
 S12-introspection/can.t............................Code object coerced to string (please use .gist or .perl to do that)
   29    0    0    0   29
 S12-introspection/definite.t.......................   6    0    0    0    6
-S12-introspection/meta-class.rakudo.moar...........use of uninitialized value of type Empty in string context  in any <unit-outer> at EVAL_0:1
-
-   9    0    0    4   13
+S12-introspection/meta-class.rakudo.moar...........   9    0    0    4   13
      1 skipped: .layout RT #125018
      1 skipped: .version, version number parsing RT #125017
      1 skipped: precedence of HOW RT #125015
      1 skipped: precedence of prefix:<^> RT #125016
-S12-introspection/methods.rakudo.moar..............use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-use of uninitialized value of type Empty in string context  in sub lives-ok at lib/Test.pm:374
-
-Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S12-introspection/methods.rakudo.moar:161
+S12-introspection/methods.rakudo.moar..............Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S12-introspection/methods.rakudo.moar:161
 
 Code object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S12-introspection/methods.rakudo.moar:161
 
@@ -1980,16 +1860,8 @@ S12-methods/calling_syntax.t.......................  11    0    0    0   11
 S12-methods/chaining.t.............................  17    0    0    0   17
 S12-methods/class-and-instance.t...................   8    0    0    0    8
 S12-methods/default-trait.t........................   6    0    0    0    6
-S12-methods/defer-call.t...........................use of uninitialized value of type Empty in string context  in any call_with_args at src/gen/m-Metamodel.nqp:3458
-
-use of uninitialized value of type Empty in string context  in block <unit> at t/spec/S12-methods/defer-call.t:20
-
-  14    0    0    0   14
-S12-methods/defer-next.rakudo.moar.................use of uninitialized value of type Empty in string context  in any call_with_args at src/gen/m-Metamodel.nqp:3458
-
-use of uninitialized value of type Empty in string context  in block <unit> at t/spec/S12-methods/defer-next.rakudo.moar:20
-
-  20    0    1    0   21
+S12-methods/defer-call.t...........................  14    0    0    0   14
+S12-methods/defer-next.rakudo.moar.................  20    0    1    0   21
      1 todo   : variant of RT \#69608
 S12-methods/delegation.t...........................   7    0    0    0    7
 S12-methods/fallback.t.............................  13    0    0    0   13
@@ -2156,8 +2028,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
      1 todo   : RT \#122471
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1431095525
-# Using file temp_1431095525
+S16-filehandles/chmod.t............................# Using file temp_1431181916
+# Using file temp_1431181916
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2535,9 +2407,7 @@ use of uninitialized value of type BagHash in string context
   16    0    0    0   16
 S32-container/zip.rakudo.moar......................  12    0    0    2   14
      2 skipped: lvalue zip RT #124907
-S32-exceptions/misc.rakudo.moar....................use of uninitialized value of type Empty in string context  in block  at lib/Test.pm:453
-
-Code object coerced to string (please use .gist or .perl to do that)  in any ex-handle at src/Perl6/World.nqp:3467
+S32-exceptions/misc.rakudo.moar....................Code object coerced to string (please use .gist or .perl to do that)  in any ex-handle at src/Perl6/World.nqp:3467
 
 Code object coerced to string (please use .gist or .perl to do that)  in any routine_def at src/gen/m-Perl6-Actions.nqp:2608
 
@@ -2554,14 +2424,6 @@ use of uninitialized value of type Empty in string context  in block  at lib/Tes
 use of uninitialized value of type Empty in string context  in block  at lib/Test.pm:453
 
 use of uninitialized value of type Empty in string context  in any <unit-outer> at EVAL_170:1
-
-use of uninitialized value of type Empty in string context  in block  at lib/Test.pm:453
-
-use of uninitialized value of type Empty in string context  in block  at lib/Test.pm:453
-
-use of uninitialized value of type Empty in string context  in block  at lib/Test.pm:453
-
-use of uninitialized value of type Empty in string context  in block  at lib/Test.pm:453
 
 # Variable '$abd' is not declared. Did you mean any of these?
 #     $abc
@@ -2835,8 +2697,7 @@ S32-num/fatrat.rakudo.moar......................... 279    0    1    2  282
      1 todo   : unknown RT \#124815
 S32-num/int.rakudo.moar............................ 102    0    3    2  107
      2 skipped: trailing characters produce failures RT #124817
-     2 todo   : Inf and NaN NYI for Int RT \#124818
-     1 todo   : Inf and NaN NYI for Int RT \#124819
+     3 todo   : Inf and NaN NYI for Int RT \#124818
 S32-num/is-prime.t.................................  35    0    0    0   35
 S32-num/log.rakudo.moar............................  28    0    1    0   29
      1 todo   : HugeInt.log RT \#124821
@@ -2844,11 +2705,9 @@ S32-num/narrow.t...................................   9    0    0    0    9
 S32-num/pi.t.......................................   5    0    0    0    5
 S32-num/polar.t....................................  48    0    0    0   48
 S32-num/power.rakudo.moar..........................  43    0    9    0   52
-     1 todo   : 1i**NaN should be NaN RT \#124805
-     1 todo   : NaN**0 should be NaN RT \#124808
-     1 todo   : NaN**1i should be NaN RT \#124802
      5 todo   : big exponents RT \#124798
-     1 todo   : i RT \#124811
+     1 todo   : i RT \#124810
+     3 todo   : wrong results for "NaN" used with "**" RT \#124800
 S32-num/rand.rakudo.moar........................... 112    0    0    1  113
      1 skipped: Test is too slow; srand call incorrect RT #124812
 S32-num/rat.rakudo.moar............................ 823    0    0    1  824
@@ -3392,14 +3251,14 @@ use of uninitialized value of type Empty in string context
 use of uninitialized value of type Empty in string context
   10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# gerdr: 1.1468016 seconds
-# recursive-ternary: 1.2212465 seconds
-# loop: 1.232543 seconds
-# hand-memoization: 1.6462182 seconds
-# kaz: 1.6632755 seconds
-# recursive-ternary-hand-cached: 2.47239938 seconds
-# sequence-ternary: 6.29171574 seconds
-# sequence: 8.1309862 seconds
+integration/advent2012-day21.t.....................# kaz: 1.0285319 seconds
+# gerdr: 1.068576 seconds
+# loop: 1.0742708 seconds
+# recursive-ternary: 1.2583404 seconds
+# hand-memoization: 1.57858285 seconds
+# recursive-ternary-hand-cached: 2.3470788 seconds
+# sequence-ternary: 6.53718717 seconds
+# sequence: 8.21545450 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT \#121789
@@ -3481,15 +3340,15 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,    19,     0,    56,    75,    86
 "S02",        5281,     0,   126,   326,  5733,  5819
-"S03",        5195,     0,   120,   106,  5421,  5439
-"S04",        1100,     0,    47,    37,  1184,  1260
-"S05",        5481,     0,    82,   146,  5709,  5957
+"S03",        5196,     0,   120,   105,  5421,  5439
+"S04",        1104,     0,    47,    34,  1185,  1261
+"S05",        5486,     0,    82,   141,  5709,  5960
 "S06",        1368,     0,    51,    91,  1510,  1568
 "S07",           0,     0,     0,     0,     0,     0
 "S09",        1897,     0,    11,   102,  2010,  2010
 "S10",          91,     0,     5,     1,    97,   154
 "S11",         109,     0,     4,    14,   127,   146
-"S12",        1481,     0,    42,   125,  1648,  1702
+"S12",        1480,     1,    42,   125,  1648,  1702
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         313,     0,     8,     8,   329,   342
 "S15",       78476,     0,     3,    19, 78498, 78518
@@ -3504,13 +3363,14 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9821,     0,   193,   189, 10203,  8578
 "int",        1197,    62,    13,    15,  1287,  1276
 "ros",           2,     0,     0,     0,     2,     2
-"total",    114509,    82,   727,  1361,116679,116504
+"total",    114518,    83,   727,  1352,116680,116508
 ----------------
 Failure summary:
 S01-perl-5-integration/hash.rakudo.moar aborted 6 test(s)
 S01-perl-5-integration/roundtrip.t aborted 5 test(s)
 S01-perl-5-integration/strings.rakudo.moar aborted 6 test(s)
 S01-perl-5-integration/subs.t aborted 2 test(s)
+S12-class/basic.rakudo.moar 2 - Classname.new.perl just adds .new
 S17-scheduler/in.t 13 - can we cancel (4)
 integration/advent2009-day17.t 1 - Line 0 -2 matched using map()
 integration/advent2009-day17.t 2 - Line 2 -1.83333333333333 matched using map()
