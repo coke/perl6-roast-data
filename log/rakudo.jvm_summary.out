@@ -253,7 +253,7 @@ S02-types/mix.rakudo.jvm........................... 169    0    4    3  176
 S02-types/mixed_multi_dimensional.rakudo.jvm.......  77    0    3    0   80
      1 todo   : isa hash
      2 todo   : unknown
-S02-types/mixhash.rakudo.jvm....................... 186    1    3   24  214
+S02-types/mixhash.rakudo.jvm....................... 187    0    3   24  214
     21 skipped: 'is TypeObject' NYI RT #124490
      3 skipped: No longer Iterable
      1 todo   : Needs to catch up with spec
@@ -432,8 +432,8 @@ S03-operators/orelse.rakudo.jvm....................   9    0    0    2   11
      1 skipped: orelse passes $! as argument RT #124535
      1 skipped: orelse passes $! as multiple arguments RT #124536
 S03-operators/overflow.t...........................  98    0    0    0   98
-S03-operators/precedence.rakudo.jvm................  56    0    0    2   58
-     2 skipped: nom regression RT #124538
+S03-operators/precedence.rakudo.jvm................  57    0    2    0   59
+     2 todo   : Inequality (!=) misparsed as assignment RT \#121108
 S03-operators/range-basic.t........................ 140    0    0    0  140
 S03-operators/range-int.t.......................... 480    0    0    0  480
 S03-operators/range.rakudo.jvm..................... 123    0    2    0  125
@@ -715,7 +715,7 @@ S05-metachars/tilde.rakudo.jvm.....................  15    0    0   12   27
      2 skipped: backtracking to find ~ goal RT #124950
      3 skipped: exceptions from regexes
      4 skipped: should not throw exceptions
-     1 skipped: should not throw exceptions RT #124948
+     1 skipped: should not throw exceptions RT #62086
 S05-metasyntax/angle-brackets.rakudo.jvm...........  68    0    1   22   91
      2 skipped: <$subrule> NYI RT #124524
      1 skipped: <&foo()> NYI RT #124523
@@ -1154,7 +1154,7 @@ S12-methods/multi.rakudo.jvm.......................  26    0    1    5   32
      3 skipped: unknown bug RT #124848
      1 todo   : RT \#66006
 S12-methods/parallel-dispatch.rakudo.jvm...........  32    0    4    1   37
-     1 skipped: No such method postcircumfix:<( )> for invocant of type Pair RT #124849
+     1 skipped: No such method postcircumfix:<( )> for invocant of type Pair RT #124513
      4 todo   : is-deeply does not think map results are the same as list on LHS
 S12-methods/private.t..............................  12    0    0    0   12
 S12-methods/qualified.t............................   2    0    0    0    2
@@ -1263,7 +1263,7 @@ S16-unfiled/rebindstdhandles.rakudo.jvm............   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   7    0    0    0    7
-S17-lowlevel/lock.rakudo.jvm.......................   7    0    0    1    8
+S17-lowlevel/lock.rakudo.jvm.......................   6    1    0    1    8
      1 skipped: not sure this test is valid RT #124793
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-promise/allof.t................................  11    0    0    0   11
@@ -1831,8 +1831,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        5253,     1,   143,   415,  5812,  5811
-"S03",        5198,     0,   118,   105,  5421,  5439
+"S02",        5254,     0,   143,   415,  5812,  5811
+"S03",        5199,     0,   120,   103,  5422,  5440
 "S04",        1127,     0,    52,    49,  1228,  1272
 "S05",        5445,     0,    93,   207,  5745,  6004
 "S06",        1360,     0,    50,   110,  1520,  1591
@@ -1845,7 +1845,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         313,     0,     8,     8,   329,   342
 "S15",          15,     0,     4,    16,    35, 78517
 "S16",         284,     0,     6,    16,   306,   334
-"S17",         700,     0,     5,    23,   728,   774
+"S17",         699,     1,     5,    23,   728,   774
 "S19",          13,     0,     0,     0,    13,    18
 "S22",          23,     0,     0,     1,    24,    24
 "S24",          18,     0,     0,     0,    18,    95
@@ -1855,7 +1855,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9667,     0,   195,   190, 10052,  8419
 "int",        1246,     0,    11,    15,  1272,  1273
 "ros",           2,     0,     0,     0,     2,     2
-"total",     35834,     1,   795,  1547, 38177,116503
+"total",     35835,     1,   797,  1545, 38178,116504
 ----------------
 Failure summary:
-S02-types/mixhash.rakudo.jvm 128 - .roll(100) (2)
+S17-lowlevel/lock.rakudo.jvm 7 - Condition variable worked
