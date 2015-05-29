@@ -421,15 +421,15 @@ Please note that *ALL* deprecated features will be removed at the RC-0 release
   15    0    3    0   18
      3 todo   : deprecated %h = {...} for now
 S02-types/autovivification.t.......................  25    0    0    0   25
-S02-types/bag.rakudo.moar..........................Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S02-types/bag.rakudo.moar:280
-WARNING: unhandled Failure detected in DESTROY:
-Cannot call 'DELETE-KEY' on an immutable 'Bag'
-  in block  at t/spec/S02-types/bag.rakudo.moar:92
-
-Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S02-types/bag.rakudo.moar:280
+S02-types/bag.rakudo.moar..........................Use of uninitialized value <element> of type Any in string context  in block <unit> at EVAL_0:1
 WARNING: unhandled Failure detected in DESTROY:
 Cannot call 'DELETE-KEY' on an immutable 'Bag'
   in block  at t/spec/S02-types/bag.rakudo.moar:48
+
+Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S02-types/bag.rakudo.moar:275
+WARNING: unhandled Failure detected in DESTROY:
+Cannot call 'DELETE-KEY' on an immutable 'Bag'
+  in block  at t/spec/S02-types/bag.rakudo.moar:92
 
  188    0    2    3  193
      3 skipped: No longer Iterable
@@ -489,17 +489,7 @@ S02-types/keyhash.rakudo.moar......................   0    0    0   59   59
 S02-types/lazy-lists.t.............................  23    0    0    0   23
 S02-types/lists.rakudo.moar........................  29    0    0    3   32
      3 skipped: list binding RT #124494
-S02-types/mix.rakudo.moar..........................Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S02-types/mix.rakudo.moar:274
-WARNING: unhandled Failure detected in DESTROY:
-Cannot call 'DELETE-KEY' on an immutable 'Mix'
-  in block  at t/spec/S02-types/mix.rakudo.moar:95
-
-Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S02-types/mix.rakudo.moar:274
-WARNING: unhandled Failure detected in DESTROY:
-Cannot call 'DELETE-KEY' on an immutable 'Mix'
-  in block  at t/spec/S02-types/mix.rakudo.moar:47
-
- 171    0    2    3  176
+S02-types/mix.rakudo.moar.......................... 171    0    2    3  176
      3 skipped: No longer Iterable
      1 todo   : Not properly interpolating
      1 todo   : we have not secured .WHICH creation yet RT \#124496
@@ -538,17 +528,17 @@ S02-types/parcel.t.................................  52    0    0    0   52
 S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.t..................................Use of uninitialized value of type Range in numeric context  in block <unit> at t/spec/S02-types/range.t:87
  135    0    0    0  135
-S02-types/set.rakudo.moar..........................Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S02-types/set.rakudo.moar:217
+S02-types/set.rakudo.moar..........................Use of uninitialized value <element> of type Any in string context  in sub showset at t/spec/S02-types/set.rakudo.moar:6
 WARNING: unhandled Failure detected in DESTROY:
 Cannot call 'DELETE-KEY' on an immutable 'Set'
   in block  at t/spec/S02-types/set.rakudo.moar:79
 
-Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S02-types/set.rakudo.moar:217
+Use of uninitialized value <element> of type Any in string context  in sub showset at t/spec/S02-types/set.rakudo.moar:6
 WARNING: unhandled Failure detected in DESTROY:
 Cannot call 'DELETE-KEY' on an immutable 'Set'
   in block  at t/spec/S02-types/set.rakudo.moar:35
 
-Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S02-types/set.rakudo.moar:217
+Use of uninitialized value <element> of type Any in string context  in sub showset at t/spec/S02-types/set.rakudo.moar:6
 WARNING: unhandled Failure detected in DESTROY:
 Cannot modify an immutable Set
   in block  at t/spec/S02-types/set.rakudo.moar:32
@@ -677,7 +667,82 @@ S03-operators/also.rakudo.moar.....................   4    0    4    0    8
      1 todo   : nom regression RT \#124546
      1 todo   : nom regression RT \#124547
 S03-operators/andthen.t............................   8    0    0    0    8
-S03-operators/arith.rakudo.moar....................Use of uninitialized value <element> of type Any in string context  in any return_error at src/vm/moar/Perl6/Ops.nqp:639
+S03-operators/arith.rakudo.moar....................Use of uninitialized value <element> of type Any in string contextWARNING: unhandled Failure detected in DESTROY:
+Divide by zero
+<Internal error while creating backtrace: No exception handler located for warn   in sub warn at src/gen/m-CORE.setting:790
+  in method Str at src/gen/m-CORE.setting:1185
+  in method join at src/gen/m-CORE.setting:2061
+  in block  at src/gen/m-CORE.setting:14714
+  in method nice at src/gen/m-CORE.setting:14685
+  in method Str at src/gen/m-CORE.setting:14718
+  in method Stringy at src/gen/m-CORE.setting:1197
+  in sub infix:<~> at src/gen/m-CORE.setting:1624
+  in method mess at src/gen/m-CORE.setting:16726
+  in submethod DESTROY at src/gen/m-CORE.setting:16705
+  in block  at src/gen/m-CORE.setting:682
+  in sub parse-real at src/gen/m-CORE.setting:7696
+  in method Numeric at src/gen/m-CORE.setting:7716
+  in method Int at src/gen/m-CORE.setting:7309
+  in block  at src/gen/m-CORE.setting:14616
+  in method AT-POS at src/gen/m-CORE.setting:14584
+  in method first at src/gen/m-CORE.setting:14728
+  in method first-none-setting-line at src/gen/m-CORE.setting:14739
+  in block  at src/gen/m-CORE.setting:15018
+  in sub print_control at src/gen/m-CORE.setting:15014
+.
+Please report this as a bug (mail to rakudobug@perl.org)
+ and re-run with the --ll-exception command line option
+to get more information about your error>
+WARNING: unhandled Failure detected in DESTROY:
+Divide by zero
+<Internal error while creating backtrace: No exception handler located for warn   in sub warn at src/gen/m-CORE.setting:790
+  in method Str at src/gen/m-CORE.setting:1185
+  in method join at src/gen/m-CORE.setting:2061
+  in block  at src/gen/m-CORE.setting:14714
+  in method nice at src/gen/m-CORE.setting:14685
+  in method Str at src/gen/m-CORE.setting:14718
+  in method Stringy at src/gen/m-CORE.setting:1197
+  in sub infix:<~> at src/gen/m-CORE.setting:1624
+  in method mess at src/gen/m-CORE.setting:16726
+  in submethod DESTROY at src/gen/m-CORE.setting:16705
+  in block  at src/gen/m-CORE.setting:682
+  in sub parse-real at src/gen/m-CORE.setting:7696
+  in method Numeric at src/gen/m-CORE.setting:7716
+  in method Int at src/gen/m-CORE.setting:7309
+  in block  at src/gen/m-CORE.setting:14616
+  in method AT-POS at src/gen/m-CORE.setting:14584
+  in method first at src/gen/m-CORE.setting:14728
+  in method first-none-setting-line at src/gen/m-CORE.setting:14739
+  in block  at src/gen/m-CORE.setting:15018
+  in sub print_control at src/gen/m-CORE.setting:15014
+.
+Please report this as a bug (mail to rakudobug@perl.org)
+ and re-run with the --ll-exception command line option
+to get more information about your error>
+WARNING: unhandled Failure detected in DESTROY:
+Divide by zero
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1230
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1226
+  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1194
+  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1129
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1676
+  in any visit_want at src/gen/m-Perl6-Optimizer.nqp:1518
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1677
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1692
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1691
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1682
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1691
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1697
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1682
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1691
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1697
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
+  in any optimize at src/Perl6/Compiler.nqp:64
+
+  in any return_error at src/vm/moar/Perl6/Ops.nqp:639
 Use of uninitialized value <element> of type Any in string context  in any return_error at src/vm/moar/Perl6/Ops.nqp:639
 Use of uninitialized value <element> of type Any in string context  in any return_error at src/vm/moar/Perl6/Ops.nqp:639
 Use of uninitialized value <element> of type Any in string context  in any bind_error at src/vm/moar/Perl6/Ops.nqp:224
@@ -725,7 +790,7 @@ S03-operators/bit.t................................  38    0    0    0   38
 S03-operators/boolean-bitwise.t....................  45    0    0    0   45
 S03-operators/brainos.t............................   9    0    0    0    9
 S03-operators/buf.t................................Use of uninitialized value of type Any in string context  in block  at t/spec/S03-operators/buf.t:93
-  43    0    0    0   43
+  45    0    0    0   45
 S03-operators/chained-declarators.t................   5    0    0    0    5
 S03-operators/cmp.t................................  31    0    0    0   31
 S03-operators/comparison-simple.t..................  24    0    0    0   24
@@ -815,30 +880,7 @@ S03-operators/increment.t..........................  37    0    0    0   37
 S03-operators/infixed-function.t...................   5    0    0    0    5
 S03-operators/inplace.rakudo.moar..................  23    0    0    4   27
      4 skipped: Method '' not found for invocant of class 'Str' RT #124528
-S03-operators/is-divisible-by.rakudo.moar..........WARNING: unhandled Failure detected in DESTROY:
-Divide by zero using infix:<%%>
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1230
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1226
-  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1194
-  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1144
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1679
-  in any visit_want at src/gen/m-Perl6-Optimizer.nqp:1519
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1682
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1697
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1691
-  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1688
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1691
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1697
-  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1688
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1691
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1697
-  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
-  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
-  in any optimize at src/Perl6/Compiler.nqp:64
-
-    
+S03-operators/is-divisible-by.rakudo.moar..........    
 # Failed test 'code dies'
 # at t/spec/S03-operators/is-divisible-by.rakudo.moar line 40
     # Looks like you failed 1 tests of 3
@@ -1656,6 +1698,16 @@ S09-typed-arrays/native-int.rakudo.moar............# Testing int8 array
      5 skipped: highest bit length stays negative, RT #124088
     60 skipped: nativeint.list loops on itself
 S09-typed-arrays/native-num.rakudo.moar............# Testing num32 array
+Use of uninitialized value <element> of type Any in string context  in regex  at ././CORE.setting.moarvm:1
+WARNING: unhandled Failure detected in DESTROY:
+Cannot initialize an infinite list onto a array[num32]
+  in block  at t/spec/S09-typed-arrays/native-num.rakudo.moar:152
+
+Use of uninitialized value <element> of type Any in string context  in regex  at ././CORE.setting.moarvm:1
+WARNING: unhandled Failure detected in DESTROY:
+Cannot initialize an infinite list onto a array[num]
+  in block  at t/spec/S09-typed-arrays/native-num.rakudo.moar:156
+
 # Testing num64 array
  360    0    0   27  387
      3 skipped: borkedness with num and iteration RT #124678
@@ -1672,7 +1724,7 @@ S10-packages/precompilation.rakudo.moar............Use of uninitialized value $_
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-4339-653094.code:4
+#   in block <unit> at getout-32725-564341.code:4
 
 
   30    0    3    0   33
@@ -1940,7 +1992,7 @@ S14-roles/mixin.rakudo.moar........................Use of uninitialized value of
 S14-roles/namespaced.rakudo.moar...................   2    0    1    0    3
      1 todo   : nom regression RT \#124750
 S14-roles/parameter-subtyping.t....................  22    0    0    0   22
-S14-roles/parameterized-basic.t....................  35    0    0    0   35
+S14-roles/parameterized-basic.t....................  36    0    0    0   36
 S14-roles/parameterized-mixin.rakudo.moar..........  24    0    4    0   28
      4 todo   : .does with parametric roles RT \#124746
 S14-roles/parameterized-type.t.....................  31    0    0    0   31
@@ -2022,8 +2074,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
      1 todo   : RT \#122471
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1432823401
-# Using file temp_1432823401
+S16-filehandles/chmod.t............................# Using file temp_1432909872
+# Using file temp_1432909872
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2066,35 +2118,35 @@ S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   7    0    0    0    7
-S17-lowlevel/lock.rakudo.moar......................
-# Failed test 'Condition variable worked'
-# at t/spec/S17-lowlevel/lock.rakudo.moar line 87
-# expected: 'ale,porter,stout'
-#      got: 'ale'
-Use of uninitialized value of type Any in numeric context  in block  at t/spec/S17-lowlevel/lock.rakudo.moar:87
-# log = ale
-# Looks like you failed 1 tests of 8
-   6    1    0    1    8
+S17-lowlevel/lock.rakudo.moar......................   7    0    0    1    8
      1 skipped: not sure this test is valid RT #124793
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.rakudo.moar....................  27    0    0    3   30
      3 skipped: returns Nil (flapping tests) RT #125047
 S17-procasync/kill.rakudo.moar.....................Killed
- 198   48   24    0  270
-    24 todo   : we cannot actually send signals yet
-    48 tests aborted (missing ok/not ok)
+ 182   66   22    0  270
+    22 todo   : we cannot actually send signals yet
+    66 tests aborted (missing ok/not ok)
 S17-procasync/print.rakudo.moar....................  11    0    0    5   16
      5 skipped: Flapping tests RT #125048
 S17-promise/allof.t................................  11    0    0    0   11
 S17-promise/anyof.t................................  10    0    0    0   10
 S17-promise/basic.t................................  22    0    0    0   22
 S17-promise/in.t...................................   3    0    0    0    3
-S17-promise/start.rakudo.moar......................===SORRY!===
-This representation (Null) does not support elems
-# Looks like you planned 16 tests, but ran 15
-  13    1    0    2   16
+S17-promise/start.rakudo.moar......................Saw 1 occurrence of deprecated code.
+================================================================================
+Sub throws_like (from Test) seen at:
+  t/spec/S17-promise/start.rakudo.moar, line 6
+Deprecated since v2015.5, will be removed with release v2015.9!
+Please use throws-like instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these occurrences of deprecated code
+adapted, so that this message will disappear!
+
+Please note that *ALL* deprecated features will be removed at the RC-0 release
+(expected September 2015).
+  15    0    0    2   17
      2 skipped: RT #122715
-     1 tests aborted (missing ok/not ok)
 S17-promise/stress.t...............................   1    0    0    0    1
 S17-promise/then.t.................................  14    0    0    0   14
 S17-scheduler/at.rakudo.moar.......................Method 'cancel' not found for invocant of class 'Any'
@@ -2418,13 +2470,7 @@ Please note that *ALL* deprecated features will be removed at the RC-0 release
     47 skipped: Operating system not yet supported
 S32-io/chdir.rakudo.moar...........................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
-S32-io/copy.t......................................Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S32-io/copy.t:70
-WARNING: unhandled Failure detected in DESTROY:
-Failed to copy '/home/coke/sandbox/perl6-roast-data/rakudo.moar/non-existent-copy' to 'non-existent-copy-mtgt': Failed to copy file: no such file or directory
-  in any  at ././CORE.setting.moarvm:1
-  in block  at t/spec/S32-io/copy.t:38
-
-  29    0    0    0   29
+S32-io/copy.t......................................  29    0    0    0   29
 S32-io/dir.rakudo.moar.............................   9    0    4    0   13
      1 todo   : $*CWD misses slash at end still RT \#124787
      1 todo   : directories are not marked with trailing / yet RT \#124784
@@ -3000,14 +3046,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 1.0145727 seconds
-# gerdr: 1.0168549 seconds
-# loop: 1.0656060 seconds
-# recursive-ternary: 1.08555460 seconds
-# hand-memoization: 1.62132883 seconds
-# recursive-ternary-hand-cached: 2.494991963 seconds
-# sequence-ternary: 6.24771013 seconds
-# sequence: 8.2004191 seconds
+integration/advent2012-day21.t.....................# kaz: 1.056004 seconds
+# gerdr: 1.1006943 seconds
+# loop: 1.16993843 seconds
+# recursive-ternary: 1.2027187 seconds
+# hand-memoization: 1.64918615 seconds
+# recursive-ternary-hand-cached: 2.6990189 seconds
+# sequence-ternary: 6.74570844 seconds
+# sequence: 9.478467193 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT \#121789
@@ -3074,7 +3120,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
 "S02",        5292,     0,   130,   390,  5812,  5811
-"S03",        5199,     0,   120,   103,  5422,  5440
+"S03",        5201,     0,   120,   103,  5424,  5442
 "S04",        1136,     0,    49,    44,  1229,  1273
 "S05",        5553,     0,    81,   141,  5775,  6004
 "S06",        1377,     0,    47,    97,  1521,  1592
@@ -3084,10 +3130,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S11",         110,     0,     4,    14,   128,   147
 "S12",        1475,     0,    42,   124,  1641,  1696
 "S13",          36,     0,    10,    27,    73,    83
-"S14",         314,     0,     8,     7,   329,   342
+"S14",         315,     0,     8,     7,   330,   343
 "S15",       78476,     0,     3,    18, 78497, 78517
 "S16",         288,     0,     2,    16,   306,   334
-"S17",         934,    50,    29,    31,  1044,  1044
+"S17",         921,    66,    27,    31,  1045,  1045
 "S19",          13,     0,     0,     0,    13,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",          18,     0,     0,     0,    18,    95
@@ -3097,9 +3143,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9875,     0,   202,   170, 10247,  8609
 "int",        1249,     0,    13,    15,  1277,  1273
 "ros",           2,     0,     0,     0,     2,     2
-"total",    114960,    50,   763,  1424,117197,116969
+"total",    114950,    66,   761,  1424,117201,116973
 ----------------
 Failure summary:
-S17-lowlevel/lock.rakudo.moar 7 - Condition variable worked
-S17-procasync/kill.rakudo.moar aborted 48 test(s)
-S17-promise/start.rakudo.moar aborted 1 test(s)
+S17-procasync/kill.rakudo.moar aborted 66 test(s)
