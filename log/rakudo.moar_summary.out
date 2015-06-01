@@ -316,7 +316,15 @@ S02-names/is_dynamic.t.............................  22    0    0    0   22
 S02-names/name.t...................................  15    0    0    0   15
 S02-names/our.rakudo.moar..........................   9    0    0    1   10
      1 skipped: OUR::subname() does not work
-S02-names/pseudo.rakudo.moar.......................  52    0    8   82  142
+S02-names/pseudo.rakudo.moar.......................WARNING: unhandled Failure detected in DESTROY:
+No such symbol 'OUR::A43'
+  in block <unit> at t/spec/S02-names/pseudo.rakudo.moar:184
+
+WARNING: unhandled Failure detected in DESTROY:
+No such symbol 'OUR::A42'
+  in block <unit> at t/spec/S02-names/pseudo.rakudo.moar:180
+
+  52    0    8   82  142
     19 skipped: CORE NYI RT #124916
      4 skipped: the binding in here is NYI RT #124914
     23 skipped: various issues to resolve RT #124917
@@ -486,22 +494,7 @@ S02-types/keyhash.rakudo.moar......................   0    0    0   59   59
 S02-types/lazy-lists.t.............................  23    0    0    0   23
 S02-types/lists.rakudo.moar........................  29    0    0    3   32
      3 skipped: list binding RT #124494
-S02-types/mix.rakudo.moar..........................Use of uninitialized value <element> of type Any in string context  in sub showkv at t/spec/S02-types/mix.rakudo.moar:7
-WARNING: unhandled Failure detected in DESTROY:
-Cannot call 'DELETE-KEY' on an immutable 'Mix'
-  in block  at t/spec/S02-types/mix.rakudo.moar:95
-
-Use of uninitialized value <element> of type Any in string context  in sub showkv at t/spec/S02-types/mix.rakudo.moar:7
-WARNING: unhandled Failure detected in DESTROY:
-Cannot modify an immutable Mix
-  in block  at t/spec/S02-types/mix.rakudo.moar:35
-
-Use of uninitialized value <element> of type Any in string context  in sub showkv at t/spec/S02-types/mix.rakudo.moar:7
-WARNING: unhandled Failure detected in DESTROY:
-Cannot call 'DELETE-KEY' on an immutable 'Mix'
-  in block  at t/spec/S02-types/mix.rakudo.moar:47
-
- 171    0    2    3  176
+S02-types/mix.rakudo.moar.......................... 171    0    2    3  176
      3 skipped: No longer Iterable
      1 todo   : Not properly interpolating
      1 todo   : we have not secured .WHICH creation yet RT \#124496
@@ -540,22 +533,7 @@ S02-types/parcel.t.................................  52    0    0    0   52
 S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.t..................................Use of uninitialized value of type Range in numeric context  in block <unit> at t/spec/S02-types/range.t:87
  135    0    0    0  135
-S02-types/set.rakudo.moar..........................Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S02-types/set.rakudo.moar:217
-WARNING: unhandled Failure detected in DESTROY:
-Cannot call 'DELETE-KEY' on an immutable 'Set'
-  in block  at t/spec/S02-types/set.rakudo.moar:79
-
-Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S02-types/set.rakudo.moar:217
-WARNING: unhandled Failure detected in DESTROY:
-Cannot call 'DELETE-KEY' on an immutable 'Set'
-  in block  at t/spec/S02-types/set.rakudo.moar:35
-
-Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S02-types/set.rakudo.moar:217
-WARNING: unhandled Failure detected in DESTROY:
-Cannot modify an immutable Set
-  in block  at t/spec/S02-types/set.rakudo.moar:32
-
-    
+S02-types/set.rakudo.moar..........................    
 # Failed test 'code dies'
 # at t/spec/S02-types/set.rakudo.moar line 222
     # Looks like you failed 1 tests of 2
@@ -583,6 +561,21 @@ Cannot modify an immutable Set
 # Failed test 'code dies'
 # at t/spec/S02-types/set.rakudo.moar line 226
     # Looks like you failed 1 tests of 2
+Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S02-types/set.rakudo.moar:346
+WARNING: unhandled Failure detected in DESTROY:
+Cannot call 'DELETE-KEY' on an immutable 'Set'
+  in block  at t/spec/S02-types/set.rakudo.moar:79
+
+Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S02-types/set.rakudo.moar:346
+WARNING: unhandled Failure detected in DESTROY:
+Cannot call 'DELETE-KEY' on an immutable 'Set'
+  in block  at t/spec/S02-types/set.rakudo.moar:35
+
+Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S02-types/set.rakudo.moar:346
+WARNING: unhandled Failure detected in DESTROY:
+Cannot modify an immutable Set
+  in block  at t/spec/S02-types/set.rakudo.moar:32
+
  157    0   12    1  170
      1 skipped: Set is no longer Iterable
      9 todo   : Hypers not yet Set compatible RT \#124487
@@ -999,22 +992,6 @@ S04-exceptions/control_across_runloop.t............   1    0    0    0    1
 S04-exceptions/fail.rakudo.moar....................  24    0    0    2   26
      2 skipped: RT #64990
 S04-exceptions/pending.rakudo.moar.................Use of Nil in numeric context  in block  at t/spec/S04-exceptions/pending.rakudo.moar:78
-WARNING: unhandled Failure detected in DESTROY:
-4
-  in block <unit> at t/spec/S04-exceptions/pending.rakudo.moar:28
-
-WARNING: unhandled Failure detected in DESTROY:
-3
-  in block <unit> at t/spec/S04-exceptions/pending.rakudo.moar:28
-
-WARNING: unhandled Failure detected in DESTROY:
-2
-  in block <unit> at t/spec/S04-exceptions/pending.rakudo.moar:28
-
-WARNING: unhandled Failure detected in DESTROY:
-1
-  in block <unit> at t/spec/S04-exceptions/pending.rakudo.moar:28
-
    5    0    2   14   21
     13 skipped: $!.pending
      1 skipped: $object.handled
@@ -1655,7 +1632,7 @@ S10-packages/precompilation.rakudo.moar............Use of uninitialized value $_
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-8182-561796.code:4
+#   in block <unit> at getout-2378-373194.code:4
 
 
   30    0    3    0   33
@@ -2005,8 +1982,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
      1 todo   : RT \#122471
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1433082666
-# Using file temp_1433082666
+S16-filehandles/chmod.t............................# Using file temp_1433169076
+# Using file temp_1433169076
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2600,6 +2577,42 @@ S32-list/unique.t..................................  34    0    0    0   34
 S32-num/abs.t......................................  49    0    0    0   49
 S32-num/base.t.....................................  31    0    0    0   31
 S32-num/complex.t..................................Use of uninitialized value <element> of type Any in string context  in block <unit> at EVAL_0:1
+WARNING: unhandled Failure detected in DESTROY:
+Can not convert 2+4i to Real: imaginary part not zero
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1230
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1217
+  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1194
+  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1129
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1676
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1692
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1691
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1697
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
+  in any optimize at src/Perl6/Compiler.nqp:64
+
+Use of uninitialized value <element> of type Any in string context  in block <unit> at EVAL_7:1
+WARNING: unhandled Failure detected in DESTROY:
+Can not convert 2+2i to Real: imaginary part not zero
+  in block <unit> at EVAL_0:1
+  in any <unit-outer> at EVAL_0:1
+  in sub eval_exception at lib/Test.pm:475
+  in sub eval-dies-ok at lib/Test.pm:381
+
+WARNING: unhandled Failure detected in DESTROY:
+Can not convert 2+2i to Real: imaginary part not zero
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1230
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1217
+  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1194
+  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1129
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1676
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1692
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1691
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1697
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
+  in any optimize at src/Perl6/Compiler.nqp:64
+
 Use of uninitialized value <element> of type Any in string context  in block <unit> at EVAL_7:1
  488    0    0    0  488
 S32-num/cool-num.rakudo.moar.......................  39    0    0    4   43
@@ -2960,14 +2973,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# gerdr: 1.0898930 seconds
-# kaz: 1.0998347 seconds
-# loop: 1.1967900 seconds
-# recursive-ternary: 1.2250574 seconds
-# hand-memoization: 1.5872612 seconds
-# recursive-ternary-hand-cached: 2.81297619 seconds
-# sequence-ternary: 6.73128223 seconds
-# sequence: 9.89693593 seconds
+integration/advent2012-day21.t.....................# kaz: 0.99478360 seconds
+# gerdr: 1.0305056 seconds
+# recursive-ternary: 1.07327527 seconds
+# loop: 1.1001488 seconds
+# hand-memoization: 1.44812868 seconds
+# recursive-ternary-hand-cached: 2.7446734 seconds
+# sequence-ternary: 6.8277104 seconds
+# sequence: 8.9888238 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT \#121789
@@ -2983,19 +2996,7 @@ integration/advent2013-day09.t.....................  21    0    0    0   21
 integration/advent2013-day10.rakudo.moar...........  43    0    1    0   44
      1 todo   : adverb stacking
 integration/advent2013-day12.t.....................  32    0    0    0   32
-integration/advent2013-day14.t.....................# parse worker failure:Cannot call prefix:<not>(Bool); none of these signatures match:
-#     (Bool \a)
-#     (\a)
-# combiner failure:Cannot call prefix:<not>(Bool); none of these signatures match:
-#     (Bool \a)
-#     (\a)
-===SORRY!===
-Cannot call prefix:<not>(Bool); none of these signatures match:
-    (Bool \a)
-    (\a)
-# Looks like you planned 10 tests, but ran 6
-   6    4    0    0   10
-     4 tests aborted (missing ok/not ok)
+integration/advent2013-day14.t.....................  10    0    0    0   10
 integration/advent2013-day15.rakudo.moar...........  27    0    3    0   30
      3 todo   : list of numbers
 integration/advent2013-day18.t.....................  10    0    0    0   10
@@ -3068,10 +3069,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S28",          13,     0,     0,     0,    13,    13
 "S29",         342,     0,     3,     3,   348,   348
 "S32",        9894,     0,   202,   170, 10266,  8628
-"int",        1255,     4,    13,    15,  1287,  1273
+"int",        1259,     0,    13,    15,  1287,  1273
 "ros",           2,     0,     0,     0,     2,     2
-"total",    114995,    61,   763,  1430,117249,116993
+"total",    114999,    57,   763,  1430,117249,116993
 ----------------
 Failure summary:
 S17-procasync/kill.rakudo.moar aborted 57 test(s)
-integration/advent2013-day14.t aborted 4 test(s)
