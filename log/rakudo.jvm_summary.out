@@ -145,7 +145,8 @@ S02-names/identifier.t.............................  22    0    0    0   22
 S02-names/indirect.t...............................   6    0    0    0    6
 S02-names/is_cached.rakudo.jvm.....................  36    0    2    0   38
      2 todo   : is cached is only a hint: RT \#122425
-S02-names/is_default.t............................. 114    0    0    0  114
+S02-names/is_default.rakudo.jvm.................... 116    0    0    2  118
+     2 skipped: is default on attributes
 S02-names/is_dynamic.t.............................  22    0    0    0   22
 S02-names/name.t...................................  15    0    0    0   15
 S02-names/our.rakudo.jvm...........................   9    0    0    1   10
@@ -914,7 +915,7 @@ S06-signature/errors.rakudo.jvm....................  21    0    6    0   27
      6 todo   : unival NYI RT \#124920
 S06-signature/introspection.rakudo.jvm.............  53    0    0    1   54
      1 skipped: expected Any but got Mu instead
-S06-signature/mixed-placeholders.t.................  12    0    0    0   12
+S06-signature/mixed-placeholders.t.................  18    0    0    0   18
 S06-signature/multidimensional.t...................  10    0    0    0   10
 S06-signature/named-parameters.rakudo.jvm..........  72    0    0   21   93
      1 skipped: Not enough positional parameters passed; got 0 but expected 1
@@ -1282,7 +1283,7 @@ S17-scheduler/basic.rakudo.jvm.....................  28    0    2   10   40
      3 skipped: waiting for new '.loads' semantics RT #124776
      2 skipped: waiting for new '.loads' semantics RT #124777
      2 todo   : huh?
-S17-scheduler/every.t..............................  17    1    0    0   18
+S17-scheduler/every.t..............................  18    0    0    0   18
 S17-scheduler/in.t.................................  14    0    0    0   14
 S17-scheduler/times.t..............................   4    0    0    0    4
 S17-supply/Channel.t...............................  12    0    0    0   12
@@ -1390,8 +1391,7 @@ S29-context/die.rakudo.jvm.........................  15    0    1    0   16
      1 todo   : RT \#67374
 S29-context/eval.rakudo.jvm........................  21    0    0    2   23
      2 skipped: EVAL(Buf) RT #122256
-S29-context/evalfile.rakudo.jvm....................   0    0    0    1    1
-     1 skipped: RT #125294 - evalfile NYI
+S29-context/evalfile.t.............................   2    0    0    0    2
 S29-context/exit-in-if.t...........................   1    0    0    0    1
 S29-context/exit.t.................................   3    0    0    0    3
 S29-context/sleep.t................................  17    0    0    0   17
@@ -1582,7 +1582,7 @@ S32-str/chop.t.....................................  32    0    0    0   32
 S32-str/comb.rakudo.jvm............................  38    0    2    1   41
      1 skipped: cannot call match, no signature matches RT #124738
      2 todo   : NFG on JVM RT \#124737
-S32-str/encode.rakudo.jvm..........................  23    0    2    1   26
+S32-str/encode.rakudo.jvm..........................  25    0    2    1   28
      1 skipped: We do not handle NDF yet RT #124687
      1 todo   : builtin JVM cp1252 code folds these RT \#124686
      1 todo   : builtin JVM cp1252 code folds these RT \#124688
@@ -1839,11 +1839,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        5252,     0,   143,   415,  5810,  5809
+"S02",        5254,     0,   143,   417,  5814,  5813
 "S03",        5212,     0,   120,   103,  5435,  5453
 "S04",        1130,     0,    52,    47,  1229,  1273
 "S05",        5447,     8,    93,   207,  5755,  6004
-"S06",        1364,     0,    50,   107,  1521,  1592
+"S06",        1370,     0,    50,   107,  1527,  1598
 "S07",           0,     0,     0,     0,     0,    96
 "S09",        1898,     0,    11,   101,  2010,  2010
 "S10",         101,     0,     6,     1,   108,   165
@@ -1851,20 +1851,19 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S12",        1467,     0,    50,   124,  1641,  1696
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         314,     0,     8,     8,   330,   343
-"S15",          15,     0,     4,    16,    35, 78517
+"S15",          15,     0,     4,    16,    35, 78522
 "S16",         284,     0,     6,    16,   306,   334
-"S17",         700,     1,     5,    23,   729,   775
+"S17",         701,     0,     5,    23,   729,   775
 "S19",          13,     0,     0,     0,    13,    17
 "S22",          23,     0,     0,     1,    24,    24
 "S24",          18,     0,     0,     0,    18,    89
 "S26",        1867,     0,     4,    76,  1947,  1947
 "S28",           7,     0,     0,     0,     7,    13
-"S29",         341,     0,     3,     4,   348,   348
-"S32",        9728,     0,   193,   190, 10111,  8478
+"S29",         343,     0,     3,     3,   349,   349
+"S32",        9730,     0,   193,   190, 10113,  8480
 "int",        1256,     0,    11,    15,  1282,  1273
 "ros",           2,     0,     0,     0,     2,     2
-"total",     36563,     9,   795,  1570, 38937,116574
+"total",     36576,     8,   795,  1571, 38950,116592
 ----------------
 Failure summary:
 S05-match/perl.rakudo.jvm aborted 8 test(s)
-S17-scheduler/every.t 13 - Cue with :every/:in/:catch schedules repeatedly (2)
