@@ -320,7 +320,15 @@ S02-names/is_dynamic.t.............................  22    0    0    0   22
 S02-names/name.t...................................  15    0    0    0   15
 S02-names/our.rakudo.moar..........................   9    0    0    1   10
      1 skipped: OUR::subname() does not work
-S02-names/pseudo.rakudo.moar.......................  52    0    8   82  142
+S02-names/pseudo.rakudo.moar.......................WARNING: unhandled Failure detected in DESTROY:
+No such symbol 'OUR::A43'
+  in block <unit> at t/spec/S02-names/pseudo.rakudo.moar:184
+
+WARNING: unhandled Failure detected in DESTROY:
+No such symbol 'OUR::A42'
+  in block <unit> at t/spec/S02-names/pseudo.rakudo.moar:180
+
+  52    0    8   82  142
     19 skipped: CORE NYI RT #124916
      4 skipped: the binding in here is NYI RT #124914
     23 skipped: various issues to resolve RT #124917
@@ -360,12 +368,7 @@ S02-types/array-shapes.rakudo.moar.................
    8    0    2   15   25
     15 skipped: array shapes NYI RT #124502
      2 todo   : X::AdHoc "This type cannot unbox to a native integer" RT \#125123
-S02-types/array.rakudo.moar........................Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S02-types/array.rakudo.moar:264
-WARNING: unhandled Failure detected in DESTROY:
-Index out of range. Is: -1, should be in 0..Inf
-  in block  at t/spec/S02-types/array.rakudo.moar:230
-
-    
+S02-types/array.rakudo.moar........................    
 # Failed test 'right exception type (X::Subscript::Negative)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.pm.moarvm line 1
     # Expected: (X::Subscript::Negative)
@@ -376,6 +379,11 @@ Use of uninitialized value <element> of type Any in string context  in block  at
 WARNING: unhandled Failure detected in DESTROY:
 Index out of range. Is: -1, should be in 0..Inf
   in block  at t/spec/S02-types/array.rakudo.moar:244
+
+Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S02-types/array.rakudo.moar:291
+WARNING: unhandled Failure detected in DESTROY:
+Index out of range. Is: -1, should be in 0..Inf
+  in block  at t/spec/S02-types/array.rakudo.moar:230
 
     
 # Failed test 'right exception type (X::Item)'
@@ -488,7 +496,7 @@ S02-types/keyhash.rakudo.moar......................   0    0    0   59   59
 S02-types/lazy-lists.t.............................  23    0    0    0   23
 S02-types/lists.rakudo.moar........................  29    0    0    3   32
      3 skipped: list binding RT #124494
-S02-types/mix.rakudo.moar..........................Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S02-types/mix.rakudo.moar:279
+S02-types/mix.rakudo.moar..........................Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S02-types/mix.rakudo.moar:378
 WARNING: unhandled Failure detected in DESTROY:
 Cannot call 'DELETE-KEY' on an immutable 'Mix'
   in block  at t/spec/S02-types/mix.rakudo.moar:47
@@ -557,7 +565,22 @@ Cannot call infix:<cmp>(Mu, Mu); none of these signatures match:
 # Looks like you planned 135 tests, but ran 74
   74   61    0    0  135
     61 tests aborted (missing ok/not ok)
-S02-types/set.rakudo.moar..........................    
+S02-types/set.rakudo.moar..........................Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S02-types/set.rakudo.moar:218
+WARNING: unhandled Failure detected in DESTROY:
+Cannot call 'DELETE-KEY' on an immutable 'Set'
+  in block  at t/spec/S02-types/set.rakudo.moar:79
+
+Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S02-types/set.rakudo.moar:218
+WARNING: unhandled Failure detected in DESTROY:
+Cannot call 'DELETE-KEY' on an immutable 'Set'
+  in block  at t/spec/S02-types/set.rakudo.moar:35
+
+Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S02-types/set.rakudo.moar:218
+WARNING: unhandled Failure detected in DESTROY:
+Cannot modify an immutable Set
+  in block  at t/spec/S02-types/set.rakudo.moar:32
+
+    
 # Failed test 'code dies'
 # at t/spec/S02-types/set.rakudo.moar line 222
     # Looks like you failed 1 test of 2
@@ -567,10 +590,12 @@ Segmentation fault
      5 todo   : Hypers not yet Set compatible RT \#124487
      1 todo   : Not properly interpolating
     67 tests aborted (missing ok/not ok)
-S02-types/sethash.rakudo.moar......................Segmentation fault
- 115   83    0    1  199
+S02-types/sethash.rakudo.moar......................===SORRY!===
+Can only throw an exception object
+# Looks like you planned 199 tests, but ran 115
+ 114   84    0    1  199
      1 skipped: no longer Iterable
-    83 tests aborted (missing ok/not ok)
+    84 tests aborted (missing ok/not ok)
 S02-types/sigils-and-types.rakudo.moar.............  26    0    2    0   28
      1 todo   : Capture does Associative RT \#124485
      1 todo   : Capture does Positional RT \#124484
@@ -625,27 +650,12 @@ S03-junctions/autothreading.t......................  89    0    0    0   89
 S03-junctions/boolean-context.t....................  77    0    0    0   77
 S03-junctions/misc.rakudo.moar..................... 129    0    2    0  131
      2 todo   : nom regression RT \#124843
-S03-metaops/cross.rakudo.moar......................Use of uninitialized value @rt120973 of type Mu in string context  in block  at lib/Test.pm:134
-Use of uninitialized value @rt120973 of type Mu in string context  in block  at lib/Test.pm:134
-Use of uninitialized value @rt120973 of type Mu in string context  in block  at lib/Test.pm:134
-Use of uninitialized value @rt120973 of type Mu in string context  in block  at lib/Test.pm:134
-
-# Failed test 'cross product with a .map in lhs produces expected result'
-# at t/spec/S03-metaops/cross.rakudo.moar line 137
-Use of uninitialized value @rt120973 of type Mu in string context  in block  at lib/Test.pm:137
-Use of uninitialized value @rt120973 of type Mu in string context  in block  at lib/Test.pm:137
-Use of uninitialized value @rt120973 of type Mu in string context  in block  at lib/Test.pm:137
-Use of uninitialized value @rt120973 of type Mu in string context  in block  at lib/Test.pm:137
-Method 'from' not found for invocant of class 'Mu'
-  in block  at lib/Test.pm:137
-  in sub is at lib/Test.pm:133
-  in block <unit> at t/spec/S03-metaops/cross.rakudo.moar:137
-
-Looks like you planned 34 tests, but ran 33
-Looks like you failed 1 test of 33
+S03-metaops/cross.rakudo.moar......................===SORRY!===
+Cannot invoke code type object
+# Looks like you planned 34 tests, but ran 32
   31    2    0    1   34
      1 skipped: .slice for iterators NYI RT #124518
-     1 tests aborted (missing ok/not ok)
+     2 tests aborted (missing ok/not ok)
 S03-metaops/eager-hyper.rakudo.moar................   6    0    0    2    8
      2 skipped: hyper prefix NYI RT #124517
 S03-metaops/hyper.rakudo.moar......................Use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-metaops/hyper.rakudo.moar:450
@@ -690,7 +700,7 @@ S03-operators/arith.rakudo.moar....................Use of uninitialized value <e
 Use of uninitialized value <element> of type Any in string context  in any return_error at src/vm/moar/Perl6/Ops.nqp:639
 Use of uninitialized value <element> of type Any in string context  in any return_error at src/vm/moar/Perl6/Ops.nqp:639
 Use of uninitialized value <element> of type Any in string context  in any bind_error at src/vm/moar/Perl6/Ops.nqp:224
-Use of uninitialized value of type Int in numeric context  in block  at t/spec/S03-operators/arith.rakudo.moar:371
+Use of uninitialized value of type Int in numeric context  in block  at t/spec/S03-operators/arith.rakudo.moar:374
  156    0    0    0  156
 S03-operators/assign-is-not-binding.t..............   9    0    0    0    9
 S03-operators/assign.rakudo.moar...................Segmentation fault
@@ -828,10 +838,33 @@ S03-operators/increment.t..........................  37    0    0    0   37
 S03-operators/infixed-function.t...................   5    0    0    0    5
 S03-operators/inplace.rakudo.moar..................  23    0    0    4   27
      4 skipped: Method '' not found for invocant of class 'Str' RT #124528
-S03-operators/is-divisible-by.rakudo.moar..........    
+S03-operators/is-divisible-by.rakudo.moar..........WARNING: unhandled Failure detected in DESTROY:
+Attempt to divide 9 by zero using infix:<%%>
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1231
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1227
+  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1195
+  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1145
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1706
+  in any visit_want at src/gen/m-Perl6-Optimizer.nqp:1546
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1709
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1724
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1718
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1715
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1718
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1724
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1715
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1718
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1724
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
+  in any optimize at src/Perl6/Compiler.nqp:64
+
+    
 # Failed test 'code dies'
-# at t/spec/S03-operators/is-divisible-by.rakudo.moar line 40
-    # Looks like you failed 1 test of 3
+# at t/spec/S03-operators/is-divisible-by.rakudo.moar line 41
+    # Looks like you failed 1 test of 4
   14    0    1    0   15
      1 todo   : not sure why this doesn't fire
 S03-operators/lcm.t................................  15    0    0    0   15
@@ -898,7 +931,9 @@ S03-operators/value_equivalence.rakudo.moar........  73    0    2    0   75
      1 todo   : .WHICH based on type names
      1 todo   : \@a seems to flatten when it should not
 S03-sequence/arity-2-or-more.t.....................  20    0    0    0   20
-S03-sequence/arity0.t..............................  13    0    0    0   13
+S03-sequence/arity0.t..............................Segmentation fault
+   8    5    0    0   13
+     5 tests aborted (missing ok/not ok)
 S03-sequence/basic.t...............................Use of uninitialized value $takings of type Mu in string context  in block  at t/spec/S03-sequence/basic.t:48
 Use of uninitialized value $takings of type Mu in string context  in block  at t/spec/S03-sequence/basic.t:48
 
@@ -1125,53 +1160,7 @@ S04-statements/return.rakudo.moar..................  17    0    1    0   18
 S04-statements/sink.rakudo.moar....................   1    0    1    0    2
      1 todo   : RT \#117235
 S04-statements/terminator.t........................  20    0    0    0   20
-S04-statements/try.t...............................WARNING: unhandled Failure detected in DESTROY:
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏foo' (indicated by ⏏)
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1231
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1227
-  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1195
-  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1130
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1703
-  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1149
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1703
-  in any visit_want at src/gen/m-Perl6-Optimizer.nqp:1546
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1704
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1719
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1718
-  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1709
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1718
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1724
-  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1709
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1718
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1724
-  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
-  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
-  in any optimize at src/Perl6/Compiler.nqp:64
-
-WARNING: unhandled Failure detected in DESTROY:
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏foo' (indicated by ⏏)
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1231
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1227
-  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1195
-  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1130
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1703
-  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1149
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1703
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1718
-  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1715
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1724
-  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1709
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1718
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1724
-  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
-  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
-  in any optimize at src/Perl6/Compiler.nqp:64
-
-  32    0    0    0   32
+S04-statements/try.t...............................  32    0    0    0   32
 S04-statements/unless.t............................  10    0    0    0   10
 S04-statements/until.t.............................   4    0    0    0    4
 S04-statements/when.rakudo.moar....................  12    0    0   12   24
@@ -1752,7 +1741,7 @@ S10-packages/precompilation.rakudo.moar............Use of uninitialized value $_
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-17272-198134.code:4
+#   in block <unit> at getout-4737-475151.code:4
 
 
   30    0    3    0   33
@@ -2108,7 +2097,7 @@ S15-nfg/mass-roundtrip-nfkd.t......................Cannot call infix:<===>(Mu, 1
     51 tests aborted (missing ok/not ok)
 S15-nfg/regex.rakudo.moar..........................  11    0    1    0   12
      1 todo   : charrange bugginess with synthetics
-S15-normalization/nfc-0.t..........................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': free(): invalid pointer: 0x00007f1d8b026790 ***
+S15-normalization/nfc-0.t..........................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': free(): invalid pointer: 0x00007fd126ee1790 ***
 Aborted
   96 1904    0    0 2000
    1904 tests aborted (missing ok/not ok)
@@ -2277,7 +2266,7 @@ S15-normalization/nfd-0.t..........................Cannot call infix:<===>(Mu, 7
 # Looks like you planned 2000 tests, but ran 54
   54 1946    0    0 2000
    1946 tests aborted (missing ok/not ok)
-S15-normalization/nfd-1.t..........................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': free(): invalid pointer: 0x00007f1799acfaf0 ***
+S15-normalization/nfd-1.t..........................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': free(): invalid pointer: 0x00007f71b6b84af0 ***
 Aborted
  126 1874    0    0 2000
    1874 tests aborted (missing ok/not ok)
@@ -2371,11 +2360,11 @@ S15-normalization/nfd-7.t..........................Cannot call infix:<===>(Mu, 6
 # Looks like you planned 2000 tests, but ran 90
   90 1910    0    0 2000
    1910 tests aborted (missing ok/not ok)
-S15-normalization/nfd-8.t..........................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': free(): invalid pointer: 0x00007f073fc72690 ***
+S15-normalization/nfd-8.t..........................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': free(): invalid pointer: 0x00007f8325eb4690 ***
 Aborted
  126 1874    0    0 2000
    1874 tests aborted (missing ok/not ok)
-S15-normalization/nfd-9.t..........................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': munmap_chunk(): invalid pointer: 0x00007f3a695a29c8 ***
+S15-normalization/nfd-9.t..........................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': munmap_chunk(): invalid pointer: 0x00007fdebc7fd498 ***
 Aborted
   21  560    0    0  581
    560 tests aborted (missing ok/not ok)
@@ -2409,7 +2398,7 @@ S15-normalization/nfkc-0.t.........................Cannot call infix:<===>(Mu, 2
 # Looks like you planned 2000 tests, but ran 86
   86 1914    0    0 2000
    1914 tests aborted (missing ok/not ok)
-S15-normalization/nfkc-1.t.........................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': free(): invalid pointer: 0x00007f5023ec0e90 ***
+S15-normalization/nfkc-1.t.........................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': free(): invalid pointer: 0x00007f50701d2e90 ***
 Aborted
   90 1910    0    0 2000
    1910 tests aborted (missing ok/not ok)
@@ -2488,7 +2477,7 @@ S15-normalization/nfkc-6.t.........................Cannot call infix:<===>(Mu, 5
 # Looks like you planned 2000 tests, but ran 126
  126 1874    0    0 2000
    1874 tests aborted (missing ok/not ok)
-S15-normalization/nfkc-7.t.........................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': free(): invalid pointer: 0x00007fda31d9ef10 ***
+S15-normalization/nfkc-7.t.........................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': free(): invalid pointer: 0x00007f5ee28ddf10 ***
 Aborted
   76 1924    0    0 2000
    1924 tests aborted (missing ok/not ok)
@@ -2505,7 +2494,7 @@ S15-normalization/nfkc-8.t.........................Cannot call infix:<===>(Mu, 1
   in block <unit> at t/spec/S15-normalization/nfkc-8.t:134
 
 # Looks like you planned 2000 tests, but ran 126
-*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': free(): invalid pointer: 0x00007fcdaf253330 ***
+*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': free(): invalid pointer: 0x00007f845d13d278 ***
 Aborted
  126 1874    0    0 2000
    1874 tests aborted (missing ok/not ok)
@@ -2524,11 +2513,11 @@ S15-normalization/nfkc-9.t.........................Cannot call infix:<===>(Mu, 9
 # Looks like you planned 581 tests, but ran 23
   23  558    0    0  581
    558 tests aborted (missing ok/not ok)
-S15-normalization/nfkc-sanity.t....................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': munmap_chunk(): invalid pointer: 0x00007fe54ff78460 ***
+S15-normalization/nfkc-sanity.t....................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': munmap_chunk(): invalid pointer: 0x00007f33bc7950a0 ***
 Aborted
   71  429    0    0  500
    429 tests aborted (missing ok/not ok)
-S15-normalization/nfkd-0.t.........................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': munmap_chunk(): invalid pointer: 0x00007f16e062df60 ***
+S15-normalization/nfkd-0.t.........................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': munmap_chunk(): invalid pointer: 0x00007f5d3da8ef60 ***
 Aborted
   49 1951    0    0 2000
    1951 tests aborted (missing ok/not ok)
@@ -2652,7 +2641,7 @@ S15-normalization/nfkd-8.t.........................Cannot call infix:<===>(Mu, 1
 # Looks like you planned 2000 tests, but ran 126
  126 1874    0    0 2000
    1874 tests aborted (missing ok/not ok)
-S15-normalization/nfkd-9.t.........................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': munmap_chunk(): invalid pointer: 0x00007f807f3b0c20 ***
+S15-normalization/nfkd-9.t.........................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': munmap_chunk(): invalid pointer: 0x00007fa1f3029498 ***
 Aborted
   21  560    0    0  581
    560 tests aborted (missing ok/not ok)
@@ -2683,8 +2672,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
      1 todo   : RT \#122471
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
-S16-filehandles/chmod.t............................# Using file temp_1433601045
-# Using file temp_1433601045
+S16-filehandles/chmod.t............................# Using file temp_1433687449
+# Using file temp_1433687449
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2883,7 +2872,13 @@ S17-supply/stable.rakudo.moar......................# **** scheduling with Thread
 # **** scheduling with CurrentThreadScheduler
    5    0    0    2    7
      2 skipped: doesn't work or can't test RT #124822
-S17-supply/start.t.................................   9    0    0    0    9
+S17-supply/start.t.................................
+# Failed test 'did we get the other original value'
+# at t/spec/S17-supply/start.t line 34
+# expected: [1, 1]
+#      got: [1, 1]
+# Looks like you failed 1 test of 9
+   8    1    0    0    9
 S17-supply/unique.t................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
   17    0    0    0   17
@@ -3243,7 +3238,12 @@ adapted, so that this message will disappear!
 Please note that *ALL* deprecated features will be removed at the RC-0 release
 (expected September 2015).
   18    0    0    0   18
-S32-io/spurt.t.....................................Saw 1 occurrence of deprecated code.
+S32-io/spurt.t.....................................Use of uninitialized value <element> of type Any in string context  in block  at t/spec/S32-io/spurt.t:113
+WARNING: unhandled Failure detected in DESTROY:
+'t' is a directory, cannot do '.open' on a directory
+  in block  at t/spec/S32-io/spurt.t:90
+
+Saw 1 occurrence of deprecated code.
 ================================================================================
 spurt($handle,...) seen at:
   t/spec/S32-io/spurt.t, lines 65,74,83
@@ -3331,11 +3331,14 @@ S32-list/pick.rakudo.moar..........................Cannot call infix:<cmp>(Int, 
 S32-list/reduce.t..................................  15    0    0    0   15
 S32-list/reverse.rakudo.moar.......................  20    0    1    0   21
      1 todo   : RT \#77914
-S32-list/roll.t....................................===SORRY!===
-Can only throw an exception object
-# Looks like you planned 49 tests, but ran 12
-  12   37    0    0   49
-    37 tests aborted (missing ok/not ok)
+S32-list/roll.t....................................
+# Failed test 'roll(100, @a) returns Ints (if @a is Ints)'
+# at t/spec/S32-list/roll.t line 59
+# expected: '100'
+#      got: '41'
+Segmentation fault
+  13   36    0    0   49
+    35 tests aborted (missing ok/not ok)
 S32-list/rotor.t...................................Segmentation fault
    4    5    0    0    9
      5 tests aborted (missing ok/not ok)
@@ -3362,34 +3365,6 @@ S32-list/unique.t..................................  34    0    0    0   34
 S32-num/abs.t......................................  49    0    0    0   49
 S32-num/base.t.....................................  31    0    0    0   31
 S32-num/complex.t..................................Use of uninitialized value <element> of type Any in string context  in block <unit> at EVAL_0:1
-WARNING: unhandled Failure detected in DESTROY:
-Can not convert 2+4i to Real: imaginary part not zero
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1231
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1218
-  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1195
-  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1130
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1703
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1719
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1718
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1724
-  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
-  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
-  in any optimize at src/Perl6/Compiler.nqp:64
-
-WARNING: unhandled Failure detected in DESTROY:
-Can not convert 2+2i to Real: imaginary part not zero
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1231
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1218
-  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1195
-  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1130
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1703
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1719
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1718
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1724
-  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
-  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
-  in any optimize at src/Perl6/Compiler.nqp:64
-
 Use of uninitialized value <element> of type Any in string context  in block <unit> at EVAL_7:1
  488    0    0    0  488
 S32-num/cool-num.rakudo.moar.......................  39    0    0    4   43
@@ -4015,8 +3990,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        4826,   509,   118,   352,  5805,  5804
-"S03",        4543,   729,    89,    76,  5437,  5455
+"S02",        4825,   510,   118,   352,  5805,  5804
+"S03",        4538,   734,    89,    76,  5437,  5455
 "S04",        1125,    17,    49,    42,  1233,  1273
 "S05",        5107,   457,    80,   142,  5786,  6005
 "S06",        1383,     0,    47,    97,  1527,  1598
@@ -4029,17 +4004,17 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         315,     0,     8,     7,   330,   343
 "S15",        5106, 73375,     3,    18, 78502, 78522
 "S16",         288,     0,     2,    16,   306,   334
-"S17",         737,   270,     7,    31,  1045,  1045
+"S17",         736,   271,     7,    31,  1045,  1045
 "S19",          13,     0,     0,     0,    13,    17
 "S22",          24,     0,     0,     0,    24,    24
 "S24",          18,     0,     0,     0,    18,    89
 "S26",        1867,     0,     4,    76,  1947,  1947
 "S28",          13,     0,     0,     0,    13,    13
 "S29",         344,     0,     3,     2,   349,   349
-"S32",        9130,   849,   123,   143, 10245,  8607
+"S32",        9131,   848,   123,   143, 10245,  8607
 "int",        1149,   111,    13,    14,  1287,  1273
 "ros",           2,     0,     0,     0,     2,     2
-"total",     39271, 76680,   618,  1335,117904,116983
+"total",     39265, 76686,   618,  1335,117904,116983
 ----------------
 Failure summary:
 S02-literals/version.rakudo.moar aborted 30 test(s)
@@ -4049,10 +4024,9 @@ S02-types/baghash.rakudo.moar aborted 128 test(s)
 S02-types/mixhash.rakudo.moar aborted 26 test(s)
 S02-types/range.t aborted 61 test(s)
 S02-types/set.rakudo.moar aborted 67 test(s)
-S02-types/sethash.rakudo.moar aborted 83 test(s)
+S02-types/sethash.rakudo.moar aborted 84 test(s)
 S02-types/version.t aborted 25 test(s)
-S03-metaops/cross.rakudo.moar 33 - cross product with a .map in lhs produces expected result
-S03-metaops/cross.rakudo.moar aborted 1 test(s)
+S03-metaops/cross.rakudo.moar aborted 2 test(s)
 S03-metaops/reduce.rakudo.moar 355 - [\xor]
 S03-metaops/reduce.rakudo.moar aborted 14 test(s)
 S03-operators/assign.rakudo.moar aborted 40 test(s)
@@ -4060,6 +4034,7 @@ S03-operators/bag.rakudo.moar aborted 95 test(s)
 S03-operators/mix.rakudo.moar aborted 95 test(s)
 S03-operators/range.rakudo.moar aborted 114 test(s)
 S03-operators/set.t aborted 220 test(s)
+S03-sequence/arity0.t aborted 5 test(s)
 S03-sequence/basic.t 31 - simple sequence with three items and block closure on the LHS
 S03-sequence/basic.t aborted 105 test(s)
 S03-sequence/misc.t aborted 18 test(s)
@@ -4125,6 +4100,7 @@ S17-supply/minmax.t aborted 2 test(s)
 S17-supply/on.t aborted 2 test(s)
 S17-supply/rotor.rakudo.moar aborted 12 test(s)
 S17-supply/sort.t aborted 2 test(s)
+S17-supply/start.t 9 - did we get the other original value
 S32-exceptions/misc.rakudo.moar aborted 1 test(s)
 S32-hash/delete-adverb.t aborted 58 test(s)
 S32-io/dir.rakudo.moar aborted 7 test(s)
@@ -4135,7 +4111,8 @@ S32-io/io-spec-unix.t 121 - abs2rel: ('t1/t2/t3', 't4') -> '../t1/t2/t3'
 S32-io/io-spec-win.t aborted 169 test(s)
 S32-list/grep.rakudo.moar aborted 6 test(s)
 S32-list/pick.rakudo.moar aborted 45 test(s)
-S32-list/roll.t aborted 37 test(s)
+S32-list/roll.t 14 - roll(100, @a) returns Ints (if @a is Ints)
+S32-list/roll.t aborted 35 test(s)
 S32-list/rotor.t aborted 5 test(s)
 S32-list/squish.rakudo.moar aborted 14 test(s)
 S32-num/rand.rakudo.moar aborted 3 test(s)
