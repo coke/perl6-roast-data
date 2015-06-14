@@ -478,8 +478,10 @@ S02-types/multi_dimensional_array.rakudo.moar......  48    0    0   10   58
      4 skipped: multi-dim sized arrays NYI RT #124483
 S02-types/nan.rakudo.moar..........................  20    0    0    1   21
      1 skipped: RT #83446
-S02-types/native.rakudo.moar.......................  41    0    1    0   42
+S02-types/native.rakudo.moar.......................  43    0    2    3   48
+     3 skipped: cannot unbox to a native number
      1 todo   : RT \#102416 - though maybe wrong test? Not sure .WHAT is *that* magic
+     1 todo   : wrong default
 S02-types/nested_arrays.rakudo.moar................   8    0    1    0    9
      1 todo   : Should we fail, or should we throw RT \#124449
 S02-types/nested_pairs.t...........................  14    0    0    0   14
@@ -1025,7 +1027,53 @@ S04-statements/return.rakudo.moar..................  17    0    1    0   18
 S04-statements/sink.rakudo.moar....................   1    0    1    0    2
      1 todo   : RT \#117235
 S04-statements/terminator.t........................  20    0    0    0   20
-S04-statements/try.t...............................  32    0    0    0   32
+S04-statements/try.t...............................WARNING: unhandled Failure detected in DESTROY:
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏foo' (indicated by ⏏)
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1231
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1227
+  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1195
+  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1130
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1703
+  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1149
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1703
+  in any visit_want at src/gen/m-Perl6-Optimizer.nqp:1546
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1704
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1719
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1718
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1709
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1718
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1724
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1709
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1718
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1724
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
+  in any optimize at src/Perl6/Compiler.nqp:64
+
+WARNING: unhandled Failure detected in DESTROY:
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏foo' (indicated by ⏏)
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1231
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1227
+  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1195
+  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1130
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1703
+  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1149
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1703
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1718
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1715
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1724
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1709
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1718
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1724
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
+  in any optimize at src/Perl6/Compiler.nqp:64
+
+  32    0    0    0   32
 S04-statements/unless.t............................  10    0    0    0   10
 S04-statements/until.t.............................   4    0    0    0    4
 S04-statements/when.rakudo.moar....................  12    0    0   12   24
@@ -1091,46 +1139,46 @@ S05-mass/properties-general.rakudo.moar............ 592    0    4   10  606
 S05-mass/properties-script.t....................... 360    0    0    0  360
 S05-mass/recursive.t...............................  20    0    0    0   20
 S05-mass/rx.rakudo.moar............................Potential difficulties:
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-mass/rx.rakudo.moar:1419
     ------> [32mok 'a b c def' ~~ /:s(1) b c [:s(0) d[33m⏏[31m e f ]/, 'sigspace, lexical repetition ([0m
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-mass/rx.rakudo.moar:1419
     ------> [32mok 'a b c def' ~~ /:s(1) b c [:s(0) d e[33m⏏[31m f ]/, 'sigspace, lexical repetition (:s[0m
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-mass/rx.rakudo.moar:1422
     ------> [32mok 'a b c def' ~~ /:s b c [:!s d[33m⏏[31m e f ]/, 'sigspace, lexical repetition ([0m
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-mass/rx.rakudo.moar:1422
     ------> [32mok 'a b c def' ~~ /:s b c [:!s d e[33m⏏[31m f ]/, 'sigspace, lexical repetition (:s[0m
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-mass/rx.rakudo.moar:1426
     ------> [32mok 'a b c def' !~~ /:s(0) b[33m⏏[31m c [:s(1) d e f ]/, 'sigspace, lexical r[0m
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-mass/rx.rakudo.moar:1430
     ------> [32mok 'a b c def' !~~ /:!s b[33m⏏[31m c [:s d e f ]/, 'sigspace, lexical repe[0m
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-mass/rx.rakudo.moar:1434
     ------> [32mok 'a b c def' !~~ /:s(0) b[33m⏏[31m c [:s(0) d e f ]/, 'sigspace, lexical r[0m
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-mass/rx.rakudo.moar:1434
     ------> [32mok 'a b c def' !~~ /:s(0) b c [:s(0) d[33m⏏[31m e f ]/, 'sigspace, lexical repetition ([0m
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-mass/rx.rakudo.moar:1434
     ------> [32mok 'a b c def' !~~ /:s(0) b c [:s(0) d e[33m⏏[31m f ]/, 'sigspace, lexical repetition (:s[0m
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-mass/rx.rakudo.moar:1438
     ------> [32mok 'a b c def' !~~ /:!s b[33m⏏[31m c [:!s d e f ]/, 'sigspace, lexical rep[0m
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-mass/rx.rakudo.moar:1438
     ------> [32mok 'a b c def' !~~ /:!s b c [:!s d[33m⏏[31m e f ]/, 'sigspace, lexical repetition ([0m
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-mass/rx.rakudo.moar:1438
     ------> [32mok 'a b c def' !~~ /:!s b c [:!s d e[33m⏏[31m f ]/, 'sigspace, lexical repetition (:s[0m
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-mass/rx.rakudo.moar:2077
     ------> [32m    ok 'foooo' ~~ /^ f[33m⏏[31m o ** 4 $/, 'RT #112450 sanity';[0m
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-mass/rx.rakudo.moar:2079
     ------> [32m    ok 'foooo' ~~ /^ f[33m⏏[31m o ** {$rt112450} $/, 'RT #112450 closur[0m
 Use of Nil in string context  in block <unit> at t/spec/S05-mass/rx.rakudo.moar:432
@@ -1161,13 +1209,13 @@ S05-match/blocks.rakudo.moar.......................Use of Nil in string context 
   18    0    1    0   19
      1 todo   : Assignment to matched string affects earlier match objects
 S05-match/capturing-contexts.rakudo.moar...........Potential difficulties:
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-match/capturing-contexts.rakudo.moar:12
     ------> [32m$match = 'abd' ~~ m/ (a) (b) c || (\w) b[33m⏏[31m d /;[0m
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-match/capturing-contexts.rakudo.moar:27
     ------> [32m  'abd' ~~ m/ (a) (b) c || (\w) b[33m⏏[31m d /;[0m
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-match/capturing-contexts.rakudo.moar:37
     ------> [32mbd' ~~ m/ <alpha> <alpha> c || <alpha> b[33m⏏[31m d /;[0m
   45    0    1    0   46
@@ -1207,10 +1255,10 @@ S05-metasyntax/changed.t...........................  12    0    0    0   12
 S05-metasyntax/charset.t...........................  41    0    0    0   41
 S05-metasyntax/delimiters.t........................  21    0    0    0   21
 S05-metasyntax/interpolating-closure.rakudo.moar...Potential difficulties:
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-metasyntax/interpolating-closure.rakudo.moar:19
     ------> [32mmy regex abc { a[33m⏏[31m b c }[0m
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-metasyntax/interpolating-closure.rakudo.moar:19
     ------> [32mmy regex abc { a b[33m⏏[31m c }[0m
    5    0    1    0    6
@@ -1259,10 +1307,10 @@ Potential difficulties:
 S05-metasyntax/repeat.t............................  27    0    0    0   27
 S05-metasyntax/sequential-alternation.t............  10    0    0    0   10
 S05-metasyntax/single-quotes.t.....................Potential difficulties:
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-metasyntax/single-quotes.t:21
     ------> [32mok("ab cd" ~~ m/ab ' ' c[33m⏏[31m d/, 'ab cd 2');[0m
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-metasyntax/single-quotes.t:25
     ------> [32mok("ab/cd" ~~ m/ab '/' c[33m⏏[31m d/, 'ab/cd');[0m
    5    0    0    0    5
@@ -1322,7 +1370,7 @@ S05-modifier/pos.rakudo.moar.......................  37    0    3    0   40
      1 todo   : m:p:i:g// NYI
      1 todo   : s:pos/// NYI
 S05-modifier/repetition-exhaustive.rakudo.moar.....Potential difficulties:
-    Space is not signficant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
+    Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
     at t/spec/S05-modifier/repetition-exhaustive.rakudo.moar:20
     ------> [32mmy regex rx { a[33m⏏[31m b+ };[0m
    4    0    1    0    5
@@ -1588,7 +1636,7 @@ S10-packages/precompilation.rakudo.moar............Use of uninitialized value $_
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-18569-707046.code:4
+#   in block <unit> at getout-26224-271794.code:4
 
 
   30    0    3    0   33
@@ -1940,8 +1988,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  10    0    0    0   10
-S16-filehandles/chmod.t............................# Using file temp_1434205762
-# Using file temp_1434205762
+S16-filehandles/chmod.t............................# Using file temp_1434292134
+# Using file temp_1434292134
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2866,14 +2914,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# gerdr: 1.0105197 seconds
-# kaz: 1.02706574 seconds
-# recursive-ternary: 1.1711964 seconds
-# loop: 1.195852 seconds
-# hand-memoization: 1.5226624 seconds
-# recursive-ternary-hand-cached: 2.7921736 seconds
-# sequence-ternary: 6.2259059 seconds
-# sequence: 8.130074 seconds
+integration/advent2012-day21.t.....................# gerdr: 1.0688986 seconds
+# kaz: 1.0771320 seconds
+# loop: 1.1581060 seconds
+# recursive-ternary: 1.17607955 seconds
+# hand-memoization: 1.526573 seconds
+# recursive-ternary-hand-cached: 2.7268127 seconds
+# sequence-ternary: 6.0763536 seconds
+# sequence: 7.9388468 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT \#121789
@@ -2939,7 +2987,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        5286,     0,   130,   383,  5799,  5798
+"S02",        5288,     0,   131,   386,  5805,  5804
 "S03",        5218,     0,   120,    99,  5437,  5455
 "S04",        1141,     0,    49,    44,  1234,  1274
 "S05",        5557,     1,    82,   146,  5786,  6005
@@ -2963,7 +3011,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9900,     0,   200,   155, 10255,  8588
 "int",        1260,     0,    12,    15,  1287,  1273
 "ros",           2,     0,     0,     0,     2,     2
-"total",    115720,     1,   767,  1431,117919,116969
+"total",    115722,     1,   768,  1434,117925,116975
 ----------------
 Failure summary:
 S05-metasyntax/regex.t 30 - "Regex.new.perl does not segfault
