@@ -187,7 +187,7 @@ S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.rakudo.jvm................  15    0    3    0   18
      3 todo   : deprecated %h = {...} for now
 S02-types/autovivification.t.......................  25    0    0    0   25
-S02-types/bag.rakudo.jvm........................... 186    0    4    3  193
+S02-types/bag.rakudo.jvm........................... 185    1    4    3  193
      3 skipped: No longer Iterable
      2 todo   : ?
      1 todo   : Not properly interpolating
@@ -234,7 +234,7 @@ S02-types/isDEPRECATED.rakudo.jvm..................  13    0    8    0   21
 S02-types/keyhash.rakudo.jvm.......................   0    0    0   59   59
     59 skipped: 'is ObjectType' NYI RT #124490
 S02-types/lazy-lists.rakudo.jvm....................  22    0    1    0   23
-     1 todo   : RT \#121994
+     1 todo PASSED: RT \#121994
 S02-types/lists.rakudo.jvm.........................  29    0    0    3   32
      3 skipped: list binding RT #124494
 S02-types/mix.rakudo.jvm........................... 169    0    4    3  176
@@ -352,13 +352,12 @@ S03-operators/also.rakudo.jvm......................   4    0    4    0    8
 S03-operators/andthen.t............................   8    0    0    0    8
 S03-operators/arith.rakudo.jvm..................... 156    0    0    0  156
 S03-operators/assign-is-not-binding.t..............   9    0    0    0    9
-S03-operators/assign.rakudo.jvm.................... 263    0   21   12  296
+S03-operators/assign.rakudo.jvm.................... 267    0   20   12  299
      1 skipped: Odd number of elements found where hash expected RT #124530
      2 skipped: RT #76734
      2 skipped: cannot modifiy an immutable value RT #124533
      1 skipped: cannot modifiy an immutable value RT #124534
      6 skipped: ~< and ~> NYI RT #124531
-     1 todo   : RT \#80614
      3 todo   : item assignment
      1 todo   : item/list assignment
      5 todo   : list assignment
@@ -643,9 +642,9 @@ S05-grammar/signatures.t...........................   2    0    0    0    2
 S05-grammar/ws.rakudo.jvm..........................  10    0    0    2   12
      2 skipped: infinite loop: RT #64094 (noauto)
 S05-interpolation/lexicals.t.......................  14    0    0    0   14
-S05-interpolation/regex-in-variable.rakudo.jvm.....  36    0    1    2   39
-     1 skipped: and no need to go all Bobby Tables either RT #124633
-     1 skipped: escaping characters before EVAL is the wrong way to fix this RT #100232
+S05-interpolation/regex-in-variable.rakudo.jvm.....  36    0    3    0   39
+     1 todo   : and no need to go all Bobby Tables either RT \#124633
+     1 todo   : escaping characters before EVAL is the wrong way to fix this RT \#100232
      1 todo   : warn on undef
 S05-mass/charsets.rakudo.jvm.......................  14    0    3    0   17
      1 todo   : Unicode 6.1 -- :Punctuation characters
@@ -974,12 +973,12 @@ S09-subscript/multidim-assignment.t................  10    0    0    0   10
 S09-subscript/slice.rakudo.jvm.....................  27    0    0    4   31
      2 skipped: RT #120383
      2 skipped: RT #61844
-S09-typed-arrays/arrays.rakudo.jvm.................  68    0    5    2   75
+S09-typed-arrays/arrays.rakudo.jvm.................  66    0    6    2   74
      1 skipped: nested typechecks are borked
      1 skipped: type on our-variables RT #124677
      1 todo   : initialization RT \#124676
      1 todo   : need parameterized Lists
-     1 todo   : nested typechecks are borked
+     2 todo   : nested typechecks are borked
      2 todo   : unexpectedly getting array Array[Bool].new
 S09-typed-arrays/hashes.t..........................  33    0    0    0   33
 S09-typed-arrays/native-decl.t.....................   8    0    0    0    8
@@ -1830,13 +1829,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        5250,     0,   144,   411,  5805,  5804
-"S03",        5232,     1,   120,    99,  5452,  5470
+"S02",        5249,     1,   144,   411,  5805,  5804
+"S03",        5236,     1,   119,    99,  5455,  5473
 "S04",        1136,     0,    51,    47,  1234,  1274
-"S05",        5450,     0,    94,   212,  5756,  6005
+"S05",        5450,     0,    96,   210,  5756,  6005
 "S06",        1371,     0,    50,   107,  1528,  1599
 "S07",           0,     0,     0,     0,     0,    96
-"S09",        1898,     0,    11,   101,  2010,  2010
+"S09",        1896,     0,    12,   101,  2009,  2009
 "S10",         101,     0,     6,     1,   108,   165
 "S11",          88,     0,    26,    14,   128,   147
 "S12",        1467,     0,    50,   124,  1641,  1696
@@ -1854,7 +1853,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",        9733,     0,   192,   175, 10100,  8438
 "int",        1256,     0,    11,    15,  1282,  1273
 "ros",           2,     0,     0,     0,     2,     2
-"total",     36615,     1,   795,  1551, 38962,116571
+"total",     36616,     2,   797,  1549, 38964,116573
 ----------------
 Failure summary:
+S02-types/bag.rakudo.jvm 115 - .roll(100) (2)
 S03-junctions/misc.rakudo.jvm 131 - Do not try to auto-thread Junction type object (only case)
