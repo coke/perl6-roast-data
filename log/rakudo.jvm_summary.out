@@ -187,7 +187,7 @@ S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.rakudo.jvm................  15    0    3    0   18
      3 todo   : deprecated %h = {...} for now
 S02-types/autovivification.t.......................  25    0    0    0   25
-S02-types/bag.rakudo.jvm........................... 185    1    4    3  193
+S02-types/bag.rakudo.jvm........................... 186    0    4    3  193
      3 skipped: No longer Iterable
      2 todo   : ?
      1 todo   : Not properly interpolating
@@ -516,7 +516,7 @@ S04-declarations/will.rakudo.jvm...................  10    0    4    3   17
      1 todo   : will init NYI
      1 todo   : will post NYI RT \#125062
 S04-exception-handlers/catch.t.....................  30    0    0    0   30
-S04-exception-handlers/control.t...................   9    0    0    0    9
+S04-exception-handlers/control.t...................  10    0    0    0   10
 S04-exception-handlers/top-level.t.................   1    0    0    0    1
 S04-exceptions/control_across_runloop.t............   1    0    0    0    1
 S04-exceptions/fail.rakudo.jvm.....................  24    0    0    2   26
@@ -808,7 +808,7 @@ S05-transliteration/with-closure.rakudo.jvm........  15    0    2    1   18
 S06-advanced/callframe.rakudo.jvm..................  10    0    0    1   11
      1 skipped: Unable to resolve method inline in type CallFrame
 S06-advanced/callsame.t............................   3    0    0    0    3
-S06-advanced/lexical-subs.t........................  11    0    0    0   11
+S06-advanced/lexical-subs.t........................  13    0    0    0   13
 S06-advanced/recurse.t.............................  13    0    0    0   13
 S06-advanced/return.rakudo.jvm.....................  77    0    2    0   79
      1 todo   : RT \#61732
@@ -1409,7 +1409,8 @@ S32-array/kv.t.....................................  18    0    0    0   18
 S32-array/pairs.rakudo.jvm.........................  13    0    1    0   14
      1 todo   : Apparently not rw yet?
 S32-array/perl.t...................................   6    0    0    0    6
-S32-array/pop.t....................................  36    0    0    0   36
+S32-array/pop.rakudo.jvm...........................  36    0    1    0   37
+     1 todo   : RT \#111720
 S32-array/push.t...................................  51    0    0    0   51
 S32-array/rotate.t.................................  27    0    0    0   27
 S32-array/shift.t..................................  31    0    0    0   31
@@ -1427,7 +1428,7 @@ S32-container/roundrobin.rakudo.jvm................   4    0    1    0    5
 S32-container/stringify.t..........................  16    0    0    0   16
 S32-container/zip.rakudo.jvm.......................  12    0    0    2   14
      2 skipped: lvalue zip RT #124907
-S32-exceptions/misc.rakudo.jvm..................... 302    0    2    0  304
+S32-exceptions/misc.rakudo.jvm..................... 306    0    2    0  308
      1 todo   : Cannot find method "returns" RT \#124680
      1 todo   : parsing regression RT \#124679
 S32-hash/delete-adverb.t........................... 131    0    0    0  131
@@ -1822,18 +1823,18 @@ integration/say-crash.t............................   4    0    0    0    4
 integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 integration/topic_in_double_loop.t.................   5    0    0    0    5
 integration/variables-in-do.t......................   3    0    0    0    3
-integration/weird-errors.t.........................  14    0    0    0   14
+integration/weird-errors.t.........................  15    0    0    0   15
                                                    pass fail todo skip plan
 rosettacode/greatest_element_of_a_list.t...........   1    0    0    0    1
 rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        5249,     1,   144,   411,  5805,  5804
+"S02",        5250,     0,   144,   411,  5805,  5804
 "S03",        5236,     1,   119,    99,  5455,  5473
-"S04",        1136,     0,    51,    47,  1234,  1274
+"S04",        1137,     0,    51,    47,  1235,  1275
 "S05",        5450,     0,    96,   210,  5756,  6005
-"S06",        1371,     0,    50,   107,  1528,  1599
+"S06",        1373,     0,    50,   107,  1530,  1601
 "S07",           0,     0,     0,     0,     0,    96
 "S09",        1896,     0,    12,   101,  2009,  2009
 "S10",         101,     0,     6,     1,   108,   165
@@ -1841,7 +1842,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S12",        1467,     0,    50,   124,  1641,  1696
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         314,     0,     8,     8,   330,   343
-"S15",          15,     0,     4,    16,    35, 78522
+"S15",          15,     0,     4,    16,    35, 78526
 "S16",         294,     0,     6,    16,   316,   344
 "S17",         701,     0,     5,    23,   729,   775
 "S19",          13,     0,     0,     0,    13,    17
@@ -1850,11 +1851,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1867,     0,     4,    76,  1947,  1947
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         343,     0,     3,     3,   349,   349
-"S32",        9733,     0,   192,   175, 10100,  8438
-"int",        1256,     0,    11,    15,  1282,  1273
+"S32",        9737,     0,   193,   175, 10105,  8443
+"int",        1257,     0,    11,    15,  1283,  1274
 "ros",           2,     0,     0,     0,     2,     2
-"total",     36616,     2,   797,  1549, 38964,116573
+"total",     36625,     1,   798,  1549, 38973,116586
 ----------------
 Failure summary:
-S02-types/bag.rakudo.jvm 115 - .roll(100) (2)
 S03-junctions/misc.rakudo.jvm 131 - Do not try to auto-thread Junction type object (only case)
