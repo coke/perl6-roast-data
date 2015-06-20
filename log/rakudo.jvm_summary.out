@@ -233,8 +233,7 @@ S02-types/isDEPRECATED.rakudo.jvm..................  13    0    8    0   21
      8 todo   : NYI
 S02-types/keyhash.rakudo.jvm.......................   0    0    0   59   59
     59 skipped: 'is ObjectType' NYI RT #124490
-S02-types/lazy-lists.rakudo.jvm....................  22    0    1    0   23
-     1 todo PASSED: RT \#121994
+S02-types/lazy-lists.t.............................  23    0    0    0   23
 S02-types/lists.rakudo.jvm.........................  29    0    0    3   32
      3 skipped: list binding RT #124494
 S02-types/mix.rakudo.jvm........................... 169    0    4    3  176
@@ -350,7 +349,7 @@ S03-operators/also.rakudo.jvm......................   4    0    4    0    8
      1 todo   : nom regression RT \#124546
      1 todo   : nom regression RT \#124547
 S03-operators/andthen.t............................   8    0    0    0    8
-S03-operators/arith.rakudo.jvm..................... 156    0    0    0  156
+S03-operators/arith.rakudo.jvm..................... 157    0    0    0  157
 S03-operators/assign-is-not-binding.t..............   9    0    0    0    9
 S03-operators/assign.rakudo.jvm.................... 267    0   20   12  299
      1 skipped: Odd number of elements found where hash expected RT #124530
@@ -519,7 +518,7 @@ S04-exception-handlers/catch.t.....................  30    0    0    0   30
 S04-exception-handlers/control.t...................  10    0    0    0   10
 S04-exception-handlers/top-level.t.................   1    0    0    0    1
 S04-exceptions/control_across_runloop.t............   1    0    0    0    1
-S04-exceptions/fail.rakudo.jvm.....................  24    0    0    2   26
+S04-exceptions/fail.rakudo.jvm.....................  25    0    0    2   27
      2 skipped: RT #64990
 S04-exceptions/pending.rakudo.jvm..................   6    0    1   14   21
     13 skipped: $!.pending
@@ -839,11 +838,11 @@ S06-multi/lexical-multis.rakudo.jvm................  14    0    1    0   15
 S06-multi/positional-vs-named.rakudo.jvm...........  25    0    0    2   27
      2 skipped: slurpy and named interaction
 S06-multi/proto.rakudo.jvm.........................  22    0    1    5   28
-     5 skipped: redeclaration of routine 'bar' RT #124773
+     5 skipped: redeclaration of routine 'bar' RT #118069
      1 todo   : operator protos
 S06-multi/redispatch.t.............................  10    0    0    0   10
 S06-multi/syntax.t.................................  41    0    0    0   41
-S06-multi/type-based.rakudo.jvm....................  57    0    4    0   61
+S06-multi/type-based.rakudo.jvm....................  58    0    4    0   62
      4 todo   : coercions need to fail like constraints RT \#124772
 S06-multi/unpackability.t..........................  10    0    0    0   10
 S06-multi/value-based.t............................  12    0    0    0   12
@@ -1030,8 +1029,10 @@ S12-attributes/clone.rakudo.jvm....................  33    0    2    0   35
 S12-attributes/defaults.t..........................  34    0    0    0   34
 S12-attributes/delegation.t........................  65    0    0    0   65
 S12-attributes/inheritance.t.......................   7    0    0    0    7
-S12-attributes/instance.rakudo.jvm................. 136    0    6    1  143
+S12-attributes/instance.rakudo.jvm................. 137    0    7    3  147
+     2 skipped: RT #120059
      1 skipped: dubious test - the initializer becomes a submethod here, implying a scope RT #124908
+     1 todo   : RT \#118559
      1 todo   : huh?
      1 todo   : over-eager auto-vivification bugs
      2 todo   : ro array/hash with accessor
@@ -1104,11 +1105,8 @@ S12-introspection/attributes.rakudo.jvm............  25    0    0    5   30
      5 skipped: :tree NYI for .^attributes RT #125014
 S12-introspection/can.t............................  29    0    0    0   29
 S12-introspection/definite.t.......................   6    0    0    0    6
-S12-introspection/meta-class.rakudo.jvm............   9    0    0    4   13
-     1 skipped: .layout RT #125018
+S12-introspection/meta-class.rakudo.jvm............  11    0    0    1   12
      1 skipped: .version, version number parsing RT #125017
-     1 skipped: precedence of HOW RT #125015
-     1 skipped: precedence of prefix:<^> RT #125016
 S12-introspection/methods.rakudo.jvm...............  45    0    0   12   57
      8 skipped: nom regression RT #125011
      2 skipped: nom regression RT #125012
@@ -1136,7 +1134,7 @@ S12-methods/defer-next.rakudo.jvm..................  20    0    1    0   21
 S12-methods/delegation.t...........................   7    0    0    0    7
 S12-methods/fallback.t.............................  13    0    0    0   13
 S12-methods/how.t..................................   3    0    0    0    3
-S12-methods/indirect_notation.rakudo.jvm...........  16    0    0   21   37
+S12-methods/indirect_notation.rakudo.jvm...........  17    0    0   21   38
     15 skipped: .*, .+ and .? with @foo RT #124845
      6 skipped: .@foo not yet working RT #124844
 S12-methods/instance.t.............................  39    0    0    0   39
@@ -1144,7 +1142,7 @@ S12-methods/lastcall.t.............................   6    0    0    0    6
 S12-methods/lvalue.t...............................  16    0    0    0   16
 S12-methods/method-vs-sub.t........................   5    0    0    0    5
 S12-methods/multi.rakudo.jvm.......................  26    0    1    5   32
-     2 skipped: proto does not promote to multi RT #124847
+     2 skipped: proto does not promote to multi RT #118069
      3 skipped: unknown bug RT #124848
      1 todo   : RT \#66006
 S12-methods/parallel-dispatch.rakudo.jvm...........  32    0    4    1   37
@@ -1205,7 +1203,7 @@ S14-roles/parameter-subtyping.t....................  22    0    0    0   22
 S14-roles/parameterized-basic.t....................  36    0    0    0   36
 S14-roles/parameterized-mixin.rakudo.jvm...........  24    0    4    0   28
      4 todo   : .does with parametric roles RT \#124746
-S14-roles/parameterized-type.t.....................  31    0    0    0   31
+S14-roles/parameterized-type.t.....................  32    0    0    0   32
 S14-roles/stubs.t..................................  10    0    0    0   10
 S14-roles/submethods.t.............................   4    0    0    0    4
 S14-traits/attributes.t............................   8    0    0    0    8
@@ -1428,7 +1426,7 @@ S32-container/roundrobin.rakudo.jvm................   4    0    1    0    5
 S32-container/stringify.t..........................  16    0    0    0   16
 S32-container/zip.rakudo.jvm.......................  12    0    0    2   14
      2 skipped: lvalue zip RT #124907
-S32-exceptions/misc.rakudo.jvm..................... 306    0    2    0  308
+S32-exceptions/misc.rakudo.jvm..................... 307    0    2    0  309
      1 todo   : Cannot find method "returns" RT \#124680
      1 todo   : parsing regression RT \#124679
 S32-hash/delete-adverb.t........................... 131    0    0    0  131
@@ -1762,7 +1760,8 @@ integration/advent2011-day23.t.....................  55    0    0    0   55
 integration/advent2011-day24.t.....................   8    0    0    0    8
 integration/advent2012-day02.t.....................   4    0    0    0    4
 integration/advent2012-day03.t.....................   2    0    0    0    2
-integration/advent2012-day04.t.....................   8    0    0    0    8
+integration/advent2012-day04.t.....................   0    8    0    0    8
+     8 tests aborted (missing ok/not ok)
 integration/advent2012-day06.t.....................   2    0    0    0    2
 integration/advent2012-day09.t.....................   8    0    0    0    8
 integration/advent2012-day10.t.....................  26    0    0    0   26
@@ -1830,18 +1829,18 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        5250,     0,   144,   411,  5805,  5804
-"S03",        5236,     1,   119,    99,  5455,  5473
-"S04",        1137,     0,    51,    47,  1235,  1275
+"S02",        5251,     0,   143,   411,  5805,  5804
+"S03",        5237,     1,   119,    99,  5456,  5474
+"S04",        1138,     0,    51,    47,  1236,  1276
 "S05",        5450,     0,    96,   210,  5756,  6005
-"S06",        1373,     0,    50,   107,  1530,  1601
+"S06",        1374,     0,    50,   107,  1531,  1602
 "S07",           0,     0,     0,     0,     0,    96
 "S09",        1896,     0,    12,   101,  2009,  2009
 "S10",         101,     0,     6,     1,   108,   165
 "S11",          88,     0,    26,    14,   128,   147
-"S12",        1467,     0,    50,   124,  1641,  1696
+"S12",        1471,     0,    51,   123,  1645,  1700
 "S13",          36,     0,    10,    27,    73,    83
-"S14",         314,     0,     8,     8,   330,   343
+"S14",         315,     0,     8,     8,   331,   344
 "S15",          15,     0,     4,    16,    35, 78526
 "S16",         294,     0,     6,    16,   316,   344
 "S17",         701,     0,     5,    23,   729,   775
@@ -1851,10 +1850,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1867,     0,     4,    76,  1947,  1947
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         343,     0,     3,     3,   349,   349
-"S32",        9737,     0,   193,   175, 10105,  8443
-"int",        1257,     0,    11,    15,  1283,  1274
+"S32",        9738,     0,   193,   175, 10106,  8444
+"int",        1249,     8,    11,    15,  1283,  1274
 "ros",           2,     0,     0,     0,     2,     2
-"total",     36625,     1,   798,  1549, 38973,116586
+"total",     36627,     9,   798,  1548, 38982,116595
 ----------------
 Failure summary:
 S03-junctions/misc.rakudo.jvm 131 - Do not try to auto-thread Junction type object (only case)
+integration/advent2012-day04.t aborted 8 test(s)
