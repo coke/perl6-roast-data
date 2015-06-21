@@ -3,12 +3,13 @@
 # default to sysperl
 PATH=/usr/local/bin:$PATH
 
-rm -rf rakudo.moar-jit
-git clone repos/rakudo.git rakudo.moar-jit
-git clone repos/nqp.git rakudo.moar-jit/nqp
-git clone repos/MoarVM.git rakudo.moar-jit/nqp/MoarVM
-git clone repos/roast.git rakudo.moar-jit/t/spec
-cd rakudo.moar-jit
+WORKDIR=rakudo.moar-jit
+rm -rf $WORKDIR
+git clone repos/rakudo.git $WORKDIR
+git clone repos/nqp.git $WORKDIR/nqp
+git clone repos/MoarVM.git $WORKDIR/nqp/MoarVM
+git clone repos/roast.git $WORKDIR/t/spec
+cd $WORKDIR
 perl Configure.pl --gen-moar --gen-nqp --backends=moar
 make -j all
 
