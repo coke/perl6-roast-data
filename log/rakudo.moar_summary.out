@@ -230,21 +230,21 @@ S02-literals/underscores.t.........................  19    0    0    0   19
 S02-literals/version.rakudo.moar...................  27    0    3    0   30
      3 todo   : trailing zeroes fail RT \#124562
 S02-magicals/78258.t...............................   1    0    0    0    1
-S02-magicals/DISTRO.rakudo.moar....................Use of uninitialized value of type Blob in string context  in any  at src/gen/m-Metamodel.nqp:1643
+S02-magicals/DISTRO.rakudo.moar....................Use of uninitialized value of type Blob in string context  in any  at src/gen/m-Metamodel.nqp:1652
   12    0    2   14   28
     14 skipped: unimpl $?DISTRO RT #124616
      1 todo   : no Distro.signature yet RT \#124617
      1 todo   : no Distro.signature yet RT \#124621
-S02-magicals/KERNEL.rakudo.moar....................Use of uninitialized value of type Blob in string context  in any  at src/gen/m-Metamodel.nqp:1643
+S02-magicals/KERNEL.rakudo.moar....................Use of uninitialized value of type Blob in string context  in any  at src/gen/m-Metamodel.nqp:1652
 Use of uninitialized value of type Str in string context  in block <unit> at t/spec/S02-magicals/KERNEL.rakudo.moar:39
   20    0    3   16   39
     16 skipped: unimpl $?KERNEL RT #124624
      1 todo   : no Kernel.desc yet RT \#124626
      1 todo   : no Kernel.signature yet RT \#124625
      1 todo   : no Kernel.signature yet RT \#124627
-S02-magicals/PERL.rakudo.moar......................Use of uninitialized value of type Blob in string context  in any  at src/gen/m-Metamodel.nqp:1643
+S02-magicals/PERL.rakudo.moar......................Use of uninitialized value of type Blob in string context  in any  at src/gen/m-Metamodel.nqp:1652
 Use of uninitialized value of type Str in string context  in block <unit> at t/spec/S02-magicals/PERL.rakudo.moar:49
-Use of uninitialized value of type Blob in string context  in any  at src/gen/m-Metamodel.nqp:1643
+Use of uninitialized value of type Blob in string context  in any  at src/gen/m-Metamodel.nqp:1652
 Use of uninitialized value of type Str in string context  in block <unit> at t/spec/S02-magicals/PERL.rakudo.moar:68
   17    0    8   25   50
     25 skipped: unimpl $?PERL RT #124581
@@ -256,7 +256,7 @@ Use of uninitialized value of type Str in string context  in block <unit> at t/s
      1 todo   : no Perl.desc yet RT \#124585
      1 todo   : no Perl.signature yet RT \#124582
      1 todo   : no Perl.signature yet RT \#124588
-S02-magicals/VM.rakudo.moar........................Use of uninitialized value of type Blob in string context  in any  at src/gen/m-Metamodel.nqp:1643
+S02-magicals/VM.rakudo.moar........................Use of uninitialized value of type Blob in string context  in any  at src/gen/m-Metamodel.nqp:1652
   13    0    2   17   32
      2 skipped: VM.properties does not exist RT #124606
     15 skipped: unimpl $?VM RT #124608
@@ -317,14 +317,18 @@ S02-names/is_dynamic.t.............................  22    0    0    0   22
 S02-names/name.t...................................  15    0    0    0   15
 S02-names/our.rakudo.moar..........................   9    0    0    1   10
      1 skipped: OUR::subname() does not work
-S02-names/pseudo.rakudo.moar.......................WARNING: unhandled Failure detected in DESTROY:
-No such symbol 'OUR::A43'
-  in block <unit> at t/spec/S02-names/pseudo.rakudo.moar:184
+S02-names/pseudo.rakudo.moar.......................Saw 1 occurrence of deprecated code.
+================================================================================
+$*PROGRAM_NAME seen at:
+  /home/coke/sandbox/perl6-roast-data/rakudo.moar/t/spec/S02-names/pseudo.rakudo.moar, line 252
+Deprecated since v2015.6, will be removed with release v2015.9!
+Please use $*PROGRAM-NAME instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these occurrences of deprecated code
+adapted, so that this message will disappear!
 
-WARNING: unhandled Failure detected in DESTROY:
-No such symbol 'OUR::A42'
-  in block <unit> at t/spec/S02-names/pseudo.rakudo.moar:180
-
+Please note that *ALL* deprecated features will be removed at the RC-0 release
+(expected September 2015).
   52    0    8   82  142
     19 skipped: CORE NYI RT #124916
      4 skipped: the binding in here is NYI RT #124914
@@ -628,7 +632,7 @@ S03-operators/andthen.t............................   8    0    0    0    8
 S03-operators/arith.rakudo.moar....................Use of uninitialized value of type Int in numeric context  in block  at t/spec/S03-operators/arith.rakudo.moar:380
  157    0    0    0  157
 S03-operators/assign-is-not-binding.t..............   9    0    0    0    9
-S03-operators/assign.rakudo.moar................... 267    0   20   12  299
+S03-operators/assign.rakudo.moar................... 269    0   20   12  301
      1 skipped: Odd number of elements found where hash expected RT #124530
      2 skipped: RT #76734
      2 skipped: cannot modifiy an immutable value RT #124533
@@ -760,23 +764,23 @@ S03-operators/inplace.rakudo.moar..................  23    0    0    4   27
      4 skipped: Method '' not found for invocant of class 'Str' RT #124528
 S03-operators/is-divisible-by.rakudo.moar..........WARNING: unhandled Failure detected in DESTROY:
 Attempt to divide 9 by zero using infix:<%%>
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1231
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1227
-  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1195
-  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1145
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1706
-  in any visit_want at src/gen/m-Perl6-Optimizer.nqp:1546
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1709
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1724
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1718
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1233
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1229
+  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1197
+  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1147
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1708
+  in any visit_want at src/gen/m-Perl6-Optimizer.nqp:1548
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1711
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1726
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1720
   in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1715
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1718
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1724
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1717
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1720
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1726
   in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1715
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1718
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1724
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1717
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1720
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1726
   in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
   in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
   in any optimize at src/Perl6/Compiler.nqp:64
@@ -973,9 +977,8 @@ S04-phasers/check.t................................   5    0    0    0    5
 S04-phasers/descending-order.t.....................   7    0    0    0    7
 S04-phasers/end.rakudo.moar........................   6    0    2    0    8
      2 todo   : lexicals and EVAL() RT \#124963
-S04-phasers/enter-leave.rakudo.moar................  21    0    3    1   25
+S04-phasers/enter-leave.rakudo.moar................  22    0    2    1   25
      1 skipped: leave NYI RT #124960
-     1 todo   : RT \#113950
      1 todo   : is this spec? why would LEAVE not see outer $!? fossil?
      1 todo   : unwind, RT \#121530
 S04-phasers/eval-in-begin.t........................   3    0    0    0    3
@@ -1289,11 +1292,7 @@ S05-modifier/continue.t............................Use of Nil in string context 
   13    0    0    0   13
 S05-modifier/counted-match.rakudo.moar.............  16    0    0    6   22
      6 skipped: hangs RT #125026
-S05-modifier/counted.t.............................WARNING: unhandled Failure detected in DESTROY:
-Attempt to retrieve negative match :nth(0)
-  in block <unit> at t/spec/S05-modifier/counted.t:25
-
- 119    0    0    0  119
+S05-modifier/counted.t............................. 119    0    0    0  119
 S05-modifier/global.t..............................   8    0    0    0    8
 S05-modifier/ignorecase-and-ignoremark.t...........  15    0    0    0   15
 S05-modifier/ignorecase.rakudo.moar................  23    0    2    0   25
@@ -1481,11 +1480,8 @@ S06-signature/introspection.rakudo.moar............  53    0    0    1   54
      1 skipped: expected Any but got Mu instead
 S06-signature/mixed-placeholders.t.................  18    0    0    0   18
 S06-signature/multidimensional.t...................  10    0    0    0   10
-S06-signature/named-parameters.rakudo.moar.........  72    0    0   21   93
-     1 skipped: Not enough positional parameters passed; got 0 but expected 1
-     3 skipped: multiple same-named arguments NYI
-    13 skipped: multiple same-named arguments NYI RT #124921
-     4 skipped: where constraints RT #124922
+S06-signature/named-parameters.rakudo.moar.........  77    0    0   16   93
+    16 skipped: multiple same-named arguments NYI RT #124921
 S06-signature/named-placeholders.t.................   3    0    0    0    3
 S06-signature/named-renaming.t.....................  11    0    0    0   11
 S06-signature/optional.t...........................  28    0    0    0   28
@@ -1536,7 +1532,7 @@ S06-traits/is-readonly.rakudo.moar.................useless use of 'is readonly' 
    2    0    1    0    3
      1 todo   : readonly attributes
 S06-traits/is-rw.rakudo.moar.......................   5    0    2    0    7
-     1 todo   : Depends on preceding test working RT \#124641
+     1 todo   : Depends on preceding test working RT \#124640
      1 todo   : RT \#124640
 S06-traits/misc.rakudo.moar........................  17    0    2    0   19
      2 todo   : is readonly does not override
@@ -1607,7 +1603,7 @@ S10-packages/precompilation.rakudo.moar............Use of uninitialized value $_
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-1077-231533.code:4
+#   in block <unit> at getout-31122-29464.code:4
 
 
 Saw 1 occurrence of deprecated code.
@@ -1662,9 +1658,9 @@ S12-attributes/clone.rakudo.moar...................  33    0    2    0   35
 S12-attributes/defaults.t..........................  34    0    0    0   34
 S12-attributes/delegation.t........................  65    0    0    0   65
 S12-attributes/inheritance.t.......................   7    0    0    0    7
-S12-attributes/instance.rakudo.moar................Use of uninitialized value of type Any in string context  in block  at t/spec/S12-attributes/instance.rakudo.moar:487
-Use of uninitialized value of type Any in string context  in block  at t/spec/S12-attributes/instance.rakudo.moar:487
-Use of uninitialized value @!a of type Int in string context  in block  at t/spec/S12-attributes/instance.rakudo.moar:487
+S12-attributes/instance.rakudo.moar................Use of uninitialized value of type Any in string context  in block  at t/spec/S12-attributes/instance.rakudo.moar:486
+Use of uninitialized value of type Any in string context  in block  at t/spec/S12-attributes/instance.rakudo.moar:486
+Use of uninitialized value @!a of type Int in string context  in block  at t/spec/S12-attributes/instance.rakudo.moar:486
 Use of uninitialized value %!h of type Int in string context  in block  at lib/Test.pm:134
 Use of uninitialized value %!h of type Int in string context  in block  at lib/Test.pm:134
 Use of uninitialized value %!h of type Int in string context  in block  at lib/Test.pm:134
@@ -1680,7 +1676,7 @@ Use of uninitialized value %!h of type Int in string context  in block  at lib/T
 Saw 1 occurrence of deprecated code.
 ================================================================================
 %!h = itemized hash seen at:
-  t/spec/S12-attributes/instance.rakudo.moar, line 499
+  t/spec/S12-attributes/instance.rakudo.moar, line 498
 Deprecated since v2014.7, will be removed with release v2015.7!
 Please use %!h = %(itemized hash) instead.
 --------------------------------------------------------------------------------
@@ -1689,10 +1685,9 @@ adapted, so that this message will disappear!
 
 Please note that *ALL* deprecated features will be removed at the RC-0 release
 (expected September 2015).
- 137    0    7    3  147
-     2 skipped: RT #120059
+ 138    0    8    1  147
      1 skipped: dubious test - the initializer becomes a submethod here, implying a scope RT #124908
-     1 todo   : RT \#118559
+     2 todo   : RT \#118559
      1 todo   : huh?
      1 todo   : over-eager auto-vivification bugs
      2 todo   : ro array/hash with accessor
@@ -1880,7 +1875,7 @@ S14-roles/conflicts.t..............................  11    0    0    0   11
 S14-roles/crony.t..................................   4    0    0    0    4
 S14-roles/instantiation.t..........................  19    0    0    0   19
 S14-roles/lexical.t................................   9    0    0    0    9
-S14-roles/mixin.rakudo.moar........................Use of uninitialized value of type Any in string context  in any try_select at src/gen/m-Metamodel.nqp:2429
+S14-roles/mixin.rakudo.moar........................Use of uninitialized value of type Any in string context  in any try_select at src/gen/m-Metamodel.nqp:2438
   34    0    0    2   36
      2 skipped: mixin at the point of declaration is compile time RT #124747
 S14-roles/namespaced.rakudo.moar...................   2    0    1    0    3
@@ -1890,11 +1885,11 @@ S14-roles/parameterized-basic.t....................  36    0    0    0   36
 S14-roles/parameterized-mixin.rakudo.moar..........  24    0    4    0   28
      4 todo   : .does with parametric roles RT \#124746
 S14-roles/parameterized-type.t.....................  32    0    0    0   32
-S14-roles/stubs.t..................................Use of uninitialized value of type Any in string context  in any try_select at src/gen/m-Metamodel.nqp:2429
+S14-roles/stubs.t..................................Use of uninitialized value of type Any in string context  in any try_select at src/gen/m-Metamodel.nqp:2438
   10    0    0    0   10
 S14-roles/submethods.t.............................   4    0    0    0    4
 S14-traits/attributes.t............................   8    0    0    0    8
-S14-traits/routines.rakudo.moar....................  12    0    1    0   13
+S14-traits/routines.rakudo.moar....................  14    0    1    0   15
      1 todo   : trait mod / .wrap interaction
                                                    pass fail todo skip plan
 S15-nfg/case-change.t..............................  20    0    0    0   20
@@ -1971,12 +1966,24 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  10    0    0    0   10
-S16-filehandles/chmod.t............................# Using file temp_1434810669
-# Using file temp_1434810669
+S16-filehandles/chmod.t............................# Using file temp_1434897071
+# Using file temp_1434897071
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
-S16-filehandles/filetest.rakudo.moar...............  34    0    0    9   43
+S16-filehandles/filetest.rakudo.moar...............Saw 1 occurrence of deprecated code.
+================================================================================
+$*EXECUTABLE_NAME seen at:
+  /home/coke/sandbox/perl6-roast-data/rakudo.moar/t/spec/S16-filehandles/filetest.rakudo.moar, lines 37,38,41
+Deprecated since v2015.6, will be removed with release v2015.9!
+Please use $*EXECUTABLE-NAME instead.
+--------------------------------------------------------------------------------
+Please contact the author to have these occurrences of deprecated code
+adapted, so that this message will disappear!
+
+Please note that *ALL* deprecated features will be removed at the RC-0 release
+(expected September 2015).
+  34    0    0    9   43
      6 skipped: :M, :C, :A
      3 skipped: no file README
 S16-filehandles/io.rakudo.moar..................... 110    0    2    0  112
@@ -2015,14 +2022,7 @@ S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   7    0    0    0    7
-S17-lowlevel/lock.rakudo.moar......................
-# Failed test 'Condition variable worked'
-# at t/spec/S17-lowlevel/lock.rakudo.moar line 87
-# expected: 'ale,porter,stout'
-#      got: 'ale,porter'
-# log = ale porter stout, thread was running *after* join
-# Looks like you failed 1 test of 8
-   6    1    0    1    8
+S17-lowlevel/lock.rakudo.moar......................   7    0    0    1    8
      1 skipped: not sure this test is valid RT #124793
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.rakudo.moar....................  27    0    0    3   30
@@ -2175,7 +2175,13 @@ S17-supply/stable.rakudo.moar......................# **** scheduling with Thread
 # **** scheduling with CurrentThreadScheduler
    5    0    0    2    7
      2 skipped: doesn't work or can't test RT #124822
-S17-supply/start.t.................................   9    0    0    0    9
+S17-supply/start.t.................................
+# Failed test 'did we get the other original value'
+# at t/spec/S17-supply/start.t line 34
+# expected: [1, 1]
+#      got: [1, 1]
+# Looks like you failed 1 test of 9
+   8    1    0    0    9
 S17-supply/unique.t................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
   17    0    0    0   17
@@ -2223,7 +2229,7 @@ S26-documentation/06-lists.t.......................  39    0    0    0   39
 S26-documentation/07-tables.t......................  38    0    0    0   38
 S26-documentation/08-formattingcodes.t.............  45    0    0    0   45
 S26-documentation/09-configuration.rakudo.moar.....  13    0    0    4   17
-     4 skipped: non-string colonpair pod options RT #124970
+     4 skipped: non-string colonpair pod options RT #124281
 S26-documentation/10-doc-cli.t.....................   2    0    0    0    2
 S26-documentation/block-leading.t.................. 320    0    0   14  334
      7 skipped: declaration comments are NYI on constants
@@ -2363,15 +2369,20 @@ S32-hash/kv.t......................................  27    0    0    0   27
 S32-hash/pairs.rakudo.moar.........................Use of uninitialized value %rt117935 of type Any in string context  in block  at lib/Test.pm:134
 Use of uninitialized value $!value of type Any in string context  in block  at lib/Test.pm:134
   24    0    1    0   25
-     1 todo   : Rakudo seems to make a copy rather than a reference
+     1 todo   : Rakudo seems to make a copy rather than a reference, RT \#124640
 S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.moar.........................  19    0   10    0   29
      6 todo   : binding on hash elements unimplemented
      2 todo   : binding on hash elements unimplemented RT \#124779
      2 todo   : binding on hash elements unimplemented RT \#124780
-S32-io/IO-Socket-INET.t............................Saw 1 occurrence of deprecated code.
+S32-io/IO-Socket-INET.t............................Saw 2 occurrences of deprecated code.
 ================================================================================
+$*EXECUTABLE_NAME seen at:
+  /home/coke/sandbox/perl6-roast-data/rakudo.moar/t/spec/S32-io/IO-Socket-INET.t, lines 69,70
+Deprecated since v2015.6, will be removed with release v2015.9!
+Please use $*EXECUTABLE-NAME instead.
+--------------------------------------------------------------------------------
 Sub skip_rest (from Test) seen at:
   t/spec/S32-io/IO-Socket-INET.t, line 42
 Deprecated since v2015.5, will be removed with release v2015.9!
@@ -2947,14 +2958,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# gerdr: 0.9207883 seconds
-# kaz: 1.1001660 seconds
-# recursive-ternary: 1.17349020 seconds
-# loop: 1.3467132 seconds
-# hand-memoization: 1.58559048 seconds
-# recursive-ternary-hand-cached: 2.7092035 seconds
-# sequence-ternary: 6.0539580 seconds
-# sequence: 8.1480898 seconds
+integration/advent2012-day21.t.....................# loop: 1.0522695 seconds
+# gerdr: 1.087169 seconds
+# kaz: 1.0927819 seconds
+# recursive-ternary: 1.1467296 seconds
+# hand-memoization: 1.5644661 seconds
+# recursive-ternary-hand-cached: 2.6980854 seconds
+# sequence-ternary: 6.30913927 seconds
+# sequence: 8.18837505 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT \#121789
@@ -3103,7 +3114,7 @@ integration/say-crash.t............................   4    0    0    0    4
 integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 integration/topic_in_double_loop.t.................   5    0    0    0    5
 integration/variables-in-do.t......................   3    0    0    0    3
-integration/weird-errors.t.........................  15    0    0    0   15
+integration/weird-errors.t.........................  16    0    0    0   16
                                                    pass fail todo skip plan
 rosettacode/greatest_element_of_a_list.t...........   1    0    0    0    1
 rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
@@ -3111,17 +3122,17 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
 "S02",        5288,     0,   131,   386,  5805,  5804
-"S03",        5238,     0,   119,    99,  5456,  5474
-"S04",        1144,     0,    48,    44,  1236,  1276
+"S03",        5240,     0,   119,    99,  5458,  5476
+"S04",        1145,     0,    47,    44,  1236,  1276
 "S05",        5558,     0,    84,   144,  5786,  6005
-"S06",        1387,     0,    47,    97,  1531,  1602
+"S06",        1392,     0,    47,    92,  1531,  1602
 "S07",           0,     0,     0,     0,     0,    96
 "S09",        1896,     0,    12,   101,  2009,  2009
 "S10",         102,     0,     5,     1,   108,   165
 "S11",         110,     0,     4,    14,   128,   147
-"S12",        1479,     0,    43,   123,  1645,  1700
+"S12",        1480,     0,    44,   121,  1645,  1700
 "S13",          36,     0,    10,    27,    73,    83
-"S14",         316,     0,     8,     7,   331,   344
+"S14",         318,     0,     8,     7,   333,   346
 "S15",       78485,     0,     3,    18, 78506, 78526
 "S16",         298,     0,     2,    16,   316,   344
 "S17",         978,     1,    35,    31,  1045,  1045
@@ -3132,10 +3143,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S28",          13,     0,     0,     0,    13,    13
 "S29",         344,     0,     3,     2,   349,   349
 "S32",        9905,     0,   201,   155, 10261,  8594
-"int",        1253,     8,    12,    15,  1288,  1274
+"int",        1254,     8,    12,    15,  1289,  1275
 "ros",           2,     0,     0,     0,     2,     2
-"total",    115754,     9,   771,  1431,117965,117015
+"total",    115766,     9,   771,  1424,117970,117020
 ----------------
 Failure summary:
-S17-lowlevel/lock.rakudo.moar 7 - Condition variable worked
+S17-supply/start.t 9 - did we get the other original value
 integration/advent2012-day04.t aborted 8 test(s)
