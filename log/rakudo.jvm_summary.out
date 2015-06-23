@@ -217,7 +217,7 @@ S02-types/declare.rakudo.jvm.......................  59    0    0   12   71
      1 skipped: complex NYI RT #124463
      1 skipped: num16  NYI RT #124481
      1 skipped: rat NYI RT #124464
-S02-types/deprecations.t...........................   1    1    0    0    2
+S02-types/deprecations.t...........................   2    0    0    0    2
 S02-types/fatrat.t.................................   1    0    0    0    1
 S02-types/flattening.t.............................  41    0    0    0   41
 S02-types/hash.rakudo.jvm..........................  94    0    1    0   95
@@ -518,8 +518,7 @@ S04-exception-handlers/catch.t.....................  30    0    0    0   30
 S04-exception-handlers/control.t...................  10    0    0    0   10
 S04-exception-handlers/top-level.t.................   1    0    0    0    1
 S04-exceptions/control_across_runloop.t............   1    0    0    0    1
-S04-exceptions/fail.rakudo.jvm.....................  25    0    0    2   27
-     2 skipped: RT #64990
+S04-exceptions/fail.t..............................  27    0    0    0   27
 S04-exceptions/pending.rakudo.jvm..................   6    0    1   14   21
     13 skipped: $!.pending
      1 skipped: $object.handled
@@ -1086,7 +1085,7 @@ S12-enums/misc.rakudo.jvm..........................  15    0    0    1   16
 S12-enums/non-int.rakudo.jvm.......................   5    0    1    0    6
      1 todo   : NYI RT \#124833
 S12-enums/pseudo-functional.t......................  11    0    0    0   11
-S12-enums/thorough.rakudo.jvm......................  14    0    0   20   34
+S12-enums/thorough.rakudo.jvm......................  16    0    0   20   36
      2 skipped: NYI RT #124829
     16 skipped: does &day::("Tue") RT #124831
      2 skipped: does day::Tue RT #124830
@@ -1136,10 +1135,11 @@ S12-methods/instance.t.............................  39    0    0    0   39
 S12-methods/lastcall.t.............................   6    0    0    0    6
 S12-methods/lvalue.t...............................  16    0    0    0   16
 S12-methods/method-vs-sub.t........................   5    0    0    0    5
-S12-methods/multi.rakudo.jvm.......................  26    0    1    5   32
+S12-methods/multi.rakudo.jvm.......................  27    0    2    5   34
      2 skipped: proto does not promote to multi RT #118069
      3 skipped: unknown bug RT #124848
      1 todo   : RT \#66006
+     1 todo   : RT \#74646
 S12-methods/parallel-dispatch.rakudo.jvm...........  32    0    4    1   37
      1 skipped: No such method postcircumfix:<( )> for invocant of type Pair RT #124513
      4 todo   : is-deeply does not think map results are the same as list on LHS
@@ -1359,13 +1359,13 @@ S26-documentation/wacky.t..........................  24    0    4    2   30
      1 todo   : being picky about attaching of declarative comments NYI
      1 todo   : comment betwixt signature and block WIP
      2 todo   : two attrs on a line WIP
-S26-documentation/why-both.t....................... 263    0    0   14  277
+S26-documentation/why-both.t....................... 270    0    0   14  284
      7 skipped: declaration comments are NYI on constants
      7 skipped: declaration comments are NYI on variables
-S26-documentation/why-leading.t.................... 327    0    0   14  341
+S26-documentation/why-leading.t.................... 334    0    0   14  348
      7 skipped: declaration comments are NYI on constants
      7 skipped: declaration comments are NYI on variables
-S26-documentation/why-trailing.t................... 320    0    0   14  334
+S26-documentation/why-trailing.t................... 327    0    0   14  341
      7 skipped: declaration comments are NYI on constants
      7 skipped: declaration comments are NYI on variables
                                                    pass fail todo skip plan
@@ -1392,7 +1392,7 @@ S29-os/system.t....................................   6    0    0    0    6
 S32-array/bool.t...................................  15    0    0    0   15
 S32-array/create.t.................................   6    0    0    0    6
 S32-array/delete-adverb-native.t................... 138    0    0    0  138
-S32-array/delete-adverb.t.......................... 216    0    0    0  216
+S32-array/delete-adverb.t.......................... 218    0    0    0  218
 S32-array/delete.t.................................  31    0    0    0   31
 S32-array/elems.t..................................  11    0    0    0   11
 S32-array/end.t....................................  12    0    0    0   12
@@ -1824,16 +1824,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        5250,     1,   143,   411,  5805,  5804
+"S02",        5251,     0,   143,   411,  5805,  5804
 "S03",        5241,     1,   119,    99,  5460,  5478
-"S04",        1139,     0,    50,    47,  1236,  1276
+"S04",        1141,     0,    50,    45,  1236,  1276
 "S05",        5450,     0,    96,   210,  5756,  6005
 "S06",        1379,     0,    50,   102,  1531,  1602
 "S07",           0,     0,     0,     0,     0,    96
 "S09",        1898,     0,    12,   101,  2011,  2011
 "S10",         101,     0,     6,     1,   108,   165
 "S11",          88,     0,    26,    14,   128,   147
-"S12",        1472,     0,    52,   121,  1645,  1700
+"S12",        1475,     0,    53,   121,  1649,  1704
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         317,     0,     8,     8,   333,   346
 "S15",          15,     0,     4,    16,    35, 78526
@@ -1842,15 +1842,14 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S19",          13,     0,     0,     0,    13,    17
 "S22",          23,     0,     0,     1,    24,    24
 "S24",          18,     0,     0,     0,    18,    89
-"S26",        1867,     0,     4,    76,  1947,  1947
+"S26",        1888,     0,     4,    76,  1968,  1968
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         343,     0,     3,     3,   349,   349
-"S32",        9738,     0,   193,   175, 10106,  8444
+"S32",        9740,     0,   193,   175, 10108,  8446
 "int",        1250,     8,    11,    15,  1284,  1275
 "ros",           2,     0,     0,     0,     2,     2
-"total",     36642,    10,   798,  1541, 38991,116604
+"total",     36671,     9,   799,  1539, 39018,116631
 ----------------
 Failure summary:
-S02-types/deprecations.t 1 - deprecation $*OS and $*OSVER
 S03-junctions/misc.rakudo.jvm 131 - Do not try to auto-thread Junction type object (only case)
 integration/advent2012-day04.t aborted 8 test(s)
