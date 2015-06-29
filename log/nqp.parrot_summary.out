@@ -1,3 +1,562 @@
+cd src/vm/parrot/ops && /home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot-ops2c C --dynamic nqp.ops
+# Parsing nqp.ops...
+# Parsed nqp.ops in 5.167 seconds; found 351 ops.
+# Ops parsed in 5.168 seconds.
+cd src/vm/parrot/ops && cc -c -o nqp_ops.o -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 nqp_ops.c
+nqp_ops.c: In function ‘nqp_nfa_run’:
+nqp_ops.c:281:17: warning: switch missing default case [-Wswitch-default]
+                 switch (act) {
+                 ^
+In file included from nqp_ops.c:50:0:
+nqp_ops.c: In function ‘Parrot_nqp_nfa_run_proto_p_p_s_i’:
+../6model/sixmodelobject.h:475:26: warning: passing argument 2 of ‘nqp_nfa_run’ from incompatible pointer type
+ #define OBJECT_BODY(o)   (&(((SixModelObjectStooge *)PMC_data(o))->data))
+                          ^
+nqp_ops.c:9577:43: note: in expansion of macro ‘OBJECT_BODY’
+     INTVAL  * fates = nqp_nfa_run(interp, OBJECT_BODY(PREG(2)), SREG(3), IREG(4), (&total_fates));
+                                           ^
+nqp_ops.c:176:17: note: expected ‘struct NFABody *’ but argument is of type ‘void **’
+ static INTVAL * nqp_nfa_run(PARROT_INTERP, NFABody *nfa, STRING *target, INTVAL offset, INTVAL *total_fates_out) {
+                 ^
+In file included from nqp_ops.c:50:0:
+nqp_ops.c: In function ‘Parrot_nqp_nfa_run_proto_p_p_sc_i’:
+../6model/sixmodelobject.h:475:26: warning: passing argument 2 of ‘nqp_nfa_run’ from incompatible pointer type
+ #define OBJECT_BODY(o)   (&(((SixModelObjectStooge *)PMC_data(o))->data))
+                          ^
+nqp_ops.c:9594:43: note: in expansion of macro ‘OBJECT_BODY’
+     INTVAL  * fates = nqp_nfa_run(interp, OBJECT_BODY(PREG(2)), SCONST(3), IREG(4), (&total_fates));
+                                           ^
+nqp_ops.c:176:17: note: expected ‘struct NFABody *’ but argument is of type ‘void **’
+ static INTVAL * nqp_nfa_run(PARROT_INTERP, NFABody *nfa, STRING *target, INTVAL offset, INTVAL *total_fates_out) {
+                 ^
+In file included from nqp_ops.c:50:0:
+nqp_ops.c: In function ‘Parrot_nqp_nfa_run_proto_p_p_s_ic’:
+../6model/sixmodelobject.h:475:26: warning: passing argument 2 of ‘nqp_nfa_run’ from incompatible pointer type
+ #define OBJECT_BODY(o)   (&(((SixModelObjectStooge *)PMC_data(o))->data))
+                          ^
+nqp_ops.c:9611:43: note: in expansion of macro ‘OBJECT_BODY’
+     INTVAL  * fates = nqp_nfa_run(interp, OBJECT_BODY(PREG(2)), SREG(3), ICONST(4), (&total_fates));
+                                           ^
+nqp_ops.c:176:17: note: expected ‘struct NFABody *’ but argument is of type ‘void **’
+ static INTVAL * nqp_nfa_run(PARROT_INTERP, NFABody *nfa, STRING *target, INTVAL offset, INTVAL *total_fates_out) {
+                 ^
+In file included from nqp_ops.c:50:0:
+nqp_ops.c: In function ‘Parrot_nqp_nfa_run_proto_p_p_sc_ic’:
+../6model/sixmodelobject.h:475:26: warning: passing argument 2 of ‘nqp_nfa_run’ from incompatible pointer type
+ #define OBJECT_BODY(o)   (&(((SixModelObjectStooge *)PMC_data(o))->data))
+                          ^
+nqp_ops.c:9628:43: note: in expansion of macro ‘OBJECT_BODY’
+     INTVAL  * fates = nqp_nfa_run(interp, OBJECT_BODY(PREG(2)), SCONST(3), ICONST(4), (&total_fates));
+                                           ^
+nqp_ops.c:176:17: note: expected ‘struct NFABody *’ but argument is of type ‘void **’
+ static INTVAL * nqp_nfa_run(PARROT_INTERP, NFABody *nfa, STRING *target, INTVAL offset, INTVAL *total_fates_out) {
+                 ^
+In file included from nqp_ops.c:50:0:
+nqp_ops.c: In function ‘Parrot_nqp_nfa_run_alt_p_s_i_p_p_p’:
+../6model/sixmodelobject.h:475:26: warning: passing argument 2 of ‘nqp_nfa_run’ from incompatible pointer type
+ #define OBJECT_BODY(o)   (&(((SixModelObjectStooge *)PMC_data(o))->data))
+                          ^
+nqp_ops.c:9651:43: note: in expansion of macro ‘OBJECT_BODY’
+     INTVAL  * fates = nqp_nfa_run(interp, OBJECT_BODY(nfa), target, offset, (&total_fates));
+                                           ^
+nqp_ops.c:176:17: note: expected ‘struct NFABody *’ but argument is of type ‘void **’
+ static INTVAL * nqp_nfa_run(PARROT_INTERP, NFABody *nfa, STRING *target, INTVAL offset, INTVAL *total_fates_out) {
+                 ^
+In file included from nqp_ops.c:50:0:
+nqp_ops.c: In function ‘Parrot_nqp_nfa_run_alt_p_sc_i_p_p_p’:
+../6model/sixmodelobject.h:475:26: warning: passing argument 2 of ‘nqp_nfa_run’ from incompatible pointer type
+ #define OBJECT_BODY(o)   (&(((SixModelObjectStooge *)PMC_data(o))->data))
+                          ^
+nqp_ops.c:9675:43: note: in expansion of macro ‘OBJECT_BODY’
+     INTVAL  * fates = nqp_nfa_run(interp, OBJECT_BODY(nfa), target, offset, (&total_fates));
+                                           ^
+nqp_ops.c:176:17: note: expected ‘struct NFABody *’ but argument is of type ‘void **’
+ static INTVAL * nqp_nfa_run(PARROT_INTERP, NFABody *nfa, STRING *target, INTVAL offset, INTVAL *total_fates_out) {
+                 ^
+In file included from nqp_ops.c:50:0:
+nqp_ops.c: In function ‘Parrot_nqp_nfa_run_alt_p_s_ic_p_p_p’:
+../6model/sixmodelobject.h:475:26: warning: passing argument 2 of ‘nqp_nfa_run’ from incompatible pointer type
+ #define OBJECT_BODY(o)   (&(((SixModelObjectStooge *)PMC_data(o))->data))
+                          ^
+nqp_ops.c:9699:43: note: in expansion of macro ‘OBJECT_BODY’
+     INTVAL  * fates = nqp_nfa_run(interp, OBJECT_BODY(nfa), target, offset, (&total_fates));
+                                           ^
+nqp_ops.c:176:17: note: expected ‘struct NFABody *’ but argument is of type ‘void **’
+ static INTVAL * nqp_nfa_run(PARROT_INTERP, NFABody *nfa, STRING *target, INTVAL offset, INTVAL *total_fates_out) {
+                 ^
+In file included from nqp_ops.c:50:0:
+nqp_ops.c: In function ‘Parrot_nqp_nfa_run_alt_p_sc_ic_p_p_p’:
+../6model/sixmodelobject.h:475:26: warning: passing argument 2 of ‘nqp_nfa_run’ from incompatible pointer type
+ #define OBJECT_BODY(o)   (&(((SixModelObjectStooge *)PMC_data(o))->data))
+                          ^
+nqp_ops.c:9723:43: note: in expansion of macro ‘OBJECT_BODY’
+     INTVAL  * fates = nqp_nfa_run(interp, OBJECT_BODY(nfa), target, offset, (&total_fates));
+                                           ^
+nqp_ops.c:176:17: note: expected ‘struct NFABody *’ but argument is of type ‘void **’
+ static INTVAL * nqp_nfa_run(PARROT_INTERP, NFABody *nfa, STRING *target, INTVAL offset, INTVAL *total_fates_out) {
+                 ^
+nqp_ops.c: In function ‘Parrot_nqp_nfa_from_statelist_p_p_p’:
+nqp_ops.c:9749:5: warning: dereferencing type-punned pointer might break strict-aliasing rules [-Wstrict-aliasing]
+     nfa = (NFABody *)OBJECT_BODY(nfa_obj);
+     ^
+nqp_ops.c: In function ‘Parrot_nqp_openpipe_p_s_s_p_s’:
+nqp_ops.c:12672:31: warning: initialization from incompatible pointer type
+     const VTABLE  *  vtable = Parrot_io_get_vtable(interp, IO_VTABLE_PIPE, NULL);
+                               ^
+In file included from nqp_ops.c:47:0:
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc/pmc_filehandle.h:115:72: warning: assignment from incompatible pointer type
+             ((Parrot_FileHandle_attributes *)PMC_data(pmc))->io_vtable = (value); \
+                                                                        ^
+nqp_ops.c:12691:5: note: in expansion of macro ‘SETATTR_FileHandle_io_vtable’
+     SETATTR_FileHandle_io_vtable(interp, handle, vtable);
+     ^
+nqp_ops.c: In function ‘Parrot_nqp_openpipe_p_sc_s_p_s’:
+nqp_ops.c:12726:31: warning: initialization from incompatible pointer type
+     const VTABLE  *  vtable = Parrot_io_get_vtable(interp, IO_VTABLE_PIPE, NULL);
+                               ^
+In file included from nqp_ops.c:47:0:
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc/pmc_filehandle.h:115:72: warning: assignment from incompatible pointer type
+             ((Parrot_FileHandle_attributes *)PMC_data(pmc))->io_vtable = (value); \
+                                                                        ^
+nqp_ops.c:12745:5: note: in expansion of macro ‘SETATTR_FileHandle_io_vtable’
+     SETATTR_FileHandle_io_vtable(interp, handle, vtable);
+     ^
+nqp_ops.c: In function ‘Parrot_nqp_openpipe_p_s_sc_p_s’:
+nqp_ops.c:12780:31: warning: initialization from incompatible pointer type
+     const VTABLE  *  vtable = Parrot_io_get_vtable(interp, IO_VTABLE_PIPE, NULL);
+                               ^
+In file included from nqp_ops.c:47:0:
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc/pmc_filehandle.h:115:72: warning: assignment from incompatible pointer type
+             ((Parrot_FileHandle_attributes *)PMC_data(pmc))->io_vtable = (value); \
+                                                                        ^
+nqp_ops.c:12799:5: note: in expansion of macro ‘SETATTR_FileHandle_io_vtable’
+     SETATTR_FileHandle_io_vtable(interp, handle, vtable);
+     ^
+nqp_ops.c: In function ‘Parrot_nqp_openpipe_p_sc_sc_p_s’:
+nqp_ops.c:12834:31: warning: initialization from incompatible pointer type
+     const VTABLE  *  vtable = Parrot_io_get_vtable(interp, IO_VTABLE_PIPE, NULL);
+                               ^
+In file included from nqp_ops.c:47:0:
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc/pmc_filehandle.h:115:72: warning: assignment from incompatible pointer type
+             ((Parrot_FileHandle_attributes *)PMC_data(pmc))->io_vtable = (value); \
+                                                                        ^
+nqp_ops.c:12853:5: note: in expansion of macro ‘SETATTR_FileHandle_io_vtable’
+     SETATTR_FileHandle_io_vtable(interp, handle, vtable);
+     ^
+nqp_ops.c: In function ‘Parrot_nqp_openpipe_p_s_s_pc_s’:
+nqp_ops.c:12888:31: warning: initialization from incompatible pointer type
+     const VTABLE  *  vtable = Parrot_io_get_vtable(interp, IO_VTABLE_PIPE, NULL);
+                               ^
+In file included from nqp_ops.c:47:0:
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc/pmc_filehandle.h:115:72: warning: assignment from incompatible pointer type
+             ((Parrot_FileHandle_attributes *)PMC_data(pmc))->io_vtable = (value); \
+                                                                        ^
+nqp_ops.c:12907:5: note: in expansion of macro ‘SETATTR_FileHandle_io_vtable’
+     SETATTR_FileHandle_io_vtable(interp, handle, vtable);
+     ^
+nqp_ops.c: In function ‘Parrot_nqp_openpipe_p_sc_s_pc_s’:
+nqp_ops.c:12942:31: warning: initialization from incompatible pointer type
+     const VTABLE  *  vtable = Parrot_io_get_vtable(interp, IO_VTABLE_PIPE, NULL);
+                               ^
+In file included from nqp_ops.c:47:0:
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc/pmc_filehandle.h:115:72: warning: assignment from incompatible pointer type
+             ((Parrot_FileHandle_attributes *)PMC_data(pmc))->io_vtable = (value); \
+                                                                        ^
+nqp_ops.c:12961:5: note: in expansion of macro ‘SETATTR_FileHandle_io_vtable’
+     SETATTR_FileHandle_io_vtable(interp, handle, vtable);
+     ^
+nqp_ops.c: In function ‘Parrot_nqp_openpipe_p_s_sc_pc_s’:
+nqp_ops.c:12996:31: warning: initialization from incompatible pointer type
+     const VTABLE  *  vtable = Parrot_io_get_vtable(interp, IO_VTABLE_PIPE, NULL);
+                               ^
+In file included from nqp_ops.c:47:0:
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc/pmc_filehandle.h:115:72: warning: assignment from incompatible pointer type
+             ((Parrot_FileHandle_attributes *)PMC_data(pmc))->io_vtable = (value); \
+                                                                        ^
+nqp_ops.c:13015:5: note: in expansion of macro ‘SETATTR_FileHandle_io_vtable’
+     SETATTR_FileHandle_io_vtable(interp, handle, vtable);
+     ^
+nqp_ops.c: In function ‘Parrot_nqp_openpipe_p_sc_sc_pc_s’:
+nqp_ops.c:13050:31: warning: initialization from incompatible pointer type
+     const VTABLE  *  vtable = Parrot_io_get_vtable(interp, IO_VTABLE_PIPE, NULL);
+                               ^
+In file included from nqp_ops.c:47:0:
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc/pmc_filehandle.h:115:72: warning: assignment from incompatible pointer type
+             ((Parrot_FileHandle_attributes *)PMC_data(pmc))->io_vtable = (value); \
+                                                                        ^
+nqp_ops.c:13069:5: note: in expansion of macro ‘SETATTR_FileHandle_io_vtable’
+     SETATTR_FileHandle_io_vtable(interp, handle, vtable);
+     ^
+nqp_ops.c: In function ‘Parrot_nqp_openpipe_p_s_s_p_sc’:
+nqp_ops.c:13104:31: warning: initialization from incompatible pointer type
+     const VTABLE  *  vtable = Parrot_io_get_vtable(interp, IO_VTABLE_PIPE, NULL);
+                               ^
+In file included from nqp_ops.c:47:0:
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc/pmc_filehandle.h:115:72: warning: assignment from incompatible pointer type
+             ((Parrot_FileHandle_attributes *)PMC_data(pmc))->io_vtable = (value); \
+                                                                        ^
+nqp_ops.c:13123:5: note: in expansion of macro ‘SETATTR_FileHandle_io_vtable’
+     SETATTR_FileHandle_io_vtable(interp, handle, vtable);
+     ^
+nqp_ops.c: In function ‘Parrot_nqp_openpipe_p_sc_s_p_sc’:
+nqp_ops.c:13158:31: warning: initialization from incompatible pointer type
+     const VTABLE  *  vtable = Parrot_io_get_vtable(interp, IO_VTABLE_PIPE, NULL);
+                               ^
+In file included from nqp_ops.c:47:0:
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc/pmc_filehandle.h:115:72: warning: assignment from incompatible pointer type
+             ((Parrot_FileHandle_attributes *)PMC_data(pmc))->io_vtable = (value); \
+                                                                        ^
+nqp_ops.c:13177:5: note: in expansion of macro ‘SETATTR_FileHandle_io_vtable’
+     SETATTR_FileHandle_io_vtable(interp, handle, vtable);
+     ^
+nqp_ops.c: In function ‘Parrot_nqp_openpipe_p_s_sc_p_sc’:
+nqp_ops.c:13212:31: warning: initialization from incompatible pointer type
+     const VTABLE  *  vtable = Parrot_io_get_vtable(interp, IO_VTABLE_PIPE, NULL);
+                               ^
+In file included from nqp_ops.c:47:0:
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc/pmc_filehandle.h:115:72: warning: assignment from incompatible pointer type
+             ((Parrot_FileHandle_attributes *)PMC_data(pmc))->io_vtable = (value); \
+                                                                        ^
+nqp_ops.c:13231:5: note: in expansion of macro ‘SETATTR_FileHandle_io_vtable’
+     SETATTR_FileHandle_io_vtable(interp, handle, vtable);
+     ^
+nqp_ops.c: In function ‘Parrot_nqp_openpipe_p_sc_sc_p_sc’:
+nqp_ops.c:13266:31: warning: initialization from incompatible pointer type
+     const VTABLE  *  vtable = Parrot_io_get_vtable(interp, IO_VTABLE_PIPE, NULL);
+                               ^
+In file included from nqp_ops.c:47:0:
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc/pmc_filehandle.h:115:72: warning: assignment from incompatible pointer type
+             ((Parrot_FileHandle_attributes *)PMC_data(pmc))->io_vtable = (value); \
+                                                                        ^
+nqp_ops.c:13285:5: note: in expansion of macro ‘SETATTR_FileHandle_io_vtable’
+     SETATTR_FileHandle_io_vtable(interp, handle, vtable);
+     ^
+nqp_ops.c: In function ‘Parrot_nqp_openpipe_p_s_s_pc_sc’:
+nqp_ops.c:13320:31: warning: initialization from incompatible pointer type
+     const VTABLE  *  vtable = Parrot_io_get_vtable(interp, IO_VTABLE_PIPE, NULL);
+                               ^
+In file included from nqp_ops.c:47:0:
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc/pmc_filehandle.h:115:72: warning: assignment from incompatible pointer type
+             ((Parrot_FileHandle_attributes *)PMC_data(pmc))->io_vtable = (value); \
+                                                                        ^
+nqp_ops.c:13339:5: note: in expansion of macro ‘SETATTR_FileHandle_io_vtable’
+     SETATTR_FileHandle_io_vtable(interp, handle, vtable);
+     ^
+nqp_ops.c: In function ‘Parrot_nqp_openpipe_p_sc_s_pc_sc’:
+nqp_ops.c:13374:31: warning: initialization from incompatible pointer type
+     const VTABLE  *  vtable = Parrot_io_get_vtable(interp, IO_VTABLE_PIPE, NULL);
+                               ^
+In file included from nqp_ops.c:47:0:
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc/pmc_filehandle.h:115:72: warning: assignment from incompatible pointer type
+             ((Parrot_FileHandle_attributes *)PMC_data(pmc))->io_vtable = (value); \
+                                                                        ^
+nqp_ops.c:13393:5: note: in expansion of macro ‘SETATTR_FileHandle_io_vtable’
+     SETATTR_FileHandle_io_vtable(interp, handle, vtable);
+     ^
+nqp_ops.c: In function ‘Parrot_nqp_openpipe_p_s_sc_pc_sc’:
+nqp_ops.c:13428:31: warning: initialization from incompatible pointer type
+     const VTABLE  *  vtable = Parrot_io_get_vtable(interp, IO_VTABLE_PIPE, NULL);
+                               ^
+In file included from nqp_ops.c:47:0:
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc/pmc_filehandle.h:115:72: warning: assignment from incompatible pointer type
+             ((Parrot_FileHandle_attributes *)PMC_data(pmc))->io_vtable = (value); \
+                                                                        ^
+nqp_ops.c:13447:5: note: in expansion of macro ‘SETATTR_FileHandle_io_vtable’
+     SETATTR_FileHandle_io_vtable(interp, handle, vtable);
+     ^
+nqp_ops.c: In function ‘Parrot_nqp_openpipe_p_sc_sc_pc_sc’:
+nqp_ops.c:13482:31: warning: initialization from incompatible pointer type
+     const VTABLE  *  vtable = Parrot_io_get_vtable(interp, IO_VTABLE_PIPE, NULL);
+                               ^
+In file included from nqp_ops.c:47:0:
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc/pmc_filehandle.h:115:72: warning: assignment from incompatible pointer type
+             ((Parrot_FileHandle_attributes *)PMC_data(pmc))->io_vtable = (value); \
+                                                                        ^
+nqp_ops.c:13501:5: note: in expansion of macro ‘SETATTR_FileHandle_io_vtable’
+     SETATTR_FileHandle_io_vtable(interp, handle, vtable);
+     ^
+nqp_ops.c: In function ‘revquicksort’:
+nqp_ops.c:140:1: warning: stack usage is 1512 bytes [-Wstack-usage=]
+ revquicksort(INTVAL *arr, INTVAL elements) {
+ ^
+cd src/vm/parrot/6model && cc -c -o sixmodelobject.o -I../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 sixmodelobject.c
+cd src/vm/parrot/6model && cc -c -o repr_registry.o -I../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 repr_registry.c
+cd src/vm/parrot/6model && cc -c -o knowhow_bootstrapper.o -I../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 knowhow_bootstrapper.c
+cd src/vm/parrot/6model/reprs && cc -c -o KnowHOWREPR.o -I../../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 KnowHOWREPR.c
+cd src/vm/parrot/6model/reprs && cc -c -o P6opaque.o -I../../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 P6opaque.c
+cd src/vm/parrot/6model/reprs && cc -c -o P6int.o -I../../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 P6int.c
+P6int.c: In function ‘compose’:
+P6int.c:62:9: warning: switch missing default case [-Wswitch-default]
+         switch (repr_data->bits) {
+         ^
+cd src/vm/parrot/6model/reprs && cc -c -o P6str.o -I../../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 P6str.c
+cd src/vm/parrot/6model/reprs && cc -c -o P6num.o -I../../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 P6num.c
+P6num.c: In function ‘compose’:
+P6num.c:60:9: warning: switch missing default case [-Wswitch-default]
+         switch (repr_data->bits) {
+         ^
+cd src/vm/parrot/6model/reprs && cc -c -o HashAttrStore.o -I../../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 HashAttrStore.c
+cd src/vm/parrot/6model/reprs && cc -c -o Uninstantiable.o -I../../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 Uninstantiable.c
+cd src/vm/parrot/6model/reprs && cc -c -o NFA.o -I../../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 NFA.c
+cd src/vm/parrot/6model/reprs && cc -c -o VMArray.o -I../../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 VMArray.c
+cd src/vm/parrot/6model/reprs && cc -c -o VMHash.o -I../../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 VMHash.c
+cd src/vm/parrot/6model/reprs && cc -c -o VMIter.o -I../../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 VMIter.c
+cd src/vm/parrot/6model && cc -c -o serialization_context.o -I../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 serialization_context.c
+cd src/vm/parrot/6model && cc -c -o serialization.o -I../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 serialization.c
+cd src/vm/parrot/6model && cc -c -o base64.o -I../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 base64.c
+base64.c: In function ‘base64_decode’:
+base64.c:116:28: warning: ‘n[2]’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+  *data_len = q-data - (n[2]==-1) - (n[3]==-1);
+                            ^
+base64.c:116:41: warning: ‘n[3]’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+  *data_len = q-data - (n[2]==-1) - (n[3]==-1);
+                                         ^
+cd src/vm/parrot/6model && cc -c -o containers.o -I../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 containers.c
+cd src/vm/parrot/guts && cc -c -o multi_dispatch.o -I../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 multi_dispatch.c
+cd 3rdparty/sha1 && cc -c -o sha1.o -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 sha1.c
+sha1.c: In function ‘SHA1_Transform’:
+sha1.c:118:13: warning: cast discards ‘const’ qualifier from pointer target type [-Wcast-qual]
+     block = (CHAR64LONG16*)buffer;
+             ^
+sha1.c: In function ‘SHA1_Final’:
+sha1.c:205:26: warning: cast discards ‘const’ qualifier from pointer target type [-Wcast-qual]
+     SHA1_Update(context, (unsigned char *)"\200", 1);
+                          ^
+sha1.c:207:30: warning: cast discards ‘const’ qualifier from pointer target type [-Wcast-qual]
+         SHA1_Update(context, (unsigned char *)"\0", 1);
+                              ^
+cd src/vm/parrot/ops && cc -o nqp_ops.so nqp_ops.o ../6model/sixmodelobject.o ../6model/repr_registry.o ../6model/knowhow_bootstrapper.o ../6model/reprs/KnowHOWREPR.o ../6model/reprs/P6opaque.o ../6model/reprs/P6int.o ../6model/reprs/P6str.o ../6model/reprs/P6num.o ../6model/reprs/HashAttrStore.o ../6model/reprs/Uninstantiable.o ../6model/reprs/NFA.o ../6model/reprs/VMArray.o ../6model/reprs/VMHash.o ../6model/reprs/VMIter.o ../6model/serialization_context.o ../6model/base64.o ../6model/serialization.o ../guts/multi_dispatch.o ../6model/containers.o  ../../../../3rdparty/sha1/sha1.o -fstack-protector -L/usr/local/lib  -shared -O2 -L/usr/local/lib -fstack-protector -fPIC  -lnsl -ldl -lm -lcrypt -lutil -lpthread -lrt  -lffi  -L/usr/lib/x86_64-linux-gnu  -licuuc -licudata 
+cd src/vm/parrot/ops && /home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot-ops2c C --dynamic nqp_bigint.ops
+# Parsing nqp_bigint.ops...
+# Parsed nqp_bigint.ops in 1.421 seconds; found 58 ops.
+# Ops parsed in 1.421 seconds.
+cd src/vm/parrot/ops && cc -c -o nqp_bigint_ops.o -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -I../../../../3rdparty/libtommath -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 nqp_bigint_ops.c
+cd src/vm/parrot/6model/reprs && cc -c -o P6bigint.o -I../../../../../src/vm/parrot/pmc -I../../../../../3rdparty/libtommath -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 P6bigint.c
+cd src/vm/parrot/ops && cc -o nqp_bigint_ops.so nqp_bigint_ops.o ../../../../3rdparty/libtommath/*.o ../6model/reprs/P6bigint.o -fstack-protector -L/usr/local/lib  -shared -O2 -L/usr/local/lib -fstack-protector -fPIC  -lnsl -ldl -lm -lcrypt -lutil -lpthread -lrt  -lffi  -L/usr/lib/x86_64-linux-gnu  -licuuc -licudata 
+cd src/vm/parrot/ops && /home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot-ops2c C --dynamic nqp_dyncall.ops
+# Parsing nqp_dyncall.ops...
+# Parsed nqp_dyncall.ops in 1.147 seconds; found 13 ops.
+# Ops parsed in 1.148 seconds.
+cd src/vm/parrot/ops && cc -c -o nqp_dyncall_ops.o -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -I../../../../3rdparty/dyncall/dyncall -I../../../../3rdparty/dyncall/dyncallback -I../../../../3rdparty/dyncall/dynload -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 nqp_dyncall_ops.c
+nqp_dyncall_ops.c: In function ‘unmarshal_callback’:
+nqp_dyncall_ops.c:606:46: warning: passing argument 2 of ‘dcbNewCallback’ from incompatible pointer type
+         data->cb = dcbNewCallback(signature, &callback_handler, data);
+                                              ^
+In file included from ../6model/reprs/NativeCall.h:6:0,
+                 from nqp_dyncall_ops.c:45:
+../../../../3rdparty/dyncall/dyncallback/dyncall_callback.h:41:13: note: expected ‘char (*)(struct DCCallback *, struct DCArgs *, union DCValue *, void *)’ but argument is of type ‘char (*)(struct DCCallback *, struct DCArgs *, union DCValue *, struct CallbackData *)’
+ DCCallback* dcbNewCallback(const char* signature, DCCallbackHandler* funcptr, void* userdata);
+             ^
+nqp_dyncall_ops.c: In function ‘dyncall_wb_ca’:
+nqp_dyncall_ops.c:704:5: warning: dereferencing type-punned pointer might break strict-aliasing rules [-Wstrict-aliasing]
+     CArrayBody      *body      = (CArrayBody *) OBJECT_BODY(obj);
+     ^
+nqp_dyncall_ops.c:725:21: warning: dereferencing type-punned pointer might break strict-aliasing rules [-Wstrict-aliasing]
+                     objptr = ((CArrayBody *) OBJECT_BODY(body->child_objs[i]))->storage;
+                     ^
+nqp_dyncall_ops.c:728:21: warning: dereferencing type-punned pointer might break strict-aliasing rules [-Wstrict-aliasing]
+                     objptr = ((CPointerBody *) OBJECT_BODY(body->child_objs[i]))->ptr;
+                     ^
+nqp_dyncall_ops.c:731:21: warning: dereferencing type-punned pointer might break strict-aliasing rules [-Wstrict-aliasing]
+                     objptr = (CStructBody *) OBJECT_BODY(body->child_objs[i]);
+                     ^
+nqp_dyncall_ops.c: In function ‘dyncall_wb_cs’:
+nqp_dyncall_ops.c:758:5: warning: dereferencing type-punned pointer might break strict-aliasing rules [-Wstrict-aliasing]
+     CStructBody     *body      = (CStructBody *) OBJECT_BODY(obj);
+     ^
+nqp_dyncall_ops.c:776:21: warning: dereferencing type-punned pointer might break strict-aliasing rules [-Wstrict-aliasing]
+                     objptr = ((CArrayBody *) OBJECT_BODY(body->child_objs[slot]))->storage;
+                     ^
+nqp_dyncall_ops.c:779:21: warning: dereferencing type-punned pointer might break strict-aliasing rules [-Wstrict-aliasing]
+                     objptr = ((CPointerBody *) OBJECT_BODY(body->child_objs[slot]))->ptr;
+                     ^
+nqp_dyncall_ops.c:782:21: warning: dereferencing type-punned pointer might break strict-aliasing rules [-Wstrict-aliasing]
+                     objptr = (CStructBody *) OBJECT_BODY(body->child_objs[slot]);
+                     ^
+cd src/vm/parrot/6model/reprs && cc -c -o NativeCall.o -I../../../../../src/vm/parrot/pmc -I../../../../../3rdparty/dyncall/dyncall -I../../../../../3rdparty/dyncall/dyncallback  -I../../../../../3rdparty/dyncall/dynload -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 NativeCall.c
+cd src/vm/parrot/6model/reprs && cc -c -o CStruct.o -I../../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 CStruct.c
+CStruct.c: In function ‘bind_attribute_boxed’:
+CStruct.c:538:21: warning: dereferencing type-punned pointer might break strict-aliasing rules [-Wstrict-aliasing]
+                     cobj = ((CArrayBody *) OBJECT_BODY(value))->storage;
+                     ^
+CStruct.c:541:21: warning: dereferencing type-punned pointer might break strict-aliasing rules [-Wstrict-aliasing]
+                     cobj = ((CStructBody *) OBJECT_BODY(value))->cstruct;
+                     ^
+CStruct.c:544:21: warning: dereferencing type-punned pointer might break strict-aliasing rules [-Wstrict-aliasing]
+                     cobj = ((CPointerBody *) OBJECT_BODY(value))->ptr;
+                     ^
+cd src/vm/parrot/6model/reprs && cc -c -o CPointer.o -I../../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 CPointer.c
+cd src/vm/parrot/6model/reprs && cc -c -o CArray.o -I../../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 CArray.c
+CArray.c: In function ‘bind_pos_boxed’:
+CArray.c:436:17: warning: dereferencing type-punned pointer might break strict-aliasing rules [-Wstrict-aliasing]
+                 cptr = ((CArrayBody *) OBJECT_BODY(obj))->storage;
+                 ^
+CArray.c:439:17: warning: dereferencing type-punned pointer might break strict-aliasing rules [-Wstrict-aliasing]
+                 cptr = ((CStructBody *) OBJECT_BODY(obj))->cstruct;
+                 ^
+CArray.c:442:17: warning: dereferencing type-punned pointer might break strict-aliasing rules [-Wstrict-aliasing]
+                 cptr = ((CPointerBody *) OBJECT_BODY(obj))->ptr;
+                 ^
+cd src/vm/parrot/6model/reprs && cc -c -o CStr.o -I../../../../../src/vm/parrot/pmc -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel -I/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/include/6.10.0-devel/pmc -fwrapv  -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHASATTRIBUTE_CONST  -DHASATTRIBUTE_DEPRECATED  -DHASATTRIBUTE_MALLOC  -DHASATTRIBUTE_NONNULL  -DHASATTRIBUTE_NORETURN  -DHASATTRIBUTE_PURE  -DHASATTRIBUTE_UNUSED  -DHASATTRIBUTE_WARN_UNUSED_RESULT  -DHASATTRIBUTE_HOT  -DHASATTRIBUTE_COLD  -DDISABLE_GC_DEBUG=1 -DNDEBUG -DHAS_GETTEXT  -fPIC  -falign-functions=16 -funit-at-a-time -fexcess-precision=standard -maccumulate-outgoing-args -Wall -Wextra -Waggregate-return -Wcast-qual -Wdisabled-optimization -Wdiv-by-zero -Wendif-labels -Wformat-extra-args -Wformat-nonliteral -Wformat-security -Wformat-y2k -Wimplicit -Wimport -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Werror=missing-braces -Werror=missing-declarations -Wno-missing-format-attribute -Wmissing-include-dirs -Wmultichar -Wpacked -Wpointer-arith -Wreturn-type -Wsequence-point -Wsign-compare -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Werror=undef -Wno-unused -Wvariadic-macros -Wwrite-strings -Wstack-usage=500 -Wc++-compat -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=nested-externs -Werror=old-style-definition -Werror=strict-prototypes -fvisibility=hidden  -O2 CStr.c
+CStr.c: In function ‘gc_free’:
+CStr.c:151:5: warning: dereferencing type-punned pointer might break strict-aliasing rules [-Wstrict-aliasing]
+     CStrBody *body = (CStrBody *) OBJECT_BODY(obj);
+     ^
+cd src/vm/parrot/ops && cc -o nqp_dyncall_ops.so nqp_dyncall_ops.o ../6model/reprs/NativeCall.o ../6model/reprs/CStruct.o ../6model/reprs/CPointer.o ../6model/reprs/CArray.o ../6model/reprs/CStr.o ../../../../3rdparty/dyncall/dyncall/libdyncall_s.a ../../../../3rdparty/dyncall/dyncallback/libdyncallback_s.a ../../../../3rdparty/dyncall/dynload/libdynload_s.a -fstack-protector -L/usr/local/lib  -shared -O2 -L/usr/local/lib -fstack-protector -fPIC  -lnsl -ldl -lm -lcrypt -lutil -lpthread -lrt  -lffi  -L/usr/lib/x86_64-linux-gnu  -licuuc -licudata 
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp src/vm/parrot/pmc/nqp_group.so dynext
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp src/vm/parrot/ops/nqp_ops.so dynext
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp src/vm/parrot/ops/nqp_bigint_ops.so dynext
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp src/vm/parrot/ops/nqp_dyncall_ops.so dynext
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e chmod 755 dynext/nqp_group.so
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e chmod 755 dynext/*.so
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. -o src/vm/parrot/stage0/nqpmo.pbc       src/vm/parrot/stage0/NQPMO-s0.pir
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. -o src/vm/parrot/stage0/ModuleLoader.pbc src/vm/parrot/stage0/ModuleLoader-s0.pir
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. -o src/vm/parrot/stage0/NQPCORE.setting.pbc src/vm/parrot/stage0/NQPCORE.setting-s0.pir
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. -o src/vm/parrot/stage0/QASTNode.pbc     src/vm/parrot/stage0/QASTNode-s0.pir
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. -o src/vm/parrot/stage0/QRegex.pbc       src/vm/parrot/stage0/QRegex-s0.pir
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. -o src/vm/parrot/stage0/NQPHLL.pbc          src/vm/parrot/stage0/HLL-s0.pir
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. -o src/vm/parrot/stage0/QAST.pbc         src/vm/parrot/stage0/QAST-s0.pir
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. -o src/vm/parrot/stage0/NQPP6QRegex.pbc     src/vm/parrot/stage0/P6QRegex-s0.pir
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. -o src/vm/parrot/stage0/nqp.pbc          src/vm/parrot/stage0/NQP-s0.pir
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/parrot/stage1
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl parrot src/how/Archetypes.nqp src/how/RoleToRoleApplier.nqp src/how/NQPConcreteRoleHOW.nqp src/how/RoleToClassApplier.nqp src/how/NQPCurriedRoleHOW.nqp src/how/NQPParametricRoleHOW.nqp src/how/NQPClassHOW.nqp src/how/NQPNativeHOW.nqp src/how/NQPAttribute.nqp src/how/NQPModuleHOW.nqp src/how/EXPORTHOW.nqp  > gen/parrot/stage1/nqpmo.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --library=src/vm/parrot/stage0 src/vm/parrot/stage0/nqp.pbc \
+    --target=pir --output=gen/parrot/stage1/nqp-mo.pir \
+    --setting=NULL --no-regex-lib gen/parrot/stage1/nqpmo.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --include=gen/parrot/stage1 -o gen/parrot/stage1/nqpmo.pbc \
+    gen/parrot/stage1/nqp-mo.pir
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --library=src/vm/parrot/stage0 src/vm/parrot/stage0/nqp.pbc \
+    --target=pir --output=gen/parrot/stage1/module_loader.pir \
+    --setting=NULL --no-regex-lib src/vm/parrot/ModuleLoader.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --include=gen/parrot/stage1 -o gen/parrot/stage1/ModuleLoader.pbc \
+    gen/parrot/stage1/module_loader.pir
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/parrot/stage1
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl parrot src/core/NativeTypes.nqp src/core/NQPRoutine.nqp src/core/NQPMu.nqp src/core/NQPCapture.nqp src/core/IO.nqp src/core/Regex.nqp src/core/Hash.nqp src/core/NQPLock.nqp src/core/testing.nqp src/core/YOUAREHERE.nqp  > gen/parrot/stage1/NQPCORE.setting
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --library=src/vm/parrot/stage0 src/vm/parrot/stage0/nqp.pbc \
+    --target=pir --output=gen/parrot/stage1/NQPCORE.setting.pir \
+    --module-path=gen/parrot/stage1 --setting=NULL --no-regex-lib \
+        gen/parrot/stage1/NQPCORE.setting
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. -o gen/parrot/stage1/NQPCORE.setting.pbc gen/parrot/stage1/NQPCORE.setting.pir
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/parrot/stage1
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl parrot src/QAST/CompileTimeValue.nqp src/QAST/SpecialArg.nqp src/QAST/Children.nqp src/QAST/Node.nqp src/QAST/NodeList.nqp src/QAST/Regex.nqp src/QAST/IVal.nqp src/QAST/NVal.nqp src/QAST/SVal.nqp src/QAST/BVal.nqp src/QAST/WVal.nqp src/QAST/Want.nqp src/QAST/Var.nqp src/QAST/VarWithFallback.nqp src/QAST/ParamTypeCheck.nqp src/QAST/Op.nqp src/QAST/VM.nqp src/QAST/Stmts.nqp src/QAST/Stmt.nqp src/QAST/Block.nqp src/QAST/Unquote.nqp src/QAST/CompUnit.nqp src/QAST/InlinePlaceholder.nqp  > gen/parrot/stage1/QASTNode.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --library=src/vm/parrot/stage0 src/vm/parrot/stage0/nqp.pbc \
+    --target=pir --output=gen/parrot/stage1/QASTNode.pir \
+    --module-path=gen/parrot/stage1 --setting-path=gen/parrot/stage1 --no-regex-lib \
+        gen/parrot/stage1/QASTNode.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. -o gen/parrot/stage1/QASTNode.pbc gen/parrot/stage1/QASTNode.pir
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/parrot/stage1
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl parrot src/QRegex/NFA.nqp src/QRegex/Cursor.nqp  > gen/parrot/stage1/QRegex.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --library=src/vm/parrot/stage0 src/vm/parrot/stage0/nqp.pbc \
+    --target=pir --output=gen/parrot/stage1/QRegex.pir \
+    --module-path=gen/parrot/stage1 --setting-path=gen/parrot/stage1 --no-regex-lib \
+        gen/parrot/stage1/QRegex.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. -o gen/parrot/stage1/QRegex.pbc gen/parrot/stage1/QRegex.pir
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/parrot/stage1
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl parrot src/vm/parrot/HLL/Backend.nqp src/HLL/Grammar.nqp src/HLL/Actions.nqp src/HLL/Compiler.nqp src/HLL/CommandLine.nqp src/HLL/World.nqp src/HLL/sprintf.nqp  > gen/parrot/stage1/NQPHLL.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --library=src/vm/parrot/stage0 src/vm/parrot/stage0/nqp.pbc \
+    --target=pir --output=gen/parrot/stage1/NQPHLL.pir \
+    --module-path=gen/parrot/stage1 --setting-path=gen/parrot/stage1 --no-regex-lib \
+        gen/parrot/stage1/NQPHLL.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --include=gen/parrot/stage1 -o gen/parrot/stage1/NQPHLL.pbc \
+    gen/parrot/stage1/NQPHLL.pir
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/parrot/stage1
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl parrot src/vm/parrot/QAST/PIRT.nqp src/vm/parrot/QAST/Operations.nqp src/vm/parrot/QAST/Compiler.nqp  > gen/parrot/stage1/QAST.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --library=src/vm/parrot/stage0 src/vm/parrot/stage0/nqp.pbc \
+    --target=pir --output=gen/parrot/stage1/QAST.pir \
+    --module-path=gen/parrot/stage1 --setting-path=gen/parrot/stage1 --no-regex-lib \
+        gen/parrot/stage1/QAST.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. -o gen/parrot/stage1/QAST.pbc gen/parrot/stage1/QAST.pir
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/parrot/stage1
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl parrot src/QRegex/P6Regex/Grammar.nqp src/QRegex/P6Regex/Actions.nqp src/QRegex/P6Regex/Compiler.nqp src/QRegex/P6Regex/Optimizer.nqp  > gen/parrot/stage1/NQPP6QRegex.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --library=src/vm/parrot/stage0 src/vm/parrot/stage0/nqp.pbc \
+    --target=pir --output=gen/parrot/stage1/NQPP6QRegex.pir \
+    --module-path=gen/parrot/stage1 --setting-path=gen/parrot/stage1 --no-regex-lib \
+        gen/parrot/stage1/NQPP6QRegex.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --include=gen/parrot/stage1 -o gen/parrot/stage1/NQPP6QRegex.pbc \
+    gen/parrot/stage1/NQPP6QRegex.pir
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/parrot/stage1
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-version.pl >gen/parrot/nqp-config.nqp
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl parrot src/vm/parrot/NQP/Ops.nqp src/NQP/World.nqp src/NQP/Grammar.nqp src/NQP/Optimizer.nqp src/NQP/Actions.nqp src/NQP/Compiler.nqp  gen/parrot/nqp-config.nqp > gen/parrot/stage1/NQP.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --library=src/vm/parrot/stage0 src/vm/parrot/stage0/nqp.pbc \
+    --target=pir --output=gen/parrot/stage1/NQP.pir \
+    --module-path=gen/parrot/stage1 --setting-path=gen/parrot/stage1 gen/parrot/stage1/NQP.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --include=gen/parrot/stage1 -o gen/parrot/stage1/nqp.pbc \
+    gen/parrot/stage1/NQP.pir
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/parrot/stage2
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl parrot src/how/Archetypes.nqp src/how/RoleToRoleApplier.nqp src/how/NQPConcreteRoleHOW.nqp src/how/RoleToClassApplier.nqp src/how/NQPCurriedRoleHOW.nqp src/how/NQPParametricRoleHOW.nqp src/how/NQPClassHOW.nqp src/how/NQPNativeHOW.nqp src/how/NQPAttribute.nqp src/how/NQPModuleHOW.nqp src/how/EXPORTHOW.nqp  > gen/parrot/stage2/nqpmo.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --library=gen/parrot/stage1 gen/parrot/stage1/nqp.pbc \
+    --target=pir --output=gen/parrot/stage2/nqp-mo.pir \
+    --setting=NULL gen/parrot/stage2/nqpmo.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --include=gen/parrot/stage2 -o gen/parrot/stage2/nqpmo.pbc \
+    gen/parrot/stage2/nqp-mo.pir
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --library=gen/parrot/stage1 gen/parrot/stage1/nqp.pbc \
+    --target=pir --output=gen/parrot/stage2/module_loader.pir \
+    --setting=NULL src/vm/parrot/ModuleLoader.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --include=gen/parrot/stage2 -o gen/parrot/stage2/ModuleLoader.pbc \
+    gen/parrot/stage2/module_loader.pir
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/parrot/stage2
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl parrot src/core/NativeTypes.nqp src/core/NQPRoutine.nqp src/core/NQPMu.nqp src/core/NQPCapture.nqp src/core/IO.nqp src/core/Regex.nqp src/core/Hash.nqp src/core/NQPLock.nqp src/core/testing.nqp src/core/YOUAREHERE.nqp  > gen/parrot/stage2/NQPCORE.setting
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --library=gen/parrot/stage1 gen/parrot/stage1/nqp.pbc \
+    --target=pir --output=gen/parrot/stage2/NQPCORE.setting.pir \
+    --module-path=gen/parrot/stage2 --setting=NULL gen/parrot/stage2/NQPCORE.setting
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. -o gen/parrot/stage2/NQPCORE.setting.pbc gen/parrot/stage2/NQPCORE.setting.pir
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/parrot/stage2
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl parrot src/QAST/CompileTimeValue.nqp src/QAST/SpecialArg.nqp src/QAST/Children.nqp src/QAST/Node.nqp src/QAST/NodeList.nqp src/QAST/Regex.nqp src/QAST/IVal.nqp src/QAST/NVal.nqp src/QAST/SVal.nqp src/QAST/BVal.nqp src/QAST/WVal.nqp src/QAST/Want.nqp src/QAST/Var.nqp src/QAST/VarWithFallback.nqp src/QAST/ParamTypeCheck.nqp src/QAST/Op.nqp src/QAST/VM.nqp src/QAST/Stmts.nqp src/QAST/Stmt.nqp src/QAST/Block.nqp src/QAST/Unquote.nqp src/QAST/CompUnit.nqp src/QAST/InlinePlaceholder.nqp  > gen/parrot/stage2/QASTNode.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --library=gen/parrot/stage1 gen/parrot/stage1/nqp.pbc \
+    --target=pir --output=gen/parrot/stage2/QASTNode.pir --no-regex-lib \
+    --module-path=gen/parrot/stage2 --setting-path=gen/parrot/stage2 gen/parrot/stage2/QASTNode.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. -o gen/parrot/stage2/QASTNode.pbc gen/parrot/stage2/QASTNode.pir
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/parrot/stage2
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl parrot src/QRegex/NFA.nqp src/QRegex/Cursor.nqp  > gen/parrot/stage2/QRegex.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --library=gen/parrot/stage1 gen/parrot/stage1/nqp.pbc \
+    --target=pir --output=gen/parrot/stage2/QRegex.pir --no-regex-lib \
+    --module-path=gen/parrot/stage2 --setting-path=gen/parrot/stage2 gen/parrot/stage2/QRegex.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. -o gen/parrot/stage2/QRegex.pbc gen/parrot/stage2/QRegex.pir
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/parrot/stage2
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl parrot src/vm/parrot/HLL/Backend.nqp src/HLL/Grammar.nqp src/HLL/Actions.nqp src/HLL/Compiler.nqp src/HLL/CommandLine.nqp src/HLL/World.nqp src/HLL/sprintf.nqp  > gen/parrot/stage2/NQPHLL.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --library=gen/parrot/stage1 gen/parrot/stage1/nqp.pbc \
+    --target=pir --output=gen/parrot/stage2/NQPHLL.pir --no-regex-lib \
+    --module-path=gen/parrot/stage2 --setting-path=gen/parrot/stage2 gen/parrot/stage2/NQPHLL.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --include=gen/parrot/stage2 -o gen/parrot/stage2/NQPHLL.pbc \
+    gen/parrot/stage2/NQPHLL.pir
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/parrot/stage2
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl parrot src/vm/parrot/QAST/PIRT.nqp src/vm/parrot/QAST/Operations.nqp src/vm/parrot/QAST/Compiler.nqp  > gen/parrot/stage2/QAST.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --library=gen/parrot/stage1 gen/parrot/stage1/nqp.pbc \
+    --target=pir --output=gen/parrot/stage2/QAST.pir --no-regex-lib \
+    --module-path=gen/parrot/stage2 --setting-path=gen/parrot/stage2 gen/parrot/stage2/QAST.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. -o gen/parrot/stage2/QAST.pbc gen/parrot/stage2/QAST.pir
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/parrot/stage2
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl parrot src/QRegex/P6Regex/Grammar.nqp src/QRegex/P6Regex/Actions.nqp src/QRegex/P6Regex/Compiler.nqp src/QRegex/P6Regex/Optimizer.nqp  > gen/parrot/stage2/NQPP6QRegex.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --library=gen/parrot/stage1 gen/parrot/stage1/nqp.pbc \
+    --target=pir --output=gen/parrot/stage2/NQPP6QRegex.pir --no-regex-lib \
+    --module-path=gen/parrot/stage2 --setting-path=gen/parrot/stage2 gen/parrot/stage2/NQPP6QRegex.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --include=gen/parrot/stage2 -o gen/parrot/stage2/NQPP6QRegex.pbc \
+    gen/parrot/stage2/NQPP6QRegex.pir
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/parrot/stage2
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-version.pl >gen/parrot/nqp-config.nqp
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl parrot src/vm/parrot/NQP/Ops.nqp src/NQP/World.nqp src/NQP/Grammar.nqp src/NQP/Optimizer.nqp src/NQP/Actions.nqp src/NQP/Compiler.nqp  gen/parrot/nqp-config.nqp > gen/parrot/stage2/NQP.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --library=gen/parrot/stage1 gen/parrot/stage1/nqp.pbc \
+    --target=pir --output=gen/parrot/stage2/NQP.pir \
+    --module-path=gen/parrot/stage2 --setting-path=gen/parrot/stage2 gen/parrot/stage2/NQP.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --include=gen/parrot/stage2 -o gen/parrot/stage2/nqp.pbc \
+    gen/parrot/stage2/NQP.pir
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/parrot/stage2/nqpmo.pbc           gen/parrot
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/parrot/stage2/ModuleLoader.pbc    gen/parrot
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/parrot/stage2/NQPCORE.setting.pbc     gen/parrot
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/parrot/stage2/QASTNode.pbc         gen/parrot
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/parrot/stage2/QRegex.pbc           gen/parrot
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/parrot/stage2/NQPHLL.pbc              gen/parrot
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/parrot/stage2/QAST.pbc             gen/parrot
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/parrot/stage2/NQPP6QRegex.pbc         gen/parrot
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/parrot/stage2/nqp.pbc              gen/parrot
+cd gen/parrot && /home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/pbc_to_exe -onqp-p nqp.pbc
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl parrot src/QRegex/P5Regex/Grammar.nqp src/QRegex/P5Regex/Actions.nqp src/QRegex/P5Regex/Compiler.nqp  > gen/parrot/NQPP5QRegex.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --library=gen/parrot gen/parrot/nqp.pbc \
+    --module-path=gen/parrot --setting-path=gen/parrot \
+	--target=pir --output=gen/parrot/NQPP5QRegex.pir  gen/parrot/NQPP5QRegex.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --library=gen/parrot -o gen/parrot/NQPP5QRegex.pbc gen/parrot/NQPP5QRegex.pir
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/parrot/nqp_launcher ./nqp-p
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e chmod 755 ./nqp-p
 prove -r --exec "./nqp-p --vmlibs=nqp_dyncall_ops" t/nqp t/parrot t/hll t/qregex t/p5regex t/qast t/serialization t/nativecall
 t/nqp/01-literals.t ................... ok
 t/nqp/02-if.t ......................... ok
@@ -207,7 +766,7 @@ t/nqp/78-shell.t                    (Wstat: 256 Tests: 0 Failed: 0)
 t/nqp/86-pipes.t                    (Wstat: 256 Tests: 0 Failed: 0)
   Non-zero exit status: 1
   Parse errors: No plan found in TAP output
-Files=103, Tests=3689, 36 wallclock secs ( 0.61 usr  0.11 sys + 28.09 cusr  4.47 csys = 33.28 CPU)
+Files=103, Tests=3689, 34 wallclock secs ( 0.58 usr  0.09 sys + 27.60 cusr  4.40 csys = 32.67 CPU)
 Result: FAIL
 Makefile:1162: recipe for target 'p-test' failed
 make: *** [p-test] Error 1
