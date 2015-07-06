@@ -181,9 +181,8 @@ S02-literals/adverbs.rakudo.moar...................Use of Nil in string context 
      2 todo   : :@<...> and :%<...> broken needs RT
      3 todo   : Moar makes new slang object each time, other backend NYI?
 S02-literals/array-interpolation.t.................  12    0    0    0   12
-S02-literals/autoref.t.............................Use of uninitialized value of type Any in string context  in block  at t/spec/S02-literals/autoref.t:65
-Use of uninitialized value of type Any in string context  in block  at t/spec/S02-literals/autoref.t:77
-  59    0    0    0   59
+S02-literals/autoref.t.............................Use of uninitialized value of type Any in string context  in block  at t/spec/S02-literals/autoref.t:45
+  38    0    0    0   38
 S02-literals/char-by-name.rakudo.moar..............   9    0    0    1   10
      1 skipped: \c[LINE FEED] not valid: RT #117683
 S02-literals/char-by-number.t......................  38    0    0    0   38
@@ -212,15 +211,33 @@ S02-literals/radix.rakudo.moar..................... 131    0    6    1  138
      4 todo   : Some question of what this form should actually do RT \#124561
      1 todo   : This needs an RT
 S02-literals/string-interpolation.t................Potential difficulties:
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S02-literals/string-interpolation.t:10
+    ------> [32m    is "{\[33m⏏[31m01;42}", "42", '{\\01 parses correctly ([0m
     Leading 0 does not indicate octal in Perl 6; please use 0o1 if you mean that
     at t/spec/S02-literals/string-interpolation.t:10
     ------> [32m    is "{\01[33m⏏[31m;42}", "42", '{\\01 parses correctly (1)[0m
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S02-literals/string-interpolation.t:11
+    ------> [32m    is "{;\[33m⏏[31m01;42}", "42", '{\\01 parses correctly ([0m
     Leading 0 does not indicate octal in Perl 6; please use 0o1 if you mean that
     at t/spec/S02-literals/string-interpolation.t:11
     ------> [32m    is "{;\01[33m⏏[31m;42}", "42", '{\\01 parses correctly (2)[0m
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S02-literals/string-interpolation.t:12
+    ------> [32m    is "{;;;;;;\[33m⏏[31m01;42}", "42", '{\\01 parses correctly ([0m
     Leading 0 does not indicate octal in Perl 6; please use 0o1 if you mean that
     at t/spec/S02-literals/string-interpolation.t:12
     ------> [32m    is "{;;;;;;\01[33m⏏[31m;42}", "42", '{\\01 parses correctly (3)[0m
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S02-literals/string-interpolation.t:16
+    ------> [32m    is "{\[33m⏏[31m1;42}", "42", '{\\1 parses correctly (1)[0m
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S02-literals/string-interpolation.t:17
+    ------> [32m    is "{;\[33m⏏[31m1;42}", "42", '{\\1 parses correctly (2)[0m
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S02-literals/string-interpolation.t:18
+    ------> [32m    is "{;;;;;;\[33m⏏[31m1;42}", "42", '{\\1 parses correctly (3)[0m
 Use of Nil in string context  in block  at t/spec/S02-literals/string-interpolation.t:29
   15    0    0    0   15
 S02-literals/sub-calls.t...........................  20    0    0    0   20
@@ -291,13 +308,21 @@ S02-names-vars/names.rakudo.moar................... 131    0    0   13  144
      4 skipped: ::{ } package lookup NYI RT #124638
      7 skipped: package variable autovivification RT #124637
      2 skipped: this kind of lookup NYI
-S02-names-vars/perl.rakudo.moar....................Use of uninitialized value of type Mu in string context  in block  at t/spec/S02-names-vars/perl.rakudo.moar:57
+S02-names-vars/perl.rakudo.moar....................Potential difficulties:
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S02-names-vars/perl.rakudo.moar:28
+    ------> [32m    \[33m⏏[31m42, \Inf, \-Inf, \NaN, \"string", \"", \[0m
+Use of uninitialized value of type Mu in string context  in block  at t/spec/S02-names-vars/perl.rakudo.moar:57
 Use of uninitialized value of type Mu in string context  in block  at t/spec/S02-names-vars/perl.rakudo.moar:58
 Use of uninitialized value of type Mu in string context  in block  at t/spec/S02-names-vars/perl.rakudo.moar:58
  103    0    0    3  106
      1 skipped: RT #67790
      2 skipped: recursive data structure RT #122286
-S02-names-vars/signature.t.........................  13    0    0    0   13
+S02-names-vars/signature.t.........................Potential difficulties:
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S02-names-vars/signature.t:14
+    ------> [32m    my ($a) := \[33m⏏[31m3;[0m
+  13    0    0    0   13
 S02-names-vars/variables-and-packages.rakudo.moar..  35    0    3    0   38
      3 todo   : nom regression: RT \#122346
 S02-names-vars/varnames.rakudo.moar................  11    0    2    0   13
@@ -311,21 +336,21 @@ S02-names/indirect.t...............................   6    0    0    0    6
 S02-names/is_cached.t..............................  38    0    0    0   38
 S02-names/is_default.rakudo.moar...................    
 # Failed test '.got matches Nil'
-# at src/gen/m-CORE.setting line 10267
+# at src/gen/m-CORE.setting line 10253
     # Expected: Nil
 Use of uninitialized value $got of type Any in string context  in block  at lib/Test.pm:491
     # Got:      
     # Looks like you failed 1 test of 4
     
 # Failed test '.got matches Nil'
-# at src/gen/m-CORE.setting line 10267
+# at src/gen/m-CORE.setting line 10253
     # Expected: Nil
 Use of uninitialized value $got of type Any in string context  in block  at lib/Test.pm:491
     # Got:      
     # Looks like you failed 1 test of 4
     
 # Failed test '.got matches Nil'
-# at src/gen/m-CORE.setting line 10267
+# at src/gen/m-CORE.setting line 10253
     # Expected: Nil
 Use of uninitialized value $got of type Any in string context  in block  at lib/Test.pm:491
     # Got:      
@@ -636,14 +661,14 @@ S03-operators/andthen.t............................   8    0    0    0    8
 S03-operators/arith.rakudo.moar....................Use of uninitialized value of type Int in numeric context  in block  at t/spec/S03-operators/arith.rakudo.moar:380
  157    0    0    0  157
 S03-operators/assign-is-not-binding.t..............   9    0    0    0    9
-S03-operators/assign.rakudo.moar................... 272    0   20   11  303
+S03-operators/assign.rakudo.moar................... 275    0   17   11  303
      2 skipped: RT #76734
      2 skipped: cannot modifiy an immutable value RT #124533
      1 skipped: cannot modifiy an immutable value RT #124534
      6 skipped: ~< and ~> NYI RT #124531
      3 todo   : item assignment
      1 todo   : item/list assignment
-     5 todo   : list assignment
+     2 todo   : list assignment
      5 todo   : list assignment to scalar
      1 todo   : list assignment with ($var, *)
      3 todo   : list assignment, autovivification (?)
@@ -696,7 +721,62 @@ Use of uninitialized value $foo of type Any in string context  in block <unit> a
 Use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-operators/equality.t:62
 Use of uninitialized value of type Any in numeric context  in block <unit> at t/spec/S03-operators/equality.t:63
   32    0    0    0   32
-S03-operators/eqv.rakudo.moar......................  50    0    3    1   54
+S03-operators/eqv.rakudo.moar......................Potential difficulties:
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/eqv.rakudo.moar:41
+    ------> [32m  ok  (\[33m⏏[31m@a eqv \@a), "eqv on array references (1[0m
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/eqv.rakudo.moar:41
+    ------> [32m  ok  (\@a eqv \[33m⏏[31m@a), "eqv on array references (1)";[0m
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/eqv.rakudo.moar:42
+    ------> [32m  ok  (\[33m⏏[31m@b eqv \@b), "eqv on array references (2[0m
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/eqv.rakudo.moar:42
+    ------> [32m  ok  (\@b eqv \[33m⏏[31m@b), "eqv on array references (2)";[0m
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/eqv.rakudo.moar:44
+    ------> [32m  todo('huh?'); ok !(\[33m⏏[31m@a eqv \@b), "eqv on array references (3[0m
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/eqv.rakudo.moar:44
+    ------> [32m  todo('huh?'); ok !(\@a eqv \[33m⏏[31m@b), "eqv on array references (3)";[0m
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/eqv.rakudo.moar:46
+    ------> [32m  ok \[33m⏏[31m@a eqv \@b, '\@array of two bound arrays[0m
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/eqv.rakudo.moar:46
+    ------> [32m  ok \@a eqv \[33m⏏[31m@b, '\@array of two bound arrays are eqv[0m
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S03-operators/eqv.rakudo.moar:51
+    ------> [32m  my $a = \[33m⏏[31m3;[0m
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S03-operators/eqv.rakudo.moar:52
+    ------> [32m  my $b = \[33m⏏[31m3;[0m
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/eqv.rakudo.moar:58
+    ------> [32m  todo('huh?'); ok (\[33m⏏[31m$a !eqv \$b), "eqv on scalar references [0m
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/eqv.rakudo.moar:58
+    ------> [32m  todo('huh?'); ok (\$a !eqv \[33m⏏[31m$b), "eqv on scalar references (1-4)";[0m
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/eqv.rakudo.moar:84
+    ------> [32m  my $num = 3; my $a   = \[33m⏏[31m$num;[0m
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/eqv.rakudo.moar:85
+    ------> [32m  my $b   = \[33m⏏[31m$num;[0m
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S03-operators/eqv.rakudo.moar:107
+    ------> [32m  ok !(\[33m⏏[31m3 eqv \4),         "eqv on anonymous sca[0m
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S03-operators/eqv.rakudo.moar:107
+    ------> [32m  ok !(\3 eqv \[33m⏏[31m4),         "eqv on anonymous scalar ref[0m
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S03-operators/eqv.rakudo.moar:110
+    ------> [32m  todo('huh?'); ok !(\[33m⏏[31m3 eqv \3),         "eqv on anonymous sca[0m
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S03-operators/eqv.rakudo.moar:110
+    ------> [32m  todo('huh?'); ok !(\3 eqv \[33m⏏[31m3),         "eqv on anonymous scalar ref[0m
+  50    0    3    1   54
      1 skipped: huh?
      3 todo   : huh?
 S03-operators/fiddly.t.............................   1    0    0    0    1
@@ -768,6 +848,29 @@ S03-operators/inplace.rakudo.moar..................  23    0    0    4   27
 S03-operators/is-divisible-by.rakudo.moar..........    
 # Failed test 'code dies'
 # at t/spec/S03-operators/is-divisible-by.rakudo.moar line 41
+WARNING: unhandled Failure detected in DESTROY:
+Attempt to divide 9 by zero using infix:<%%>
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1233
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1229
+  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1197
+  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1147
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1708
+  in any visit_want at src/gen/m-Perl6-Optimizer.nqp:1548
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1711
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1726
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1720
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1717
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1720
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1726
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1717
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1720
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1726
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
+  in any optimize at src/Perl6/Compiler.nqp:64
+
     # Looks like you failed 1 test of 4
   14    0    1    0   15
      1 todo   : not sure why this doesn't fire
@@ -821,7 +924,62 @@ S03-operators/spaceship.t..........................   5    0    0    0    5
 S03-operators/subscript-adverbs.t.................. 110    0    0    0  110
 S03-operators/subscript-vs-lt.t....................   4    0    0    0    4
 S03-operators/ternary.t............................  27    0    0    0   27
-S03-operators/value_equivalence.rakudo.moar........  83    0    2    0   85
+S03-operators/value_equivalence.rakudo.moar........Potential difficulties:
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/value_equivalence.rakudo.moar:78
+    ------> [32m  ok  (\[33m⏏[31m@a === \@a), "=== on array references (1[0m
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/value_equivalence.rakudo.moar:78
+    ------> [32m  ok  (\@a === \[33m⏏[31m@a), "=== on array references (1)";[0m
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/value_equivalence.rakudo.moar:80
+    ------> [32m  ok  (\[33m⏏[31m@b === \@b), "=== on array references (2[0m
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/value_equivalence.rakudo.moar:80
+    ------> [32m  ok  (\@b === \[33m⏏[31m@b), "=== on array references (2)";[0m
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/value_equivalence.rakudo.moar:82
+    ------> [32m to flatten when it should not'); ok !(\[33m⏏[31m@a === \@b), "=== on array references (3[0m
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/value_equivalence.rakudo.moar:82
+    ------> [32mten when it should not'); ok !(\@a === \[33m⏏[31m@b), "=== on array references (3)";[0m
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/value_equivalence.rakudo.moar:83
+    ------> [32m  isa-ok (\[33m⏏[31m@a === \@a), Bool, "=== on array referen[0m
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/value_equivalence.rakudo.moar:83
+    ------> [32m  isa-ok (\@a === \[33m⏏[31m@a), Bool, "=== on array references (4)"[0m
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S03-operators/value_equivalence.rakudo.moar:87
+    ------> [32m  my $a = \[33m⏏[31m3;[0m
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S03-operators/value_equivalence.rakudo.moar:88
+    ------> [32m  my $b = \[33m⏏[31m3;[0m
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/value_equivalence.rakudo.moar:115
+    ------> [32m  my $a   = \[33m⏏[31m$num;[0m
+    To pass an array, hash or sub to a function in Perl 6, just pass it as is.  For other uses of Perl 5's ref operator consider binding with ::= instead.  Parenthesize as \(...) if you intended a capture of a single variable.
+    at t/spec/S03-operators/value_equivalence.rakudo.moar:116
+    ------> [32m  my $b   = \[33m⏏[31m$num;[0m
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S03-operators/value_equivalence.rakudo.moar:139
+    ------> [32m  ok !(\[33m⏏[31m3 === \4),          "=== on anonymous sc[0m
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S03-operators/value_equivalence.rakudo.moar:139
+    ------> [32m  ok !(\3 === \[33m⏏[31m4),          "=== on anonymous scalar re[0m
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S03-operators/value_equivalence.rakudo.moar:140
+    ------> [32m  ok \[33m⏏[31m3 === \3,          "=== on anonymous sca[0m
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S03-operators/value_equivalence.rakudo.moar:140
+    ------> [32m  ok \3 === \[33m⏏[31m3,          "=== on anonymous scalar ref[0m
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S03-operators/value_equivalence.rakudo.moar:141
+    ------> [32m  isa-ok (\[33m⏏[31m3 === \4), Bool, "=== on anonymous scala[0m
+    To refer to a positional match capture, just use $0 (numbering starts at 0).  Parenthesize as \(...) if you intended a capture of a single numeric value.
+    at t/spec/S03-operators/value_equivalence.rakudo.moar:141
+    ------> [32m  isa-ok (\3 === \[33m⏏[31m4), Bool, "=== on anonymous scalar refer[0m
+  83    0    2    0   85
      1 todo   : .WHICH based on type names
      1 todo   : \@a seems to flatten when it should not
 S03-sequence/arity-2-or-more.t.....................  20    0    0    0   20
@@ -1266,11 +1424,7 @@ S05-modifier/continue.t............................Use of Nil in string context 
   13    0    0    0   13
 S05-modifier/counted-match.rakudo.moar.............  16    0    0    6   22
      6 skipped: hangs RT #125026
-S05-modifier/counted.t.............................WARNING: unhandled Failure detected in DESTROY:
-Attempt to retrieve negative match :nth(0)
-  in block <unit> at t/spec/S05-modifier/counted.t:25
-
- 119    0    0    0  119
+S05-modifier/counted.t............................. 119    0    0    0  119
 S05-modifier/global.t..............................   8    0    0    0    8
 S05-modifier/ignorecase-and-ignoremark.t...........  15    0    0    0   15
 S05-modifier/ignorecase.rakudo.moar................  23    0    2    0   25
@@ -1634,7 +1788,7 @@ S10-packages/precompilation.rakudo.moar............Use of uninitialized value $_
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-23143-426281.code:4
+#   in block <unit> at getout-30669-829886.code:4
 
 
   33    0    3    0   36
@@ -1965,8 +2119,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  10    0    0    0   10
-S16-filehandles/chmod.t............................# Using file temp_1436108162
-# Using file temp_1436108162
+S16-filehandles/chmod.t............................# Using file temp_1436194549
+# Using file temp_1436194549
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -1997,8 +2151,9 @@ S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   7    0    0    0    7
-S17-lowlevel/lock.rakudo.moar......................   7    0    0    1    8
-     1 skipped: not sure this test is valid RT #124793
+S17-lowlevel/lock.rakudo.moar......................Segmentation fault
+   6    2    0    0    8
+     1 tests aborted (missing ok/not ok)
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.rakudo.moar....................  27    0    0    3   30
      3 skipped: returns Nil (flapping tests) RT #125047
@@ -2564,7 +2719,7 @@ Use of uninitialized value @s of type Str in string context  in block  at lib/Te
 Use of uninitialized value $!value of type Str in string context  in block  at lib/Test.pm:134
 Use of uninitialized value @s of type Str in string context  in block  at lib/Test.pm:134
 Use of uninitialized value $!value of type Str in string context  in block  at lib/Test.pm:134
- 478    0    0    0  478
+ 602    0    0    0  602
 S32-array/bool.t...................................  15    0    0    0   15
 S32-array/create.t.................................   6    0    0    0    6
 S32-array/delete-adverb-native.t................... 138    0    0    0  138
@@ -2587,7 +2742,7 @@ WARNING: unhandled Failure detected in DESTROY:
 Cannot .pop from an empty Array
   in block <unit> at t/spec/S32-array/pop.rakudo.moar:64
 
-Use of uninitialized value @frames of type Any in string context  in sub diag at lib/Test.pm:319
+Use of uninitialized value @frames of type Any in string context  in sub diag at lib/Test.pm:320
 WARNING: unhandled Failure detected in DESTROY:
 Cannot .pop from an empty Array
   in block  at t/spec/S32-array/pop.rakudo.moar:42
@@ -2621,7 +2776,7 @@ Use of uninitialized value of type BagHash in string context  in block <unit> at
   16    0    0    0   16
 S32-container/zip.rakudo.moar......................  12    0    0    2   14
      2 skipped: lvalue zip RT #124907
-S32-exceptions/misc.rakudo.moar....................Sub object coerced to string (please use .gist or .perl to do that)  in any throw at src/Perl6/World.nqp:3369
+S32-exceptions/misc.rakudo.moar....................Sub object coerced to string (please use .gist or .perl to do that)  in any throw at src/Perl6/World.nqp:3373
     
 # Failed test ''#`' died'
 # at t/spec/S32-exceptions/misc.rakudo.moar line 175
@@ -2633,7 +2788,14 @@ S32-exceptions/misc.rakudo.moar....................Sub object coerced to string 
 Use of uninitialized value of type Any in string context  in block  at t/spec/S32-exceptions/misc.rakudo.moar:585
  316    0    1    0  317
      1 todo   : parsing regression RT \#124679
-S32-hash/adverbs.t.................................Use of uninitialized value %a of type Any in string context  in block  at lib/Test.pm:134
+S32-hash/adverbs.t.................................    
+# Failed test ''%h<b>:zorp' died'
+# at t/spec/S32-hash/adverbs.t line 58
+    # Looks like you failed 1 test of 2
+
+# Failed test 'did we throws-like X::AdHoc?'
+# at t/spec/S32-hash/adverbs.t line 58
+Use of uninitialized value %a of type Any in string context  in block  at lib/Test.pm:134
 Use of uninitialized value $T of type Any in string context  in block  at lib/Test.pm:134
 Use of uninitialized value %a of type Any in string context  in block  at lib/Test.pm:134
 Use of uninitialized value $T of type Any in string context  in block  at lib/Test.pm:134
@@ -3169,7 +3331,8 @@ Use of uninitialized value %j of type Int in string context  in block  at lib/Te
 Use of uninitialized value $!value of type Int in string context  in block  at lib/Test.pm:133
 Use of uninitialized value %j of type Int in string context  in block  at lib/Test.pm:133
 Use of uninitialized value $!value of type Int in string context  in block  at lib/Test.pm:133
- 956    0    0    0  956
+# Looks like you failed 1 test of 1124
+1123    1    0    0 1124
 S32-hash/delete-adverb.t........................... 131    0    0    0  131
 S32-hash/delete.t..................................   8    0    0    0    8
 S32-hash/exists-adverb.t...........................Use of Nil in string context  in block  at t/spec/S32-hash/exists-adverb.t:50
@@ -3334,34 +3497,6 @@ S32-list/unique.t..................................  34    0    0    0   34
 S32-num/abs.t......................................  49    0    0    0   49
 S32-num/base.t.....................................  31    0    0    0   31
 S32-num/complex.t..................................Use of uninitialized value @frames of type Any in string context  in block <unit> at EVAL_0:1
-WARNING: unhandled Failure detected in DESTROY:
-Can not convert 2+4i to Real: imaginary part not zero
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1233
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1197
-  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1197
-  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1012
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1696
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1696
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1720
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1726
-  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
-  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
-  in any optimize at src/Perl6/Compiler.nqp:64
-
-WARNING: unhandled Failure detected in DESTROY:
-Can not convert 2+2i to Real: imaginary part not zero
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1233
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1197
-  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1197
-  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1012
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1696
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1696
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1720
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1726
-  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
-  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
-  in any optimize at src/Perl6/Compiler.nqp:64
-
 Use of uninitialized value @frames of type Any in string context  in block <unit> at EVAL_7:1
  488    0    0    0  488
 S32-num/cool-num.rakudo.moar.......................  39    0    0    4   43
@@ -3711,14 +3846,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 1.0870013 seconds
-# gerdr: 1.1031734 seconds
-# recursive-ternary: 1.1262042 seconds
-# loop: 1.2770012 seconds
-# hand-memoization: 1.5918122 seconds
-# recursive-ternary-hand-cached: 3.0233924 seconds
-# sequence-ternary: 6.54034632 seconds
-# sequence: 8.867033 seconds
+integration/advent2012-day21.t.....................# loop: 1.0530378 seconds
+# kaz: 1.0971546 seconds
+# gerdr: 1.138243 seconds
+# recursive-ternary: 1.34737433 seconds
+# hand-memoization: 1.5886854 seconds
+# recursive-ternary-hand-cached: 3.053999 seconds
+# sequence-ternary: 6.79455398 seconds
+# sequence: 8.823036 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT \#121789
@@ -3862,8 +3997,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        5286,     0,   129,   386,  5801,  5800
-"S03",        5253,     0,   119,    98,  5470,  5488
+"S02",        5265,     0,   129,   386,  5780,  5779
+"S03",        5256,     0,   116,    98,  5470,  5488
 "S04",        1151,     0,    47,    42,  1240,  1278
 "S05",        5579,     0,    84,   132,  5795,  6014
 "S06",        1456,     0,    52,    92,  1600,  1671
@@ -3876,19 +4011,21 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         319,     0,     8,     7,   334,   347
 "S15",       78485,     0,     3,    18, 78506, 78526
 "S16",         298,     0,     2,    16,   316,   344
-"S17",         950,    30,    35,    31,  1046,  1046
+"S17",         949,    32,    35,    30,  1046,  1046
 "S19",          13,     0,     0,     0,    13,    17
 "S22",          24,     0,     0,     0,    24,    24
 "S24",           5,    13,     0,     0,    18,    89
 "S26",        1888,     0,     4,    76,  1968,  1968
 "S28",          13,     0,     0,     0,    13,    13
 "S29",         346,     0,     3,     2,   351,   351
-"S32",       11374,     0,   200,   155, 11729, 10062
+"S32",       11665,     1,   200,   155, 12021, 10354
 "int",        1256,     8,    12,    15,  1291,  1277
 "ros",           2,     0,     0,     0,     2,     2
-"total",    117340,    51,   772,  1429,119592,118640
+"total",    117612,    54,   769,  1428,119863,118911
 ----------------
 Failure summary:
+S17-lowlevel/lock.rakudo.moar 7 - Condition variable worked
+S17-lowlevel/lock.rakudo.moar aborted 1 test(s)
 S17-procasync/kill.rakudo.moar 7 - The object is-a 'Proc::Status'
 S17-procasync/kill.rakudo.moar 16 - The object is-a 'Proc::Status'
 S17-procasync/kill.rakudo.moar 25 - The object is-a 'Proc::Status'
@@ -3920,4 +4057,5 @@ S17-procasync/kill.rakudo.moar 250 - The object is-a 'Proc::Status'
 S17-procasync/kill.rakudo.moar 259 - The object is-a 'Proc::Status'
 S17-procasync/kill.rakudo.moar 268 - The object is-a 'Proc::Status'
 S24-testing/line-numbers.t aborted 13 test(s)
+S32-hash/adverbs.t 23 - did we throws-like X::AdHoc?
 integration/advent2012-day04.t aborted 8 test(s)
