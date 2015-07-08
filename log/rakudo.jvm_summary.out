@@ -815,8 +815,8 @@ S06-advanced/wrap.rakudo.jvm.......................  74    0    7    4   85
      1 todo   : temp and wrap
      1 todo   : temp and wrap RT \#124654
 S06-currying/assuming-and-mmd.t....................   7    0    0    0    7
-S06-currying/named.rakudo.jvm......................  24    1    2    0   27
-     2 todo PASSED: last part of RT \#123498 is still unresolved.
+S06-currying/named.rakudo.jvm......................  26    0    1    0   27
+     1 todo PASSED: need/find RT JVM seems to not mind the type conflict
 S06-macros/errors.t................................   2    0    0    0    2
 S06-macros/opaque-ast.rakudo.jvm...................   3    0    0    4    7
      3 skipped: :COMPILING flag RT #124964
@@ -1012,14 +1012,16 @@ S11-modules/require.rakudo.jvm.....................  13    0    2    1   16
      1 todo   : variable form plus imports NYI RT \#125084
                                                    pass fail todo skip plan
 S12-attributes/class.t.............................  21    0    0    0   21
-S12-attributes/clone.t.............................  14   21    0    0   35
-    21 tests aborted (missing ok/not ok)
+S12-attributes/clone.t.............................  33    2    0    0   35
 S12-attributes/defaults.t..........................  34    0    0    0   34
 S12-attributes/delegation.t........................  65    0    0    0   65
 S12-attributes/inheritance.t.......................   7    0    0    0    7
-S12-attributes/instance.rakudo.jvm.................  69   76    2    0  147
+S12-attributes/instance.rakudo.jvm................. 140    0    6    1  147
+     1 skipped: dubious test - the initializer becomes a submethod here, implying a scope RT #124908
+     1 todo   : huh?
+     1 todo   : over-eager auto-vivification bugs
+     2 todo   : ro array/hash with accessor
      2 todo   : ro on list attributes
-    76 tests aborted (missing ok/not ok)
 S12-attributes/mutators.rakudo.jvm.................   5    0    0    7   12
      7 skipped: Can not get attribute $!varies declared in class MagicVal with this object RT #124909
 S12-attributes/native.t............................  43    0    0    0   43
@@ -1407,7 +1409,7 @@ S32-container/roundrobin.rakudo.jvm................   4    0    1    0    5
 S32-container/stringify.t..........................  16    0    0    0   16
 S32-container/zip.rakudo.jvm.......................  12    0    0    2   14
      2 skipped: lvalue zip RT #124907
-S32-exceptions/misc.rakudo.jvm..................... 314    2    1    0  317
+S32-exceptions/misc.rakudo.jvm..................... 316    0    1    0  317
      1 todo   : parsing regression RT \#124679
 S32-hash/adverbs.t.................................1124    0    0    0 1124
 S32-hash/delete-adverb.t........................... 131    0    0    0  131
@@ -1479,12 +1481,11 @@ S32-list/grep.rakudo.jvm...........................  24    0    6   13   43
 S32-list/join.t....................................  34    0    0    0   34
 S32-list/last-index.rakudo.jvm.....................  23    0    0    2   25
      2 skipped: adverbial block RT #124754
-S32-list/map.rakudo.jvm............................  54    0    0    7   61
+S32-list/map.rakudo.jvm............................  55    0    0    6   61
      1 skipped: Too few positionals passed; expected 3 arguments but got 1; RT #125146
      1 skipped: Too few positionals passed; expected 5 arguments but got 4; RT #125146
      2 skipped: adverbial block RT #124752
      2 skipped: closure as non-final argument RT #124753
-     1 skipped: probably optimizer bug RT #125207
 S32-list/map_function_return_values.t..............   2    0    0    0    2
 S32-list/minmax.t..................................  97    0    0    0   97
 S32-list/permutations.t............................   2    0    0    0    2
@@ -1814,12 +1815,12 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S03",        5255,     1,   116,    98,  5470,  5488
 "S04",        1143,     2,    50,    45,  1240,  1278
 "S05",        5471,     0,    95,   198,  5764,  6014
-"S06",        1509,     1,    58,    96,  1664,  2005
+"S06",        1511,     0,    57,    96,  1664,  2005
 "S07",           0,     0,     0,     0,     0,    96
 "S09",        1900,     0,    12,   101,  2013,  2013
 "S10",         104,     0,     6,     1,   111,   168
 "S11",          89,     0,    28,    11,   128,   147
-"S12",        1390,    97,    45,   143,  1675,  1730
+"S12",        1480,     2,    49,   144,  1675,  1730
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         318,     0,     8,     8,   334,   347
 "S15",          15,     0,     4,    16,    35, 78526
@@ -1831,19 +1832,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1888,     0,     4,    76,  1968,  1968
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         345,     0,     3,     3,   351,   351
-"S32",       11503,     2,   191,   175, 11871, 10204
+"S32",       11506,     0,   191,   174, 11871, 10204
 "int",        1252,     8,    11,    15,  1286,  1277
 "ros",           2,     0,     0,     0,     2,     2
-"total",     38472,   160,   789,  1539, 40960,118837
+"total",     38567,    62,   792,  1539, 40960,118837
 ----------------
 Failure summary:
 S02-names/is_default.rakudo.jvm 104 - did we throws-like X::Comp::Trait::NotOnNative?
 S03-junctions/misc.rakudo.jvm 131 - Do not try to auto-thread Junction type object (only case)
 S04-phasers/enter-leave.rakudo.jvm aborted 2 test(s)
-S06-currying/named.rakudo.jvm 27 - Priming :(Int :$a!) with \(:a) mixed in a Failure 
-S12-attributes/clone.t aborted 21 test(s)
-S12-attributes/instance.rakudo.jvm aborted 76 test(s)
+S12-attributes/clone.t 16 - cloned object has the newly-provided array
+S12-attributes/clone.t 18 - cloned object has the newly-provided hash
 S16-filehandles/io.rakudo.jvm aborted 48 test(s)
-S32-exceptions/misc.rakudo.jvm 279 - did we throws-like X::Comp::Group?
-S32-exceptions/misc.rakudo.jvm 286 - adequate error message when calling bare "ord"
 integration/advent2012-day04.t aborted 8 test(s)
