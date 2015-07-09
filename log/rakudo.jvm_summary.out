@@ -729,7 +729,7 @@ S05-metasyntax/lookaround.t........................  10    0    0    0   10
 S05-metasyntax/null.t..............................   4    0    0    0    4
 S05-metasyntax/proto-token-ltm.t...................  10    0    0    0   10
 S05-metasyntax/regex.t.............................  30    0    0    0   30
-S05-metasyntax/repeat.t............................  29    0    0    0   29
+S05-metasyntax/repeat.t............................  30    0    0    0   30
 S05-metasyntax/sequential-alternation.t............  10    0    0    0   10
 S05-metasyntax/single-quotes.t.....................   5    0    0    0    5
 S05-metasyntax/unicode-property-pair.rakudo.jvm....   2    0    0    3    5
@@ -880,7 +880,7 @@ S06-routine-modifiers/lvalue-subroutines.t.........  14    0    0    0   14
 S06-routine-modifiers/native-lvalue-subroutines.t..  18    0    0    0   18
 S06-routine-modifiers/proxy.t......................  18    0    0    0   18
 S06-routine-modifiers/scoped-named-subs.t..........  12    0    0    0   12
-S06-signature/arity.t..............................  52    0    0    0   52
+S06-signature/arity.t..............................  56    0    0    0   56
 S06-signature/caller-param.rakudo.jvm..............   2    0    5    0    7
      2 todo   : NYI
      1 todo   : NYI RT \#124924
@@ -1012,7 +1012,9 @@ S11-modules/require.rakudo.jvm.....................  13    0    2    1   16
      1 todo   : variable form plus imports NYI RT \#125084
                                                    pass fail todo skip plan
 S12-attributes/class.t.............................  21    0    0    0   21
-S12-attributes/clone.t.............................  33    2    0    0   35
+S12-attributes/clone.rakudo.jvm....................  37    0    2    0   39
+     1 todo   : cloned object has @.array as Parcel instead of Array RT \#125577
+     1 todo   : cloned object has @.hash as Pair instead of Hash RT \#125577
 S12-attributes/defaults.t..........................  34    0    0    0   34
 S12-attributes/delegation.t........................  65    0    0    0   65
 S12-attributes/inheritance.t.......................   7    0    0    0    7
@@ -1040,7 +1042,7 @@ S12-class/inheritance-class-methods.t..............   5    0    0    0    5
 S12-class/inheritance.t............................  39    0    0    0   39
 S12-class/instantiate.rakudo.jvm...................   6    0    1    0    7
      1 todo   : error reporting
-S12-class/interface-consistency.t..................   8    0    0    0    8
+S12-class/interface-consistency.t..................   9    0    0    0    9
 S12-class/lexical.t................................  14    0    0    0   14
 S12-class/literal.t................................   2    0    0    0    2
 S12-class/magical-vars.t...........................  17    0    0    0   17
@@ -1091,7 +1093,7 @@ S12-introspection/attributes.rakudo.jvm............  25    0    0    5   30
      5 skipped: :tree NYI for .^attributes RT #125014
 S12-introspection/can.t............................  29    0    0    0   29
 S12-introspection/definite.t.......................   6    0    0    0    6
-S12-introspection/meta-class.rakudo.jvm............  11    0    0    1   12
+S12-introspection/meta-class.rakudo.jvm............  13    0    0    1   14
      1 skipped: .version, version number parsing RT #125017
 S12-introspection/methods.rakudo.jvm...............  45    0    0   12   57
      8 skipped: nom regression RT #125011
@@ -1395,7 +1397,7 @@ S32-array/pop.rakudo.jvm...........................  36    0    1    0   37
 S32-array/push.t...................................  52    0    0    0   52
 S32-array/rotate.t.................................  27    0    0    0   27
 S32-array/shift.t..................................  31    0    0    0   31
-S32-array/splice.t.................................  39    0    0    0   39
+S32-array/splice.t.................................  62    0    0    0   62
 S32-array/unshift.t................................  57    0    0    0   57
 S32-basics/warn.t..................................   7    0    0    0    7
 S32-basics/xxKEY.rakudo.jvm........................ 127    0    2    0  129
@@ -1409,8 +1411,9 @@ S32-container/roundrobin.rakudo.jvm................   4    0    1    0    5
 S32-container/stringify.t..........................  16    0    0    0   16
 S32-container/zip.rakudo.jvm.......................  12    0    0    2   14
      2 skipped: lvalue zip RT #124907
-S32-exceptions/misc.rakudo.jvm..................... 316    0    1    0  317
+S32-exceptions/misc.rakudo.jvm..................... 316    1    1    0  318
      1 todo   : parsing regression RT \#124679
+     1 tests aborted (missing ok/not ok)
 S32-hash/adverbs.t.................................1124    0    0    0 1124
 S32-hash/delete-adverb.t........................... 131    0    0    0  131
 S32-hash/delete.t..................................   8    0    0    0    8
@@ -1814,13 +1817,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        5237,     1,   143,   411,  5792,  5791
 "S03",        5255,     1,   116,    98,  5470,  5488
 "S04",        1143,     2,    50,    45,  1240,  1278
-"S05",        5471,     0,    95,   198,  5764,  6014
-"S06",        1511,     0,    57,    96,  1664,  2005
+"S05",        5472,     0,    95,   198,  5765,  6015
+"S06",        1515,     0,    57,    96,  1668,  2009
 "S07",           0,     0,     0,     0,     0,    96
 "S09",        1900,     0,    12,   101,  2013,  2013
 "S10",         104,     0,     6,     1,   111,   168
 "S11",          89,     0,    28,    11,   128,   147
-"S12",        1480,     2,    49,   144,  1675,  1730
+"S12",        1487,     0,    51,   144,  1682,  1737
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         318,     0,     8,     8,   334,   347
 "S15",          15,     0,     4,    16,    35, 78526
@@ -1832,16 +1835,15 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1888,     0,     4,    76,  1968,  1968
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         345,     0,     3,     3,   351,   351
-"S32",       11506,     0,   191,   174, 11871, 10204
+"S32",       11529,     1,   191,   174, 11895, 10228
 "int",        1252,     8,    11,    15,  1286,  1277
 "ros",           2,     0,     0,     0,     2,     2
-"total",     38567,    62,   792,  1539, 40960,118837
+"total",     38602,    61,   794,  1539, 40996,118873
 ----------------
 Failure summary:
 S02-names/is_default.rakudo.jvm 104 - did we throws-like X::Comp::Trait::NotOnNative?
 S03-junctions/misc.rakudo.jvm 131 - Do not try to auto-thread Junction type object (only case)
 S04-phasers/enter-leave.rakudo.jvm aborted 2 test(s)
-S12-attributes/clone.t 16 - cloned object has the newly-provided array
-S12-attributes/clone.t 18 - cloned object has the newly-provided hash
 S16-filehandles/io.rakudo.jvm aborted 48 test(s)
+S32-exceptions/misc.rakudo.jvm aborted 1 test(s)
 integration/advent2012-day04.t aborted 8 test(s)
