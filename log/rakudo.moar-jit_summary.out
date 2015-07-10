@@ -157,8 +157,7 @@ S02-magicals/VM.rakudo.moar........................Use of uninitialized value of
      1 todo   : no VM.signature yet RT \#124609
      1 todo   : no VM.signature yet RT \#124613
 S02-magicals/args.t................................   6    0    0    0    6
-S02-magicals/block.rakudo.moar.....................   0    0    0    1    1
-     1 skipped: &?BLOCK NYI RT #125131
+S02-magicals/block.t...............................   3    0    0    0    3
 S02-magicals/dollar-underscore.t...................  11    0    0    0   11
 S02-magicals/dollar_bang.t.........................  15    0    0    0   15
 S02-magicals/env.rakudo.moar.......................# %*ENV<PUGS_ROCKS>=
@@ -174,7 +173,7 @@ Regex object coerced to string (please use .gist or .perl to do that)  in block 
 Regex object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:134
 Regex object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:134
 Regex object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:134
-   6    0    0    0    6
+   8    0    0    0    8
 S02-magicals/subname.t.............................   4    0    0    0    4
 S02-names-vars/contextual.t........................  23    0    0    0   23
 S02-names-vars/fmt.t...............................  21    0    0    0   21
@@ -250,15 +249,7 @@ S02-names/is_dynamic.t.............................  22    0    0    0   22
 S02-names/name.t...................................  15    0    0    0   15
 S02-names/our.rakudo.moar..........................   9    0    0    1   10
      1 skipped: OUR::subname() does not work
-S02-names/pseudo.rakudo.moar.......................WARNING: unhandled Failure detected in DESTROY:
-No such symbol 'OUR::A43'
-  in block <unit> at t/spec/S02-names/pseudo.rakudo.moar:184
-
-WARNING: unhandled Failure detected in DESTROY:
-No such symbol 'OUR::A42'
-  in block <unit> at t/spec/S02-names/pseudo.rakudo.moar:180
-
-  52    0    8   82  142
+S02-names/pseudo.rakudo.moar.......................  52    0    8   82  142
     19 skipped: CORE NYI RT #124916
      4 skipped: the binding in here is NYI RT #124914
     23 skipped: various issues to resolve RT #124917
@@ -592,7 +583,18 @@ S03-operators/chained-declarators.t................   5    0    0    0    5
 S03-operators/cmp.t................................  31    0    0    0   31
 S03-operators/comparison-simple.t..................  24    0    0    0   24
 S03-operators/comparison.t.........................  41    0    0    0   41
-S03-operators/context-forcers.rakudo.moar..........  95    0    0    2   97
+S03-operators/context-forcers.rakudo.moar..........Use of uninitialized value @frames of type Any in string context  in block <unit> at EVAL_2:1
+WARNING: unhandled Failure detected in DESTROY:
+Dynamic variable $*arrayref not found
+  in block <unit> at EVAL_0:1
+  in any <unit-outer> at EVAL_0:1
+  in sub eval_elsewhere at t/spec/S03-operators/context-forcers.rakudo.moar:82
+
+WARNING: unhandled Failure detected in DESTROY:
+Cannot convert string to number: trailing characters after number in '2⏏ is my favorite number' (indicated by ⏏)
+  in block <unit> at t/spec/S03-operators/context-forcers.rakudo.moar:89
+
+  95    0    0    2   97
      2 skipped: failure modes of Str.Numeric RT #124540
 S03-operators/context.t............................  38    0    0    0   38
 S03-operators/custom.t.............................   1    0    0    0    1
@@ -765,29 +767,6 @@ S03-operators/inplace.rakudo.moar..................  23    0    0    4   27
 S03-operators/is-divisible-by.rakudo.moar..........    
 # Failed test 'code dies'
 # at t/spec/S03-operators/is-divisible-by.rakudo.moar line 41
-WARNING: unhandled Failure detected in DESTROY:
-Attempt to divide 9 by zero using infix:<%%>
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1233
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1229
-  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1197
-  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1147
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1708
-  in any visit_want at src/gen/m-Perl6-Optimizer.nqp:1548
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1711
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1726
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1720
-  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1717
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1720
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1726
-  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1717
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1720
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1726
-  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
-  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
-  in any optimize at src/Perl6/Compiler.nqp:64
-
     # Looks like you failed 1 test of 4
   14    0    1    0   15
      1 todo   : not sure why this doesn't fire
@@ -965,8 +944,7 @@ S03-smartmatch/signature-signature.rakudo.moar.....  18    0    0    1   19
                                                    pass fail todo skip plan
 S04-blocks-and-statements/let.t....................  12    0    0    0   12
 S04-blocks-and-statements/pointy-rw.t..............  10    0    0    0   10
-S04-blocks-and-statements/pointy.rakudo.moar.......  16    0    2    0   18
-     1 todo   : &?ROUTINE
+S04-blocks-and-statements/pointy.rakudo.moar.......  17    0    1    0   18
      1 todo   : pointy blocks and last/redo RT \#124973
 S04-blocks-and-statements/temp.rakudo.moar.........Use of Nil in string context  in block  at t/spec/S04-blocks-and-statements/temp.rakudo.moar:112
 Use of Nil in string context  in block  at t/spec/S04-blocks-and-statements/temp.rakudo.moar:113
@@ -1024,7 +1002,7 @@ Useless use of "," in expression "my $x = 1, my $y = 2" in sink context (line 1)
 WARNINGS:
 Useless use of constant integer 1 in sink context (line 1)
 Use of uninitialized value x1 of type Any in string context  in block  at lib/Test.pm:134
-Use of uninitialized value x1 of type Any in string context  in block  at lib/Test.pm:137
+Use of uninitialized value x1 of type Any in string context  in code  at lib/Test.pm:137
 Use of uninitialized value x1 of type Any in string context  in block  at lib/Test.pm:144
 Use of uninitialized value x3 of type Any in string context  in block  at t/spec/S04-declarations/my.rakudo.moar:336
   94    0    2    0   96
@@ -1133,8 +1111,7 @@ S04-statements/terminator.t........................  20    0    0    0   20
 S04-statements/try.t...............................  32    0    0    0   32
 S04-statements/unless.t............................  10    0    0    0   10
 S04-statements/until.t.............................   4    0    0    0    4
-S04-statements/when.rakudo.moar....................  12    0    0   12   24
-    12 skipped: exception type X::Syntax::OutsideOfTopicalizer NYI RT #125132
+S04-statements/when.t..............................  18    0    0    0   18
 S04-statements/while.t.............................   9    0    0    0    9
                                                    pass fail todo skip plan
 S05-capture/alias.rakudo.moar......................  25    0    0    5   30
@@ -1331,8 +1308,9 @@ S05-metasyntax/litvar.t............................Potential difficulties:
     at t/spec/S05-metasyntax/litvar.t:36
     ------> [32mok('c0' ~~ m/@var[33m⏏[31m[0]/, 'Array ignores 0');               [0m
   32    0    0    0   32
-S05-metasyntax/longest-alternative.rakudo.moar.....  47    0    0    1   48
+S05-metasyntax/longest-alternative.rakudo.moar.....  48    0    1    1   50
      1 skipped: :: RT #124526
+     1 todo   : RT \#113884 - constant variables not counted in LTM yet
 S05-metasyntax/lookaround.t........................  10    0    0    0   10
 S05-metasyntax/null.t..............................   4    0    0    0    4
 S05-metasyntax/proto-token-ltm.t...................  10    0    0    0   10
@@ -1455,9 +1433,8 @@ S06-advanced/return.rakudo.moar....................Use of uninitialized value @l
   79    0    2    0   81
      1 todo   : RT \#61732
      1 todo   : RT \#75118
-S06-advanced/wrap.rakudo.moar......................  77    0    8    0   85
+S06-advanced/wrap.rakudo.moar......................  78    0    7    0   85
      4 todo   : RT \#122259
-     1 todo   : RT \#70267: call to nextsame with nowhere to go
      1 todo   : callwith RT \#124653
      1 todo   : temp and wrap
      1 todo   : temp and wrap RT \#124654
@@ -1776,7 +1753,7 @@ S10-packages/precompilation.rakudo.moar............Use of uninitialized value $_
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-31849-339858.code:4
+#   in block <unit> at getout-17325-848515.code:4
 
 
   33    0    3    0   36
@@ -1826,10 +1803,10 @@ Use of uninitialized value %!h of type Int in string context  in block  at lib/T
 Use of uninitialized value %!h of type Int in string context  in block  at lib/Test.pm:134
 Use of uninitialized value %!h of type Int in string context  in block  at lib/Test.pm:134
 Use of uninitialized value %!h of type Int in string context  in block  at lib/Test.pm:134
-Use of uninitialized value %!h of type Int in string context  in block  at lib/Test.pm:137
-Use of uninitialized value %!h of type Int in string context  in block  at lib/Test.pm:137
-Use of uninitialized value %!h of type Int in string context  in block  at lib/Test.pm:137
-Use of uninitialized value %!h of type Int in string context  in block  at lib/Test.pm:137
+Use of uninitialized value %!h of type Int in string context  in code  at lib/Test.pm:137
+Use of uninitialized value %!h of type Int in string context  in code  at lib/Test.pm:137
+Use of uninitialized value %!h of type Int in string context  in code  at lib/Test.pm:137
+Use of uninitialized value %!h of type Int in string context  in code  at lib/Test.pm:137
 Use of uninitialized value %!h of type Int in string context  in block  at lib/Test.pm:144
 Use of uninitialized value %!h of type Int in string context  in block  at lib/Test.pm:144
 Use of uninitialized value %!h of type Int in string context  in block  at lib/Test.pm:144
@@ -2107,8 +2084,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  10    0    0    0   10
-S16-filehandles/chmod.t............................# Using file temp_1436454095
-# Using file temp_1436454095
+S16-filehandles/chmod.t............................# Using file temp_1436540334
+# Using file temp_1436540334
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2734,7 +2711,15 @@ Cannot .pop from an empty Array
 S32-array/push.t...................................  52    0    0    0   52
 S32-array/rotate.t.................................  27    0    0    0   27
 S32-array/shift.t..................................  31    0    0    0   31
-S32-array/splice.t.................................  62    0    0    0   62
+S32-array/splice.rakudo.moar.......................    
+# Failed test 'right exception type (X::TypeCheck::Splice)'
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/lib/Test.pm.moarvm line 1
+    # Expected: (X::TypeCheck::Splice)
+    # Got:      (X::TypeCheck::Binding)
+    # Exception message: Type check failed in binding @arr; expected 'Positional' but got 'Mu'
+    # Looks like you failed 1 test of 5
+  93    0    1    0   94
+     1 todo   : somehow the test causes different typecheck error
 S32-array/unshift.t................................  57    0    0    0   57
 S32-basics/warn.t..................................# It's OK to see this warning during a test run  in block  at t/spec/S32-basics/warn.t:14
    7    0    0    0    7
@@ -2768,7 +2753,7 @@ S32-exceptions/misc.rakudo.moar....................Sub object coerced to string 
 #     $abe
 
 Use of uninitialized value of type Any in string context  in block  at t/spec/S32-exceptions/misc.rakudo.moar:585
- 317    0    1    0  318
+ 318    0    1    0  319
      1 todo   : parsing regression RT \#124679
 S32-hash/adverbs.t.................................    
 # Failed test ''%h<b>:zorp' died'
@@ -3447,10 +3432,10 @@ S32-list/reverse.rakudo.moar.......................  20    0    1    0   21
 S32-list/roll.t....................................  49    0    0    0   49
 S32-list/rotor.t...................................   9    0    0    0    9
 S32-list/sort.rakudo.moar..........................Block object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:134
-Block object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:137
+Block object coerced to string (please use .gist or .perl to do that)  in code  at lib/Test.pm:137
 Block object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:144
 Block object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:134
-Block object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:137
+Block object coerced to string (please use .gist or .perl to do that)  in code  at lib/Test.pm:137
 Block object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:144
 Use of uninitialized value $b of type Code in string context  in block  at t/spec/S32-list/sort.rakudo.moar:207
   30    0    2    0   32
@@ -3869,14 +3854,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 1.0721793 seconds
-# gerdr: 1.0819946 seconds
-# loop: 1.1730786 seconds
-# recursive-ternary: 1.3003814 seconds
-# hand-memoization: 1.622781679 seconds
-# recursive-ternary-hand-cached: 2.76660880 seconds
-# sequence-ternary: 6.61235611 seconds
-# sequence: 8.9582359 seconds
+integration/advent2012-day21.t.....................# kaz: 1.13832437 seconds
+# gerdr: 1.1416375 seconds
+# recursive-ternary: 1.26122745 seconds
+# loop: 1.28895140 seconds
+# hand-memoization: 1.6131196 seconds
+# recursive-ternary-hand-cached: 2.9343556 seconds
+# sequence-ternary: 6.67126474 seconds
+# sequence: 8.9435031 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT \#121789
@@ -4020,11 +4005,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        5277,     0,   129,   386,  5792,  5791
+"S02",        5282,     0,   129,   385,  5796,  5795
 "S03",        5256,     0,   116,    98,  5470,  5488
-"S04",        1151,     0,    47,    42,  1240,  1278
-"S05",        5581,     0,    83,   132,  5796,  6015
-"S06",        1521,     0,    56,    91,  1668,  2009
+"S04",        1158,     0,    46,    30,  1234,  1272
+"S05",        5582,     0,    84,   132,  5798,  6017
+"S06",        1522,     0,    55,    91,  1668,  2009
 "S07",           0,     0,     0,     0,     0,    96
 "S09",        1900,     0,    12,   101,  2013,  2013
 "S10",         105,     0,     5,     1,   111,   168
@@ -4041,10 +4026,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1888,     0,     4,    76,  1968,  1968
 "S28",          13,     0,     0,     0,    13,    13
 "S29",         346,     0,     3,     2,   351,   351
-"S32",       11690,     1,   199,   155, 12045, 10378
+"S32",       11722,     1,   200,   155, 12078, 10411
 "int",        1256,     8,    12,    15,  1291,  1277
 "ros",           2,     0,     0,     0,     2,     2
-"total",    117737,    39,   771,  1428,119975,119293
+"total",    117783,    39,   771,  1415,120008,119326
 ----------------
 Failure summary:
 S17-procasync/kill.rakudo.moar 7 - The object is-a 'Proc::Status'
