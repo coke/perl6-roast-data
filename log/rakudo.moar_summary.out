@@ -249,7 +249,15 @@ S02-names/is_dynamic.t.............................  22    0    0    0   22
 S02-names/name.t...................................  15    0    0    0   15
 S02-names/our.rakudo.moar..........................   9    0    0    1   10
      1 skipped: OUR::subname() does not work
-S02-names/pseudo.rakudo.moar.......................  52    0    8   82  142
+S02-names/pseudo.rakudo.moar.......................WARNING: unhandled Failure detected in DESTROY:
+No such symbol 'OUR::A43'
+  in block <unit> at t/spec/S02-names/pseudo.rakudo.moar:184
+
+WARNING: unhandled Failure detected in DESTROY:
+No such symbol 'OUR::A42'
+  in block <unit> at t/spec/S02-names/pseudo.rakudo.moar:180
+
+  52    0    8   82  142
     19 skipped: CORE NYI RT #124916
      4 skipped: the binding in here is NYI RT #124914
     23 skipped: various issues to resolve RT #124917
@@ -786,7 +794,13 @@ S03-operators/lcm.t................................  15    0    0    0   15
 S03-operators/list-quote-junction.t................  16    0    0    0   16
 S03-operators/minmax.rakudo.moar...................  27    0    0    2   29
      2 skipped: Annoying test that we haven't done the obvious yet unspecced, fails because we have indeed done the obvious RT #124539
-S03-operators/misc.t...............................  36    0    0    0   36
+S03-operators/misc.rakudo.moar.....................Use of uninitialized value of type Str in string context  in block  at t/spec/S03-operators/misc.rakudo.moar:132
+    
+# Failed test 'code dies'
+# at t/spec/S03-operators/misc.rakudo.moar line 132
+    # Looks like you failed 1 test of 2
+  37    0    1    0   38
+     1 todo   : RT \#93978
 S03-operators/mix.rakudo.moar......................  95    0   18   15  128
     15 skipped: submix behavior still under discussion
      2 todo   : Crashing
@@ -1358,7 +1372,11 @@ S05-modifier/continue.t............................Use of Nil in string context 
   13    0    0    0   13
 S05-modifier/counted-match.rakudo.moar.............  16    0    0    6   22
      6 skipped: hangs RT #125026
-S05-modifier/counted.t............................. 119    0    0    0  119
+S05-modifier/counted.t.............................WARNING: unhandled Failure detected in DESTROY:
+Attempt to retrieve negative match :nth(0)
+  in block <unit> at t/spec/S05-modifier/counted.t:25
+
+ 119    0    0    0  119
 S05-modifier/global.t..............................   8    0    0    0    8
 S05-modifier/ignorecase-and-ignoremark.t...........  15    0    0    0   15
 S05-modifier/ignorecase.rakudo.moar................  23    0    2    0   25
@@ -1667,7 +1685,7 @@ S06-signature/sub-ref.rakudo.moar..................  28    0    2    4   34
      2 todo   : RT \#63974
 S06-signature/tree-node-parameters.rakudo.moar.....  16    0    0    4   20
      4 skipped: signature binding of return values NYI RT #124945
-S06-signature/type-capture.t.......................   9    0    0    0    9
+S06-signature/type-capture.t.......................  10    0    0    0   10
 S06-signature/types.t..............................   9    0    0    0    9
 S06-signature/unpack-array.t.......................  15    0    0    0   15
 S06-signature/unpack-object.t......................   4    0    0    0    4
@@ -1765,7 +1783,7 @@ S10-packages/precompilation.rakudo.moar............Use of uninitialized value $_
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-6928-680389.code:4
+#   in block <unit> at getout-11628-685189.code:4
 
 
   33    0    3    0   36
@@ -2096,8 +2114,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  10    0    0    0   10
-S16-filehandles/chmod.t............................# Using file temp_1436538700
-# Using file temp_1436538700
+S16-filehandles/chmod.t............................# Using file temp_1436625176
+# Using file temp_1436625176
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2730,8 +2748,85 @@ S32-array/splice.rakudo.moar.......................
     # Got:      (X::TypeCheck::Binding)
     # Exception message: Type check failed in binding @arr; expected 'Positional' but got 'Mu'
     # Looks like you failed 1 test of 5
-  93    0    1    0   94
-     1 todo   : somehow the test causes different typecheck error
+    
+# Failed test 'right exception type (X::TypeCheck::Splice)'
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.pm.moarvm line 1
+    # Expected: (X::TypeCheck::Splice)
+    # Got:      (X::AdHoc)
+    # Exception message: Cannot call method 'splice' on a null object
+    # Looks like you failed 1 test of 5
+    
+# Failed test 'right exception type (X::TypeCheck::Splice)'
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.pm.moarvm line 1
+    # Expected: (X::TypeCheck::Splice)
+    # Got:      (X::TypeCheck::Binding)
+    # Exception message: Type check failed in binding @arr; expected 'Positional' but got 'Mu'
+    # Looks like you failed 1 test of 5
+    
+# Failed test 'right exception type (X::TypeCheck::Splice)'
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.pm.moarvm line 1
+    # Expected: (X::TypeCheck::Splice)
+    # Got:      (X::AdHoc)
+    # Exception message: Cannot call method 'splice' on a null object
+    # Looks like you failed 1 test of 5
+    
+# Failed test 'right exception type (X::TypeCheck::Splice)'
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.pm.moarvm line 1
+    # Expected: (X::TypeCheck::Splice)
+    # Got:      (X::TypeCheck::Binding)
+    # Exception message: Type check failed in binding @arr; expected 'Positional' but got 'Mu'
+    # Looks like you failed 1 test of 5
+    
+# Failed test 'right exception type (X::TypeCheck::Splice)'
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.pm.moarvm line 1
+    # Expected: (X::TypeCheck::Splice)
+    # Got:      (X::AdHoc)
+    # Exception message: Cannot call method 'splice' on a null object
+    # Looks like you failed 1 test of 5
+    
+# Failed test 'right exception type (X::TypeCheck::Splice)'
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.pm.moarvm line 1
+    # Expected: (X::TypeCheck::Splice)
+    # Got:      (X::TypeCheck::Binding)
+    # Exception message: Type check failed in binding @arr; expected 'Positional' but got 'Mu'
+    # Looks like you failed 1 test of 5
+    
+# Failed test 'right exception type (X::TypeCheck::Splice)'
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.pm.moarvm line 1
+    # Expected: (X::TypeCheck::Splice)
+    # Got:      (X::AdHoc)
+    # Exception message: Cannot call method 'splice' on a null object
+    # Looks like you failed 1 test of 5
+    
+# Failed test 'right exception type (X::TypeCheck::Splice)'
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.pm.moarvm line 1
+    # Expected: (X::TypeCheck::Splice)
+    # Got:      (X::TypeCheck::Binding)
+    # Exception message: Type check failed in binding @arr; expected 'Positional' but got 'Mu'
+    # Looks like you failed 1 test of 5
+    
+# Failed test 'right exception type (X::TypeCheck::Splice)'
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.pm.moarvm line 1
+    # Expected: (X::TypeCheck::Splice)
+    # Got:      (X::AdHoc)
+    # Exception message: Cannot call method 'splice' on a null object
+    # Looks like you failed 1 test of 5
+    
+# Failed test 'right exception type (X::TypeCheck::Splice)'
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.pm.moarvm line 1
+    # Expected: (X::TypeCheck::Splice)
+    # Got:      (X::TypeCheck::Binding)
+    # Exception message: Type check failed in binding @arr; expected 'Positional' but got 'Mu'
+    # Looks like you failed 1 test of 5
+    
+# Failed test 'right exception type (X::TypeCheck::Splice)'
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.pm.moarvm line 1
+    # Expected: (X::TypeCheck::Splice)
+    # Got:      (X::AdHoc)
+    # Exception message: Cannot call method 'splice' on a null object
+    # Looks like you failed 1 test of 5
+ 343    0   12    0  355
+    12 todo   : somehow the test causes different typecheck error
 S32-array/unshift.t................................  57    0    0    0   57
 S32-basics/warn.t..................................# It's OK to see this warning during a test run  in block  at t/spec/S32-basics/warn.t:14
    7    0    0    0    7
@@ -3866,14 +3961,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 0.9346543 seconds
-# gerdr: 1.0550997 seconds
-# recursive-ternary: 1.1352348 seconds
-# loop: 1.15716247 seconds
-# hand-memoization: 1.4833198 seconds
-# recursive-ternary-hand-cached: 2.8311034 seconds
-# sequence-ternary: 6.4166310 seconds
-# sequence: 8.8487087 seconds
+integration/advent2012-day21.t.....................# gerdr: 1.0334526 seconds
+# kaz: 1.0532560 seconds
+# recursive-ternary: 1.1171928 seconds
+# loop: 1.1790547 seconds
+# hand-memoization: 1.4720944 seconds
+# recursive-ternary-hand-cached: 3.05851172 seconds
+# sequence-ternary: 6.8028840 seconds
+# sequence: 10.4130694 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT \#121789
@@ -4018,10 +4113,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
 "S02",        5282,     0,   129,   385,  5796,  5795
-"S03",        5256,     0,   116,    98,  5470,  5488
+"S03",        5257,     0,   117,    98,  5472,  5490
 "S04",        1158,     0,    46,    30,  1234,  1272
 "S05",        5582,     0,    84,   132,  5798,  6017
-"S06",        1522,     0,    55,    91,  1668,  2009
+"S06",        1523,     0,    55,    91,  1669,  2010
 "S07",           0,     0,     0,     0,     0,    96
 "S09",        1900,     0,    12,   101,  2013,  2013
 "S10",         105,     0,     5,     1,   111,   168
@@ -4038,10 +4133,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1888,     0,     4,    76,  1968,  1968
 "S28",          13,     0,     0,     0,    13,    13
 "S29",         346,     0,     3,     2,   351,   351
-"S32",       11722,     1,   200,   155, 12078, 10411
+"S32",       11972,     1,   211,   155, 12339, 10672
 "int",        1256,     8,    12,    15,  1291,  1277
 "ros",           2,     0,     0,     0,     2,     2
-"total",    117783,    39,   771,  1415,120008,119326
+"total",    118035,    39,   783,  1415,120272,119590
 ----------------
 Failure summary:
 S17-procasync/kill.rakudo.moar 7 - The object is-a 'Proc::Status'
