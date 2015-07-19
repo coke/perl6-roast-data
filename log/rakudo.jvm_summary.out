@@ -1007,7 +1007,7 @@ S11-modules/require.rakudo.jvm.....................  13    0    2    1   16
      1 todo   : creation of stub package symbol NYI RT \#125083
      1 todo   : variable form plus imports NYI RT \#125084
                                                    pass fail todo skip plan
-S12-attributes/class.t.............................  21    0    0    0   21
+S12-attributes/class.t.............................  23    0    0    0   23
 S12-attributes/clone.rakudo.jvm....................  37    0    2    0   39
      1 todo   : cloned object has @.array as Parcel instead of Array RT \#125577
      1 todo   : cloned object has @.hash as Pair instead of Hash RT \#125577
@@ -1180,8 +1180,7 @@ S14-roles/conflicts.t..............................  11    0    0    0   11
 S14-roles/crony.t..................................   4    0    0    0    4
 S14-roles/instantiation.t..........................  19    0    0    0   19
 S14-roles/lexical.t................................   9    0    0    0    9
-S14-roles/mixin.rakudo.jvm.........................  35    0    0    2   37
-     2 skipped: mixin at the point of declaration is compile time RT #124747
+S14-roles/mixin.t..................................  45    0    0    0   45
 S14-roles/namespaced.rakudo.jvm....................   2    0    1    0    3
      1 todo   : nom regression RT \#124750
 S14-roles/parameter-subtyping.t....................  22    0    0    0   22
@@ -1236,7 +1235,7 @@ S16-unfiled/rebindstdhandles.rakudo.jvm............   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   7    0    0    0    7
-S17-lowlevel/lock.rakudo.jvm.......................   7    0    0    1    8
+S17-lowlevel/lock.rakudo.jvm.......................   6    1    0    1    8
      1 skipped: not sure this test is valid RT #124793
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-promise/allof.t................................  11    0    0    0   11
@@ -1408,9 +1407,9 @@ S32-container/roundrobin.rakudo.jvm................   4    0    1    0    5
 S32-container/stringify.t..........................  16    0    0    0   16
 S32-container/zip.rakudo.jvm.......................  12    0    0    2   14
      2 skipped: lvalue zip RT #124907
-S32-exceptions/misc.rakudo.jvm..................... 316    9    1    0  326
+S32-exceptions/misc.rakudo.jvm..................... 316   11    1    0  328
      1 todo   : parsing regression RT \#124679
-     9 tests aborted (missing ok/not ok)
+    11 tests aborted (missing ok/not ok)
 S32-hash/adverbs.t.................................1124    0    0    0 1124
 S32-hash/delete-adverb.t........................... 131    0    0    0  131
 S32-hash/delete.t..................................   8    0    0    0    8
@@ -1581,8 +1580,7 @@ S32-str/rindex.t...................................  33    0    0    0   33
 S32-str/samecase.t.................................   8    0    0    0    8
 S32-str/samemark.rakudo.jvm........................   0    0    0    7    7
      7 skipped: samemark NYI - RT #125165
-S32-str/split-simple.rakudo.jvm....................  28    0    1    0   29
-     1 todo   : RT \#112868
+S32-str/split-simple.t.............................  29    0    0    0   29
 S32-str/split.rakudo.jvm...........................  52    0    0    1   53
      1 skipped: No such method null for invocant of type Cursor RT #124685
 S32-str/sprintf-b.rakudo.jvm.......................  68    0   90    7  165
@@ -1825,22 +1823,22 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S09",        1900,     0,    12,   101,  2013,  2013
 "S10",         104,     0,     6,     1,   111,   168
 "S11",          89,     0,    28,    11,   128,   147
-"S12",        1490,     0,    51,   144,  1685,  1740
+"S12",        1492,     0,    51,   144,  1687,  1742
 "S13",          36,     0,    10,    27,    73,    83
-"S14",         318,     0,     8,     8,   334,   347
+"S14",         328,     0,     8,     6,   342,   355
 "S15",          15,     0,     4,    16,    35, 78526
 "S16",         256,    48,     0,    16,   320,   348
-"S17",         702,     0,     5,    23,   730,   777
+"S17",         701,     1,     5,    23,   730,   777
 "S19",          13,     1,     0,     0,    14,    18
 "S22",          23,     0,     0,     1,    24,    24
 "S24",          18,     0,     0,     0,    18,    89
 "S26",        1888,     0,     4,    76,  1968,  1968
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         345,     0,     3,     3,   351,   351
-"S32",       11620,   203,   204,   173, 12200, 10533
+"S32",       11621,   205,   203,   173, 12202, 10535
 "int",        1251,     9,    11,    15,  1286,  1277
 "ros",           2,     0,     0,     0,     2,     2
-"total",     38742,   267,   803,  1521, 41333,119211
+"total",     38754,   270,   802,  1519, 41345,119223
 ----------------
 Failure summary:
 S02-magicals/sub.t aborted 2 test(s)
@@ -1848,8 +1846,9 @@ S02-names/is_default.rakudo.jvm 104 - did we throws-like X::Comp::Trait::NotOnNa
 S03-junctions/misc.rakudo.jvm 131 - Do not try to auto-thread Junction type object (only case)
 S04-phasers/enter-leave.rakudo.jvm aborted 2 test(s)
 S16-filehandles/io.rakudo.jvm aborted 48 test(s)
+S17-lowlevel/lock.rakudo.jvm 7 - Condition variable worked
 S19-command-line/arguments.t 1 - concise error message when called script not found
-S32-exceptions/misc.rakudo.jvm aborted 9 test(s)
+S32-exceptions/misc.rakudo.jvm aborted 11 test(s)
 S32-list/pick.rakudo.jvm aborted 15 test(s)
 S32-temporal/DateTime.t aborted 49 test(s)
 S32-temporal/calendar.t aborted 130 test(s)
