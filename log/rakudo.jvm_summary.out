@@ -115,8 +115,8 @@ S02-magicals/env.rakudo.jvm........................  16    0    0    1   17
 S02-magicals/file_line.t...........................   2    0    0    0    2
 S02-magicals/pid.t.................................   2    0    0    0    2
 S02-magicals/progname.t............................   4    0    0    0    4
-S02-magicals/sub.t.................................   6    2    0    0    8
-     2 tests aborted (missing ok/not ok)
+S02-magicals/sub.rakudo.jvm........................   6    0    0    2    8
+     2 skipped: java.lang.NullPointerException (openjdk)
 S02-magicals/subname.t.............................   4    0    0    0    4
 S02-names-vars/contextual.t........................  24    0    0    0   24
 S02-names-vars/fmt.t...............................  21    0    0    0   21
@@ -250,10 +250,9 @@ S02-types/multi_dimensional_array.rakudo.jvm.......  48    0    0   10   58
      4 skipped: multi-dim sized arrays NYI RT #124483
 S02-types/nan.rakudo.jvm...........................  20    0    0    1   21
      1 skipped: RT #83446
-S02-types/native.rakudo.jvm........................  43    0    2    3   48
+S02-types/native.rakudo.jvm........................  44    0    1    3   48
      3 skipped: cannot unbox to a native number
      1 todo   : RT \#102416 - though maybe wrong test? Not sure .WHAT is *that* magic
-     1 todo PASSED: wrong default
 S02-types/nested_arrays.rakudo.jvm.................   8    0    1    0    9
      1 todo   : Should we fail, or should we throw RT \#124449
 S02-types/nested_pairs.t...........................  14    0    0    0   14
@@ -1179,7 +1178,7 @@ S14-roles/parameterized-basic.t....................  36    0    0    0   36
 S14-roles/parameterized-mixin.rakudo.jvm...........  24    0    4    0   28
      4 todo   : .does with parametric roles RT \#124746
 S14-roles/parameterized-type.t.....................  32    0    0    0   32
-S14-roles/stubs.t..................................  10    0    0    0   10
+S14-roles/stubs.t..................................  11    0    0    0   11
 S14-roles/submethods.t.............................   4    0    0    0    4
 S14-traits/attributes.t............................   8    0    0    0    8
 S14-traits/routines.rakudo.jvm.....................  14    0    1    0   15
@@ -1399,9 +1398,9 @@ S32-container/roundrobin.rakudo.jvm................   4    0    1    0    5
 S32-container/stringify.t..........................  16    0    0    0   16
 S32-container/zip.rakudo.jvm.......................  12    0    0    2   14
      2 skipped: lvalue zip RT #124907
-S32-exceptions/misc.rakudo.jvm..................... 316   24    1    0  341
+S32-exceptions/misc.rakudo.jvm..................... 339    0    1    1  341
+     1 skipped: Error while compiling, type X::TooLateForREPR
      1 todo   : parsing regression RT \#124679
-    24 tests aborted (missing ok/not ok)
 S32-hash/adverbs.t.................................1124    0    0    0 1124
 S32-hash/delete-adverb.t........................... 131    0    0    0  131
 S32-hash/delete.t..................................   8    0    0    0    8
@@ -1450,7 +1449,8 @@ S32-io/note.t......................................   6    0    0    0    6
 S32-io/other.t.....................................  60    0    0    0   60
 S32-io/pipe.t......................................  13    0    0    0   13
 S32-io/rename.t....................................  29    0    0    0   29
-S32-io/slurp.t.....................................  18    0    0    0   18
+S32-io/slurp.t.....................................   9    9    0    0   18
+     9 tests aborted (missing ok/not ok)
 S32-io/spurt.t.....................................  35    0    0    0   35
 S32-list/categorize.t..............................  28    0    0    0   28
 S32-list/classify.rakudo.jvm.......................  32    0    0    3   35
@@ -1643,8 +1643,8 @@ S32-str/words.rakudo.jvm...........................  14    0    2    0   16
      2 todo   : NFG on JVM RT \#124739
 S32-temporal/Date.t................................  72    0    0    0   72
 S32-temporal/DateTime-Instant-Duration.t...........  33    0    0    0   33
-S32-temporal/DateTime.t............................ 170   62    0    0  232
-    62 tests aborted (missing ok/not ok)
+S32-temporal/DateTime.t............................ 170   63    0    0  233
+    63 tests aborted (missing ok/not ok)
 S32-temporal/calendar.t............................   0  130    0    0  130
    130 tests aborted (missing ok/not ok)
 S32-temporal/local.rakudo.jvm......................  16    0    9    0   25
@@ -1807,7 +1807,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        5272,     3,   137,   406,  5818,  5817
+"S02",        5273,     1,   136,   408,  5818,  5817
 "S03",        5256,     1,   117,    97,  5471,  5489
 "S04",        1158,     0,    51,    33,  1242,  1280
 "S05",        4997,   502,    89,   183,  5771,  6021
@@ -1818,7 +1818,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S11",          89,     0,    28,    11,   128,   147
 "S12",        1493,     0,    51,   144,  1688,  1743
 "S13",          36,     0,    10,    27,    73,    83
-"S14",         330,     0,     6,     6,   342,   355
+"S14",         331,     0,     6,     6,   343,   356
 "S15",          15,     0,     4,    16,    35, 78526
 "S16",         256,    51,     0,    16,   323,   351
 "S17",         702,     0,     7,    21,   730,   777
@@ -1828,19 +1828,18 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1888,     0,     8,    72,  1968,  1968
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         345,     0,     3,     3,   351,   351
-"S32",       11645,   217,   204,   173, 12239, 10566
+"S32",       11659,   203,   204,   174, 12240, 10567
 "int",        1263,     1,    11,    15,  1290,  1281
 "ros",           2,     0,     0,     0,     2,     2
-"total",     38597,   775,   805,  1495, 41672,119274
+"total",     38613,   759,   804,  1498, 41674,119276
 ----------------
 Failure summary:
-S02-magicals/sub.t aborted 2 test(s)
 S02-names/is_default.rakudo.jvm 104 - did we throws-like X::Comp::Trait::NotOnNative?
 S03-junctions/misc.rakudo.jvm 131 - Do not try to auto-thread Junction type object (only case)
 S05-mass/properties-general.rakudo.jvm aborted 502 test(s)
 S16-filehandles/io.rakudo.jvm aborted 51 test(s)
-S32-exceptions/misc.rakudo.jvm aborted 24 test(s)
 S32-io/IO-Socket-Async.rakudo.jvm aborted 1 test(s)
-S32-temporal/DateTime.t aborted 62 test(s)
+S32-io/slurp.t aborted 9 test(s)
+S32-temporal/DateTime.t aborted 63 test(s)
 S32-temporal/calendar.t aborted 130 test(s)
 integration/advent2013-day06.t aborted 1 test(s)
