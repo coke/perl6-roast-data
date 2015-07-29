@@ -213,21 +213,21 @@ S02-names/indirect.t...............................   6    0    0    0    6
 S02-names/is_cached.t..............................  38    0    0    0   38
 S02-names/is_default.rakudo.moar...................    
 # Failed test '.got matches Nil'
-# at src/gen/m-CORE.setting line 10624
+# at src/gen/m-CORE.setting line 10589
     # Expected: Nil
 Use of uninitialized value $got of type Any in string context  in block  at lib/Test.pm:498
     # Got:      
     # Looks like you failed 1 test of 4
     
 # Failed test '.got matches Nil'
-# at src/gen/m-CORE.setting line 10624
+# at src/gen/m-CORE.setting line 10589
     # Expected: Nil
 Use of uninitialized value $got of type Any in string context  in block  at lib/Test.pm:498
     # Got:      
     # Looks like you failed 1 test of 4
     
 # Failed test '.got matches Nil'
-# at src/gen/m-CORE.setting line 10624
+# at src/gen/m-CORE.setting line 10589
     # Expected: Nil
 Use of uninitialized value $got of type Any in string context  in block  at lib/Test.pm:498
     # Got:      
@@ -516,7 +516,8 @@ Use of uninitialized value <element> of type Any in string context  in block  at
      3 todo   : huh?
      1 todo   : item context
      2 todo   : orelse RT \#124516
-S03-metaops/reverse.t..............................  39    0    0    0   39
+S03-metaops/reverse.rakudo.moar....................  39    0    1    0   40
+     1 todo   : RT \#118791 Rxx does not yet thunk the RHS
 S03-metaops/zip.rakudo.moar........................  25    0    4    2   31
      2 skipped: nom regression RT #122230
      4 todo   : nom regression RT \#122230
@@ -1001,7 +1002,7 @@ S04-declarations/our.rakudo.moar...................  32    0    1    0   33
      1 todo   : our-scoped var in role RT \#76450
 S04-declarations/state.rakudo.moar.................  40    0    1    0   41
      1 todo   : initialization happens only on first call(?) RT \#102994
-S04-declarations/will.rakudo.moar..................  12    0    4    3   19
+S04-declarations/will.rakudo.moar..................  13    0    4    3   20
      1 skipped: declared variable not visible in block yet RT #125061
      1 skipped: declared variable not visible in block yet RT #125063
      1 skipped: declared variable not visible in block yet RT #125066
@@ -1424,8 +1425,8 @@ S06-advanced/wrap.rakudo.moar......................  78    0    7    0   85
      1 todo   : temp and wrap
      1 todo   : temp and wrap RT \#124654
 S06-currying/assuming-and-mmd.t....................   7    0    0    0    7
-S06-currying/misc.rakudo.moar......................   1    0    0   10   11
-    10 skipped: RT #125537 interferes with test code here
+S06-currying/misc.rakudo.moar......................  10    0    0    1   11
+     1 skipped: We could do a better here
 S06-currying/named.rakudo.moar.....................  25    0    2    0   27
      2 todo   : last part of RT \#123498 is still unresolved.
 S06-currying/positional.t.......................... 227    0    0    0  227
@@ -1517,99 +1518,8 @@ S06-signature/definite-return.rakudo.moar..........   0    0    3    6    9
      6 skipped: definite values as return specifications dont parse yet RT #124927
      3 todo   : definite values as return specifications dont parse yet RT \#124927
 S06-signature/errors.t.............................  27    0    0    0   27
-S06-signature/introspection.rakudo.moar............    
-# Failed test 'Result is same as original'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Idempotence.pm line 25
-    
-# Failed test 'Same .perl output'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Idempotence.pm line 27
-    # expected: (Any)
-    #      got: ':(|a = { ... } ($a))'
-    
-# Failed test '...and no failures.'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Idempotence.pm line 28
-    # expected: '1'
-    #      got: 'The post constraint "($a)" came after the default value
-# (did you mean "...($a) = { ... } "?)'
-    # Looks like you failed 3 tests of 3
-    
-# Failed test 'Result is same as original'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Idempotence.pm line 25
-    
-# Failed test 'Same .perl output'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Idempotence.pm line 27
-    # expected: (Any)
-    #      got: ':(@a = { ... } ($a))'
-    
-# Failed test '...and no failures.'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Idempotence.pm line 28
-    # expected: '1'
-    #      got: 'The post constraint "($a)" came after the default value
-# (did you mean "...($a) = { ... } "?)'
-    # Looks like you failed 3 tests of 3
-    
-# Failed test 'Result is same as original'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Idempotence.pm line 25
-    
-# Failed test 'Same .perl output'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Idempotence.pm line 27
-    # expected: (Any)
-    #      got: ':(%a = { ... } (:a($b)), %b = { ... } (:c(:d($e))))'
-    
-# Failed test '...and no failures.'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Idempotence.pm line 28
-    # expected: '1'
-    #      got: 'The post constraint "(:a($b))" came after the default value
-# (did you mean "...(:a($b)) = { ... } "?)'
-    # Looks like you failed 3 tests of 3
-    
-# Failed test 'Result is same as original'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Idempotence.pm line 25
-    
-# Failed test 'Same .perl output'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Idempotence.pm line 27
-    # expected: (Any)
-    #      got: ':(| = { ... } ($a))'
-    
-# Failed test '...and no failures.'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Idempotence.pm line 28
-    # expected: '1'
-    #      got: 'The post constraint "($a)" came after the default value
-# (did you mean "...($a) = { ... } "?)'
-    # Looks like you failed 3 tests of 3
-    
-# Failed test 'Result is same as original'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Idempotence.pm line 25
-    
-# Failed test 'Same .perl output'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Idempotence.pm line 27
-    # expected: (Any)
-    #      got: ':(@ = { ... } ($a))'
-    
-# Failed test '...and no failures.'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Idempotence.pm line 28
-    # expected: '1'
-    #      got: 'The post constraint "($a)" came after the default value
-# (did you mean "...($a) = { ... } "?)'
-    # Looks like you failed 3 tests of 3
-    
-# Failed test 'Result is same as original'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Idempotence.pm line 25
-    
-# Failed test 'Same .perl output'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Idempotence.pm line 27
-    # expected: (Any)
-    #      got: ':(% = { ... } (:a($)), % = { ... } (:c(:d($))))'
-    
-# Failed test '...and no failures.'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Idempotence.pm line 28
-    # expected: '1'
-    #      got: 'The post constraint "(:a($))" came after the default value
-# (did you mean "...(:a($)) = { ... } "?)'
-    # Looks like you failed 3 tests of 3
- 117    0    7    1  125
+S06-signature/introspection.rakudo.moar............ 131    0    1    1  133
      1 skipped: expected Any but got Mu instead
-     6 todo   : needs/find RT
      1 todo   : needs/find RT: Logic to make :a($a) into :$a makes :a(:b($a) into ::b(:$a)
 S06-signature/mixed-placeholders.t.................  18    0    0    0   18
 S06-signature/multi-invocant.t.....................  25    0    0    0   25
@@ -1740,10 +1650,10 @@ S10-packages/precompilation.rakudo.moar............Use of uninitialized value $_
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-10780-323830.code:4
+#   in block <unit> at getout-9494-316130.code:4
 
 # Actually thrown at:
-#   in block <unit> at getout-10780-323830.code:4
+#   in block <unit> at getout-9494-316130.code:4
 
 
   33    0    3    0   36
@@ -2071,8 +1981,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  10    0    0    0   10
-S16-filehandles/chmod.t............................# Using file temp_1438095772
-# Using file temp_1438095772
+S16-filehandles/chmod.t............................# Using file temp_1438182050
+# Using file temp_1438182050
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2173,32 +2083,63 @@ S17-procasync/kill.rakudo.moar.....................
 # at t/spec/S17-procasync/kill.rakudo.moar line 44
 # Actual type: Proc
 
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 45
-# expected: '0'
-#      got: '6'
+# Failed test 'The object is-a 'Proc::Status''
+# at t/spec/S17-procasync/kill.rakudo.moar line 44
+# Actual type: Proc
 
 # Failed test 'The object is-a 'Proc::Status''
 # at t/spec/S17-procasync/kill.rakudo.moar line 44
 # Actual type: Proc
 
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 45
-# expected: '0'
-#      got: '6'
+# Failed test 'The object is-a 'Proc::Status''
+# at t/spec/S17-procasync/kill.rakudo.moar line 44
+# Actual type: Proc
 
 # Failed test 'The object is-a 'Proc::Status''
 # at t/spec/S17-procasync/kill.rakudo.moar line 44
 # Actual type: Proc
 
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 45
-# expected: '0'
-#      got: '6'
-Aborted
- 129  123   18    0  270
-    18 todo   : we cannot actually send signals yet
-   102 tests aborted (missing ok/not ok)
+# Failed test 'The object is-a 'Proc::Status''
+# at t/spec/S17-procasync/kill.rakudo.moar line 44
+# Actual type: Proc
+
+# Failed test 'The object is-a 'Proc::Status''
+# at t/spec/S17-procasync/kill.rakudo.moar line 44
+# Actual type: Proc
+
+# Failed test 'The object is-a 'Proc::Status''
+# at t/spec/S17-procasync/kill.rakudo.moar line 44
+# Actual type: Proc
+
+# Failed test 'The object is-a 'Proc::Status''
+# at t/spec/S17-procasync/kill.rakudo.moar line 44
+# Actual type: Proc
+
+# Failed test 'The object is-a 'Proc::Status''
+# at t/spec/S17-procasync/kill.rakudo.moar line 44
+# Actual type: Proc
+
+# Failed test 'The object is-a 'Proc::Status''
+# at t/spec/S17-procasync/kill.rakudo.moar line 44
+# Actual type: Proc
+
+# Failed test 'The object is-a 'Proc::Status''
+# at t/spec/S17-procasync/kill.rakudo.moar line 44
+# Actual type: Proc
+
+# Failed test 'The object is-a 'Proc::Status''
+# at t/spec/S17-procasync/kill.rakudo.moar line 44
+# Actual type: Proc
+
+# Failed test 'The object is-a 'Proc::Status''
+# at t/spec/S17-procasync/kill.rakudo.moar line 44
+# Actual type: Proc
+
+# Failed test 'The object is-a 'Proc::Status''
+# at t/spec/S17-procasync/kill.rakudo.moar line 44
+# Actual type: Proc
+ 210   30   30    0  270
+    30 todo   : we cannot actually send signals yet
 S17-procasync/no-runaway-file-limit.t..............cat: /tmp/test-file: No such file or directory
 cat: /tmp/test-file: No such file or directory
 cat: /tmp/test-file: No such file or directory
@@ -2273,27 +2214,943 @@ cat: /tmp/test-file: No such file or directory
 cat: /tmp/test-file: No such file or directory
 cat: /tmp/test-file: No such file or directory
 cat: /tmp/test-file: No such file or directory
-Aborted
-   0    1    0    0    1
-     1 tests aborted (missing ok/not ok)
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+cat: /tmp/test-file: No such file or directory
+   1    0    0    0    1
 S17-procasync/print.rakudo.moar....................  11    0    0    5   16
      5 skipped: Flapping tests RT #125048
 S17-promise/allof.t................................  11    0    0    0   11
-S17-promise/anyof.t................................MVM_platform_alloc_pages failed: 12
-   0   10    0    0   10
-    10 tests aborted (missing ok/not ok)
-S17-promise/basic.t................................MVM_platform_alloc_pages failed: 12
-   0   23    0    0   23
-    23 tests aborted (missing ok/not ok)
-S17-promise/in.t...................................MVM_platform_alloc_pages failed: 12
-   0    3    0    0    3
-     3 tests aborted (missing ok/not ok)
-S17-promise/start.rakudo.moar......................MVM_platform_alloc_pages failed: 12
-   0   17    0    0   17
-    17 tests aborted (missing ok/not ok)
-S17-promise/stress.t...............................MVM_platform_alloc_pages failed: 12
-   0    1    0    0    1
-     1 tests aborted (missing ok/not ok)
+S17-promise/anyof.t................................  10    0    0    0   10
+S17-promise/basic.t................................  23    0    0    0   23
+S17-promise/in.t...................................   3    0    0    0    3
+S17-promise/start.rakudo.moar......................  15    0    1    1   17
+     1 skipped: RT #122715
+     1 todo   : RT \#122715
+S17-promise/stress.t...............................   1    0    0    0    1
 S17-promise/then.t.................................  14    0    0    0   14
 S17-scheduler/at.rakudo.moar.......................Method 'cancel' not found for invocant of class 'Any'
   in block  at t/spec/S17-scheduler/at.rakudo.moar:76
@@ -2736,7 +3593,20 @@ S32-array/kv.t.....................................  18    0    0    0   18
 S32-array/pairs.rakudo.moar........................  13    0    1    0   14
      1 todo   : Apparently not rw yet?
 S32-array/perl.t...................................   6    0    0    0    6
-S32-array/pop.rakudo.moar..........................  36    0    1    0   37
+S32-array/pop.rakudo.moar..........................WARNING: unhandled Failure detected in DESTROY:
+Cannot pop from an empty Array
+  in block <unit> at t/spec/S32-array/pop.rakudo.moar:72
+
+WARNING: unhandled Failure detected in DESTROY:
+Cannot pop from an empty Array
+  in block <unit> at t/spec/S32-array/pop.rakudo.moar:64
+
+WARNING: unhandled Failure detected in DESTROY:
+Cannot pop from an empty Array
+  in block  at t/spec/S32-array/pop.rakudo.moar:42
+  in block <unit> at t/spec/S32-array/pop.rakudo.moar:14
+
+  36    0    1    0   37
      1 todo   : RT \#111720
 S32-array/push.t...................................  52    0    0    0   52
 S32-array/rotate.t.................................  29    0    0    0   29
@@ -3807,14 +4677,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# gerdr: 1.0037987 seconds
-# kaz: 1.136825 seconds
-# recursive-ternary: 1.2377648 seconds
-# loop: 1.3089948 seconds
-# hand-memoization: 1.6312123 seconds
-# recursive-ternary-hand-cached: 2.9413711 seconds
-# sequence-ternary: 7.3315445 seconds
-# sequence: 10.8387446 seconds
+integration/advent2012-day21.t.....................# gerdr: 1.1054197 seconds
+# kaz: 1.1297317 seconds
+# recursive-ternary: 1.2215000 seconds
+# loop: 1.2762565 seconds
+# hand-memoization: 1.5988725 seconds
+# recursive-ternary-hand-cached: 2.879362555 seconds
+# sequence-ternary: 6.3293675 seconds
+# sequence: 9.5248587 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT \#121789
@@ -3959,10 +4829,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
 "S02",        5311,     0,   122,   385,  5818,  5817
-"S03",        5258,     0,   117,    98,  5473,  5491
-"S04",        1166,     0,    48,    28,  1242,  1280
+"S03",        5258,     0,   118,    98,  5474,  5492
+"S04",        1167,     0,    48,    28,  1243,  1280
 "S05",        5597,     0,    88,   117,  5802,  6021
-"S06",        1787,     0,    58,    94,  1939,  2010
+"S06",        1810,     0,    52,    85,  1947,  2018
 "S07",           0,     0,     0,     0,     0,    96
 "S09",        1903,     0,    14,    96,  2013,  2013
 "S10",         105,     0,     5,     1,   111,   168
@@ -3972,7 +4842,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         332,     0,     6,     5,   343,   356
 "S15",       78485,     0,     3,    18, 78506, 78526
 "S16",         305,     0,     2,    16,   323,   351
-"S17",         817,   178,    24,    28,  1047,  1047
+"S17",         951,    30,    37,    29,  1047,  1047
 "S19",          14,     0,     0,     0,    14,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",          18,     0,     0,     0,    18,    89
@@ -3982,7 +4852,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",       12022,     1,   210,   156, 12389, 10716
 "int",        1268,     0,    12,    15,  1295,  1281
 "ros",           2,     0,     0,     0,     2,     2
-"total",    118311,   179,   777,  1388,120655,119697
+"total",    118469,    31,   785,  1380,120665,119706
 ----------------
 Failure summary:
 S17-procasync/kill.rakudo.moar 7 - The object is-a 'Proc::Status'
@@ -4001,16 +4871,18 @@ S17-procasync/kill.rakudo.moar 115 - The object is-a 'Proc::Status'
 S17-procasync/kill.rakudo.moar 124 - The object is-a 'Proc::Status'
 S17-procasync/kill.rakudo.moar 133 - The object is-a 'Proc::Status'
 S17-procasync/kill.rakudo.moar 142 - The object is-a 'Proc::Status'
-S17-procasync/kill.rakudo.moar 143 - did it exit with the right value
 S17-procasync/kill.rakudo.moar 151 - The object is-a 'Proc::Status'
-S17-procasync/kill.rakudo.moar 152 - did it exit with the right value
 S17-procasync/kill.rakudo.moar 160 - The object is-a 'Proc::Status'
-S17-procasync/kill.rakudo.moar 161 - did it exit with the right value
-S17-procasync/kill.rakudo.moar aborted 102 test(s)
-S17-procasync/no-runaway-file-limit.t aborted 1 test(s)
-S17-promise/anyof.t aborted 10 test(s)
-S17-promise/basic.t aborted 23 test(s)
-S17-promise/in.t aborted 3 test(s)
-S17-promise/start.rakudo.moar aborted 17 test(s)
-S17-promise/stress.t aborted 1 test(s)
+S17-procasync/kill.rakudo.moar 169 - The object is-a 'Proc::Status'
+S17-procasync/kill.rakudo.moar 178 - The object is-a 'Proc::Status'
+S17-procasync/kill.rakudo.moar 187 - The object is-a 'Proc::Status'
+S17-procasync/kill.rakudo.moar 196 - The object is-a 'Proc::Status'
+S17-procasync/kill.rakudo.moar 205 - The object is-a 'Proc::Status'
+S17-procasync/kill.rakudo.moar 214 - The object is-a 'Proc::Status'
+S17-procasync/kill.rakudo.moar 223 - The object is-a 'Proc::Status'
+S17-procasync/kill.rakudo.moar 232 - The object is-a 'Proc::Status'
+S17-procasync/kill.rakudo.moar 241 - The object is-a 'Proc::Status'
+S17-procasync/kill.rakudo.moar 250 - The object is-a 'Proc::Status'
+S17-procasync/kill.rakudo.moar 259 - The object is-a 'Proc::Status'
+S17-procasync/kill.rakudo.moar 268 - The object is-a 'Proc::Status'
 S32-io/IO-Socket-Async.rakudo.moar aborted 1 test(s)
