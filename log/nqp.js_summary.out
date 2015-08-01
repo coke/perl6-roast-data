@@ -109,83 +109,84 @@
 ./nqp-m --module-path=gen/js/stage1 --target=mbc --output=gen/js/stage1/HLL/Backend.moarvm src/vm/js/HLL/Backend.nqp
 /home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/moar/stage2/HLL
 /home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e cp gen/js/stage1/HLL/Backend.moarvm gen/moar/stage2/HLL/Backend.moarvm
-/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/js/stage2
-./nqp-m --module-path gen/js/stage1 src/vm/js/bin/cross-compile.nqp --setting=NULL --target=mbc --output gen/js/stage2/nqpmo.moarvm gen/js/stage2/nqpmo.nqp > node_modules/nqpmo.js
-/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/js/stage2
-./nqp-m --module-path gen/js/stage1 src/vm/js/bin/cross-compile.nqp --setting=NULL --target=mbc --output gen/js/stage2/NQPCORE.setting.moarvm gen/js/stage2/NQPCORE.setting.nqp > node_modules/NQPCORE.setting.js
-/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/js/stage2
-./nqp-m --module-path gen/js/stage1 src/vm/js/bin/cross-compile.nqp --setting=NQPCORE --target=mbc --output gen/js/stage2/QASTNode.moarvm gen/js/stage2/QASTNode.nqp > node_modules/QASTNode.js
-/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/js/stage2
-./nqp-m --module-path gen/js/stage1 src/vm/js/bin/cross-compile.nqp --setting=NQPCORE --target=mbc --output gen/js/stage2/QRegex.moarvm gen/js/stage2/QRegex.nqp > node_modules/QRegex.js
-src/vm/js/bin/run_tests
-t/nqp/01-literals.t ................... ok
-t/nqp/02-if.t ......................... ok
-t/nqp/03-if-else.t .................... ok
-t/nqp/04-unless.t ..................... ok
-t/nqp/05-comments.t ................... ok
-t/nqp/06-args-pos.t ................... ok
-t/nqp/07-boolean.t .................... ok
-t/nqp/08-blocks.t ..................... ok
-t/nqp/09-var.t ........................ ok
-t/nqp/10-cmp.t ........................ ok
-t/nqp/11-sub.t ........................ ok
-t/nqp/12-logical.t .................... ok
-t/nqp/13-op.t ......................... ok
-t/nqp/14-while.t ...................... ok
-t/nqp/15-list.t ....................... ok
-t/nqp/16-ternary.t .................... ok
-t/nqp/17-positional.t ................. ok
-t/nqp/18-associative.t ................ ok
-t/nqp/20-return.t ..................... ok
-t/nqp/21-contextual.t ................. ok
-t/nqp/22-optional-args.t .............. ok
-t/nqp/23-named-args.t ................. ok
-t/nqp/25-class.t ...................... ok
-t/nqp/26-methodops.t .................. ok
-t/nqp/27-self.t ....................... ok
-t/nqp/28-subclass.t ................... ok
-t/nqp/33-init.t ....................... ok
-t/nqp/35-prefix-sigil.t ............... ok
-t/nqp/36-callable.t ................... ok
-t/nqp/37-slurpy.t ..................... ok
-t/nqp/38-quotes.t ..................... ok
-t/nqp/39-pointy.t ..................... ok
-t/nqp/40-lists.t ...................... ok
-t/nqp/41-flat.t ....................... ok
-t/nqp/42-cond-loop.t .................. ok
-t/nqp/46-charspec.t ................... ok
-t/nqp/47-loop-control.t ............... ok
-t/nqp/48-closure.t .................... ok
-t/nqp/51-multi.t ...................... ok
-t/nqp/53-knowhow.t .................... ok
-t/nqp/55-multi-method.t ............... ok
-t/nqp/56-role.t ....................... ok
-t/nqp/57-construction.t ............... ok
-t/nqp/58-attrs.t ...................... ok
-t/nqp/59-nqpop.t ...................... ok
-t/nqp/63-slurp.t ...................... ok
-t/nqp/64-native.t ..................... ok
-t/nqp/65-how.t ........................ ok
-t/nqp/68-associative-for.t ............ ok
-t/nqp/69-js-keywords-as-identifier.t .. ok
-t/nqp/70-invokespec.t ................. ok
-t/nqp/71-setboolspec.t ................ ok
-t/nqp/75-curcode.t .................... ok
-t/nqp/76-capture.t .................... ok
-t/nqp/78-shell.t ...................... ok
-t/nqp/79-callercode.t ................. ok
-t/nqp/81-radix.t ...................... ok
-t/nqp/83-log.t ........................ ok
-t/nqp/88-more-if-tests.t .............. ok
-t/nqp/89-istype.t ..................... ok
-t/nqp/90-findmethod.t ................. ok
-t/nqp/91-codename.t ................... ok
-t/nqp/92-where.t ...................... ok
-t/nqp/93-oo-ops.t ..................... ok
-t/nqp/94-clone.t ...................... ok
-t/nqp/95-cclass.t ..................... ok
-t/js/getcomp-js.t ..................... ok
-t/qast/02-manipulation.t .............. ok
-All tests successful.
-Files=68, Tests=719, 23 wallclock secs ( 0.23 usr  0.05 sys + 19.75 cusr  1.71 csys = 21.74 CPU)
-Result: PASS
+npm install src/vm/js/nqp-runtime
+
+> fs-ext@0.4.5 install /home/coke/sandbox/perl6-roast-data/nqp.js/node_modules/nqp-runtime/node_modules/fs-ext
+> node-gyp configure build
+
+make[1]: Entering directory '/home/coke/sandbox/perl6-roast-data/nqp.js/node_modules/nqp-runtime/node_modules/fs-ext/build'
+  CXX(target) Release/obj.target/fs-ext/fs-ext.o
+  SOLINK_MODULE(target) Release/obj.target/fs-ext.node
+  SOLINK_MODULE(target) Release/obj.target/fs-ext.node: Finished
+  COPY Release/fs-ext.node
+make[1]: Leaving directory '/home/coke/sandbox/perl6-roast-data/nqp.js/node_modules/nqp-runtime/node_modules/fs-ext/build'
+
+> sleep@3.0.0 install /home/coke/sandbox/perl6-roast-data/nqp.js/node_modules/nqp-runtime/node_modules/sleep
+> node-gyp rebuild
+
+make[1]: Entering directory '/home/coke/sandbox/perl6-roast-data/nqp.js/node_modules/nqp-runtime/node_modules/sleep/build'
+  CXX(target) Release/obj.target/node_sleep/sleep.o
+In file included from ../sleep.cc:2:0:
+../node_modules/nan/nan.h: In constructor ‘Nan::Utf8String::Utf8String(v8::Local<v8::Value>)’:
+../node_modules/nan/nan.h:1178:27: error: ‘REPLACE_INVALID_UTF8’ is not a member of ‘v8::String’
+                           v8::String::REPLACE_INVALID_UTF8;
+                           ^
+node_sleep.target.mk:84: recipe for target 'Release/obj.target/node_sleep/sleep.o' failed
+make[1]: *** [Release/obj.target/node_sleep/sleep.o] Error 1
+make[1]: Leaving directory '/home/coke/sandbox/perl6-roast-data/nqp.js/node_modules/nqp-runtime/node_modules/sleep/build'
+gyp ERR! build error 
+gyp ERR! stack Error: `make` failed with exit code: 2
+gyp ERR! stack     at ChildProcess.onExit (/usr/share/node-gyp/lib/build.js:267:23)
+gyp ERR! stack     at ChildProcess.emit (events.js:98:17)
+gyp ERR! stack     at Process.ChildProcess._handle.onexit (child_process.js:809:12)
+gyp ERR! System Linux 3.16.0-4-amd64
+gyp ERR! command "nodejs" "/usr/bin/node-gyp" "rebuild"
+gyp ERR! cwd /home/coke/sandbox/perl6-roast-data/nqp.js/node_modules/nqp-runtime/node_modules/sleep
+gyp ERR! node -v v0.10.29
+gyp ERR! node-gyp -v v0.12.2
+gyp ERR! not ok 
+npm WARN This failure might be due to the use of legacy binary "node"
+npm WARN For further explanations, please read
+/usr/share/doc/nodejs/README.Debian
+ 
+
+> execSync@1.0.2 install /home/coke/sandbox/perl6-roast-data/nqp.js/node_modules/nqp-runtime/node_modules/fallback-exec-sync/node_modules/execSync
+> node install.js
+
+
+
+node.js:815
+    var cwd = process.cwd();
+                      ^
+Error: ENOENT, no such file or directory
+    at Function.startup.resolveArgv0 (node.js:815:23)
+    at startup (node.js:58:13)
+    at node.js:906:3
+npm ERR! sleep@3.0.0 install: `node-gyp rebuild`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the sleep@3.0.0 install script.
+npm ERR! This is most likely a problem with the sleep package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     node-gyp rebuild
+npm ERR! You can get their info via:
+npm ERR!     npm owner ls sleep
+npm ERR! There is likely additional logging output above.
+npm ERR! System Linux 3.16.0-4-amd64
+npm ERR! command "/usr/bin/nodejs" "/usr/bin/npm" "install" "src/vm/js/nqp-runtime"
+npm ERR! cwd /home/coke/sandbox/perl6-roast-data/nqp.js
+npm ERR! node -v v0.10.29
+npm ERR! npm -v 1.4.21
+npm ERR! code ELIFECYCLE
+npm WARN This failure might be due to the use of legacy binary "node"
+npm WARN For further explanations, please read
+/usr/share/doc/nodejs/README.Debian
+ 
+npm WARN optional dep failed, continuing execSync@1.0.2
+npm ERR! 
+npm ERR! Additional logging details can be found in:
+npm ERR!     /home/coke/sandbox/perl6-roast-data/nqp.js/npm-debug.log
+npm ERR! not ok code 0
+Makefile:467: recipe for target 'node_modules/installed' failed
+make: *** [node_modules/installed] Error 1
