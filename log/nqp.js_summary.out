@@ -127,10 +127,9 @@ make[1]: Leaving directory '/home/coke/sandbox/perl6-roast-data/nqp.js/node_modu
 make[1]: Entering directory '/home/coke/sandbox/perl6-roast-data/nqp.js/node_modules/nqp-runtime/node_modules/sleep/build'
   CXX(target) Release/obj.target/node_sleep/sleep.o
 In file included from ../sleep.cc:2:0:
-../node_modules/nan/nan.h: In constructor ‘Nan::Utf8String::Utf8String(v8::Local<v8::Value>)’:
-../node_modules/nan/nan.h:1178:27: error: ‘REPLACE_INVALID_UTF8’ is not a member of ‘v8::String’
-                           v8::String::REPLACE_INVALID_UTF8;
-                           ^
+../node_modules/nan/nan.h:318:47: error: ‘REPLACE_INVALID_UTF8’ is not a member of ‘v8::String’
+   static const unsigned kReplaceInvalidUtf8 = v8::String::REPLACE_INVALID_UTF8;
+                                               ^
 node_sleep.target.mk:84: recipe for target 'Release/obj.target/node_sleep/sleep.o' failed
 make[1]: *** [Release/obj.target/node_sleep/sleep.o] Error 1
 make[1]: Leaving directory '/home/coke/sandbox/perl6-roast-data/nqp.js/node_modules/nqp-runtime/node_modules/sleep/build'
@@ -155,12 +154,14 @@ npm WARN For further explanations, please read
 
 
 
-node.js:815
-    var cwd = process.cwd();
-                      ^
-Error: ENOENT, no such file or directory
-    at Function.startup.resolveArgv0 (node.js:815:23)
-    at startup (node.js:58:13)
+module.js:340
+    throw err;
+          ^
+Error: Cannot find module '/home/coke/sandbox/perl6-roast-data/nqp.js/node_modules/nqp-runtime/node_modules/fallback-exec-sync/node_modules/execSync/install.js'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.Module._load (module.js:280:25)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
     at node.js:906:3
 npm ERR! sleep@3.0.0 install: `node-gyp rebuild`
 npm ERR! Exit status 1
