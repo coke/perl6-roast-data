@@ -754,6 +754,29 @@ S03-operators/is-divisible-by.rakudo.moar..........
 # Failed test 'code dies'
 # at t/spec/S03-operators/is-divisible-by.rakudo.moar line 41
     # Looks like you failed 1 test of 4
+WARNING: unhandled Failure detected in DESTROY:
+Attempt to divide 9 by zero using infix:<%%>
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1233
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1229
+  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1197
+  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1147
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1710
+  in any visit_want at src/gen/m-Perl6-Optimizer.nqp:1550
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1713
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1728
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1722
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1719
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1722
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1728
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1719
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1722
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1728
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
+  in any optimize at src/Perl6/Compiler.nqp:64
+
   14    0    1    0   15
      1 todo   : not sure why this doesn't fire
 S03-operators/lcm.t................................  15    0    0    0   15
@@ -959,7 +982,7 @@ Use of uninitialized value of type Any in numeric context  in block  at t/spec/S
   52    0    4    0   56
      3 todo   : COMPILING RT \#125054
      1 todo   : constants as type constraints
-S04-declarations/implicit-parameter.t..............  19    0    0    0   19
+S04-declarations/implicit-parameter.t..............  20    0    0    0   20
 S04-declarations/multiple.rakudo.moar..............Potential difficulties:
     Redeclaration of symbol $x
     at t/spec/S04-declarations/multiple.rakudo.moar:18
@@ -1681,10 +1704,10 @@ S10-packages/precompilation.rakudo.moar............Use of uninitialized value $_
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-1417-453505.code:4
+#   in block <unit> at getout-32062-299675.code:4
 
 # Actually thrown at:
-#   in block <unit> at getout-1417-453505.code:4
+#   in block <unit> at getout-32062-299675.code:4
 
 
   33    0    3    0   36
@@ -2013,8 +2036,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  10    0    0    0   10
-S16-filehandles/chmod.t............................# Using file temp_1439561940
-# Using file temp_1439561941
+S16-filehandles/chmod.t............................# Using file temp_1439648944
+# Using file temp_1439648944
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2045,9 +2068,8 @@ S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   7    0    0    0    7
-S17-lowlevel/lock.rakudo.moar......................Segmentation fault
-   6    2    0    0    8
-     1 tests aborted (missing ok/not ok)
+S17-lowlevel/lock.rakudo.moar......................   7    0    1    0    8
+     1 todo   : not sure this test is valid RT \#124793
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.rakudo.moar....................  27    0    0    3   30
      3 skipped: returns Nil (flapping tests) RT #125047
@@ -4598,14 +4620,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# gerdr: 1.0633156 seconds
-# recursive-ternary: 1.12361274 seconds
-# loop: 1.1447995 seconds
-# kaz: 1.15626255 seconds
-# hand-memoization: 1.704304 seconds
-# recursive-ternary-hand-cached: 2.6168544 seconds
-# sequence-ternary: 6.0842265 seconds
-# sequence: 8.165976 seconds
+integration/advent2012-day21.t.....................# kaz: 1.01778131 seconds
+# recursive-ternary: 1.0356914 seconds
+# gerdr: 1.048809 seconds
+# loop: 1.08269745 seconds
+# hand-memoization: 1.593072 seconds
+# recursive-ternary-hand-cached: 2.9330764 seconds
+# sequence: 9.45940222 seconds
+# sequence-ternary: 17.6648900 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT \#121789
@@ -4672,7 +4694,7 @@ Useless use of constant integer 42 in sink context (line 1)
     
 # Failed test 'precompiled EVAL in BEGIN (Compiled)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Compile.pm line 338
-    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmod5647F304/p6testmod58749AEB.pm6')
+    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmodC28E8D2F/p6testmod54D2D937.pm6')
     # Looks like you failed 1 test of 2
    4    0    3    0    7
      1 todo   : RT \#123679 Cannot invoke this object (REPR: Null, cs = 0)
@@ -4696,7 +4718,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S01",           0,     0,     0,    75,    75,    86
 "S02",        5358,     0,   121,   385,  5864,  5863
 "S03",        5259,     0,   122,    98,  5479,  5497
-"S04",        1217,     0,    57,    28,  1302,  1339
+"S04",        1218,     0,    57,    28,  1303,  1340
 "S05",        5597,     0,    88,   117,  5802,  6021
 "S06",        1905,     0,    62,    90,  2057,  2128
 "S07",           0,     0,     0,     0,     0,    96
@@ -4708,7 +4730,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         343,     0,     8,     5,   356,   369
 "S15",       78485,     0,     3,    18, 78506, 78574
 "S16",         305,     0,     2,    16,   323,   351
-"S17",         981,     2,    36,    29,  1048,  1048
+"S17",         982,     0,    37,    29,  1048,  1048
 "S19",          14,     0,     0,     0,    14,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",          18,     0,     0,     0,    18,    89
@@ -4718,9 +4740,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",       12090,     1,   214,   160, 12465, 10792
 "int",        1269,     0,    14,    15,  1298,  1284
 "ros",           2,     0,     0,     0,     2,     2
-"total",    118796,     3,   815,  1388,121002,120091
+"total",    118798,     1,   816,  1388,121003,120092
 ----------------
 Failure summary:
-S17-lowlevel/lock.rakudo.moar 7 - Condition variable worked
-S17-lowlevel/lock.rakudo.moar aborted 1 test(s)
 S32-io/IO-Socket-Async.rakudo.moar aborted 1 test(s)
