@@ -1201,14 +1201,6 @@ S03-operators/assign.rakudo.moar...................
      9 tests aborted (missing ok/not ok)
 S03-operators/autoincrement-range.t................# Tests for 'a' .. 'z'
 # Tests for 'Α' .. 'Ω' (Greek uppercase)
-WARNING: unhandled Failure detected in DESTROY:
-Decrement out of range
-  in block <unit> at t/spec/S03-operators/autoincrement-range.t:37
-
-WARNING: unhandled Failure detected in DESTROY:
-Decrement out of range
-  in block <unit> at t/spec/S03-operators/autoincrement-range.t:17
-
 # Tests for 'α' .. 'ω' (Greek lowercase)
 # Tests for 'א' .. 'ת' (Hebrew)
 # Tests for '0' .. '9'
@@ -1270,30 +1262,7 @@ S03-operators/context.t............................
 # Looks like you failed 1 test of 38
   37    1    0    0   38
 S03-operators/custom.t.............................   1    0    0    0    1
-S03-operators/div.t................................WARNING: unhandled Failure detected in DESTROY:
-Attempt to divide 10 by zero using /
-  in block <unit> at t/spec/S03-operators/div.t:8
-
-WARNING: unhandled Failure detected in DESTROY:
-Attempt to divide 10 by zero using div
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1233
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1229
-  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1197
-  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1147
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1710
-  in any visit_op_children at src/gen/m-Perl6-Optimizer.nqp:1170
-  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1052
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1710
-  in any visit_want at src/gen/m-Perl6-Optimizer.nqp:1550
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1713
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1728
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1728
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1728
-  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
-  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
-  in any optimize at src/Perl6/Compiler.nqp:64
-
-   7    0    0    0    7
+S03-operators/div.t................................   7    0    0    0    7
 S03-operators/equality.t...........................Use of uninitialized value $foo of type Any in string context  in block <unit> at t/spec/S03-operators/equality.t:29
 Use of uninitialized value $foo of type Any in string context  in block <unit> at t/spec/S03-operators/equality.t:30
 Use of uninitialized value @foo of type Any in string context  in block <unit> at t/spec/S03-operators/equality.t:33
@@ -1495,11 +1464,32 @@ S03-operators/precedence.rakudo.moar...............  57    0    2    0   59
      2 todo   : Inequality (!=) misparsed as assignment RT \#121108
 S03-operators/range-basic.t........................ 140    0    0    0  140
 S03-operators/range-int.t.......................... 480    0    0    0  480
-S03-operators/range.rakudo.moar....................Use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-operators/range.rakudo.moar:220
+S03-operators/range.rakudo.moar....................
+# Failed test 'both limits is in scalar context'
+# at t/spec/S03-operators/range.rakudo.moar line 135
+# expected: '1 2 3'
+#      got: '1'
+
+# Failed test 'lower exclusive limit scalar context'
+# at t/spec/S03-operators/range.rakudo.moar line 136
+# expected: '2 3'
+#      got: ''
+
+# Failed test 'upper exclusive limit scalar context'
+# at t/spec/S03-operators/range.rakudo.moar line 137
+# expected: '1 2'
+#      got: '1'
+
+# Failed test 'both exclusive limit scalar context'
+# at t/spec/S03-operators/range.rakudo.moar line 138
+# expected: '2'
+#      got: ''
+Use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-operators/range.rakudo.moar:220
 Use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-operators/range.rakudo.moar:220
 Use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-operators/range.rakudo.moar:221
 Use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-operators/range.rakudo.moar:221
- 123    0    2    0  125
+# Looks like you failed 4 tests of 125
+ 119    4    2    0  125
      1 todo   : huh? RT \#124542
      1 todo   : huh? RT \#124543
 S03-operators/reduce-le1arg.rakudo.moar............
@@ -2334,27 +2324,7 @@ S05-metasyntax/unknown.rakudo.moar.................Use of Nil in string context 
      1 todo   : RT \#74832
 S05-modifier/continue.t............................Use of Nil in string context  in block  at t/spec/S05-modifier/continue.t:19
   13    0    0    0   13
-S05-modifier/counted-match.rakudo.moar.............WARNING: unhandled Failure detected in DESTROY:
-Cannot shift from an empty Array
-  in block  at src/gen/m-CORE.setting:1
-  in block <unit> at t/spec/S05-modifier/counted-match.rakudo.moar:36
-
-WARNING: unhandled Failure detected in DESTROY:
-Cannot shift from an empty Array
-  in block  at src/gen/m-CORE.setting:1
-  in block <unit> at t/spec/S05-modifier/counted-match.rakudo.moar:32
-
-WARNING: unhandled Failure detected in DESTROY:
-Cannot shift from an empty Array
-  in block  at src/gen/m-CORE.setting:1
-  in block <unit> at t/spec/S05-modifier/counted-match.rakudo.moar:28
-
-WARNING: unhandled Failure detected in DESTROY:
-Cannot shift from an empty Array
-  in block  at src/gen/m-CORE.setting:1
-  in block <unit> at t/spec/S05-modifier/counted-match.rakudo.moar:24
-
-  26    0    0    2   28
+S05-modifier/counted-match.rakudo.moar.............  26    0    0    2   28
      2 skipped: hangs RT #125026
 S05-modifier/counted.rakudo.moar................... 125    0    0    1  126
      1 skipped: Cannot call Real(Whatever: );
@@ -2818,10 +2788,10 @@ S10-packages/precompilation.rakudo.moar............Use of uninitialized value $_
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-7630-30620.code:4
+#   in block <unit> at getout-26808-14321.code:4
 
 # Actually thrown at:
-#   in block <unit> at getout-7630-30620.code:4
+#   in block <unit> at getout-26808-14321.code:4
 
 
   33    0    3    0   36
@@ -3161,8 +3131,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  10    0    0    0   10
-S16-filehandles/chmod.t............................# Using file temp_1440360336
-# Using file temp_1440360336
+S16-filehandles/chmod.t............................# Using file temp_1440428016
+# Using file temp_1440428016
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -3203,7 +3173,7 @@ S16-io/bare-say.t..................................
 #      got status: 256
 #      got out: ""
 # expected out: "a => 1\nb => 2\nc => 3\n"
-#      got err: "Odd number of elements found where hash initializer expected\n  in block <unit> at getout-17269-449194.code:1\n\n"
+#      got err: "Odd number of elements found where hash initializer expected\n  in block <unit> at getout-27669-540024.code:1\n\n"
 # expected err: ""
 # Looks like you failed 1 test of 7
    6    1    0    0    7
@@ -4285,8 +4255,8 @@ S17-supply/batch.t.................................# **** scheduling with Thread
     
 # Failed test 'we can batch by time'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 35
-    # expected: $[$[288072100, 288072100, 288072100, 288072100, 288072100, 288072100, 288072100, 288072100, 288072100, 288072100], $[288072101, 288072101, 288072101, 288072101, 288072101, 288072101, 288072101, 288072101, 288072101, 288072101]]
-    #      got: $[288072100, 288072100, 288072100, 288072100, 288072100, 288072100, 288072100, 288072100, 288072100, 288072100, 288072101, 288072101, 288072101, 288072101, 288072101, 288072101, 288072101, 288072101, 288072101, 288072101]
+    # expected: $[$[288085636, 288085636, 288085636, 288085636, 288085636, 288085636, 288085636, 288085636, 288085636, 288085636], $[288085637, 288085637, 288085637, 288085637, 288085637, 288085637, 288085637, 288085637, 288085637, 288085637]]
+    #      got: $[288085636, 288085636, 288085636, 288085636, 288085636, 288085636, 288085636, 288085636, 288085636, 288085636, 288085637, 288085637, 288085637, 288085637, 288085637, 288085637, 288085637, 288085637, 288085637, 288085637]
     # Looks like you failed 1 test of 5
 
 # Failed test 'we can batch by time'
@@ -4294,8 +4264,8 @@ S17-supply/batch.t.................................# **** scheduling with Thread
     
 # Failed test 'we can batch by time and elems'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 35
-    # expected: $[$[288072102, 288072102, 288072102, 288072102, 288072102, 288072102, 288072102], $[288072102, 288072102, 288072102], $[288072103, 288072103, 288072103, 288072103, 288072103, 288072103, 288072103], $[288072103, 288072103, 288072103]]
-    #      got: $[288072102, 288072102, 288072102, 288072102, 288072102, 288072102, 288072102, 288072102, 288072102, 288072102, 288072103, 288072103, 288072103, 288072103, 288072103, 288072103, 288072103, 288072103, 288072103, 288072103]
+    # expected: $[$[288085638, 288085638, 288085638, 288085638, 288085638, 288085638, 288085638], $[288085638, 288085638, 288085638], $[288085639, 288085639, 288085639, 288085639, 288085639, 288085639, 288085639], $[288085639, 288085639, 288085639]]
+    #      got: $[288085638, 288085638, 288085638, 288085638, 288085638, 288085638, 288085638, 288085638, 288085638, 288085638, 288085639, 288085639, 288085639, 288085639, 288085639, 288085639, 288085639, 288085639, 288085639, 288085639]
     # Looks like you failed 1 test of 5
 
 # Failed test 'we can batch by time and elems'
@@ -4313,8 +4283,8 @@ S17-supply/batch.t.................................# **** scheduling with Thread
     
 # Failed test 'we can batch by time'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 35
-    # expected: $[$[288072104, 288072104, 288072104, 288072104, 288072104, 288072104, 288072104, 288072104, 288072104, 288072104], $[288072105, 288072105, 288072105, 288072105, 288072105, 288072105, 288072105, 288072105, 288072105, 288072105]]
-    #      got: $[288072104, 288072104, 288072104, 288072104, 288072104, 288072104, 288072104, 288072104, 288072104, 288072104, 288072105, 288072105, 288072105, 288072105, 288072105, 288072105, 288072105, 288072105, 288072105, 288072105]
+    # expected: $[$[288085640, 288085640, 288085640, 288085640, 288085640, 288085640, 288085640, 288085640, 288085640, 288085640], $[288085641, 288085641, 288085641, 288085641, 288085641, 288085641, 288085641, 288085641, 288085641, 288085641]]
+    #      got: $[288085640, 288085640, 288085640, 288085640, 288085640, 288085640, 288085640, 288085640, 288085640, 288085640, 288085641, 288085641, 288085641, 288085641, 288085641, 288085641, 288085641, 288085641, 288085641, 288085641]
     # Looks like you failed 1 test of 5
 
 # Failed test 'we can batch by time'
@@ -4322,8 +4292,8 @@ S17-supply/batch.t.................................# **** scheduling with Thread
     
 # Failed test 'we can batch by time and elems'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 35
-    # expected: $[$[288072106, 288072106, 288072106, 288072106, 288072106, 288072106, 288072106], $[288072106, 288072106, 288072106], $[288072107, 288072107, 288072107, 288072107, 288072107, 288072107, 288072107], $[288072107, 288072107, 288072107]]
-    #      got: $[288072106, 288072106, 288072106, 288072106, 288072106, 288072106, 288072106, 288072106, 288072106, 288072106, 288072107, 288072107, 288072107, 288072107, 288072107, 288072107, 288072107, 288072107, 288072107, 288072107]
+    # expected: $[$[288085642, 288085642, 288085642, 288085642, 288085642, 288085642, 288085642], $[288085642, 288085642, 288085642], $[288085643, 288085643, 288085643, 288085643, 288085643, 288085643, 288085643], $[288085643, 288085643, 288085643]]
+    #      got: $[288085642, 288085642, 288085642, 288085642, 288085642, 288085642, 288085642, 288085642, 288085642, 288085642, 288085643, 288085643, 288085643, 288085643, 288085643, 288085643, 288085643, 288085643, 288085643, 288085643]
     # Looks like you failed 1 test of 5
 
 # Failed test 'we can batch by time and elems'
@@ -5156,7 +5126,14 @@ Use of uninitialized value of type Any in string context  in block  at t/spec/S3
 # Looks like you failed 5 tests of 343
  337    5    1    0  343
      1 todo   : parsing regression RT \#124679
-S32-hash/adverbs.t.................................Use of uninitialized value %a of type Any in string context  in block  at lib/Test.pm:134
+S32-hash/adverbs.t.................................    
+# Failed test ''%h<b>:zorp' died'
+# at t/spec/S32-hash/adverbs.t line 58
+    # Looks like you failed 1 test of 2
+
+# Failed test 'did we throws-like X::AdHoc?'
+# at t/spec/S32-hash/adverbs.t line 58
+Use of uninitialized value %a of type Any in string context  in block  at lib/Test.pm:134
 Use of uninitialized value $T of type Any in string context  in block  at lib/Test.pm:134
 Use of uninitialized value %a of type Any in string context  in block  at lib/Test.pm:134
 Use of uninitialized value $T of type Any in string context  in block  at lib/Test.pm:134
@@ -5692,7 +5669,8 @@ Use of uninitialized value %j of type Int in string context  in block  at lib/Te
 Use of uninitialized value $!value of type Int in string context  in block  at lib/Test.pm:133
 Use of uninitialized value %j of type Int in string context  in block  at lib/Test.pm:133
 Use of uninitialized value $!value of type Int in string context  in block  at lib/Test.pm:133
-1124    0    0    0 1124
+# Looks like you failed 1 test of 1124
+1123    1    0    0 1124
 S32-hash/delete-adverb.t...........................Use of uninitialized value @all of type Any in string context  in block  at lib/Test.pm:134
 
 # Failed test 'Test deletion with whatever'
@@ -5838,7 +5816,7 @@ S32-list/classify.rakudo.moar......................
 # Failed test 'multi-level classify'
 # at t/spec/S32-list/classify.rakudo.moar line 74
 # expected: ${"1" => ${"0" => ${"0" => $[100], "1" => $[101], "2" => $[102], "3" => $[103], "4" => $[104, 104], "5" => $[105], "6" => $[106], "7" => $[107], "8" => $[108], "9" => $[109]}, "1" => ${"0" => $[110], "1" => $[111], "2" => $[112], "3" => $[113], "4" => $[114], "5" => $[115], "6" => $[116], "7" => $[117], "8" => $[118], "9" => $[119, 119]}}}
-#      got: Hash[Any,Any].new(("1", "0", "0").iterator => $[100], ("1", "0", "1").iterator => $[101], ("1", "0", "2").iterator => $[102], ("1", "0", "3").iterator => $[103], ("1", "0", "4").iterator => $[104], ("1", "0", "4").iterator => $[104], ("1", "0", "5").iterator => $[105], ("1", "0", "6").iterator => $[106], ("1", "0", "7").iterator => $[107], ("1", "0", "8").iterator => $[108], ("1", "0", "9").iterator => $[109], ("1", "1", "0").iterator => $[110], ("1", "1", "1").iterator => $[111], ("1", "1", "2").iterator => $[112], ("1", "1", "3").iterator => $[113], ("1", "1", "4").iterator => $[114], ("1", "1", "5").iterator => $[115], ("1", "1", "6").iterator => $[116], ("1", "1", "7").iterator => $[117], ("1", "1", "8").iterator => $[118], ("1", "1", "9").iterator => $[119], ("1", "1", "9").iterator => $[119])
+#      got: Hash[Any,Any].new(("1", "0", "0").Seq => $[100], ("1", "0", "1").Seq => $[101], ("1", "0", "2").Seq => $[102], ("1", "0", "3").Seq => $[103], ("1", "0", "4").Seq => $[104], ("1", "0", "4").Seq => $[104], ("1", "0", "5").Seq => $[105], ("1", "0", "6").Seq => $[106], ("1", "0", "7").Seq => $[107], ("1", "0", "8").Seq => $[108], ("1", "0", "9").Seq => $[109], ("1", "1", "0").Seq => $[110], ("1", "1", "1").Seq => $[111], ("1", "1", "2").Seq => $[112], ("1", "1", "3").Seq => $[113], ("1", "1", "4").Seq => $[114], ("1", "1", "5").Seq => $[115], ("1", "1", "6").Seq => $[116], ("1", "1", "7").Seq => $[117], ("1", "1", "8").Seq => $[118], ("1", "1", "9").Seq => $[119], ("1", "1", "9").Seq => $[119])
 # Looks like you failed 1 test of 35
   31    1    0    3   35
      3 skipped: Cannot use bind operator with this LHS RT #124751
@@ -5988,17 +5966,17 @@ S32-list/squish.rakudo.moar........................
 # Failed test 'method form of squish works'
 # at t/spec/S32-list/squish.rakudo.moar line 16
 # expected: $("a", "b", "c", "d", "e", "f", "a")
-#      got: ("a", "b", "c", "d", "e", "f", "a").iterator
+#      got: ("a", "b", "c", "d", "e", "f", "a").Seq
 
 # Failed test 'subroutine form of squish works'
 # at t/spec/S32-list/squish.rakudo.moar line 18
 # expected: $("a", "b", "c", "d", "e", "f", "a")
-#      got: ("a", "b", "c", "d", "e", "f", "a").iterator
+#      got: ("a", "b", "c", "d", "e", "f", "a").Seq
 
 # Failed test 'slurpy subroutine form of squish works'
 # at t/spec/S32-list/squish.rakudo.moar line 27
 # expected: $(Any, ("a", "b", "c", "d", "e", "f", "a"))
-#      got: (Any, "a", "b", "c", "d", "e", "f", "a").iterator
+#      got: (Any, "a", "b", "c", "d", "e", "f", "a").Seq
 Type check failed in binding; expected 'Positional' but got 'Seq'
   in block <unit> at t/spec/S32-list/squish.rakudo.moar:53
 
@@ -6009,7 +5987,21 @@ Type check failed in binding; expected 'Positional' but got 'Seq'
 S32-list/unique.t..................................  34    0    0    0   34
 S32-num/abs.t......................................  49    0    0    0   49
 S32-num/base.t.....................................  31    0    0    0   31
-S32-num/complex.t.................................. 488    0    0    0  488
+S32-num/complex.t..................................WARNING: unhandled Failure detected in DESTROY:
+Can not convert 2+2i to Real: imaginary part not zero
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1233
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1197
+  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1197
+  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1012
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1698
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1698
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1722
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1728
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
+  in any optimize at src/Perl6/Compiler.nqp:64
+
+ 488    0    0    0  488
 S32-num/cool-num.rakudo.moar.......................  39    0    0    4   43
      4 skipped: angle conversion RT #124816
 S32-num/exp.t......................................  72    0    0    0   72
@@ -6244,7 +6236,7 @@ integration/99problems-01-to-10.t..................
 # Failed test 'We should be able to flatten lists'
 # at t/spec/integration/99problems-01-to-10.t line 106
 # expected: $["a", "b", "c", "d", "e"]
-#      got: $["a", "b", ("c", "d", "e").iterator]
+#      got: $["a", "b", ("c", "d", "e").Seq]
 
 # Failed test 'We should be able to flatten lists'
 # at t/spec/integration/99problems-01-to-10.t line 112
@@ -6257,7 +6249,7 @@ integration/99problems-01-to-10.t..................
 # Failed test '... even with multi subs'
 # at t/spec/integration/99problems-01-to-10.t line 143
 # expected: $["a", "b", "c", "a", "d", "e"]
-#      got: $[().iterator, $(().iterator, (().iterator, (("a").iterator, (("b").iterator, (().iterator, (("c").iterator, (().iterator, (("a").iterator, (("d").iterator, (().iterator, (().iterator, (().iterator, ("e")))))))))))))]
+#      got: $[().Seq, $(().Seq, (().Seq, (("a").Seq, (("b").Seq, (().Seq, (("c").Seq, (().Seq, (("a").Seq, (("d").Seq, (().Seq, (().Seq, (().Seq, ("e")))))))))))))]
 
 # Failed test 'We should be able to pack lists'
 # at t/spec/integration/99problems-01-to-10.t line 166
@@ -6422,17 +6414,17 @@ integration/advent2011-day23.t.....................
 # Failed test '@z = map { $_ > 5 ?? ($_) xx 3 !! Nil }, @y'
 # at t/spec/integration/advent2011-day23.t line 202
 # expected: $[Any, Any, 7, 7, 7, 9, 9, 9]
-#      got: $[Any, Any, (7, 7, 7).iterator, (9, 9, 9).iterator]
+#      got: $[Any, Any, (7, 7, 7).Seq, (9, 9, 9).Seq]
 
 # Failed test '@y.map: { $_ xx 3 if $_ > 5 };'
 # at t/spec/integration/advent2011-day23.t line 205
 # expected: $[7, 7, 7, 9, 9, 9]
-#      got: $[(7, 7, 7).iterator, (9, 9, 9).iterator]
+#      got: $[(7, 7, 7).Seq, (9, 9, 9).Seq]
 
 # Failed test '@z = ($_ xx 3 if $_ > 5 for @y);'
 # at t/spec/integration/advent2011-day23.t line 209
 # expected: $[7, 7, 7, 9, 9, 9]
-#      got: $[(7, 7, 7).iterator, (9, 9, 9).iterator]
+#      got: $[(7, 7, 7).Seq, (9, 9, 9).Seq]
 # Looks like you failed 5 tests of 55
   50    5    0    0   55
 integration/advent2011-day24.t.....................   8    0    0    0    8
@@ -6544,7 +6536,7 @@ Use of uninitialized value of type Any in string context  in any load_module at 
     
 # Failed test 'precompiled EVAL in BEGIN (Compiled)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Compile.pm line 338
-    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmod4E0E8EB1/p6testmod7DEC5B7D.pm6')
+    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmodD51D0EE1/p6testmod5F4705B1.pm6')
     # Looks like you failed 1 test of 2
    3    1    3    0    7
      1 todo   : RT \#124324 Missing or wrong version of dependency
@@ -6567,7 +6559,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
 "S02",        4964,   444,   106,   340,  5854,  5853
-"S03",        4873,   411,   113,    82,  5479,  5497
+"S03",        4869,   415,   113,    82,  5479,  5497
 "S04",        1074,   173,    41,    15,  1303,  1340
 "S05",        5496,   119,    87,   113,  5815,  6034
 "S06",        1889,    16,    62,    90,  2057,  2128
@@ -6587,10 +6579,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",          13,     0,     0,     0,    13,    13
 "S29",         329,    18,     2,     2,   351,   351
-"S32",       11660,   448,   196,   160, 12464, 10796
+"S32",       11659,   449,   196,   160, 12464, 10796
 "int",        1171,   106,    14,     8,  1299,  1285
 "ros",           2,     0,     0,     0,     2,     2
-"total",    117054,  1941,   746,  1300,121041,120087
+"total",    117049,  1946,   746,  1300,121041,120087
 ----------------
 Failure summary:
 S02-lists/tree.t aborted 10 test(s)
@@ -6734,6 +6726,10 @@ S03-operators/context-forcers.rakudo.moar 79 - total[6] is 601
 S03-operators/context-forcers.rakudo.moar 80 - total[8] is 888
 S03-operators/context.t 38 - $@var itemization
 S03-operators/misc.rakudo.moar aborted 7 test(s)
+S03-operators/range.rakudo.moar 78 - both limits is in scalar context
+S03-operators/range.rakudo.moar 79 - lower exclusive limit scalar context
+S03-operators/range.rakudo.moar 80 - upper exclusive limit scalar context
+S03-operators/range.rakudo.moar 81 - both exclusive limit scalar context
 S03-operators/reduce-le1arg.rakudo.moar 51 - [Z] () eq []
 S03-operators/repeat.rakudo.moar aborted 6 test(s)
 S03-operators/value_equivalence.rakudo.moar 33 - === on array references (1)
@@ -6892,6 +6888,7 @@ S32-exceptions/misc.rakudo.moar 291 - did we throws-like X::Syntax::ArgFlattener
 S32-exceptions/misc.rakudo.moar 292 - did we throws-like X::Syntax::ArgFlattener?
 S32-exceptions/misc.rakudo.moar 293 - did we throws-like X::Syntax::ArgFlattener?
 S32-exceptions/misc.rakudo.moar 303 - X::Undeclared precedes the name and doesn't expect anything else
+S32-hash/adverbs.t 23 - did we throws-like X::AdHoc?
 S32-hash/delete-adverb.t 98 - Test deletion with whatever
 S32-hash/delete-adverb.t 100 - Test non-deletion with ! *
 S32-hash/delete-adverb.t 101 - Test non-deletion with (0) *
