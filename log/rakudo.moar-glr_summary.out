@@ -1194,6 +1194,14 @@ S03-operators/assign.rakudo.moar...................
      9 tests aborted (missing ok/not ok)
 S03-operators/autoincrement-range.t................# Tests for 'a' .. 'z'
 # Tests for 'Α' .. 'Ω' (Greek uppercase)
+WARNING: unhandled Failure detected in DESTROY:
+Decrement out of range
+  in block <unit> at t/spec/S03-operators/autoincrement-range.t:37
+
+WARNING: unhandled Failure detected in DESTROY:
+Decrement out of range
+  in block <unit> at t/spec/S03-operators/autoincrement-range.t:17
+
 # Tests for 'α' .. 'ω' (Greek lowercase)
 # Tests for 'א' .. 'ת' (Hebrew)
 # Tests for '0' .. '9'
@@ -1746,24 +1754,6 @@ S03-smartmatch/signature-signature.rakudo.moar.....  18    0    0    1   19
                                                    pass fail todo skip plan
 S04-blocks-and-statements/let.t....................  12    0    0    0   12
 S04-blocks-and-statements/pointy-rw.t..............
-# Failed test 'aliases returned by %hash.values should be rw (1)'
-# at t/spec/S04-blocks-and-statements/pointy-rw.t line 17
-# Cannot assign to an immutable value
-
-# Failed test 'aliases returned by %hash.values should be rw (2)'
-# at t/spec/S04-blocks-and-statements/pointy-rw.t line 21
-# expected: '5'
-#      got: '4'
-
-# Failed test 'aliases returned by %hash.values should be rw (<->) (1)'
-# at t/spec/S04-blocks-and-statements/pointy-rw.t line 26
-# Cannot assign to an immutable value
-
-# Failed test 'aliases returned by %hash.values should be rw (<->) (2)'
-# at t/spec/S04-blocks-and-statements/pointy-rw.t line 30
-# expected: '5'
-#      got: '4'
-
 # Failed test 'aliases returned by $pair.values should be rw (1)'
 # at t/spec/S04-blocks-and-statements/pointy-rw.t line 45
 # Cannot assign to an immutable value
@@ -1781,8 +1771,8 @@ S04-blocks-and-statements/pointy-rw.t..............
 # at t/spec/S04-blocks-and-statements/pointy-rw.t line 60
 # expected: '43'
 #      got: '42'
-# Looks like you failed 8 tests of 10
-   2    8    0    0   10
+# Looks like you failed 4 tests of 10
+   6    4    0    0   10
 S04-blocks-and-statements/pointy.rakudo.moar.......
 # Failed test 'Blocks receive junctions without autothreading'
 # at t/spec/S04-blocks-and-statements/pointy.rakudo.moar line 100
@@ -2037,14 +2027,25 @@ S04-statements/for.rakudo.moar.....................
 # at t/spec/S04-statements/for.rakudo.moar line 52
 # expected: '(1 4)(2 5)(3 6)'
 #      got: '(1 2)(3 4)(5 6)'
-Cannot assign to an immutable value
-  in block  at t/spec/S04-statements/for.rakudo.moar:228
-  in block <unit> at t/spec/S04-statements/for.rakudo.moar:225
 
-# Looks like you planned 93 tests, but ran 31
-# Looks like you failed 1 test of 31
-  30   63    0    0   93
-    62 tests aborted (missing ok/not ok)
+# Failed test 'List context'
+# at t/spec/S04-statements/for.rakudo.moar line 292
+# expected: '(Array)'
+#      got: '(Range)(Range)'
+Use of Nil in string context  in block  at t/spec/S04-statements/for.rakudo.moar:501
+Use of Nil in string context  in code  at t/spec/S04-statements/for.rakudo.moar:635
+Cannot assign to an immutable value
+  in block  at t/spec/S04-statements/for.rakudo.moar:635
+  in block <unit> at t/spec/S04-statements/for.rakudo.moar:631
+
+# Looks like you planned 93 tests, but ran 90
+# Looks like you failed 2 tests of 90
+  83    5    4    1   93
+     1 skipped: optional variable in for loop (RT #63994)
+     1 todo   : Rakudo still uses Nil here RT \#124568
+     1 todo   : Rakudo still uses Nil here RT \#124569
+     2 todo PASSED: RT \#113026 array iterator does not track a growing array
+     3 tests aborted (missing ok/not ok)
 S04-statements/for_with_only_one_item.t............
 # Failed test 'for ($arrayref) {...} executes the loop body only once'
 # at t/spec/S04-statements/for_with_only_one_item.t line 66
@@ -2750,7 +2751,8 @@ S09-typed-arrays/arrays.rakudo.moar................Method 'of' not found for inv
 
   45   29    2    1   77
      1 skipped: nested typechecks are borked
-     2 todo   : nested typechecks are borked
+     1 todo   : nested typechecks are borked
+     1 todo PASSED: nested typechecks are borked
     29 tests aborted (missing ok/not ok)
 S09-typed-arrays/hashes.t..........................  33    0    0    0   33
 S09-typed-arrays/native-decl.t.....................   8    0    0    0    8
@@ -2787,10 +2789,10 @@ S10-packages/precompilation.rakudo.moar............Use of uninitialized value $_
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-8344-503032.code:4
+#   in block <unit> at getout-3988-146713.code:4
 
 # Actually thrown at:
-#   in block <unit> at getout-8344-503032.code:4
+#   in block <unit> at getout-3988-146713.code:4
 
 
   33    0    3    0   36
@@ -2916,12 +2918,25 @@ S12-enums/thorough.rakudo.moar.....................Use of Nil in string context 
     14 skipped: NYI RT #124829
     15 skipped: does &day::("Tue") RT #124831
     14 skipped: does day::Tue RT #124830
-S12-introspection/WHAT.rakudo.moar.................  25    0   12    0   37
+S12-introspection/WHAT.rakudo.moar.................Cannot call infix:<===>(NQPMu, Int); none of these signatures match:
+    ($?)
+    ($a, $b)
+    (Int:D \a, Int:D \b)
+    (int $a, int $b)
+    (Num:D \a, Num:D \b)
+    (Num $ where { ... }, Num $ where { ... })
+    (num $a, num $b --> Bool)
+    (Str:D \a, Str:D \b --> Bool)
+    (str $a, str $b --> Bool)
+    (Rational:D \a, Rational:D \b --> Bool)
+    (Complex:D \a, Complex:D \b --> Bool)
+  in block <unit> at t/spec/S12-introspection/WHAT.rakudo.moar:92
+
+  21    9    7    0   37
      2 todo   : %h{Str} of Int fails RT \#125010
-     1 todo   : Foo[Int,Str].new on scalars fails
-     4 todo   : Foo[Int].new on scalars fails
      2 todo   : looks like a type object, but is not
      3 todo   : of Type on scalars fails
+     9 tests aborted (missing ok/not ok)
 S12-introspection/attributes.rakudo.moar...........  25    0    0    5   30
      5 skipped: :tree NYI for .^attributes RT #125014
 S12-introspection/can.t............................Method object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S12-introspection/can.t:102
@@ -3118,8 +3133,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  10    0    0    0   10
-S16-filehandles/chmod.t............................# Using file temp_1440437396
-# Using file temp_1440437396
+S16-filehandles/chmod.t............................# Using file temp_1440443371
+# Using file temp_1440443371
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -3142,7 +3157,7 @@ S16-io/bare-say.t..................................
 #      got status: 256
 #      got out: ""
 # expected out: "a => 1\nb => 2\nc => 3\n"
-#      got err: "Odd number of elements found where hash initializer expected\n  in block <unit> at getout-9285-735812.code:1\n\n"
+#      got err: "Odd number of elements found where hash initializer expected\n  in block <unit> at getout-11003-551627.code:1\n\n"
 # expected err: ""
 # Looks like you failed 1 test of 7
    6    1    0    0    7
@@ -4228,8 +4243,8 @@ S17-supply/batch.t.................................# **** scheduling with Thread
     
 # Failed test 'we can batch by time'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 35
-    # expected: $[$[288087510, 288087510, 288087510, 288087510, 288087510, 288087510, 288087510, 288087510, 288087510, 288087510], $[288087511, 288087511, 288087511, 288087511, 288087511, 288087511, 288087511, 288087511, 288087511, 288087511]]
-    #      got: $[288087510, 288087510, 288087510, 288087510, 288087510, 288087510, 288087510, 288087510, 288087510, 288087510, 288087511, 288087511, 288087511, 288087511, 288087511, 288087511, 288087511, 288087511, 288087511, 288087511]
+    # expected: $[$[288088705, 288088705, 288088705, 288088705, 288088705, 288088705, 288088705, 288088705, 288088705, 288088705], $[288088706, 288088706, 288088706, 288088706, 288088706, 288088706, 288088706, 288088706, 288088706, 288088706]]
+    #      got: $[288088705, 288088705, 288088705, 288088705, 288088705, 288088705, 288088705, 288088705, 288088705, 288088705, 288088706, 288088706, 288088706, 288088706, 288088706, 288088706, 288088706, 288088706, 288088706, 288088706]
     # Looks like you failed 1 test of 5
 
 # Failed test 'we can batch by time'
@@ -4237,8 +4252,8 @@ S17-supply/batch.t.................................# **** scheduling with Thread
     
 # Failed test 'we can batch by time and elems'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 35
-    # expected: $[$[288087512, 288087512, 288087512, 288087512, 288087512, 288087512, 288087512], $[288087512, 288087512, 288087512], $[288087513, 288087513, 288087513, 288087513, 288087513, 288087513, 288087513], $[288087513, 288087513, 288087513]]
-    #      got: $[288087512, 288087512, 288087512, 288087512, 288087512, 288087512, 288087512, 288087512, 288087512, 288087512, 288087513, 288087513, 288087513, 288087513, 288087513, 288087513, 288087513, 288087513, 288087513, 288087513]
+    # expected: $[$[288088707, 288088707, 288088707, 288088707, 288088707, 288088707, 288088707], $[288088707, 288088707, 288088707], $[288088708, 288088708, 288088708, 288088708, 288088708, 288088708, 288088708], $[288088708, 288088708, 288088708]]
+    #      got: $[288088707, 288088707, 288088707, 288088707, 288088707, 288088707, 288088707, 288088707, 288088707, 288088707, 288088708, 288088708, 288088708, 288088708, 288088708, 288088708, 288088708, 288088708, 288088708, 288088708]
     # Looks like you failed 1 test of 5
 
 # Failed test 'we can batch by time and elems'
@@ -4256,8 +4271,8 @@ S17-supply/batch.t.................................# **** scheduling with Thread
     
 # Failed test 'we can batch by time'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 35
-    # expected: $[$[288087514, 288087514, 288087514, 288087514, 288087514, 288087514, 288087514, 288087514, 288087514, 288087514], $[288087515, 288087515, 288087515, 288087515, 288087515, 288087515, 288087515, 288087515, 288087515, 288087515]]
-    #      got: $[288087514, 288087514, 288087514, 288087514, 288087514, 288087514, 288087514, 288087514, 288087514, 288087514, 288087515, 288087515, 288087515, 288087515, 288087515, 288087515, 288087515, 288087515, 288087515, 288087515]
+    # expected: $[$[288088709, 288088709, 288088709, 288088709, 288088709, 288088709, 288088709, 288088709, 288088709, 288088709], $[288088710, 288088710, 288088710, 288088710, 288088710, 288088710, 288088710, 288088710, 288088710, 288088710]]
+    #      got: $[288088709, 288088709, 288088709, 288088709, 288088709, 288088709, 288088709, 288088709, 288088709, 288088709, 288088710, 288088710, 288088710, 288088710, 288088710, 288088710, 288088710, 288088710, 288088710, 288088710]
     # Looks like you failed 1 test of 5
 
 # Failed test 'we can batch by time'
@@ -4265,8 +4280,8 @@ S17-supply/batch.t.................................# **** scheduling with Thread
     
 # Failed test 'we can batch by time and elems'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 35
-    # expected: $[$[288087516, 288087516, 288087516, 288087516, 288087516, 288087516, 288087516], $[288087516, 288087516, 288087516], $[288087517, 288087517, 288087517, 288087517, 288087517, 288087517, 288087517], $[288087517, 288087517, 288087517]]
-    #      got: $[288087516, 288087516, 288087516, 288087516, 288087516, 288087516, 288087516, 288087516, 288087516, 288087516, 288087517, 288087517, 288087517, 288087517, 288087517, 288087517, 288087517, 288087517, 288087517, 288087517]
+    # expected: $[$[288088711, 288088711, 288088711, 288088711, 288088711, 288088711, 288088711], $[288088711, 288088711, 288088711], $[288088712, 288088712, 288088712, 288088712, 288088712, 288088712, 288088712], $[288088712, 288088712, 288088712]]
+    #      got: $[288088711, 288088711, 288088711, 288088711, 288088711, 288088711, 288088711, 288088711, 288088711, 288088711, 288088712, 288088712, 288088712, 288088712, 288088712, 288088712, 288088712, 288088712, 288088712, 288088712]
     # Looks like you failed 1 test of 5
 
 # Failed test 'we can batch by time and elems'
@@ -4837,22 +4852,7 @@ Use of uninitialized value @s of type Str in string context  in block  at lib/Te
 Use of uninitialized value $!value of type Str in string context  in block  at lib/Test.pm:134
  602    0    0    0  602
 S32-array/bool.t...................................  15    0    0    0   15
-S32-array/create.t.................................    
-# Failed test '' Array[Int].new(1, 2, "Foo") ' died'
-# at t/spec/S32-array/create.t line 20
-    # Looks like you failed 1 test of 2
-
-# Failed test 'did we throws-like X::TypeCheck?'
-# at t/spec/S32-array/create.t line 20
-    
-# Failed test '' Array[Str].new(1, 2, "Foo") ' died'
-# at t/spec/S32-array/create.t line 21
-    # Looks like you failed 1 test of 2
-
-# Failed test 'did we throws-like X::TypeCheck?'
-# at t/spec/S32-array/create.t line 21
-# Looks like you failed 2 tests of 6
-   4    2    0    0    6
+S32-array/create.t.................................   6    0    0    0    6
 S32-array/delete-adverb-native.t................... 138    0    0    0  138
 S32-array/delete-adverb.t..........................
 # Failed test 'Test for delete multiple elements'
@@ -5622,28 +5622,12 @@ S32-hash/exists.rakudo.moar........................  14    0    0    1   15
      1 skipped: unspecced
 S32-hash/invert.t..................................   5    0    0    0    5
 S32-hash/keys_values.t.............................  14    0    0    0   14
-S32-hash/kv.t......................................
-# Failed test 'aliases returned by %hash.kv should be rw (1)'
-# at t/spec/S32-hash/kv.t line 105
-# Cannot assign to an immutable value
-
-# Failed test 'aliases returned by %hash.kv should be rw (2)'
-# at t/spec/S32-hash/kv.t line 109
-# expected: '102'
-#      got: '2'
-# Looks like you failed 2 tests of 27
-  25    2    0    0   27
+S32-hash/kv.t......................................  27    0    0    0   27
 S32-hash/pairs.rakudo.moar.........................Use of uninitialized value %rt117935 of type Any in string context  in block  at lib/Test.pm:134
 Use of uninitialized value $!value of type Any in string context  in block  at lib/Test.pm:134
   24    0    1    0   25
      1 todo   : Rakudo seems to make a copy rather than a reference, RT \#124640
-S32-hash/perl.t....................................
-# Failed test 'can we serialize a simple hash'
-# at t/spec/S32-hash/perl.t line 10
-# expected: '{:a(1), :b(2)}<>'
-#      got: '{:a(1), :b(2)}'
-# Looks like you failed 1 test of 12
-  11    1    0    0   12
+S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.moar.........................
 # Failed test 'assigning a slice using keys from GatherIterator'
@@ -5668,11 +5652,13 @@ Use of uninitialized value <element> of type Any in string context  in block  at
      6 todo   : binding on hash elements unimplemented
      2 todo   : binding on hash elements unimplemented RT \#124779
      2 todo   : binding on hash elements unimplemented RT \#124780
-S32-io/IO-Socket-Async.rakudo.moar.................# Looks like you planned 6 tests, but ran 5
-   3    1    0    2    6
+S32-io/IO-Socket-Async.rakudo.moar.................connection reset by peer
+  in block <unit> at t/spec/S32-io/IO-Socket-Async.rakudo.moar:80
+
+# Looks like you planned 6 tests, but ran 3
+   2    3    0    1    6
      1 skipped: Flapping RT #122318
-     1 skipped: RT #122318 - test is flapping
-     1 tests aborted (missing ok/not ok)
+     3 tests aborted (missing ok/not ok)
 S32-io/IO-Socket-INET.t............................   0    0    0   47   47
     47 skipped: Operating system not yet supported
 S32-io/chdir.rakudo.moar...........................   8    0    0    2   10
@@ -6153,13 +6139,19 @@ integration/99problems-11-to-20.t..................Type check failed for return 
    1   24    0    0   25
     24 tests aborted (missing ok/not ok)
 integration/99problems-21-to-30.t..................Use of uninitialized value $previous of type Any in string context  in sub  at t/spec/integration/99problems-21-to-30.t:54
-Type check failed for return value; expected 'List' but got 'Seq'
-  in sub lotto at t/spec/integration/99problems-21-to-30.t:75
-  in block <unit> at t/spec/integration/99problems-21-to-30.t:79
 
-# Looks like you planned 15 tests, but ran 7
-   7    8    0    0   15
-     8 tests aborted (missing ok/not ok)
+# Failed test 'combinations work.'
+# at t/spec/integration/99problems-21-to-30.t line 128
+# expected: '1 2 3 1 2 4 1 2 5 1 3 4 1 3 5 1 4 5 2 3 4 2 3 5 2 4 5 3 4 5'
+#      got: '1 2 1 5 1 3 1 5 1 4 1 5 2 3 2 5 2 4 2 5 3 4 5'
+This Seq has already been iterated, and its values consumed
+  in sub is at lib/Test.pm:134
+  in block <unit> at t/spec/integration/99problems-21-to-30.t:180
+
+# Looks like you planned 15 tests, but ran 12
+# Looks like you failed 1 test of 12
+  11    4    0    0   15
+     3 tests aborted (missing ok/not ok)
 integration/99problems-31-to-40.t..................  66    0    0    1   67
      1 skipped: No Benchmark module yet
 integration/99problems-41-to-50.t..................
@@ -6415,7 +6407,7 @@ Use of uninitialized value of type Any in string context  in any load_module at 
     
 # Failed test 'precompiled EVAL in BEGIN (Compiled)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Compile.pm line 338
-    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmod7B146C5A/p6testmodA8B7A15F.pm6')
+    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmod300E74B5/p6testmod9EA98C50.pm6')
     # Looks like you failed 1 test of 2
    3    1    3    0    7
      1 todo   : RT \#124324 Missing or wrong version of dependency
@@ -6439,14 +6431,14 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S01",           0,     0,     0,    75,    75,    86
 "S02",        4920,   497,   102,   335,  5854,  5853
 "S03",        5097,   183,   114,    85,  5479,  5497
-"S04",        1074,   173,    41,    15,  1303,  1340
+"S04",        1131,   111,    45,    16,  1303,  1340
 "S05",        5496,   119,    87,   113,  5815,  6034
 "S06",        1898,     7,    62,    90,  2057,  2128
 "S07",           0,     0,     0,     0,     0,    96
 "S09",        1855,    43,    10,    95,  2003,  2003
 "S10",         105,     0,     5,     1,   111,   168
 "S11",         112,     0,     6,    11,   129,   148
-"S12",        1503,     0,    41,   143,  1687,  1742
+"S12",        1499,     9,    36,   143,  1687,  1742
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         343,     0,     8,     5,   356,   369
 "S15",       78533,     0,     3,    18, 78554, 78574
@@ -6458,10 +6450,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",          13,     0,     0,     0,    13,    13
 "S29",         329,    18,     2,     2,   351,   351
-"S32",       11663,   445,   196,   160, 12464, 10796
-"int",        1172,   105,    14,     8,  1299,  1285
+"S32",       11667,   442,   196,   159, 12464, 10796
+"int",        1176,   101,    14,     8,  1299,  1285
 "ros",           2,     0,     0,     0,     2,     2
-"total",    117267,  1728,   747,  1299,121041,120087
+"total",    117328,  1668,   746,  1299,121041,120087
 ----------------
 Failure summary:
 S02-lists/tree.t aborted 10 test(s)
@@ -6629,10 +6621,6 @@ S03-smartmatch/array-array.rakudo.moar 4 - 1 2 !~~ 1 2 3
 S03-smartmatch/array-array.rakudo.moar 25 - * dwimming does not cause craziness
 S03-smartmatch/array-array.rakudo.moar 26 - * dwimming does not cause craziness
 S03-smartmatch/array-array.rakudo.moar 27 - * dwimming does not cause craziness
-S04-blocks-and-statements/pointy-rw.t 1 - aliases returned by %hash.values should be rw (1)
-S04-blocks-and-statements/pointy-rw.t 2 - aliases returned by %hash.values should be rw (2)
-S04-blocks-and-statements/pointy-rw.t 3 - aliases returned by %hash.values should be rw (<->) (1)
-S04-blocks-and-statements/pointy-rw.t 4 - aliases returned by %hash.values should be rw (<->) (2)
 S04-blocks-and-statements/pointy-rw.t 7 - aliases returned by $pair.values should be rw (1)
 S04-blocks-and-statements/pointy-rw.t 8 - aliases returned by $pair.values should be rw (2)
 S04-blocks-and-statements/pointy-rw.t 9 - aliases returned by $pair.values should be rw (1)
@@ -6661,7 +6649,8 @@ S04-statement-modifiers/without.t aborted 4 test(s)
 S04-statements/do.rakudo.moar 9 - when if does not execute any branch, return undefined
 S04-statements/for-scope.t 14 - ... but only over one array ref
 S04-statements/for.rakudo.moar 6 - for zip(@a; @b) -> $x, $y works
-S04-statements/for.rakudo.moar aborted 62 test(s)
+S04-statements/for.rakudo.moar 40 - List context
+S04-statements/for.rakudo.moar aborted 3 test(s)
 S04-statements/for_with_only_one_item.t 7 - for ($arrayref) {...} executes the loop body only once
 S04-statements/for_with_only_one_item.t 8 - for $arrayref {...} executes the loop body only once
 S04-statements/gather.rakudo.moar aborted 33 test(s)
@@ -6693,6 +6682,7 @@ S09-autovivification/autoincrement.t 5 - lvalue [[]][][] works
 S09-autovivification/autovivification.rakudo.moar aborted 2 test(s)
 S09-subscript/multidim-assignment.t aborted 10 test(s)
 S09-typed-arrays/arrays.rakudo.moar aborted 29 test(s)
+S12-introspection/WHAT.rakudo.moar aborted 9 test(s)
 S16-io/bare-say.t 7 - for %h { .say } (RT 74822)
 S16-io/say.t aborted 1 test(s)
 S17-channel/earliest.t aborted 4 test(s)
@@ -6724,8 +6714,6 @@ S17-supply/zip-latest.t 7 - zipping 2 supplies works with "zip-latest"
 S17-supply/zip.t aborted 10 test(s)
 S29-context/die.rakudo.moar aborted 12 test(s)
 S29-conversions/hash.t aborted 6 test(s)
-S32-array/create.t 5 - did we throws-like X::TypeCheck?
-S32-array/create.t 6 - did we throws-like X::TypeCheck?
 S32-array/delete-adverb.t 63 - Test for delete multiple elements
 S32-array/delete-adverb.t 108 - Test deletion with whatever
 S32-array/delete.t aborted 20 test(s)
@@ -6752,13 +6740,10 @@ S32-hash/delete-adverb.t 101 - Test non-deletion with (0) *
 S32-hash/delete-adverb.t 102 - Test non-deletion with (False) *
 S32-hash/delete-adverb.t 103 - Test non-deletion with ($dont) *
 S32-hash/delete-adverb.t 105 - Test deletion with (1) *
-S32-hash/kv.t 22 - aliases returned by %hash.kv should be rw (1)
-S32-hash/kv.t 23 - aliases returned by %hash.kv should be rw (2)
-S32-hash/perl.t 1 - can we serialize a simple hash
 S32-hash/slice.rakudo.moar 12 - assigning a slice using keys from GatherIterator
 S32-hash/slice.rakudo.moar 27 - values from hash keys, part 1
 S32-hash/slice.rakudo.moar 28 - values from hash keys, part 2
-S32-io/IO-Socket-Async.rakudo.moar aborted 1 test(s)
+S32-io/IO-Socket-Async.rakudo.moar aborted 3 test(s)
 S32-list/categorize.t aborted 28 test(s)
 S32-list/classify.rakudo.moar 34 - multi-level classify
 S32-list/combinations.t 4 - 1..2 items
@@ -6793,7 +6778,8 @@ integration/99problems-01-to-10.t 18 - ... even with multi subs
 integration/99problems-01-to-10.t 19 - We should be able to pack lists
 integration/99problems-01-to-10.t 22 - We should be able to run-length encode lists
 integration/99problems-11-to-20.t aborted 24 test(s)
-integration/99problems-21-to-30.t aborted 8 test(s)
+integration/99problems-21-to-30.t 12 - combinations work.
+integration/99problems-21-to-30.t aborted 3 test(s)
 integration/99problems-41-to-50.t 6 - 
 integration/99problems-41-to-50.t 7 - 
 integration/99problems-41-to-50.t aborted 6 test(s)
