@@ -1037,28 +1037,7 @@ S03-operators/chained-declarators.t................   5    0    0    0    5
 S03-operators/cmp.t................................  31    0    0    0   31
 S03-operators/comparison-simple.t..................  24    0    0    0   24
 S03-operators/comparison.t.........................  41    0    0    0   41
-S03-operators/context-forcers.rakudo.moar..........
-# Failed test 'total[0] is 0'
-# at t/spec/S03-operators/context-forcers.rakudo.moar line 196
-# expected: '0'
-#      got: '0 100 280 33 400 5665'
-
-# Failed test 'total[1] is 100'
-# at t/spec/S03-operators/context-forcers.rakudo.moar line 197
-# expected: '100'
-#      got: '601 700 888'
-
-# Failed test 'total[6] is 601'
-# at t/spec/S03-operators/context-forcers.rakudo.moar line 198
-# expected: '601'
-#      got: (Any)
-
-# Failed test 'total[8] is 888'
-# at t/spec/S03-operators/context-forcers.rakudo.moar line 199
-# expected: '888'
-#      got: (Any)
-# Looks like you failed 4 tests of 97
-  91    4    0    2   97
+S03-operators/context-forcers.rakudo.moar..........  95    0    0    2   97
      2 skipped: failure modes of Str.Numeric RT #124540
 S03-operators/context.t............................  37    0    0    0   37
 S03-operators/custom.t.............................   1    0    0    0    1
@@ -1427,18 +1406,7 @@ S03-operators/value_equivalence.rakudo.moar........Potential difficulties:
   84    0    1    0   85
      1 todo   : .WHICH based on type names
 S03-sequence/arity-2-or-more.t.....................  20    0    0    0   20
-S03-sequence/arity0.t..............................
-The 'munch' method was an internal method used by rakudo before the Great
-List Refactor.  The fact that you are seeing this message, means that you
-have code that was using that unsupported rakudo internal API.
-
-Please refactor this code using the new Iterator / Seq interface.
-
-  in block <unit> at t/spec/S03-sequence/arity0.t:19
-
-# Looks like you planned 13 tests, but ran 3
-   3   10    0    0   13
-    10 tests aborted (missing ok/not ok)
+S03-sequence/arity0.t..............................  13    0    0    0   13
 S03-sequence/basic.t...............................Cannot get sequence endpoint from an empty list (use * or :!elems instead?)
   in block <unit> at t/spec/S03-sequence/basic.t:269
 
@@ -1451,19 +1419,17 @@ This Seq has already been iterated, and its values consumed
 # Looks like you planned 31 tests, but ran 6
    6   25    0    0   31
     25 tests aborted (missing ok/not ok)
-S03-sequence/nonnumeric.rakudo.moar................
-The 'munch' method was an internal method used by rakudo before the Great
-List Refactor.  The fact that you are seeing this message, means that you
-have code that was using that unsupported rakudo internal API.
+S03-sequence/nonnumeric.rakudo.moar................    
+# Failed test 'code dies'
+# at t/spec/S03-sequence/nonnumeric.rakudo.moar line 61
+    # Looks like you failed 1 test of 3
 
-Please refactor this code using the new Iterator / Seq interface.
-
-  in block <unit> at t/spec/S03-sequence/nonnumeric.rakudo.moar:58
-
-# Looks like you planned 44 tests, but ran 24
-  13   20    0   11   44
+# Failed test 'Str decrement fails after 'AA': leftmost characters are never removed'
+# at t/spec/S03-sequence/nonnumeric.rakudo.moar line 61
+# Looks like you failed 1 test of 44
+  26    1    0   17   44
     11 skipped: hangs RT #125049
-    20 tests aborted (missing ok/not ok)
+     6 skipped: lifting comparison ops RT #125050
 S03-smartmatch/any-any.t...........................   8    0    0    0    8
 S03-smartmatch/any-array.rakudo.moar...............   4    0    2    0    6
      2 todo   : nom regression
@@ -2108,7 +2074,27 @@ S05-metasyntax/unknown.rakudo.moar.................Use of Nil in string context 
      1 todo   : RT \#74832
 S05-modifier/continue.t............................Use of Nil in string context  in block  at t/spec/S05-modifier/continue.t:19
   13    0    0    0   13
-S05-modifier/counted-match.rakudo.moar.............  26    0    0    2   28
+S05-modifier/counted-match.rakudo.moar.............WARNING: unhandled Failure detected in DESTROY:
+Cannot shift from an empty Array
+  in block  at src/gen/m-CORE.setting:1
+  in block <unit> at t/spec/S05-modifier/counted-match.rakudo.moar:36
+
+WARNING: unhandled Failure detected in DESTROY:
+Cannot shift from an empty Array
+  in block  at src/gen/m-CORE.setting:1
+  in block <unit> at t/spec/S05-modifier/counted-match.rakudo.moar:32
+
+WARNING: unhandled Failure detected in DESTROY:
+Cannot shift from an empty Array
+  in block  at src/gen/m-CORE.setting:1
+  in block <unit> at t/spec/S05-modifier/counted-match.rakudo.moar:28
+
+WARNING: unhandled Failure detected in DESTROY:
+Cannot shift from an empty Array
+  in block  at src/gen/m-CORE.setting:1
+  in block <unit> at t/spec/S05-modifier/counted-match.rakudo.moar:24
+
+  26    0    0    2   28
      2 skipped: hangs RT #125026
 S05-modifier/counted.rakudo.moar................... 125    0    0    1  126
      1 skipped: Cannot call Real(Whatever: );
@@ -2561,10 +2547,10 @@ S10-packages/precompilation.rakudo.moar............Use of uninitialized value $_
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-4224-345246.code:4
+#   in block <unit> at getout-21838-283942.code:4
 
 # Actually thrown at:
-#   in block <unit> at getout-4224-345246.code:4
+#   in block <unit> at getout-21838-283942.code:4
 
 
   33    0    3    0   36
@@ -2905,8 +2891,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  10    0    0    0   10
-S16-filehandles/chmod.t............................# Using file temp_1440603228
-# Using file temp_1440603228
+S16-filehandles/chmod.t............................# Using file temp_1440605513
+# Using file temp_1440605513
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2943,13 +2929,7 @@ S17-channel/earliest.t.............................Got a Array, but expected a C
 # Looks like you planned 7 tests, but ran 3
    3    4    0    0    7
      4 tests aborted (missing ok/not ok)
-S17-lowlevel/lock.rakudo.moar......................
-# Failed test 'Condition variable worked'
-# at t/spec/S17-lowlevel/lock.rakudo.moar line 87
-# expected: 'ale,porter,stout'
-#      got: 'ale,porter'
-# log = ale porter stout, thread was running *after* join
-   6    1    1    0    8
+S17-lowlevel/lock.rakudo.moar......................   7    0    1    0    8
      1 todo   : not sure this test is valid RT \#124793
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.rakudo.moar....................  27    0    0    3   30
@@ -4011,8 +3991,8 @@ S17-supply/batch.t.................................# **** scheduling with Thread
     
 # Failed test 'we can batch by time'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 35
-    # expected: $[$[288120679, 288120679, 288120679, 288120679, 288120679, 288120679, 288120679, 288120679, 288120679, 288120679], $[288120680, 288120680, 288120680, 288120680, 288120680, 288120680, 288120680, 288120680, 288120680, 288120680]]
-    #      got: $[288120679, 288120679, 288120679, 288120679, 288120679, 288120679, 288120679, 288120679, 288120679, 288120679, 288120680, 288120680, 288120680, 288120680, 288120680, 288120680, 288120680, 288120680, 288120680, 288120680]
+    # expected: $[$[288121132, 288121132, 288121132, 288121132, 288121132, 288121132, 288121132, 288121132, 288121132, 288121132], $[288121133, 288121133, 288121133, 288121133, 288121133, 288121133, 288121133, 288121133, 288121133, 288121133]]
+    #      got: $[288121132, 288121132, 288121132, 288121132, 288121132, 288121132, 288121132, 288121132, 288121132, 288121132, 288121133, 288121133, 288121133, 288121133, 288121133, 288121133, 288121133, 288121133, 288121133, 288121133]
     # Looks like you failed 1 test of 5
 
 # Failed test 'we can batch by time'
@@ -4020,8 +4000,8 @@ S17-supply/batch.t.................................# **** scheduling with Thread
     
 # Failed test 'we can batch by time and elems'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 35
-    # expected: $[$[288120681, 288120681, 288120681, 288120681, 288120681, 288120681, 288120681], $[288120681, 288120681, 288120681], $[288120682, 288120682, 288120682, 288120682, 288120682, 288120682, 288120682], $[288120682, 288120682, 288120682]]
-    #      got: $[288120681, 288120681, 288120681, 288120681, 288120681, 288120681, 288120681, 288120681, 288120681, 288120681, 288120682, 288120682, 288120682, 288120682, 288120682, 288120682, 288120682, 288120682, 288120682, 288120682]
+    # expected: $[$[288121134, 288121134, 288121134, 288121134, 288121134, 288121134, 288121134], $[288121134, 288121134, 288121134], $[288121135, 288121135, 288121135, 288121135, 288121135, 288121135, 288121135], $[288121135, 288121135, 288121135]]
+    #      got: $[288121134, 288121134, 288121134, 288121134, 288121134, 288121134, 288121134, 288121134, 288121134, 288121134, 288121135, 288121135, 288121135, 288121135, 288121135, 288121135, 288121135, 288121135, 288121135, 288121135]
     # Looks like you failed 1 test of 5
 
 # Failed test 'we can batch by time and elems'
@@ -4039,8 +4019,8 @@ S17-supply/batch.t.................................# **** scheduling with Thread
     
 # Failed test 'we can batch by time'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 35
-    # expected: $[$[288120683, 288120683, 288120683, 288120683, 288120683, 288120683, 288120683, 288120683, 288120683, 288120683], $[288120684, 288120684, 288120684, 288120684, 288120684, 288120684, 288120684, 288120684, 288120684, 288120684]]
-    #      got: $[288120683, 288120683, 288120683, 288120683, 288120683, 288120683, 288120683, 288120683, 288120683, 288120683, 288120684, 288120684, 288120684, 288120684, 288120684, 288120684, 288120684, 288120684, 288120684, 288120684]
+    # expected: $[$[288121136, 288121136, 288121136, 288121136, 288121136, 288121136, 288121136, 288121136, 288121136, 288121136], $[288121137, 288121137, 288121137, 288121137, 288121137, 288121137, 288121137, 288121137, 288121137, 288121137]]
+    #      got: $[288121136, 288121136, 288121136, 288121136, 288121136, 288121136, 288121136, 288121136, 288121136, 288121136, 288121137, 288121137, 288121137, 288121137, 288121137, 288121137, 288121137, 288121137, 288121137, 288121137]
     # Looks like you failed 1 test of 5
 
 # Failed test 'we can batch by time'
@@ -4048,8 +4028,8 @@ S17-supply/batch.t.................................# **** scheduling with Thread
     
 # Failed test 'we can batch by time and elems'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 35
-    # expected: $[$[288120685, 288120685, 288120685, 288120685, 288120685, 288120685, 288120685], $[288120685, 288120685, 288120685], $[288120686, 288120686, 288120686, 288120686, 288120686, 288120686, 288120686], $[288120686, 288120686, 288120686]]
-    #      got: $[288120685, 288120685, 288120685, 288120685, 288120685, 288120685, 288120685, 288120685, 288120685, 288120685, 288120686, 288120686, 288120686, 288120686, 288120686, 288120686, 288120686, 288120686, 288120686, 288120686]
+    # expected: $[$[288121138, 288121138, 288121138, 288121138, 288121138, 288121138, 288121138], $[288121138, 288121138, 288121138], $[288121139, 288121139, 288121139, 288121139, 288121139, 288121139, 288121139], $[288121139, 288121139, 288121139]]
+    #      got: $[288121138, 288121138, 288121138, 288121138, 288121138, 288121138, 288121138, 288121138, 288121138, 288121138, 288121139, 288121139, 288121139, 288121139, 288121139, 288121139, 288121139, 288121139, 288121139, 288121139]
     # Looks like you failed 1 test of 5
 
 # Failed test 'we can batch by time and elems'
@@ -5944,14 +5924,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# gerdr: 0.8714299 seconds
-# loop: 0.94454917 seconds
-# kaz: 1.0064213 seconds
-# recursive-ternary: 1.09910968 seconds
-# hand-memoization: 1.47043635 seconds
-# recursive-ternary-hand-cached: 2.548247 seconds
-# sequence-ternary: 4.38300756 seconds
-# sequence: 7.4276202 seconds
+integration/advent2012-day21.t.....................# kaz: 1.0535704 seconds
+# gerdr: 1.0680053 seconds
+# recursive-ternary: 1.12489121 seconds
+# loop: 1.1714669 seconds
+# hand-memoization: 1.52761116 seconds
+# recursive-ternary-hand-cached: 2.3454681 seconds
+# sequence-ternary: 4.186037 seconds
+# sequence: 6.8858751 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT \#121789
@@ -6020,7 +6000,7 @@ Use of uninitialized value of type Any in string context  in any load_module at 
     
 # Failed test 'precompiled EVAL in BEGIN (Compiled)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Compile.pm line 338
-    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmod41CC804E/p6testmod295DBF34.pm6')
+    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmodB1AF2CD3/p6testmod56CC3EE4.pm6')
     # Looks like you failed 1 test of 2
    3    1    3    0    7
      1 todo   : RT \#124324 Missing or wrong version of dependency
@@ -6043,7 +6023,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
 "S02",        5112,   255,   106,   380,  5853,  5852
-"S03",        5129,   146,   116,    87,  5478,  5496
+"S03",        5156,   113,   116,    93,  5478,  5496
 "S04",        1173,    66,    46,    21,  1306,  1343
 "S05",        5599,    14,    88,   114,  5815,  6034
 "S06",        1898,     7,    62,    90,  2057,  2128
@@ -6056,7 +6036,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         343,     0,     8,     5,   356,   369
 "S15",       78533,     0,     3,    18, 78554, 78574
 "S16",         304,     1,     2,    16,   323,   351
-"S17",         847,   137,    36,    28,  1048,  1048
+"S17",         848,   136,    36,    28,  1048,  1048
 "S19",          14,     0,     0,     0,    14,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",          18,     0,     0,     0,    18,    89
@@ -6066,7 +6046,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",       12006,    85,   214,   160, 12465, 10797
 "int",        1232,    39,    14,    14,  1299,  1285
 "ros",           2,     0,     0,     0,     2,     2
-"total",    118103,   808,   773,  1359,121043,120089
+"total",    118131,   774,   773,  1365,121043,120089
 ----------------
 Failure summary:
 S02-lists/tree.t aborted 10 test(s)
@@ -6166,20 +6146,15 @@ S03-operators/assign.rakudo.moar 244 - lhs treats foo()[$b,] as list
 S03-operators/assign.rakudo.moar 251 - ,= works for hashes (return value)
 S03-operators/assign.rakudo.moar 252 - ,= works for hashes (hash modified)
 S03-operators/assign.rakudo.moar aborted 9 test(s)
-S03-operators/context-forcers.rakudo.moar 77 - total[0] is 0
-S03-operators/context-forcers.rakudo.moar 78 - total[1] is 100
-S03-operators/context-forcers.rakudo.moar 79 - total[6] is 601
-S03-operators/context-forcers.rakudo.moar 80 - total[8] is 888
 S03-operators/range.rakudo.moar 78 - both limits is in scalar context
 S03-operators/range.rakudo.moar 79 - lower exclusive limit scalar context
 S03-operators/range.rakudo.moar 80 - upper exclusive limit scalar context
 S03-operators/range.rakudo.moar 81 - both exclusive limit scalar context
 S03-operators/reduce-le1arg.rakudo.moar 51 - [Z] () eq []
 S03-operators/repeat.rakudo.moar aborted 6 test(s)
-S03-sequence/arity0.t aborted 10 test(s)
 S03-sequence/basic.t aborted 3 test(s)
 S03-sequence/misc.t aborted 25 test(s)
-S03-sequence/nonnumeric.rakudo.moar aborted 20 test(s)
+S03-sequence/nonnumeric.rakudo.moar 27 - Str decrement fails after 'AA': leftmost characters are never removed
 S03-smartmatch/array-array.rakudo.moar 2 - 1 2 !~~ 1 1
 S03-smartmatch/array-array.rakudo.moar 3 - 1 2 3 !~~ 1 2
 S03-smartmatch/array-array.rakudo.moar 4 - 1 2 !~~ 1 2 3
@@ -6253,7 +6228,6 @@ S09-typed-arrays/arrays.rakudo.moar aborted 29 test(s)
 S12-introspection/WHAT.rakudo.moar aborted 9 test(s)
 S16-io/say.t aborted 1 test(s)
 S17-channel/earliest.t aborted 4 test(s)
-S17-lowlevel/lock.rakudo.moar 7 - Condition variable worked
 S17-promise/start.rakudo.moar aborted 4 test(s)
 S17-promise/stress.t aborted 1 test(s)
 S17-supply/batch.t 2 - we can batch by number of elements
