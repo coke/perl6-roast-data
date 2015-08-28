@@ -900,7 +900,7 @@ S03-operators/precedence.rakudo.moar...............
 # Failed test '(|) has correct precedence.'
 # at t/spec/S03-operators/precedence.rakudo.moar line 245
 # expected: set(5)
-#      got: set((5).Seq,().Seq)
+#      got: set(().Seq,(5).Seq)
 # Looks like you failed 1 test of 59
   56    1    2    0   59
      2 todo   : Inequality (!=) misparsed as assignment RT \#121108
@@ -2094,10 +2094,10 @@ S10-packages/precompilation.rakudo.moar............Use of uninitialized value $_
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-16326-183555.code:4
+#   in block <unit> at getout-20477-128344.code:4
 
 # Actually thrown at:
-#   in block <unit> at getout-16326-183555.code:4
+#   in block <unit> at getout-20477-128344.code:4
 
 
   33    0    3    0   36
@@ -2426,8 +2426,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  10    0    0    0   10
-S16-filehandles/chmod.t............................# Using file temp_1440788054
-# Using file temp_1440788054
+S16-filehandles/chmod.t............................# Using file temp_1440793650
+# Using file temp_1440793650
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2469,8 +2469,9 @@ S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   7    0    0    0    7
-S17-lowlevel/lock.rakudo.moar......................   7    0    1    0    8
-     1 todo   : not sure this test is valid RT \#124793
+S17-lowlevel/lock.rakudo.moar......................Segmentation fault
+   6    2    0    0    8
+     1 tests aborted (missing ok/not ok)
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.rakudo.moar....................  27    0    0    3   30
      3 skipped: returns Nil (flapping tests) RT #125047
@@ -3488,7 +3489,9 @@ S17-promise/start.rakudo.moar......................This Seq has already been ite
 
   14    4    0    0   18
      4 tests aborted (missing ok/not ok)
-S17-promise/stress.t...............................   1    0    0    0    1
+S17-promise/stress.t...............................Killed
+   0    1    0    0    1
+     1 tests aborted (missing ok/not ok)
 S17-promise/then.t.................................  14    0    0    0   14
 S17-scheduler/at.rakudo.moar.......................Method 'cancel' not found for invocant of class 'Any'
   in block  at t/spec/S17-scheduler/at.rakudo.moar:76
@@ -4108,23 +4111,7 @@ S32-array/pairs.rakudo.moar........................  13    0    1    0   14
 S32-array/perl.t...................................   6    0    0    0    6
 S32-array/pop.rakudo.moar..........................  36    0    1    0   37
      1 todo   : RT \#111720
-S32-array/push.t...................................
-# Failed test 'nested arrayref, array length is 1'
-# at t/spec/S32-array/push.t line 140
-# expected: '1'
-#      got: '5'
-
-# Failed test 'nested arrayref, arrayref length is 5'
-# at t/spec/S32-array/push.t line 141
-# expected: '5'
-#      got: '1'
-
-# Failed test 'nested arrayref, last value is 25'
-# at t/spec/S32-array/push.t line 143
-# expected: '25'
-#      got: '21'
-# Looks like you failed 3 tests of 52
-  49    3    0    0   52
+S32-array/push.t...................................  52    0    0    0   52
 S32-array/rotate.t.................................  29    0    0    0   29
 S32-array/shift.t..................................  31    0    0    0   31
 S32-array/splice.rakudo.moar.......................    
@@ -4828,38 +4815,19 @@ S32-hash/pairs.rakudo.moar.........................Use of uninitialized value %r
 Use of uninitialized value $!value of type Any in string context  in block  at lib/Test.pm:134
   24    0    1    0   25
      1 todo   : Rakudo seems to make a copy rather than a reference, RT \#124640
-S32-hash/perl.t....................................
-# Failed test 'can we serialize a hash with constrained values'
-# at t/spec/S32-hash/perl.t line 22
-# expected: 'any("Hash[Int].new(\"a\" => 1, \"b\" => 2)", "Hash[Int].new(\"b\" => 2, \"a\" => 1)")'
-#      got: 'Hash[Int].new(:a(1), :b(2))'
-
-# Failed test 'can we roundtrip hash constrained values'
-# at t/spec/S32-hash/perl.t line 25
-# expected: Hash[Int].new(:a(1), :b(2))
-#      got: Hash[Int].new()
-
-# Failed test 'can we serialize a hash with constrained keys & values'
-# at t/spec/S32-hash/perl.t line 34
-# expected: 'any("Hash[Int,Str].new(\"a\" => 1, \"b\" => 2)", "Hash[Int,Str].new(\"b\" => 2, \"a\" => 1)")'
-#      got: 'Hash[Int,Str].new(:a(1), :b(2))'
-
-# Failed test 'can we roundtrip hash constrained keys & values'
-# at t/spec/S32-hash/perl.t line 37
-# expected: Hash[Int,Str].new(:a(1), :b(2))
-#      got: Hash[Int,Str].new()
-# Looks like you failed 4 tests of 12
-   8    4    0    0   12
+S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.moar.........................  19    0   10    0   29
      6 todo   : binding on hash elements unimplemented
      2 todo   : binding on hash elements unimplemented RT \#124779
      2 todo   : binding on hash elements unimplemented RT \#124780
-S32-io/IO-Socket-Async.rakudo.moar.................# Looks like you planned 6 tests, but ran 5
-   3    1    0    2    6
+S32-io/IO-Socket-Async.rakudo.moar.................connection reset by peer
+  in block <unit> at t/spec/S32-io/IO-Socket-Async.rakudo.moar:80
+
+# Looks like you planned 6 tests, but ran 3
+   2    3    0    1    6
      1 skipped: Flapping RT #122318
-     1 skipped: RT #122318 - test is flapping
-     1 tests aborted (missing ok/not ok)
+     3 tests aborted (missing ok/not ok)
 S32-io/IO-Socket-INET.t............................   0    0    0   47   47
     47 skipped: Operating system not yet supported
 S32-io/chdir.rakudo.moar...........................   8    0    0    2   10
@@ -5274,14 +5242,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 0.90119148 seconds
-# recursive-ternary: 1.016313613 seconds
-# gerdr: 1.16484599 seconds
-# loop: 1.1653872 seconds
-# hand-memoization: 1.563552 seconds
-# recursive-ternary-hand-cached: 2.5983314 seconds
-# sequence-ternary: 4.9986445 seconds
-# sequence: 8.04123142 seconds
+integration/advent2012-day21.t.....................# kaz: 0.95273008 seconds
+# recursive-ternary: 1.2806093 seconds
+# gerdr: 1.4402288 seconds
+# loop: 2.2802402 seconds
+# hand-memoization: 2.4402057 seconds
+# recursive-ternary-hand-cached: 2.6310323 seconds
+# sequence-ternary: 5.310146 seconds
+# sequence: 7.7393557 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT \#121789
@@ -5342,7 +5310,7 @@ Use of uninitialized value of type Any in string context  in any load_module at 
     
 # Failed test 'precompiled EVAL in BEGIN (Compiled)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Compile.pm line 338
-    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmodB3680367/p6testmod1FB5B63A.pm6')
+    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmodEE865C07/p6testmod61479917.pm6')
     # Looks like you failed 1 test of 2
    4    0    3    0    7
      1 todo   : RT \#124324 Missing or wrong version of dependency
@@ -5378,17 +5346,17 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         343,     0,     8,     5,   356,   369
 "S15",       78533,     0,     3,    18, 78554, 78574
 "S16",         300,     2,     2,    16,   320,   373
-"S17",        1000,    34,    36,    28,  1098,  1048
+"S17",         998,    37,    35,    28,  1098,  1048
 "S19",          14,     0,     0,     0,    14,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",          18,     0,     0,     0,    18,    89
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",          13,     0,     0,     0,    13,    13
 "S29",         340,     6,     3,     2,   351,   351
-"S32",       12080,    14,   209,   158, 12461, 10708
+"S32",       12086,     9,   209,   157, 12461, 10708
 "int",        1263,     7,    14,    15,  1299,  1285
 "ros",           2,     0,     0,     0,     2,     2
-"total",    118675,   251,   775,  1394,121095,120031
+"total",    118679,   249,   774,  1393,121095,120031
 ----------------
 Failure summary:
 S02-types/list.t 6 - .item.perl on empty List
@@ -5470,7 +5438,10 @@ S06-other/pairs-as-lvalues.rakudo.moar 5 - bound to the second pair
 S06-signature/unpack-array.t 13 - array unpacking and only-multi
 S16-io/print.t 4 - print stringifies its args
 S16-io/print.t 12 - $*OUT.print: Array ref
+S17-lowlevel/lock.rakudo.moar 7 - Condition variable worked
+S17-lowlevel/lock.rakudo.moar aborted 1 test(s)
 S17-promise/start.rakudo.moar aborted 4 test(s)
+S17-promise/stress.t aborted 1 test(s)
 S17-supply/categorize.t 19 - did we get the right keys (Array)
 S17-supply/categorize.t 20 - got the 0 supply (Array)
 S17-supply/categorize.t 21 - got the 1 supply (Array)
@@ -5493,18 +5464,11 @@ S17-supply/zip-latest.t 1 - zipping 2 supplies works with "zip-latest"
 S17-supply/zip-latest.t 7 - zipping 2 supplies works with "zip-latest"
 S17-supply/zip.t aborted 10 test(s)
 S29-conversions/hash.t aborted 6 test(s)
-S32-array/push.t 44 - nested arrayref, array length is 1
-S32-array/push.t 45 - nested arrayref, arrayref length is 5
-S32-array/push.t 47 - nested arrayref, last value is 25
 S32-container/roundrobin.rakudo.moar 5 - basic roundrobin
 S32-container/zip.rakudo.moar 1 - simple zip
 S32-container/zip.rakudo.moar 3 - zip of 3 arrays
 S32-exceptions/misc.rakudo.moar 272 - did we throws-like X::Syntax::Confused?
-S32-hash/perl.t 5 - can we serialize a hash with constrained values
-S32-hash/perl.t 6 - can we roundtrip hash constrained values
-S32-hash/perl.t 9 - can we serialize a hash with constrained keys & values
-S32-hash/perl.t 10 - can we roundtrip hash constrained keys & values
-S32-io/IO-Socket-Async.rakudo.moar aborted 1 test(s)
+S32-io/IO-Socket-Async.rakudo.moar aborted 3 test(s)
 S32-list/seq.t 2 - seq => array works 2
 S32-list/seq.t 3 - seq => array works 3
 integration/99problems-21-to-30.t 13 - group works
