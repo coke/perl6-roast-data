@@ -58,8 +58,8 @@ S02-literals/listquote.rakudo.jvm..................  19    0    4    1   24
      4 todo   : IntStr/RatStr/NumStr types NYI
 S02-literals/misc-interpolation.rakudo.jvm.........  49    0    1    0   50
      1 todo   : RT \#122583
-S02-literals/numeric.rakudo.jvm....................  51    0    1    0   52
-     1 todo   : fails with "Attempt to divide by zero using div" on JVM RT \#124559
+S02-literals/numeric.rakudo.jvm....................  15   37    0    0   52
+    37 tests aborted (missing ok/not ok)
 S02-literals/pair-boolean.t........................   6    0    0    0    6
 S02-literals/pairs.t...............................  76    0    0    0   76
 S02-literals/pod.rakudo.jvm........................   0    0    0    5    5
@@ -315,8 +315,8 @@ S03-junctions/autothreading.t...................... 104    0    0    0  104
 S03-junctions/boolean-context.t....................  77    0    0    0   77
 S03-junctions/misc.rakudo.jvm...................... 128    1    2    0  131
      2 todo   : junction transformed into string before attemting to match RT \#111726
-S03-metaops/cross.rakudo.jvm.......................  33    0    0    1   34
-     1 skipped: .slice for iterators NYI RT #124518
+S03-metaops/cross.rakudo.jvm.......................   4   30    0    0   34
+    30 tests aborted (missing ok/not ok)
 S03-metaops/eager-hyper.rakudo.jvm.................   6    0    0    2    8
      2 skipped: hyper prefix NYI RT #124517
 S03-metaops/hyper.rakudo.jvm....................... 300    0    1    3  304
@@ -1437,7 +1437,7 @@ S32-io/IO-Socket-INET.t............................   0    0    0   47   47
     47 skipped: Operating system not yet supported
 S32-io/chdir.rakudo.jvm............................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
-S32-io/copy.t......................................  29    0    0    0   29
+S32-io/copy.t......................................  41    0    0    0   41
 S32-io/dir.rakudo.jvm..............................   9    0    4    0   13
      1 todo   : $*CWD misses slash at end still RT \#124787
      1 todo   : directories are not marked with trailing / yet RT \#124784
@@ -1818,8 +1818,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        5261,    78,   128,   396,  5863,  5862
-"S03",        5260,     1,   120,    98,  5479,  5497
+"S02",        5225,   115,   127,   396,  5863,  5955
+"S03",        5231,    31,   120,    97,  5479,  5497
 "S04",        1208,     0,    61,    33,  1302,  1339
 "S05",        4998,   502,    89,   183,  5772,  6022
 "S06",        1902,     0,    60,    95,  2057,  2128
@@ -1839,12 +1839,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         342,     3,     3,     3,   351,   351
-"S32",       11934,     0,   200,   175, 12309, 10557
+"S32",       11946,     0,   200,   175, 12321, 10569
 "int",        1256,     9,    11,    15,  1291,  1284
 "ros",           2,     0,     0,     0,     2,     2
-"total",     37448,   942,   807,  1414, 40611,118085
+"total",     37395,  1009,   806,  1413, 40623,118190
 ----------------
 Failure summary:
+S02-literals/numeric.rakudo.jvm aborted 37 test(s)
 S02-literals/quoting.rakudo.jvm 124 - Testing for q:x operator.
 S02-literals/quoting.rakudo.jvm 125 - Testing for q:x operator. (utf8)
 S02-literals/quoting.rakudo.jvm aborted 49 test(s)
@@ -1853,6 +1854,7 @@ S02-magicals/sub.rakudo.jvm aborted 2 test(s)
 S02-names/is_default.rakudo.jvm 104 - did we throws-like X::Comp::Trait::NotOnNative?
 S02-types/declare.rakudo.jvm 19 - Assign big bigint to native won't overflow silently
 S03-junctions/misc.rakudo.jvm 131 - Do not try to auto-thread Junction type object (only case)
+S03-metaops/cross.rakudo.jvm aborted 30 test(s)
 S05-mass/properties-general.rakudo.jvm aborted 502 test(s)
 S09-typed-arrays/native-int.rakudo.jvm aborted 137 test(s)
 S09-typed-arrays/native-num.rakudo.jvm aborted 129 test(s)

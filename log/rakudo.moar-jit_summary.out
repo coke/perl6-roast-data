@@ -63,7 +63,18 @@ S02-literals/listquote.rakudo.moar.................  19    0    4    1   24
      1 skipped: meta operators RT #124558
      4 todo   : IntStr/RatStr/NumStr types NYI
 S02-literals/misc-interpolation.t..................  50    0    0    0   50
-S02-literals/numeric.t.............................  52    0    0    0   52
+S02-literals/numeric.t.............................
+# Failed test 'Rat works with colon radix numbers'
+# at t/spec/S02-literals/numeric.t line 30
+# expected: '0.142857'
+#      got: ':13<01>/:13<07>'
+
+# Failed test 'Rat works with colon radix numbers'
+# at t/spec/S02-literals/numeric.t line 31
+# expected: '0.231579'
+#      got: ':12<1a>/:12<7b>'
+# Looks like you failed 2 tests of 52
+  50    2    0    0   52
 S02-literals/pair-boolean.t........................   6    0    0    0    6
 S02-literals/pairs.t...............................  76    0    0    0   76
 S02-literals/pod.rakudo.moar.......................   0    0    0    5    5
@@ -213,21 +224,21 @@ S02-names/indirect.t...............................   6    0    0    0    6
 S02-names/is_cached.t..............................  38    0    0    0   38
 S02-names/is_default.rakudo.moar...................    
 # Failed test '.got matches Nil'
-# at src/gen/m-CORE.setting line 10658
+# at src/gen/m-CORE.setting line 10662
     # Expected: Nil
 Use of uninitialized value $got of type Any in string context  in block  at lib/Test.pm:506
     # Got:      
     # Looks like you failed 1 test of 4
     
 # Failed test '.got matches Nil'
-# at src/gen/m-CORE.setting line 10658
+# at src/gen/m-CORE.setting line 10662
     # Expected: Nil
 Use of uninitialized value $got of type Any in string context  in block  at lib/Test.pm:506
     # Got:      
     # Looks like you failed 1 test of 4
     
 # Failed test '.got matches Nil'
-# at src/gen/m-CORE.setting line 10658
+# at src/gen/m-CORE.setting line 10662
     # Expected: Nil
 Use of uninitialized value $got of type Any in string context  in block  at lib/Test.pm:506
     # Got:      
@@ -248,15 +259,7 @@ S02-names/is_dynamic.t.............................  22    0    0    0   22
 S02-names/name.t...................................  15    0    0    0   15
 S02-names/our.rakudo.moar..........................   9    0    0    1   10
      1 skipped: OUR::subname() does not work
-S02-names/pseudo.rakudo.moar.......................WARNING: unhandled Failure detected in DESTROY:
-No such symbol 'OUR::A43'
-  in block <unit> at t/spec/S02-names/pseudo.rakudo.moar:184
-
-WARNING: unhandled Failure detected in DESTROY:
-No such symbol 'OUR::A42'
-  in block <unit> at t/spec/S02-names/pseudo.rakudo.moar:180
-
-  52    0    8   82  142
+S02-names/pseudo.rakudo.moar.......................  52    0    8   82  142
     19 skipped: CORE NYI RT #124916
      4 skipped: the binding in here is NYI RT #124914
     23 skipped: various issues to resolve RT #124917
@@ -506,8 +509,13 @@ S03-junctions/autothreading.t...................... 104    0    0    0  104
 S03-junctions/boolean-context.t....................  77    0    0    0   77
 S03-junctions/misc.rakudo.moar..................... 129    0    2    0  131
      2 todo   : junction transformed into string before attemting to match RT \#111726
-S03-metaops/cross.rakudo.moar......................  33    0    0    1   34
-     1 skipped: .slice for iterators NYI RT #124518
+S03-metaops/cross.rakudo.moar......................Too few positionals passed; expected 2 arguments but got 0 in sub-signature
+  in block  at t/spec/S03-metaops/cross.rakudo.moar:23
+  in block <unit> at t/spec/S03-metaops/cross.rakudo.moar:22
+
+# Looks like you planned 34 tests, but ran 4
+   4   30    0    0   34
+    30 tests aborted (missing ok/not ok)
 S03-metaops/eager-hyper.rakudo.moar................   6    0    0    2    8
      2 skipped: hyper prefix NYI RT #124517
 S03-metaops/hyper.rakudo.moar......................Use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-metaops/hyper.rakudo.moar:450
@@ -1686,10 +1694,10 @@ S10-packages/precompilation.rakudo.moar............Use of uninitialized value $_
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-27437-97970.code:4
+#   in block <unit> at getout-27283-110702.code:4
 
 # Actually thrown at:
-#   in block <unit> at getout-27437-97970.code:4
+#   in block <unit> at getout-27283-110702.code:4
 
 
   33    0    3    0   36
@@ -2020,8 +2028,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  10    0    0    0   10
-S16-filehandles/chmod.t............................# Using file temp_1440685550
-# Using file temp_1440685550
+S16-filehandles/chmod.t............................# Using file temp_1440772723
+# Using file temp_1440772723
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2052,9 +2060,14 @@ S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   7    0    0    0    7
-S17-lowlevel/lock.rakudo.moar......................Segmentation fault
-   6    2    0    0    8
-     1 tests aborted (missing ok/not ok)
+S17-lowlevel/lock.rakudo.moar......................
+# Failed test 'Condition variable worked'
+# at t/spec/S17-lowlevel/lock.rakudo.moar line 87
+# expected: 'ale,porter,stout'
+#      got: 'ale'
+# log = ale porter stout, thread was running *after* join
+   6    1    1    0    8
+     1 todo   : not sure this test is valid RT \#124793
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.rakudo.moar....................  27    0    0    3   30
      3 skipped: returns Nil (flapping tests) RT #125047
@@ -4205,7 +4218,7 @@ S32-io/IO-Socket-INET.t............................   0    0    0   47   47
     47 skipped: Operating system not yet supported
 S32-io/chdir.rakudo.moar...........................   8    0    0    2   10
      2 skipped: spec non-conformance due to missing sink context
-S32-io/copy.t......................................  29    0    0    0   29
+S32-io/copy.t......................................  41    0    0    0   41
 S32-io/dir.rakudo.moar.............................   9    0    4    0   13
      1 todo   : $*CWD misses slash at end still RT \#124787
      1 todo   : directories are not marked with trailing / yet RT \#124784
@@ -4366,13 +4379,13 @@ S32-str/comb.rakudo.moar...........................  47    0    0    1   48
 S32-str/contains.t.................................  20    0    0    0   20
 S32-str/encode.rakudo.moar.........................    
 # Failed test '.message matches rx:s:i/line 1 col\w* 2|term/'
-# at src/gen/m-CORE.setting line 10658
+# at src/gen/m-CORE.setting line 10662
     # Expected: rx:s:i/line 1 col\w* 2|term/
     # Got:      Malformed UTF-16; odd number of bytes
     # Looks like you failed 1 test of 3
     
 # Failed test '.message matches rx:s:i/line 1 col\w* 2/'
-# at src/gen/m-CORE.setting line 10658
+# at src/gen/m-CORE.setting line 10662
     # Expected: rx:s:i/line 1 col\w* 2/
     # Got:      Malformed UTF-16; unexpected low surrogate
     # Looks like you failed 1 test of 3
@@ -4597,14 +4610,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# recursive-ternary: 1.2548981 seconds
-# kaz: 1.3008407 seconds
-# gerdr: 1.4234051 seconds
-# recursive-ternary-hand-cached: 2.84323940 seconds
-# sequence-ternary: 7.18883795 seconds
-# hand-memoization: 7.7139616 seconds
-# sequence: 8.6554700 seconds
-# loop: 12.51945074 seconds
+integration/advent2012-day21.t.....................# loop: 1.202699 seconds
+# recursive-ternary-hand-cached: 3.9277160 seconds
+# recursive-ternary: 4.9077461 seconds
+# kaz: 5.9543107 seconds
+# hand-memoization: 7.10618225 seconds
+# gerdr: 11.607984 seconds
+# sequence-ternary: 16.5945311 seconds
+# sequence: 43.5831696 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT \#121789
@@ -4671,7 +4684,7 @@ Useless use of constant integer 42 in sink context (line 1)
     
 # Failed test 'precompiled EVAL in BEGIN (Compiled)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Compile.pm line 338
-    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmodFC0084CA/p6testmod3C2F6946.pm6')
+    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmod4D19C048/p6testmod30F3D3E3.pm6')
     # Looks like you failed 1 test of 2
    4    0    3    0    7
      1 todo   : RT \#123679 Cannot invoke this object (REPR: Null, cs = 0)
@@ -4693,8 +4706,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        5362,     0,   121,   380,  5863,  5862
-"S03",        5261,     0,   120,    98,  5479,  5497
+"S02",        5360,     2,   121,   380,  5863,  5955
+"S03",        5232,    30,   120,    97,  5479,  5497
 "S04",        1217,     0,    57,    28,  1302,  1339
 "S05",        5598,     0,    88,   117,  5803,  6022
 "S06",        1907,     0,    60,    90,  2057,  2128
@@ -4707,18 +4720,20 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         343,     0,     8,     5,   356,   369
 "S15",       78533,     0,     3,    18, 78554, 78574
 "S16",         305,     0,     2,    16,   323,   351
-"S17",        1031,     2,    36,    29,  1098,  1048
+"S17",        1031,     1,    37,    29,  1098,  1048
 "S19",          14,     0,     0,     0,    14,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",          18,     0,     0,     0,    18,    89
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",          13,     0,     0,     0,    13,    13
 "S29",         346,     0,     3,     2,   351,   351
-"S32",       12099,     0,   204,   156, 12459, 10707
+"S32",       12111,     0,   204,   156, 12471, 10719
 "int",        1269,     0,    14,    15,  1298,  1284
 "ros",           2,     0,     0,     0,     2,     2
-"total",    118912,     2,   801,  1379,121094,120006
+"total",    118893,    33,   802,  1378,121106,120111
 ----------------
 Failure summary:
+S02-literals/numeric.t 17 - Rat works with colon radix numbers
+S02-literals/numeric.t 18 - Rat works with colon radix numbers
+S03-metaops/cross.rakudo.moar aborted 30 test(s)
 S17-lowlevel/lock.rakudo.moar 7 - Condition variable worked
-S17-lowlevel/lock.rakudo.moar aborted 1 test(s)
