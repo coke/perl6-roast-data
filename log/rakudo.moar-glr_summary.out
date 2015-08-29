@@ -444,8 +444,8 @@ S02-types/set.rakudo.moar..........................Potential difficulties:
  163    0    2   10  175
      9 skipped: Hypers not yet Set compatible RT #124487
      1 skipped: Set is no longer Iterable
-     1 todo   : problems with metaop on sets after GLR
      1 todo   : we have not secured .WHICH creation yet RT \#124489
+     1 todo PASSED: problems with metaop on sets after GLR
 S02-types/sethash.rakudo.moar......................
 # Failed test '... with one element'
 # at t/spec/S02-types/sethash.rakudo.moar line 147
@@ -745,19 +745,19 @@ Attempt to divide 10 by zero using /
 
 WARNING: unhandled Failure detected in DESTROY:
 Attempt to divide 10 by zero using div
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1233
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1229
-  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1197
-  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1147
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1710
-  in any visit_op_children at src/gen/m-Perl6-Optimizer.nqp:1170
-  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1052
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1710
-  in any visit_want at src/gen/m-Perl6-Optimizer.nqp:1550
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1713
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1728
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1728
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1728
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1232
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1228
+  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1196
+  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1146
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1709
+  in any visit_op_children at src/gen/m-Perl6-Optimizer.nqp:1169
+  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1051
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1709
+  in any visit_want at src/gen/m-Perl6-Optimizer.nqp:1549
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1712
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1727
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1727
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1727
   in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
   in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
   in any optimize at src/Perl6/Compiler.nqp:64
@@ -961,13 +961,7 @@ S03-operators/orelse.rakudo.moar...................   9    0    0    2   11
      1 skipped: orelse passes $! as argument RT #124535
      1 skipped: orelse passes $! as multiple arguments RT #124536
 S03-operators/overflow.t...........................  98    0    0    0   98
-S03-operators/precedence.rakudo.moar...............
-# Failed test '(|) has correct precedence.'
-# at t/spec/S03-operators/precedence.rakudo.moar line 245
-# expected: set(5)
-#      got: set(().Seq,(5).Seq)
-# Looks like you failed 1 test of 59
-  56    1    2    0   59
+S03-operators/precedence.rakudo.moar...............  57    0    2    0   59
      2 todo   : Inequality (!=) misparsed as assignment RT \#121108
 S03-operators/range-basic.t........................ 140    0    0    0  140
 S03-operators/range-int.t.......................... 480    0    0    0  480
@@ -994,36 +988,6 @@ S03-operators/relational.rakudo.moar............... 118    0    6    0  124
 S03-operators/repeat.t.............................  30    0    0    0   30
 S03-operators/scalar-assign.t......................   4    0    0    0    4
 S03-operators/set.t................................
-# Failed test 'Set union with itself yields self'
-# at t/spec/S03-operators/set.t line 72
-# expected: 'I'm afraid day isn't it your'
-#      got: 'your it isn't I'm day afraid your it isn't I'm day afraid'
-
-# Failed test 'SetHash union with itself yields self (as Set)'
-# at t/spec/S03-operators/set.t line 74
-# expected: 'I'm afraid is it'
-#      got: 'it is I'm afraid it is I'm afraid'
-
-# Failed test 'Set union with SetHash works'
-# at t/spec/S03-operators/set.t line 77
-# expected: 'I'm afraid day is isn't it your'
-#      got: 'it is I'm afraid your it isn't I'm day afraid'
-
-# Failed test 'SetHash union with array of strings works'
-# at t/spec/S03-operators/set.t line 79
-# expected: 'I'm afraid blue green is it'
-#      got: 'blue green it is I'm afraid'
-
-# Failed test 'Set union with SetHash works (texas)'
-# at t/spec/S03-operators/set.t line 82
-# expected: 'I'm afraid day is isn't it your'
-#      got: 'it is I'm afraid your it isn't I'm day afraid'
-
-# Failed test 'SetHash union with array of strings works (texas)'
-# at t/spec/S03-operators/set.t line 84
-# expected: 'I'm afraid blue green is it'
-#      got: 'blue green it is I'm afraid'
-
 # Failed test 'Bag subtracted from Set is correct'
 # at t/spec/S03-operators/set.t line 111
 # expected: 'I'm afraid day isn't it your'
@@ -1064,27 +1028,27 @@ S03-operators/set.t................................
 # expected: 'c d e'
 #      got: 'a b a d a e c b'
 
-# Failed test 'Union reduce works on one set'
-# at t/spec/S03-operators/set.t line 413
-# expected: 'Aphrodite Apollo Ares Artemis Athena Hades Hephaestus Hera Hermes Poseidon Zeus'
-#      got: 'Zeus Hera Aphrodite Poseidon Athena Hermes Artemis Apollo Ares Hades Hephaestus'
+# Failed test 'Union reduce works on two sets'
+# at t/spec/S03-operators/set.t line 414
+# expected: 'Vulcan Juno Mars Venus Neptune Ceres Apollo Jupiter Minerva Diana Vesta Mercury Zeus Hera Aphrodite Poseidon Athena Hermes Artemis Apollo Ares Hades Hephaestus'
+#      got: 'Aphrodite Apollo Ares Artemis Athena Ceres Diana Hades Hephaestus Hera Hermes Juno Jupiter Mars Mercury Minerva Neptune Poseidon Venus Vesta Vulcan Zeus'
 
 # Failed test 'Union reduce works on three sets'
 # at t/spec/S03-operators/set.t line 415
 # expected: 'Apollo Arclight Astor Vulcan Juno Mars Venus Neptune Ceres Apollo Jupiter Minerva Diana Vesta Mercury Zeus Hera Aphrodite Poseidon Athena Hermes Artemis Apollo Ares Hades Hephaestus'
-#      got: 'Arclight Apollo Astor Vulcan Juno Mars Venus Neptune Ceres Apollo Jupiter Minerva Diana Vesta Mercury Zeus Hera Aphrodite Poseidon Athena Hermes Artemis Apollo Ares Hades Hephaestus'
+#      got: 'Aphrodite Apollo Arclight Ares Artemis Astor Athena Ceres Diana Hades Hephaestus Hera Hermes Juno Jupiter Mars Mercury Minerva Neptune Poseidon Venus Vesta Vulcan Zeus'
 
-# Failed test 'Union reduce works on one set (texas)'
-# at t/spec/S03-operators/set.t line 418
-# expected: 'Aphrodite Apollo Ares Artemis Athena Hades Hephaestus Hera Hermes Poseidon Zeus'
-#      got: 'Zeus Hera Aphrodite Poseidon Athena Hermes Artemis Apollo Ares Hades Hephaestus'
+# Failed test 'Union reduce works on two sets (texas)'
+# at t/spec/S03-operators/set.t line 419
+# expected: 'Vulcan Juno Mars Venus Neptune Ceres Apollo Jupiter Minerva Diana Vesta Mercury Zeus Hera Aphrodite Poseidon Athena Hermes Artemis Apollo Ares Hades Hephaestus'
+#      got: 'Aphrodite Apollo Ares Artemis Athena Ceres Diana Hades Hephaestus Hera Hermes Juno Jupiter Mars Mercury Minerva Neptune Poseidon Venus Vesta Vulcan Zeus'
 
 # Failed test 'Union reduce works on three sets (texas)'
 # at t/spec/S03-operators/set.t line 420
 # expected: 'Apollo Arclight Astor Vulcan Juno Mars Venus Neptune Ceres Apollo Jupiter Minerva Diana Vesta Mercury Zeus Hera Aphrodite Poseidon Athena Hermes Artemis Apollo Ares Hades Hephaestus'
-#      got: 'Arclight Apollo Astor Vulcan Juno Mars Venus Neptune Ceres Apollo Jupiter Minerva Diana Vesta Mercury Zeus Hera Aphrodite Poseidon Athena Hermes Artemis Apollo Ares Hades Hephaestus'
-# Looks like you failed 18 tests of 292
- 274   18    0    0  292
+#      got: 'Aphrodite Apollo Arclight Ares Artemis Astor Athena Ceres Diana Hades Hephaestus Hera Hermes Juno Jupiter Mars Mercury Minerva Neptune Poseidon Venus Vesta Vulcan Zeus'
+# Looks like you failed 12 tests of 292
+ 280   12    0    0  292
 S03-operators/short-circuit.t......................Use of Nil in numeric context  in block  at t/spec/S03-operators/short-circuit.t:205
   83    0    0    0   83
 S03-operators/so.t.................................  15    0    0    0   15
@@ -1758,27 +1722,7 @@ S05-metasyntax/unknown.rakudo.moar.................Use of Nil in string context 
      1 todo   : RT \#74832
 S05-modifier/continue.t............................Use of Nil in string context  in block  at t/spec/S05-modifier/continue.t:19
   13    0    0    0   13
-S05-modifier/counted-match.rakudo.moar.............WARNING: unhandled Failure detected in DESTROY:
-Cannot shift from an empty Array
-  in block  at src/gen/m-CORE.setting:1
-  in block <unit> at t/spec/S05-modifier/counted-match.rakudo.moar:36
-
-WARNING: unhandled Failure detected in DESTROY:
-Cannot shift from an empty Array
-  in block  at src/gen/m-CORE.setting:1
-  in block <unit> at t/spec/S05-modifier/counted-match.rakudo.moar:32
-
-WARNING: unhandled Failure detected in DESTROY:
-Cannot shift from an empty Array
-  in block  at src/gen/m-CORE.setting:1
-  in block <unit> at t/spec/S05-modifier/counted-match.rakudo.moar:28
-
-WARNING: unhandled Failure detected in DESTROY:
-Cannot shift from an empty Array
-  in block  at src/gen/m-CORE.setting:1
-  in block <unit> at t/spec/S05-modifier/counted-match.rakudo.moar:24
-
-  26    0    0    2   28
+S05-modifier/counted-match.rakudo.moar.............  26    0    0    2   28
      2 skipped: hangs RT #125026
 S05-modifier/counted.rakudo.moar................... 125    0    0    1  126
      1 skipped: Cannot call Real(Whatever: );
@@ -2186,10 +2130,10 @@ S10-packages/precompilation.rakudo.moar............Use of uninitialized value $_
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-9626-139852.code:4
+#   in block <unit> at getout-2977-177491.code:4
 
 # Actually thrown at:
-#   in block <unit> at getout-9626-139852.code:4
+#   in block <unit> at getout-2977-177491.code:4
 
 
   33    0    3    0   36
@@ -2518,8 +2462,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  10    0    0    0   10
-S16-filehandles/chmod.t............................# Using file temp_1440837811
-# Using file temp_1440837811
+S16-filehandles/chmod.t............................# Using file temp_1440840354
+# Using file temp_1440840354
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -3580,9 +3524,7 @@ S17-promise/start.rakudo.moar......................This Seq has already been ite
 
   14    4    0    0   18
      4 tests aborted (missing ok/not ok)
-S17-promise/stress.t...............................Killed
-   0    1    0    0    1
-     1 tests aborted (missing ok/not ok)
+S17-promise/stress.t...............................   1    0    0    0    1
 S17-promise/then.t.................................  14    0    0    0   14
 S17-scheduler/at.rakudo.moar.......................Method 'cancel' not found for invocant of class 'Any'
   in block  at t/spec/S17-scheduler/at.rakudo.moar:76
@@ -3881,15 +3823,27 @@ S17-supply/zip-latest.t............................
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 18
 # Looks like you failed 2 tests of 12
   10    2    0    0   12
-S17-supply/zip.t...................................No such method 'shift' for invocant of type 'Int'
-  in any  at ././CORE.setting.moarvm:1
-  in any  at ././CORE.setting.moarvm:1
-  in block  at t/spec/S17-supply/zip.t:22
-  in block <unit> at t/spec/S17-supply/zip.t:12
+S17-supply/zip.t...................................    
+# Failed test 'zipping with 3 supplies works'
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 35
+    # expected: [("a", "f", "l"), ("b", "g", "m"), ("c", "h", "n"), ("d", "i", "o"), ("e", "j", "p")]
+    #      got: [("a", "f"), "l", ("b", "g"), "m", ("c", "h"), "n", ("d", "i"), "o", ("e", "j"), "p"]
+    # Looks like you failed 1 test of 5
 
-    # Looks like you planned 5 tests, but ran 3
-   0   10    0    0   10
-    10 tests aborted (missing ok/not ok)
+# Failed test 'zipping with 3 supplies works'
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 18
+# **** scheduling with CurrentThreadScheduler
+    
+# Failed test 'zipping with 3 supplies works'
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 35
+    # expected: [("a", "f", "l"), ("b", "g", "m"), ("c", "h", "n"), ("d", "i", "o"), ("e", "j", "p")]
+    #      got: [("a", "f"), "l", ("b", "g"), "m", ("c", "h"), "n", ("d", "i"), "o", ("e", "j"), "p"]
+    # Looks like you failed 1 test of 5
+
+# Failed test 'zipping with 3 supplies works'
+# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 18
+# Looks like you failed 2 tests of 10
+   8    2    0    0   10
                                                    pass fail todo skip plan
 S19-command-line-options/02-dash-n.t...............   3    0    0    0    3
 S19-command-line-options/03-dash-p.t...............   2    0    0    0    2
@@ -4926,8 +4880,8 @@ S32-io/io-spec-win.t...............................Use of uninitialized value $p
 S32-io/note.t......................................   6    0    0    0    6
 S32-io/other.t.....................................  60    0    0    0   60
 S32-io/pipe.t......................................WARNINGS:
-WARNINGS:
 Useless use of constant integer 1 in sink context (line 1)
+WARNINGS:
 Useless use of constant integer 1 in sink context (line 1)
   14    0    0    0   14
 S32-io/rename.t....................................  29    0    0    0   29
@@ -4998,21 +4952,7 @@ Use of uninitialized value $x of type Any in string context  in sub is-deeply at
 S32-list/unique.t..................................  34    0    0    0   34
 S32-num/abs.t......................................  49    0    0    0   49
 S32-num/base.t.....................................  31    0    0    0   31
-S32-num/complex.t..................................WARNING: unhandled Failure detected in DESTROY:
-Can not convert 2+2i to Real: imaginary part not zero
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1233
-  in any  at src/gen/m-Perl6-Optimizer.nqp:1197
-  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1197
-  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1012
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1698
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1698
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1722
-  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1728
-  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
-  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
-  in any optimize at src/Perl6/Compiler.nqp:64
-
- 488    0    0    0  488
+S32-num/complex.t.................................. 488    0    0    0  488
 S32-num/cool-num.rakudo.moar.......................  39    0    0    4   43
      4 skipped: angle conversion RT #124816
 S32-num/exp.t......................................  72    0    0    0   72
@@ -5317,14 +5257,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# gerdr: 0.88828647 seconds
-# kaz: 1.011358 seconds
-# loop: 1.12260543 seconds
-# hand-memoization: 1.4879892 seconds
-# recursive-ternary: 1.534150 seconds
-# recursive-ternary-hand-cached: 2.7113938 seconds
-# sequence-ternary: 4.106566 seconds
-# sequence: 6.79547861 seconds
+integration/advent2012-day21.t.....................# recursive-ternary: 0.9641187 seconds
+# loop: 1.0249405 seconds
+# kaz: 1.0581781 seconds
+# gerdr: 1.09477364 seconds
+# hand-memoization: 1.5214177 seconds
+# recursive-ternary-hand-cached: 2.49386179 seconds
+# sequence-ternary: 4.3660533 seconds
+# sequence: 6.8070130 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT \#121789
@@ -5385,7 +5325,7 @@ Use of uninitialized value of type Any in string context  in any load_module at 
     
 # Failed test 'precompiled EVAL in BEGIN (Compiled)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Compile.pm line 338
-    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmodD303A45A/p6testmod2DC12B07.pm6')
+    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmodD676BD93/p6testmodE6F68741.pm6')
     # Looks like you failed 1 test of 2
    5    0    2    0    7
      1 todo   : RT \#124324 Missing or wrong version of dependency
@@ -5407,7 +5347,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
 "S02",        5354,     8,   112,   389,  5863,  5862
-"S03",        5187,    72,   117,   103,  5479,  5497
+"S03",        5194,    65,   117,   103,  5479,  5497
 "S04",        1194,    36,    44,    32,  1306,  1343
 "S05",        5602,    12,    88,   114,  5816,  6035
 "S06",        1903,     4,    60,    90,  2057,  2128
@@ -5420,7 +5360,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         343,     0,     8,     5,   356,   369
 "S15",       78533,     0,     3,    18, 78554, 78574
 "S16",         300,     2,     2,    16,   320,   373
-"S17",         999,    35,    36,    28,  1098,  1048
+"S17",        1008,    26,    36,    28,  1098,  1048
 "S19",          14,     0,     0,     0,    14,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",          18,     0,     0,     0,    18,    89
@@ -5430,7 +5370,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",       12096,     2,   208,   158, 12464, 10711
 "int",        1263,     8,    13,    15,  1299,  1285
 "ros",           2,     0,     0,     0,     2,     2
-"total",    118750,   179,   773,  1399,121101,120037
+"total",    118766,   163,   773,  1399,121101,120037
 ----------------
 Failure summary:
 S02-types/list.t 6 - .item.perl on empty List
@@ -5467,14 +5407,7 @@ S03-operators/bag.rakudo.moar 112 - Bag multiply reduce works on two sets
 S03-operators/bag.rakudo.moar 113 - Bag multiply reduce works on three sets
 S03-operators/bag.rakudo.moar 116 - Bag multiply reduce works on two sets
 S03-operators/bag.rakudo.moar 117 - Bag multiply reduce works on three sets
-S03-operators/precedence.rakudo.moar 58 - (|) has correct precedence.
 S03-operators/reduce-le1arg.rakudo.moar 51 - [Z] () eq []
-S03-operators/set.t 41 - Set union with itself yields self
-S03-operators/set.t 43 - SetHash union with itself yields self (as Set)
-S03-operators/set.t 45 - Set union with SetHash works
-S03-operators/set.t 47 - SetHash union with array of strings works
-S03-operators/set.t 49 - Set union with SetHash works (texas)
-S03-operators/set.t 51 - SetHash union with array of strings works (texas)
 S03-operators/set.t 69 - Bag subtracted from Set is correct
 S03-operators/set.t 71 - BagHash subtracted from Set is correct
 S03-operators/set.t 73 - Set subtracted from BagHash is correct
@@ -5483,9 +5416,9 @@ S03-operators/set.t 77 - SetHash symmetric difference with Set is correct
 S03-operators/set.t 79 - Set symmetric difference with SetHash is correct
 S03-operators/set.t 81 - Set symmetric difference with 3+ args (RT #122882)
 S03-operators/set.t 82 - Set symmetric difference with 3+ args (RT #122882)
-S03-operators/set.t 276 - Union reduce works on one set
+S03-operators/set.t 277 - Union reduce works on two sets
 S03-operators/set.t 278 - Union reduce works on three sets
-S03-operators/set.t 280 - Union reduce works on one set (texas)
+S03-operators/set.t 281 - Union reduce works on two sets (texas)
 S03-operators/set.t 282 - Union reduce works on three sets (texas)
 S03-sequence/basic.t aborted 3 test(s)
 S03-sequence/misc.t aborted 21 test(s)
@@ -5536,7 +5469,6 @@ S06-signature/unpack-array.t 13 - array unpacking and only-multi
 S16-io/print.t 4 - print stringifies its args
 S16-io/print.t 12 - $*OUT.print: Array ref
 S17-promise/start.rakudo.moar aborted 4 test(s)
-S17-promise/stress.t aborted 1 test(s)
 S17-supply/categorize.t 19 - did we get the right keys (Array)
 S17-supply/categorize.t 20 - got the 0 supply (Array)
 S17-supply/categorize.t 21 - got the 1 supply (Array)
@@ -5557,7 +5489,8 @@ S17-supply/on.t 3 - basic 2 supply with (a,b) 'on' works
 S17-supply/on.t 8 - basic 2 supply with (a,b) 'on' works
 S17-supply/zip-latest.t 1 - zipping 2 supplies works with "zip-latest"
 S17-supply/zip-latest.t 7 - zipping 2 supplies works with "zip-latest"
-S17-supply/zip.t aborted 10 test(s)
+S17-supply/zip.t 2 - zipping with 3 supplies works
+S17-supply/zip.t 7 - zipping with 3 supplies works
 S32-exceptions/misc.rakudo.moar 272 - did we throws-like X::Syntax::Confused?
 S32-io/IO-Socket-Async.rakudo.moar aborted 1 test(s)
 integration/99problems-21-to-30.t 13 - group works
