@@ -739,7 +739,30 @@ S03-operators/context-forcers.rakudo.moar..........  95    0    0    2   97
      2 skipped: failure modes of Str.Numeric RT #124540
 S03-operators/context.t............................  37    0    0    0   37
 S03-operators/custom.t.............................   1    0    0    0    1
-S03-operators/div.t................................   7    0    0    0    7
+S03-operators/div.t................................WARNING: unhandled Failure detected in DESTROY:
+Attempt to divide 10 by zero using /
+  in block <unit> at t/spec/S03-operators/div.t:8
+
+WARNING: unhandled Failure detected in DESTROY:
+Attempt to divide 10 by zero using div
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1233
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1229
+  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1197
+  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1147
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1710
+  in any visit_op_children at src/gen/m-Perl6-Optimizer.nqp:1170
+  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1052
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1710
+  in any visit_want at src/gen/m-Perl6-Optimizer.nqp:1550
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1713
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1728
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1728
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1728
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
+  in any optimize at src/Perl6/Compiler.nqp:64
+
+   7    0    0    0    7
 S03-operators/equality.t...........................Use of uninitialized value $foo of type Any in string context  in block <unit> at t/spec/S03-operators/equality.t:29
 Use of uninitialized value $foo of type Any in string context  in block <unit> at t/spec/S03-operators/equality.t:30
 Use of uninitialized value @foo of type Any in string context  in block <unit> at t/spec/S03-operators/equality.t:33
@@ -942,7 +965,7 @@ S03-operators/precedence.rakudo.moar...............
 # Failed test '(|) has correct precedence.'
 # at t/spec/S03-operators/precedence.rakudo.moar line 245
 # expected: set(5)
-#      got: set((5).Seq,().Seq)
+#      got: set(().Seq,(5).Seq)
 # Looks like you failed 1 test of 59
   56    1    2    0   59
      2 todo   : Inequality (!=) misparsed as assignment RT \#121108
@@ -1164,11 +1187,12 @@ S03-sequence/basic.t...............................Cannot get sequence endpoint 
  133    3    0    0  136
      3 tests aborted (missing ok/not ok)
 S03-sequence/limit-arity-2-or-more.t...............   8    0    0    0    8
-S03-sequence/misc.t................................===SORRY!===
-This Seq has already been iterated, and its values consumed
-# Looks like you planned 31 tests, but ran 6
-   6   25    0    0   31
-    25 tests aborted (missing ok/not ok)
+S03-sequence/misc.t................................Method 'splice' not found for invocant of class 'List'
+  in block <unit> at t/spec/S03-sequence/misc.t:40
+
+# Looks like you planned 31 tests, but ran 10
+  10   21    0    0   31
+    21 tests aborted (missing ok/not ok)
 S03-sequence/nonnumeric.rakudo.moar................    
 # Failed test 'code dies'
 # at t/spec/S03-sequence/nonnumeric.rakudo.moar line 61
@@ -1235,11 +1259,7 @@ S04-blocks-and-statements/pointy-rw.t..............
 #      got: '42'
 # Looks like you failed 4 tests of 10
    6    4    0    0   10
-S04-blocks-and-statements/pointy.rakudo.moar.......
-# Failed test 'Blocks receive junctions without autothreading'
-# at t/spec/S04-blocks-and-statements/pointy.rakudo.moar line 100
-# Looks like you failed 1 test of 18
-  16    1    1    0   18
+S04-blocks-and-statements/pointy.rakudo.moar.......  17    0    1    0   18
      1 todo   : pointy blocks and last/redo RT \#124973
 S04-blocks-and-statements/temp.rakudo.moar.........Use of Nil in string context  in block  at t/spec/S04-blocks-and-statements/temp.rakudo.moar:112
 Use of Nil in string context  in block  at t/spec/S04-blocks-and-statements/temp.rakudo.moar:113
@@ -1403,27 +1423,29 @@ S04-phasers/rvalue.t...............................Use of Nil in string context 
   16    0    0    0   16
 S04-statement-modifiers/for.t......................  27    0    0    0   27
 S04-statement-modifiers/given.t....................  11    0    0    0   11
-S04-statement-modifiers/if.t.......................  13    0    0    0   13
+S04-statement-modifiers/if.t.......................
+# Failed test '"$something if 0" is Empty'
+# at t/spec/S04-statement-modifiers/if.t line 72
+# expected: ''
+#      got: (Slip)
+# Looks like you failed 1 test of 13
+  12    1    0    0   13
 S04-statement-modifiers/unless.t...................   8    0    0    0    8
 S04-statement-modifiers/until.t....................   4    0    0    0    4
 S04-statement-modifiers/values_in_bool_context.t...  24    0    0    0   24
 S04-statement-modifiers/while.t....................Use of uninitialized value of type Any in numeric context  in block  at t/spec/S04-statement-modifiers/while.t:19
    5    0    0    0    5
-S04-statement-modifiers/with.rakudo.moar...........  33    0    1    0   34
+S04-statement-modifiers/with.rakudo.moar...........
+# Failed test '"$something with Nil" is Empty'
+# at t/spec/S04-statement-modifiers/with.rakudo.moar line 162
+# expected: ''
+#      got: (Slip)
+# Looks like you failed 1 test of 34
+  32    1    1    0   34
      1 todo   : parenless with/for doesn't work yet
-S04-statement-modifiers/without.t..................
-# Failed test 'Statement-modifier without runs block with placeholder'
-# at t/spec/S04-statement-modifiers/without.t line 54
-# expected: (Failure)
-#      got: (Str)
-# Looks like you failed 1 test of 8
-   7    1    0    0    8
+S04-statement-modifiers/without.t..................   8    0    0    0    8
 S04-statement-parsing/hash.t.......................   8    0    0    0    8
-S04-statements/do.rakudo.moar......................
-# Failed test 'when if does not execute any branch, return undefined'
-# at t/spec/S04-statements/do.rakudo.moar line 46
-# Looks like you failed 1 test of 29
-  20    1    1    7   29
+S04-statements/do.rakudo.moar......................  21    0    1    7   29
      3 skipped: Undeclared name A RT #124574
      1 skipped: last without loop construct RT #124575
      2 skipped: next without loop construct RT #124573
@@ -1431,12 +1453,11 @@ S04-statements/do.rakudo.moar......................
      1 todo   : Rakudo still uses Nil here RT \#124572
 S04-statements/for-scope.t.........................  16    0    0    0   16
 S04-statements/for.rakudo.moar.....................Use of Nil in string context  in block  at t/spec/S04-statements/for.rakudo.moar:501
-  86    0    4    3   93
+  88    0    2    3   93
      2 skipped: RT #123005 RT #118705
      1 skipped: optional variable in for loop (RT #63994)
      1 todo   : Rakudo still uses Nil here RT \#124568
      1 todo   : Rakudo still uses Nil here RT \#124569
-     2 todo PASSED: RT \#113026 array iterator does not track a growing array
 S04-statements/for_with_only_one_item.t............
 # Failed test 'for ($arrayref) {...} executes the loop body only once'
 # at t/spec/S04-statements/for_with_only_one_item.t line 66
@@ -1466,7 +1487,18 @@ S04-statements/gather.rakudo.moar..................
   30    1    0    2   33
      2 skipped: RT #66820, and hangs under GLR
 S04-statements/given.t.............................  51    0    0    0   51
-S04-statements/if.rakudo.moar......................  39    0    4    0   43
+S04-statements/if.rakudo.moar......................
+# Failed test 'if+elsif evaluates to () when no block chosen'
+# at t/spec/S04-statements/if.rakudo.moar line 208
+# expected: ''
+#      got: (Slip)
+
+# Failed test 'if evaluates to () when no block chosen'
+# at t/spec/S04-statements/if.rakudo.moar line 209
+# expected: ''
+#      got: (Slip)
+# Looks like you failed 2 tests of 43
+  37    2    4    0   43
      4 todo   : RT\#105872
 S04-statements/label.t.............................   5    0    0    0    5
 S04-statements/last.t..............................   9    0    0    0    9
@@ -1726,7 +1758,27 @@ S05-metasyntax/unknown.rakudo.moar.................Use of Nil in string context 
      1 todo   : RT \#74832
 S05-modifier/continue.t............................Use of Nil in string context  in block  at t/spec/S05-modifier/continue.t:19
   13    0    0    0   13
-S05-modifier/counted-match.rakudo.moar.............  26    0    0    2   28
+S05-modifier/counted-match.rakudo.moar.............WARNING: unhandled Failure detected in DESTROY:
+Cannot shift from an empty Array
+  in block  at src/gen/m-CORE.setting:1
+  in block <unit> at t/spec/S05-modifier/counted-match.rakudo.moar:36
+
+WARNING: unhandled Failure detected in DESTROY:
+Cannot shift from an empty Array
+  in block  at src/gen/m-CORE.setting:1
+  in block <unit> at t/spec/S05-modifier/counted-match.rakudo.moar:32
+
+WARNING: unhandled Failure detected in DESTROY:
+Cannot shift from an empty Array
+  in block  at src/gen/m-CORE.setting:1
+  in block <unit> at t/spec/S05-modifier/counted-match.rakudo.moar:28
+
+WARNING: unhandled Failure detected in DESTROY:
+Cannot shift from an empty Array
+  in block  at src/gen/m-CORE.setting:1
+  in block <unit> at t/spec/S05-modifier/counted-match.rakudo.moar:24
+
+  26    0    0    2   28
      2 skipped: hangs RT #125026
 S05-modifier/counted.rakudo.moar................... 125    0    0    1  126
      1 skipped: Cannot call Real(Whatever: );
@@ -2134,10 +2186,10 @@ S10-packages/precompilation.rakudo.moar............Use of uninitialized value $_
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-11570-349056.code:4
+#   in block <unit> at getout-9626-139852.code:4
 
 # Actually thrown at:
-#   in block <unit> at getout-11570-349056.code:4
+#   in block <unit> at getout-9626-139852.code:4
 
 
   33    0    3    0   36
@@ -2466,8 +2518,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  10    0    0    0   10
-S16-filehandles/chmod.t............................# Using file temp_1440796479
-# Using file temp_1440796479
+S16-filehandles/chmod.t............................# Using file temp_1440837811
+# Using file temp_1440837811
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -3907,12 +3959,7 @@ S29-context/sleep.t................................# sleep-timer() for 3 seconds
 # sleep-till() for 3 seconds
 # checking infinite waiting times
   17    0    0    0   17
-S29-conversions/hash.t.............................Odd number of elements found where hash initializer expected
-  in block <unit> at t/spec/S29-conversions/hash.t:25
-
-# Looks like you planned 8 tests, but ran 2
-   2    6    0    0    8
-     6 tests aborted (missing ok/not ok)
+S29-conversions/hash.t.............................   8    0    0    0    8
 S29-conversions/ord_and_chr.rakudo.moar............ 255    0    2    0  257
      1 todo   : chr max RT \#124837
      1 todo   : chr surrogate RT \#124834
@@ -4879,8 +4926,8 @@ S32-io/io-spec-win.t...............................Use of uninitialized value $p
 S32-io/note.t......................................   6    0    0    0    6
 S32-io/other.t.....................................  60    0    0    0   60
 S32-io/pipe.t......................................WARNINGS:
-Useless use of constant integer 1 in sink context (line 1)
 WARNINGS:
+Useless use of constant integer 1 in sink context (line 1)
 Useless use of constant integer 1 in sink context (line 1)
   14    0    0    0   14
 S32-io/rename.t....................................  29    0    0    0   29
@@ -4938,18 +4985,7 @@ S32-list/reverse.rakudo.moar.......................  18    0    1    0   19
      1 todo   : RT \#77914
 S32-list/roll.t....................................  49    0    0    0   49
 S32-list/rotor.t...................................   9    0    0    0    9
-S32-list/seq.t.....................................
-# Failed test 'seq => array works 2'
-# at t/spec/S32-list/seq.t line 12
-# expected: [1, 2, 3]
-#      got: [(1, 2, 3).Seq,]
-
-# Failed test 'seq => array works 3'
-# at t/spec/S32-list/seq.t line 24
-# expected: ["beer", "masak", "vacation", "whisky"]
-#      got: [("beer", "masak", "vacation", "whisky").Seq,]
-# Looks like you failed 2 tests of 3
-   1    2    0    0    3
+S32-list/seq.t.....................................   7    0    0    0    7
 S32-list/sort.t....................................Use of uninitialized value $b of type Code in string context  in block  at t/spec/S32-list/sort.t:187
   30    0    0    0   30
 S32-list/squish.rakudo.moar........................Use of uninitialized value $x of type Any in string context  in sub is-deeply at lib/Test.pm:462
@@ -4962,7 +4998,21 @@ Use of uninitialized value $x of type Any in string context  in sub is-deeply at
 S32-list/unique.t..................................  34    0    0    0   34
 S32-num/abs.t......................................  49    0    0    0   49
 S32-num/base.t.....................................  31    0    0    0   31
-S32-num/complex.t.................................. 488    0    0    0  488
+S32-num/complex.t..................................WARNING: unhandled Failure detected in DESTROY:
+Can not convert 2+2i to Real: imaginary part not zero
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1233
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1197
+  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1197
+  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1012
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1698
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1698
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1722
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1728
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
+  in any optimize at src/Perl6/Compiler.nqp:64
+
+ 488    0    0    0  488
 S32-num/cool-num.rakudo.moar.......................  39    0    0    4   43
      4 skipped: angle conversion RT #124816
 S32-num/exp.t......................................  72    0    0    0   72
@@ -5267,14 +5317,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# gerdr: 1.04962025 seconds
-# kaz: 1.050874 seconds
-# loop: 1.15622749 seconds
-# recursive-ternary: 1.1966387 seconds
-# hand-memoization: 1.4915913 seconds
-# recursive-ternary-hand-cached: 2.67595187 seconds
-# sequence-ternary: 4.90954087 seconds
-# sequence: 7.5876244 seconds
+integration/advent2012-day21.t.....................# gerdr: 0.88828647 seconds
+# kaz: 1.011358 seconds
+# loop: 1.12260543 seconds
+# hand-memoization: 1.4879892 seconds
+# recursive-ternary: 1.534150 seconds
+# recursive-ternary-hand-cached: 2.7113938 seconds
+# sequence-ternary: 4.106566 seconds
+# sequence: 6.79547861 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT \#121789
@@ -5335,12 +5385,11 @@ Use of uninitialized value of type Any in string context  in any load_module at 
     
 # Failed test 'precompiled EVAL in BEGIN (Compiled)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Compile.pm line 338
-    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmodB87F9F9A/p6testmod37EDBA99.pm6')
+    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmodD303A45A/p6testmod2DC12B07.pm6')
     # Looks like you failed 1 test of 2
-   4    0    3    0    7
+   5    0    2    0    7
      1 todo   : RT \#124324 Missing or wrong version of dependency
      1 todo   : Something wrong with dynamic variables.
-     1 todo PASSED: RT \#123679 Cannot invoke this object (REPR: Null, cs = 0)
 integration/real-strings.t.........................  20    0    0    0   20
 integration/role-composition-vs-attribute.rakudo...   6    0    0    4   10
      2 skipped: alas, no visibility of native private attributes yet
@@ -5358,8 +5407,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
 "S02",        5354,     8,   112,   389,  5863,  5862
-"S03",        5183,    76,   117,   103,  5479,  5497
-"S04",        1193,    35,    46,    32,  1306,  1343
+"S03",        5187,    72,   117,   103,  5479,  5497
+"S04",        1194,    36,    44,    32,  1306,  1343
 "S05",        5602,    12,    88,   114,  5816,  6035
 "S06",        1903,     4,    60,    90,  2057,  2128
 "S07",           0,     0,     0,     0,     0,    96
@@ -5377,11 +5426,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S24",          18,     0,     0,     0,    18,    89
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",          13,     0,     0,     0,    13,    13
-"S29",         340,     6,     3,     2,   351,   351
-"S32",       12090,     4,   208,   158, 12460, 10707
-"int",        1262,     8,    14,    15,  1299,  1285
+"S29",         346,     0,     3,     2,   351,   351
+"S32",       12096,     2,   208,   158, 12464, 10711
+"int",        1263,     8,    13,    15,  1299,  1285
 "ros",           2,     0,     0,     0,     2,     2
-"total",    118732,   190,   776,  1399,121097,120033
+"total",    118750,   179,   773,  1399,121101,120037
 ----------------
 Failure summary:
 S02-types/list.t 6 - .item.perl on empty List
@@ -5439,14 +5488,13 @@ S03-operators/set.t 278 - Union reduce works on three sets
 S03-operators/set.t 280 - Union reduce works on one set (texas)
 S03-operators/set.t 282 - Union reduce works on three sets (texas)
 S03-sequence/basic.t aborted 3 test(s)
-S03-sequence/misc.t aborted 25 test(s)
+S03-sequence/misc.t aborted 21 test(s)
 S03-sequence/nonnumeric.rakudo.moar 27 - Str decrement fails after 'AA': leftmost characters are never removed
 S03-sequence/nonnumeric.rakudo.moar 40 - intuition does not try to cmp a WhateverCode
 S04-blocks-and-statements/pointy-rw.t 7 - aliases returned by $pair.values should be rw (1)
 S04-blocks-and-statements/pointy-rw.t 8 - aliases returned by $pair.values should be rw (2)
 S04-blocks-and-statements/pointy-rw.t 9 - aliases returned by $pair.values should be rw (1)
 S04-blocks-and-statements/pointy-rw.t 10 - aliases returned by $pair.values should be rw (2)
-S04-blocks-and-statements/pointy.rakudo.moar 15 - Blocks receive junctions without autothreading
 S04-declarations/will.rakudo.moar 9 - for iteration #2
 S04-declarations/will.rakudo.moar 10 - for iteration #3
 S04-declarations/will.rakudo.moar 11 - all for blocks set variable
@@ -5458,13 +5506,15 @@ S04-phasers/next.rakudo.moar 5 - die didn't trigger NEXT {}
 S04-phasers/next.rakudo.moar 7 - return didn't trigger NEXT {}
 S04-phasers/next.rakudo.moar 8 - last bypass NEXT {}
 S04-phasers/next.rakudo.moar 13 - NEXT {} works in for loop
-S04-statement-modifiers/without.t 8 - Statement-modifier without runs block with placeholder
-S04-statements/do.rakudo.moar 9 - when if does not execute any branch, return undefined
+S04-statement-modifiers/if.t 11 - "$something if 0" is Empty
+S04-statement-modifiers/with.rakudo.moar 27 - "$something with Nil" is Empty
 S04-statements/for_with_only_one_item.t 7 - for ($arrayref) {...} executes the loop body only once
 S04-statements/for_with_only_one_item.t 8 - for $arrayref {...} executes the loop body only once
 S04-statements/for_with_only_one_item.t 10 - for on (a_single_var) -> is rw
 S04-statements/for_with_only_one_item.t 11 - for on a_single_var -> is rw
 S04-statements/gather.rakudo.moar 31 - Neighbor is same object as in grid
+S04-statements/if.rakudo.moar 40 - if+elsif evaluates to () when no block chosen
+S04-statements/if.rakudo.moar 41 - if evaluates to () when no block chosen
 S04-statements/lazy.rakudo.moar aborted 10 test(s)
 S04-statements/sink.rakudo.moar aborted 2 test(s)
 S05-transliteration/trans.rakudo.moar 9 - Using string range on one side and array reference on the other
@@ -5508,11 +5558,8 @@ S17-supply/on.t 8 - basic 2 supply with (a,b) 'on' works
 S17-supply/zip-latest.t 1 - zipping 2 supplies works with "zip-latest"
 S17-supply/zip-latest.t 7 - zipping 2 supplies works with "zip-latest"
 S17-supply/zip.t aborted 10 test(s)
-S29-conversions/hash.t aborted 6 test(s)
 S32-exceptions/misc.rakudo.moar 272 - did we throws-like X::Syntax::Confused?
 S32-io/IO-Socket-Async.rakudo.moar aborted 1 test(s)
-S32-list/seq.t 2 - seq => array works 2
-S32-list/seq.t 3 - seq => array works 3
 integration/99problems-21-to-30.t 13 - group works
 integration/advent2012-day04.t aborted 6 test(s)
 integration/advent2012-day13.t 10 - set difference (-)
