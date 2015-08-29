@@ -536,6 +536,10 @@ S03-operators/assign.rakudo.moar................... 262    0   16   16  294
      3 todo   : list assignment, autovivification (?)
      2 todo   : unknown
 S03-operators/autoincrement-range.t................# Tests for 'a' .. 'z'
+WARNING: unhandled Failure detected in DESTROY:
+Decrement out of range
+  in block <unit> at t/spec/S03-operators/autoincrement-range.t:17
+
 # Tests for 'Α' .. 'Ω' (Greek uppercase)
 # Tests for 'α' .. 'ω' (Greek lowercase)
 # Tests for 'א' .. 'ת' (Hebrew)
@@ -571,7 +575,26 @@ S03-operators/context-forcers.rakudo.moar..........  95    0    0    2   97
      2 skipped: failure modes of Str.Numeric RT #124540
 S03-operators/context.t............................  37    0    0    0   37
 S03-operators/custom.t.............................   1    0    0    0    1
-S03-operators/div.t................................   7    0    0    0    7
+S03-operators/div.t................................WARNING: unhandled Failure detected in DESTROY:
+Attempt to divide 10 by zero using div
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1232
+  in any  at src/gen/m-Perl6-Optimizer.nqp:1228
+  in any optimize_call at src/gen/m-Perl6-Optimizer.nqp:1196
+  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1146
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1709
+  in any visit_op_children at src/gen/m-Perl6-Optimizer.nqp:1169
+  in any visit_op at src/gen/m-Perl6-Optimizer.nqp:1051
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1709
+  in any visit_want at src/gen/m-Perl6-Optimizer.nqp:1549
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1712
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1727
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1727
+  in any visit_children at src/gen/m-Perl6-Optimizer.nqp:1727
+  in any visit_block at src/gen/m-Perl6-Optimizer.nqp:896
+  in any optimize at src/gen/m-Perl6-Optimizer.nqp:876
+  in any optimize at src/Perl6/Compiler.nqp:64
+
+   7    0    0    0    7
 S03-operators/equality.t...........................Use of uninitialized value $foo of type Any in string context  in block <unit> at t/spec/S03-operators/equality.t:29
 Use of uninitialized value $foo of type Any in string context  in block <unit> at t/spec/S03-operators/equality.t:30
 Use of uninitialized value @foo of type Any in string context  in block <unit> at t/spec/S03-operators/equality.t:33
@@ -1752,10 +1775,10 @@ S10-packages/precompilation.rakudo.moar............Use of uninitialized value $_
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 Use of uninitialized value $_ of type Any in string context  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-15913-663861.code:4
+#   in block <unit> at getout-22588-516520.code:4
 
 # Actually thrown at:
-#   in block <unit> at getout-15913-663861.code:4
+#   in block <unit> at getout-22588-516520.code:4
 
 
   33    0    3    0   36
@@ -2084,8 +2107,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  10    0    0    0   10
-S16-filehandles/chmod.t............................# Using file temp_1440875531
-# Using file temp_1440875531
+S16-filehandles/chmod.t............................# Using file temp_1440878210
+# Using file temp_1440878210
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2121,277 +2144,7 @@ S17-lowlevel/lock.rakudo.moar......................   7    0    1    0    8
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.rakudo.moar....................  27    0    0    3   30
      3 skipped: returns Nil (flapping tests) RT #125047
-S17-procasync/kill.rakudo.moar.....................Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
-Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at async-kill-tester:2
-
-
-# Failed test 'did it exit with the right value'
-# at t/spec/S17-procasync/kill.rakudo.moar line 47
-# expected: '0'
-#      got: '1'
- 210   30   30    0  270
+S17-procasync/kill.rakudo.moar..................... 240    0   30    0  270
     30 todo   : we cannot actually send signals yet
 S17-procasync/many-processes-no-close-stdin.t......cat: /tmp/test-file: No such file or directory
 cat: /tmp/test-file: No such file or directory
@@ -4419,12 +4172,7 @@ S17-scheduler/basic.rakudo.moar....................  28    0    2   10   40
      3 skipped: waiting for new '.loads' semantics RT #124776
      2 skipped: waiting for new '.loads' semantics RT #124777
      2 todo   : huh?
-S17-scheduler/every.t..............................
-# Failed test 'Cue with :every/:at schedules repeatedly'
-# at t/spec/S17-scheduler/every.t line 81
-# seen 16 runs
-# Looks like you failed 1 test of 18
-  17    1    0    0   18
+S17-scheduler/every.t..............................  18    0    0    0   18
 S17-scheduler/in.t.................................  14    0    0    0   14
 S17-scheduler/times.t..............................   4    0    0    0    4
 S17-supply/Channel.t...............................# **** scheduling with ThreadPoolScheduler
@@ -4690,27 +4438,8 @@ S17-supply/zip-latest.t............................
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 18
 # Looks like you failed 2 tests of 12
   10    2    0    0   12
-S17-supply/zip.t...................................    
-# Failed test 'zipping with 3 supplies works'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 35
-    # expected: [("a", "f", "l"), ("b", "g", "m"), ("c", "h", "n"), ("d", "i", "o"), ("e", "j", "p")]
-    #      got: [("a", "f", "l"), ("b", "g", "m"), ("c", "h", "n"), ("d", "i", "o"), ("e", "j", "p")]
-    # Looks like you failed 1 test of 5
-
-# Failed test 'zipping with 3 supplies works'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 18
-# **** scheduling with CurrentThreadScheduler
-    
-# Failed test 'zipping with 3 supplies works'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 35
-    # expected: [("a", "f", "l"), ("b", "g", "m"), ("c", "h", "n"), ("d", "i", "o"), ("e", "j", "p")]
-    #      got: [("a", "f", "l"), ("b", "g", "m"), ("c", "h", "n"), ("d", "i", "o"), ("e", "j", "p")]
-    # Looks like you failed 1 test of 5
-
-# Failed test 'zipping with 3 supplies works'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Tap.pm line 18
-# Looks like you failed 2 tests of 10
-   8    2    0    0   10
+S17-supply/zip.t...................................# **** scheduling with CurrentThreadScheduler
+  10    0    0    0   10
                                                    pass fail todo skip plan
 S19-command-line-options/02-dash-n.t...............   3    0    0    0    3
 S19-command-line-options/03-dash-p.t...............   2    0    0    0    2
@@ -4719,13 +4448,7 @@ S19-command-line/dash-e.t..........................   4    0    0    0    4
 S19-command-line/help.t............................   1    0    0    0    1
 S19-command-line/repl.t............................   1    0    0    0    1
                                                    pass fail todo skip plan
-S22-package-format/local.t.........................Can only use merge to combine defined Supply objects
-  in any  at src/gen/m-Metamodel.nqp:1679
-  in block <unit> at t/spec/S22-package-format/local.t:31
-
-# Looks like you planned 24 tests, but ran 3
-   3   21    0    0   24
-    21 tests aborted (missing ok/not ok)
+S22-package-format/local.t.........................  24    0    0    0   24
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
 S24-testing/3-output.t.............................   4    0    0    0    4
@@ -6118,14 +5841,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 0.934192 seconds
-# gerdr: 0.95939189 seconds
-# loop: 1.2322774 seconds
-# recursive-ternary: 1.3784526 seconds
-# recursive-ternary-hand-cached: 3.0423137 seconds
-# sequence-ternary: 5.6969671 seconds
-# hand-memoization: 7.3526942 seconds
-# sequence: 8.8974380 seconds
+integration/advent2012-day21.t.....................# gerdr: 0.97347494 seconds
+# recursive-ternary: 1.0447295 seconds
+# kaz: 1.0877496 seconds
+# loop: 1.0952068 seconds
+# hand-memoization: 1.5006812 seconds
+# recursive-ternary-hand-cached: 4.78798514 seconds
+# sequence-ternary: 6.85980029 seconds
+# sequence: 15.0432332 seconds
    9    0    0    0    9
 integration/advent2012-day22.rakudo.moar...........   5    0    1    0    6
      1 todo   : RT \#121789
@@ -6186,7 +5909,7 @@ Use of uninitialized value of type Any in string context  in any load_module at 
     
 # Failed test 'precompiled EVAL in BEGIN (Compiled)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-glr/t/spec/packages/Test/Compile.pm line 338
-    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmod31AAF558/p6testmod6AB1DFD8.pm6')
+    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmod08DA778A/p6testmod2AFFCB0C.pm6')
     # Looks like you failed 1 test of 2
    5    0    2    0    7
      1 todo   : RT \#124324 Missing or wrong version of dependency
@@ -6221,9 +5944,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         343,     0,     8,     5,   356,   369
 "S15",       78533,     0,     3,    18, 78554, 78582
 "S16",         302,     0,     2,    16,   320,   373
-"S17",         981,    52,    36,    30,  1099,  1049
+"S17",        1014,    19,    36,    30,  1099,  1049
 "S19",          14,     0,     0,     0,    14,    18
-"S22",           3,    21,     0,     0,    24,    24
+"S22",          24,     0,     0,     0,    24,    24
 "S24",          18,     0,     0,     0,    18,    89
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",          13,     0,     0,     0,    13,    13
@@ -6231,7 +5954,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",       12114,     1,   204,   156, 12475, 10757
 "int",        1264,     7,    13,    15,  1299,  1285
 "ros",           2,     0,     0,     0,     2,     2
-"total",    118835,   107,   766,  1398,121106,120188
+"total",    118889,    53,   766,  1398,121106,120188
 ----------------
 Failure summary:
 S02-literals/numeric.t 17 - Rat works with colon radix numbers
@@ -6258,38 +5981,7 @@ S05-transliteration/trans.rakudo.moar 62 - same with explicit for
 S06-other/pairs-as-lvalues.rakudo.moar 4 - bound to the first pair
 S06-other/pairs-as-lvalues.rakudo.moar 5 - bound to the second pair
 S06-signature/unpack-array.t 13 - array unpacking and only-multi
-S17-procasync/kill.rakudo.moar 8 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 17 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 26 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 35 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 44 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 53 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 62 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 71 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 80 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 89 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 98 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 107 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 116 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 125 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 134 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 143 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 152 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 161 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 170 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 179 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 188 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 197 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 206 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 215 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 224 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 233 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 242 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 251 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 260 - did it exit with the right value
-S17-procasync/kill.rakudo.moar 269 - did it exit with the right value
 S17-promise/stress.t aborted 1 test(s)
-S17-scheduler/every.t 15 - Cue with :every/:at schedules repeatedly
 S17-supply/categorize.t 19 - did we get the right keys (Array)
 S17-supply/categorize.t 20 - got the 0 supply (Array)
 S17-supply/categorize.t 21 - got the 1 supply (Array)
@@ -6308,9 +6000,6 @@ S17-supply/classify.t 38 - got the 0 supply (Array)
 S17-supply/classify.t 39 - got the 1 supply (Array)
 S17-supply/zip-latest.t 1 - zipping 2 supplies works with "zip-latest"
 S17-supply/zip-latest.t 7 - zipping 2 supplies works with "zip-latest"
-S17-supply/zip.t 2 - zipping with 3 supplies works
-S17-supply/zip.t 7 - zipping with 3 supplies works
-S22-package-format/local.t aborted 21 test(s)
 S32-exceptions/misc.rakudo.moar 272 - did we throws-like X::Syntax::Confused?
 integration/99problems-21-to-30.t 13 - group works
 integration/advent2012-day04.t aborted 6 test(s)
