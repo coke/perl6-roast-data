@@ -315,8 +315,8 @@ S03-junctions/autothreading.t...................... 104    0    0    0  104
 S03-junctions/boolean-context.t....................  77    0    0    0   77
 S03-junctions/misc.rakudo.jvm...................... 128    1    2    0  131
      2 todo   : junction transformed into string before attemting to match RT \#111726
-S03-metaops/cross.rakudo.jvm.......................   4   30    0    0   34
-    30 tests aborted (missing ok/not ok)
+S03-metaops/cross.rakudo.jvm.......................  33    0    0    1   34
+     1 skipped: .slice for iterators NYI RT #124518
 S03-metaops/eager-hyper.rakudo.jvm.................   6    0    0    2    8
      2 skipped: hyper prefix NYI RT #124517
 S03-metaops/hyper.rakudo.jvm....................... 300    0    1    3  304
@@ -1656,7 +1656,7 @@ S32-str/words.rakudo.jvm...........................  14    0    2    0   16
      2 todo   : NFG on JVM RT \#124739
 S32-temporal/Date.t................................  75    0    0    0   75
 S32-temporal/DateTime-Instant-Duration.t...........  33    0    0    0   33
-S32-temporal/DateTime.t............................ 234    0    0    0  234
+S32-temporal/DateTime.t............................ 236    0    0    0  236
 S32-temporal/calendar.t............................ 130    0    0    0  130
 S32-temporal/local.rakudo.jvm......................  16    0    9    0   25
      9 todo   : RT \#122702
@@ -1819,7 +1819,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
 "S02",        5225,   115,   127,   396,  5863,  5955
-"S03",        5231,    31,   120,    97,  5479,  5497
+"S03",        5260,     1,   120,    98,  5479,  5497
 "S04",        1208,     0,    61,    33,  1302,  1339
 "S05",        4998,   502,    89,   183,  5772,  6022
 "S06",        1902,     0,    60,    95,  2057,  2128
@@ -1830,19 +1830,19 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S12",        1493,     0,    51,   143,  1687,  1742
 "S13",          36,     0,    10,    27,    73,    83
 "S14",         342,     0,     8,     6,   356,   369
-"S15",          37,     7,     4,    35,    83, 78574
+"S15",          37,     7,     4,    35,    83, 78582
 "S16",         256,    51,     0,    16,   323,   351
-"S17",         753,     0,     7,    21,   781,   778
+"S17",         753,     0,     7,    21,   781,   779
 "S19",          14,     0,     0,     0,    14,    18
 "S22",           0,    24,     0,     0,    24,    24
 "S24",          17,     1,     0,     0,    18,    89
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         342,     3,     3,     3,   351,   351
-"S32",       11946,     0,   200,   175, 12321, 10569
+"S32",       11948,     0,   200,   175, 12323, 10600
 "int",        1256,     9,    11,    15,  1291,  1284
 "ros",           2,     0,     0,     0,     2,     2
-"total",     37395,  1009,   806,  1413, 40623,118190
+"total",     37426,   979,   806,  1414, 40625,118230
 ----------------
 Failure summary:
 S02-literals/numeric.rakudo.jvm aborted 37 test(s)
@@ -1854,7 +1854,6 @@ S02-magicals/sub.rakudo.jvm aborted 2 test(s)
 S02-names/is_default.rakudo.jvm 104 - did we throws-like X::Comp::Trait::NotOnNative?
 S02-types/declare.rakudo.jvm 19 - Assign big bigint to native won't overflow silently
 S03-junctions/misc.rakudo.jvm 131 - Do not try to auto-thread Junction type object (only case)
-S03-metaops/cross.rakudo.jvm aborted 30 test(s)
 S05-mass/properties-general.rakudo.jvm aborted 502 test(s)
 S09-typed-arrays/native-int.rakudo.jvm aborted 137 test(s)
 S09-typed-arrays/native-num.rakudo.jvm aborted 129 test(s)
