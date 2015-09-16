@@ -53,7 +53,7 @@ S02-literals/hash-interpolation.t..................  10    0    0    0   10
 S02-literals/heredocs.t............................  17    0    0    0   17
 S02-literals/hex_chars.t...........................   4    0    0    0    4
 S02-literals/listquote-whitespace.t................  12    0    0    0   12
-S02-literals/listquote.rakudo.jvm..................  22    1    1    0   24
+S02-literals/listquote.rakudo.jvm..................  23    0    1    0   24
      1 todo   : meta operators RT \#124558
 S02-literals/misc-interpolation.rakudo.jvm.........  49    0    1    0   50
      1 todo   : RT \#122583
@@ -187,10 +187,13 @@ S02-types/array_extending.t........................  21    0    0    0   21
 S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.t.........................  18    0    0    0   18
 S02-types/autovivification.t.......................  25    0    0    0   25
-S02-types/bag.rakudo.jvm...........................  42  158    0    0  200
-   158 tests aborted (missing ok/not ok)
-S02-types/baghash.rakudo.jvm.......................  60  190    0    0  250
-   190 tests aborted (missing ok/not ok)
+S02-types/bag.rakudo.jvm........................... 108   88    1    3  200
+     3 skipped: No longer Iterable
+     1 todo   : ?
+    88 tests aborted (missing ok/not ok)
+S02-types/baghash.rakudo.jvm....................... 114  133    0    3  250
+     3 skipped: No longer Iterable
+   132 tests aborted (missing ok/not ok)
 S02-types/bool.rakudo.jvm..........................  51    0    2    0   53
      2 todo   : RT \#72580
 S02-types/built-in.t...............................   1    0    0    0    1
@@ -214,7 +217,7 @@ S02-types/declare.rakudo.jvm.......................  57    1    0   12   70
      1 skipped: rat NYI RT #124464
 S02-types/fatrat.t.................................   1    0    0    0    1
 S02-types/flattening.t.............................  38    0    0    0   38
-S02-types/hash.rakudo.jvm..........................  91    3    1    0   95
+S02-types/hash.rakudo.jvm..........................  94    0    1    0   95
      1 todo   : auto-vivified binding does not work yet: RT \#118947
 S02-types/hash_ref.t...............................  31    0    0    0   31
 S02-types/infinity.rakudo.jvm......................   6    0    3    4   13
@@ -231,13 +234,17 @@ S02-types/lazy-lists.t.............................  22    0    0    0   22
 S02-types/list.t...................................  59    0    0    0   59
 S02-types/lists.rakudo.jvm.........................  29    0    0    3   32
      3 skipped: list binding RT #124494
-S02-types/mix.rakudo.jvm...........................  44  137    0    0  181
-   137 tests aborted (missing ok/not ok)
+S02-types/mix.rakudo.jvm........................... 175    0    3    3  181
+     3 skipped: No longer Iterable
+     2 todo   : ?
+     1 todo   : we have not secured .WHICH creation yet RT \#124496
 S02-types/mixed_multi_dimensional.rakudo.jvm.......  77    0    3    0   80
      1 todo   : isa hash
      2 todo   : unknown
-S02-types/mixhash.rakudo.jvm.......................  60  153    0    0  213
-   153 tests aborted (missing ok/not ok)
+S02-types/mixhash.rakudo.jvm....................... 186    1    2   24  213
+    21 skipped: 'is TypeObject' NYI RT #124490
+     3 skipped: No longer Iterable
+     2 todo   : in flux
 S02-types/multi_dimensional_array.rakudo.jvm.......  48    0    0   10   58
      6 skipped: multi-dim sized arrays NYI RT #124482
      4 skipped: multi-dim sized arrays NYI RT #124483
@@ -353,8 +360,11 @@ S03-operators/assign.rakudo.jvm.................... 245   18   18   13  294
 S03-operators/autoincrement-range.t................  96    0    0    0   96
 S03-operators/autoincrement.t......................  79    0    0    0   79
 S03-operators/autovivification.t...................  23    0    0    0   23
-S03-operators/bag.rakudo.jvm.......................  20  108    0    0  128
-   108 tests aborted (missing ok/not ok)
+S03-operators/bag.rakudo.jvm....................... 110    0   18    0  128
+     2 todo   : Crashing
+     4 todo   : NYI
+     8 todo   : Rakudo update in progress, but not done yet RT \#124529
+     4 todo   : Wrong answer at the moment
 S03-operators/basic-types.t........................  19    0    0    0   19
 S03-operators/bit.t................................  38    0    0    0   38
 S03-operators/boolean-bitwise.t....................  45    0    0    0   45
@@ -394,8 +404,12 @@ S03-operators/minmax.rakudo.jvm....................  28    0    0    2   30
      2 skipped: Annoying test that we haven't done the obvious yet unspecced, fails because we have indeed done the obvious RT #124539
 S03-operators/misc.rakudo.jvm......................  37    0    1    0   38
      1 todo   : RT \#93978
-S03-operators/mix.rakudo.jvm.......................  20  108    0    0  128
-   108 tests aborted (missing ok/not ok)
+S03-operators/mix.rakudo.jvm....................... 102    0   26    0  128
+     2 todo   : Crashing
+     4 todo   : NYI
+     8 todo   : Rakudo update in progress, but not done yet RT \#124541
+     4 todo   : Wrong answer at the moment
+     8 todo   : submix behavior still under discussion
 S03-operators/names.t..............................   7    0    0    0    7
 S03-operators/nesting.t............................  25    1    0    0   26
 S03-operators/not.t................................  22    0    0    0   22
@@ -419,8 +433,7 @@ S03-operators/relational.rakudo.jvm................ 118    0    6    0  124
 S03-operators/repeat.rakudo.jvm....................  28    4    0    0   32
      4 tests aborted (missing ok/not ok)
 S03-operators/scalar-assign.t......................   4    0    0    0    4
-S03-operators/set.t................................  56  236    0    0  292
-   236 tests aborted (missing ok/not ok)
+S03-operators/set.t................................ 292    0    0    0  292
 S03-operators/short-circuit.t......................  83    0    0    0   83
 S03-operators/so.t.................................  15    0    0    0   15
 S03-operators/spaceship-and-containers.t...........   6    0    0    0    6
@@ -434,7 +447,7 @@ S03-sequence/arity-2-or-more.t.....................  20    0    0    0   20
 S03-sequence/arity0.t..............................  13    0    0    0   13
 S03-sequence/basic.t............................... 143    0    0    0  143
 S03-sequence/limit-arity-2-or-more.t...............   8    0    0    0    8
-S03-sequence/misc.t................................  29    0    0    0   29
+S03-sequence/misc.t................................  29    1    0    0   30
 S03-sequence/nonnumeric.rakudo.jvm.................  27    0    0   17   44
     11 skipped: hangs RT #125049
      6 skipped: lifting comparison ops RT #125050
@@ -532,7 +545,7 @@ S04-phasers/pre-post.rakudo.jvm....................  20    0    1    1   22
      1 skipped: POST and exceptions RT #124962
      1 todo   : POST and exceptions RT \#124961
 S04-phasers/rvalue.t...............................  16    0    0    0   16
-S04-statement-modifiers/for.t......................  27    0    0    0   27
+S04-statement-modifiers/for.t......................  28    0    0    0   28
 S04-statement-modifiers/given.t....................  11    0    0    0   11
 S04-statement-modifiers/if.t.......................  13    0    0    0   13
 S04-statement-modifiers/unless.t...................   8    0    0    0    8
@@ -1159,7 +1172,7 @@ S14-roles/conflicts.t..............................  11    0    0    0   11
 S14-roles/crony.t..................................   4    0    0    0    4
 S14-roles/instantiation.t..........................  19    0    0    0   19
 S14-roles/lexical.t................................   9    0    0    0    9
-S14-roles/mixin.t..................................  45    0    0    0   45
+S14-roles/mixin.t..................................  47    0    0    0   47
 S14-roles/namespaced.rakudo.jvm....................  10    0    1    0   11
      1 todo   : nom regression RT \#124750
 S14-roles/parameter-subtyping.t....................  22    0    0    0   22
@@ -1396,12 +1409,11 @@ S32-container/roundrobin.t.........................   4    0    0    0    4
 S32-container/stringify.t..........................  16    0    0    0   16
 S32-container/zip.rakudo.jvm.......................  12    0    0    2   14
      2 skipped: lvalue zip RT #124907
-S32-exceptions/misc.rakudo.jvm..................... 339    0    1    1  341
+S32-exceptions/misc.rakudo.jvm..................... 340    0    1    1  342
      1 skipped: Error while compiling, type X::TooLateForREPR
      1 todo   : parsing regression RT \#124679
 S32-hash/adverbs.t.................................1124    0    0    0 1124
-S32-hash/delete-adverb.t...........................  97   34    0    0  131
-    34 tests aborted (missing ok/not ok)
+S32-hash/delete-adverb.t........................... 131    0    0    0  131
 S32-hash/delete.t..................................   8    0    0    0    8
 S32-hash/exists-adverb.t...........................  47    0    0    0   47
 S32-hash/exists.rakudo.jvm.........................  14    0    0    1   15
@@ -1466,9 +1478,10 @@ S32-list/grep-index.rakudo.jvm.....................  20    0    6   14   40
      6 skipped: adverbial block RT #124760
      2 skipped: test error -- is $_ rw here?
      6 todo   : closure as non-final argument RT \#124761
-S32-list/grep.rakudo.jvm...........................  24    1    0   12   37
+S32-list/grep.rakudo.jvm...........................  18    7    0   12   37
      6 skipped: adverbial block RT #124755
      6 skipped: adverbial block RT #124756
+     6 tests aborted (missing ok/not ok)
 S32-list/join.t....................................  38    0    0    0   38
 S32-list/last-index.rakudo.jvm.....................  23    0    0    2   25
      2 skipped: adverbial block RT #124754
@@ -1750,8 +1763,7 @@ integration/advent2012-day10.t.....................  26    0    0    0   26
 integration/advent2012-day12.t.....................   5    0    0    0    5
 integration/advent2012-day13.t.....................   4   38    0    0   42
     38 tests aborted (missing ok/not ok)
-integration/advent2012-day14.t.....................   4    2    0    0    6
-     2 tests aborted (missing ok/not ok)
+integration/advent2012-day14.t.....................   6    0    0    0    6
 integration/advent2012-day15.t.....................  10    1    0    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
@@ -1812,9 +1824,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        4774,   651,   108,   357,  5890,  5982
-"S03",        4798,   540,    82,    84,  5504,  5522
-"S04",        1137,    92,    44,    30,  1303,  1350
+"S02",        5155,   231,   114,   390,  5890,  5982
+"S03",        5206,    89,   126,    84,  5505,  5523
+"S04",        1138,    92,    44,    30,  1304,  1351
 "S05",        4723,   803,    87,   175,  5788,  6038
 "S06",        1894,    11,    61,    95,  2061,  2132
 "S07",           0,     0,     0,     0,     0,    96
@@ -1823,7 +1835,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S11",          90,     0,    28,    11,   129,   148
 "S12",        1493,     0,    49,   145,  1687,  1742
 "S13",          36,     0,    10,    27,    73,    83
-"S14",         344,     0,     8,     6,   358,   371
+"S14",         346,     0,     8,     6,   360,   373
 "S15",          37,     7,     4,    35,    83, 78582
 "S16",         257,    53,     0,    16,   326,   379
 "S17",         776,    15,     5,    22,   818,   815
@@ -1833,24 +1845,20 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         350,     0,     3,     3,   356,   356
-"S32",       11562,   436,   192,   173, 12363, 10645
-"int",        1179,    91,     7,    15,  1292,  1285
+"S32",       11591,   408,   192,   173, 12364, 10646
+"int",        1181,    89,     7,    15,  1292,  1285
 "ros",           2,     0,     0,     0,     2,     2
-"total",     37479,  2702,   713,  1380, 42274,119918
+"total",     38302,  1801,   763,  1413, 42279,119923
 ----------------
 Failure summary:
-S02-literals/listquote.rakudo.jvm 17 - ... which is immutable
 S02-magicals/sub.rakudo.jvm aborted 2 test(s)
 S02-names-vars/names.rakudo.jvm aborted 1 test(s)
 S02-names/is_default.rakudo.jvm 104 - did we throws-like X::Comp::Trait::NotOnNative?
-S02-types/bag.rakudo.jvm aborted 158 test(s)
-S02-types/baghash.rakudo.jvm aborted 190 test(s)
+S02-types/bag.rakudo.jvm aborted 88 test(s)
+S02-types/baghash.rakudo.jvm 73 - we now flatten according to single arg
+S02-types/baghash.rakudo.jvm aborted 132 test(s)
 S02-types/declare.rakudo.jvm 19 - Assign big bigint to native won't overflow silently
-S02-types/hash.rakudo.jvm 92 - adequate Failure error message when hash-indexing a non-hash using .<> (1)
-S02-types/hash.rakudo.jvm 93 - adequate Failure error message when hash-indexing a non-hash using .<> (2)
-S02-types/hash.rakudo.jvm 94 - adequate Failure error message when hash-indexing a non-hash using .{}
-S02-types/mix.rakudo.jvm aborted 137 test(s)
-S02-types/mixhash.rakudo.jvm aborted 153 test(s)
+S02-types/mixhash.rakudo.jvm 73 - list flattens according to single arg rule
 S02-types/set.rakudo.jvm 52 - flatten set under single arg rule
 S02-types/whatever.rakudo.jvm 23 - -> $key {+$key} generates closure to numify
 S02-types/whatever.rakudo.jvm 24 - +* generates closure to numify
@@ -1862,12 +1870,10 @@ S03-metaops/hyper.rakudo.jvm aborted 7 test(s)
 S03-metaops/reduce.rakudo.jvm 1 - [+] works
 S03-metaops/reduce.rakudo.jvm 9 - [\+] works
 S03-operators/assign.rakudo.jvm aborted 18 test(s)
-S03-operators/bag.rakudo.jvm aborted 108 test(s)
 S03-operators/buf.t aborted 53 test(s)
-S03-operators/mix.rakudo.jvm aborted 108 test(s)
 S03-operators/nesting.t 3 - sort works using &[<=>]
 S03-operators/repeat.rakudo.jvm aborted 4 test(s)
-S03-operators/set.t aborted 236 test(s)
+S03-sequence/misc.t 30 - code endpoint protects item
 S04-declarations/will.rakudo.jvm 8 - for iteration #1
 S04-declarations/will.rakudo.jvm 9 - for iteration #2
 S04-declarations/will.rakudo.jvm 10 - for iteration #3
@@ -1920,7 +1926,6 @@ S32-array/splice.rakudo.jvm 148 - array[int16] simple 2 elems, as Str
 S32-array/splice.rakudo.jvm 196 - array[int32] simple 2 elems, as Str
 S32-array/splice.rakudo.jvm 244 - array[int64] simple 2 elems, as Str
 S32-array/splice.rakudo.jvm 292 - Array[Int] simple 2 elems, as Str
-S32-hash/delete-adverb.t aborted 34 test(s)
 S32-io/io-path-cygwin.rakudo.jvm aborted 14 test(s)
 S32-io/io-path-unix.rakudo.jvm aborted 13 test(s)
 S32-io/io-path-win.rakudo.jvm aborted 13 test(s)
@@ -1928,6 +1933,7 @@ S32-io/pipe.t 11 - Can talk to subprocess bidirectional
 S32-io/pipe.t 12 - Can capture stdout and stderr, and chain stdin
 S32-io/pipe.t 13 - Can capture stdout and stderr, and chain stdin
 S32-list/grep.rakudo.jvm 30 - Non-empty return value from grep is true (2)
+S32-list/grep.rakudo.jvm aborted 6 test(s)
 S32-list/map.rakudo.jvm 52 - map on pair works (comma)
 S32-list/map.rakudo.jvm 53 - map on pair works (=>)
 S32-list/pick.rakudo.jvm 11 - .pick() returns something can be used as single scalar
@@ -1952,7 +1958,6 @@ integration/advent2009-day02.t 7 -
 integration/advent2010-day11.t aborted 1 test(s)
 integration/advent2012-day04.t aborted 8 test(s)
 integration/advent2012-day13.t aborted 38 test(s)
-integration/advent2012-day14.t aborted 2 test(s)
 integration/advent2012-day15.t 9 - FIRST/NEXT/LAST example
 integration/advent2012-day21.t 2 - sequence
 integration/advent2012-day21.t 3 - recursive-ternary-hand-cached
