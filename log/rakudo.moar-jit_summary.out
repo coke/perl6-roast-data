@@ -47,49 +47,7 @@ S02-lists/tree.t...................................  10    0    0    0   10
 S02-literals/adverbs.rakudo.moar...................Use of Nil in string context  in block  at t/spec/S02-literals/adverbs.rakudo.moar:28
   30    0    2    0   32
      2 todo   : :@<...> and :%<...> broken needs RT
-S02-literals/allomorphic.t.........................
-# Failed test 'val(" +1.0+-3.2i ") returns a ComplexStr'
-# at t/spec/S02-literals/allomorphic.t line 103
-# Actual type: Str
-
-# Failed test 'val(" +1.0+-3.2i ") can be a Complex'
-# at t/spec/S02-literals/allomorphic.t line 104
-# Actual type: Str
-
-# Failed test 'val(" +1.0+-3.2i ") is equal to complex number 1-3.2i'
-# at t/spec/S02-literals/allomorphic.t line 107
-# expected: '1-3.2i'
-#      got: (Failure)
-Use of uninitialized value of type IntStr in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at t/spec/S02-literals/allomorphic.t:122
-
-# Failed test ''1 ' from qw[] is a Str'
-# at t/spec/S02-literals/allomorphic.t line 122
-# Actual type: List
-Use of uninitialized value of type IntStr in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at t/spec/S02-literals/allomorphic.t:123
-
-# Failed test ''1 ' from qw[] is not a $("2/3", RatStr)'
-# at t/spec/S02-literals/allomorphic.t line 123
-Use of uninitialized value of type RatStr in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at t/spec/S02-literals/allomorphic.t:122
-
-# Failed test ''4.5 ' from qw[] is a Str'
-# at t/spec/S02-literals/allomorphic.t line 122
-# Actual type: List
-Use of uninitialized value of type RatStr in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at t/spec/S02-literals/allomorphic.t:123
-
-# Failed test ''4.5 ' from qw[] is not a $("6e7", NumStr)'
-# at t/spec/S02-literals/allomorphic.t line 123
-Too few positionals passed; expected 2 arguments but got 1
-  in block  at t/spec/S02-literals/allomorphic.t:121
-  in block <unit> at t/spec/S02-literals/allomorphic.t:118
-
-# Looks like you planned 93 tests, but ran 45
-# Looks like you failed 7 tests of 45
-  38   55    0    0   93
-    48 tests aborted (missing ok/not ok)
+S02-literals/allomorphic.t.........................  93    0    0    0   93
 S02-literals/array-interpolation.t.................  12    0    0    0   12
 S02-literals/autoref.t.............................Use of uninitialized value of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at t/spec/S02-literals/autoref.t:45
@@ -317,7 +275,7 @@ S02-names/symbolic-deref.rakudo.moar...............  32    0    2    2   36
      1 todo   : no such symbol
 S02-one-pass-parsing/less-than.t...................   9    0    0    0    9
 S02-packages/package-lookup.t......................   7    0    0    0    7
-S02-types/WHICH.t.................................. 654    0    0    0  654
+S02-types/WHICH.t.................................. 646    0    0    0  646
 S02-types/anon_block.rakudo.moar...................Block object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:178
   39    0    1    2   42
      2 skipped: tests don't work if previous test fails
@@ -375,23 +333,13 @@ Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed. 
 S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.t.........................  18    0    0    0   18
 S02-types/autovivification.t.......................  25    0    0    0   25
-S02-types/bag.rakudo.moar..........................[31m===[0mSORRY![31m===[0m
-Variable '@parings' is not declared. Did you mean '@pairings'?
-at t/spec/S02-types/bag.rakudo.moar:489
-------> [32m    [33m⏏[31m@parings .= sort;[0m
-Other potential difficulties:
-    Redeclaration of symbol $inner-list
-    at t/spec/S02-types/bag.rakudo.moar:404
-    ------> [32m    my $inner-list[33m⏏[31m = $b1.keys.first(List);[0m
-
-   0  200    0    0  200
-   200 tests aborted (missing ok/not ok)
-S02-types/baghash.rakudo.moar......................# Looks like you planned 250 tests, but ran 249
- 223    1    2   24  250
+S02-types/bag.rakudo.moar.......................... 196    0    1    3  200
+     3 skipped: No longer Iterable
+     1 todo   : we have not secured .WHICH creation yet RT \#124454
+S02-types/baghash.rakudo.moar...................... 223    0    2   24  249
     21 skipped: 'is TypeObject' NYI RT #124490
      3 skipped: No longer Iterable
      2 todo   : in flux
-     1 tests aborted (missing ok/not ok)
 S02-types/bool.rakudo.moar.........................  51    0    2    0   53
      2 todo   : RT \#72580
 S02-types/built-in.t...............................   1    0    0    0    1
@@ -443,12 +391,10 @@ S02-types/mix.rakudo.moar..........................Potential difficulties:
 S02-types/mixed_multi_dimensional.rakudo.moar......  77    0    3    0   80
      1 todo   : isa hash
      2 todo   : unknown
-S02-types/mixhash.rakudo.moar......................# Looks like you planned 213 tests, but ran 212
- 186    1    2   24  213
+S02-types/mixhash.rakudo.moar...................... 186    0    2   24  212
     21 skipped: 'is TypeObject' NYI RT #124490
      3 skipped: No longer Iterable
      2 todo   : in flux
-     1 tests aborted (missing ok/not ok)
 S02-types/multi_dimensional_array.rakudo.moar......  48    0    0   10   58
      6 skipped: multi-dim sized arrays NYI RT #124482
      4 skipped: multi-dim sized arrays NYI RT #124483
@@ -482,12 +428,10 @@ S02-types/set.rakudo.moar..........................Potential difficulties:
     Redeclaration of symbol $inner-list
     at t/spec/S02-types/set.rakudo.moar:318
     ------> [32m    my $inner-list[33m⏏[31m = $s1.keys.first(List);[0m
-# Looks like you planned 175 tests, but ran 174
- 163    1    1   10  175
+ 163    0    1   10  174
      9 skipped: Hypers not yet Set compatible RT #124487
      1 skipped: Set is no longer Iterable
      1 todo   : we have not secured .WHICH creation yet RT \#124489
-     1 tests aborted (missing ok/not ok)
 S02-types/sethash.rakudo.moar...................... 192    0    0   10  202
     10 skipped: 'is TypeObject' NYI RT #124490
 S02-types/sigils-and-types.rakudo.moar.............  25    0    2    0   27
@@ -618,7 +562,6 @@ S03-operators/autoincrement-range.t................# Tests for 'a' .. 'z'
 # Tests for '0' .. '9'
 # Tests for '٠' .. '٩' (Arabic-Indic)
 # Tests for '०' .. '९' (Devangari)
-# Tests for '০' .. '৯' (Bengali)
 WARNING: unhandled Failure detected in DESTROY:
 Decrement out of range
   in block <unit> at t/spec/S03-operators/autoincrement-range.t:100
@@ -639,6 +582,7 @@ WARNING: unhandled Failure detected in DESTROY:
 Decrement out of range
   in block <unit> at t/spec/S03-operators/autoincrement-range.t:17
 
+# Tests for '০' .. '৯' (Bengali)
 # Tests for '੦' .. '੯' (Gurmukhi)
 # Tests for '૦' .. '૯' (Gujarati)
 # Tests for '୦' .. '୯' (Oriya)
@@ -1410,7 +1354,7 @@ S05-metasyntax/angle-brackets.rakudo.moar..........  69    0    2   20   91
      1 todo   : <$subrule> NYI RT \#124524
 S05-metasyntax/assertions.t........................   4    0    0    0    4
 S05-metasyntax/changed.t...........................  12    0    0    0   12
-S05-metasyntax/charset.t...........................  42    0    0    0   42
+S05-metasyntax/charset.t...........................  44    0    0    0   44
 S05-metasyntax/delimiters.t........................  21    0    0    0   21
 S05-metasyntax/interpolating-closure.rakudo.moar...Potential difficulties:
     Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
@@ -1566,16 +1510,15 @@ S06-advanced/lexical-subs.t........................  13    0    0    0   13
 S06-advanced/recurse.t.............................  13    0    0    0   13
 S06-advanced/return.rakudo.moar....................Use of uninitialized value @l of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-  79    0    2    0   81
+  80    0    1    0   81
      1 todo   : RT \#61732
-     1 todo   : RT \#75118
 S06-advanced/wrap.rakudo.moar......................  78    0    7    0   85
      4 todo   : RT \#122259
      1 todo   : callwith RT \#124653
      1 todo   : temp and wrap
      1 todo   : temp and wrap RT \#124654
 S06-currying/assuming-and-mmd.t....................   7    0    0    0    7
-S06-currying/misc.rakudo.moar......................  11    0    0    1   12
+S06-currying/misc.rakudo.moar......................  12    0    0    1   13
      1 skipped: We could do better here
 S06-currying/named.rakudo.moar.....................  25    0    2    0   27
      2 todo   : last part of RT \#123498 is still unresolved.
@@ -1594,11 +1537,11 @@ S06-multi/lexical-multis.rakudo.moar...............  14    0    1    0   15
 S06-multi/positional-vs-named.rakudo.moar..........  25    0    1    2   28
      2 skipped: slurpy and named interaction RT #118467
      1 todo   : RT \#118467
-S06-multi/proto.rakudo.moar........................  22    0    1    5   28
+S06-multi/proto.rakudo.moar........................  26    0    1    5   32
      5 skipped: redeclaration of routine 'bar' RT #118069
      1 todo   : operator protos
 S06-multi/redispatch.t.............................  14    0    0    0   14
-S06-multi/subsignature.rakudo.moar.................  84    0    8    5   97
+S06-multi/subsignature.rakudo.moar.................  87    0    8    5  100
      5 skipped: redeclaration of routine 'bar' RT #118069
      2 todo   : Calls wrong candidate
      5 todo   : Multimethod sort does not descend into subsignatures
@@ -1608,7 +1551,7 @@ S06-multi/syntax.t.................................Sub object coerced to string 
 S06-multi/type-based.rakudo.moar...................  60    0    4    0   64
      4 todo   : coercions need to fail like constraints RT \#124772
 S06-multi/unpackability.t..........................  10    0    0    0   10
-S06-multi/value-based.t............................  12    0    0    0   12
+S06-multi/value-based.t............................  13    0    0    0   13
 S06-operator-overloading/imported-subs.t...........  20    0    0    0   20
 S06-operator-overloading/methods.rakudo.moar.......   2    0    1    0    3
      1 todo   : nom regression RT \#124988
@@ -1636,7 +1579,7 @@ S06-other/introspection.t..........................  12    0    0    0   12
 S06-other/main-eval.rakudo.moar....................   2    0    1    0    3
      1 todo   : MAIN in EVAL RT \#124662
 S06-other/main-semicolon.t.........................   8    0    0    0    8
-S06-other/main-usage.rakudo.moar...................  19    0    7    0   26
+S06-other/main-usage.rakudo.moar...................  20    0    7    0   27
      1 todo   : NYI RT \#124669
      1 todo   : NYI RT \#124670
      1 todo   : nom regression RT \#124664
@@ -1736,9 +1679,7 @@ S06-traits/is-readonly.rakudo.moar.................Potential difficulties:
     ------> [32m        has $!attr is readonly[33m⏏[31m = 71356;[0m
    2    0    1    0    3
      1 todo   : readonly attributes
-S06-traits/is-rw.rakudo.moar.......................   5    0    2    0    7
-     1 todo   : Depends on preceding test working RT \#124640
-     1 todo   : RT \#124640
+S06-traits/is-rw.t.................................   7    0    0    0    7
 S06-traits/misc.rakudo.moar........................  17    0    2    0   19
      2 todo   : is readonly does not override
 S06-traits/native-is-copy.t........................  15    0    0    0   15
@@ -1817,10 +1758,10 @@ Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed. 
 Use of uninitialized value $_ of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-4607-60957.code:4
+#   in block <unit> at getout-30511-56083.code:4
 
 # Actually thrown at:
-#   in block <unit> at getout-4607-60957.code:4
+#   in block <unit> at getout-30511-56083.code:4
 
 
   33    0    3    0   36
@@ -1853,10 +1794,18 @@ S11-modules/importing.t............................  16    0    0    0   16
 S11-modules/lexical.t..............................   2    0    0    0    2
 S11-modules/need.t.................................   2    0    0    0    2
 S11-modules/nested.t...............................   6    0    0    0    6
-S11-modules/require.rakudo.moar....................  13    0    2    1   16
-     1 skipped: Trying to import from 'InnerModule', but the following symbols are missing: quux RT #118407
+S11-modules/require.rakudo.moar....................
+# Failed test 'can load InnerModule from a path at run time'
+# at t/spec/S11-modules/require.rakudo.moar line 16
+# Could not find file 't/spec/S11-modules/InnerModule.pm' for module t/spec/S11-modules/InnerModule.pm
+Cannot find method 'Any'
+  in block <unit> at t/spec/S11-modules/require.rakudo.moar:18
+
+# Looks like you planned 16 tests, but ran 3
+# Looks like you failed 1 test of 3
+   1   14    1    0   16
      1 todo   : creation of stub package symbol NYI RT \#125083
-     1 todo   : variable form plus imports NYI RT \#125084
+    13 tests aborted (missing ok/not ok)
                                                    pass fail todo skip plan
 S12-attributes/class.t.............................  23    0    0    0   23
 S12-attributes/clone.t.............................  39    0    0    0   39
@@ -2154,8 +2103,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  10    0    0    0   10
-S16-filehandles/chmod.t............................# Using file temp_1442586533
-# Using file temp_1442586533
+S16-filehandles/chmod.t............................# Using file temp_1442672752
+# Using file temp_1442672752
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2429,14 +2378,6 @@ Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @n of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @n of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @n of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @n of type Any in string context
@@ -2457,67 +2398,19 @@ Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @n of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @n of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @n of type Any in string context
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @n of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @n of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @n of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @n of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @n of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @n of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @n of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @n of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @n of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @n of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @n of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @n of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @n of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @n of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
@@ -2563,19 +2456,71 @@ Use of uninitialized value @n of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @n of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @n of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @n of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @n of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @n of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @n of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @n of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @n of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @n of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @n of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @n of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @n of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @n of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @n of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @n of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @n of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @n of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
@@ -2597,11 +2542,15 @@ Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @n of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @n of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @n of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @n of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
@@ -2625,11 +2574,11 @@ Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @n of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:135
-Use of uninitialized value $!value of type Any in string context
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:135
 Use of uninitialized value @n of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:135
-Use of uninitialized value $!value of type Any in string context
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:135
 Use of uninitialized value @s of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
@@ -2641,11 +2590,11 @@ Use of uninitialized value $T of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @s of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Str in string context
+Use of uninitialized value $T of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @s of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Str in string context
+Use of uninitialized value $T of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @s of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
@@ -2669,11 +2618,11 @@ Use of uninitialized value $T of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @s of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Str in string context
+Use of uninitialized value $T of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value @s of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Str in string context
+Use of uninitialized value $T of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value @s of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
@@ -2719,22 +2668,6 @@ Use of uninitialized value @s of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @s of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Str in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Str in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @s of type Str in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @s of type Str in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Str in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Str in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @s of type Str in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @s of type Str in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value $T of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value $T of type Str in string context
@@ -2775,17 +2708,49 @@ Use of uninitialized value @s of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @s of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Str in string context
+Use of uninitialized value $T of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Str in string context
+Use of uninitialized value $T of type Str in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @s of type Str in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @s of type Str in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Str in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @s of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @s of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Str in string context
+Use of uninitialized value $T of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Str in string context
+Use of uninitialized value $T of type Str in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @s of type Str in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @s of type Str in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Str in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Str in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @s of type Str in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Str in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @s of type Str in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Str in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @s of type Str in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Str in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value @s of type Str in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @s of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
@@ -2809,14 +2774,6 @@ Use of uninitialized value $T of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @s of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Str in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @s of type Str in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Str in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @s of type Str in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value $T of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value @s of type Str in string context
@@ -2834,14 +2791,6 @@ Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed. 
 Use of uninitialized value @s of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value $T of type Str in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @s of type Str in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Str in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value @s of type Str in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Str in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
  602    0    0    0  602
 S32-array/bool.t...................................  15    0    0    0   15
@@ -2856,8 +2805,7 @@ S32-array/end.t....................................  12    0    0    0   12
 S32-array/exists-adverb.t..........................  52    0    0    0   52
 S32-array/keys_values.t............................   8    0    0    0    8
 S32-array/kv.t.....................................  18    0    0    0   18
-S32-array/pairs.rakudo.moar........................  13    0    1    0   14
-     1 todo   : Apparently not rw yet?
+S32-array/pairs.t..................................  14    0    0    0   14
 S32-array/perl.t...................................   6    0    0    0    6
 S32-array/pop.rakudo.moar..........................  36    0    1    0   37
      1 todo   : RT \#111720
@@ -3007,14 +2955,6 @@ Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value %a of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value %a of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %a of type Any in string context
@@ -3035,67 +2975,19 @@ Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value %a of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value %a of type Any in string context
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value %a of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value %a of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value %a of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value %a of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value %a of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value %a of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value %a of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value %a of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value %a of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value %a of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
@@ -3141,17 +3033,41 @@ Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value %a of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value %a of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value %a of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value %a of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value %a of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value %a of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
@@ -3197,19 +3113,47 @@ Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value %a of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value %a of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %a of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value %a of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value %a of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value %a of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value %a of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value %a of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
@@ -3231,11 +3175,15 @@ Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value %a of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
@@ -3259,11 +3207,11 @@ Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:135
 Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:135
-Use of uninitialized value $!value of type Any in string context
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:135
 Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:135
-Use of uninitialized value $!value of type Any in string context
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:135
 Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
@@ -3275,11 +3223,11 @@ Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
@@ -3303,11 +3251,11 @@ Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
@@ -3353,17 +3301,41 @@ Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %i of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %i of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %i of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %i of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %i of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %i of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
@@ -3409,22 +3381,6 @@ Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %i of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %i of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %i of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %i of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value $T of type Int in string context
@@ -3465,17 +3421,9 @@ Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %i of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %i of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
@@ -3499,11 +3447,7 @@ Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
 Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value $!value of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value %i of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
 Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
@@ -3520,6 +3464,10 @@ Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed. 
 Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
 Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
+Use of uninitialized value %i of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
@@ -3527,307 +3475,279 @@ Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
 Use of uninitialized value %i of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value $!value of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %c of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %j of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
+Use of uninitialized value %c of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %j of type Int in string context
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Int in string context
+Use of uninitialized value %c of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %j of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value %j of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value %j of type Int in string context
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Int in string context
+Use of uninitialized value %c of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %j of type Int in string context
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Int in string context
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in method Str at ././CORE.setting.moarvm:1
+Use of uninitialized value %c of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %j of type Int in string context
+Use of uninitialized value %c of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Int in string context
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %c of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %j of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
@@ -3839,11 +3759,39 @@ Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %j of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %j of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value %j of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %j of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %j of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %j of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %j of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %j of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value %j of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
 Use of uninitialized value %j of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
@@ -3889,17 +3837,41 @@ Use of uninitialized value %j of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %j of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %j of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %j of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %j of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %j of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %j of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %j of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %j of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %j of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %j of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
@@ -3945,17 +3917,9 @@ Use of uninitialized value %j of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %j of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %j of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %j of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %j of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
@@ -3999,19 +3963,23 @@ Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %j of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %j of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %j of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %j of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
+Use of uninitialized value %j of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value %j of type Int in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
+Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %j of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
@@ -4035,14 +4003,6 @@ Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %j of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %j of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %j of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value $T of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value %j of type Int in string context
@@ -4056,18 +4016,6 @@ Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed. 
 Use of uninitialized value %j of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 Use of uninitialized value $T of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %j of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $T of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %j of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value %j of type Int in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
-Use of uninitialized value $!value of type Int in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:133
 1124    0    0    0 1124
 S32-hash/delete-adverb.t........................... 131    0    0    0  131
@@ -4080,12 +4028,11 @@ S32-hash/exists.rakudo.moar........................  14    0    0    1   15
 S32-hash/invert.t..................................   5    0    0    0    5
 S32-hash/keys_values.t.............................  14    0    0    0   14
 S32-hash/kv.t......................................  27    0    0    0   27
-S32-hash/pairs.rakudo.moar.........................Use of uninitialized value %rt117935 of type Any in string context
+S32-hash/pairs.t...................................Use of uninitialized value %rt117935 of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-Use of uninitialized value $!value of type Any in string context
+Use of uninitialized value of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
-  24    0    1    0   25
-     1 todo   : Rakudo seems to make a copy rather than a reference, RT \#124640
+  25    0    0    0   25
 S32-hash/perl.t....................................  12    0    0    0   12
 S32-hash/push.t....................................   7    0    0    0    7
 S32-hash/slice.rakudo.moar.........................  19    0   10    0   29
@@ -4182,7 +4129,7 @@ S32-list/map.rakudo.moar...........................  51    0    0    6   57
      2 skipped: adverbial block RT #124752
      2 skipped: closure as non-final argument RT #124753
 S32-list/map_function_return_values.t..............   2    0    0    0    2
-S32-list/minmax.rakudo.moar........................  97    0    0    2   99
+S32-list/minmax.rakudo.moar........................  99    0    0    2  101
      2 skipped: post-GLR
 S32-list/permutations.t............................   2    0    0    0    2
 S32-list/pick.rakudo.moar..........................  56    0    1    0   57
@@ -4453,7 +4400,13 @@ integration/advent2009-day01.t.....................   2    0    0    0    2
 integration/advent2009-day02.t.....................  10    0    0    0   10
 integration/advent2009-day03.t.....................   6    0    0    0    6
 integration/advent2009-day04.t.....................   6    0    0    0    6
-integration/advent2009-day05.t.....................  17    0    0    0   17
+integration/advent2009-day05.t.....................
+# Failed test 'Find the smallest element of two lists'
+# at t/spec/integration/advent2009-day05.t line 22
+# expected: '2'
+#      got: '2 4 6 8'
+# Looks like you failed 1 test of 17
+  16    1    0    0   17
 integration/advent2009-day06.t.....................  15    0    0    0   15
 integration/advent2009-day07.t.....................  14    0    0    0   14
 integration/advent2009-day08.t.....................   8    0    0    0    8
@@ -4523,14 +4476,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# gerdr: 0.4178032 seconds
-# loop: 0.4502100 seconds
-# kaz: 0.4639325 seconds
-# recursive-ternary: 0.57679082 seconds
-# hand-memoization: 0.811686 seconds
-# recursive-ternary-hand-cached: 2.1940109 seconds
-# sequence-ternary: 3.0364719 seconds
-# sequence: 4.9253076 seconds
+integration/advent2012-day21.t.....................# kaz: 0.3332664 seconds
+# gerdr: 0.41033864 seconds
+# recursive-ternary: 0.48995793 seconds
+# loop: 0.5930170 seconds
+# hand-memoization: 1.0490174 seconds
+# recursive-ternary-hand-cached: 2.31817688 seconds
+# sequence-ternary: 2.79375556 seconds
+# sequence: 4.63803525 seconds
    9    0    0    0    9
 integration/advent2012-day22.t.....................   6    0    0    0    6
 integration/advent2012-day23.t.....................   2    0    0    0    2
@@ -4587,7 +4540,7 @@ Useless use of constant integer 42 in sink context (line 1)
     
 # Failed test 'precompiled EVAL in BEGIN (Compiled)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Compile.pm line 338
-    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmodE51B6600/p6testmod91B0CFAB.pm6')
+    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmod39F01966/p6testmodD33F0A4D.pm6')
     # Looks like you failed 1 test of 2
    5    0    2    0    7
      1 todo   : RT \#124324 Missing or wrong version of dependency
@@ -4608,15 +4561,15 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        5241,   258,   100,   384,  5983,  5982
+"S02",        5484,     0,   101,   387,  5972,  5971
 "S03",        5294,     0,   126,    85,  5505,  5523
 "S04",        1229,     0,    46,    29,  1304,  1351
-"S05",        5619,     0,    88,   112,  5819,  6038
-"S06",        1953,     0,    61,    90,  2104,  2175
+"S05",        5621,     0,    88,   112,  5821,  6040
+"S06",        1966,     0,    58,    90,  2114,  2185
 "S07",           0,     0,     0,     0,     0,    96
 "S09",        1956,     0,    10,    37,  2003,  2003
 "S10",         105,     0,     5,     1,   111,   168
-"S11",         112,     0,     6,    11,   129,   148
+"S11",         100,    14,     5,    10,   129,   148
 "S12",        1503,     0,    39,   145,  1687,  1742
 "S13",          32,     0,     0,     1,    33,    43
 "S14",         347,     0,     8,     5,   360,   373
@@ -4629,23 +4582,14 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",          13,     0,     0,     0,    13,    13
 "S29",         351,     0,     3,     2,   356,   356
-"S32",       12162,     1,   195,   156, 12514, 10796
-"int",        1275,     0,    10,    15,  1300,  1286
+"S32",       12166,     1,   193,   156, 12516, 10798
+"int",        1274,     1,    10,    15,  1300,  1286
 "ros",           2,     0,     0,     0,     2,     2
-"total",    119070,   260,   745,  1285,121360,120348
+"total",    119319,    17,   740,  1287,121363,120351
 ----------------
 Failure summary:
-S02-literals/allomorphic.t 37 - val(" +1.0+-3.2i ") returns a ComplexStr
-S02-literals/allomorphic.t 38 - val(" +1.0+-3.2i ") can be a Complex
-S02-literals/allomorphic.t 40 - val(" +1.0+-3.2i ") is equal to complex number 1-3.2i
-S02-literals/allomorphic.t 42 - '1 ' from qw[] is a Str
-S02-literals/allomorphic.t 43 - '1 ' from qw[] is not a $("2/3", RatStr)
-S02-literals/allomorphic.t 44 - '4.5 ' from qw[] is a Str
-S02-literals/allomorphic.t 45 - '4.5 ' from qw[] is not a $("6e7", NumStr)
-S02-literals/allomorphic.t aborted 48 test(s)
-S02-types/bag.rakudo.moar aborted 200 test(s)
-S02-types/baghash.rakudo.moar aborted 1 test(s)
-S02-types/mixhash.rakudo.moar aborted 1 test(s)
-S02-types/set.rakudo.moar aborted 1 test(s)
+S11-modules/require.rakudo.moar 3 - can load InnerModule from a path at run time
+S11-modules/require.rakudo.moar aborted 13 test(s)
 S17-promise/stress.t aborted 1 test(s)
 S32-num/power.rakudo.moar 11 - -1 ** 4553535345364535345634543534 == 1
+integration/advent2009-day05.t 6 - Find the smallest element of two lists
