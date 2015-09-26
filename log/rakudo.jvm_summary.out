@@ -51,7 +51,7 @@ S02-literals/char-by-name.rakudo.jvm...............   9    0    0    1   10
 S02-literals/char-by-number.t......................  38    0    0    0   38
 S02-literals/fmt-interpolation.t...................  11    0    0    0   11
 S02-literals/hash-interpolation.t..................  10    0    0    0   10
-S02-literals/heredocs.t............................  17    0    0    0   17
+S02-literals/heredocs.t............................  21    0    0    0   21
 S02-literals/hex_chars.t...........................   4    0    0    0    4
 S02-literals/listquote-whitespace.t................  12    0    0    0   12
 S02-literals/listquote.rakudo.jvm..................  23    0    1    0   24
@@ -541,7 +541,7 @@ S04-statements/do.rakudo.jvm.......................  21    0    1    7   29
      1 skipped: redo without loop construct RT #124576
      1 todo   : Rakudo still uses Nil here RT \#124572
 S04-statements/for-scope.t.........................  16    0    0    0   16
-S04-statements/for.rakudo.jvm......................  87    0    6    0   93
+S04-statements/for.rakudo.jvm......................  86    1    6    0   93
      2 todo   : RT \#123005 RT \#118705
      1 todo   : Rakudo still uses Nil here RT \#124568
      1 todo   : Rakudo still uses Nil here RT \#124569
@@ -862,9 +862,8 @@ S06-signature/closure-parameters.rakudo.jvm........  12    0    0    5   17
 S06-signature/code.rakudo.jvm......................   7    0    1    0    8
      1 todo   : RT \#67932
 S06-signature/defaults.t...........................   9    0    0    0    9
-S06-signature/definite-return.rakudo.jvm...........   0    0    3    6    9
-     6 skipped: definite values as return specifications dont parse yet RT #124927
-     3 todo   : definite values as return specifications dont parse yet RT \#124927
+S06-signature/definite-return.rakudo.jvm...........  15    0    0    2   17
+     2 skipped: variables as return specifications dont parse yet RT #124927
 S06-signature/errors.rakudo.jvm....................  21    0    6    0   27
      6 todo   : unival NYI RT \#124920
 S06-signature/introspection.rakudo.jvm............. 131    0    1    1  133
@@ -909,7 +908,7 @@ S06-traits/is-copy.t...............................  27    0    0    0   27
 S06-traits/is-readonly.rakudo.jvm..................   2    0    1    0    3
      1 todo   : readonly attributes
 S06-traits/is-rw.t.................................   7    0    0    0    7
-S06-traits/misc.rakudo.jvm.........................  17    0    2    0   19
+S06-traits/misc.rakudo.jvm.........................  16    2    2    0   20
      2 todo   : is readonly does not override
 S06-traits/native-is-copy.t........................  15    0    0    0   15
 S06-traits/native-is-rw.t..........................  48    0    0    0   48
@@ -1374,7 +1373,7 @@ S32-container/roundrobin.t.........................   4    0    0    0    4
 S32-container/stringify.t..........................  16    0    0    0   16
 S32-container/zip.rakudo.jvm.......................  12    0    0    2   14
      2 skipped: lvalue zip RT #124907
-S32-exceptions/misc.rakudo.jvm..................... 342    0    1    1  344
+S32-exceptions/misc.rakudo.jvm..................... 345    0    1    1  347
      1 skipped: Error while compiling, type X::TooLateForREPR
      1 todo   : parsing regression RT \#124679
 S32-hash/adverbs.t.................................1124    0    0    0 1124
@@ -1783,11 +1782,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        5471,    20,   111,   380,  5982,  5981
+"S02",        5475,    20,   111,   380,  5986,  5985
 "S03",        5349,    12,   119,    74,  5554,  5572
-"S04",        1201,    24,    48,    32,  1305,  1337
+"S04",        1200,    25,    48,    32,  1305,  1337
 "S05",        4787,   767,    86,   149,  5789,  6035
-"S06",        1948,    28,    57,    92,  2125,  2196
+"S06",        1962,    30,    54,    88,  2134,  2205
 "S07",           0,     0,     0,     0,     0,    96
 "S09",        1955,     0,    11,    37,  2003,  2003
 "S10",         104,     0,     6,     1,   111,   168
@@ -1804,10 +1803,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         350,     0,     3,     3,   356,   356
-"S32",       11727,   317,   190,   174, 12408, 10650
+"S32",       11730,   317,   190,   174, 12411, 10653
 "int",        1246,    25,     8,    14,  1293,  1286
 "ros",           2,     0,     0,     0,     2,     2
-"total",     39377,  1251,   743,  1339, 42710,120248
+"total",     39397,  1254,   740,  1335, 42726,120264
 ----------------
 Failure summary:
 S02-magicals/sub.rakudo.jvm aborted 2 test(s)
@@ -1830,6 +1829,7 @@ S04-phasers/first.t 1 - FIRST only ran once
 S04-phasers/first.t 3 - multiple FIRST {} ran in order
 S04-phasers/first.t 4 - FIRST {} ran before ENTER {}
 S04-phasers/pre-post.rakudo.jvm aborted 4 test(s)
+S04-statements/for.rakudo.jvm 90 - did we throws-like X::Parameter::RW?
 S04-statements/label.t aborted 4 test(s)
 S04-statements/last.t aborted 2 test(s)
 S04-statements/next.t aborted 6 test(s)
@@ -1851,6 +1851,8 @@ S06-multi/proto.rakudo.jvm 14 - dispatch with no possible candidates fell back t
 S06-multi/subsignature.rakudo.jvm 37 - slurpy and named interact well (2)
 S06-signature/sigilless.t aborted 8 test(s)
 S06-signature/slurpy-params.rakudo.jvm aborted 14 test(s)
+S06-traits/misc.rakudo.jvm 5 - is rw dies in signature bidning if passed a literal Int
+S06-traits/misc.rakudo.jvm 6 - is rw dies in signature bidning if passed an itemized array
 S15-literals/identifiers.t aborted 7 test(s)
 S16-filehandles/io.rakudo.jvm aborted 51 test(s)
 S32-list/map.rakudo.jvm aborted 2 test(s)
