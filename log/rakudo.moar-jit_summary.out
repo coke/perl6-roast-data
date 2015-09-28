@@ -27,7 +27,11 @@ S02-lexical-conventions/begin_end_pod.t............   2    0    0    0    2
 S02-lexical-conventions/bom.t......................   1    0    0    0    1
 S02-lexical-conventions/comments.t.................  51    0    0    0   51
 S02-lexical-conventions/end-pod.t..................   1    0    0    0    1
-S02-lexical-conventions/minimal-whitespace.t.......   9    0    0    0    9
+S02-lexical-conventions/minimal-whitespace.t.......Potential difficulties:
+    Redeclaration of symbol $o
+    at t/spec/S02-lexical-conventions/minimal-whitespace.t:41
+    ------> [32mmy $o[33m⏏[31m = 42;[0m
+  13    0    0    0   13
 S02-lexical-conventions/one-pass-parsing.t.........   5    0    0    0    5
 S02-lexical-conventions/pod-in-multi-line-exprs.t..   3    0    0    0    3
 S02-lexical-conventions/sub-block-parsing.t........  11    0    0    0   11
@@ -73,18 +77,7 @@ S02-literals/pod.rakudo.moar.......................   0    0    0    5    5
      2 skipped: postcircumfix:<{ }> not defined for type Array RT #125130
 S02-literals/quoting-unicode.t.....................  89    0    0    0   89
 S02-literals/quoting.t............................. 176    0    0    0  176
-S02-literals/radix.rakudo.moar.....................    
-# Failed test 'right exception type (X::Syntax::Confused)'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/lib/Test.pm.moarvm line 1
-    # Expected: (X::Syntax::Confused)
-    # Got:      (X::Obsolete)
-    # Exception message: Unsupported use of . to concatenate strings; in Perl 6 please use ~
-    # Looks like you failed 1 test of 2
-
-# Failed test 'Ambiguous, illegal syntax doesn't work'
-# at t/spec/S02-literals/radix.rakudo.moar line 215
-# Looks like you failed 1 test of 154
- 150    1    1    2  154
+S02-literals/radix.rakudo.moar..................... 151    0    1    2  154
      1 skipped: RT #123862 - negative radix
      1 skipped: Really?!
      1 todo   : This needs an RT
@@ -253,13 +246,7 @@ S02-names/symbolic-deref.rakudo.moar...............  32    0    2    2   36
      1 todo   : no such symbol
 S02-one-pass-parsing/less-than.t...................   9    0    0    0    9
 S02-packages/package-lookup.t......................   7    0    0    0    7
-S02-types/WHICH.t..................................
-# Failed test 'checking StrDistance.WHICH'
-# at t/spec/S02-types/WHICH.t line 342
-# expected: 'StrDistance'
-#      got: 'Block|71283416'
-# Looks like you failed 1 test of 646
- 645    1    0    0  646
+S02-types/WHICH.t.................................. 650    0    0    0  650
 S02-types/anon_block.rakudo.moar...................Block object coerced to string (please use .gist or .perl to do that)  in block  at lib/Test.pm:178
   39    0    1    2   42
      2 skipped: tests don't work if previous test fails
@@ -1454,13 +1441,8 @@ S05-substitution/subst.rakudo.moar.................Potential difficulties:
      1 skipped: RT #114388 -- No such method 'subst-mutate' for invocant of type 'Any'
      1 todo   : be smarter about constant detection
 S05-transliteration/79778.t........................   1    0    0    0    1
-S05-transliteration/trans.rakudo.moar..............Cannot make a Block object using .new
-  in block <unit> at t/spec/S05-transliteration/trans.rakudo.moar:219
-
-# Looks like you planned 62 tests, but ran 47
-  46   15    0    1   62
+S05-transliteration/trans.rakudo.moar..............  61    0    0    1   62
      1 skipped: feed operator NYI
-    15 tests aborted (missing ok/not ok)
 S05-transliteration/with-closure.rakudo.moar.......Use of uninitialized value $s of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at t/spec/S05-transliteration/with-closure.rakudo.moar:49
 Use of uninitialized value $s of type Any in string context
@@ -1723,10 +1705,10 @@ Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed. 
 Use of uninitialized value $_ of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-31533-722502.code:4
+#   in block <unit> at getout-6459-443193.code:4
 
 # Actually thrown at:
-#   in block <unit> at getout-31533-722502.code:4
+#   in block <unit> at getout-6459-443193.code:4
 
 
   33    0    3    0   36
@@ -2070,8 +2052,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  10    0    0    0   10
-S16-filehandles/chmod.t............................# Using file temp_1443364205
-# Using file temp_1443364205
+S16-filehandles/chmod.t............................# Using file temp_1443450642
+# Using file temp_1443450642
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2925,18 +2907,7 @@ Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed. 
 
 Use of uninitialized value of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at t/spec/S32-exceptions/misc.rakudo.moar:595
-    
-# Failed test 'right exception type (X::Comp::Group)'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/lib/Test.pm.moarvm line 1
-    # Expected: (X::Comp::Group)
-    # Got:      (X::Obsolete)
-    # Exception message: Unsupported use of bare "ord"; in Perl 6 please use .ord if you meant $_, or use an explicit invocant or argument, or use &ord to refer to the function as a noun
-    # Looks like you failed 1 test of 2
-
-# Failed test 'adequate error message when calling bare "ord"'
-# at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/lib/Test.pm.moarvm line 1
-# Looks like you failed 1 test of 347
- 345    1    1    0  347
+ 346    0    1    0  347
      1 todo   : parsing regression RT \#124679
 S32-hash/adverbs.t.................................Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
@@ -4467,14 +4438,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# loop: 0.4592428 seconds
-# kaz: 0.4704303 seconds
-# gerdr: 0.4895922 seconds
-# recursive-ternary: 0.5978260 seconds
-# hand-memoization: 1.024425 seconds
-# recursive-ternary-hand-cached: 2.1110224 seconds
-# sequence-ternary: 3.1317618 seconds
-# sequence: 4.68035736 seconds
+integration/advent2012-day21.t.....................# kaz: 0.468319414 seconds
+# gerdr: 0.4958489 seconds
+# recursive-ternary: 0.629659241 seconds
+# loop: 0.65066326 seconds
+# hand-memoization: 1.01925842 seconds
+# recursive-ternary-hand-cached: 2.1643029 seconds
+# sequence-ternary: 3.0544628 seconds
+# sequence: 4.8502209 seconds
    9    0    0    0    9
 integration/advent2012-day22.t.....................   6    0    0    0    6
 integration/advent2012-day23.t.....................   2    0    0    0    2
@@ -4531,7 +4502,7 @@ Useless use of constant integer 42 in sink context (line 1)
     
 # Failed test 'precompiled EVAL in BEGIN (Compiled)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Compile.pm line 338
-    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmod64AE4073/p6testmod32AE45FC.pm6')
+    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmod17C28821/p6testmodCC171F68.pm6')
     # Looks like you failed 1 test of 2
    5    0    2    0    7
      1 todo   : RT \#124324 Missing or wrong version of dependency
@@ -4552,10 +4523,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        5534,     2,    94,   356,  5986,  5985
+"S02",        5544,     0,    94,   356,  5994,  5993
 "S03",        5361,     0,   119,    74,  5554,  5572
 "S04",        1233,     0,    45,    27,  1305,  1337
-"S05",        5632,    15,    87,    86,  5820,  6035
+"S05",        5647,     0,    87,    86,  5820,  6035
 "S06",        1996,     0,    54,    84,  2134,  2205
 "S07",           0,     0,     0,     0,     0,    96
 "S09",        1956,     0,    10,    37,  2003,  2003
@@ -4573,17 +4544,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",          13,     0,     0,     0,    13,    13
 "S29",         351,     0,     3,     2,   356,   356
-"S32",       12208,     2,   193,   158, 12561, 10803
+"S32",       12209,     1,   193,   158, 12561, 10803
 "int",        1276,     0,    10,    14,  1300,  1286
 "ros",           2,     0,     0,     0,     2,     2
-"total",    119747,    34,   726,  1208,121715,120682
+"total",    119773,    16,   726,  1208,121723,120690
 ----------------
 Failure summary:
-S02-literals/radix.rakudo.moar 101 - Ambiguous, illegal syntax doesn't work
-S02-types/WHICH.t 201 - checking StrDistance.WHICH
-S05-transliteration/trans.rakudo.moar aborted 15 test(s)
 S11-modules/require.rakudo.moar 3 - can load InnerModule from a path at run time
 S11-modules/require.rakudo.moar aborted 13 test(s)
 S17-promise/stress.t aborted 1 test(s)
-S32-exceptions/misc.rakudo.moar 293 - adequate error message when calling bare "ord"
 S32-num/power.rakudo.moar 11 - -1 ** 4553535345364535345634543534 == 1
