@@ -258,7 +258,7 @@ S02-types/pair.rakudo.jvm.......................... 147    0    4    0  151
      1 todo   : should it really have \n on the end?
      2 todo PASSED: RT \#123215
 S02-types/parsing-bool.t...........................   4    0    0    0    4
-S02-types/range.t.................................. 137    0    0    0  137
+S02-types/range.t.................................. 161    0    0    0  161
 S02-types/set.rakudo.jvm........................... 163    0    1    9  173
      9 skipped: Hypers not yet Set compatible RT #124487
      1 todo   : we have not secured .WHICH creation yet RT \#124489
@@ -402,7 +402,7 @@ S03-operators/not.t................................  22    0    0    0   22
 S03-operators/numeric-shift.t......................  37    0    0    0   37
 S03-operators/orelse.t.............................  10    0    0    0   10
 S03-operators/overflow.t...........................  98    0    0    0   98
-S03-operators/precedence.rakudo.jvm................  57    0    2    0   59
+S03-operators/precedence.rakudo.jvm................  61    0    2    0   63
      2 todo   : Inequality (!=) misparsed as assignment RT \#121108
 S03-operators/range-basic.t........................ 142    0    0    0  142
 S03-operators/range-int.t.......................... 480    0    0    0  480
@@ -541,7 +541,7 @@ S04-statements/do.rakudo.jvm.......................  21    0    1    7   29
      1 skipped: redo without loop construct RT #124576
      1 todo   : Rakudo still uses Nil here RT \#124572
 S04-statements/for-scope.t.........................  16    0    0    0   16
-S04-statements/for.rakudo.jvm......................  86    1    6    0   93
+S04-statements/for.rakudo.jvm......................  87    1    6    0   94
      2 todo   : RT \#123005 RT \#118705
      1 todo   : Rakudo still uses Nil here RT \#124568
      1 todo   : Rakudo still uses Nil here RT \#124569
@@ -1419,7 +1419,7 @@ S32-io/io-spec-cygwin.t............................ 100    0    0    2  102
 S32-io/io-spec-unix.t.............................. 130    0    0    0  130
 S32-io/io-spec-win.t............................... 206    0    0    3  209
      3 skipped: Win32ish on-platform tests
-S32-io/move.t......................................  29    0    0    0   29
+S32-io/move.t......................................  27    2    0    0   29
 S32-io/note.t......................................   6    0    0    0    6
 S32-io/other.t.....................................  60    0    0    0   60
 S32-io/pipe.t......................................  14    0    0    0   14
@@ -1782,9 +1782,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        5483,    20,   111,   380,  5994,  5993
-"S03",        5349,    12,   119,    74,  5554,  5572
-"S04",        1200,    25,    48,    32,  1305,  1337
+"S02",        5507,    20,   111,   380,  6018,  6017
+"S03",        5353,    12,   119,    74,  5558,  5576
+"S04",        1201,    25,    48,    32,  1306,  1338
 "S05",        4787,   767,    86,   149,  5789,  6035
 "S06",        1962,    30,    54,    88,  2134,  2205
 "S07",           0,     0,     0,     0,     0,    96
@@ -1803,10 +1803,10 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         350,     0,     3,     3,   356,   356
-"S32",       11730,   317,   190,   174, 12411, 10653
+"S32",       11728,   319,   190,   174, 12411, 10653
 "int",        1245,    26,     8,    14,  1293,  1286
 "ros",           2,     0,     0,     0,     2,     2
-"total",     39401,  1258,   740,  1333, 42732,120270
+"total",     39428,  1260,   740,  1333, 42761,120299
 ----------------
 Failure summary:
 S02-magicals/sub.rakudo.jvm aborted 2 test(s)
@@ -1829,7 +1829,7 @@ S04-phasers/first.t 1 - FIRST only ran once
 S04-phasers/first.t 3 - multiple FIRST {} ran in order
 S04-phasers/first.t 4 - FIRST {} ran before ENTER {}
 S04-phasers/pre-post.rakudo.jvm aborted 4 test(s)
-S04-statements/for.rakudo.jvm 90 - did we throws-like X::Parameter::RW?
+S04-statements/for.rakudo.jvm 91 - did we throws-like X::Parameter::RW?
 S04-statements/label.t aborted 4 test(s)
 S04-statements/last.t aborted 2 test(s)
 S04-statements/next.t aborted 6 test(s)
@@ -1858,6 +1858,8 @@ S14-roles/basic.rakudo.jvm 26 - type-check passes when role mixed in
 S14-roles/mixin.t 27 - RT #100782 2/2
 S15-literals/identifiers.t aborted 7 test(s)
 S16-filehandles/io.rakudo.jvm aborted 51 test(s)
+S32-io/move.t 20 - did we throws-like X::IO::Move?
+S32-io/move.t 22 - move createonly fail
 S32-list/map.rakudo.jvm aborted 2 test(s)
 S32-list/squish.t aborted 34 test(s)
 S32-list/unique.t aborted 20 test(s)
