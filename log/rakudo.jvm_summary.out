@@ -361,7 +361,7 @@ S03-operators/chained-declarators.t................   5    0    0    0    5
 S03-operators/cmp.t................................  31    0    0    0   31
 S03-operators/comparison-simple.t..................  24    0    0    0   24
 S03-operators/comparison.t.........................  41    0    0    0   41
-S03-operators/composition.rakudo.jvm...............   3    0    0    1    4
+S03-operators/composition.rakudo.jvm...............   7    0    0    1    8
      1 skipped: function composition with more-than-one-arg functions
 S03-operators/context-forcers.rakudo.jvm........... 104    0    0    2  106
      2 skipped: failure modes of Str.Numeric RT #124540
@@ -782,13 +782,16 @@ S06-advanced/wrap.rakudo.jvm.......................  75    0    6    4   85
      1 todo   : callwith RT \#124653
      1 todo   : temp and wrap
      1 todo   : temp and wrap RT \#124654
-S06-currying/assuming-and-mmd.t....................   7    0    0    0    7
-S06-currying/misc.rakudo.jvm.......................  11    1    0    1   13
-     1 skipped: We could do better here
-     1 tests aborted (missing ok/not ok)
-S06-currying/named.t...............................  27    0    0    0   27
-S06-currying/positional.t.......................... 227    0    0    0  227
-S06-currying/slurpy.t..............................  32    0    0    0   32
+S06-currying/assuming-and-mmd.t....................   4    3    0    0    7
+     2 tests aborted (missing ok/not ok)
+S06-currying/misc.rakudo.jvm.......................   0   13    0    0   13
+    13 tests aborted (missing ok/not ok)
+S06-currying/named.t...............................   0   27    0    0   27
+    27 tests aborted (missing ok/not ok)
+S06-currying/positional.t..........................   0  227    0    0  227
+   227 tests aborted (missing ok/not ok)
+S06-currying/slurpy.t..............................   0   32    0    0   32
+    32 tests aborted (missing ok/not ok)
 S06-macros/errors.t................................   2    0    0    0    2
 S06-macros/opaque-ast.rakudo.jvm...................   3    0    0    4    7
      3 skipped: :COMPILING flag RT #124964
@@ -813,7 +816,7 @@ S06-multi/type-based.rakudo.jvm....................  60    0    4    0   64
      4 todo   : coercions need to fail like constraints RT \#124772
 S06-multi/unpackability.t..........................  10    0    0    0   10
 S06-multi/value-based.t............................  13    0    0    0   13
-S06-operator-overloading/imported-subs.t...........  20    0    0    0   20
+S06-operator-overloading/imported-subs.t...........  19    0    0    0   19
 S06-operator-overloading/methods.rakudo.jvm........   2    0    1    0    3
      1 todo   : nom regression RT \#124988
 S06-operator-overloading/semicolon.t...............   3    0    0    0    3
@@ -854,13 +857,15 @@ S06-routine-modifiers/native-lvalue-subroutines.t..  18    0    0    0   18
 S06-routine-modifiers/proxy.rakudo.jvm.............  22    0    2    0   24
      2 todo   : RT\#124341 Proxy should not escape return from a non is-rw
 S06-routine-modifiers/scoped-named-subs.t..........  12    0    0    0   12
-S06-signature/arity.t..............................  56    0    0    0   56
+S06-signature/arity.t..............................  52    4    0    0   56
+     4 tests aborted (missing ok/not ok)
 S06-signature/caller-param.rakudo.jvm..............   2    0    5    0    7
      2 todo   : NYI RT \#123660
      3 todo   : NYI RT \#124924
 S06-signature/closure-over-parameters.t............   4    0    0    0    4
-S06-signature/closure-parameters.rakudo.jvm........  12    0    0    5   17
+S06-signature/closure-parameters.rakudo.jvm........  11    0    1    5   17
      5 skipped: subsignatures dont factor into multi candidates yet RT #124935
+     1 todo   : code does not die
 S06-signature/code.rakudo.jvm......................   7    0    1    0    8
      1 todo   : RT \#67932
 S06-signature/defaults.t...........................   9    0    0    0    9
@@ -910,7 +915,7 @@ S06-traits/is-copy.t...............................  27    0    0    0   27
 S06-traits/is-readonly.rakudo.jvm..................   2    0    1    0    3
      1 todo   : readonly attributes
 S06-traits/is-rw.t.................................   7    0    0    0    7
-S06-traits/misc.rakudo.jvm.........................  16    2    2    0   20
+S06-traits/misc.rakudo.jvm.........................  14    4    2    0   20
      2 todo   : is readonly does not override
 S06-traits/native-is-copy.t........................  15    0    0    0   15
 S06-traits/native-is-rw.t..........................  48    0    0    0   48
@@ -1047,10 +1052,11 @@ S12-enums/misc.t...................................  17    0    0    0   17
 S12-enums/non-int.rakudo.jvm.......................   5    0    1    0    6
      1 todo   : NYI RT \#124833
 S12-enums/pseudo-functional.t......................  11    0    0    0   11
-S12-enums/thorough.rakudo.jvm......................  16    0    0   43   59
+S12-enums/thorough.rakudo.jvm......................  15    0    1   43   59
     14 skipped: NYI RT #124829
     15 skipped: does &day::("Tue") RT #124831
     14 skipped: does day::Tue RT #124830
+     1 todo   : RT \#101900
 S12-introspection/WHAT.rakudo.jvm..................  25    0   10    2   37
      2 skipped: Foo[Int].new on scalars fails
      2 todo   : %h{Str} of Int fails RT \#125010
@@ -1223,7 +1229,7 @@ S17-scheduler/basic.rakudo.jvm.....................  28    0    2   10   40
      3 skipped: waiting for new '.loads' semantics RT #124776
      2 skipped: waiting for new '.loads' semantics RT #124777
      2 todo   : huh?
-S17-scheduler/every.t..............................  18    0    0    0   18
+S17-scheduler/every.t..............................  17    1    0    0   18
 S17-scheduler/in.t.................................  14    0    0    0   14
 S17-scheduler/times.t..............................   4    0    0    0    4
 S17-supply/Channel.t...............................  12    0    0    0   12
@@ -1356,8 +1362,9 @@ S32-array/keys_values.t............................   8    0    0    0    8
 S32-array/kv.t.....................................  18    0    0    0   18
 S32-array/pairs.t..................................  14    0    0    0   14
 S32-array/perl.t...................................   6    0    0    0    6
-S32-array/pop.rakudo.jvm...........................  36    0    1    0   37
+S32-array/pop.rakudo.jvm...........................  35    0    2    0   37
      1 todo   : RT \#111720
+     1 todo   : code does not die
 S32-array/push.t...................................  52    0    0    0   52
 S32-array/rotate.t.................................  29    0    0    0   29
 S32-array/shift.t..................................  31    0    0    0   31
@@ -1395,8 +1402,8 @@ S32-hash/slice.rakudo.jvm..........................  19    0   10    0   29
      6 todo   : binding on hash elements unimplemented
      2 todo   : binding on hash elements unimplemented RT \#124779
      2 todo   : binding on hash elements unimplemented RT \#124780
-S32-io/IO-Socket-Async.rakudo.jvm..................   1    5    0    0    6
-     4 tests aborted (missing ok/not ok)
+S32-io/IO-Socket-Async.rakudo.jvm..................   5    0    0    1    6
+     1 skipped: Flapping RT #122318
 S32-io/IO-Socket-INET.t............................   0    0    0   47   47
     47 skipped: Operating system not yet supported
 S32-io/chdir.rakudo.jvm............................   8    0    0    2   10
@@ -1421,7 +1428,7 @@ S32-io/io-spec-cygwin.t............................ 100    0    0    2  102
 S32-io/io-spec-unix.t.............................. 130    0    0    0  130
 S32-io/io-spec-win.t............................... 206    0    0    3  209
      3 skipped: Win32ish on-platform tests
-S32-io/move.t......................................  29    0    0    0   29
+S32-io/move.t......................................  27    2    0    0   29
 S32-io/note.t......................................   6    0    0    0    6
 S32-io/other.t.....................................  60    0    0    0   60
 S32-io/pipe.t......................................  14    0    0    0   14
@@ -1450,12 +1457,12 @@ S32-list/grep.rakudo.jvm...........................  25    0    0   12   37
 S32-list/join.t....................................  38    0    0    0   38
 S32-list/last-index.rakudo.jvm.....................  23    0    0    2   25
      2 skipped: adverbial block RT #124754
-S32-list/map.rakudo.jvm............................  49    2    0    6   57
+S32-list/map.rakudo.jvm............................  47    4    0    6   57
      1 skipped: Too few positionals passed; expected 3 arguments but got 1; RT #125146
      1 skipped: Too few positionals passed; expected 5 arguments but got 4; RT #125146
      2 skipped: adverbial block RT #124752
      2 skipped: closure as non-final argument RT #124753
-     2 tests aborted (missing ok/not ok)
+     4 tests aborted (missing ok/not ok)
 S32-list/map_function_return_values.t..............   2    0    0    0    2
 S32-list/minmax.rakudo.jvm.........................  99    0    0    2  101
      2 skipped: post-GLR
@@ -1608,9 +1615,8 @@ S32-str/starts-with.t..............................   8    0    0    0    8
 S32-str/substr-eq.t................................  12    0    0    0   12
 S32-str/substr-rw.rakudo.jvm.......................  31    0    8    0   39
      8 todo   : NYI
-S32-str/substr.rakudo.jvm..........................  53    0    2    2   57
+S32-str/substr.rakudo.jvm..........................  53    0    1    2   56
      2 skipped: java.nio.charset.MalformedInputException RT #124692
-     1 todo   : This seems unneccessarily restrictive RT \#124695
      1 todo   : codepoints greater than 0xFFFF RT \#124692
 S32-str/tc.rakudo.jvm..............................   6    0    3    0    9
      2 todo   : NYI RT \#124683
@@ -1785,30 +1791,30 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
 "S02",        5511,    20,   111,   380,  6022,  6021
-"S03",        5347,    21,   119,    75,  5562,  5580
+"S03",        5351,    21,   119,    75,  5566,  5584
 "S04",        1201,    25,    48,    32,  1306,  1338
 "S05",        4787,   767,    86,   149,  5789,  6035
-"S06",        1961,    31,    54,    88,  2134,  2205
+"S06",        1653,   338,    55,    87,  2133,  2204
 "S07",           0,     0,     0,     0,     0,    96
 "S09",        1955,     0,    11,    37,  2003,  2003
 "S10",         104,     0,     6,     1,   111,   168
 "S11",          90,     0,    28,    11,   129,   148
-"S12",        1496,     1,    49,   142,  1688,  1743
+"S12",        1495,     1,    50,   142,  1688,  1743
 "S13",          58,     0,     2,     1,    61,    71
 "S14",         344,     2,     8,     6,   360,   373
 "S15",          37,     7,     4,    35,    83, 78582
 "S16",         444,    51,     0,    16,   511,   559
-"S17",         794,     0,     5,    22,   821,   869
+"S17",         793,     1,     5,    22,   821,   869
 "S19",          14,     0,     0,     0,    14,    18
 "S22",          23,     0,     0,     1,    24,    24
 "S24",          18,     0,     0,     0,    18,    89
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         350,     0,     3,     3,   356,   356
-"S32",       11745,   322,   190,   173, 12430, 10672
+"S32",       11744,   321,   190,   174, 12429, 10671
 "int",        1245,    26,     8,    14,  1293,  1286
 "ros",           2,     0,     0,     0,     2,     2
-"total",     39442,  1273,   740,  1333, 42788,120326
+"total",     39135,  1580,   742,  1333, 42790,120328
 ----------------
 Failure summary:
 S02-magicals/sub.rakudo.jvm aborted 2 test(s)
@@ -1856,13 +1862,21 @@ S05-modifier/repetition-exhaustive.rakudo.jvm aborted 5 test(s)
 S05-modifier/repetition.t aborted 12 test(s)
 S05-substitution/subst.rakudo.jvm aborted 130 test(s)
 S06-advanced/callframe.rakudo.jvm aborted 2 test(s)
-S06-currying/misc.rakudo.jvm aborted 1 test(s)
+S06-currying/assuming-and-mmd.t 1 - Assumptive Blocks
+S06-currying/assuming-and-mmd.t aborted 2 test(s)
+S06-currying/misc.rakudo.jvm aborted 13 test(s)
+S06-currying/named.t aborted 27 test(s)
+S06-currying/positional.t aborted 227 test(s)
+S06-currying/slurpy.t aborted 32 test(s)
 S06-multi/proto.rakudo.jvm 13 - dispatch on class worked (anon cap)
 S06-multi/proto.rakudo.jvm 14 - dispatch with no possible candidates fell back to proto (anon cap)
 S06-multi/proto.rakudo.jvm 15 - impossible dispatch failed (anon cap)
 S06-multi/subsignature.rakudo.jvm 37 - slurpy and named interact well (2)
+S06-signature/arity.t aborted 4 test(s)
 S06-signature/sigilless.t aborted 8 test(s)
 S06-signature/slurpy-params.rakudo.jvm aborted 14 test(s)
+S06-traits/misc.rakudo.jvm 1 - can't modify parameter, constant by default
+S06-traits/misc.rakudo.jvm 3 - can't modify constant parameter, constant by default
 S06-traits/misc.rakudo.jvm 5 - is rw dies in signature bidning if passed a literal Int
 S06-traits/misc.rakudo.jvm 6 - is rw dies in signature bidning if passed an itemized array
 S12-subset/subtypes.t 44 - subtypes based on roles work
@@ -1870,9 +1884,10 @@ S14-roles/basic.rakudo.jvm 26 - type-check passes when role mixed in
 S14-roles/mixin.t 27 - RT #100782 2/2
 S15-literals/identifiers.t aborted 7 test(s)
 S16-filehandles/io.rakudo.jvm aborted 51 test(s)
-S32-io/IO-Socket-Async.rakudo.jvm 2 - Async connect to unavailable server breaks promise
-S32-io/IO-Socket-Async.rakudo.jvm aborted 4 test(s)
-S32-list/map.rakudo.jvm aborted 2 test(s)
+S17-scheduler/every.t 4 - Cue with :every :stop schedules repeatedly
+S32-io/move.t 20 - did we throws-like X::IO::Move?
+S32-io/move.t 22 - move createonly fail
+S32-list/map.rakudo.jvm aborted 4 test(s)
 S32-list/squish.t aborted 34 test(s)
 S32-list/unique.t aborted 20 test(s)
 S32-num/rshift_pos_amount.t aborted 189 test(s)
