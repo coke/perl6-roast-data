@@ -184,10 +184,10 @@ S02-types/array_extending.t........................  21    0    0    0   21
 S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.t.........................  18    0    0    0   18
 S02-types/autovivification.t.......................  25    0    0    0   25
-S02-types/bag.rakudo.jvm........................... 192    2    3    0  197
+S02-types/bag.rakudo.jvm........................... 194    0    3    0  197
      2 todo   : ?
      1 todo   : we have not secured .WHICH creation yet RT \#124454
-S02-types/baghash.rakudo.jvm....................... 221    2    2   21  246
+S02-types/baghash.rakudo.jvm....................... 223    0    2   21  246
     21 skipped: 'is TypeObject' NYI RT #124490
      2 todo   : in flux
 S02-types/bool.rakudo.jvm..........................  51    0    2    0   53
@@ -306,20 +306,20 @@ S03-junctions/autothreading.t...................... 104    0    0    0  104
 S03-junctions/boolean-context.t....................  74    0    0    0   74
 S03-junctions/misc.rakudo.jvm...................... 132    1    2    0  135
      2 todo   : junction transformed into string before attemting to match RT \#111726
-S03-metaops/cross.rakudo.jvm.......................  47    0    1    0   48
+S03-metaops/cross.rakudo.jvm.......................  49    0    1    0   50
      1 todo   : code does not die
 S03-metaops/eager-hyper.rakudo.jvm.................   7    0    1    0    8
      1 todo   : hyper NYI entirely, I guess RT \#124517
-S03-metaops/hyper.rakudo.jvm....................... 309    7    1    1  318
+S03-metaops/hyper.rakudo.jvm....................... 309    8    1    1  319
      1 skipped: EVAL(Buf) RT #122256
      1 todo   : can_meta check for meta operators NYI
-     7 tests aborted (missing ok/not ok)
-S03-metaops/not.t..................................  39    0    0    0   39
-S03-metaops/reduce.rakudo.jvm...................... 370    0    1    0  371
+     8 tests aborted (missing ok/not ok)
+S03-metaops/not.t..................................  41    0    0    0   41
+S03-metaops/reduce.rakudo.jvm...................... 371    0    1    0  372
      1 todo   : item context
-S03-metaops/reverse.rakudo.jvm.....................  39    0    1    0   40
+S03-metaops/reverse.rakudo.jvm.....................  41    0    1    0   42
      1 todo   : RT \#118791 Rxx does not yet thunk the RHS
-S03-metaops/zip.rakudo.jvm.........................  41    0    6    0   47
+S03-metaops/zip.rakudo.jvm.........................  43    0    6    0   49
      6 todo   : nom regression RT \#122230
 S03-operators/adverbial-modifiers.rakudo.jvm.......  41    0    1    0   42
      1 todo   : Multi colonpair syntax not yet understood RT \#124553
@@ -1471,8 +1471,7 @@ S32-list/map_function_return_values.t..............   2    0    0    0    2
 S32-list/minmax.rakudo.jvm.........................  99    0    0    2  101
      2 skipped: post-GLR
 S32-list/permutations.t............................   2    0    0    0    2
-S32-list/pick.rakudo.jvm...........................  55    0    2    0   57
-     1 todo   : error on pick :replace
+S32-list/pick.rakudo.jvm...........................  56    0    1    0   57
      1 todo PASSED: "Cannot .pick from an infinite list" (but not from CLI)
 S32-list/reduce.t..................................  13    0    0    0   13
 S32-list/reverse.rakudo.jvm........................  18    0    1    0   19
@@ -1794,8 +1793,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        5512,    20,   111,   379,  6022,  6021
-"S03",        5353,    21,   120,    74,  5568,  5586
+"S02",        5516,    16,   111,   379,  6022,  6021
+"S03",        5362,    22,   120,    74,  5578,  5596
 "S04",        1201,    25,    48,    32,  1306,  1338
 "S05",        4822,   767,    86,   159,  5834,  6035
 "S06",        1653,   338,    55,    87,  2133,  2204
@@ -1815,23 +1814,19 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         350,     0,     3,     3,   356,   356
-"S32",       11739,   326,   191,   173, 12429, 10671
+"S32",       11740,   326,   190,   173, 12429, 10671
 "int",        1245,    26,     8,    14,  1293,  1286
 "ros",           2,     0,     0,     0,     2,     2
-"total",     39191,  1584,   744,  1340, 42859,120352
+"total",     39205,  1581,   743,  1340, 42869,120362
 ----------------
 Failure summary:
 S02-magicals/sub.rakudo.jvm aborted 2 test(s)
 S02-names-vars/list_array_perl.t aborted 11 test(s)
 S02-names-vars/names.rakudo.jvm aborted 1 test(s)
 S02-names/is_default.rakudo.jvm 104 - did we throws-like X::Comp::Trait::NotOnNative?
-S02-types/bag.rakudo.jvm 116 - .roll(100) (1)
-S02-types/bag.rakudo.jvm 117 - .roll(100) (2)
-S02-types/baghash.rakudo.jvm 121 - .roll(100) (1)
-S02-types/baghash.rakudo.jvm 122 - .roll(100) (2)
 S02-types/declare.rakudo.jvm 19 - Assign big bigint to native won't overflow silently
 S03-junctions/misc.rakudo.jvm 135 - Do not try to auto-thread Junction type object (only case)
-S03-metaops/hyper.rakudo.jvm aborted 7 test(s)
+S03-metaops/hyper.rakudo.jvm aborted 8 test(s)
 S03-operators/increment.t 16 - can't postincrement a literal number
 S03-operators/increment.t 17 - can't preincrement a literal number
 S03-operators/increment.t 18 - can't postdecrement a literal number
