@@ -381,7 +381,7 @@ S03-operators/identity.rakudo.jvm..................  37    0    8    0   45
      4 todo   : unspecced
 S03-operators/increment.t..........................  28    9    0    0   37
 S03-operators/infixed-function.t...................   5    0    0    0    5
-S03-operators/inplace.rakudo.jvm...................  23    0    0    4   27
+S03-operators/inplace.rakudo.jvm...................  27    0    0    4   31
      4 skipped: Method '' not found for invocant of class 'Str' RT #124528
 S03-operators/is-divisible-by.rakudo.jvm...........  14    0    1    0   15
      1 todo   : not sure why this doesn't fire
@@ -490,7 +490,7 @@ S04-exception-handlers/catch.t.....................  30    0    0    0   30
 S04-exception-handlers/control.t...................  10    0    0    0   10
 S04-exception-handlers/top-level.t.................   1    0    0    0    1
 S04-exceptions/control_across_runloop.t............   1    0    0    0    1
-S04-exceptions/fail.t..............................  27    0    0    0   27
+S04-exceptions/fail.t..............................  26    1    0    0   27
 S04-exceptions/pending.rakudo.jvm..................   6    0    1   14   21
     13 skipped: $!.pending
      1 skipped: $object.handled
@@ -573,7 +573,7 @@ S04-statements/return.rakudo.jvm...................  19    0    1    0   20
      1 todo   : lexotic return
 S04-statements/sink.t..............................   2    0    0    0    2
 S04-statements/terminator.t........................  20    0    0    0   20
-S04-statements/try.t...............................  40    0    0    0   40
+S04-statements/try.t...............................  39    1    0    0   40
 S04-statements/unless.t............................  10    0    0    0   10
 S04-statements/until.t.............................   4    0    0    0    4
 S04-statements/when.t..............................  18    0    0    0   18
@@ -1766,7 +1766,7 @@ integration/advent2014-day05.rakudo.jvm............   6    0    0    1    7
 integration/advent2014-day13.t.....................  13    0    0    0   13
 integration/advent2014-day16.t.....................  21    0    0    0   21
 integration/code-blocks-as-sub-args.t..............   4    0    0    0    4
-integration/error-reporting.rakudo.jvm.............  21    0    1    0   22
+integration/error-reporting.rakudo.jvm.............  20    1    1    0   22
      1 todo   : nigh
 integration/lazy-bentley-generator.t...............   1    0    0    0    1
 integration/lexical-array-in-inner-block.t.........   2    0    0    0    2
@@ -1794,8 +1794,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
 "S02",        5516,    16,   111,   379,  6022,  6021
-"S03",        5362,    22,   120,    74,  5578,  5596
-"S04",        1201,    25,    48,    32,  1306,  1338
+"S03",        5366,    22,   120,    74,  5582,  5600
+"S04",        1199,    27,    48,    32,  1306,  1338
 "S05",        4822,   767,    86,   159,  5834,  6035
 "S06",        1653,   338,    55,    87,  2133,  2204
 "S07",          22,     0,     0,     0,    22,   118
@@ -1815,9 +1815,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         350,     0,     3,     3,   356,   356
 "S32",       11740,   326,   190,   173, 12429, 10671
-"int",        1245,    26,     8,    14,  1293,  1286
+"int",        1244,    27,     8,    14,  1293,  1286
 "ros",           2,     0,     0,     0,     2,     2
-"total",     39205,  1581,   743,  1340, 42869,120362
+"total",     39206,  1584,   743,  1340, 42873,120366
 ----------------
 Failure summary:
 S02-magicals/sub.rakudo.jvm aborted 2 test(s)
@@ -1841,6 +1841,7 @@ S04-declarations/will.rakudo.jvm 8 - for iteration #1
 S04-declarations/will.rakudo.jvm 9 - for iteration #2
 S04-declarations/will.rakudo.jvm 10 - for iteration #3
 S04-declarations/will.rakudo.jvm 11 - all for blocks set variable
+S04-exceptions/fail.t 27 - Failure reports backtrace from its creation point.
 S04-phasers/first.t 1 - FIRST only ran once
 S04-phasers/first.t 3 - multiple FIRST {} ran in order
 S04-phasers/first.t 4 - FIRST {} ran before ENTER {}
@@ -1850,6 +1851,7 @@ S04-statements/label.t aborted 4 test(s)
 S04-statements/last.t aborted 2 test(s)
 S04-statements/next.t aborted 6 test(s)
 S04-statements/redo.t aborted 1 test(s)
+S04-statements/try.t 32 - When $! is set, die() is die($!).
 S05-mass/properties-general.rakudo.jvm aborted 502 test(s)
 S05-modifier/counted-match.rakudo.jvm 2 - did we throws-like Exception?
 S05-modifier/counted-match.rakudo.jvm 3 - did we throws-like Exception?
@@ -1900,3 +1902,4 @@ S32-str/split.rakudo.jvm aborted 31 test(s)
 integration/99problems-11-to-20.t aborted 24 test(s)
 integration/advent2010-day19.rakudo.jvm 4 - 42 but False
 integration/advent2012-day15.t 9 - FIRST/NEXT/LAST example
+integration/error-reporting.rakudo.jvm 20 - Thrown Failure outputs dual backtraces
