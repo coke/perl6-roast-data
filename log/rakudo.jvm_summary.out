@@ -184,10 +184,10 @@ S02-types/array_extending.t........................  21    0    0    0   21
 S02-types/array_ref.t..............................  45    0    0    0   45
 S02-types/assigning-refs.t.........................  18    0    0    0   18
 S02-types/autovivification.t.......................  25    0    0    0   25
-S02-types/bag.rakudo.jvm........................... 194    0    3    0  197
+S02-types/bag.rakudo.jvm........................... 195    3    3    0  201
      2 todo   : ?
      1 todo   : we have not secured .WHICH creation yet RT \#124454
-S02-types/baghash.rakudo.jvm....................... 223    0    2   21  246
+S02-types/baghash.rakudo.jvm....................... 231    0    2   21  254
     21 skipped: 'is TypeObject' NYI RT #124490
      2 todo   : in flux
 S02-types/bool.rakudo.jvm..........................  51    0    2    0   53
@@ -230,13 +230,13 @@ S02-types/lazy-lists.t.............................  23    0    0    0   23
 S02-types/list.t...................................  59    0    0    0   59
 S02-types/lists.rakudo.jvm.........................  29    0    0    3   32
      3 skipped: list binding RT #124494
-S02-types/mix.rakudo.jvm........................... 175    0    3    0  178
+S02-types/mix.rakudo.jvm........................... 176    3    3    0  182
      2 todo   : ?
      1 todo   : we have not secured .WHICH creation yet RT \#124496
 S02-types/mixed_multi_dimensional.rakudo.jvm.......  77    0    3    0   80
      1 todo   : isa hash
      2 todo   : unknown
-S02-types/mixhash.rakudo.jvm....................... 186    0    2   21  209
+S02-types/mixhash.rakudo.jvm....................... 194    0    2   21  217
     21 skipped: 'is TypeObject' NYI RT #124490
      2 todo   : in flux
 S02-types/multi_dimensional_array.rakudo.jvm.......  48    0    0   10   58
@@ -821,7 +821,7 @@ S06-operator-overloading/imported-subs.t...........  19    0    0    0   19
 S06-operator-overloading/methods.rakudo.jvm........   2    0    1    0    3
      1 todo   : nom regression RT \#124988
 S06-operator-overloading/semicolon.t...............   3    0    0    0    3
-S06-operator-overloading/sub.rakudo.jvm............  61    0    2   14   77
+S06-operator-overloading/sub.rakudo.jvm............  65    3    2   14   84
      1 skipped: cannot bind with this LHS RT #124979
      1 skipped: infix Z will never work; no lexical Z RT #124983
      2 skipped: macros RT #124978
@@ -834,6 +834,7 @@ S06-operator-overloading/sub.rakudo.jvm............  61    0    2   14   77
      1 skipped: undeclared name
      1 todo   : RT \#65638
      1 todo   : infix:<;> RT \#124981
+     3 tests aborted (missing ok/not ok)
 S06-operator-overloading/term.t....................   9    0    0    0    9
 S06-operator-overloading/workout.t.................  84    0    0    0   84
 S06-other/anon-hashes-vs-blocks.t..................  26    0    0    0   26
@@ -1130,8 +1131,7 @@ S12-subset/multi-dispatch.t........................   6    0    0    0    6
 S12-subset/subtypes.t..............................  76    1    0    0   77
                                                    pass fail todo skip plan
 S13-overloading/metaoperators.t....................  11    0    0    0   11
-S13-overloading/operators.rakudo.jvm...............   4    0    0    1    5
-     1 skipped: cannot easily override {} at the moment
+S13-overloading/operators.t........................   6    0    0    0    6
 S13-overloading/typecasting-long.rakudo.jvm........  30    0    2    0   32
      2 todo   : RT \#112642 A() unwanted magic for :(A:U) with an overloaded .()
 S13-type-casting/methods.t.........................  13    0    0    0   13
@@ -1793,17 +1793,17 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        5516,    16,   111,   379,  6022,  6021
+"S02",        5534,    22,   111,   379,  6046,  6045
 "S03",        5366,    22,   120,    74,  5582,  5600
 "S04",        1199,    27,    48,    32,  1306,  1338
 "S05",        4822,   767,    86,   159,  5834,  6035
-"S06",        1653,   338,    55,    87,  2133,  2204
+"S06",        1657,   341,    55,    87,  2140,  2211
 "S07",          22,     0,     0,     0,    22,   118
 "S09",        1955,     0,    11,    37,  2003,  2003
 "S10",         104,     0,     6,     1,   111,   168
 "S11",          90,     0,    28,    11,   129,   148
 "S12",        1495,     1,    50,   142,  1688,  1743
-"S13",          58,     0,     2,     1,    61,    71
+"S13",          60,     0,     2,     0,    62,    72
 "S14",         344,     2,     8,     6,   360,   373
 "S15",          37,     7,     4,    35,    83, 78582
 "S16",         444,    51,     0,    16,   511,   559
@@ -1817,14 +1817,20 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",       11740,   326,   190,   173, 12429, 10671
 "int",        1244,    27,     8,    14,  1293,  1286
 "ros",           2,     0,     0,     0,     2,     2
-"total",     39206,  1584,   743,  1340, 42873,120366
+"total",     39230,  1593,   743,  1339, 42905,120398
 ----------------
 Failure summary:
 S02-magicals/sub.rakudo.jvm aborted 2 test(s)
 S02-names-vars/list_array_perl.t aborted 11 test(s)
 S02-names-vars/names.rakudo.jvm aborted 1 test(s)
 S02-names/is_default.rakudo.jvm 104 - did we throws-like X::Comp::Trait::NotOnNative?
+S02-types/bag.rakudo.jvm 199 - Make sure we cannot assign on a .values alias
+S02-types/bag.rakudo.jvm 200 - Make sure we cannot assign on a .pairs alias
+S02-types/bag.rakudo.jvm 201 - Make sure we cannot assign on a .kv alias
 S02-types/declare.rakudo.jvm 19 - Assign big bigint to native won't overflow silently
+S02-types/mix.rakudo.jvm 180 - Make sure we cannot assign on a .values alias
+S02-types/mix.rakudo.jvm 181 - Make sure we cannot assign on a .pairs alias
+S02-types/mix.rakudo.jvm 182 - Make sure we cannot assign on a .kv alias
 S03-junctions/misc.rakudo.jvm 135 - Do not try to auto-thread Junction type object (only case)
 S03-metaops/hyper.rakudo.jvm aborted 8 test(s)
 S03-operators/increment.t 16 - can't postincrement a literal number
@@ -1873,6 +1879,7 @@ S06-multi/proto.rakudo.jvm 13 - dispatch on class worked (anon cap)
 S06-multi/proto.rakudo.jvm 14 - dispatch with no possible candidates fell back to proto (anon cap)
 S06-multi/proto.rakudo.jvm 15 - impossible dispatch failed (anon cap)
 S06-multi/subsignature.rakudo.jvm 37 - slurpy and named interact well (2)
+S06-operator-overloading/sub.rakudo.jvm aborted 3 test(s)
 S06-signature/arity.t aborted 4 test(s)
 S06-signature/sigilless.t aborted 8 test(s)
 S06-signature/slurpy-params.rakudo.jvm aborted 14 test(s)
