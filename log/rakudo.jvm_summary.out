@@ -610,7 +610,8 @@ S05-grammar/polymorphism.t.........................  28    0    0    0   28
 S05-grammar/protoregex.rakudo.jvm..................  29    0    2    0   31
      2 todo   : RT \#120146
 S05-grammar/protos.t...............................   4    0    0    0    4
-S05-grammar/signatures.t...........................   2    0    0    0    2
+S05-grammar/signatures.rakudo.jvm..................   3    0    7    0   10
+     7 todo PASSED: Regex compiler needs updating for these arg kinds
 S05-grammar/ws.rakudo.jvm..........................  10    0    0    2   12
      2 skipped: infinite loop: RT #64094 (noauto)
 S05-interpolation/lexicals.t.......................  14    0    0    0   14
@@ -653,7 +654,7 @@ S05-mass/rx.rakudo.jvm............................. 716    0    4   14  734
      1 todo   : RT \#121307
      1 todo   : anchors and after RT \#124898
      1 todo   : parse error RT \#124903
-S05-mass/stdrules.t................................ 188    0    0    0  188
+S05-mass/stdrules.t................................ 191    0    0    0  191
 S05-match/arrayhash.t..............................   8    0    0    0    8
 S05-match/blocks.rakudo.jvm........................  18    0    1    0   19
      1 todo   : Assignment to matched string affects earlier match objects
@@ -804,8 +805,7 @@ S06-macros/unquoting.t.............................   6    0    0    0    6
 S06-multi/lexical-multis.rakudo.jvm................  14    0    1    0   15
      1 todo   : lexical scope as tie breaker
 S06-multi/positional-vs-named.t....................  27    0    0    0   27
-S06-multi/proto.rakudo.jvm.........................  22    3    1    5   31
-     5 skipped: redeclaration of routine 'bar' RT #118069
+S06-multi/proto.rakudo.jvm.........................  22    3    1    0   26
      1 todo   : operator protos
 S06-multi/redispatch.t.............................  14    0    0    0   14
 S06-multi/subsignature.rakudo.jvm..................  86    1    8    5  100
@@ -814,7 +814,7 @@ S06-multi/subsignature.rakudo.jvm..................  86    1    8    5  100
      5 todo   : Multimethod sort does not descend into subsignatures
      1 todo   : operator protos
 S06-multi/syntax.t.................................  41    0    0    0   41
-S06-multi/type-based.rakudo.jvm....................  60    0    4    0   64
+S06-multi/type-based.rakudo.jvm....................  62    0    4    0   66
      4 todo   : coercions need to fail like constraints RT \#124772
 S06-multi/unpackability.t..........................  10    0    0    0   10
 S06-multi/value-based.t............................  13    0    0    0   13
@@ -906,7 +906,7 @@ S06-signature/sub-ref.rakudo.jvm...................  28    0    2    4   34
 S06-signature/tree-node-parameters.rakudo.jvm......  16    0    0    4   20
      4 skipped: signature binding of return values NYI RT #124945
 S06-signature/type-capture.t.......................  10    0    0    0   10
-S06-signature/types.t..............................   9    0    0    0    9
+S06-signature/types.t..............................  10    0    0    0   10
 S06-signature/unpack-array.t.......................  15    0    0    0   15
 S06-signature/unpack-object.t......................   4    0    0    0    4
 S06-signature/unspecified.rakudo.jvm...............  16    0    1    0   17
@@ -940,7 +940,7 @@ S09-subscript/multidim-assignment.t................  10    0    0    0   10
 S09-subscript/slice.rakudo.jvm.....................  27    0    0    4   31
      2 skipped: RT #120383
      2 skipped: RT #61844
-S09-typed-arrays/arrays.rakudo.jvm.................  72    0    2    3   77
+S09-typed-arrays/arrays.rakudo.jvm.................  74    0    2    3   79
      1 skipped: initialization RT #124676
      1 skipped: need parameterized Lists
      1 skipped: type on our-variables RT #124677
@@ -1109,8 +1109,7 @@ S12-methods/instance.t.............................  39    0    0    0   39
 S12-methods/lastcall.t.............................   6    0    0    0    6
 S12-methods/lvalue.t...............................  16    0    0    0   16
 S12-methods/method-vs-sub.t........................   5    0    0    0    5
-S12-methods/multi.rakudo.jvm.......................  27    0    2    5   34
-     2 skipped: proto does not promote to multi RT #118069
+S12-methods/multi.rakudo.jvm.......................  26    0    2    3   31
      3 skipped: unknown bug RT #124848
      1 todo   : RT \#66006
      1 todo   : RT \#74646
@@ -1803,13 +1802,13 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        5564,    18,   109,   379,  6070,  6069
 "S03",        5366,    22,   120,    74,  5582,  5600
 "S04",        1200,    27,    49,    32,  1308,  1340
-"S05",        4822,   767,    86,   159,  5834,  6035
-"S06",        1657,   341,    55,    87,  2140,  2211
+"S05",        4826,   767,    93,   159,  5845,  6046
+"S06",        1660,   341,    55,    82,  2138,  2209
 "S07",          22,     0,     0,     0,    22,   118
-"S09",        1955,     0,    11,    37,  2003,  2003
+"S09",        1957,     0,    11,    37,  2005,  2005
 "S10",         104,     0,     6,     1,   111,   168
 "S11",          90,     0,    28,    11,   129,   148
-"S12",        1495,     1,    50,   142,  1688,  1743
+"S12",        1494,     1,    50,   140,  1685,  1740
 "S13",          60,     0,     2,     0,    62,    72
 "S14",         344,     2,     8,     6,   360,   373
 "S15",          37,     7,     4,    35,    83, 78582
@@ -1824,7 +1823,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",       11740,   326,   190,   173, 12429, 10671
 "int",        1244,    27,     8,    14,  1293,  1286
 "ros",           2,     0,     0,     0,     2,     2
-"total",     39307,  1547,   748,  1339, 42941,120434
+"total",     39315,  1547,   755,  1332, 42949,120442
 ----------------
 Failure summary:
 S02-magicals/sub.rakudo.jvm aborted 2 test(s)
@@ -1878,9 +1877,9 @@ S06-currying/misc.rakudo.jvm aborted 13 test(s)
 S06-currying/named.t aborted 27 test(s)
 S06-currying/positional.t aborted 227 test(s)
 S06-currying/slurpy.t aborted 32 test(s)
-S06-multi/proto.rakudo.jvm 13 - dispatch on class worked (anon cap)
-S06-multi/proto.rakudo.jvm 14 - dispatch with no possible candidates fell back to proto (anon cap)
-S06-multi/proto.rakudo.jvm 15 - impossible dispatch failed (anon cap)
+S06-multi/proto.rakudo.jvm 8 - dispatch on class worked (anon cap)
+S06-multi/proto.rakudo.jvm 9 - dispatch with no possible candidates fell back to proto (anon cap)
+S06-multi/proto.rakudo.jvm 10 - impossible dispatch failed (anon cap)
 S06-multi/subsignature.rakudo.jvm 37 - slurpy and named interact well (2)
 S06-operator-overloading/sub.rakudo.jvm aborted 3 test(s)
 S06-signature/arity.t aborted 4 test(s)
