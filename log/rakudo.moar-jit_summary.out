@@ -399,7 +399,8 @@ S02-types/num.t....................................  66    0    0    0   66
 S02-types/pair.rakudo.moar.........................# checking Pair.new(:key,:value)
 # checking Pair.new(key,value)
 # checking pair()
- 175    0    1    0  176
+ 175    0    2    0  177
+     1 todo   : RT \#126369
      1 todo   : should it really have \n on the end?
 S02-types/parsing-bool.t...........................   4    0    0    0    4
 S02-types/range.t..................................Use of uninitialized value of type Range in numeric context  in block <unit> at t/spec/S02-types/range.t:87
@@ -483,16 +484,17 @@ S03-metaops/cross.rakudo.moar......................
      1 todo   : code does not die
 S03-metaops/eager-hyper.rakudo.moar................   7    0    1    0    8
      1 todo   : hyper NYI entirely, I guess RT \#124517
-S03-metaops/hyper.rakudo.moar......................Use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-metaops/hyper.rakudo.moar:502
-Use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-metaops/hyper.rakudo.moar:508
-Use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-metaops/hyper.rakudo.moar:530
-Use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-metaops/hyper.rakudo.moar:541
+S03-metaops/hyper.rakudo.moar......................Use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-metaops/hyper.rakudo.moar:592
+Use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-metaops/hyper.rakudo.moar:598
+Use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-metaops/hyper.rakudo.moar:620
+Use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-metaops/hyper.rakudo.moar:631
     
 # Failed test ''my @a >>[=]>> (1,2,3)' died'
-# at t/spec/S03-metaops/hyper.rakudo.moar line 873
+# at t/spec/S03-metaops/hyper.rakudo.moar line 963
     # Looks like you failed 1 test of 2
- 317    0    1    1  319
+ 383    0    1    2  386
      1 skipped: EVAL(Buf) RT #122256
+     1 skipped: doesn't seem to see the nodal
      1 todo   : can_meta check for meta operators NYI
 S03-metaops/not.t..................................  41    0    0    0   41
 S03-metaops/reduce.rakudo.moar.....................Use of uninitialized value <element> of type Any in string context
@@ -538,6 +540,10 @@ S03-operators/assign.rakudo.moar................... 264    0   16   14  294
      3 todo   : list assignment, autovivification (?)
 S03-operators/autoincrement-range.t................# Tests for 'a' .. 'z'
 # Tests for 'Α' .. 'Ω' (Greek uppercase)
+WARNING: unhandled Failure detected in DESTROY:
+Decrement out of range
+  in block <unit> at t/spec/S03-operators/autoincrement-range.t:58
+
 WARNING: unhandled Failure detected in DESTROY:
 Decrement out of range
   in block <unit> at t/spec/S03-operators/autoincrement-range.t:37
@@ -835,8 +841,8 @@ S03-operators/mix.rakudo.moar...................... 102    0   26    0  128
      8 todo   : Rakudo update in progress, but not done yet RT \#124541
      4 todo   : Wrong answer at the moment
      8 todo   : submix behavior still under discussion
-S03-operators/names.t..............................Sub+{<anon|56137408>}+{Precedence} object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:14
-Sub+{<anon|56137408>}+{Precedence} object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:16
+S03-operators/names.t..............................Sub+{<anon|64545632>}+{Precedence} object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:14
+Sub+{<anon|64545632>}+{Precedence} object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:16
    7    0    0    0    7
 S03-operators/nesting.t............................  26    0    0    0   26
 S03-operators/not.t................................  22    0    0    0   22
@@ -1738,10 +1744,10 @@ Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed. 
 Use of uninitialized value $_ of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-5629-796107.code:4
+#   in block <unit> at getout-11308-782421.code:4
 
 # Actually thrown at:
-#   in block <unit> at getout-5629-796107.code:4
+#   in block <unit> at getout-11308-782421.code:4
 
 
   33    0    3    0   36
@@ -2091,8 +2097,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  10    0    0    0   10
-S16-filehandles/chmod.t............................# Using file temp_1444920455
-# Using file temp_1444920455
+S16-filehandles/chmod.t............................# Using file temp_1445000988
+# Using file temp_1445000988
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2270,7 +2276,7 @@ S17-supply/stable.rakudo.moar......................# **** scheduling with Thread
 S17-supply/start.t.................................   9    0    0    0    9
 S17-supply/syntax.t................................  53    0    0    0   53
 S17-supply/throttle.t..............................# **** scheduling with ThreadPoolScheduler
-   4    0    0    0    4
+   7    0    0    0    7
 S17-supply/unique.t................................# **** scheduling with ThreadPoolScheduler
 # **** scheduling with CurrentThreadScheduler
   17    0    0    0   17
@@ -2804,6 +2810,19 @@ S32-array/pop.rakudo.moar..........................
 # Failed test ''@pop.pop = 3' died'
 # at t/spec/S32-array/pop.rakudo.moar line 92
     # Looks like you failed 1 test of 2
+WARNING: unhandled Failure detected in DESTROY:
+Cannot pop from an empty Array
+  in block <unit> at t/spec/S32-array/pop.rakudo.moar:72
+
+WARNING: unhandled Failure detected in DESTROY:
+Cannot pop from an empty Array
+  in block <unit> at t/spec/S32-array/pop.rakudo.moar:64
+
+WARNING: unhandled Failure detected in DESTROY:
+Cannot pop from an empty Array
+  in block  at t/spec/S32-array/pop.rakudo.moar:42
+  in block <unit> at t/spec/S32-array/pop.rakudo.moar:14
+
   35    0    2    0   37
      1 todo   : RT \#111720
      1 todo   : code does not die
@@ -4043,13 +4062,9 @@ S32-hash/slice.rakudo.moar.........................  19    0   10    0   29
      6 todo   : binding on hash elements unimplemented
      2 todo   : binding on hash elements unimplemented RT \#124779
      2 todo   : binding on hash elements unimplemented RT \#124780
-S32-io/IO-Socket-Async.rakudo.moar.................connection reset by peer
-  in block <unit> at t/spec/S32-io/IO-Socket-Async.rakudo.moar:80
-
-# Looks like you planned 6 tests, but ran 4
-   3    2    0    1    6
+S32-io/IO-Socket-Async.rakudo.moar.................   4    0    0    2    6
      1 skipped: Flapping RT #122318
-     2 tests aborted (missing ok/not ok)
+     1 skipped: RT #122318 - test is flapping
 S32-io/IO-Socket-INET.t............................   0    0    0   47   47
     47 skipped: Operating system not yet supported
 S32-io/chdir.rakudo.moar...........................   8    0    0    2   10
@@ -4490,14 +4505,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# kaz: 0.497110 seconds
-# gerdr: 0.53136881 seconds
-# loop: 0.69537006 seconds
-# recursive-ternary: 0.7186801 seconds
-# hand-memoization: 1.1512057 seconds
-# sequence-ternary: 1.3022075 seconds
-# recursive-ternary-hand-cached: 2.48945000 seconds
-# sequence: 3.095732 seconds
+integration/advent2012-day21.t.....................# kaz: 0.34258003 seconds
+# gerdr: 0.35698859 seconds
+# loop: 0.6681019 seconds
+# recursive-ternary: 0.74034292 seconds
+# hand-memoization: 0.9592447 seconds
+# sequence-ternary: 1.2470116 seconds
+# recursive-ternary-hand-cached: 2.176398 seconds
+# sequence: 2.6407945 seconds
    9    0    0    0    9
 integration/advent2012-day22.t.....................   6    0    0    0    6
 integration/advent2012-day23.t.....................   2    0    0    0    2
@@ -4554,7 +4569,7 @@ Useless use of constant integer 42 in sink context (line 1)
     
 # Failed test 'precompiled EVAL in BEGIN (Compiled)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Compile.pm line 338
-    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmodEEF76A2F/p6testmodEE5DE9F2.pm6')
+    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmod2878DB99/p6testmod03046301.pm6')
     # Looks like you failed 1 test of 2
    5    0    2    0    7
      1 todo   : RT \#124324 Missing or wrong version of dependency
@@ -4575,8 +4590,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        5839,     0,    94,   355,  6288,  6287
-"S03",        5394,     0,   114,    74,  5582,  5600
+"S02",        5839,     0,    95,   355,  6289,  6288
+"S03",        5460,     0,   114,    75,  5649,  5667
 "S04",        1314,     0,    43,    27,  1384,  1416
 "S05",        5696,     0,    87,    96,  5879,  6049
 "S06",        2051,     0,    59,    80,  2190,  2241
@@ -4589,21 +4604,20 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         348,     0,     8,     5,   361,   374
 "S15",       78569,     0,     7,    18, 78594, 78614
 "S16",         503,     0,     2,    16,   521,   569
-"S17",        1081,     1,    35,    30,  1147,  1147
+"S17",        1084,     1,    35,    30,  1150,  1150
 "S19",          14,     0,     0,     0,    14,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",          18,     0,     0,     0,    18,    89
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",          13,     0,     0,     0,    13,    13
 "S29",         351,     0,     3,     2,   356,   356
-"S32",       12285,     3,   188,   157, 12633, 10875
+"S32",       12286,     1,   188,   158, 12633, 10875
 "int",        1276,     0,    10,    14,  1300,  1286
 "ros",           2,     0,     0,     0,     2,     2
-"total",    120497,    18,   720,  1206,122441,121343
+"total",    120567,    16,   721,  1208,122512,121414
 ----------------
 Failure summary:
 S11-modules/require.rakudo.moar 3 - can load InnerModule from a path at run time
 S11-modules/require.rakudo.moar aborted 13 test(s)
 S17-promise/stress.t aborted 1 test(s)
-S32-io/IO-Socket-Async.rakudo.moar aborted 2 test(s)
 S32-num/power.rakudo.moar 11 - -1 ** 4553535345364535345634543534 == 1
