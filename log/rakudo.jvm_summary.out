@@ -543,11 +543,11 @@ S04-statements/do.rakudo.jvm.......................  21    0    1    7   29
      1 todo   : Rakudo still uses Nil here RT \#124572
 S04-statements/for-scope.t.........................  16    0    0    0   16
 S04-statements/for.rakudo.jvm......................  87    1    6    0   94
-     2 todo   : RT \#123005 RT \#118705
      1 todo   : Rakudo still uses Nil here RT \#124568
      1 todo   : Rakudo still uses Nil here RT \#124569
      1 todo   : gives "" instead of "0 1"
      1 todo   : gives Any instead of ()
+     2 todo PASSED: RT \#123005 RT \#118705
 S04-statements/for_with_only_one_item.t............  12    0    0    0   12
 S04-statements/gather.rakudo.jvm...................  30    0    0    3   33
      2 skipped: RT #66820, and hangs under GLR
@@ -574,12 +574,12 @@ S04-statements/return.rakudo.jvm...................  19    0    1    0   20
 S04-statements/sink.t..............................   2    0    0    0    2
 S04-statements/terminator.t........................  20    0    0    0   20
 S04-statements/try.t...............................  40    0    0    0   40
-S04-statements/unless.t............................  10    0    0    0   10
+S04-statements/unless.t............................  11    0    0    0   11
 S04-statements/until.t.............................   4    0    0    0    4
 S04-statements/when.t..............................  18    0    0    0   18
 S04-statements/while.t.............................  10    0    0    0   10
-S04-statements/with.rakudo.jvm.....................   4    0    3    0    7
-     3 todo   : $_ not yet set in with/without block
+S04-statements/with.t..............................  75    5    0    0   80
+     1 tests aborted (missing ok/not ok)
                                                    pass fail todo skip plan
 S05-capture/alias.rakudo.jvm.......................  25    0    3    2   30
      2 skipped: Package variable capture RT #125122
@@ -924,7 +924,7 @@ S06-traits/misc.rakudo.jvm.........................  14    4    2    0   20
      2 todo   : is readonly does not override
 S06-traits/native-is-copy.t........................  15    0    0    0   15
 S06-traits/native-is-rw.t..........................  48    0    0    0   48
-S06-traits/precedence.rakudo.jvm...................   9    0    1    0   10
+S06-traits/precedence.rakudo.jvm...................  14    0    1    0   15
      1 todo   : changing precedence of already declared op
 S06-traits/slurpy-is-rw.t..........................   3    0    0    0    3
                                                    pass fail todo skip plan
@@ -1284,7 +1284,7 @@ S17-supply/stable.rakudo.jvm.......................   5    0    0    2    7
 S17-supply/start.t.................................   9    0    0    0    9
 S17-supply/syntax.t................................  53    0    0    0   53
 S17-supply/throttle.t..............................   6    1    0    0    7
-S17-supply/unique.t................................  16    1    0    0   17
+S17-supply/unique.t................................  17    0    0    0   17
 S17-supply/wait.t..................................   4    0    0    0    4
 S17-supply/watch-path.rakudo.jvm...................   2    0    0    0    2
 S17-supply/words.t.................................   5    0    0    0    5
@@ -1410,7 +1410,7 @@ S32-hash/keys_values.t.............................  14    0    0    0   14
 S32-hash/kv.t......................................  27    0    0    0   27
 S32-hash/pairs.t...................................  25    0    0    0   25
 S32-hash/perl.t....................................  12    0    0    0   12
-S32-hash/push.t....................................   7    0    0    0    7
+S32-hash/push.t....................................  10    0    0    0   10
 S32-hash/slice.rakudo.jvm..........................  19    0   10    0   29
      6 todo   : binding on hash elements unimplemented
      2 todo   : binding on hash elements unimplemented RT \#124779
@@ -1574,7 +1574,8 @@ S32-str/rindex.t...................................  43    0    0    0   43
 S32-str/samecase.t.................................   8    0    0    0    8
 S32-str/samemark.rakudo.jvm........................   0    0    0    7    7
      7 skipped: samemark NYI - RT #125165
-S32-str/split-simple.t.............................  29    0    0    0   29
+S32-str/split-simple.t.............................  15   14    0    0   29
+    14 tests aborted (missing ok/not ok)
 S32-str/split.rakudo.jvm...........................  22   31    0    0   53
     31 tests aborted (missing ok/not ok)
 S32-str/sprintf-b.rakudo.jvm.......................  68    0   90    7  165
@@ -1805,9 +1806,9 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S01",           0,     0,     0,    75,    75,    86
 "S02",        5780,    23,   107,   379,  6289,  6288
 "S03",        5434,    23,   114,    75,  5646,  5664
-"S04",        1279,    25,    48,    32,  1384,  1416
+"S04",        1351,    30,    45,    32,  1458,  1490
 "S05",        4836,   767,    86,   159,  5848,  6049
-"S06",        1700,   348,    59,    83,  2190,  2241
+"S06",        1705,   348,    59,    83,  2195,  2246
 "S07",          22,     0,     0,     0,    22,   118
 "S09",        1957,     0,    11,    37,  2005,  2005
 "S10",         104,     0,     6,     1,   111,   168
@@ -1817,17 +1818,17 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         345,     2,     8,     6,   361,   374
 "S15",          37,     7,     4,    35,    83, 78614
 "S16",         490,     9,     6,    16,   521,   569
-"S17",         803,     2,     5,    22,   832,   880
+"S17",         804,     1,     5,    22,   832,   880
 "S19",          14,     0,     0,     0,    14,    18
 "S22",          23,     0,     0,     1,    24,    24
 "S24",          18,     0,     0,     0,    18,    89
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         350,     0,     3,     3,   356,   356
-"S32",       11855,   256,   187,   173, 12471, 10725
+"S32",       11844,   270,   187,   173, 12474, 10728
 "int",        1236,    35,     8,    14,  1293,  1286
 "ros",           2,     0,     0,     0,     2,     2
-"total",     39923,  1502,   718,  1331, 43474,120991
+"total",     39990,  1520,   715,  1331, 43556,121073
 ----------------
 Failure summary:
 S02-magicals/sub.rakudo.jvm aborted 2 test(s)
@@ -1868,6 +1869,11 @@ S04-statements/label.t aborted 4 test(s)
 S04-statements/last.t aborted 2 test(s)
 S04-statements/next.t aborted 6 test(s)
 S04-statements/redo.t aborted 1 test(s)
+S04-statements/with.t 37 - $_: with on Failure
+S04-statements/with.t 44 - $pos: with on Failure
+S04-statements/with.t 51 - $_: without on Failure
+S04-statements/with.t 58 - $pos: without on Failure
+S04-statements/with.t aborted 1 test(s)
 S05-mass/properties-general.rakudo.jvm aborted 502 test(s)
 S05-modifier/counted-match.rakudo.jvm 2 - did we throws-like Exception?
 S05-modifier/counted-match.rakudo.jvm 3 - did we throws-like Exception?
@@ -1912,7 +1918,6 @@ S16-io/bom.t 8 - BOM stripped first line is correct
 S16-io/bom.t 9 - BOM-only file slurps to empty string
 S16-io/bom.t 10 - BOM-only file reports 0 lines like empty file
 S17-supply/throttle.t 3 - difference between each at least .5 seconds
-S17-supply/unique.t 7 - unique with as and expiry works
 S32-array/adverbs.t 22 - did we throws-like X::Adverb?
 S32-array/adverbs.t 42 - did we throws-like X::Adverb?
 S32-array/adverbs.t 62 - did we throws-like X::Adverb?
@@ -2012,6 +2017,7 @@ S32-str/index.t 37 - sub does -1.0E34 give Nil
 S32-str/index.t 38 - method does -1.0E34 give Nil
 S32-str/index.t 39 - sub does -1.0E35 give Nil
 S32-str/index.t 40 - method does -1.0E35 give Nil
+S32-str/split-simple.t aborted 14 test(s)
 S32-str/split.rakudo.jvm aborted 31 test(s)
 S32-str/tc.rakudo.jvm 5 - sharp s => Ss
 S32-str/tc.rakudo.jvm 6 - lj => Lj (in one character)
