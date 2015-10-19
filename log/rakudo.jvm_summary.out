@@ -138,7 +138,7 @@ S02-names-vars/varnames.rakudo.jvm.................  11    0    2    0   13
 S02-names/bare-sigil.t.............................  11    0    0    0   11
 S02-names/caller.t.................................  15    0    0    0   15
 S02-names/identifier.t.............................  22    0    0    0   22
-S02-names/indirect.t...............................   6    0    0    0    6
+S02-names/indirect.t...............................  10    0    0    0   10
 S02-names/is_cached.rakudo.jvm.....................  36    0    2    0   38
      2 todo   : is cached is only a hint: RT \#122425
 S02-names/is_default.rakudo.jvm.................... 105    1    2    2  110
@@ -211,7 +211,7 @@ S02-types/declare.rakudo.jvm.......................  57    1    0   12   70
      1 skipped: num16  NYI RT #124481
      1 skipped: rat NYI RT #124464
 S02-types/fatrat.t.................................   1    0    0    0    1
-S02-types/flattening.t.............................  42    0    0    0   42
+S02-types/flattening.t.............................  46    0    0    0   46
 S02-types/hash.rakudo.jvm..........................  94    0    1    0   95
      1 todo   : auto-vivified binding does not work yet: RT \#118947
 S02-types/hash_ref.t...............................  31    0    0    0   31
@@ -542,12 +542,11 @@ S04-statements/do.rakudo.jvm.......................  21    0    1    7   29
      1 skipped: redo without loop construct RT #124576
      1 todo   : Rakudo still uses Nil here RT \#124572
 S04-statements/for-scope.t.........................  16    0    0    0   16
-S04-statements/for.rakudo.jvm......................  87    1    6    0   94
+S04-statements/for.rakudo.jvm......................  92    1    4    0   97
      1 todo   : Rakudo still uses Nil here RT \#124568
      1 todo   : Rakudo still uses Nil here RT \#124569
      1 todo   : gives "" instead of "0 1"
      1 todo   : gives Any instead of ()
-     2 todo PASSED: RT \#123005 RT \#118705
 S04-statements/for_with_only_one_item.t............  12    0    0    0   12
 S04-statements/gather.rakudo.jvm...................  30    0    0    3   33
      2 skipped: RT #66820, and hangs under GLR
@@ -855,8 +854,8 @@ S06-other/main.t...................................   7    0    0    0    7
 S06-other/misc.t...................................  12    0    0    0   12
 S06-other/pairs-as-lvalues.rakudo.jvm..............   3    0    0    2    5
      2 skipped: Flattening named argument must have VMHash REPR RT #124661
-S06-parameters/smiley.rakudo.jvm...................  31    0    4    0   35
-     4 todo   : not yet checking parameters pragma
+S06-parameters/smiley.rakudo.jvm...................   0   35    0    0   35
+    35 tests aborted (missing ok/not ok)
 S06-routine-modifiers/lvalue-subroutines.t.........  14    0    0    0   14
 S06-routine-modifiers/native-lvalue-subroutines.t..  18    0    0    0   18
 S06-routine-modifiers/proxy.rakudo.jvm.............  22    0    2    0   24
@@ -1804,11 +1803,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        5780,    23,   107,   379,  6289,  6288
+"S02",        5788,    23,   107,   379,  6297,  6296
 "S03",        5434,    23,   114,    75,  5646,  5664
-"S04",        1351,    30,    45,    32,  1458,  1490
+"S04",        1356,    30,    43,    32,  1461,  1493
 "S05",        4836,   767,    86,   159,  5848,  6049
-"S06",        1705,   348,    59,    83,  2195,  2246
+"S06",        1674,   383,    55,    83,  2195,  2246
 "S07",          22,     0,     0,     0,    22,   118
 "S09",        1957,     0,    11,    37,  2005,  2005
 "S10",         104,     0,     6,     1,   111,   168
@@ -1828,7 +1827,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",       11844,   270,   187,   173, 12474, 10728
 "int",        1236,    35,     8,    14,  1293,  1286
 "ros",           2,     0,     0,     0,     2,     2
-"total",     39990,  1520,   715,  1331, 43556,121073
+"total",     39972,  1555,   709,  1331, 43567,121084
 ----------------
 Failure summary:
 S02-magicals/sub.rakudo.jvm aborted 2 test(s)
@@ -1896,6 +1895,7 @@ S06-multi/proto.rakudo.jvm 9 - dispatch with no possible candidates fell back to
 S06-multi/proto.rakudo.jvm 10 - impossible dispatch failed (anon cap)
 S06-multi/subsignature.rakudo.jvm 37 - slurpy and named interact well (2)
 S06-operator-overloading/sub.rakudo.jvm aborted 10 test(s)
+S06-parameters/smiley.rakudo.jvm aborted 35 test(s)
 S06-signature/arity.t aborted 4 test(s)
 S06-signature/sigilless.t aborted 8 test(s)
 S06-signature/slurpy-params.rakudo.jvm aborted 14 test(s)
