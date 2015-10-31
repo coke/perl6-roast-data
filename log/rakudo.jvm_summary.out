@@ -165,8 +165,8 @@ S02-names/symbolic-deref.rakudo.jvm................  32    0    2    2   36
      1 todo   : no such symbol
 S02-one-pass-parsing/less-than.t...................   9    0    0    0    9
 S02-packages/package-lookup.t......................   7    0    0    0    7
-S02-types/WHICH.rakudo.jvm......................... 803    5    0   12  820
-    12 skipped: NYI on jvm
+S02-types/WHICH.rakudo.jvm......................... 325 1315    0    0 1640
+   1313 tests aborted (missing ok/not ok)
 S02-types/anon_block.rakudo.jvm....................  36    0    4    2   42
      2 skipped: tests don't work if previous test fails
      3 todo   : ? RT \#124493
@@ -302,23 +302,23 @@ S03-junctions/associative.t........................  10    0    0    0   10
 S03-junctions/autothreading.t...................... 104    0    0    0  104
 S03-junctions/boolean-context.t....................  74    0    0    0   74
 S03-junctions/misc.t............................... 142    0    0    0  142
-S03-metaops/cross.rakudo.jvm.......................  49    1    1    0   51
+S03-metaops/cross.rakudo.jvm.......................  49    3    1    0   53
      1 todo   : code does not die
-     1 tests aborted (missing ok/not ok)
+     3 tests aborted (missing ok/not ok)
 S03-metaops/eager-hyper.rakudo.jvm.................   7    0    1    0    8
      1 todo   : hyper NYI entirely, I guess RT \#124517
-S03-metaops/hyper.rakudo.jvm....................... 371   16    1    2  390
+S03-metaops/hyper.rakudo.jvm....................... 371   28    1    2  402
      1 skipped: EVAL(Buf) RT #122256
      1 skipped: doesn't seem to see the nodal
      1 todo   : can_meta check for meta operators NYI
-    15 tests aborted (missing ok/not ok)
-S03-metaops/not.t..................................  44    0    0    0   44
-S03-metaops/reduce.rakudo.jvm...................... 373    0    1    0  374
+    27 tests aborted (missing ok/not ok)
+S03-metaops/not.t..................................  46    0    0    0   46
+S03-metaops/reduce.rakudo.jvm...................... 374    0    1    0  375
      1 todo   : item context
-S03-metaops/reverse.rakudo.jvm.....................  45    0    1    0   46
+S03-metaops/reverse.rakudo.jvm.....................  47    0    1    0   48
      1 todo   : RT \#118791 Rxx does not yet thunk the RHS
-S03-metaops/zip.t..................................  49    2    0    0   51
-     2 tests aborted (missing ok/not ok)
+S03-metaops/zip.t..................................  49    4    0    0   53
+     4 tests aborted (missing ok/not ok)
 S03-operators/adverbial-modifiers.rakudo.jvm.......  41    0    1    0   42
      1 todo   : Multi colonpair syntax not yet understood RT \#124553
 S03-operators/also.rakudo.jvm......................   4    0    4    0    8
@@ -365,7 +365,8 @@ S03-operators/context-forcers.rakudo.jvm........... 104    0    0    2  106
 S03-operators/context.t............................  37    0    0    0   37
 S03-operators/custom.t.............................   1    0    0    0    1
 S03-operators/div.t................................   7    0    0    0    7
-S03-operators/equality.t...........................  32    0    0    0   32
+S03-operators/equality.t...........................   0   32    0    0   32
+    32 tests aborted (missing ok/not ok)
 S03-operators/eqv.rakudo.jvm.......................  50    0    3    1   54
      1 skipped: huh?
      3 todo   : huh?
@@ -776,9 +777,8 @@ S06-advanced/return.rakudo.jvm.....................  92    0    1    0   93
      1 todo   : RT \#61732
 S06-advanced/stub.rakudo.jvm.......................   9    0    0    1   10
      1 skipped: supersede NYI
-S06-advanced/wrap.rakudo.jvm.......................  75    0    6    4   85
+S06-advanced/wrap.rakudo.jvm.......................  76    0    6    3   85
      3 skipped: RT #122259
-     1 skipped: control operator crossed continuation barrier RT #124655
      1 todo   : ?
      2 todo   : RT \#122259
      1 todo   : callwith RT \#124653
@@ -1184,7 +1184,7 @@ S16-filehandles/filetest.rakudo.jvm................  34    0    0    9   43
      3 skipped: no file README
 S16-filehandles/io.rakudo.jvm...................... 119    0    6    0  125
      1 todo   : Will fail due to above failure RT \#125082
-     1 todo   : builtin JVM charset folds these RT \#125078
+     1 todo   : builtin JVM charset folds these RT \#124686
      1 todo   : java.nio.charset.UnmappableCharacterException RT \#125075
      1 todo   : will fail due to above failures RT \#125077
      1 todo   : will fail due to above failures RT \#125080
@@ -1291,7 +1291,7 @@ S19-command-line/help.t............................   1    0    0    0    1
 S19-command-line/repl.t............................   1    0    0    0    1
                                                    pass fail todo skip plan
 S22-package-format/local.rakudo.jvm................  23    0    0    1   24
-     1 skipped: cannot do signals in JVM RT #124769
+     1 skipped: cannot do signals in JVM RT #124628
                                                    pass fail todo skip plan
 S24-testing/0-compile.t............................   1    0    0    0    1
 S24-testing/3-output.t.............................   4    0    0    0    4
@@ -1807,11 +1807,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        5781,    61,   102,   374,  6318,  6317
-"S03",        5425,    61,   112,    75,  5673,  5691
+"S02",        5303,  1371,   102,   362,  7138,  7137
+"S03",        5398,   109,   112,    75,  5694,  5712
 "S04",        1373,    17,    45,    37,  1472,  1504
 "S05",        4853,   776,    86,   159,  5874,  6075
-"S06",        1997,    46,    55,    85,  2183,  2234
+"S06",        1998,    46,    55,    84,  2183,  2234
 "S07",          22,     0,     0,     0,    22,   118
 "S09",        1963,     0,    11,    37,  2011,  2011
 "S10",         104,     0,     6,     1,   111,   168
@@ -1831,7 +1831,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",       12040,   214,   187,   210, 12651, 10905
 "int",        1262,    10,     9,    14,  1295,  1288
 "ros",           2,     0,     0,     0,     2,     2
-"total",     40555,  1204,   703,  1368, 43830,121749
+"total",     40051,  2562,   703,  1355, 44671,122590
 ----------------
 Failure summary:
 S02-magicals/sub.rakudo.jvm aborted 2 test(s)
@@ -1841,19 +1841,18 @@ S02-names-vars/perl.rakudo.jvm aborted 32 test(s)
 S02-names/is_default.rakudo.jvm 104 - did we throws-like X::Comp::Trait::NotOnNative?
 S02-names/pseudo.rakudo.jvm 143 - MY::.values actually produces values
 S02-names/pseudo.rakudo.jvm 144 - OUTER::.values actually produces values
-S02-types/WHICH.rakudo.jvm 163 - checking NFC.WHICH
-S02-types/WHICH.rakudo.jvm 165 - checking NFD.WHICH
-S02-types/WHICH.rakudo.jvm 167 - checking NFKC.WHICH
-S02-types/WHICH.rakudo.jvm 169 - checking NFKD.WHICH
-S02-types/WHICH.rakudo.jvm 265 - checking Uni.WHICH
+S02-types/WHICH.rakudo.jvm 325 - checking NFC.WHICH
+S02-types/WHICH.rakudo.jvm 327 - NFC.perl returns self
+S02-types/WHICH.rakudo.jvm aborted 1313 test(s)
 S02-types/capture.t 30 - .perl of Capture formed from Range does not explode
 S02-types/declare.rakudo.jvm 19 - Assign big bigint to native won't overflow silently
 S02-types/hash_ref.t aborted 5 test(s)
-S03-metaops/cross.rakudo.jvm aborted 1 test(s)
+S03-metaops/cross.rakudo.jvm aborted 3 test(s)
 S03-metaops/hyper.rakudo.jvm 146 - .squish is nodal
-S03-metaops/hyper.rakudo.jvm aborted 15 test(s)
-S03-metaops/zip.t aborted 2 test(s)
+S03-metaops/hyper.rakudo.jvm aborted 27 test(s)
+S03-metaops/zip.t aborted 4 test(s)
 S03-operators/buf.t aborted 33 test(s)
+S03-operators/equality.t aborted 32 test(s)
 S03-operators/increment.t 16 - can't postincrement a literal number
 S03-operators/increment.t 17 - can't preincrement a literal number
 S03-operators/increment.t 18 - can't postdecrement a literal number
