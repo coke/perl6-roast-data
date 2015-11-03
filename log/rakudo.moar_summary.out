@@ -170,9 +170,7 @@ Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed. 
 S02-magicals/args.t................................   6    0    0    0    6
 S02-magicals/block.t...............................   3    0    0    0    3
 S02-magicals/dollar-underscore.t...................  11    0    0    0   11
-S02-magicals/dollar_bang.t.........................# Looks like you planned 15 tests, but ran 14
-  14    1    0    0   15
-     1 tests aborted (missing ok/not ok)
+S02-magicals/dollar_bang.t.........................  15    0    0    0   15
 S02-magicals/env.rakudo.moar.......................# %*ENV<PUGS_ROCKS>=
 # %*ENV<PUGS_ROCKS>=
   17    0    0    1   18
@@ -234,13 +232,7 @@ S02-names/is_dynamic.t.............................  22    0    0    0   22
 S02-names/name.t...................................  24    0    0    0   24
 S02-names/our.rakudo.moar..........................   9    0    0    1   10
      1 skipped: OUR::subname() does not work
-S02-names/pseudo.rakudo.moar.......................Method 'Int' not found for invocant of class 'Any'
-  in sub proclaim at lib/Test.pm:498
-  in sub is at lib/Test.pm:135
-  in block <unit> at t/spec/S02-names/pseudo.rakudo.moar:403
-
-# Looks like you planned 144 tests, but ran 134
-  58   11    4   71  144
+S02-names/pseudo.rakudo.moar.......................  69    0    4   71  144
      4 skipped: Cannot bind to &::("CORE")::foo RT #126113
      4 skipped: RT #126523
      4 skipped: the binding in here is NYI RT #124914
@@ -249,7 +241,6 @@ S02-names/pseudo.rakudo.moar.......................Method 'Int' not found for in
      2 todo   : binding and interpolation together NYI
      1 todo   : interpolation and auto-viv NYI
      1 todo   : not entirely sure these make sense...
-    11 tests aborted (missing ok/not ok)
 S02-names/strict.rakudo.moar.......................   5    0    0    1    6
      1 skipped: lax mode does not propagate into EVAL yet RT #124912
 S02-names/symbolic-deref.rakudo.moar...............  32    0    2    2   36
@@ -540,13 +531,21 @@ S03-operators/assign.rakudo.moar................... 264    0   16   14  294
      1 todo   : list assignment with ($var, *)
      3 todo   : list assignment, autovivification (?)
 S03-operators/autoincrement-range.t................# Tests for 'a' .. 'z'
-Method 'Int' not found for invocant of class 'Any'
-  in sub diag at lib/Test.pm:309
-  in block <unit> at t/spec/S03-operators/autoincrement-range.t:52
+WARNING: unhandled Failure detected in DESTROY:
+Decrement out of range
+  in block <unit> at t/spec/S03-operators/autoincrement-range.t:17
 
-# Looks like you planned 96 tests, but ran 16
-  16   80    0    0   96
-    80 tests aborted (missing ok/not ok)
+# Tests for 'Α' .. 'Ω' (Greek uppercase)
+# Tests for 'α' .. 'ω' (Greek lowercase)
+# Tests for 'א' .. 'ת' (Hebrew)
+# Tests for '0' .. '9'
+# Tests for '٠' .. '٩' (Arabic-Indic)
+# Tests for '०' .. '९' (Devangari)
+# Tests for '০' .. '৯' (Bengali)
+# Tests for '੦' .. '੯' (Gurmukhi)
+# Tests for '૦' .. '૯' (Gujarati)
+# Tests for '୦' .. '୯' (Oriya)
+  96    0    0    0   96
 S03-operators/autoincrement.t......................  79    0    0    0   79
 S03-operators/autovivification.t...................Use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-operators/autovivification.t:84
 Use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-operators/autovivification.t:95
@@ -826,8 +825,8 @@ S03-operators/mix.rakudo.moar...................... 102    0   26    0  128
      8 todo   : Rakudo update in progress, but not done yet RT \#124541
      4 todo   : Wrong answer at the moment
      8 todo   : submix behavior still under discussion
-S03-operators/names.t..............................Sub+{<anon|74553904>}+{Precedence} object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:14
-Sub+{<anon|74553904>}+{Precedence} object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:16
+S03-operators/names.t..............................Sub+{<anon|42535232>}+{Precedence} object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:14
+Sub+{<anon|42535232>}+{Precedence} object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:16
    7    0    0    0    7
 S03-operators/nesting.t............................  26    0    0    0   26
 S03-operators/not.t................................  22    0    0    0   22
@@ -836,7 +835,7 @@ S03-operators/orelse.t.............................  10    0    0    0   10
 S03-operators/overflow.t...........................  98    0    0    0   98
 S03-operators/precedence.rakudo.moar...............  62    0    2    0   64
      2 todo   : Inequality (!=) misparsed as assignment RT \#121108
-S03-operators/range-basic.t........................ 142    0    0    0  142
+S03-operators/range-basic.t........................ 110    0    0    0  110
 S03-operators/range-int.t.......................... 480    0    0    0  480
 S03-operators/range.t..............................Use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-operators/range.t:218
 Use of uninitialized value of type Any in numeric context  in block  at t/spec/S03-operators/range.t:218
@@ -1318,7 +1317,7 @@ S05-metasyntax/angle-brackets.rakudo.moar..........
      1 todo   : <$subrule> NYI RT \#124524
 S05-metasyntax/assertions.t........................   4    0    0    0    4
 S05-metasyntax/changed.t...........................  12    0    0    0   12
-S05-metasyntax/charset.t...........................  44    0    0    0   44
+S05-metasyntax/charset.t...........................  47    0    0    0   47
 S05-metasyntax/delimiters.t........................  21    0    0    0   21
 S05-metasyntax/interpolating-closure.rakudo.moar...Potential difficulties:
     Space is not significant here; please use quotes or :s (:sigspace) modifier (or, to suppress this warning, omit the space, or otherwise change the spacing)
@@ -1648,7 +1647,15 @@ S06-traits/is-readonly.rakudo.moar.................Potential difficulties:
    2    0    1    0    3
      1 todo   : readonly attributes
 S06-traits/is-rw.t.................................   7    0    0    0    7
-S06-traits/misc.rakudo.moar........................  18    0    2    0   20
+S06-traits/misc.rakudo.moar........................    
+# Failed test 'code dies'
+# at t/spec/S06-traits/misc.rakudo.moar line 45
+    # Looks like you failed 1 test of 2
+
+# Failed test 'is rw dies in signature bidning if passed a literal Int'
+# at t/spec/S06-traits/misc.rakudo.moar line 45
+# Looks like you failed 1 test of 20
+  17    1    2    0   20
      2 todo   : is readonly does not override
 S06-traits/native-is-copy.t........................  15    0    0    0   15
 S06-traits/native-is-rw.t..........................  48    0    0    0   48
@@ -1728,10 +1735,10 @@ Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed. 
 Use of uninitialized value $_ of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-11093-719848.code:4
+#   in block <unit> at getout-11137-641122.code:4
 
 # Actually thrown at:
-#   in block <unit> at getout-11093-719848.code:4
+#   in block <unit> at getout-11137-641122.code:4
 
 
   33    0    3    0   36
@@ -2074,8 +2081,8 @@ S15-unicode-information/uniname.rakudo.moar........  14    0    2   15   31
 S15-unicode-information/unival.t...................  32    0    0    0   32
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  11    0    0    0   11
-S16-filehandles/chmod.t............................# Using file temp_1446473824
-# Using file temp_1446473824
+S16-filehandles/chmod.t............................# Using file temp_1446555717
+# Using file temp_1446555717
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2086,7 +2093,7 @@ S16-filehandles/io.rakudo.moar..................... 123    0    2    0  125
      1 todo   : Too late to change filehandle encoding RT \#125079
      1 todo   : Will fail due to above failure RT \#125082
 S16-filehandles/io_in_for_loops.t..................  33    0    0    0   33
-S16-filehandles/io_in_while_loops.t................  13    0    0    0   13
+S16-filehandles/io_in_while_loops.t................  17    0    0    0   17
 S16-filehandles/mkdir_rmdir.t......................  14    0    0    0   14
 S16-filehandles/open.t.............................   4    0    0    1    5
      1 skipped: open('nonexisting') => undefined is waiting on 'use fatal'
@@ -2115,7 +2122,19 @@ S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   7    0    0    0    7
-S17-lowlevel/lock.t................................  23    0    0    0   23
+S17-lowlevel/lock.t................................Use of uninitialized value of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
+
+# Failed test 'Correct result and no crash in lock/condvar use (14)'
+# at t/spec/S17-lowlevel/lock.t line 152
+Use of uninitialized value of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in code  at lib/Test.pm:137
+# expected: '10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 210 220 230 240 250 260 270 280 290 300 310 320 330 340 350 360 370 380 390 400 410 420 430 440 450 460 470 480 490 500 510 520 530 540 550 560 570 580 590 600 610 620 630 640 650 660 670 680 690 700 710 720 730 740 750 760 770 780 790 800 810 820 830 840 850 860 870 880 890 900 910 920 930 940 950 960 970 980 990 1000'
+Use of uninitialized value of type Any in string context
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:144
+#      got: '10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 210 220 230 240 250 260 270 280 290 300 310 320  340 350 360 370 380 390 400 410 420 430 440 450 460 470 480 490 500 510 520 530 540 550 560 570 580 590 600 610 620 630 640 650 660 670 680 690 700 710 720 730 740 750 760 770 780 790 800 810 820 830 840 850 860 870 880 890 900 910 920 930 940 950 960 970 980 990 1000'
+# Looks like you failed 1 test of 23
+  22    1    0    0   23
 S17-lowlevel/thread-start-join-stress.t............   1    0    0    0    1
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.rakudo.moar....................  27    0    0    3   30
@@ -2791,17 +2810,29 @@ S32-array/pop.rakudo.moar..........................
 # Failed test ''@pop.pop = 3' died'
 # at t/spec/S32-array/pop.rakudo.moar line 92
     # Looks like you failed 1 test of 2
+WARNING: unhandled Failure detected in DESTROY:
+Cannot pop from an empty Array
+  in block <unit> at t/spec/S32-array/pop.rakudo.moar:72
+
+WARNING: unhandled Failure detected in DESTROY:
+Cannot pop from an empty Array
+  in block <unit> at t/spec/S32-array/pop.rakudo.moar:64
+
+WARNING: unhandled Failure detected in DESTROY:
+Cannot pop from an empty Array
+  in block  at t/spec/S32-array/pop.rakudo.moar:42
+  in block <unit> at t/spec/S32-array/pop.rakudo.moar:14
+
   35    0    2    0   37
      1 todo   : RT \#111720
      1 todo   : code does not die
 S32-array/push.t...................................  52    0    0    0   52
 S32-array/rotate.t.................................  29    0    0    0   29
-S32-array/shift.t..................................Method 'Int' not found for invocant of class 'Any'
-  in block <unit> at t/spec/S32-array/shift.t:77
+S32-array/shift.t..................................WARNING: unhandled Failure detected in DESTROY:
+Cannot shift from an empty Array
+  in block <unit> at t/spec/S32-array/shift.t:61
 
-# Looks like you planned 31 tests, but ran 26
-  26    5    0    0   31
-     5 tests aborted (missing ok/not ok)
+  31    0    0    0   31
 S32-array/splice.rakudo.moar.......................    
 # Failed test 'right exception type (X::TypeCheck::Splice)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar/lib/Test.pm.moarvm line 1
@@ -4075,11 +4106,7 @@ Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed. 
 S32-io/move.t......................................  29    0    0    0   29
 S32-io/note.t......................................   6    0    0    0    6
 S32-io/other.t.....................................  60    0    0    0   60
-S32-io/pipe.t......................................WARNINGS:
-Useless use of constant integer 1 in sink context (line 1)
-WARNINGS:
-Useless use of constant integer 1 in sink context (line 1)
-  14    0    0    0   14
+S32-io/pipe.t......................................  14    0    0    0   14
 S32-io/rename.t....................................  29    0    0    0   29
 S32-io/slurp.t.....................................  17    0    0    0   17
 S32-io/spurt.t.....................................  35    0    0    0   35
@@ -4202,14 +4229,7 @@ S32-list/tail.t....................................  19    0    0    0   19
 S32-list/unique.t..................................  34    0    0    0   34
 S32-num/abs.t......................................  49    0    0    0   49
 S32-num/base.t.....................................  44    0    0    0   44
-S32-num/complex.t..................................Method 'Int' not found for invocant of class 'Any'
-  in sub proclaim at lib/Test.pm:506
-  in sub is_approx at lib/Test.pm:215
-  in block <unit> at t/spec/S32-num/complex.t:84
-
-# Looks like you planned 488 tests, but ran 120
- 119  369    0    0  488
-   369 tests aborted (missing ok/not ok)
+S32-num/complex.t.................................. 488    0    0    0  488
 S32-num/cool-num.rakudo.moar.......................  39    0    0    4   43
      4 skipped: angle conversion RT #124816
 S32-num/exp.t......................................  72    0    0    0   72
@@ -4277,13 +4297,13 @@ S32-str/comb.rakudo.moar...........................  47    0    0    1   48
 S32-str/contains.t.................................  20    0    0    0   20
 S32-str/encode.rakudo.moar.........................    
 # Failed test '.message matches rx:s:i/line 1 col\w* 2|term/'
-# at gen/moar/m-CORE.setting line 3166
+# at gen/moar/m-CORE.setting line 3180
     # Expected: rx:s:i/line 1 col\w* 2|term/
     # Got:      Malformed UTF-16; odd number of bytes
     # Looks like you failed 1 test of 3
     
 # Failed test '.message matches rx:s:i/line 1 col\w* 2/'
-# at gen/moar/m-CORE.setting line 3166
+# at gen/moar/m-CORE.setting line 3180
     # Expected: rx:s:i/line 1 col\w* 2/
     # Got:      Malformed UTF-16; unexpected low surrogate
     # Looks like you failed 1 test of 3
@@ -4506,14 +4526,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# gerdr: 0.3665744 seconds
-# kaz: 0.444764 seconds
-# loop: 0.67694061 seconds
-# recursive-ternary: 0.7070087 seconds
-# hand-memoization: 0.861957 seconds
-# sequence-ternary: 1.3760780 seconds
-# recursive-ternary-hand-cached: 2.4251482 seconds
-# sequence: 2.728195 seconds
+integration/advent2012-day21.t.....................# gerdr: 0.43861917 seconds
+# kaz: 0.45028323 seconds
+# recursive-ternary: 0.61327332 seconds
+# loop: 0.6624826 seconds
+# hand-memoization: 0.91863702 seconds
+# sequence-ternary: 1.3036859 seconds
+# recursive-ternary-hand-cached: 2.4067405 seconds
+# sequence: 2.957348 seconds
    9    0    0    0    9
 integration/advent2012-day22.t.....................   6    0    0    0    6
 integration/advent2012-day23.t.....................   2    0    0    0    2
@@ -4570,7 +4590,7 @@ Useless use of constant integer 42 in sink context (line 1)
     
 # Failed test 'precompiled EVAL in BEGIN (Compiled)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar/t/spec/packages/Test/Compile.pm line 338
-    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmod743A75BB/p6testmod6B84D4E6.pm6')
+    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmod309D7CF3/p6testmodC6C5D5A0.pm6')
     # Looks like you failed 1 test of 2
    5    0    2    0    7
      1 todo   : RT \#124324 Missing or wrong version of dependency
@@ -4584,18 +4604,26 @@ integration/say-crash.t............................   4    0    0    0    4
 integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 integration/topic_in_double_loop.t.................   5    0    0    0    5
 integration/variables-in-do.t......................   3    0    0    0    3
-integration/weird-errors.t.........................  20    0    0    0   20
+integration/weird-errors.t.........................    
+# Failed test 'code dies'
+# at t/spec/integration/weird-errors.t line 158
+    # Looks like you failed 1 test of 2
+
+# Failed test 'Doesn't die with weird internal error'
+# at t/spec/integration/weird-errors.t line 158
+# Looks like you failed 1 test of 20
+  19    1    0    0   20
                                                    pass fail todo skip plan
 rosettacode/greatest_element_of_a_list.t...........   1    0    0    0    1
 rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        6716,    12,    90,   355,  7173,  7172
-"S03",        5441,    80,   112,    75,  5708,  5726
+"S02",        6728,     0,    90,   355,  7173,  7172
+"S03",        5489,     0,   112,    75,  5676,  5694
 "S04",        1406,     0,    38,    28,  1472,  1504
-"S05",        5721,     0,    90,    94,  5905,  6075
-"S06",        2048,     0,    55,    80,  2183,  2234
+"S05",        5724,     0,    90,    94,  5908,  6078
+"S06",        2047,     1,    55,    80,  2183,  2234
 "S07",          22,     0,     0,     0,    22,   118
 "S09",        1964,     0,    10,    37,  2011,  2011
 "S10",         105,     0,     5,     1,   111,   168
@@ -4604,23 +4632,21 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S13",          60,     0,     2,     0,    62,    72
 "S14",         348,     0,     8,     5,   361,   374
 "S15",       78974,     0,     4,    18, 78996, 79016
-"S16",         553,     0,     2,    16,   571,   619
-"S17",         855,     1,     6,    28,   890,   890
+"S16",         557,     0,     2,    16,   575,   623
+"S17",         854,     2,     6,    28,   890,   890
 "S19",          14,     0,     0,     0,    14,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",          18,     0,     0,     0,    18,    89
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",          13,     0,     0,     0,    13,    13
 "S29",         352,     0,     3,     2,   357,   357
-"S32",       12166,   374,   188,   157, 12885, 11127
-"int",        1278,     0,    10,    14,  1302,  1288
+"S32",       12540,     0,   188,   157, 12885, 11127
+"int",        1277,     1,    10,    14,  1302,  1288
 "ros",           2,     0,     0,     0,     2,     2
-"total",    121670,   467,   677,  1205,124019,122921
+"total",    122108,     4,   677,  1205,123994,122896
 ----------------
 Failure summary:
-S02-magicals/dollar_bang.t aborted 1 test(s)
-S02-names/pseudo.rakudo.moar aborted 11 test(s)
-S03-operators/autoincrement-range.t aborted 80 test(s)
+S06-traits/misc.rakudo.moar 5 - is rw dies in signature bidning if passed a literal Int
+S17-lowlevel/lock.t 22 - Correct result and no crash in lock/condvar use (14)
 S17-promise/stress.t aborted 1 test(s)
-S32-array/shift.t aborted 5 test(s)
-S32-num/complex.t aborted 369 test(s)
+integration/weird-errors.t 19 - Doesn't die with weird internal error
