@@ -765,10 +765,9 @@ S05-modifier/repetition.t..........................   0   12    0    0   12
 S05-modifier/sigspace.t............................  16    0    0    0   16
 S05-substitution/67222.t...........................   1    0    0    0    1
 S05-substitution/match.t...........................  13    0    0    0   13
-S05-substitution/subst.rakudo.jvm.................. 133    0    1   29  163
-     1 skipped: RT #114388 -- No such method 'subst-mutate' for invocant of type 'Any'
-    28 skipped: RT #124279
-     1 todo   : be smarter about constant detection
+S05-substitution/subst.rakudo.jvm..................  60   78    0   25  163
+    25 skipped: RT #124279
+    78 tests aborted (missing ok/not ok)
 S05-transliteration/79778.t........................   1    0    0    0    1
 S05-transliteration/trans.rakudo.jvm...............  61    0    0    1   62
      1 skipped: feed operator NYI
@@ -924,8 +923,9 @@ S06-traits/is-copy.t...............................  27    0    0    0   27
 S06-traits/is-readonly.rakudo.jvm..................   2    0    1    0    3
      1 todo   : readonly attributes
 S06-traits/is-rw.t.................................   7    0    0    0    7
-S06-traits/misc.rakudo.jvm.........................  14    4    2    0   20
+S06-traits/misc.rakudo.jvm.........................  14    3    3    0   20
      2 todo   : is readonly does not override
+     1 todo   : optimizer too greedy: RT \#126585
 S06-traits/native-is-copy.t........................  15    0    0    0   15
 S06-traits/native-is-rw.t..........................  48    0    0    0   48
 S06-traits/precedence.rakudo.jvm...................  14    0    1    0   15
@@ -1288,7 +1288,7 @@ S17-supply/stable.rakudo.jvm.......................   5    0    0    2    7
      2 skipped: doesn't work or can't test RT #124822
 S17-supply/start.t.................................   9    0    0    0    9
 S17-supply/syntax.t................................  53    0    0    0   53
-S17-supply/throttle.t..............................   7    0    0    0    7
+S17-supply/throttle.t..............................   6    1    0    0    7
 S17-supply/unique.t................................  17    0    0    0   17
 S17-supply/wait.t..................................   4    0    0    0    4
 S17-supply/watch-path.rakudo.jvm...................   2    0    0    0    2
@@ -1433,18 +1433,18 @@ S32-io/dir.rakudo.jvm..............................   9    0    4    0   13
      1 todo   : entries are still IO::Path RT \#124785
 S32-io/file-tests.t................................  34    0    0    0   34
 S32-io/io-handle.t.................................   2    1    0    0    3
-S32-io/io-path-cygwin.rakudo.jvm...................  50    0    1    0   51
-     1 todo   : resolve NYI, needs nqp::readlink RT \#124781
+S32-io/io-path-cygwin.rakudo.jvm...................  33   18    0    0   51
+    18 tests aborted (missing ok/not ok)
 S32-io/io-path-unix.rakudo.jvm.....................  35    0    1    0   36
      1 todo   : resolve NYI, needs nqp::readlink RT \#124782
-S32-io/io-path-win.rakudo.jvm......................  49    0    1    0   50
-     1 todo   : resolve NYI, needs nqp::readlink RT \#124783
+S32-io/io-path-win.rakudo.jvm......................  33   17    0    0   50
+    17 tests aborted (missing ok/not ok)
 S32-io/io-path.t...................................  15    0    0    0   15
-S32-io/io-spec-cygwin.t............................ 100    0    0    2  102
-     2 skipped: cygwin on-platform tests
+S32-io/io-spec-cygwin.t............................  76   26    0    0  102
+    26 tests aborted (missing ok/not ok)
 S32-io/io-spec-unix.t.............................. 130    0    0    0  130
-S32-io/io-spec-win.t............................... 206    0    0    3  209
-     3 skipped: Win32ish on-platform tests
+S32-io/io-spec-win.t...............................  35  174    0    0  209
+   174 tests aborted (missing ok/not ok)
 S32-io/move.t......................................  29    0    0    0   29
 S32-io/note.t......................................   6    0    0    0    6
 S32-io/other.t.....................................  60    0    0    0   60
@@ -1587,10 +1587,10 @@ S32-str/rindex.t...................................  43    0    0    0   43
 S32-str/samecase.t.................................   8    0    0    0    8
 S32-str/samemark.rakudo.jvm........................   0    0    0    7    7
      7 skipped: samemark NYI - RT #125165
-S32-str/split-simple.t.............................  15   14    0    0   29
-    14 tests aborted (missing ok/not ok)
-S32-str/split.rakudo.jvm...........................  24   80    0    0  104
-    80 tests aborted (missing ok/not ok)
+S32-str/split-simple.t.............................   0   29    0    0   29
+    29 tests aborted (missing ok/not ok)
+S32-str/split.rakudo.jvm...........................  22   82    0    0  104
+    82 tests aborted (missing ok/not ok)
 S32-str/sprintf-b.rakudo.jvm.......................  68    0   90    7  165
      1 skipped: "%+ #10b" dies with "unsupported use of %+ variable;" RT #124727
      1 skipped: "%+ 010b" dies with "unsupported use of %+ variable;" RT #124718
@@ -1709,7 +1709,8 @@ integration/advent2009-day13.t.....................  16    0    0    0   16
 integration/advent2009-day14.t.....................  21    0    0    0   21
 integration/advent2009-day15.t.....................   4    0    0    0    4
 integration/advent2009-day16.t.....................  11    0    0    0   11
-integration/advent2009-day17.t.....................  62    0    0    0   62
+integration/advent2009-day17.t.....................   0   62    0    0   62
+    62 tests aborted (missing ok/not ok)
 integration/advent2009-day18.t.....................   7    0    0    0    7
 integration/advent2009-day19.t.....................   6    0    0    0    6
 integration/advent2009-day20.t.....................  21    0    0    0   21
@@ -1745,7 +1746,8 @@ integration/advent2011-day15.t.....................   9    0    0    0    9
 integration/advent2011-day16.t.....................  12    0    0    0   12
 integration/advent2011-day20.t.....................  16    0    0    0   16
 integration/advent2011-day22.t.....................   2    0    0    0    2
-integration/advent2011-day23.t.....................  55    0    0    0   55
+integration/advent2011-day23.t.....................  19   36    0    0   55
+    36 tests aborted (missing ok/not ok)
 integration/advent2011-day24.t.....................   8    0    0    0    8
 integration/advent2012-day02.t.....................   4    0    0    0    4
 integration/advent2012-day03.t.....................   2    0    0    0    2
@@ -1801,7 +1803,8 @@ integration/no-indirect-new.t......................   2    0    0    0    2
 integration/packages.t.............................   3    0    0    0    3
 integration/pair-in-array.t........................   3    0    0    0    3
 integration/passing-pair-class-to-sub.t............   2    0    0    0    2
-integration/real-strings.t.........................  20    0    0    0   20
+integration/real-strings.t.........................   1   19    0    0   20
+    19 tests aborted (missing ok/not ok)
 integration/role-composition-vs-attribute.rakudo...   6    0    0    4   10
      2 skipped: alas, no visibility of native private attributes yet
      2 skipped: alas, no visibility of private attributes in other role
@@ -1810,7 +1813,8 @@ integration/say-crash.t............................   4    0    0    0    4
 integration/substr-after-match-in-gather-in-for.t..   1    0    0    0    1
 integration/topic_in_double_loop.t.................   5    0    0    0    5
 integration/variables-in-do.t......................   3    0    0    0    3
-integration/weird-errors.t.........................  19    1    0    0   20
+integration/weird-errors.rakudo.jvm................  19    0    1    0   20
+     1 todo   : Feels like a bogus test in light of recent changes
                                                    pass fail todo skip plan
 rosettacode/greatest_element_of_a_list.t...........   1    0    0    0    1
 rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
@@ -1820,8 +1824,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S02",        6677,     0,   105,   420,  7202,  7201
 "S03",        5465,     0,   122,    89,  5676,  5694
 "S04",        1373,    17,    45,    37,  1472,  1504
-"S05",        5571,    44,    91,   216,  5922,  6123
-"S06",        1998,    48,    55,    84,  2185,  2236
+"S05",        5498,   122,    90,   212,  5922,  6123
+"S06",        1998,    47,    56,    84,  2185,  2236
 "S07",          22,     0,     0,     0,    22,   118
 "S09",        1963,     0,    11,    37,  2011,  2011
 "S10",         104,     0,     6,     1,   111,   168
@@ -1831,17 +1835,17 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         345,     2,     8,     6,   361,   374
 "S15",          37,     7,     4,    35,    83, 79048
 "S16",         541,    13,    10,    15,   579,   635
-"S17",         808,     0,     5,    20,   833,   881
+"S17",         807,     1,     5,    20,   833,   881
 "S19",          14,     0,     0,     0,    14,    18
 "S22",          23,     0,     0,     1,    24,    24
 "S24",          18,     0,     0,     0,    18,    89
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         363,     0,     3,     3,   369,   369
-"S32",       12105,   276,   180,   210, 12771, 11025
-"int",        1261,    11,     9,    14,  1295,  1288
+"S32",       11860,   528,   178,   205, 12771, 11025
+"int",        1144,   127,    10,    14,  1295,  1288
 "ros",           2,     0,     0,     0,     2,     2
-"total",     42338,   419,   718,  1483, 44958,122917
+"total",     41902,   865,   717,  1474, 44958,122917
 ----------------
 Failure summary:
 S04-declarations/will.rakudo.jvm 8 - for iteration #1
@@ -1872,6 +1876,7 @@ S05-modifier/counted.rakudo.jvm 87 - did we throws-like Exception?
 S05-modifier/counted.rakudo.jvm 110 - Can match with *-1 index
 S05-modifier/repetition-exhaustive.rakudo.jvm aborted 5 test(s)
 S05-modifier/repetition.t aborted 12 test(s)
+S05-substitution/subst.rakudo.jvm aborted 78 test(s)
 S06-advanced/callframe.rakudo.jvm aborted 2 test(s)
 S06-currying/misc.rakudo.jvm aborted 1 test(s)
 S06-multi/proto.rakudo.jvm 8 - dispatch on class worked (anon cap)
@@ -1884,7 +1889,6 @@ S06-signature/slurpy-params.t aborted 15 test(s)
 S06-signature/type-capture.t aborted 2 test(s)
 S06-traits/misc.rakudo.jvm 1 - can't modify parameter, constant by default
 S06-traits/misc.rakudo.jvm 3 - can't modify constant parameter, constant by default
-S06-traits/misc.rakudo.jvm 5 - is rw dies in signature binding if passed a literal Int
 S06-traits/misc.rakudo.jvm 6 - is rw dies in signature binding if passed an itemized array
 S12-subset/subtypes.t 44 - subtypes based on roles work
 S14-roles/basic.rakudo.jvm 26 - type-check passes when role mixed in
@@ -1903,6 +1907,7 @@ S16-io/bom.t 10 - BOM-only file reports 0 lines like empty file
 S16-io/comb.t 25 - testing 'defg' with Int
 S16-io/supply.t 3 - we can get chars from a supply
 S16-io/supply.t 6 - we can get chars from a supply
+S17-supply/throttle.t 3 - difference between each at least .5 seconds
 S32-array/adverbs.t 22 - did we throws-like X::Adverb?
 S32-array/adverbs.t 42 - did we throws-like X::Adverb?
 S32-array/adverbs.t 62 - did we throws-like X::Adverb?
@@ -1994,6 +1999,10 @@ S32-hash/adverbs.t 1124 - did we throws-like X::Adverb?
 S32-io/IO-Socket-Async.rakudo.jvm 2 - Async connect to unavailable server breaks promise
 S32-io/IO-Socket-Async.rakudo.jvm aborted 4 test(s)
 S32-io/io-handle.t 3 - Changing input-line-separator works for .lines
+S32-io/io-path-cygwin.rakudo.jvm aborted 18 test(s)
+S32-io/io-path-win.rakudo.jvm aborted 17 test(s)
+S32-io/io-spec-cygwin.t aborted 26 test(s)
+S32-io/io-spec-win.t aborted 174 test(s)
 S32-list/map.rakudo.jvm aborted 2 test(s)
 S32-list/repeated.t aborted 20 test(s)
 S32-list/squish.t aborted 40 test(s)
@@ -2002,10 +2011,12 @@ S32-str/index.t 37 - sub does -1.0E34 give Nil
 S32-str/index.t 38 - method does -1.0E34 give Nil
 S32-str/index.t 39 - sub does -1.0E35 give Nil
 S32-str/index.t 40 - method does -1.0E35 give Nil
-S32-str/split-simple.t aborted 14 test(s)
-S32-str/split.rakudo.jvm aborted 80 test(s)
+S32-str/split-simple.t aborted 29 test(s)
+S32-str/split.rakudo.jvm aborted 82 test(s)
 S32-str/tc.rakudo.jvm 5 - sharp s => Ss
 S32-str/tc.rakudo.jvm 6 - lj => Lj (in one character)
+integration/advent2009-day17.t aborted 62 test(s)
+integration/advent2011-day23.t aborted 36 test(s)
 integration/advent2012-day10.t aborted 9 test(s)
 integration/advent2012-day15.t 9 - FIRST/NEXT/LAST example
-integration/weird-errors.t 19 - Doesn't die with weird internal error
+integration/real-strings.t aborted 19 test(s)
