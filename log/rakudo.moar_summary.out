@@ -170,7 +170,39 @@ Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed. 
 S02-magicals/args.t................................   6    0    0    0    6
 S02-magicals/block.t...............................   3    0    0    0    3
 S02-magicals/dollar-underscore.t...................  11    0    0    0   11
-S02-magicals/dollar_bang.t.........................  15    0    0    0   15
+S02-magicals/dollar_bang.t.........................WARNING: unhandled Failure detected in DESTROY:
+Attempt to divide 1 by zero using div
+  in any  at gen/moar/m-Perl6-Optimizer.nqp:1359
+  in any  at gen/moar/m-Perl6-Optimizer.nqp:1355
+  in any optimize_call at gen/moar/m-Perl6-Optimizer.nqp:1317
+  in any visit_op at gen/moar/m-Perl6-Optimizer.nqp:1267
+  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1855
+  in any visit_op_children at gen/moar/m-Perl6-Optimizer.nqp:1290
+  in any visit_op at gen/moar/m-Perl6-Optimizer.nqp:1172
+  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1855
+  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1867
+  in any visit_op_children at gen/moar/m-Perl6-Optimizer.nqp:1290
+  in any visit_op at gen/moar/m-Perl6-Optimizer.nqp:1172
+  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1855
+  in any visit_op_children at gen/moar/m-Perl6-Optimizer.nqp:1290
+  in any visit_op at gen/moar/m-Perl6-Optimizer.nqp:1172
+  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1855
+  in any visit_op_children at gen/moar/m-Perl6-Optimizer.nqp:1290
+  in any visit_op at gen/moar/m-Perl6-Optimizer.nqp:1172
+  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1855
+  in any visit_want at gen/moar/m-Perl6-Optimizer.nqp:1677
+  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1858
+  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1873
+  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1867
+  in any visit_block at gen/moar/m-Perl6-Optimizer.nqp:902
+  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1864
+  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1867
+  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1873
+  in any visit_block at gen/moar/m-Perl6-Optimizer.nqp:902
+  in any optimize at gen/moar/m-Perl6-Optimizer.nqp:882
+  in any optimize at src/Perl6/Compiler.nqp:70
+
+  15    0    0    0   15
 S02-magicals/env.rakudo.moar.......................# %*ENV<PUGS_ROCKS>=
 # %*ENV<PUGS_ROCKS>=
   17    0    0    1   18
@@ -517,14 +549,6 @@ S03-operators/assign.rakudo.moar................... 264    0   16   14  294
      3 todo   : list assignment, autovivification (?)
 S03-operators/autoincrement-range.t................# Tests for 'a' .. 'z'
 # Tests for 'Α' .. 'Ω' (Greek uppercase)
-WARNING: unhandled Failure detected in DESTROY:
-Decrement out of range
-  in block <unit> at t/spec/S03-operators/autoincrement-range.t:37
-
-WARNING: unhandled Failure detected in DESTROY:
-Decrement out of range
-  in block <unit> at t/spec/S03-operators/autoincrement-range.t:17
-
 # Tests for 'α' .. 'ω' (Greek lowercase)
 # Tests for 'א' .. 'ת' (Hebrew)
 # Tests for '0' .. '9'
@@ -813,8 +837,8 @@ S03-operators/mix.rakudo.moar...................... 102    0   26    0  128
      8 todo   : Rakudo update in progress, but not done yet RT \#124541
      4 todo   : Wrong answer at the moment
      8 todo   : submix behavior still under discussion
-S03-operators/names.t..............................Sub+{<anon|65197120>}+{Precedence} object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:14
-Sub+{<anon|65197120>}+{Precedence} object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:16
+S03-operators/names.t..............................Sub+{<anon|66913120>}+{Precedence} object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:14
+Sub+{<anon|66913120>}+{Precedence} object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:16
    7    0    0    0    7
 S03-operators/nesting.t............................  26    0    0    0   26
 S03-operators/not.t................................  22    0    0    0   22
@@ -1607,7 +1631,7 @@ S06-signature/code.rakudo.moar.....................   7    0    1    0    8
 S06-signature/defaults.t...........................   9    0    0    0    9
 S06-signature/definite-return.rakudo.moar..........  15    0    0    2   17
      2 skipped: variables as return specifications dont parse yet RT #124927
-S06-signature/errors.t.............................  27    0    0    0   27
+S06-signature/errors.t.............................  31    0    0    0   31
 S06-signature/introspection.rakudo.moar............ 131    0    1    1  133
      1 skipped: expected Any but got Mu instead
      1 todo   : needs/find RT: Logic to make :a($a) into :$a makes :a(:b($a) into ::b(:$a)
@@ -1746,10 +1770,10 @@ Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed. 
 Use of uninitialized value $_ of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-31032-316161.code:4
+#   in block <unit> at getout-7465-250253.code:4
 
 # Actually thrown at:
-#   in block <unit> at getout-31032-316161.code:4
+#   in block <unit> at getout-7465-250253.code:4
 
 
   33    0    3    0   36
@@ -2087,8 +2111,8 @@ S15-unicode-information/uniprop.t..................   6    0    0    0    6
 S15-unicode-information/unival.t...................  40    0    0    0   40
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  12    0    0    0   12
-S16-filehandles/chmod.t............................# Using file temp_1447597106
-# Using file temp_1447597106
+S16-filehandles/chmod.t............................# Using file temp_1447683497
+# Using file temp_1447683497
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2129,7 +2153,11 @@ S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   7    0    0    0    7
-S17-lowlevel/lock.t................................  23    0    0    0   23
+S17-lowlevel/lock.t................................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': double free or corruption (!prev): 0x00007f7c600c3850 ***
+*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': double free or corruption (out): 0x00007f7c600c3850 ***
+Aborted
+   8   15    0    0   23
+    15 tests aborted (missing ok/not ok)
 S17-lowlevel/thread-start-join-stress.t............   1    0    0    0    1
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.rakudo.moar....................  27    0    0    3   30
@@ -4509,14 +4537,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# gerdr: 0.338048206 seconds
-# kaz: 0.4075839 seconds
-# recursive-ternary: 0.5985250 seconds
-# loop: 0.6476186 seconds
-# hand-memoization: 0.895437 seconds
-# sequence-ternary: 1.2209411 seconds
-# recursive-ternary-hand-cached: 1.67990322 seconds
-# sequence: 2.17938379 seconds
+integration/advent2012-day21.t.....................# gerdr: 0.40999056 seconds
+# kaz: 0.436190 seconds
+# recursive-ternary: 0.6161354 seconds
+# loop: 0.630524 seconds
+# hand-memoization: 0.9505902 seconds
+# sequence-ternary: 1.19664456 seconds
+# recursive-ternary-hand-cached: 1.81478096 seconds
+# sequence: 2.4329464 seconds
    9    0    0    0    9
 integration/advent2012-day22.t.....................   6    0    0    0    6
 integration/advent2012-day23.t.....................   2    0    0    0    2
@@ -4572,7 +4600,7 @@ Useless use of constant integer 42 in sink context (line 1)
     
 # Failed test 'precompiled EVAL in BEGIN (Compiled)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar/t/spec/packages/Test/Compile.pm line 338
-    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmod79A07D09/p6testmodF13F065D.pm6')
+    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmod4E0DB419/p6testmod3A053F4F.pm6')
     # Looks like you failed 1 test of 2
    5    0    2    0    7
      1 todo   : RT \#124324 Missing or wrong version of dependency
@@ -4602,7 +4630,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S03",        5491,     0,   112,    75,  5678,  5696
 "S04",        1407,     0,    38,    28,  1473,  1505
 "S05",        5788,     0,    90,    94,  5972,  6142
-"S06",        2070,     0,    54,    80,  2204,  2250
+"S06",        2074,     0,    54,    80,  2208,  2254
 "S07",          22,     0,     0,     0,    22,   118
 "S09",        1964,     0,    10,    37,  2011,  2011
 "S10",         105,     0,     5,     1,   111,   168
@@ -4612,7 +4640,7 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         348,     0,     8,     5,   361,   374
 "S15",       79035,     0,     3,    18, 79056, 79076
 "S16",         761,     0,     3,    15,   779,   835
-"S17",         855,     1,     6,    28,   890,   890
+"S17",         840,    16,     6,    28,   890,   890
 "S19",          14,     0,     0,     0,    14,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",          18,     0,     0,     0,    18,    89
@@ -4622,7 +4650,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",       12625,     0,   174,   158, 12957, 11162
 "int",        1278,     0,    10,    14,  1302,  1288
 "ros",           2,     0,     0,     0,     2,     2
-"total",    122615,     1,   659,  1201,124476,123344
+"total",    122604,    16,   659,  1201,124480,123348
 ----------------
 Failure summary:
+S17-lowlevel/lock.t aborted 15 test(s)
 S17-promise/stress.t aborted 1 test(s)
