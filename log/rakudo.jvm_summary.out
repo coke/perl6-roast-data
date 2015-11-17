@@ -188,8 +188,10 @@ S02-types/assigning-refs.t.........................  18    0    0    0   18
 S02-types/autovivification.t.......................  25    0    0    0   25
 S02-types/bag.rakudo.jvm...........................   1  204    0    0  205
    204 tests aborted (missing ok/not ok)
-S02-types/baghash.rakudo.jvm.......................   1  259    0    0  260
-   259 tests aborted (missing ok/not ok)
+S02-types/baghash.rakudo.jvm....................... 190    0    2   68  260
+    21 skipped: 'is TypeObject' NYI RT #124490
+    47 skipped: NullPointerException - RT #126657
+     2 todo   : in flux
 S02-types/bool.rakudo.jvm..........................  51    0    2    0   53
      2 todo   : RT \#72580
 S02-types/built-in.t...............................   1    0    0    0    1
@@ -239,8 +241,10 @@ S02-types/mix.rakudo.jvm...........................   1  191    0    0  192
 S02-types/mixed_multi_dimensional.rakudo.jvm.......  77    0    3    0   80
      1 todo   : isa hash
      2 todo   : unknown
-S02-types/mixhash.rakudo.jvm.......................   1  228    0    0  229
-   228 tests aborted (missing ok/not ok)
+S02-types/mixhash.rakudo.jvm....................... 164    0    2   63  229
+    21 skipped: 'is TypeObject' NYI RT #124490
+    42 skipped: NullPointerException - RT #126657
+     2 todo   : in flux
 S02-types/multi_dimensional_array.rakudo.jvm.......  48    0    0   10   58
      6 skipped: multi-dim sized arrays NYI RT #124482
      4 skipped: multi-dim sized arrays NYI RT #124483
@@ -262,8 +266,9 @@ S02-types/range.t..................................  73   95    0    0  168
     95 tests aborted (missing ok/not ok)
 S02-types/set.rakudo.jvm...........................   1  173    0    0  174
    173 tests aborted (missing ok/not ok)
-S02-types/sethash.rakudo.jvm.......................   1  201    0    0  202
-   201 tests aborted (missing ok/not ok)
+S02-types/sethash.rakudo.jvm....................... 129    0    0   73  202
+    10 skipped: 'is TypeObject' NYI RT #124490
+    63 skipped: NullPointerException - RT #126657
 S02-types/sigils-and-types.rakudo.jvm..............  25    0    2    0   27
      1 todo   : Capture does Associative RT \#124485
      1 todo   : Capture does Positional RT \#124484
@@ -311,8 +316,13 @@ S03-metaops/cross.rakudo.jvm.......................  49    0    1    3   53
      1 todo   : code does not die
 S03-metaops/eager-hyper.rakudo.jvm.................   7    0    1    0    8
      1 todo   : hyper NYI entirely, I guess RT \#124517
-S03-metaops/hyper.rakudo.jvm.......................  97  305    0    0  402
-   305 tests aborted (missing ok/not ok)
+S03-metaops/hyper.rakudo.jvm....................... 344    0    2   56  402
+     1 skipped: EVAL(Buf) RT #122256
+    49 skipped: NullPointerException - RT #126656
+     5 skipped: RT #126528
+     1 skipped: doesn't seem to see the nodal
+     1 todo   : RT \#126527
+     1 todo   : can_meta check for meta operators NYI
 S03-metaops/not.t..................................  46    0    0    0   46
 S03-metaops/reduce.rakudo.jvm...................... 375    0    1    0  376
      1 todo   : item context
@@ -879,7 +889,7 @@ S06-signature/introspection.rakudo.jvm.............  27  106    0    0  133
 S06-signature/mixed-placeholders.t.................  18    0    0    0   18
 S06-signature/multi-invocant.t.....................  25    0    0    0   25
 S06-signature/multidimensional.t...................  10    0    0    0   10
-S06-signature/named-parameters.rakudo.jvm..........  79    0    0   16   95
+S06-signature/named-parameters.rakudo.jvm..........  83    0    0   16   99
     16 skipped: multiple same-named arguments NYI RT #124921
 S06-signature/named-placeholders.t.................   3    0    0    0    3
 S06-signature/named-renaming.t.....................  11    0    0    0   11
@@ -1253,7 +1263,7 @@ S17-supply/grep.t..................................   7    0    0    0    7
 S17-supply/interval.t..............................   3    0    0    0    3
 S17-supply/last.rakudo.jvm.........................   8    0    1    0    9
      1 todo   : we don't have Natural numbers yet RT \#124825
-S17-supply/lines.t.................................  10   11    0    0   21
+S17-supply/lines.t.................................   9   12    0    0   21
 S17-supply/list.t..................................   5    0    0    0    5
 S17-supply/map.t...................................   9    0    0    0    9
 S17-supply/max.t...................................  10    0    0    0   10
@@ -1390,8 +1400,8 @@ S32-container/zip.rakudo.jvm.......................  12    0    0    2   14
 S32-exceptions/misc.rakudo.jvm..................... 249  104    1    0  354
      1 todo   : parsing regression RT \#124679
    104 tests aborted (missing ok/not ok)
-S32-hash/adverbs.t................................. 232  892    0    0 1124
-   880 tests aborted (missing ok/not ok)
+S32-hash/adverbs.rakudo.jvm........................ 916   48    0  160 1124
+   160 skipped: NullPointerException - RT #126655
 S32-hash/antipairs.t...............................   1    4    0    0    5
      4 tests aborted (missing ok/not ok)
 S32-hash/delete-adverb.t........................... 106   25    0    0  131
@@ -1414,8 +1424,8 @@ S32-hash/perl.t....................................   0   12    0    0   12
 S32-hash/push.t....................................  10    0    0    0   10
 S32-hash/slice.rakudo.jvm..........................   9   20    0    0   29
     20 tests aborted (missing ok/not ok)
-S32-io/IO-Socket-Async.rakudo.jvm..................   1    5    0    0    6
-     4 tests aborted (missing ok/not ok)
+S32-io/IO-Socket-Async.rakudo.jvm..................   5    0    0    1    6
+     1 skipped: Flapping RT #122318
 S32-io/IO-Socket-INET.t............................   0    0    0   48   48
     48 skipped: Operating system not yet supported
 S32-io/chdir.rakudo.jvm............................   8    0    0    2   10
@@ -1832,11 +1842,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        4921,  1863,    76,   355,  7215,  7214
-"S03",        4248,  1316,    46,    68,  5678,  5696
+"S02",        5401,  1175,    80,   559,  7215,  7214
+"S03",        4495,  1011,    48,   124,  5678,  5696
 "S04",        1272,   125,    39,    37,  1473,  1505
 "S05",        5352,   297,    89,   203,  5941,  6142
-"S06",        1724,   343,    49,    92,  2208,  2254
+"S06",        1728,   343,    49,    92,  2212,  2258
 "S07",          22,     0,     0,     0,    22,   118
 "S09",        1871,   105,     5,    30,  2011,  2011
 "S10",          99,     5,     6,     1,   111,   168
@@ -1846,17 +1856,17 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S14",         325,    22,     8,     6,   361,   374
 "S15",          24,    45,     2,    20,    91, 79076
 "S16",         696,    62,     6,    15,   779,   835
-"S17",         776,    32,     5,    20,   833,   881
+"S17",         775,    33,     5,    20,   833,   881
 "S19",          14,     0,     0,     0,    14,    18
 "S22",          23,     0,     0,     1,    24,    24
 "S24",          18,     0,     0,     0,    18,    89
 "S26",        1896,    17,     4,    72,  1989,  1989
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         362,     1,     3,     3,   369,   369
-"S32",       10688,  1678,   168,   193, 12727, 11012
+"S32",       11376,   829,   168,   354, 12727, 11012
 "int",        1128,   145,     9,    13,  1295,  1288
 "ros",           2,     0,     0,     0,     2,     2
-"total",     37196,  6068,   568,  1352, 45184,123189
+"total",     38614,  4227,   574,  1773, 45188,123193
 ----------------
 Failure summary:
 S02-literals/autoref.t aborted 36 test(s)
@@ -1869,24 +1879,20 @@ S02-names-vars/list_array_perl.rakudo.jvm aborted 1 test(s)
 S02-names-vars/perl.rakudo.jvm aborted 44 test(s)
 S02-names/is_cached.rakudo.jvm aborted 28 test(s)
 S02-types/bag.rakudo.jvm aborted 204 test(s)
-S02-types/baghash.rakudo.jvm aborted 259 test(s)
 S02-types/capture.rakudo.jvm aborted 6 test(s)
 S02-types/hash.rakudo.jvm aborted 73 test(s)
 S02-types/isDEPRECATED.rakudo.jvm aborted 20 test(s)
 S02-types/list.t aborted 7 test(s)
 S02-types/mix.rakudo.jvm aborted 191 test(s)
-S02-types/mixhash.rakudo.jvm aborted 228 test(s)
 S02-types/pair.rakudo.jvm aborted 87 test(s)
 S02-types/range.t aborted 95 test(s)
 S02-types/set.rakudo.jvm aborted 173 test(s)
-S02-types/sethash.rakudo.jvm aborted 201 test(s)
 S02-types/subset.t 13 - can create subset of hash with where
 S02-types/subset.t 14 - subset of hash with where enforces where clause
 S02-types/whatever.rakudo.jvm aborted 87 test(s)
 S03-binding/hashes.t aborted 34 test(s)
 S03-junctions/associative.t aborted 10 test(s)
 S03-junctions/autothreading.t aborted 71 test(s)
-S03-metaops/hyper.rakudo.jvm aborted 305 test(s)
 S03-operators/adverbial-modifiers.rakudo.jvm aborted 31 test(s)
 S03-operators/arith.t aborted 21 test(s)
 S03-operators/assign.rakudo.jvm aborted 257 test(s)
@@ -2047,6 +2053,7 @@ S17-channel/earliest.t aborted 5 test(s)
 S17-supply/lines.t 6 - handle a simple list of lines with CRLF
 S17-supply/lines.t 7 - handle a simple list of lines with CRLF without chomping
 S17-supply/lines.t 8 - handle a simple list of lines with mixed line ending
+S17-supply/lines.t 9 - handle a simple list of lines with mixed line ending w/o chomping
 S17-supply/lines.t 10 - handle chunked lines
 S17-supply/lines.t 11 - handle chunked lines
 S17-supply/lines.t 16 - handle a simple list of lines with CRLF
@@ -2093,19 +2100,54 @@ S32-array/adverbs.t 602 - did we throws-like X::Adverb?
 S32-basics/xxKEY.rakudo.jvm 101 - $b.ASSIGN-KEY
 S32-basics/xxKEY.rakudo.jvm 119 - $m.ASSIGN-KEY
 S32-exceptions/misc.rakudo.jvm aborted 104 test(s)
-S32-hash/adverbs.t 24 - did we throws-like X::Adverb?
-S32-hash/adverbs.t 44 - did we throws-like X::Adverb?
-S32-hash/adverbs.t 64 - did we throws-like X::Adverb?
-S32-hash/adverbs.t 84 - did we throws-like X::Adverb?
-S32-hash/adverbs.t 104 - did we throws-like X::Adverb?
-S32-hash/adverbs.t 124 - did we throws-like X::Adverb?
-S32-hash/adverbs.t 144 - did we throws-like X::Adverb?
-S32-hash/adverbs.t 164 - did we throws-like X::Adverb?
-S32-hash/adverbs.t 184 - did we throws-like X::Adverb?
-S32-hash/adverbs.t 204 - did we throws-like X::Adverb?
-S32-hash/adverbs.t 224 - did we throws-like X::Adverb?
-S32-hash/adverbs.t 244 - did we throws-like X::Adverb?
-S32-hash/adverbs.t aborted 880 test(s)
+S32-hash/adverbs.rakudo.jvm 24 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 44 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 64 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 84 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 104 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 124 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 144 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 164 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 184 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 204 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 224 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 244 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 304 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 324 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 344 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 364 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 384 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 404 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 424 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 444 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 464 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 484 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 504 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 524 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 584 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 604 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 624 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 644 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 664 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 684 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 704 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 724 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 744 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 764 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 784 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 804 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 864 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 884 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 904 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 924 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 944 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 964 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 984 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 1004 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 1024 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 1044 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 1064 - did we throws-like X::Adverb?
+S32-hash/adverbs.rakudo.jvm 1084 - did we throws-like X::Adverb?
 S32-hash/antipairs.t aborted 4 test(s)
 S32-hash/delete-adverb.t aborted 25 test(s)
 S32-hash/exists.rakudo.jvm aborted 4 test(s)
@@ -2115,8 +2157,6 @@ S32-hash/kv.t aborted 26 test(s)
 S32-hash/pairs.t aborted 24 test(s)
 S32-hash/perl.t aborted 12 test(s)
 S32-hash/slice.rakudo.jvm aborted 20 test(s)
-S32-io/IO-Socket-Async.rakudo.jvm 2 - Async connect to unavailable server breaks promise
-S32-io/IO-Socket-Async.rakudo.jvm aborted 4 test(s)
 S32-io/io-handle.t 3 - Changing input-line-separator works for .lines
 S32-io/io-spec-win.t aborted 124 test(s)
 S32-list/map.rakudo.jvm aborted 2 test(s)
