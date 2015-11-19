@@ -115,22 +115,134 @@ touch node_modules/runtime_copied
 /home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/js/stage2
 /home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath node_modules
 ./nqp-m --module-path gen/js/stage1 src/vm/js/bin/cross-compile.nqp --setting=NULL --target=mbc --output gen/js/stage2/nqpmo.moarvm gen/js/stage2/nqpmo.nqp > node_modules/nqpmo.js
-Unexpected named parameter 'module-path' passed
-   at src/vm/js/bin/cross-compile.nqp:17  (<ephemeral file>:js:4)
- from gen/moar/stage2/NQPHLL.nqp:1552  (./NQPHLL.moarvm:compile:222)
- from gen/moar/stage2/NQPHLL.nqp:1286  (./NQPHLL.moarvm:eval:62)
- from gen/moar/stage2/NQPHLL.nqp:1506  (./NQPHLL.moarvm:evalfiles:91)
- from gen/moar/stage2/NQPHLL.nqp:1400  (./NQPHLL.moarvm:command_eval:214)
- from gen/moar/stage2/NQPHLL.nqp:1374  (./NQPHLL.moarvm:command_line:114)
- from src/vm/js/bin/cross-compile.nqp:66  (<ephemeral file>:MAIN:137)
- from src/vm/js/bin/cross-compile.nqp:25  (<ephemeral file>:<mainline>:38)
- from gen/moar/stage2/NQPHLL.nqp:1303  (./NQPHLL.moarvm:eval:190)
- from gen/moar/stage2/NQPHLL.nqp:1506  (./NQPHLL.moarvm:evalfiles:91)
- from gen/moar/stage2/NQPHLL.nqp:1400  (./NQPHLL.moarvm:command_eval:214)
- from gen/moar/stage2/NQPHLL.nqp:1374  (./NQPHLL.moarvm:command_line:114)
- from gen/moar/stage2/NQP.nqp:4105  (nqp.moarvm:MAIN:16)
- from gen/moar/stage2/NQP.nqp:4100  (nqp.moarvm:<mainline>:345)
- from <unknown>:1  (nqp.moarvm:<main>:8)
- from <unknown>:1  (nqp.moarvm:<entry>:9)
-Makefile:451: recipe for target 'gen/js/stage2/nqpmo.moarvm' failed
-make: *** [gen/js/stage2/nqpmo.moarvm] Error 1
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/js/stage2
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath node_modules
+./nqp-m --module-path gen/js/stage1 src/vm/js/bin/cross-compile.nqp --setting=NULL --target=mbc --output gen/js/stage2/NQPCORE.setting.moarvm gen/js/stage2/NQPCORE.setting.nqp > node_modules/NQPCORE.setting.js
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/js/stage2
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath node_modules
+./nqp-m --module-path gen/js/stage1 src/vm/js/bin/cross-compile.nqp --setting=NQPCORE --target=mbc --output gen/js/stage2/QASTNode.moarvm gen/js/stage2/QASTNode.nqp > node_modules/QASTNode.js
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/js/stage2
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath node_modules
+./nqp-m --module-path gen/js/stage1 src/vm/js/bin/cross-compile.nqp --setting=NQPCORE --target=mbc --output gen/js/stage2/QRegex.moarvm gen/js/stage2/QRegex.nqp > node_modules/QRegex.js
+./nqp-m tools/build/process-qregex-tests > gen/js/qregex.t
+perl src/vm/js/bin/run_tests.pl
+module.js:338
+    throw err;
+          ^
+Error: Cannot find module 'tap'
+    at Function.Module._resolveFilename (module.js:336:15)
+    at Function.Module._load (module.js:278:25)
+    at Module.require (module.js:365:17)
+    at require (module.js:384:17)
+    at Object.<anonymous> (/home/coke/sandbox/perl6-roast-data/nqp.js/t/js/varint.js:1:73)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+    at Function.Module.runMain (module.js:501:10)
+t/js/varint.js ........................ 
+Dubious, test returned 1 (wstat 256, 0x100)
+No subtests run 
+t/nqp/01-literals.t ................... ok
+t/nqp/02-if.t ......................... ok
+t/nqp/03-if-else.t .................... ok
+t/nqp/04-unless.t ..................... ok
+t/nqp/05-comments.t ................... ok
+t/nqp/06-args-pos.t ................... ok
+t/nqp/07-boolean.t .................... ok
+t/nqp/08-blocks.t ..................... ok
+t/nqp/09-var.t ........................ ok
+t/nqp/10-cmp.t ........................ ok
+t/nqp/11-sub.t ........................ ok
+t/nqp/12-logical.t .................... ok
+t/nqp/13-op.t ......................... ok
+t/nqp/14-while.t ...................... ok
+t/nqp/15-list.t ....................... ok
+t/nqp/16-ternary.t .................... ok
+t/nqp/17-positional.t ................. ok
+t/nqp/18-associative.t ................ ok
+t/nqp/19-file-ops.t ................... ok
+t/nqp/20-return.t ..................... ok
+t/nqp/21-contextual.t ................. ok
+t/nqp/22-optional-args.t .............. ok
+t/nqp/23-named-args.t ................. ok
+t/nqp/25-class.t ...................... ok
+t/nqp/26-methodops.t .................. ok
+t/nqp/27-self.t ....................... ok
+t/nqp/28-subclass.t ................... ok
+t/nqp/29-make.t ....................... ok
+t/nqp/31-grammar.t .................... ok
+t/nqp/32-protoregex.t ................. ok
+t/nqp/33-init.t ....................... ok
+t/nqp/34-rxcodeblock.t ................ ok
+t/nqp/35-prefix-sigil.t ............... ok
+t/nqp/36-callable.t ................... ok
+t/nqp/37-slurpy.t ..................... ok
+t/nqp/38-quotes.t ..................... ok
+t/nqp/39-pointy.t ..................... ok
+t/nqp/40-lists.t ...................... ok
+t/nqp/41-flat.t ....................... ok
+t/nqp/42-cond-loop.t .................. ok
+t/nqp/43-package-var.t ................ ok
+t/nqp/44-try-catch.t .................. ok
+t/nqp/45-smartmatch.t ................. ok
+t/nqp/46-charspec.t ................... ok
+t/nqp/47-loop-control.t ............... ok
+t/nqp/48-closure.t .................... ok
+t/nqp/50-regex.t ...................... ok
+t/nqp/51-multi.t ...................... ok
+t/nqp/53-knowhow.t .................... ok
+t/nqp/55-multi-method.t ............... ok
+t/nqp/56-role.t ....................... ok
+t/nqp/57-construction.t ............... ok
+t/nqp/58-attrs.t ...................... ok
+t/nqp/59-nqpop.t ...................... ok
+t/nqp/60-bigint.t ..................... ok
+t/nqp/61-mixin.t ...................... ok
+t/nqp/62-subst.t ...................... ok
+t/nqp/63-slurp.t ...................... ok
+t/nqp/64-native.t ..................... ok
+t/nqp/65-how.t ........................ ok
+t/nqp/66-pararole.t ................... ok
+t/nqp/67-container.t .................. ok
+t/nqp/68-associative-for.t ............ ok
+t/nqp/69-js-keywords-as-identifier.t .. ok
+t/nqp/70-invokespec.t ................. ok
+t/nqp/71-setboolspec.t ................ ok
+t/nqp/72-rolehow.t .................... ok
+t/nqp/73-delegation.t ................. ok
+t/nqp/74-nfa.t ........................ ok
+t/nqp/75-curcode.t .................... ok
+t/nqp/76-capture.t .................... ok
+t/nqp/77-curlexpad.t .................. ok
+t/nqp/78-shell.t ...................... ok
+t/nqp/79-callercode.t ................. ok
+t/nqp/80-matches.t .................... ok
+t/nqp/81-radix.t ...................... ok
+t/nqp/82-decode.t ..................... ok
+t/nqp/83-log.t ........................ ok
+t/nqp/84-loop-labels.t ................ ok
+t/nqp/85-type-tester.t ................ ok
+t/nqp/88-more-if-tests.t .............. ok
+t/nqp/89-istype.t ..................... ok
+t/nqp/90-findmethod.t ................. ok
+t/nqp/91-codename.t ................... ok
+t/nqp/92-where.t ...................... ok
+t/nqp/93-oo-ops.t ..................... ok
+t/nqp/94-clone.t ...................... ok
+t/nqp/95-cclass.t ..................... ok
+t/nqp/96-array-methods.t .............. ok
+t/moar/03-line-seps.t ................. ok
+gen/js/qregex.t ....................... ok
+t/serialization/01-basic.t ............ ok
+t/serialization/02-types.t ............ ok
+t/qast/02-manipulation.t .............. ok
+t/js/getcomp-js.t ..................... ok
+
+Test Summary Report
+-------------------
+t/js/varint.js                      (Wstat: 256 Tests: 0 Failed: 0)
+  Non-zero exit status: 1
+  Parse errors: No plan found in TAP output
+Files=96, Tests=3347, 60 wallclock secs ( 0.48 usr  0.08 sys + 54.76 cusr  5.64 csys = 60.96 CPU)
+Result: FAIL
