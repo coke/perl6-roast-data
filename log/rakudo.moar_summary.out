@@ -170,39 +170,7 @@ Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed. 
 S02-magicals/args.t................................   6    0    0    0    6
 S02-magicals/block.t...............................   3    0    0    0    3
 S02-magicals/dollar-underscore.t...................  11    0    0    0   11
-S02-magicals/dollar_bang.t.........................WARNING: unhandled Failure detected in DESTROY:
-Attempt to divide 1 by zero using div
-  in any  at gen/moar/m-Perl6-Optimizer.nqp:1359
-  in any  at gen/moar/m-Perl6-Optimizer.nqp:1355
-  in any optimize_call at gen/moar/m-Perl6-Optimizer.nqp:1317
-  in any visit_op at gen/moar/m-Perl6-Optimizer.nqp:1267
-  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1855
-  in any visit_op_children at gen/moar/m-Perl6-Optimizer.nqp:1290
-  in any visit_op at gen/moar/m-Perl6-Optimizer.nqp:1172
-  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1855
-  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1867
-  in any visit_op_children at gen/moar/m-Perl6-Optimizer.nqp:1290
-  in any visit_op at gen/moar/m-Perl6-Optimizer.nqp:1172
-  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1855
-  in any visit_op_children at gen/moar/m-Perl6-Optimizer.nqp:1290
-  in any visit_op at gen/moar/m-Perl6-Optimizer.nqp:1172
-  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1855
-  in any visit_op_children at gen/moar/m-Perl6-Optimizer.nqp:1290
-  in any visit_op at gen/moar/m-Perl6-Optimizer.nqp:1172
-  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1855
-  in any visit_want at gen/moar/m-Perl6-Optimizer.nqp:1677
-  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1858
-  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1873
-  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1867
-  in any visit_block at gen/moar/m-Perl6-Optimizer.nqp:902
-  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1864
-  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1867
-  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1873
-  in any visit_block at gen/moar/m-Perl6-Optimizer.nqp:902
-  in any optimize at gen/moar/m-Perl6-Optimizer.nqp:882
-  in any optimize at src/Perl6/Compiler.nqp:70
-
-  15    0    0    0   15
+S02-magicals/dollar_bang.t.........................  15    0    0    0   15
 S02-magicals/env.rakudo.moar.......................# %*ENV<PUGS_ROCKS>=
 # %*ENV<PUGS_ROCKS>=
   17    0    0    1   18
@@ -286,8 +254,21 @@ S02-types/anon_block.rakudo.moar...................Block object coerced to strin
   39    0    1    2   42
      2 skipped: tests don't work if previous test fails
      1 todo   : Parrot support for zero-arg subs?
-S02-types/array-shapes.rakudo.moar.................  10    0    0   15   25
-    15 skipped: array shapes NYI RT #124502
+S02-types/array-shapes.rakudo.moar.................    
+# Failed test ''my @arr.[8]' died'
+# at t/spec/S02-types/array-shapes.rakudo.moar line 30
+    # Looks like you failed 1 test of 2
+    
+# Failed test ''my @arr\    .[8]' died'
+# at t/spec/S02-types/array-shapes.rakudo.moar line 33
+    # Looks like you failed 1 test of 2
+    
+# Failed test ''push @arr, 123' died'
+# at t/spec/S02-types/array-shapes.rakudo.moar line 65
+    # Looks like you failed 1 test of 2
+  22    0    3    1   26
+     1 skipped: array shapes NYI RT #124502
+     3 todo   : code does not die, array shapes RT \#124502
 S02-types/array.rakudo.moar........................    
 # Failed test 'code dies'
 # at t/spec/S02-types/array.rakudo.moar line 269
@@ -534,7 +515,7 @@ S03-operators/also.rakudo.moar.....................   4    0    4    0    8
      1 todo   : nom regression RT \#124546
      1 todo   : nom regression RT \#124547
 S03-operators/andthen.t............................   8    0    0    0    8
-S03-operators/arith.t..............................Use of uninitialized value of type Int in numeric context  in block  at t/spec/S03-operators/arith.t:380
+S03-operators/arith.t..............................Use of uninitialized value of type Int in numeric context  in block  at t/spec/S03-operators/arith.t:379
  157    0    0    0  157
 S03-operators/assign-is-not-binding.t..............   9    0    0    0    9
 S03-operators/assign.rakudo.moar................... 264    0   16   14  294
@@ -552,18 +533,6 @@ S03-operators/assign.rakudo.moar................... 264    0   16   14  294
 S03-operators/autoincrement-range.t................# Tests for 'a' .. 'z'
 # Tests for 'Α' .. 'Ω' (Greek uppercase)
 # Tests for 'α' .. 'ω' (Greek lowercase)
-WARNING: unhandled Failure detected in DESTROY:
-Decrement out of range
-  in block <unit> at t/spec/S03-operators/autoincrement-range.t:58
-
-WARNING: unhandled Failure detected in DESTROY:
-Decrement out of range
-  in block <unit> at t/spec/S03-operators/autoincrement-range.t:37
-
-WARNING: unhandled Failure detected in DESTROY:
-Decrement out of range
-  in block <unit> at t/spec/S03-operators/autoincrement-range.t:17
-
 # Tests for 'א' .. 'ת' (Hebrew)
 # Tests for '0' .. '9'
 # Tests for '٠' .. '٩' (Arabic-Indic)
@@ -851,8 +820,8 @@ S03-operators/mix.rakudo.moar...................... 102    0   26    0  128
      8 todo   : Rakudo update in progress, but not done yet RT \#124541
      4 todo   : Wrong answer at the moment
      8 todo   : submix behavior still under discussion
-S03-operators/names.t..............................Sub+{<anon|45998144>}+{Precedence} object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:14
-Sub+{<anon|45998144>}+{Precedence} object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:16
+S03-operators/names.t..............................Sub+{<anon|55505232>}+{Precedence} object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:14
+Sub+{<anon|55505232>}+{Precedence} object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:16
    7    0    0    0    7
 S03-operators/nesting.t............................  26    0    0    0   26
 S03-operators/not.t................................  22    0    0    0   22
@@ -1500,7 +1469,7 @@ S05-substitution/subst.rakudo.moar.................Potential difficulties:
 Saw 1 occurrence of deprecated code.
 ================================================================================
 split(:all) seen at:
-  gen/moar/m-CORE.setting, line 9912
+  gen/moar/m-CORE.setting, line 10107
 Please use split(:v) instead.
 --------------------------------------------------------------------------------
 Please contact the author to have these occurrences of deprecated code
@@ -1728,12 +1697,12 @@ S09-hashes/objecthash.rakudo.moar..................Potential difficulties:
   32    0    2    2   36
      2 skipped: oh noes, it dies
      2 todo   : oh noes, it dies
-S09-multidim/XX-POS-on-dimensioned.t...............  29    0    0    0   29
+S09-multidim/XX-POS-on-dimensioned.t...............  69    0    0    0   69
 S09-multidim/XX-POS-on-undimensioned.t.............  16    0    0    0   16
-S09-multidim/assign.t..............................  26    0    0    0   26
-S09-multidim/decl.t................................  24    0    0    0   24
+S09-multidim/assign.t..............................  54    0    0    0   54
+S09-multidim/decl.t................................  39    0    0    0   39
 S09-multidim/indexing.t............................  31    0    0    0   31
-S09-multidim/methods.t.............................  36    0    0    0   36
+S09-multidim/methods.t.............................  72    0    0    0   72
 S09-subscript/multidim-assignment.t................  10    0    0    0   10
 S09-subscript/slice.rakudo.moar....................  27    0    0    4   31
      2 skipped: RT #120383
@@ -1786,10 +1755,10 @@ Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed. 
 Use of uninitialized value $_ of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-25724-318226.code:4
+#   in block <unit> at getout-30137-903434.code:4
 
 # Actually thrown at:
-#   in block <unit> at getout-25724-318226.code:4
+#   in block <unit> at getout-30137-903434.code:4
 
 
   33    0    3    0   36
@@ -2121,21 +2090,17 @@ S15-unicode-information/uniprop.t..................   6    0    0    0    6
 S15-unicode-information/unival.t...................  40    0    0    0   40
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  12    0    0    0   12
-S16-filehandles/chmod.t............................# Using file temp_1448029568
-# Using file temp_1448029568
+S16-filehandles/chmod.t............................# Using file temp_1448115824
+# Using file temp_1448115824
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
 S16-filehandles/filetest.rakudo.moar...............  34    0    0    9   43
      6 skipped: :M, :C, :A
      3 skipped: no file README
-S16-filehandles/io.rakudo.moar.....................Cannot find method 'isatty': no method cache and no .^find_method
-  in block <unit> at t/spec/S16-filehandles/io.rakudo.moar:333
-
- 103    7    2    0  112
+S16-filehandles/io.rakudo.moar..................... 110    0    2    0  112
      1 todo   : Too late to change filehandle encoding RT \#125079
      1 todo   : Will fail due to above failure RT \#125082
-     7 tests aborted (missing ok/not ok)
 S16-filehandles/io_in_for_loops.t..................  32    0    0    0   32
 S16-filehandles/io_in_while_loops.t................  17    0    0    0   17
 S16-filehandles/mkdir_rmdir.t......................  14    0    0    0   14
@@ -2167,7 +2132,10 @@ S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   7    0    0    0    7
-S17-lowlevel/lock.t................................  23    0    0    0   23
+S17-lowlevel/lock.t................................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar/install/bin/moar': realloc(): invalid next size: 0x00007f2d54056280 ***
+Aborted
+  15    8    0    0   23
+     8 tests aborted (missing ok/not ok)
 S17-lowlevel/thread-start-join-stress.t............   1    0    0    0    1
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.rakudo.moar....................  27    0    0    3   30
@@ -4311,13 +4279,13 @@ S32-str/comb.rakudo.moar...........................  77    0    0    1   78
 S32-str/contains.t.................................  20    0    0    0   20
 S32-str/encode.rakudo.moar.........................    
 # Failed test '.message matches rx:s:i/line 1 col\w* 2|term/'
-# at gen/moar/m-CORE.setting line 3226
+# at gen/moar/m-CORE.setting line 3421
     # Expected: rx:s:i/line 1 col\w* 2|term/
     # Got:      Malformed UTF-16; odd number of bytes
     # Looks like you failed 1 test of 3
     
 # Failed test '.message matches rx:s:i/line 1 col\w* 2/'
-# at gen/moar/m-CORE.setting line 3226
+# at gen/moar/m-CORE.setting line 3421
     # Expected: rx:s:i/line 1 col\w* 2/
     # Got:      Malformed UTF-16; unexpected low surrogate
     # Looks like you failed 1 test of 3
@@ -4347,7 +4315,7 @@ S32-str/samemark.rakudo.moar.......................   0    0    0    7    7
 S32-str/split-simple.t.............................Saw 1 occurrence of deprecated code.
 ================================================================================
 split(:all) seen at:
-  gen/moar/m-CORE.setting, line 9912
+  gen/moar/m-CORE.setting, line 10107
 Please use split(:v) instead.
 --------------------------------------------------------------------------------
 Please contact the author to have these occurrences of deprecated code
@@ -4541,14 +4509,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# gerdr: 0.334368 seconds
-# kaz: 0.4070264 seconds
-# recursive-ternary: 0.46949191 seconds
-# loop: 0.58286624 seconds
-# hand-memoization: 0.89081676 seconds
-# sequence-ternary: 1.13532314 seconds
-# recursive-ternary-hand-cached: 1.8594404 seconds
-# sequence: 2.14356171 seconds
+integration/advent2012-day21.t.....................# kaz: 0.3725920 seconds
+# gerdr: 0.43178072 seconds
+# recursive-ternary: 0.4827373 seconds
+# loop: 0.58280475 seconds
+# hand-memoization: 0.99299056 seconds
+# sequence-ternary: 1.134351435 seconds
+# recursive-ternary-hand-cached: 1.85872229 seconds
+# sequence: 2.1477861 seconds
    9    0    0    0    9
 integration/advent2012-day22.t.....................   6    0    0    0    6
 integration/advent2012-day23.t.....................   2    0    0    0    2
@@ -4604,7 +4572,7 @@ Useless use of constant integer 42 in sink context (line 1)
     
 # Failed test 'precompiled EVAL in BEGIN (Compiled)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar/t/spec/packages/Test/Compile.pm line 338
-    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmod3D7FD8C8/p6testmodF9C95992.pm6')
+    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmodD6EFC67F/p6testmod82AC8755.pm6')
     # Looks like you failed 1 test of 2
    5    0    2    0    7
      1 todo   : RT \#124324 Missing or wrong version of dependency
@@ -4630,21 +4598,21 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        6785,     0,    91,   351,  7227,  7226
+"S02",        6797,     0,    94,   337,  7228,  7227
 "S03",        5517,     0,   112,    75,  5704,  5722
 "S04",        1407,     0,    38,    28,  1473,  1505
 "S05",        5788,     0,    90,    94,  5972,  6142
 "S06",        2115,     0,    51,    80,  2246,  2292
 "S07",          22,     0,     0,     0,    22,   118
-"S09",        2128,     0,    10,    37,  2175,  2175
+"S09",        2247,     0,    10,    37,  2294,  2294
 "S10",         125,     0,     3,     1,   129,   186
 "S11",         112,     0,     6,    11,   129,   148
 "S12",        1611,     0,    31,   126,  1768,  1823
 "S13",          62,     0,     0,     0,    62,    72
 "S14",         349,     0,     7,     5,   361,   374
 "S15",       79035,     0,     3,    18, 79056, 79076
-"S16",         755,     7,     3,    15,   780,   836
-"S17",         855,     1,     6,    28,   890,   890
+"S16",         762,     0,     3,    15,   780,   836
+"S17",         847,     9,     6,    28,   890,   890
 "S19",          14,     0,     0,     0,    14,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",          18,     0,     0,     0,    18,    89
@@ -4654,8 +4622,8 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S32",       12627,     0,   174,   158, 12959, 11164
 "int",        1278,     0,    10,    14,  1302,  1288
 "ros",           2,     0,     0,     0,     2,     2
-"total",    122915,     8,   646,  1190,124759,123627
+"total",    123045,     9,   649,  1176,124879,123747
 ----------------
 Failure summary:
-S16-filehandles/io.rakudo.moar aborted 7 test(s)
+S17-lowlevel/lock.t aborted 8 test(s)
 S17-promise/stress.t aborted 1 test(s)

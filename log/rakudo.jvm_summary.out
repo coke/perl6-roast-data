@@ -173,8 +173,9 @@ S02-types/anon_block.rakudo.jvm....................  36    0    4    2   42
      2 skipped: tests don't work if previous test fails
      3 todo   : ? RT \#124493
      1 todo   : Parrot support for zero-arg subs?
-S02-types/array-shapes.rakudo.jvm..................  10    0    0   15   25
-    15 skipped: array shapes NYI RT #124502
+S02-types/array-shapes.rakudo.jvm..................  22    0    3    1   26
+     1 skipped: array shapes NYI RT #124502
+     3 todo   : code does not die, array shapes RT \#124502
 S02-types/array.rakudo.jvm.........................  92    0    3    2   97
      2 skipped: multi-dim arrays NYI RT #124508
      1 todo   : bind_pos NYI
@@ -333,8 +334,7 @@ S03-operators/also.rakudo.jvm......................   4    0    4    0    8
      1 todo   : nom regression RT \#124546
      1 todo   : nom regression RT \#124547
 S03-operators/andthen.t............................   8    0    0    0    8
-S03-operators/arith.rakudo.jvm..................... 154    0    0    3  157
-     3 skipped: RT #126673
+S03-operators/arith.t.............................. 157    0    0    0  157
 S03-operators/assign-is-not-binding.t..............   9    0    0    0    9
 S03-operators/assign.rakudo.jvm.................... 264    0   16   14  294
      3 skipped: ,= needs to be special cased after GLR to compile to push(@a, 3, 4)
@@ -495,8 +495,7 @@ S04-exception-handlers/catch.t.....................  30    0    0    0   30
 S04-exception-handlers/control.t...................  10    0    0    0   10
 S04-exception-handlers/top-level.t.................   1    0    0    0    1
 S04-exceptions/control_across_runloop.t............   1    0    0    0    1
-S04-exceptions/fail.rakudo.jvm.....................  26    0    0    2   28
-     2 skipped: RT #126673
+S04-exceptions/fail.t..............................  28    0    0    0   28
 S04-exceptions/pending.rakudo.jvm..................   6    0    1   14   21
     13 skipped: $!.pending
      1 skipped: $object.handled
@@ -514,7 +513,8 @@ S04-phasers/enter-leave.rakudo.jvm.................  24    0    3    3   30
      1 todo   : is this spec? why would LEAVE not see outer $!? fossil?
      1 todo   : nigh
 S04-phasers/eval-in-begin.t........................   3    0    0    0    3
-S04-phasers/first.t................................   1    3    0    0    4
+S04-phasers/first.rakudo.jvm.......................   1    0    3    0    4
+     3 todo   : RT \#126701
 S04-phasers/in-eval.rakudo.jvm.....................  34    0    1    0   35
      1 todo   : not sure
 S04-phasers/in-loop.rakudo.jvm.....................   2    0    1    2    5
@@ -776,8 +776,7 @@ S05-modifier/repetition.rakudo.jvm.................   9    0    0    3   12
 S05-modifier/sigspace.t............................  16    0    0    0   16
 S05-substitution/67222.t...........................   1    0    0    0    1
 S05-substitution/match.t...........................  13    0    0    0   13
-S05-substitution/subst.rakudo.jvm.................. 131    0    1   31  163
-     2 skipped: Cannot access a native attribute as a reference attribute, RT #126679
+S05-substitution/subst.rakudo.jvm.................. 133    0    1   29  163
      1 skipped: RT #114388 -- No such method 'subst-mutate' for invocant of type 'Any'
     28 skipped: RT #124279
      1 todo   : be smarter about constant detection
@@ -794,10 +793,8 @@ S06-advanced/callframe.rakudo.jvm..................  13    0    0    2   15
 S06-advanced/callsame.t............................   3    0    0    0    3
 S06-advanced/lexical-subs.t........................  13    0    0    0   13
 S06-advanced/recurse.t.............................  13    0    0    0   13
-S06-advanced/return.rakudo.jvm.....................  95    0    2    1   98
-     1 skipped: RT #126673
+S06-advanced/return.rakudo.jvm.....................  97    0    1    0   98
      1 todo   : RT \#61732
-     1 todo PASSED: code does not die
 S06-advanced/stub.rakudo.jvm.......................   9    0    0    1   10
      1 skipped: supersede NYI
 S06-advanced/wrap.rakudo.jvm.......................  76    0    6    3   85
@@ -960,12 +957,12 @@ S09-autovivification/autovivification.rakudo.jvm...  39    0    4    1   44
 S09-hashes/objecthash.rakudo.jvm...................  32    0    2    2   36
      2 skipped: oh noes, it dies
      2 todo   : oh noes, it dies
-S09-multidim/XX-POS-on-dimensioned.t...............  29    0    0    0   29
+S09-multidim/XX-POS-on-dimensioned.t...............  69    0    0    0   69
 S09-multidim/XX-POS-on-undimensioned.t.............  16    0    0    0   16
-S09-multidim/assign.t..............................  26    0    0    0   26
-S09-multidim/decl.t................................  24    0    0    0   24
+S09-multidim/assign.t..............................  54    0    0    0   54
+S09-multidim/decl.t................................  39    0    0    0   39
 S09-multidim/indexing.t............................  31    0    0    0   31
-S09-multidim/methods.t.............................  36    0    0    0   36
+S09-multidim/methods.t.............................  72    0    0    0   72
 S09-subscript/multidim-assignment.t................  10    0    0    0   10
 S09-subscript/slice.rakudo.jvm.....................  27    0    0    4   31
      2 skipped: RT #120383
@@ -1200,20 +1197,20 @@ S15-unicode-information/uniname.rakudo.jvm.........  18    0    2   19   39
      1 todo   : RT \#122470
      1 todo   : RT \#122471
                                                    pass fail todo skip plan
-S16-filehandles/argfiles.t.........................  11    1    0    0   12
+S16-filehandles/argfiles.rakudo.jvm................  11    0    1    0   12
+     1 todo   : RT \#123888
 S16-filehandles/chmod.t............................  16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
 S16-filehandles/filetest.rakudo.jvm................  34    0    0    9   43
      6 skipped: :M, :C, :A
      3 skipped: no file README
-S16-filehandles/io.rakudo.jvm...................... 100    7    5    0  112
+S16-filehandles/io.rakudo.jvm...................... 107    0    5    0  112
      1 todo   : Will fail due to above failure RT \#125082
      1 todo   : builtin JVM charset folds these RT \#124686
      1 todo   : java.nio.charset.UnmappableCharacterException RT \#125075
      1 todo   : will fail due to above failures RT \#125077
      1 todo   : will fail due to above failures RT \#125081
-     7 tests aborted (missing ok/not ok)
 S16-filehandles/io_in_for_loops.t..................  32    0    0    0   32
 S16-filehandles/io_in_while_loops.t................  17    0    0    0   17
 S16-filehandles/mkdir_rmdir.t......................  14    0    0    0   14
@@ -1452,7 +1449,8 @@ S32-io/dir.rakudo.jvm..............................   9    0    4    0   13
      1 todo   : dirname is not yet absolute RT \#124786
      1 todo   : entries are still IO::Path RT \#124785
 S32-io/file-tests.t................................  34    0    0    0   34
-S32-io/io-handle.t.................................   2    1    0    0    3
+S32-io/io-handle.rakudo.jvm........................   2    0    1    0    3
+     1 todo   : RT \#123888
 S32-io/io-path-cygwin.rakudo.jvm...................  50    0    1    0   51
      1 todo   : resolve NYI, needs nqp::readlink RT \#124781
 S32-io/io-path-unix.rakudo.jvm.....................  35    0    1    0   36
@@ -1595,7 +1593,8 @@ S32-str/ends-with.t................................   8    0    0    0    8
 S32-str/flip.rakudo.jvm............................  11    0    2    0   13
      2 todo   : NFG on JVM RT \#124682
 S32-str/indent.t...................................  62    0    0    0   62
-S32-str/index.t....................................  40    4    0    0   44
+S32-str/index.rakudo.jvm...........................  40    0    4    0   44
+     4 todo   : RT \#126700
 S32-str/indices.t..................................  24    0    0    0   24
 S32-str/lc.t.......................................  18    0    0    0   18
 S32-str/length.rakudo.jvm..........................  28    0    1    0   29
@@ -1610,11 +1609,10 @@ S32-str/rindex.t...................................  43    0    0    0   43
 S32-str/samecase.t.................................   8    0    0    0    8
 S32-str/samemark.rakudo.jvm........................   0    0    0    7    7
      7 skipped: samemark NYI - RT #125165
-S32-str/split-simple.rakudo.jvm....................  24    0    0    5   29
-     5 skipped: Cannot access a native attribute as a reference attribute, RT #126679
-S32-str/split.rakudo.jvm...........................  16    0    0   41   57
-    40 skipped: Cannot access a native attribute as a reference attribute, RT #126679
+S32-str/split-simple.t.............................  29    0    0    0   29
+S32-str/split.rakudo.jvm...........................  37    0    0   20   57
      1 skipped: No such method null for invocant of type Cursor RT #124685
+    19 skipped: UnwindException RT #124279
 S32-str/sprintf-b.rakudo.jvm.......................  68    0   90    7  165
      1 skipped: "%+ #10b" dies with "unsupported use of %+ variable;" RT #124727
      1 skipped: "%+ 010b" dies with "unsupported use of %+ variable;" RT #124718
@@ -1666,7 +1664,8 @@ S32-str/substr-rw.rakudo.jvm.......................  31    0    8    0   39
 S32-str/substr.rakudo.jvm..........................  53    0    1    2   56
      2 skipped: java.nio.charset.MalformedInputException RT #124692
      1 todo   : codepoints greater than 0xFFFF RT \#124692
-S32-str/tc.rakudo.jvm..............................   6    2    1    0    9
+S32-str/tc.rakudo.jvm..............................   6    0    3    0    9
+     2 todo   : RT \#124683
      1 todo   : tc works on codepoints greater than 0xffff RT \#124684
 S32-str/tclc.rakudo.jvm............................   5    0    1    0    6
      1 todo   : RT \#121377
@@ -1779,7 +1778,8 @@ integration/advent2012-day10.t.....................  26    0    0    0   26
 integration/advent2012-day12.t.....................   5    0    0    0    5
 integration/advent2012-day13.t.....................  42    0    0    0   42
 integration/advent2012-day14.t.....................   6    0    0    0    6
-integration/advent2012-day15.t.....................  10    1    0    0   11
+integration/advent2012-day15.rakudo.jvm............  10    0    1    0   11
+     1 todo   : RT \#126701
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
@@ -1838,20 +1838,20 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        6703,     0,   104,   420,  7227,  7226
-"S03",        5495,     0,   117,    92,  5704,  5722
-"S04",        1375,    13,    45,    40,  1473,  1505
-"S05",        5589,     4,   107,   241,  5941,  6142
-"S06",        2078,     4,    59,   105,  2246,  2292
+"S02",        6715,     0,   107,   406,  7228,  7227
+"S03",        5498,     0,   117,    89,  5704,  5722
+"S04",        1377,    10,    48,    38,  1473,  1505
+"S05",        5591,     4,   107,   239,  5941,  6142
+"S06",        2080,     4,    58,   104,  2246,  2292
 "S07",          22,     0,     0,     0,    22,   118
-"S09",        2127,     0,    11,    37,  2175,  2175
+"S09",        2246,     0,    11,    37,  2294,  2294
 "S10",         124,     0,     4,     1,   129,   186
 "S11",         112,     0,     6,    11,   129,   148
 "S12",        1602,     1,    39,   126,  1768,  1823
 "S13",          62,     0,     0,     0,    62,    72
 "S14",         346,     2,     7,     6,   361,   374
 "S15",          46,     0,     5,    40,    91, 79076
-"S16",         691,    59,    15,    15,   780,   836
+"S16",         698,    51,    16,    15,   780,   836
 "S17",         795,     1,    17,    20,   833,   881
 "S19",          14,     0,     0,     0,    14,    18
 "S22",          23,     0,     0,     1,    24,    24
@@ -1859,19 +1859,16 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         363,     0,     3,     3,   369,   369
-"S32",       12180,     9,   274,   266, 12729, 11014
-"int",        1271,     1,     9,    14,  1295,  1288
+"S32",       12206,     2,   281,   240, 12729, 11014
+"int",        1271,     0,    10,    14,  1295,  1288
 "ros",           2,     0,     0,     0,     2,     2
-"total",     42954,    94,   830,  1585, 45463,123468
+"total",     43127,    75,   844,  1537, 45583,123588
 ----------------
 Failure summary:
 S04-declarations/will.rakudo.jvm 8 - for iteration #1
 S04-declarations/will.rakudo.jvm 9 - for iteration #2
 S04-declarations/will.rakudo.jvm 10 - for iteration #3
 S04-declarations/will.rakudo.jvm 11 - all for blocks set variable
-S04-phasers/first.t 1 - FIRST only ran once
-S04-phasers/first.t 3 - multiple FIRST {} ran in order
-S04-phasers/first.t 4 - FIRST {} ran before ENTER {}
 S04-statements/for.rakudo.jvm 91 - did we throws-like X::Multi::NoMatch?
 S04-statements/with.t 37 - $_: with on Failure
 S04-statements/with.t 44 - $pos: with on Failure
@@ -1889,8 +1886,6 @@ S06-multi/subsignature.rakudo.jvm 37 - slurpy and named interact well (2)
 S12-subset/subtypes.t 44 - subtypes based on roles work
 S14-roles/basic.rakudo.jvm 26 - type-check passes when role mixed in
 S14-roles/mixin.t 27 - RT #100782 2/2
-S16-filehandles/argfiles.t 12 - Can change $*IN.nl-in and it has effect
-S16-filehandles/io.rakudo.jvm aborted 7 test(s)
 S16-io/comb.t 25 - testing 'defg' with Int
 S16-io/lines.t 131 - read first line: () / CR / open
 S16-io/lines.t 132 - rest of file: () / CR / open
@@ -1945,11 +1940,3 @@ S16-io/supply.t 6 - we can get chars from a supply
 S17-supply/throttle.t 3 - difference between each at least .5 seconds
 S32-basics/xxKEY.rakudo.jvm 101 - $b.ASSIGN-KEY
 S32-basics/xxKEY.rakudo.jvm 119 - $m.ASSIGN-KEY
-S32-io/io-handle.t 3 - Changing input-line-separator works for .lines
-S32-str/index.t 37 - sub does -1.0E34 give Nil
-S32-str/index.t 38 - method does -1.0E34 give Nil
-S32-str/index.t 39 - sub does -1.0E35 give Nil
-S32-str/index.t 40 - method does -1.0E35 give Nil
-S32-str/tc.rakudo.jvm 5 - sharp s => Ss
-S32-str/tc.rakudo.jvm 6 - lj => Lj (in one character)
-integration/advent2012-day15.t 9 - FIRST/NEXT/LAST example
