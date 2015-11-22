@@ -483,10 +483,11 @@ S04-declarations/our.t.............................  31    0    0    0   31
 S04-declarations/smiley.t..........................  60    0    0    0   60
 S04-declarations/state.rakudo.jvm..................  40    0    1    0   41
      1 todo   : initialization happens only on first call(?) RT \#102994
-S04-declarations/will.rakudo.jvm...................   9    4    4    3   20
+S04-declarations/will.rakudo.jvm...................   9    0    8    3   20
      1 skipped: declared variable not visible in block yet RT #125061
      1 skipped: declared variable not visible in block yet RT #125063
      1 skipped: declared variable not visible in block yet RT #125066
+     4 todo   : "will first" not working
      1 todo   : declared variable not visible in block yet RT \#125064
      1 todo   : declared variable not visible in block yet RT \#125067
      1 todo   : will init NYI
@@ -548,7 +549,8 @@ S04-statements/do.rakudo.jvm.......................  21    0    1    7   29
      1 skipped: redo without loop construct RT #124576
      1 todo   : Rakudo still uses Nil here RT \#124572
 S04-statements/for-scope.t.........................  16    0    0    0   16
-S04-statements/for.rakudo.jvm......................  93    1    4    0   98
+S04-statements/for.rakudo.jvm......................  93    0    5    0   98
+     1 todo   : RT \#126531
      1 todo   : Rakudo still uses Nil here RT \#124568
      1 todo   : Rakudo still uses Nil here RT \#124569
      1 todo   : gives "" instead of "0 1"
@@ -585,8 +587,10 @@ S04-statements/unless.t............................  11    0    0    0   11
 S04-statements/until.t.............................   4    0    0    0    4
 S04-statements/when.t..............................  24    0    0    0   24
 S04-statements/while.t.............................  10    0    0    0   10
-S04-statements/with.t..............................  75    5    0    0   80
-     1 tests aborted (missing ok/not ok)
+S04-statements/with.rakudo.jvm.....................  75    0    4    1   80
+     1 skipped: Failure from oops is thrown
+     2 todo   : $foo is not "$()", but Failure
+     2 todo   : $foo is not a Failure, but "$()"
                                                    pass fail todo skip plan
 S05-capture/alias.rakudo.jvm.......................  25    0    3    2   30
      2 skipped: Package variable capture RT #125122
@@ -725,9 +729,10 @@ S05-modifier/counted-match.rakudo.jvm..............  11    0    4   13   28
     13 skipped: RT #124279
      2 todo   : RT \#125026
      2 todo   : RT \#125815
-S05-modifier/counted.rakudo.jvm.................... 102    1    5   18  126
+S05-modifier/counted.rakudo.jvm.................... 102    0    6   18  126
     18 skipped: RT #124279
      5 todo   : RT \#125815
+     1 todo   : got: 'False', expected: 'D'
 S05-modifier/global.t..............................   8    0    0    0    8
 S05-modifier/ignorecase.rakudo.jvm.................  23    0    2    0   25
      2 todo   : ignorecase and SS/&szlig; RT \#121377
@@ -824,13 +829,15 @@ S06-multi/by-trait.rakudo.jvm......................   0    0    0   13   13
 S06-multi/lexical-multis.rakudo.jvm................  14    0    1    0   15
      1 todo   : lexical scope as tie breaker
 S06-multi/positional-vs-named.t....................  28    0    0    0   28
-S06-multi/proto.rakudo.jvm.........................  22    3    1    0   26
+S06-multi/proto.rakudo.jvm.........................  22    0    4    0   26
      1 todo   : operator protos
+     3 todo   : wrong multi candidate called
 S06-multi/redispatch.t.............................  14    0    0    0   14
-S06-multi/subsignature.rakudo.jvm..................  86    1    8    5  100
+S06-multi/subsignature.rakudo.jvm..................  86    0    9    5  100
      5 skipped: redeclaration of routine 'bar' RT #118069
      2 todo   : Calls wrong candidate
      5 todo   : Multimethod sort does not descend into subsignatures
+     1 todo   : RT \#126702
      1 todo   : operator protos
 S06-multi/syntax.t.................................  41    0    0    0   41
 S06-multi/type-based.rakudo.jvm....................  62    0    4    0   66
@@ -1009,7 +1016,7 @@ S11-modules/importing.t............................  16    0    0    0   16
 S11-modules/lexical.t..............................   2    0    0    0    2
 S11-modules/need.t.................................   2    0    0    0    2
 S11-modules/nested.t...............................   6    0    0    0    6
-S11-modules/require.rakudo.jvm.....................  13    0    2    1   16
+S11-modules/require.rakudo.jvm.....................  14    0    2    1   17
      1 skipped: Trying to import from 'InnerModule', but the following symbols are missing: quux RT #118407
      1 todo   : creation of stub package symbol NYI RT \#125083
      1 todo   : variable form plus imports NYI RT \#125084
@@ -1145,7 +1152,8 @@ S12-methods/trusts.t...............................   4    0    0    0    4
 S12-methods/typed-attributes.t.....................   7    0    0    0    7
 S12-methods/what.t.................................  33    0    0    0   33
 S12-subset/multi-dispatch.t........................   6    0    0    0    6
-S12-subset/subtypes.t..............................  78    1    0    0   79
+S12-subset/subtypes.rakudo.jvm.....................  78    0    1    0   79
+     1 todo   : mixin of role does not work correctly
                                                    pass fail todo skip plan
 S13-overloading/metaoperators.t....................  11    0    0    0   11
 S13-overloading/operators.t........................   6    0    0    0    6
@@ -1154,9 +1162,9 @@ S13-type-casting/methods.t.........................  13    0    0    0   13
                                                    pass fail todo skip plan
 S14-roles/anonymous.t..............................  13    0    0    0   13
 S14-roles/attributes.t.............................   7    0    0    0    7
-S14-roles/basic.rakudo.jvm.........................  44    1    0    4   49
-     1 skipped: RT #120919
+S14-roles/basic.rakudo.jvm.........................  45    0    1    3   49
      3 skipped: RT #67768
+     1 todo   : Type check failed in assignment to $x; expected C but got Int
 S14-roles/bool.t...................................   3    0    0    0    3
 S14-roles/composition.rakudo.jvm...................  24    0    0    2   26
      2 skipped: diamond composition RT #124749
@@ -1164,7 +1172,8 @@ S14-roles/conflicts.t..............................  11    0    0    0   11
 S14-roles/crony.t..................................   4    0    0    0    4
 S14-roles/instantiation.t..........................  19    0    0    0   19
 S14-roles/lexical.t................................   9    0    0    0    9
-S14-roles/mixin.t..................................  47    1    0    0   48
+S14-roles/mixin.rakudo.jvm.........................  47    0    1    0   48
+     1 todo   : RT \#100782
 S14-roles/namespaced.t.............................  11    0    0    0   11
 S14-roles/parameter-subtyping.t....................  22    0    0    0   22
 S14-roles/parameterized-basic.t....................  36    0    0    0   36
@@ -1193,7 +1202,7 @@ S15-unicode-information/uniname.rakudo.jvm.........  18    0    2   19   39
      5 skipped: :either NYI RT #125070
      5 skipped: :either and :one NYI RT #one NYI RT#:125071
      5 skipped: :one NYI RT #125069
-     4 skipped: Method 'NFC' not found for invocant of class 'Str' RT #126678
+     4 skipped: Method 'NFC' not found for invocant of class 'Str' RT #124500
      1 todo   : RT \#122470
      1 todo   : RT \#122471
                                                    pass fail todo skip plan
@@ -1222,7 +1231,8 @@ S16-io/basic-open.rakudo.jvm.......................  11    0    1    0   12
      1 todo   : end of file flag is set too early
 S16-io/bom.rakudo.jvm..............................   1    0    9    0   10
      9 todo   : UTF-8 BOM stripping RT \#124024
-S16-io/comb.t......................................  24    1    0    0   25
+S16-io/comb.rakudo.jvm.............................  24    0    1    0   25
+     1 todo   : wrong number of elements returned and wrongly separated
 S16-io/cwd.t.......................................   3    0    0    0    3
 S16-io/getc.t......................................   2    0    0    0    2
 S16-io/lines.t..................................... 336   48    0    0  384
@@ -1232,7 +1242,8 @@ S16-io/print.t.....................................  12    0    0    0   12
 S16-io/say-and-ref.t...............................   3    0    0    0    3
 S16-io/say.t.......................................   5    0    0    0    5
 S16-io/split.t.....................................  18    0    0    0   18
-S16-io/supply.t....................................   5    2    0    0    7
+S16-io/supply.rakudo.jvm...........................   5    0    2    0    7
+     2 todo   : got: $["ab", "cd", "e"]
 S16-io/tmpdir.t....................................   3    0    0    0    3
 S16-io/words.t.....................................   9    0    0    0    9
 S16-unfiled/rebindstdhandles.rakudo.jvm............   0    0    0    2    2
@@ -1400,13 +1411,14 @@ S32-array/pop.rakudo.jvm...........................  35    0    2    0   37
      1 todo   : code does not die
 S32-array/push.t...................................  52    0    0    0   52
 S32-array/rotate.t.................................  29    0    0    0   29
-S32-array/shift.t..................................  31    0    0    0   31
+S32-array/shift.t..................................  33    0    0    0   33
 S32-array/splice.rakudo.jvm........................ 346    0   12    0  358
     12 todo   : somehow the test causes different typecheck error
 S32-array/unshift.t................................  76    0    0    0   76
 S32-basics/warn.t..................................   7    0    0    0    7
-S32-basics/xxKEY.rakudo.jvm........................ 125    2    2    0  129
+S32-basics/xxKEY.rakudo.jvm........................ 125    0    4    0  129
      2 todo   : binding to a key in an undefine doesn't work?
+     2 todo   : still mentions "value" instead of "Int"
 S32-basics/xxPOS.rakudo.jvm........................  55    0    0    5   60
      5 skipped: No such method 'BIND-POS' for invocant of type 'Any' RT #124766
 S32-container/cat.rakudo.jvm.......................   0    0    0    6    6
@@ -1593,8 +1605,7 @@ S32-str/ends-with.t................................   8    0    0    0    8
 S32-str/flip.rakudo.jvm............................  11    0    2    0   13
      2 todo   : NFG on JVM RT \#124682
 S32-str/indent.t...................................  62    0    0    0   62
-S32-str/index.rakudo.jvm...........................  40    0    4    0   44
-     4 todo   : RT \#126700
+S32-str/index.t....................................  46    0    0    0   46
 S32-str/indices.t..................................  24    0    0    0   24
 S32-str/lc.t.......................................  18    0    0    0   18
 S32-str/length.rakudo.jvm..........................  28    0    1    0   29
@@ -1605,7 +1616,7 @@ S32-str/numeric.rakudo.jvm......................... 163    0    5    0  168
 S32-str/ords.t.....................................   8    0    0    0    8
 S32-str/pack.t.....................................   7    0    0    0    7
 S32-str/pos.t......................................   2    0    0    0    2
-S32-str/rindex.t...................................  43    0    0    0   43
+S32-str/rindex.t...................................  45    0    0    0   45
 S32-str/samecase.t.................................   8    0    0    0    8
 S32-str/samemark.rakudo.jvm........................   0    0    0    7    7
      7 skipped: samemark NYI - RT #125165
@@ -1840,18 +1851,18 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S01",           0,     0,     0,    75,    75,    86
 "S02",        6715,     0,   107,   406,  7228,  7227
 "S03",        5498,     0,   117,    89,  5704,  5722
-"S04",        1377,    10,    48,    38,  1473,  1505
-"S05",        5591,     4,   107,   239,  5941,  6142
-"S06",        2080,     4,    58,   104,  2246,  2292
+"S04",        1377,     0,    57,    39,  1473,  1505
+"S05",        5591,     3,   108,   239,  5941,  6142
+"S06",        2080,     0,    62,   104,  2246,  2292
 "S07",          22,     0,     0,     0,    22,   118
 "S09",        2246,     0,    11,    37,  2294,  2294
 "S10",         124,     0,     4,     1,   129,   186
-"S11",         112,     0,     6,    11,   129,   148
-"S12",        1602,     1,    39,   126,  1768,  1823
+"S11",         113,     0,     6,    11,   130,   149
+"S12",        1602,     0,    40,   126,  1768,  1823
 "S13",          62,     0,     0,     0,    62,    72
-"S14",         346,     2,     7,     6,   361,   374
+"S14",         347,     0,     9,     5,   361,   374
 "S15",          46,     0,     5,    40,    91, 79076
-"S16",         698,    51,    16,    15,   780,   836
+"S16",         698,    48,    19,    15,   780,   836
 "S17",         795,     1,    17,    20,   833,   881
 "S19",          14,     0,     0,     0,    14,    18
 "S22",          23,     0,     0,     1,    24,    24
@@ -1859,34 +1870,15 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",           7,     0,     0,     0,     7,    13
 "S29",         363,     0,     3,     3,   369,   369
-"S32",       12206,     2,   281,   240, 12729, 11014
+"S32",       12216,     0,   279,   240, 12735, 11020
 "int",        1271,     0,    10,    14,  1295,  1288
 "ros",           2,     0,     0,     0,     2,     2
-"total",     43127,    75,   844,  1537, 45583,123588
+"total",     43139,    52,   862,  1537, 45590,123595
 ----------------
 Failure summary:
-S04-declarations/will.rakudo.jvm 8 - for iteration #1
-S04-declarations/will.rakudo.jvm 9 - for iteration #2
-S04-declarations/will.rakudo.jvm 10 - for iteration #3
-S04-declarations/will.rakudo.jvm 11 - all for blocks set variable
-S04-statements/for.rakudo.jvm 91 - did we throws-like X::Multi::NoMatch?
-S04-statements/with.t 37 - $_: with on Failure
-S04-statements/with.t 44 - $pos: with on Failure
-S04-statements/with.t 51 - $_: without on Failure
-S04-statements/with.t 58 - $pos: without on Failure
-S04-statements/with.t aborted 1 test(s)
 S05-mass/properties-general.rakudo.jvm 596 - Don't match unrelated <Format>
 S05-mass/properties-general.rakudo.jvm 597 - Match unrelated negated <Format>
 S05-mass/properties-general.rakudo.jvm 598 - Match unrelated inverted <Format>
-S05-modifier/counted.rakudo.jvm 110 - Can match with *-1 index
-S06-multi/proto.rakudo.jvm 8 - dispatch on class worked (anon cap)
-S06-multi/proto.rakudo.jvm 9 - dispatch with no possible candidates fell back to proto (anon cap)
-S06-multi/proto.rakudo.jvm 10 - impossible dispatch failed (anon cap)
-S06-multi/subsignature.rakudo.jvm 37 - slurpy and named interact well (2)
-S12-subset/subtypes.t 44 - subtypes based on roles work
-S14-roles/basic.rakudo.jvm 26 - type-check passes when role mixed in
-S14-roles/mixin.t 27 - RT #100782 2/2
-S16-io/comb.t 25 - testing 'defg' with Int
 S16-io/lines.t 131 - read first line: () / CR / open
 S16-io/lines.t 132 - rest of file: () / CR / open
 S16-io/lines.t 136 - read first line: () / CR / close
@@ -1935,8 +1927,4 @@ S16-io/lines.t 290 - read first line: chomp => True / colons / open
 S16-io/lines.t 291 - rest of file: chomp => True / colons / open
 S16-io/lines.t 295 - handle 1,2: chomp => True / colons
 S16-io/lines.t 297 - path 1,2: chomp => True / colons
-S16-io/supply.t 3 - we can get chars from a supply
-S16-io/supply.t 6 - we can get chars from a supply
 S17-supply/throttle.t 3 - difference between each at least .5 seconds
-S32-basics/xxKEY.rakudo.jvm 101 - $b.ASSIGN-KEY
-S32-basics/xxKEY.rakudo.jvm 119 - $m.ASSIGN-KEY
