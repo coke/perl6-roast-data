@@ -252,8 +252,8 @@ S02-names/is_cached.t..............................  38    0    0    0   38
 S02-names/is_default.rakudo.moar...................    
 # Failed test 'right exception type (X::Comp::Trait::NotOnNative)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/lib/Test.pm.moarvm line 1
-    # Expected: (NotOnNative)
-    # Got:      (NYI)
+    # Expected: X::Comp::Trait::NotOnNative
+    # Got:      X::Comp::NYI
     # Exception message: native value types for hashes not yet implemented. Sorry. 
     # Looks like you failed 1 test of 4
  106    0    2    2  110
@@ -308,15 +308,15 @@ S02-types/array.rakudo.moar........................
     
 # Failed test 'right exception type (X::Item)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/lib/Test.pm.moarvm line 1
-    # Expected: (Item)
-    # Got:      (AdHoc)
+    # Expected: X::Item
+    # Got:      X::AdHoc
     # Exception message: Cannot coerce Inf or NaN to an Int
     # Looks like you failed 1 test of 4
     
 # Failed test 'right exception type (X::Item)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/lib/Test.pm.moarvm line 1
-    # Expected: (Item)
-    # Got:      (AdHoc)
+    # Expected: X::Item
+    # Got:      X::AdHoc
     # Exception message: Cannot coerce Inf or NaN to an Int
     # Looks like you failed 1 test of 4
 Use of uninitialized value @bar of type Str in string context
@@ -342,8 +342,7 @@ S02-types/bag.rakudo.moar.......................... 204    0    1    0  205
 S02-types/baghash.rakudo.moar...................... 237    0    2   21  260
     21 skipped: 'is TypeObject' NYI RT #124490
      2 todo   : in flux
-S02-types/bool.rakudo.moar.........................  51    0    2    0   53
-     2 todo   : RT \#72580
+S02-types/bool.t...................................  53    0    0    0   53
 S02-types/built-in.t...............................   1    0    0    0    1
 S02-types/capture.t................................  32    0    0    0   32
 S02-types/catch_type_cast_mismatch.t...............  11    0    0    0   11
@@ -436,10 +435,10 @@ S02-types/set.rakudo.moar..........................Potential difficulties:
     Redeclaration of symbol $inner-list
     at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/S02-types/set.rakudo.moar:315
     ------> [32m    my $inner-list[33m⏏[31m = $s1.keys.first(List);[0m
- 164    0    1    9  174
+ 165    0    1    9  175
      9 skipped: Hypers not yet Set compatible RT #124487
      1 todo   : we have not secured .WHICH creation yet RT \#124489
-S02-types/sethash.rakudo.moar...................... 192    0    0   10  202
+S02-types/sethash.rakudo.moar...................... 193    0    0   10  203
     10 skipped: 'is TypeObject' NYI RT #124490
 S02-types/sigils-and-types.rakudo.moar.............  25    0    2    0   27
      1 todo   : Capture does Associative RT \#124485
@@ -565,6 +564,18 @@ S03-operators/assign.rakudo.moar................... 264    0   16   14  294
 S03-operators/autoincrement-range.t................# Tests for 'a' .. 'z'
 # Tests for 'Α' .. 'Ω' (Greek uppercase)
 # Tests for 'α' .. 'ω' (Greek lowercase)
+WARNING: unhandled Failure detected in DESTROY:
+Decrement out of range
+  in block <unit> at t/spec/S03-operators/autoincrement-range.t:58
+
+WARNING: unhandled Failure detected in DESTROY:
+Decrement out of range
+  in block <unit> at t/spec/S03-operators/autoincrement-range.t:37
+
+WARNING: unhandled Failure detected in DESTROY:
+Decrement out of range
+  in block <unit> at t/spec/S03-operators/autoincrement-range.t:17
+
 # Tests for 'א' .. 'ת' (Hebrew)
 # Tests for '0' .. '9'
 # Tests for '٠' .. '٩' (Arabic-Indic)
@@ -852,8 +863,8 @@ S03-operators/mix.rakudo.moar...................... 102    0   26    0  128
      8 todo   : Rakudo update in progress, but not done yet RT \#124541
      4 todo   : Wrong answer at the moment
      8 todo   : submix behavior still under discussion
-S03-operators/names.t..............................Sub+{<anon|75636528>}+{Precedence} object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:14
-Sub+{<anon|75636528>}+{Precedence} object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:16
+S03-operators/names.t..............................Sub+{<anon|60191648>}+{Precedence} object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:14
+Sub+{<anon|60191648>}+{Precedence} object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S03-operators/names.t:16
    7    0    0    0    7
 S03-operators/nesting.t............................  26    0    0    0   26
 S03-operators/not.t................................  22    0    0    0   22
@@ -873,8 +884,8 @@ S03-operators/reduce-le1arg.rakudo.moar............  51    0    0    3   54
      1 skipped: expected Any but got Mu instead RT #124552
      1 skipped: ~< NYI RT #124531
      1 skipped: ~> NYI RT #124531
-S03-operators/relational.rakudo.moar............... 118    0    6    0  124
-     4 todo   : RT \#121987
+S03-operators/relational.rakudo.moar............... 120    0    4    0  124
+     2 todo   : RT \#121987
      2 todo   : RT \#81336
 S03-operators/repeat.t.............................  32    0    0    0   32
 S03-operators/scalar-assign.t......................   4    0    0    0    4
@@ -1501,7 +1512,7 @@ S05-substitution/subst.rakudo.moar.................Potential difficulties:
 Saw 1 occurrence of deprecated code.
 ================================================================================
 split(:all) seen at:
-  gen/moar/m-CORE.setting, line 10117
+  gen/moar/m-CORE.setting, line 10139
 Please use split(:v) instead.
 --------------------------------------------------------------------------------
 Please contact the author to have these occurrences of deprecated code
@@ -1566,7 +1577,7 @@ S06-multi/subsignature.rakudo.moar.................  87    0    8    5  100
      5 todo   : Multimethod sort does not descend into subsignatures
      1 todo   : operator protos
 S06-multi/syntax.t.................................Sub object coerced to string (please use .gist or .perl to do that)  in block <unit> at t/spec/S06-multi/syntax.t:74
-  41    0    0    0   41
+  44    0    0    0   44
 S06-multi/type-based.rakudo.moar...................  62    0    4    0   66
      4 todo   : coercions need to fail like constraints RT \#124772
 S06-multi/unpackability.t..........................  10    0    0    0   10
@@ -1787,10 +1798,10 @@ Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed. 
 Use of uninitialized value $_ of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at t/spec/S10-packages/precompilation.rakudo.moar:138
 # error: Could not find symbol '&C1'
-#   in block <unit> at getout-29733-702148.code:4
+#   in block <unit> at getout-7592-137941.code:4
 
 # Actually thrown at:
-#   in block <unit> at getout-29733-702148.code:4
+#   in block <unit> at getout-7592-137941.code:4
 
 
   33    0    3    0   36
@@ -2023,7 +2034,7 @@ S14-roles/crony.t..................................   4    0    0    0    4
 S14-roles/instantiation.t..........................  19    0    0    0   19
 S14-roles/lexical.t................................   9    0    0    0    9
 S14-roles/mixin.t..................................Use of uninitialized value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in any throw at src/Perl6/World.nqp:3718
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in any throw at src/Perl6/World.nqp:3719
 Use of uninitialized value of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in any try_select at gen/moar/m-Metamodel.nqp:2503
   48    0    0    0   48
@@ -2122,8 +2133,8 @@ S15-unicode-information/uniprop.t..................   6    0    0    0    6
 S15-unicode-information/unival.t...................  40    0    0    0   40
                                                    pass fail todo skip plan
 S16-filehandles/argfiles.t.........................  12    0    0    0   12
-S16-filehandles/chmod.t............................# Using file temp_1448203973
-# Using file temp_1448203973
+S16-filehandles/chmod.t............................# Using file temp_1448284962
+# Using file temp_1448284962
   16    0    0    3   19
      3 skipped: :r :w :x can accidentally work with root permission
 S16-filehandles/filestat.t.........................  10    0    0    0   10
@@ -2146,7 +2157,8 @@ S16-io/bom.t.......................................  10    0    0    0   10
 S16-io/comb.t......................................  25    0    0    0   25
 S16-io/cwd.t.......................................   3    0    0    0    3
 S16-io/getc.t......................................   2    0    0    0    2
-S16-io/lines.t..................................... 384    0    0    0  384
+S16-io/lines.rakudo.moar........................... 384    0    0  144  528
+   144 skipped: tests are already executed above
 S16-io/newline.t...................................   6    0    0    0    6
 S16-io/note.t......................................   5    0    0    0    5
 S16-io/print.t.....................................  12    0    0    0   12
@@ -2164,10 +2176,7 @@ S16-unfiled/rebindstdhandles.rakudo.moar...........   0    0    0    2    2
                                                    pass fail todo skip plan
 S17-channel/basic.t................................  17    0    0    0   17
 S17-channel/earliest.t.............................   7    0    0    0    7
-S17-lowlevel/lock.t................................*** Error in `/home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/install/bin/moar': double free or corruption (!prev): 0x00007f3914036f40 ***
-Aborted
-  13   10    0    0   23
-    10 tests aborted (missing ok/not ok)
+S17-lowlevel/lock.t................................  23    0    0    0   23
 S17-lowlevel/thread-start-join-stress.t............   1    0    0    0    1
 S17-lowlevel/thread.t..............................  25    0    0    0   25
 S17-procasync/basic.rakudo.moar....................  27    0    0    3   30
@@ -2852,85 +2861,85 @@ S32-array/shift.t..................................  33    0    0    0   33
 S32-array/splice.rakudo.moar.......................    
 # Failed test 'right exception type (X::TypeCheck::Splice)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/lib/Test.pm.moarvm line 1
-    # Expected: (Splice)
-    # Got:      (Binding)
+    # Expected: X::TypeCheck::Splice
+    # Got:      X::TypeCheck::Binding
     # Exception message: Type check failed in binding @arr; expected Positional but got Mu
     # Looks like you failed 1 test of 5
     
 # Failed test 'right exception type (X::TypeCheck::Splice)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/lib/Test.pm.moarvm line 1
-    # Expected: (Splice)
-    # Got:      (AdHoc)
+    # Expected: X::TypeCheck::Splice
+    # Got:      X::AdHoc
     # Exception message: Cannot call method 'splice' on a null object
     # Looks like you failed 1 test of 5
     
 # Failed test 'right exception type (X::TypeCheck::Splice)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/lib/Test.pm.moarvm line 1
-    # Expected: (Splice)
-    # Got:      (Binding)
+    # Expected: X::TypeCheck::Splice
+    # Got:      X::TypeCheck::Binding
     # Exception message: Type check failed in binding @arr; expected Positional but got Mu
     # Looks like you failed 1 test of 5
     
 # Failed test 'right exception type (X::TypeCheck::Splice)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/lib/Test.pm.moarvm line 1
-    # Expected: (Splice)
-    # Got:      (AdHoc)
+    # Expected: X::TypeCheck::Splice
+    # Got:      X::AdHoc
     # Exception message: Cannot call method 'splice' on a null object
     # Looks like you failed 1 test of 5
     
 # Failed test 'right exception type (X::TypeCheck::Splice)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/lib/Test.pm.moarvm line 1
-    # Expected: (Splice)
-    # Got:      (Binding)
+    # Expected: X::TypeCheck::Splice
+    # Got:      X::TypeCheck::Binding
     # Exception message: Type check failed in binding @arr; expected Positional but got Mu
     # Looks like you failed 1 test of 5
     
 # Failed test 'right exception type (X::TypeCheck::Splice)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/lib/Test.pm.moarvm line 1
-    # Expected: (Splice)
-    # Got:      (AdHoc)
+    # Expected: X::TypeCheck::Splice
+    # Got:      X::AdHoc
     # Exception message: Cannot call method 'splice' on a null object
     # Looks like you failed 1 test of 5
     
 # Failed test 'right exception type (X::TypeCheck::Splice)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/lib/Test.pm.moarvm line 1
-    # Expected: (Splice)
-    # Got:      (Binding)
+    # Expected: X::TypeCheck::Splice
+    # Got:      X::TypeCheck::Binding
     # Exception message: Type check failed in binding @arr; expected Positional but got Mu
     # Looks like you failed 1 test of 5
     
 # Failed test 'right exception type (X::TypeCheck::Splice)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/lib/Test.pm.moarvm line 1
-    # Expected: (Splice)
-    # Got:      (AdHoc)
+    # Expected: X::TypeCheck::Splice
+    # Got:      X::AdHoc
     # Exception message: Cannot call method 'splice' on a null object
     # Looks like you failed 1 test of 5
     
 # Failed test 'right exception type (X::TypeCheck::Splice)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/lib/Test.pm.moarvm line 1
-    # Expected: (Splice)
-    # Got:      (Binding)
+    # Expected: X::TypeCheck::Splice
+    # Got:      X::TypeCheck::Binding
     # Exception message: Type check failed in binding @arr; expected Positional but got Mu
     # Looks like you failed 1 test of 5
     
 # Failed test 'right exception type (X::TypeCheck::Splice)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/lib/Test.pm.moarvm line 1
-    # Expected: (Splice)
-    # Got:      (AdHoc)
+    # Expected: X::TypeCheck::Splice
+    # Got:      X::AdHoc
     # Exception message: Cannot call method 'splice' on a null object
     # Looks like you failed 1 test of 5
     
 # Failed test 'right exception type (X::TypeCheck::Splice)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/lib/Test.pm.moarvm line 1
-    # Expected: (Splice)
-    # Got:      (Binding)
+    # Expected: X::TypeCheck::Splice
+    # Got:      X::TypeCheck::Binding
     # Exception message: Type check failed in binding @arr; expected Positional but got Mu
     # Looks like you failed 1 test of 5
     
 # Failed test 'right exception type (X::TypeCheck::Splice)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/lib/Test.pm.moarvm line 1
-    # Expected: (Splice)
-    # Got:      (AdHoc)
+    # Expected: X::TypeCheck::Splice
+    # Got:      X::AdHoc
     # Exception message: Cannot call method 'splice' on a null object
     # Looks like you failed 1 test of 5
  346    0   12    0  358
@@ -2965,22 +2974,22 @@ Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed. 
   16    0    0    0   16
 S32-container/zip.rakudo.moar......................  12    0    0    2   14
      2 skipped: lvalue zip RT #124907
-S32-exceptions/misc.rakudo.moar....................Sub object coerced to string (please use .gist or .perl to do that)  in any throw at src/Perl6/World.nqp:3718
+S32-exceptions/misc.rakudo.moar....................Sub object coerced to string (please use .gist or .perl to do that)  in any throw at src/Perl6/World.nqp:3719
 Use of uninitialized value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in any throw at src/Perl6/World.nqp:3718
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in any throw at src/Perl6/World.nqp:3719
 Use of uninitialized value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in any throw at src/Perl6/World.nqp:3718
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in any throw at src/Perl6/World.nqp:3719
     
 # Failed test ''#`' died'
-# at t/spec/S32-exceptions/misc.rakudo.moar line 181
+# at t/spec/S32-exceptions/misc.rakudo.moar line 180
     # Looks like you failed 1 test of 2
 # Variable '$abd' is not declared. Did you mean any of these?
 #     $abc
 #     $abe
 
 Use of uninitialized value of type Any in string context
-Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at t/spec/S32-exceptions/misc.rakudo.moar:600
- 353    0    1    0  354
+Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at t/spec/S32-exceptions/misc.rakudo.moar:599
+ 352    0    1    0  353
      1 todo   : parsing regression RT \#124679
 S32-hash/adverbs.t.................................Use of uninitialized value %a of type Any in string context
 Any of .^name, .perl, .gist, or .say can stringify undefined things, if needed.  in block  at lib/Test.pm:134
@@ -4243,43 +4252,7 @@ S32-list/tail.t....................................  19    0    0    0   19
 S32-list/unique.t..................................  34    0    0    0   34
 S32-num/abs.t......................................  49    0    0    0   49
 S32-num/base.t.....................................  44    0    0    0   44
-S32-num/complex.t..................................WARNING: unhandled Failure detected in DESTROY:
-Can not convert 2+4i to Real: imaginary part not zero
-  in any  at gen/moar/m-Perl6-Optimizer.nqp:1359
-  in any  at gen/moar/m-Perl6-Optimizer.nqp:1317
-  in any optimize_call at gen/moar/m-Perl6-Optimizer.nqp:1307
-  in any visit_op at gen/moar/m-Perl6-Optimizer.nqp:1027
-  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1843
-  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1843
-  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1867
-  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1873
-  in any visit_block at gen/moar/m-Perl6-Optimizer.nqp:902
-  in any optimize at gen/moar/m-Perl6-Optimizer.nqp:882
-  in any optimize at src/Perl6/Compiler.nqp:70
-
-WARNING: unhandled Failure detected in DESTROY:
-Can not convert 2+2i to Real: imaginary part not zero
-  in block <unit> at EVAL_0:1
-  in block  at lib/Test.pm:445
-  in sub subtest at lib/Test.pm:294
-  in sub throws-like at lib/Test.pm:472
-  in block <unit> at t/spec/S32-num/complex.t:21
-
-WARNING: unhandled Failure detected in DESTROY:
-Can not convert 2+2i to Real: imaginary part not zero
-  in any  at gen/moar/m-Perl6-Optimizer.nqp:1359
-  in any  at gen/moar/m-Perl6-Optimizer.nqp:1317
-  in any optimize_call at gen/moar/m-Perl6-Optimizer.nqp:1307
-  in any visit_op at gen/moar/m-Perl6-Optimizer.nqp:1027
-  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1843
-  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1843
-  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1867
-  in any visit_children at gen/moar/m-Perl6-Optimizer.nqp:1873
-  in any visit_block at gen/moar/m-Perl6-Optimizer.nqp:902
-  in any optimize at gen/moar/m-Perl6-Optimizer.nqp:882
-  in any optimize at src/Perl6/Compiler.nqp:70
-
- 488    0    0    0  488
+S32-num/complex.t.................................. 488    0    0    0  488
 S32-num/cool-num.rakudo.moar.......................  39    0    0    4   43
      4 skipped: angle conversion RT #124816
 S32-num/exp.t......................................  72    0    0    0   72
@@ -4385,7 +4358,7 @@ S32-str/samemark.rakudo.moar.......................   0    0    0    7    7
 S32-str/split-simple.t.............................Saw 1 occurrence of deprecated code.
 ================================================================================
 split(:all) seen at:
-  gen/moar/m-CORE.setting, line 10117
+  gen/moar/m-CORE.setting, line 10139
 Please use split(:v) instead.
 --------------------------------------------------------------------------------
 Please contact the author to have these occurrences of deprecated code
@@ -4579,14 +4552,14 @@ integration/advent2012-day15.rakudo.moar...........  10    0    1    0   11
 integration/advent2012-day16.t.....................  11    0    0    0   11
 integration/advent2012-day19.t.....................  10    0    0    0   10
 integration/advent2012-day20.t.....................   2    0    0    0    2
-integration/advent2012-day21.t.....................# gerdr: 0.3418983 seconds
-# kaz: 0.42235289 seconds
-# recursive-ternary: 0.4785697 seconds
-# loop: 0.580690 seconds
-# hand-memoization: 0.89529202 seconds
-# sequence-ternary: 1.1567136 seconds
-# recursive-ternary-hand-cached: 1.8706514 seconds
-# sequence: 2.497826 seconds
+integration/advent2012-day21.t.....................# gerdr: 0.3393457 seconds
+# kaz: 0.41552791 seconds
+# recursive-ternary: 0.5930350 seconds
+# loop: 0.6422579 seconds
+# hand-memoization: 0.90917747 seconds
+# sequence-ternary: 1.1758337 seconds
+# recursive-ternary-hand-cached: 2.1962267 seconds
+# sequence: 2.402415 seconds
    9    0    0    0    9
 integration/advent2012-day22.t.....................   6    0    0    0    6
 integration/advent2012-day23.t.....................   2    0    0    0    2
@@ -4642,7 +4615,7 @@ Useless use of constant integer 42 in sink context (line 1)
     
 # Failed test 'precompiled EVAL in BEGIN (Compiled)'
 # at /home/coke/sandbox/perl6-roast-data/rakudo.moar-jit/t/spec/packages/Test/Compile.pm line 338
-    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmod6ABEC940/p6testmodD6BF5709.pm6')
+    # Missing or wrong version of dependency '<unit-outer>' (from '/tmp/p6testmod781C389F/p6testmod1360B118.pm6')
     # Looks like you failed 1 test of 2
    5    0    2    0    7
      1 todo   : RT \#124324 Missing or wrong version of dependency
@@ -4668,11 +4641,11 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 ----------------
 "Synopsis", "pass","fail","todo","skip","plan","spec"
 "S01",           0,     0,     0,    75,    75,    86
-"S02",        6797,     0,    94,   337,  7228,  7227
-"S03",        5517,     0,   112,    75,  5704,  5722
+"S02",        6801,     0,    92,   337,  7230,  7229
+"S03",        5519,     0,   110,    75,  5704,  5722
 "S04",        1407,     0,    38,    28,  1473,  1505
 "S05",        5788,     0,    90,    94,  5972,  6142
-"S06",        2115,     0,    51,    80,  2246,  2292
+"S06",        2118,     0,    51,    80,  2249,  2295
 "S07",          22,     0,     0,     0,    22,   118
 "S09",        2247,     0,    10,    37,  2294,  2294
 "S10",         125,     0,     3,     1,   129,   186
@@ -4681,19 +4654,18 @@ rosettacode/sierpinski_triangle.t..................   1    0    0    0    1
 "S13",          62,     0,     0,     0,    62,    72
 "S14",         349,     0,     7,     5,   361,   374
 "S15",       79035,     0,     3,    18, 79056, 79076
-"S16",         762,     0,     3,    15,   780,   836
-"S17",         845,    11,     6,    28,   890,   890
+"S16",         762,     0,     3,   159,   924,   980
+"S17",         855,     1,     6,    28,   890,   890
 "S19",          14,     0,     0,     0,    14,    18
 "S22",          24,     0,     0,     0,    24,    24
 "S24",          18,     0,     0,     0,    18,    89
 "S26",        1909,     0,     8,    72,  1989,  1989
 "S28",          13,     0,     0,     0,    13,    13
 "S29",         364,     0,     3,     2,   369,   369
-"S32",       12625,     0,   182,   158, 12965, 11170
+"S32",       12624,     0,   182,   158, 12964, 11169
 "int",        1278,     0,    10,    14,  1302,  1288
 "ros",           2,     0,     0,     0,     2,     2
-"total",    123042,    11,   657,  1176,124886,123754
+"total",    123060,     1,   653,  1320,125034,123902
 ----------------
 Failure summary:
-S17-lowlevel/lock.t aborted 10 test(s)
 S17-promise/stress.t aborted 1 test(s)
