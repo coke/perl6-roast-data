@@ -126,23 +126,7 @@ touch node_modules/runtime_copied
 ./nqp-m --module-path gen/js/stage1 src/vm/js/bin/cross-compile.nqp --setting=NQPCORE --target=mbc --output gen/js/stage2/QRegex.moarvm gen/js/stage2/QRegex.nqp > node_modules/QRegex.js
 ./nqp-m tools/build/process-qregex-tests > gen/js/qregex.t
 perl src/vm/js/bin/run_tests.pl
-module.js:338
-    throw err;
-          ^
-Error: Cannot find module 'tap'
-    at Function.Module._resolveFilename (module.js:336:15)
-    at Function.Module._load (module.js:278:25)
-    at Module.require (module.js:365:17)
-    at require (module.js:384:17)
-    at Object.<anonymous> (/home/coke/sandbox/perl6-roast-data/nqp.js/t/js/varint.js:1:73)
-    at Module._compile (module.js:460:26)
-    at Object.Module._extensions..js (module.js:478:10)
-    at Module.load (module.js:355:32)
-    at Function.Module._load (module.js:310:12)
-    at Function.Module.runMain (module.js:501:10)
-t/js/varint.js ........................ 
-Dubious, test returned 1 (wstat 256, 0x100)
-No subtests run 
+t/js/varint.js ........................ ok
 t/nqp/01-literals.t ................... ok
 t/nqp/02-if.t ......................... ok
 t/nqp/03-if-else.t .................... ok
@@ -233,35 +217,12 @@ t/nqp/93-oo-ops.t ..................... ok
 t/nqp/94-clone.t ...................... ok
 t/nqp/95-cclass.t ..................... ok
 t/nqp/96-array-methods.t .............. ok
-t/moar/03-line-seps.t ................. 
-Failed 1/18 subtests 
-/home/coke/sandbox/perl6-roast-data/nqp.js/tmp-20921.js:182195
-TMP1178 = );
-          ^
-SyntaxError: Unexpected token )
-    at exports.runInThisContext (vm.js:73:16)
-    at Module._compile (module.js:443:25)
-    at Object.Module._extensions..js (module.js:478:10)
-    at Module.load (module.js:355:32)
-    at Function.Module._load (module.js:310:12)
-    at Function.Module.runMain (module.js:501:10)
-    at startup (node.js:129:16)
-    at node.js:814:3
-gen/js/qregex.t ....................... 
-No subtests run 
+t/moar/03-line-seps.t ................. ok
+gen/js/qregex.t ....................... ok
 t/serialization/01-basic.t ............ ok
 t/serialization/02-types.t ............ ok
 t/qast/02-manipulation.t .............. ok
 t/js/getcomp-js.t ..................... ok
-
-Test Summary Report
--------------------
-t/js/varint.js                      (Wstat: 256 Tests: 0 Failed: 0)
-  Non-zero exit status: 1
-  Parse errors: No plan found in TAP output
-t/moar/03-line-seps.t               (Wstat: 0 Tests: 18 Failed: 1)
-  Failed test:  14
-gen/js/qregex.t                     (Wstat: 0 Tests: 0 Failed: 0)
-  Parse errors: No plan found in TAP output
-Files=97, Tests=2644, 56 wallclock secs ( 0.42 usr  0.09 sys + 52.75 cusr  4.72 csys = 57.98 CPU)
-Result: FAIL
+All tests successful.
+Files=97, Tests=3415, 58 wallclock secs ( 0.56 usr  0.09 sys + 53.87 cusr  5.32 csys = 59.84 CPU)
+Result: PASS
