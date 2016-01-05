@@ -1,296 +1,51 @@
-prove -r --exec "./nqp-p --vmlibs=nqp_dyncall_ops" t/nqp t/parrot t/hll t/qregex t/p5regex t/qast t/serialization t/nativecall
-t/nqp/01-literals.t ................... ok
-t/nqp/02-if.t ......................... ok
-t/nqp/03-if-else.t .................... ok
-t/nqp/04-unless.t ..................... ok
-t/nqp/05-comments.t ................... ok
-t/nqp/06-args-pos.t ................... ok
-t/nqp/07-boolean.t .................... 
-Failed 1/8 subtests 
-t/nqp/08-blocks.t ..................... ok
-t/nqp/09-var.t ........................ ok
-t/nqp/10-cmp.t ........................ ok
-t/nqp/11-sub.t ........................ ok
-t/nqp/12-logical.t .................... ok
-t/nqp/13-op.t ......................... ok
-t/nqp/14-while.t ...................... ok
-t/nqp/15-list.t ....................... ok
-t/nqp/16-ternary.t .................... ok
-t/nqp/17-positional.t ................. ok
-t/nqp/18-associative.t ................ ok
-Error while compiling op isttyfh (source text: "nqp::isttyfh($credits)"): No registered operation handler for 'isttyfh'
-current instr.: 'as_post' pc 60946 (gen/parrot/stage2/QAST.pir:21720) (gen/parrot/stage2/QAST.nqp:3901)
-called from Sub 'as_post' pc 53427 (gen/parrot/stage2/QAST.pir:19054) (gen/parrot/stage2/QAST.nqp:3371)
-called from Sub 'compile_all_the_stmts' pc 60472 (gen/parrot/stage2/QAST.pir:21531) (gen/parrot/stage2/QAST.nqp:3860)
-called from Sub 'as_post' pc 60026 (gen/parrot/stage2/QAST.pir:21344) (gen/parrot/stage2/QAST.nqp:3833)
-called from Sub 'as_post' pc 53427 (gen/parrot/stage2/QAST.pir:19054) (gen/parrot/stage2/QAST.nqp:3371)
-called from Sub 'compile_all_the_stmts' pc 60472 (gen/parrot/stage2/QAST.pir:21531) (gen/parrot/stage2/QAST.nqp:3860)
-called from Sub 'as_post' pc 60026 (gen/parrot/stage2/QAST.pir:21344) (gen/parrot/stage2/QAST.nqp:3833)
-called from Sub 'as_post' pc 53427 (gen/parrot/stage2/QAST.pir:19054) (gen/parrot/stage2/QAST.nqp:3371)
-called from Sub 'compile_all_the_stmts' pc 60472 (gen/parrot/stage2/QAST.pir:21531) (gen/parrot/stage2/QAST.nqp:3860)
-called from Sub '' pc 58096 (gen/parrot/stage2/QAST.pir:20638) (gen/parrot/stage2/QAST.nqp:3626)
-called from Sub '' pc 56866 (gen/parrot/stage2/QAST.pir:20243) (gen/parrot/stage2/QAST.nqp:3615)
-called from Sub 'as_post' pc 56077 (gen/parrot/stage2/QAST.pir:19927) (gen/parrot/stage2/QAST.nqp:3606)
-called from Sub 'as_post' pc 53492 (gen/parrot/stage2/QAST.pir:19071) (gen/parrot/stage2/QAST.nqp:3375)
-called from Sub 'as_post' pc 53690 (gen/parrot/stage2/QAST.pir:19179) (gen/parrot/stage2/QAST.nqp:3402)
-called from Sub 'as_post' pc 53492 (gen/parrot/stage2/QAST.pir:19071) (gen/parrot/stage2/QAST.nqp:3375)
-called from Sub 'post' pc 53012 (gen/parrot/stage2/QAST.pir:18874) (gen/parrot/stage2/QAST.nqp:3333)
-called from Sub 'post' pc 1347 (gen/parrot/stage2/NQPHLL.pir:631) (gen/parrot/stage2/NQPHLL.nqp:98)
-called from Sub 'compile' pc 33471 (gen/parrot/stage2/NQPHLL.pir:12969) (gen/parrot/stage2/NQPHLL.nqp:1457)
-called from Sub 'eval' pc 28894 (gen/parrot/stage2/NQPHLL.pir:11126) (gen/parrot/stage2/NQPHLL.nqp:1191)
-called from Sub 'evalfiles' pc 32164 (gen/parrot/stage2/NQPHLL.pir:12470) (gen/parrot/stage2/NQPHLL.nqp:1412)
-called from Sub 'command_eval' pc 31170 (gen/parrot/stage2/NQPHLL.pir:12078) (gen/parrot/stage2/NQPHLL.nqp:1332)
-called from Sub 'command_line' pc 30043 (gen/parrot/stage2/NQPHLL.pir:11628) (gen/parrot/stage2/NQPHLL.nqp:1280)
-called from Sub 'MAIN' pc 610 (gen/parrot/stage2/NQP.pir:205) (gen/parrot/stage2/NQP.nqp:4078)
-called from Sub '<mainline>' pc 587 (gen/parrot/stage2/NQP.pir:193) (gen/parrot/stage2/NQP.nqp:4073)
-called from Sub '' pc 167487 (gen/parrot/stage2/NQP.pir:58816) (gen/parrot/stage2/NQP.nqp:4049)
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/parrot/stage1
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl tools/build/gen-cat.pl parrot src/vm/parrot/HLL/Backend.nqp src/HLL/Grammar.nqp src/HLL/Actions.nqp src/HLL/Compiler.nqp src/HLL/CommandLine.nqp src/HLL/World.nqp src/HLL/sprintf.nqp  > gen/parrot/stage1/NQPHLL.nqp
+/home/coke/sandbox/perl6-roast-data/nqp.parrot/install/bin/parrot -L. -X. --library=src/vm/parrot/stage0 src/vm/parrot/stage0/nqp.pbc \
+    --target=pir --output=gen/parrot/stage1/NQPHLL.pir \
+    --module-path=gen/parrot/stage1 --setting-path=gen/parrot/stage1 --no-regex-lib \
+        gen/parrot/stage1/NQPHLL.nqp
+Error while compiling op readlinechompfh (source text: "nqp::readlinechompfh($stdin)"): No registered operation handler for 'readlinechompfh'
+current instr.: 'as_post' pc 60932 (src/vm/parrot/stage0/QAST-s0.pir:21716) (gen/parrot/stage2/QAST.nqp:3899)
+called from Sub 'as_post' pc 53478 (src/vm/parrot/stage0/QAST-s0.pir:19067) (gen/parrot/stage2/QAST.nqp:3373)
+called from Sub 'compile_all_the_stmts' pc 60476 (src/vm/parrot/stage0/QAST-s0.pir:21534) (gen/parrot/stage2/QAST.nqp:3860)
+called from Sub '' pc 58082 (src/vm/parrot/stage0/QAST-s0.pir:20634) (gen/parrot/stage2/QAST.nqp:3624)
+called from Sub '' pc 56852 (src/vm/parrot/stage0/QAST-s0.pir:20239) (gen/parrot/stage2/QAST.nqp:3613)
+called from Sub 'as_post' pc 56063 (src/vm/parrot/stage0/QAST-s0.pir:19923) (gen/parrot/stage2/QAST.nqp:3604)
+called from Sub 'as_post' pc 53413 (src/vm/parrot/stage0/QAST-s0.pir:19050) (gen/parrot/stage2/QAST.nqp:3369)
+called from Sub 'compile_all_the_stmts' pc 60458 (src/vm/parrot/stage0/QAST-s0.pir:21527) (gen/parrot/stage2/QAST.nqp:3858)
+called from Sub 'as_post' pc 60012 (src/vm/parrot/stage0/QAST-s0.pir:21340) (gen/parrot/stage2/QAST.nqp:3831)
+called from Sub 'as_post' pc 53413 (src/vm/parrot/stage0/QAST-s0.pir:19050) (gen/parrot/stage2/QAST.nqp:3369)
+called from Sub 'compile_all_the_stmts' pc 60458 (src/vm/parrot/stage0/QAST-s0.pir:21527) (gen/parrot/stage2/QAST.nqp:3858)
+called from Sub 'as_post' pc 60012 (src/vm/parrot/stage0/QAST-s0.pir:21340) (gen/parrot/stage2/QAST.nqp:3831)
+called from Sub 'as_post' pc 53478 (src/vm/parrot/stage0/QAST-s0.pir:19067) (gen/parrot/stage2/QAST.nqp:3373)
+called from Sub 'compile_all_the_stmts' pc 60476 (src/vm/parrot/stage0/QAST-s0.pir:21534) (gen/parrot/stage2/QAST.nqp:3860)
+called from Sub '' pc 58082 (src/vm/parrot/stage0/QAST-s0.pir:20634) (gen/parrot/stage2/QAST.nqp:3624)
+called from Sub '' pc 56852 (src/vm/parrot/stage0/QAST-s0.pir:20239) (gen/parrot/stage2/QAST.nqp:3613)
+called from Sub 'as_post' pc 56063 (src/vm/parrot/stage0/QAST-s0.pir:19923) (gen/parrot/stage2/QAST.nqp:3604)
+called from Sub 'as_post' pc 53413 (src/vm/parrot/stage0/QAST-s0.pir:19050) (gen/parrot/stage2/QAST.nqp:3369)
+called from Sub 'compile_all_the_stmts' pc 60458 (src/vm/parrot/stage0/QAST-s0.pir:21527) (gen/parrot/stage2/QAST.nqp:3858)
+called from Sub 'as_post' pc 60012 (src/vm/parrot/stage0/QAST-s0.pir:21340) (gen/parrot/stage2/QAST.nqp:3831)
+called from Sub 'as_post' pc 53413 (src/vm/parrot/stage0/QAST-s0.pir:19050) (gen/parrot/stage2/QAST.nqp:3369)
+called from Sub 'compile_all_the_stmts' pc 60458 (src/vm/parrot/stage0/QAST-s0.pir:21527) (gen/parrot/stage2/QAST.nqp:3858)
+called from Sub 'as_post' pc 60012 (src/vm/parrot/stage0/QAST-s0.pir:21340) (gen/parrot/stage2/QAST.nqp:3831)
+called from Sub 'as_post' pc 53413 (src/vm/parrot/stage0/QAST-s0.pir:19050) (gen/parrot/stage2/QAST.nqp:3369)
+called from Sub 'compile_all_the_stmts' pc 60458 (src/vm/parrot/stage0/QAST-s0.pir:21527) (gen/parrot/stage2/QAST.nqp:3858)
+called from Sub '' pc 58082 (src/vm/parrot/stage0/QAST-s0.pir:20634) (gen/parrot/stage2/QAST.nqp:3624)
+called from Sub '' pc 56852 (src/vm/parrot/stage0/QAST-s0.pir:20239) (gen/parrot/stage2/QAST.nqp:3613)
+called from Sub 'as_post' pc 56063 (src/vm/parrot/stage0/QAST-s0.pir:19923) (gen/parrot/stage2/QAST.nqp:3604)
+called from Sub 'as_post' pc 53478 (src/vm/parrot/stage0/QAST-s0.pir:19067) (gen/parrot/stage2/QAST.nqp:3373)
+called from Sub 'as_post' pc 53676 (src/vm/parrot/stage0/QAST-s0.pir:19175) (gen/parrot/stage2/QAST.nqp:3400)
+called from Sub 'as_post' pc 53478 (src/vm/parrot/stage0/QAST-s0.pir:19067) (gen/parrot/stage2/QAST.nqp:3373)
+called from Sub 'post' pc 52998 (src/vm/parrot/stage0/QAST-s0.pir:18870) (gen/parrot/stage2/QAST.nqp:3331)
+called from Sub 'post' pc 1347 (src/vm/parrot/stage0/HLL-s0.pir:631) (gen/parrot/stage2/NQPHLL.nqp:98)
+called from Sub 'compile' pc 32536 (src/vm/parrot/stage0/HLL-s0.pir:12608) (gen/parrot/stage2/NQPHLL.nqp:1441)
+called from Sub 'eval' pc 28060 (src/vm/parrot/stage0/HLL-s0.pir:10791) (gen/parrot/stage2/NQPHLL.nqp:1180)
+called from Sub 'evalfiles' pc 31328 (src/vm/parrot/stage0/HLL-s0.pir:12132) (gen/parrot/stage2/NQPHLL.nqp:1396)
+called from Sub 'command_eval' pc 30331 (src/vm/parrot/stage0/HLL-s0.pir:11739) (gen/parrot/stage2/NQPHLL.nqp:1321)
+called from Sub 'command_line' pc 29209 (src/vm/parrot/stage0/HLL-s0.pir:11293) (gen/parrot/stage2/NQPHLL.nqp:1269)
+called from Sub 'MAIN' pc 601 (src/vm/parrot/stage0/NQP-s0.pir:203) (gen/parrot/stage2/NQP.nqp:4064)
+called from Sub '<mainline>' pc 578 (src/vm/parrot/stage0/NQP-s0.pir:191) (gen/parrot/stage2/NQP.nqp:4059)
+called from Sub '' pc 165813 (src/vm/parrot/stage0/NQP-s0.pir:58276) (gen/parrot/stage2/NQP.nqp:4036)
 
-t/nqp/19-file-ops.t ................... 
-Dubious, test returned 1 (wstat 256, 0x100)
-No subtests run 
-t/nqp/20-return.t ..................... ok
-t/nqp/21-contextual.t ................. ok
-t/nqp/22-optional-args.t .............. ok
-t/nqp/23-named-args.t ................. ok
-t/nqp/24-module.t ..................... ok
-t/nqp/25-class.t ...................... ok
-t/nqp/26-methodops.t .................. ok
-t/nqp/27-self.t ....................... ok
-t/nqp/28-subclass.t ................... ok
-t/nqp/29-make.t ....................... ok
-t/nqp/31-grammar.t .................... ok
-t/nqp/32-protoregex.t ................. ok
-t/nqp/33-init.t ....................... ok
-t/nqp/34-rxcodeblock.t ................ ok
-t/nqp/35-prefix-sigil.t ............... ok
-t/nqp/36-callable.t ................... ok
-t/nqp/37-slurpy.t ..................... ok
-t/nqp/38-quotes.t ..................... ok
-t/nqp/39-pointy.t ..................... ok
-t/nqp/40-lists.t ...................... ok
-t/nqp/41-flat.t ....................... ok
-t/nqp/42-cond-loop.t .................. ok
-t/nqp/43-package-var.t ................ ok
-t/nqp/44-try-catch.t .................. ok
-t/nqp/45-smartmatch.t ................. ok
-t/nqp/46-charspec.t ................... ok
-t/nqp/47-loop-control.t ............... ok
-t/nqp/48-closure.t .................... ok
-t/nqp/49-regex-interpolation.t ........ ok
-t/nqp/50-regex.t ...................... ok
-Segmentation fault
-t/nqp/51-multi.t ...................... 
-Dubious, test returned 139 (wstat 35584, 0x8b00)
-Failed 1/6 subtests 
-t/nqp/53-knowhow.t .................... ok
-t/nqp/55-multi-method.t ............... ok
-t/nqp/56-role.t ....................... ok
-t/nqp/57-construction.t ............... ok
-t/nqp/58-attrs.t ...................... ok
-Error while compiling op pow_i (source text: "nqp::pow_i(6, 4)"): No registered operation handler for 'pow_i'
-current instr.: 'as_post' pc 60946 (gen/parrot/stage2/QAST.pir:21720) (gen/parrot/stage2/QAST.nqp:3901)
-called from Sub 'as_post' pc 53427 (gen/parrot/stage2/QAST.pir:19054) (gen/parrot/stage2/QAST.nqp:3371)
-called from Sub 'compile_all_the_stmts' pc 60472 (gen/parrot/stage2/QAST.pir:21531) (gen/parrot/stage2/QAST.nqp:3860)
-called from Sub 'as_post' pc 60026 (gen/parrot/stage2/QAST.pir:21344) (gen/parrot/stage2/QAST.nqp:3833)
-called from Sub 'as_post' pc 53427 (gen/parrot/stage2/QAST.pir:19054) (gen/parrot/stage2/QAST.nqp:3371)
-called from Sub 'compile_all_the_stmts' pc 60472 (gen/parrot/stage2/QAST.pir:21531) (gen/parrot/stage2/QAST.nqp:3860)
-called from Sub 'as_post' pc 60026 (gen/parrot/stage2/QAST.pir:21344) (gen/parrot/stage2/QAST.nqp:3833)
-called from Sub 'as_post' pc 53427 (gen/parrot/stage2/QAST.pir:19054) (gen/parrot/stage2/QAST.nqp:3371)
-called from Sub 'compile_all_the_stmts' pc 60472 (gen/parrot/stage2/QAST.pir:21531) (gen/parrot/stage2/QAST.nqp:3860)
-called from Sub '' pc 58096 (gen/parrot/stage2/QAST.pir:20638) (gen/parrot/stage2/QAST.nqp:3626)
-called from Sub '' pc 56866 (gen/parrot/stage2/QAST.pir:20243) (gen/parrot/stage2/QAST.nqp:3615)
-called from Sub 'as_post' pc 56077 (gen/parrot/stage2/QAST.pir:19927) (gen/parrot/stage2/QAST.nqp:3606)
-called from Sub 'as_post' pc 53492 (gen/parrot/stage2/QAST.pir:19071) (gen/parrot/stage2/QAST.nqp:3375)
-called from Sub 'as_post' pc 53690 (gen/parrot/stage2/QAST.pir:19179) (gen/parrot/stage2/QAST.nqp:3402)
-called from Sub 'as_post' pc 53492 (gen/parrot/stage2/QAST.pir:19071) (gen/parrot/stage2/QAST.nqp:3375)
-called from Sub 'post' pc 53012 (gen/parrot/stage2/QAST.pir:18874) (gen/parrot/stage2/QAST.nqp:3333)
-called from Sub 'post' pc 1347 (gen/parrot/stage2/NQPHLL.pir:631) (gen/parrot/stage2/NQPHLL.nqp:98)
-called from Sub 'compile' pc 33471 (gen/parrot/stage2/NQPHLL.pir:12969) (gen/parrot/stage2/NQPHLL.nqp:1457)
-called from Sub 'eval' pc 28894 (gen/parrot/stage2/NQPHLL.pir:11126) (gen/parrot/stage2/NQPHLL.nqp:1191)
-called from Sub 'evalfiles' pc 32164 (gen/parrot/stage2/NQPHLL.pir:12470) (gen/parrot/stage2/NQPHLL.nqp:1412)
-called from Sub 'command_eval' pc 31170 (gen/parrot/stage2/NQPHLL.pir:12078) (gen/parrot/stage2/NQPHLL.nqp:1332)
-called from Sub 'command_line' pc 30043 (gen/parrot/stage2/NQPHLL.pir:11628) (gen/parrot/stage2/NQPHLL.nqp:1280)
-called from Sub 'MAIN' pc 610 (gen/parrot/stage2/NQP.pir:205) (gen/parrot/stage2/NQP.nqp:4078)
-called from Sub '<mainline>' pc 587 (gen/parrot/stage2/NQP.pir:193) (gen/parrot/stage2/NQP.nqp:4073)
-called from Sub '' pc 167487 (gen/parrot/stage2/NQP.pir:58816) (gen/parrot/stage2/NQP.nqp:4049)
-
-t/nqp/59-nqpop.t ...................... 
-Dubious, test returned 1 (wstat 256, 0x100)
-No subtests run 
-t/nqp/60-bigint.t ..................... ok
-t/nqp/61-mixin.t ...................... ok
-t/nqp/62-subst.t ...................... ok
-t/nqp/63-slurp.t ...................... ok
-t/nqp/64-native.t ..................... ok
-t/nqp/65-how.t ........................ ok
-t/nqp/66-pararole.t ................... ok
-t/nqp/67-container.t .................. ok
-t/nqp/68-associative-for.t ............ ok
-t/nqp/69-js-keywords-as-identifier.t .. ok
-t/nqp/70-invokespec.t ................. ok
-t/nqp/71-setboolspec.t ................ ok
-t/nqp/72-rolehow.t .................... ok
-t/nqp/73-delegation.t ................. ok
-t/nqp/74-nfa.t ........................ ok
-t/nqp/75-curcode.t .................... ok
-t/nqp/76-capture.t .................... skipped: nqp::savecapture is broken on parrot
-t/nqp/77-curlexpad.t .................. ok
-Error while compiling op shell (source text: "nqp::shell(\"echo Hello > $tmp-file\",nqp::cwd(),nqp::getenvhash(), nqp::null(), nqp::null(), nqp::n..."): Operation 'shell' requires 3 operands, but got 7
-current instr.: 'as_post' pc 61001 (gen/parrot/stage2/QAST.pir:21736) (gen/parrot/stage2/QAST.nqp:3904)
-called from Sub 'as_post' pc 53427 (gen/parrot/stage2/QAST.pir:19054) (gen/parrot/stage2/QAST.nqp:3371)
-called from Sub 'compile_all_the_stmts' pc 60472 (gen/parrot/stage2/QAST.pir:21531) (gen/parrot/stage2/QAST.nqp:3860)
-called from Sub 'as_post' pc 60026 (gen/parrot/stage2/QAST.pir:21344) (gen/parrot/stage2/QAST.nqp:3833)
-called from Sub 'as_post' pc 53427 (gen/parrot/stage2/QAST.pir:19054) (gen/parrot/stage2/QAST.nqp:3371)
-called from Sub 'compile_all_the_stmts' pc 60472 (gen/parrot/stage2/QAST.pir:21531) (gen/parrot/stage2/QAST.nqp:3860)
-called from Sub 'as_post' pc 60026 (gen/parrot/stage2/QAST.pir:21344) (gen/parrot/stage2/QAST.nqp:3833)
-called from Sub 'as_post' pc 53427 (gen/parrot/stage2/QAST.pir:19054) (gen/parrot/stage2/QAST.nqp:3371)
-called from Sub 'compile_all_the_stmts' pc 60472 (gen/parrot/stage2/QAST.pir:21531) (gen/parrot/stage2/QAST.nqp:3860)
-called from Sub '' pc 58096 (gen/parrot/stage2/QAST.pir:20638) (gen/parrot/stage2/QAST.nqp:3626)
-called from Sub '' pc 56866 (gen/parrot/stage2/QAST.pir:20243) (gen/parrot/stage2/QAST.nqp:3615)
-called from Sub 'as_post' pc 56077 (gen/parrot/stage2/QAST.pir:19927) (gen/parrot/stage2/QAST.nqp:3606)
-called from Sub 'as_post' pc 53492 (gen/parrot/stage2/QAST.pir:19071) (gen/parrot/stage2/QAST.nqp:3375)
-called from Sub 'as_post' pc 53690 (gen/parrot/stage2/QAST.pir:19179) (gen/parrot/stage2/QAST.nqp:3402)
-called from Sub 'as_post' pc 53492 (gen/parrot/stage2/QAST.pir:19071) (gen/parrot/stage2/QAST.nqp:3375)
-called from Sub 'post' pc 53012 (gen/parrot/stage2/QAST.pir:18874) (gen/parrot/stage2/QAST.nqp:3333)
-called from Sub 'post' pc 1347 (gen/parrot/stage2/NQPHLL.pir:631) (gen/parrot/stage2/NQPHLL.nqp:98)
-called from Sub 'compile' pc 33471 (gen/parrot/stage2/NQPHLL.pir:12969) (gen/parrot/stage2/NQPHLL.nqp:1457)
-called from Sub 'eval' pc 28894 (gen/parrot/stage2/NQPHLL.pir:11126) (gen/parrot/stage2/NQPHLL.nqp:1191)
-called from Sub 'evalfiles' pc 32164 (gen/parrot/stage2/NQPHLL.pir:12470) (gen/parrot/stage2/NQPHLL.nqp:1412)
-called from Sub 'command_eval' pc 31170 (gen/parrot/stage2/NQPHLL.pir:12078) (gen/parrot/stage2/NQPHLL.nqp:1332)
-called from Sub 'command_line' pc 30043 (gen/parrot/stage2/NQPHLL.pir:11628) (gen/parrot/stage2/NQPHLL.nqp:1280)
-called from Sub 'MAIN' pc 610 (gen/parrot/stage2/NQP.pir:205) (gen/parrot/stage2/NQP.nqp:4078)
-called from Sub '<mainline>' pc 587 (gen/parrot/stage2/NQP.pir:193) (gen/parrot/stage2/NQP.nqp:4073)
-called from Sub '' pc 167487 (gen/parrot/stage2/NQP.pir:58816) (gen/parrot/stage2/NQP.nqp:4049)
-
-t/nqp/78-shell.t ...................... 
-Dubious, test returned 1 (wstat 256, 0x100)
-No subtests run 
-t/nqp/79-callercode.t ................. ok
-t/nqp/80-matches.t .................... ok
-get_number() not implemented in class 'TestBigInt'
-current instr.: 'test_radix_I' pc 967 ((file unknown):306) (t/nqp/81-radix.t:19)
-called from Sub 'test_radix_both' pc 1025 ((file unknown):324) (t/nqp/81-radix.t:24)
-called from Sub '<mainline>' pc 161 ((file unknown):78) (t/nqp/81-radix.t:27)
-called from Sub 'eval' pc 29279 (gen/parrot/stage2/NQPHLL.pir:11268) (gen/parrot/stage2/NQPHLL.nqp:1208)
-called from Sub 'evalfiles' pc 32164 (gen/parrot/stage2/NQPHLL.pir:12470) (gen/parrot/stage2/NQPHLL.nqp:1412)
-called from Sub 'command_eval' pc 31170 (gen/parrot/stage2/NQPHLL.pir:12078) (gen/parrot/stage2/NQPHLL.nqp:1332)
-called from Sub 'command_line' pc 30043 (gen/parrot/stage2/NQPHLL.pir:11628) (gen/parrot/stage2/NQPHLL.nqp:1280)
-called from Sub 'MAIN' pc 610 (gen/parrot/stage2/NQP.pir:205) (gen/parrot/stage2/NQP.nqp:4078)
-called from Sub '<mainline>' pc 587 (gen/parrot/stage2/NQP.pir:193) (gen/parrot/stage2/NQP.nqp:4073)
-called from Sub '' pc 167487 (gen/parrot/stage2/NQP.pir:58816) (gen/parrot/stage2/NQP.nqp:4049)
-
-t/nqp/81-radix.t ...................... 
-Dubious, test returned 1 (wstat 256, 0x100)
-Failed 118/123 subtests 
-t/nqp/82-decode.t ..................... ok
-t/nqp/83-math.t ....................... ok
-t/nqp/84-loop-labels.t ................ ok
-t/nqp/85-type-tester.t ................ ok
-Error while compiling op const: Unknown constant 'PIPE_INHERIT_IN'
-current instr.: 'as_post' pc 60946 (gen/parrot/stage2/QAST.pir:21720) (gen/parrot/stage2/QAST.nqp:3901)
-called from Sub 'as_post' pc 53427 (gen/parrot/stage2/QAST.pir:19054) (gen/parrot/stage2/QAST.nqp:3371)
-called from Sub 'compile_all_the_stmts' pc 60472 (gen/parrot/stage2/QAST.pir:21531) (gen/parrot/stage2/QAST.nqp:3860)
-called from Sub 'as_post' pc 60026 (gen/parrot/stage2/QAST.pir:21344) (gen/parrot/stage2/QAST.nqp:3833)
-called from Sub 'as_post' pc 53427 (gen/parrot/stage2/QAST.pir:19054) (gen/parrot/stage2/QAST.nqp:3371)
-called from Sub 'compile_all_the_stmts' pc 60472 (gen/parrot/stage2/QAST.pir:21531) (gen/parrot/stage2/QAST.nqp:3860)
-called from Sub 'as_post' pc 60026 (gen/parrot/stage2/QAST.pir:21344) (gen/parrot/stage2/QAST.nqp:3833)
-called from Sub 'as_post' pc 53427 (gen/parrot/stage2/QAST.pir:19054) (gen/parrot/stage2/QAST.nqp:3371)
-called from Sub 'compile_all_the_stmts' pc 60472 (gen/parrot/stage2/QAST.pir:21531) (gen/parrot/stage2/QAST.nqp:3860)
-called from Sub '' pc 58096 (gen/parrot/stage2/QAST.pir:20638) (gen/parrot/stage2/QAST.nqp:3626)
-called from Sub '' pc 56866 (gen/parrot/stage2/QAST.pir:20243) (gen/parrot/stage2/QAST.nqp:3615)
-called from Sub 'as_post' pc 56077 (gen/parrot/stage2/QAST.pir:19927) (gen/parrot/stage2/QAST.nqp:3606)
-called from Sub 'as_post' pc 53492 (gen/parrot/stage2/QAST.pir:19071) (gen/parrot/stage2/QAST.nqp:3375)
-called from Sub 'as_post' pc 53690 (gen/parrot/stage2/QAST.pir:19179) (gen/parrot/stage2/QAST.nqp:3402)
-called from Sub 'as_post' pc 53492 (gen/parrot/stage2/QAST.pir:19071) (gen/parrot/stage2/QAST.nqp:3375)
-called from Sub 'post' pc 53012 (gen/parrot/stage2/QAST.pir:18874) (gen/parrot/stage2/QAST.nqp:3333)
-called from Sub 'post' pc 1347 (gen/parrot/stage2/NQPHLL.pir:631) (gen/parrot/stage2/NQPHLL.nqp:98)
-called from Sub 'compile' pc 33471 (gen/parrot/stage2/NQPHLL.pir:12969) (gen/parrot/stage2/NQPHLL.nqp:1457)
-called from Sub 'eval' pc 28894 (gen/parrot/stage2/NQPHLL.pir:11126) (gen/parrot/stage2/NQPHLL.nqp:1191)
-called from Sub 'evalfiles' pc 32164 (gen/parrot/stage2/NQPHLL.pir:12470) (gen/parrot/stage2/NQPHLL.nqp:1412)
-called from Sub 'command_eval' pc 31170 (gen/parrot/stage2/NQPHLL.pir:12078) (gen/parrot/stage2/NQPHLL.nqp:1332)
-called from Sub 'command_line' pc 30043 (gen/parrot/stage2/NQPHLL.pir:11628) (gen/parrot/stage2/NQPHLL.nqp:1280)
-called from Sub 'MAIN' pc 610 (gen/parrot/stage2/NQP.pir:205) (gen/parrot/stage2/NQP.nqp:4078)
-called from Sub '<mainline>' pc 587 (gen/parrot/stage2/NQP.pir:193) (gen/parrot/stage2/NQP.nqp:4073)
-called from Sub '' pc 167487 (gen/parrot/stage2/NQP.pir:58816) (gen/parrot/stage2/NQP.nqp:4049)
-
-t/nqp/86-pipes.t ...................... 
-Dubious, test returned 1 (wstat 256, 0x100)
-No subtests run 
-t/nqp/87-parametric-6model.t .......... ok
-t/nqp/88-more-if-tests.t .............. ok
-t/nqp/89-istype.t ..................... ok
-t/nqp/90-findmethod.t ................. ok
-t/nqp/91-codename.t ................... ok
-t/nqp/92-where.t ...................... ok
-t/nqp/93-oo-ops.t ..................... ok
-t/nqp/94-clone.t ...................... ok
-t/nqp/95-cclass.t ..................... ok
-t/nqp/96-array-methods.t .............. 
-Failed 2/9 subtests 
-t/parrot/01-pirt.t .................... ok
-t/parrot/02-qast.t .................... ok
-t/parrot/03-inline.t .................. ok
-t/parrot/04-pirop.t ................... ok
-t/parrot/05-vtable.t .................. ok
-t/parrot/06-errno.t ................... ok
-t/hll/01-language.t ................... skipped: design changes, need re-work
-t/hll/02-modules.t .................... skipped: design changes, need re-work
-t/hll/03-exports.t .................... skipped: design changes (EXPORT now lexical), need re-work
-t/hll/04-import.t ..................... skipped: design changes (EXPORT now lexical), need re-work
-t/hll/05-commandline.t ................ ok
-t/hll/06-sprintf.t .................... ok
-t/qregex/01-qregex.t .................. 
-Failed 1/774 subtests 
-t/p5regex/01-p5regex.t ................ ok
-t/qast/01-qast.t ...................... ok
-t/qast/02-manipulation.t .............. ok
-Method 'handle' not found for invocant of class 'Integer'
-current instr.: '<mainline>' pc 299 ((file unknown):137) (t/serialization/01-basic.t:16)
-called from Sub 'eval' pc 29279 (gen/parrot/stage2/NQPHLL.pir:11268) (gen/parrot/stage2/NQPHLL.nqp:1208)
-called from Sub 'evalfiles' pc 32164 (gen/parrot/stage2/NQPHLL.pir:12470) (gen/parrot/stage2/NQPHLL.nqp:1412)
-called from Sub 'command_eval' pc 31170 (gen/parrot/stage2/NQPHLL.pir:12078) (gen/parrot/stage2/NQPHLL.nqp:1332)
-called from Sub 'command_line' pc 30043 (gen/parrot/stage2/NQPHLL.pir:11628) (gen/parrot/stage2/NQPHLL.nqp:1280)
-called from Sub 'MAIN' pc 610 (gen/parrot/stage2/NQP.pir:205) (gen/parrot/stage2/NQP.nqp:4078)
-called from Sub '<mainline>' pc 587 (gen/parrot/stage2/NQP.pir:193) (gen/parrot/stage2/NQP.nqp:4073)
-called from Sub '' pc 167487 (gen/parrot/stage2/NQP.pir:58816) (gen/parrot/stage2/NQP.nqp:4049)
-
-t/serialization/01-basic.t ............ 
-Dubious, test returned 1 (wstat 256, 0x100)
-Failed 1480/1485 subtests 
-t/serialization/02-types.t ............ ok
-t/serialization/03-closures.t ......... ok
-t/nativecall/01-basic.t ............... ok
-
-Test Summary Report
--------------------
-t/nqp/07-boolean.t                  (Wstat: 0 Tests: 8 Failed: 1)
-  Failed test:  6
-t/nqp/19-file-ops.t                 (Wstat: 256 Tests: 0 Failed: 0)
-  Non-zero exit status: 1
-  Parse errors: No plan found in TAP output
-t/nqp/51-multi.t                    (Wstat: 35584 Tests: 5 Failed: 0)
-  Non-zero exit status: 139
-  Parse errors: Bad plan.  You planned 6 tests but ran 5.
-t/nqp/59-nqpop.t                    (Wstat: 256 Tests: 0 Failed: 0)
-  Non-zero exit status: 1
-  Parse errors: No plan found in TAP output
-t/nqp/78-shell.t                    (Wstat: 256 Tests: 0 Failed: 0)
-  Non-zero exit status: 1
-  Parse errors: No plan found in TAP output
-t/nqp/81-radix.t                    (Wstat: 256 Tests: 5 Failed: 0)
-  Non-zero exit status: 1
-  Parse errors: Bad plan.  You planned 123 tests but ran 5.
-t/nqp/86-pipes.t                    (Wstat: 256 Tests: 0 Failed: 0)
-  Non-zero exit status: 1
-  Parse errors: No plan found in TAP output
-t/nqp/96-array-methods.t            (Wstat: 0 Tests: 9 Failed: 2)
-  Failed tests:  1, 5
-t/qregex/01-qregex.t                (Wstat: 0 Tests: 774 Failed: 1)
-  Failed test:  549
-t/serialization/01-basic.t          (Wstat: 256 Tests: 5 Failed: 0)
-  Non-zero exit status: 1
-  Parse errors: Bad plan.  You planned 1485 tests but ran 5.
-Files=113, Tests=2286, 37 wallclock secs ( 0.55 usr  0.12 sys + 31.63 cusr  3.92 csys = 36.22 CPU)
-Result: FAIL
-Makefile:1164: recipe for target 'p-test' failed
-make: *** [p-test] Error 1
+Makefile:695: recipe for target 'gen/parrot/stage1/NQPHLL.pbc' failed
+make: *** [gen/parrot/stage1/NQPHLL.pbc] Error 1
