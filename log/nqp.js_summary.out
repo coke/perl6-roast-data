@@ -114,16 +114,19 @@ cp src/vm/js/nqp-runtime/*.js node_modules/nqp-runtime/
 touch node_modules/runtime_copied
 /home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/js/stage2
 /home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath node_modules
-./nqp-m --module-path gen/js/stage1 src/vm/js/bin/cross-compile.nqp --setting=NULL --target=mbc --output gen/js/stage2/nqpmo.moarvm gen/js/stage2/nqpmo.nqp > node_modules/nqpmo.js
+./nqp-m --module-path gen/js/stage1 src/vm/js/bin/cross-compile.nqp --setting=NULL --target=mbc --output gen/js/stage2/nqpmo.moarvm --no-regex-lib gen/js/stage2/nqpmo.nqp > node_modules/nqpmo.js
 /home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/js/stage2
 /home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath node_modules
-./nqp-m --module-path gen/js/stage1 src/vm/js/bin/cross-compile.nqp --setting=NULL --target=mbc --output gen/js/stage2/NQPCORE.setting.moarvm gen/js/stage2/NQPCORE.setting.nqp > node_modules/NQPCORE.setting.js
+./nqp-m --module-path gen/js/stage1 src/vm/js/bin/cross-compile.nqp --setting=NULL --target=mbc --output gen/js/stage2/NQPCORE.setting.moarvm --no-regex-lib gen/js/stage2/NQPCORE.setting.nqp > node_modules/NQPCORE.setting.js
 /home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/js/stage2
 /home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath node_modules
-./nqp-m --module-path gen/js/stage1 src/vm/js/bin/cross-compile.nqp --setting=NQPCORE --target=mbc --output gen/js/stage2/QASTNode.moarvm gen/js/stage2/QASTNode.nqp > node_modules/QASTNode.js
+./nqp-m --module-path gen/js/stage1 src/vm/js/bin/cross-compile.nqp --setting=NQPCORE --target=mbc --output gen/js/stage2/QASTNode.moarvm --no-regex-lib gen/js/stage2/QASTNode.nqp > node_modules/QASTNode.js
 /home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/js/stage2
 /home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath node_modules
-./nqp-m --module-path gen/js/stage1 src/vm/js/bin/cross-compile.nqp --setting=NQPCORE --target=mbc --output gen/js/stage2/QRegex.moarvm gen/js/stage2/QRegex.nqp > node_modules/QRegex.js
+./nqp-m --module-path gen/js/stage1 src/vm/js/bin/cross-compile.nqp --setting=NQPCORE --target=mbc --output gen/js/stage2/QRegex.moarvm --no-regex-lib gen/js/stage2/QRegex.nqp > node_modules/QRegex.js
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath gen/js/stage2
+/home/coke/perl5/perlbrew/perls/perl-5.20.1/bin/perl -MExtUtils::Command -e mkpath node_modules
+./nqp-m --module-path gen/js/stage1 src/vm/js/bin/cross-compile.nqp --setting=NQPCORE --target=mbc --output gen/js/stage2/sprintf.moarvm  src/HLL/sprintf.nqp > node_modules/sprintf.js
 ./nqp-m tools/build/process-qregex-tests > gen/js/qregex.t
 perl src/vm/js/bin/run_tests.pl
 t/js/varint.js ........................ ok
@@ -180,16 +183,16 @@ t/nqp/55-multi-method.t ............... ok
 t/nqp/56-role.t ....................... ok
 t/nqp/57-construction.t ............... ok
 t/nqp/58-attrs.t ...................... ok
-/home/coke/sandbox/perl6-roast-data/nqp.js/node_modules/nqp-runtime/core.js:837
+/home/coke/sandbox/perl6-roast-data/nqp.js/node_modules/nqp-runtime/core.js:848
     var codepointA = a.codePointAt(i);
                        ^
 TypeError: undefined is not a function
-    at Object.op.bitand_s (/home/coke/sandbox/perl6-roast-data/nqp.js/node_modules/nqp-runtime/core.js:837:24)
-    at CodeRef.$call (/home/coke/sandbox/perl6-roast-data/nqp.js/tmp-13986.js:744:38)
+    at Object.op.bitand_s (/home/coke/sandbox/perl6-roast-data/nqp.js/node_modules/nqp-runtime/core.js:848:24)
+    at CodeRef.$call (/home/coke/sandbox/perl6-roast-data/nqp.js/tmp-27026.js:745:38)
     at CodeRef._ [as $apply] (/home/coke/sandbox/perl6-roast-data/nqp.js/node_modules/nqp-runtime/code-ref.js:25:21)
-    at CodeRef.$call (/home/coke/sandbox/perl6-roast-data/nqp.js/tmp-13986.js:1931:13)
+    at CodeRef.$call (/home/coke/sandbox/perl6-roast-data/nqp.js/tmp-27026.js:1932:13)
     at CodeRef._ [as $apply] (/home/coke/sandbox/perl6-roast-data/nqp.js/node_modules/nqp-runtime/code-ref.js:25:21)
-    at Object.<anonymous> (/home/coke/sandbox/perl6-roast-data/nqp.js/tmp-13986.js:3847:6)
+    at Object.<anonymous> (/home/coke/sandbox/perl6-roast-data/nqp.js/tmp-27026.js:3848:6)
     at Module._compile (module.js:460:26)
     at Object.Module._extensions..js (module.js:478:10)
     at Module.load (module.js:355:32)
@@ -242,10 +245,14 @@ t/qast/02-manipulation.t .............. ok
 t/js/getcomp-js.t ..................... ok
 t/js/continuations.t .................. ok
 t/nativecall/01-basic.t ............... ok
+t/hll/06-sprintf.t .................... 
+Failed 1/265 subtests 
 
 Test Summary Report
 -------------------
 t/nqp/59-nqpop.t                    (Wstat: 0 Tests: 248 Failed: 0)
   Parse errors: Bad plan.  You planned 251 tests but ran 248.
-Files=101, Tests=3868, 89 wallclock secs ( 0.56 usr  0.09 sys + 65.77 cusr 19.45 csys = 85.87 CPU)
+t/hll/06-sprintf.t                  (Wstat: 0 Tests: 265 Failed: 1)
+  Failed test:  40
+Files=102, Tests=4139, 182 wallclock secs ( 0.68 usr  0.09 sys + 71.58 cusr 74.02 csys = 146.37 CPU)
 Result: FAIL
